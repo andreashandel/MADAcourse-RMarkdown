@@ -1,0 +1,76 @@
+title: "Advanced Data Science"
+left:
+  - text: "Home"
+    href: index.html
+  - text: "Curriculum"
+    menu:
+      - text: "Introduction"
+        href: ./01-introduction.html
+      - text: "Organizing and Version Control"
+        href: ./02-organizing-version-control.html
+      - text: "RMarkdown and GitHub"
+        href: ./03-rmarkdown-and-github.html     
+      - text: "Getting Data and APIs"
+        href: ./04-getting-data-and-apis.html
+      - text: "Manipulating Data"
+        href: ./05-manipulating-data.html
+      - text: "Strings and Regular Expressions"
+        href: ./06-strings-and-regular-expressions.html   
+      - text: "Tidy text and sentiment analysis"
+        href: ./07-tidy-text-and-sentiment-analysis.html           
+      - text: "Topic Models and EDA"
+        href: ./08-topic-models-and-eda.html   
+      - text: "Expository Graphs"
+        href: ./09-expository-graphs.html
+      - text: "Dimension Reduction"
+        href: ./10-dimension-reduction.html
+      - text: "Unsupervised Analysis"
+        href: ./11-unsupervised-analysis.html    
+      - text: "Building R Packages"
+        href: ./14-building-r-packages.html
+      - text: "Modeling"
+        href: ./15-modeling.html
+      - text: "Shiny Part 1"
+        href: https://datasciencespecialization.github.io/Developing_Data_Products/Shiny_Part_1/Shiny_Part_1.html
+      - text: "Shiny Part 2"
+        href: http://johnmuschelli.com/Developing_Data_Products/Shiny_Part_2/Shiny_Part_2.html
+      - text: "Machine Learning"
+        href: ./13-machine-learning.html 
+      - text: "Data products"
+        href: ./16-data-products.html
+      - text: "Machine Learning (continued)"
+        href: ./13-machine-learning-algorithms.html 
+      - text: "Blending and deep learning"
+        href: ./17-blending.html 
+      - text: "Simulating stuff"
+        href: ./18-simulating.html 
+      - text: "More simulating"
+        href: ./18-more-simulating.html
+      - text: "Multiple testing"
+        href: ./19-multiple-testing.html
+      - text: "More multiple testing"
+        href: ./20-more-multiple-testing.html
+      - text: "Make and JHPCE"
+        href: ./21-make-and-stuff.html
+      - text: "Wrap up/presentations"
+        href: ./22-wrap-up.html
+  - text: "Grading"
+    href: grading.html
+  - text: "Staff"
+    menu:
+      - text: "Instructors"
+      - text: "Jeff Leek"
+        href: http://jtleek.com/
+      - text: "John Muschelli"
+        href: http://johnmuschelli.com/
+      - text: "Teaching Assistants"
+      - text: "Stephen Cristiano"
+        href: http://www.jhsph.edu/departments/biostatistics/directory/students/phd.html
+  - text: "Discussion"
+    href: discussion.html
+  - text: "Resources"
+    href: resources.html
+right:
+  - icon: fa-github fa-lg
+    href: https://github.com/jtleek/advdatasci
+    

@@ -1,0 +1,4 @@
+output:
+  html_document:
+    theme: spacelab
+output_dir: '.'

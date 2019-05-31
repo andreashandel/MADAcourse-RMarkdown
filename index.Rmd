@@ -1,0 +1,49 @@
+---
+title: Modern Applied Data Analysis Course
+---
+
+## Course Description
+
+Provides an intensive introduction to applied statistics and data analysis. Trains students to become data scientists capable of both applied data analysis and critical evaluation of the next generation next generation of statistical methods. Since both data analysis and methods development require substantial hands-on experience, focuses on hands-on data analysis.
+
+## Course objectives
+
+Upon successfully completing this course, students will be able to:
+
+* Critically compare and evaluate the strengths and weaknesses of different modern data analysis approaches, judge the appropriateness of different approaches for specific questions and data sets.
+* Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.
+* Given a data science question, determine the type of data and analytic approach needed to answer it.
+* Explain the importance of workflow and project management tools and reproducibility for data analysis, and know how to use those tools.
+* Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.
+* Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.
+* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.
+* Know how to obtain, process and analyze data from a variety of different sources.
+
+
+## Pre-requisites
+
+This course is designed for PhD students in the Biostatistics department at Johns Hopkins Bloomberg School of Public Health. It assumes a fair amount of statistical knowledge and moves relatively quickly. I am open to anyone taking the class, but since it is a core requirement for our PhD program I will not be slowing down or allowing auditors for the class. 
+
+## Course Information
+
+* Location: W4019
+* Time: 1:30-2:30
+* Assignments: Please see the grading section for information about assignments. 
+* Equipment: Please bring a laptop to class
+
+## DataCamp
+We use [DataCamp](https://www.datacamp.com/home) for our assignments.  Please visit the [Advanced Data Science](https://www.datacamp.com/groups/advanced-data-science) link for the assignments
+
+John's email is: [muschellij2@gmail.com](mailto:muschellij2@gmail.com).
+
+Stephen's email is: [stephen@jhmi.edu](mailto:stephen@jhmi.edu).
+
+
+## Typos and corrections
+
+Feel free to submit typos/errors/etc via the github repository associated with the class: https://github.com/jtleek/advdatasci
+
+## Thanks
+
+We would like to thank [DataCamp](https://www.datacamp.com/home) for providing us with a great platform on Grading and Assignments for this course!  Check out their courses and [DataCamp for Education](https://www.datacamp.com/groups/education) to use their platform for your course.
+

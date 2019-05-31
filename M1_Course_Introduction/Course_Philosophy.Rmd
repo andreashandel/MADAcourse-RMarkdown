@@ -1,0 +1,56 @@
+---
+title: EPID 8060 Fall 2019 - Course Philosophy 
+author:
+  name: Andreas Handel
+  affiliation: University of Georgia
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: false
+bibliography: ../../media/references.bib
+runtime: shiny_prerendered
+---
+
+## Learning Objectives revisited
+I listed some topical learning objectives in the first set of reading. I hope while you take the course, you will achieve those objectives. 
+
+While learning the specific subject matter, methods and tools covered in this class is useful, it won't sustain you forever. I bet that 5 and 10 years from now, new and better analysis approaches and different software are around, all things that currently do not exist and we therefore can't cover them. 
+
+Thus, there is another set of learning objectives that I consider much more important than the topic related objectives.
+
+
+## Learning Objectives II
+
+* Learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.
+* Be able to critically process data, question where the data comes from, what it means.
+* Critically assess any assumptions that go into any analysis approach, decide if they are justified and what they mean for the results.
+* Learn to 'look yourself over the shoulder' and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
+
+
+
+
+
+## Carrots and Sticks
+
+
+## Carrots and Sticks
+As you are well aware, getting anyone to do anything involves rewards (the carrots) and punishment (the sticks). That's how other people get us to do something, and that's how we get ourselves to do things. For learning, the carrots are the perceived rewards you get from mastering the material. You might hope that achieving the learning objectives of this course, both on the topic and the 'meta' side, will help you with your research, prepare you for success in a future job, satisfy your intellectual curiosity, or a mix of those. If you don't hope to gain anything from the course, you shouldn't take it. Still, while you might have general enthusiasm for the material, keeping up with it week by week just based on this enthusiasm gets hard. That's why the occasional sticks are useful, too. Deadlines keep you on schedule, grades hopefully motivate you to do things. Balancing carrots and sticks is tricky. I prefer as many rewards as possible and keeping the threats low. 
+
+
+## Carrots and Sticks in this class
+What does the whole 'carrot and stick' discussion from above mean for this course?
+
+* I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.
+
+* You can expect from me to provide you with hopefully a good balance of carrots and sticks to make it doable for you to commit your effort to this class.
+
+* The environment for this class strives to be motivating and non-threatening. As such, I'll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don't grade hard - unless you fail to keep up your end of the agreement and don't put in the work.
+
+* This class is 'open everything'. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning. 
+
+* I will not perform any 'policing' to try to prevent you from taking shortcuts (i.e. not doing work yourself). The class contains assessments, but those are meant to keep you on track. If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. I hope you realize that this is pointless and defeats the purpose of why you take the class.
+
+## Course environment
+
+_"If you want people to become passionate, engaged in a field, transformed by an experience - you don’t test them, you don’t lecture them and you don’t force them. Instead, you create an environment where willing, caring individuals can find an experience that changes them."_ [Seth Godin](https://medium.com/swlh/will-this-be-on-the-test-237ae9cc53b4)
+
