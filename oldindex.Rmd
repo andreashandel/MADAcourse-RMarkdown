@@ -1,0 +1,26 @@
+---
+title: Modern Applied Data Analysis Course
+---
+
+## Course Description
+
+Provides an intensive introduction to applied statistics and data analysis. Trains students to become data scientists capable of both applied data analysis and critical evaluation of the next generation next generation of statistical methods. Since both data analysis and methods development require substantial hands-on experience, focuses on hands-on data analysis.
+
+## Course objectives
+
+Upon successfully completing this course, students will be able to:
+
+* Critically compare and evaluate the strengths and weaknesses of different modern data analysis approaches, judge the appropriateness of different approaches for specific questions and data sets.
+* Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.
+* Given a data science question, determine the type of data and analytic approach needed to answer it.
+* Explain the importance of workflow and project management tools and reproducibility for data analysis, and know how to use those tools.
+* Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.
+* Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.
+* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.
+* Know how to obtain, process and analyze data from a variety of different sources.
+
+
+## Course Information
+
+Details regarding the logistics of the course, tools used, and all such information can be found in the "Logistics" tab.
+
