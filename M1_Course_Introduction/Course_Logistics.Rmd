@@ -3,13 +3,27 @@ title: EPID 8060 Fall 2019 - Course Introduction
 author:
   name: Andreas Handel
   affiliation: University of Georgia
-output: 
-  learnr::tutorial:
-    progressive: true
-    allow_skip: false
-bibliography: ../../media/references.bib
-runtime: shiny_prerendered
+bibliography: ../media/references.bib
+output:
+  html_document:
+    theme: null
+    highlight: null
+    css: ../styles/handel.css
+    fig_caption: true
+    mathjax: null 
+    keep_md: false
+    pandoc_args: [
+      "--mathml"
+    ]
+    includes:
+      #in_header: in_header.txt
+      before_body: ../styles/before_body.txt
+      after_body: ../styles/after_body.txt 
+  pdf_document:
+    toc: true
+    mathjax: null
 ---
+
 
 ## Overview
 * This first unit (which in this course I call modules) provides an overview of the whole course logistics and setup, followed by an overall introduction to the topic and a motivating example.

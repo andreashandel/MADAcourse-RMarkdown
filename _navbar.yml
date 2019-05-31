@@ -1,7 +1,12 @@
-title: "Advanced Data Science"
+title: "Modern Applied Data Analysis"
 left:
   - text: "Home"
     href: index.html
+  - text: "Logistics"
+    menu:
+    - text: "Course Details"
+    href: ./M1_Course_Introduction/Course_Logistics.html
+    
   - text: "Curriculum"
     menu:
       - text: "Introduction"
@@ -54,23 +59,11 @@ left:
         href: ./21-make-and-stuff.html
       - text: "Wrap up/presentations"
         href: ./22-wrap-up.html
-  - text: "Grading"
-    href: grading.html
-  - text: "Staff"
-    menu:
-      - text: "Instructors"
-      - text: "Jeff Leek"
-        href: http://jtleek.com/
-      - text: "John Muschelli"
-        href: http://johnmuschelli.com/
-      - text: "Teaching Assistants"
-      - text: "Stephen Cristiano"
-        href: http://www.jhsph.edu/departments/biostatistics/directory/students/phd.html
   - text: "Discussion"
     href: discussion.html
-  - text: "Resources"
+  - text: "Further Resources"
     href: resources.html
 right:
   - icon: fa-github fa-lg
-    href: https://github.com/jtleek/advdatasci
+    href: https://github.com/andreashandel/MADAcourse
     

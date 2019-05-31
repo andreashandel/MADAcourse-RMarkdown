@@ -20,30 +20,7 @@ Upon successfully completing this course, students will be able to:
 * Know how to obtain, process and analyze data from a variety of different sources.
 
 
-## Pre-requisites
-
-This course is designed for PhD students in the Biostatistics department at Johns Hopkins Bloomberg School of Public Health. It assumes a fair amount of statistical knowledge and moves relatively quickly. I am open to anyone taking the class, but since it is a core requirement for our PhD program I will not be slowing down or allowing auditors for the class. 
-
 ## Course Information
 
-* Location: W4019
-* Time: 1:30-2:30
-* Assignments: Please see the grading section for information about assignments. 
-* Equipment: Please bring a laptop to class
-
-## DataCamp
-We use [DataCamp](https://www.datacamp.com/home) for our assignments.  Please visit the [Advanced Data Science](https://www.datacamp.com/groups/advanced-data-science) link for the assignments
-
-John's email is: [muschellij2@gmail.com](mailto:muschellij2@gmail.com).
-
-Stephen's email is: [stephen@jhmi.edu](mailto:stephen@jhmi.edu).
-
-
-## Typos and corrections
-
-Feel free to submit typos/errors/etc via the github repository associated with the class: https://github.com/jtleek/advdatasci
-
-## Thanks
-
-We would like to thank [DataCamp](https://www.datacamp.com/home) for providing us with a great platform on Grading and Assignments for this course!  Check out their courses and [DataCamp for Education](https://www.datacamp.com/groups/education) to use their platform for your course.
+Details regarding the logistics of the course, tools used, and all such information can be found in the "Logistics" tab.
 

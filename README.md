@@ -2,5 +2,5 @@ This is the website for the online course _Modern Applied Data Analysis_ (EPID/B
 
 The layout (but not content) of this website is based on the JHU course [Advanced Data Science](http://jtleek.com/advdatasci) taught by [Jeff Leek](http://jtleek.com/) and [John Muschelli](http://johnmuschelli.com/).
 
-All materials are licensed CC-BY. 
+All materials are licensed under CC-BY-NC-SA. 
 
