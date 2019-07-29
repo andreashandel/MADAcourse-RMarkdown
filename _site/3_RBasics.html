@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+<meta name="date" content="2019-07-27" />
+
+<title>R Basics - Reading</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Module
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./1a_Course_Introduction.html">Course Intro</a>
+        </li>
+        <li>
+          <a href="./1b_Topic_Introduction.html">Topic Intro</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./2a_RandStudio.html">R and Rstudio (ex)</a>
+        </li>
+        <li>
+          <a href="./2b_Github.html">GitHub</a>
+        </li>
+        <li>
+          <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="./3_RBasics.html">3. R Basics</a>
+    </li>
+    <li class="dropdown-header">4. Data analysis overview</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Projects
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Tidy_Tuesday.html">Tidy Tuesday</a>
+    </li>
+    <li>
+      <a href="./Project_Information.html">Project Introduction</a>
+    </li>
+    <li>
+      <a href="./Project_Template.html">Project Report Template</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="Resources.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">R Basics - Reading</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2019-07-27</h4>
+
+</div>
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>In this module, we will (re)-visit some of the basics of R (and RStudio). This is likley the one unit which will have the greatest diversity in pre-existing knowledge. Some of you might already have enough R knowledge that this will just be a quick refresher. For those among you who have not used R before, this unit (and everything else related to R in this course) will take a lot of time. Be prepared to put in a good bit of time and effort. If you do, I’m fairly certain you find it worth it. If you don’t, you’ll likely not get much out of the course.</p>
+<p><strong>If you are new to R/coding, this module could take a good amount of time. I estimate maybe 20 hours to properly work through things. So budget accordingly and plan ahead!</strong></p>
+</div>
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<ul>
+<li>Know some of the strengths and weaknesses of R</li>
+<li>Have R and Rstudio up and running on your computer</li>
+<li>Basic knowledge working with R and RStudio</li>
+<li>Be familiar with resources that help you learn R</li>
+</ul>
+</div>
+<div id="learning-to-code" class="section level2">
+<h2>Learning to code</h2>
+<p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not be focusing on ‘learning R’. You will do so anyway by going through the course. As with anything, as you practice more things will get smoother. And have an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week) and you will eventually figure it out. Make sure of the great resources that are out there. They are all listed below in the ‘Further Resources’ section.</p>
+<p>This figure is <a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">from a good article</a> discussing the journey of learning to write code:</p>
+<p><img src="https://s3.amazonaws.com/viking_education/web_development/blog/coding_is_hard_confidence_competence.png" /></p>
+<p><a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">Read the article</a> from which this figure comes. Or read at least the first part and look at the first 2 figures. My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform powerful data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em> and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>.</p>
+<p>And of course it goes without saying that this is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
+</div>
+<div id="about-r" class="section level2">
+<h2>About R</h2>
+<p>Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:</p>
+<ul>
+<li><strong>R is Open Source, FREE and cross-platform</strong></li>
+<li>R is a “high-level” programming language, relatively easy to learn (compared to Fortran, C, etc.)</li>
+<li>R comes with many integrated functions</li>
+<li>R is great for statistics, data analysis and graphics</li>
+<li>The R Community is very dynamic, helpful and welcoming</li>
+<li>Through R packages, it is easy to get lots of state-of-the-art algorithms</li>
+<li>Documentation and help files for R are generally good</li>
+</ul>
+<p>While we use R in this course, it is of course not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g. Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitabel for certain types of analyses as well (e.g. C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different in the detail, they all share certain general ways of thinking and structuring code. So once you understand a certain concept (e.g. loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one.</p>
+</div>
+<div id="installing-r-rstudio-and-r-packages" class="section level2">
+<h2>Installing R, RStudio and R packages</h2>
+<p>If you haven’t already, install R first, then RStudio. Both are freely available and straightforward to install. Do a quick Google search for them and you’ll figure out the install. If you want detailed instructions <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">read and work through chapter 1 of IDS</a>. If things don’t work, ask for help in the ‘R-related’ Slack channel for this class.</p>
+<p>Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We’ll be using a number of packages in this course. Of course, you are free to install and use the functionality in any package you come across for any of the assignments in this course.</p>
+<p>The “official” place for packages is the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>. If you are interested in packages on a specific topic, the <a href="http://cran.r-project.org/web/views/">CRAN task views</a> provide curated descriptions of packages sorted by topic.</p>
+<p>To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type <code>install.packages("PACKAGENAME")</code>. The figure shows an example where I installed a package called <code>learnr</code>. Often, a package needs other packages to work, those will be installed as well. It usually doesn’t matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get upper case and lower case exactly right, otherwise it won’t work.</p>
+<div class="figure">
+<img src="media/installpackagesscreenshot.png" alt="Installing an R package" />
+<p class="caption">Installing an R package</p>
+</div>
+<p>Try installing a package yourself. Open RStudio. Then go to the R promt (the <code>&gt;</code> symbol) in the lower left corner and type</p>
+<pre class="r"><code>install.packages(&#39;DSAIDE&#39;)</code></pre>
+<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace.</strong></p>
+<p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
+<p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>devtools</code> package and then use the <code>install_github</code> function. <a href="https://ahgroup.github.io/DSAIDE/articles/DSAIDE.html">See e.g. here for the DSAIDE package</a>. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
+<p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
+<pre class="r"><code>library(&#39;DSAIDE&#39;)</code></pre>
+<p>You should see a short message on the screen. Some packages show messages when you load them, others don’t. In this case, the package tells you that you can start using it by typing <code>dsaidemenu()</code> into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won’t use it in this class, I’m just using it as an example here, since you can use the package without needing to write code. Try it briefly, by entering into the R console</p>
+<pre class="r"><code>dsaidemenu()</code></pre>
+<p>It should open a menu in your browser, from which you can explore different models/apps.</p>
+<p><strong>Question: In the main menu of the DSAIDE package, what’s the title of the second group of apps?</strong></p>
+<p>Once you are done with DSAIDE, close it.</p>
+<p>This was a quick overview of R packages. We’ll use a lot of them, so you’ll get used to them rather quickly.</p>
+<p>Next, <a href="https://rafalab.github.io/dsbook/getting-started.html">go through chapter 2 of IDS</a> for some further information on setting up and getting started with R, RStudio and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience.</p>
+</div>
+<div id="learning-the-basics-of-r" class="section level2">
+<h2>Learning the basics of R</h2>
+<p>Start by <a href="https://rstudio.cloud/learn/primers/1.2">working through this online tutorial from RStudio</a>. Note that some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes and you always get a ‘that’s right’ kind of message. The R package that is used to write this tutorial is in its early stages and not full featured yet. I’m sure it will get better over time. The whole tutorial should still work.</p>
+<p>Once you’ve gone through the RStudio tutorial, read and work through <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>.</p>
+<p>Finally, read and work through <a href="https://rafalab.github.io/dsbook/programming-basics.html">chapter 4 of IDS</a>. This chapter discusses important but somewhat more advanced concepts of programming. Try to read and work through and understand as much as possible. If you are new to coding, it is likely you won’t fully ‘get’ everything on the first read. That’s ok. The important part is that you learn about these concepts and are aware of them. Once you start to need them for your analysis (and for any serious analysis, you will), you can then revisit the topics and dig in more deeply to get to the level where you can understand and apply them to your problems.</p>
+</div>
+<div id="getting-help" class="section level2">
+<h2>Getting help</h2>
+<p>May be the most important skill for learning any programming language is to figuring out how to find and get help with any problems. Google, Stackoverflow and the Internet are your friend. If you have a problem with our code, it’s likely someone else had before you and asked a question (and probably got an answer). So search the web, you’ll find something useful most of the time.</p>
+<div class="figure">
+<img src="/www/xkcd_wisdom_of_the_ancients.png" alt="Fortunately rare for R" />
+<p class="caption">Fortunately rare for R</p>
+</div>
+<p>In those rare cases where you cannot find information online that helps you figure out your problem, feel free to ask for help. There are many venues where you can ask your question. For this class, we have a slack workspace that is used by all the students and the instructor. Another highly recommended resource is the <a href="https://www.rfordatasci.com/">R for data science community</a>. They have a Slack workspace in which you can post questions, and they are very newbie friendly. The <a href="https://community.rstudio.com/">Rstudio community</a> is another good place to ask questions. Finally, there is <a href="https://stackoverflow.com/">StackOverflow</a>, which is the biggest online help community. If you google a specific question, it’s likely you’ll get a link to some page on StackOverflow. If you have questions for a specific R package and that package is developed on Github, you can ask questions in the Gihub Issues section. For instance for the <code>learnr</code> R package (which I used to write this document), you can find <a href="https://github.com/rstudio/learnr/issues">their issue page here</a>. Here is another resource, <a href="https://www.datahelpers.org/">a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter.</a></p>
+<p>Sometimes, people complain that answers to questions they ask online are unfriendly or harsh. While this is at time true, consider that all the people providing answers on volunteers. They’re doing it because they want to do help others, they don’t get paid for it. It is therefore important that the person asking the question does not waste people’s time by asking poorly formulated questions or questions that have been previously answered. In general, those kind of questions get rude replies. If you have done your homework (i.e. searched online first to see if the answer is already avaiable) and can precisely formulate the question/problem, ideally with a reproducible example, the chance that you get an unfriendly reply is very low.</p>
+<p>To learn how to ask a good question online, <a href="">read this</a>.</p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>This module got you started on your path of learning R. In future modules we will learn more R specifically as it is related to data analysis. As you continue on your coding journey, keep this in mind: <strong>The great thing about programming is that you can’t really “break” things too much. Worst case you get an error message. So experiment and try out anything you like!</strong></p>
+</div>
+<div id="further-resources" class="section level2">
+<h2>Further Resources</h2>
+<p>There are tons of resources for learning R and Data Analysis with R. Check out a number of them and note the ones you like best. Here are some pointers to get you started:</p>
+<ul>
+<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
+<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
+<li><a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> - you can get it for free.</li>
+<li><a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> teaches some coding integrated with the material covered in the book.</li>
+<li><a href="https://rstudio.cloud/learn/primers">R Studio primers</a> - several tutorials covering basics of programming and data analysis. We’ll be going through some of them in this course.</li>
+<li><a href="https://jhudatascience.org/">The Johns Hopkins Data Science Lab</a> - this webpage has links to a number of good resources for learning R and data science.</li>
+<li><a href="http://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> - another offering from the Hopkins folks, a good introductory course for data science and R. <a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Direct link to course set on Leanpub</a>.<br />
+</li>
+<li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice</li>
+<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.</li>
+</ul>
+</div>
+<div id="next-steps" class="section level2">
+<h2>Next steps</h2>
+<ul>
+<li>Do the tasks in the ‘Assessment’ document for this module.</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

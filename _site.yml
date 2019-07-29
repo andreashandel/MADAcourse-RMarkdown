@@ -1,4 +1,10 @@
+name: "my-website"
 output:
   html_document:
-    theme: spacelab
-output_dir: '.'
+    theme: cosmo
+    highlight: textmate
+    toc: true
+    toc_depth: 2
+    toc_float: 
+      collapsed: false
+    css: styles.css

@@ -1,0 +1,61 @@
+---
+title: MADA Fall 2019 - Topic Introduction 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Introduction
+This provides a brief introduction and motivating examples for the types of data analyses you'll be learning in this class.
+
+These videos provide some interesting discussions of the vast topic of data analysis. They are meant to be entertaining and inspiring and get you thinking about the big picture.
+
+_Note that while you keep hearing __big__ data mentioned often, most of the time this applies to data in general._
+
+
+## Introductory/general discussions of data analysis
+A short personal history of data analysis.
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/na124KLSJl4" frameborder="0" allowfullscreen></iframe>
+</p>
+
+A short discussion/contemplation on what to do with data. 
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AWPrOvzzqZk" frameborder="0" allowfullscreen></iframe>
+</p>
+
+Some interesting case studies of data analyses.
+<p>
+<iframe src="https://embed.ted.com/talks/sebastian_wernicke_how_to_use_data_to_make_a_hit_tv_show" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</p>
+
+## Health related data analysis
+
+An interesting and entertaining story of body/health data and what it can tell us:
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_GMVTJ9ZKVc" frameborder="0" allowfullscreen></iframe>
+</p>
+
+From the 'master of public health data' - one of his entertaining and enlightening TED talks:
+<p>
+<iframe src="https://embed.ted.com/talks/hans_rosling_at_state" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</p>
+
+
+## Optional - a few TED collections/playlists focusing on data:
+
+[The dark side of data](http://www.ted.com/playlists/130/the_dark_side_of_data)
+
+[Making sense of too much data](http://www.ted.com/playlists/56/making_sense_of_too_much_data)
+
+[Art from data](http://www.ted.com/playlists/201/art_from_data)
+
+[What your data reveals about you](http://www.ted.com/playlists/374/what_your_data_reveals_about_y)
+
+
+

@@ -1,27 +1,40 @@
-title: "Modern Applied Data Analysis"
+title: "MADA"
+type: inverse
 left:
   - text: "Home"
     href: index.html
-  - text: "Logistics"
+  - text: "General Information"
     menu:
-      - text: "Course Details"
-        href: ./M1_Course_Introduction/Course_Logistics.html
-  - text: "Curriculum"
+      - text: "Syllabus"
+        href: ./Course_Syllabus.html
+      - text: "Schedule"
+        href: ./Course_Schedule.html
+  - text: "Module"
     menu:
-      - text: "Introduction"
-        href: ./01-introduction.html
-      - text: "Organizing and Version Control"
-        href: ./02-organizing-version-control.html
-      - text: "RMarkdown and GitHub"
-        href: ./03-rmarkdown-and-github.html     
-      - text: "Getting Data and APIs"
-      - text: "Wrap up/presentations"
-        href: ./22-wrap-up.html
-  - text: "Discussion"
-    href: discussion.html
-  - text: "Further Resources"
-    href: resources.html
-right:
-  - icon: fa-github fa-lg
-    href: https://github.com/andreashandel/MADAcourse
-    
+      - text: "1. Introduction"
+        menu:
+          - text: "Course Intro"
+            href: ./1a_Course_Introduction.html
+          - text: "Topic Intro"
+            href: ./1b_Topic_Introduction.html
+      - text: "2. Coures Tools"
+        menu:
+          - text: "R and Rstudio (ex)"
+            href: ./2a_RandStudio.html
+          - text: "GitHub"
+            href: ./2b_Github.html
+          - text: "RMarkdown & Co"
+            href: ./2c_ToolsforReproducibility.html
+      - text: "3. R Basics"
+        href: ./3_RBasics.html     
+      - text: "4. Data analysis overview"
+  - text: "Projects"
+    menu:
+       - text: "Tidy Tuesday"
+         href: ./Tidy_Tuesday.html
+       - text: "Project Introduction"
+         href: ./Project_Information.html
+       - text: "Project Report Template"
+         href: ./Project_Template.html
+  - text: "Resources"
+    href: Resources.html

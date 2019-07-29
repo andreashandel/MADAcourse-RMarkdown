@@ -1,0 +1,31 @@
+---
+title: Tidy Tuesday 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+## Overview
+This document gives a brief explanation of TidyTuesday and how we will use it for this course.
+
+## Learning Objectives
+* Know some of the strengths and weaknesses of R
+
+
+
+https://github.com/rfordatascience/tidytuesday
+
+
+## TidyTuesday examples
+
+
+https://github.com/Z3tt/TidyTuesday
+
+https://github.com/jkaupp/tidytuesdays
+
+

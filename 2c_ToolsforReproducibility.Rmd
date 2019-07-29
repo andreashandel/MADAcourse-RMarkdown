@@ -1,0 +1,19 @@
+---
+title: Markdown and colleagues
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+## Overview
+In this module, we will briefly discuss important tools within the `R` ecosystem that allow you to have a reproducible, automated workflow with little effort.
+
+
+
+
+

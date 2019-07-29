@@ -1,0 +1,43 @@
+---
+title: Further Resources
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+## R Resources
+
+
+
+## Course Resources
+The material for the course comes from a variety of sources. My main sources are:
+
+* [DataCamp](http://www.datacamp.com)
+* ["R for Data Science" by Hadley Wickham and Garrett Grolemund](http://r4ds.had.co.nz/)
+* ["Applied Predictive Modeling" by Kuhn & Johnson](http://appliedpredictivemodeling.com/)
+* ["An Introduction to Statistical Learning" by James et al.](http://www-bcf.usc.edu/~gareth/ISL/)
+* ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1)
+
+All resources, apart from Kuhn & Johnson, have both a free and a paid option. Some of the material is in the general resources folder.
+
+
+## Further Resources
+There are tons of resources for learning R and Data Analysis with R. Check out a number of them and note the ones you like best. Here are some pointers to get you started:
+
+* I created lists related to R and Data Analysis (as well as other topics). You can find all lists [at this link on github](https://github.com/ahgroup/research-and-teaching-resource-lists). The list specifically for learning R [is here](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
+* Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
+* [R Programming for Data Science](https://leanpub.com/rprogramming) - you can get it for free.
+* [R for Data Science](http://r4ds.had.co.nz/index.html) teaches some coding integrated with the material covered in the book.
+* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice
+* I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup) and I therefore currently won't use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.
+
+
+
+## Data Science Resources
+
+[Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.

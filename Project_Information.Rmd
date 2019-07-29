@@ -1,0 +1,91 @@
+---
+title: Project Information 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+## Overview
+A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.
+
+* Finding a good data - question pair
+* Getting the data
+* Cleaning the data
+* Exploring the data
+* Processing the data
+* Analyzing the data
+* Reporting/communicating your findings
+* Doing everything reproducibly
+
+
+## Timeline
+There are several deadlines throughout the course at which time you need to submit parts of your project
+
+* Part I: Have a question/hypothesis & suitable data 
+* Part II: Part I + and exploratory/univariate analysis, report draft
+* Part III: Part II + bivariate analysis, report draft
+* Part IV: Parts III + full analysis and final report
+* Part V: Updated final report based on feedback
+
+
+
+The deadlines are listed in the _Schedule_ document (it's unlikely, but they might change, so keep checking that document).
+
+## Logistics and formatting
+* Each assignment needs to be submitted in a fully reproducible form. 
+* You should create a Github repository which should contain all the d
+
+
+## Structure
+* I provided an R Markdown file with a suggested outline for the project.
+* This is a suggestion, you don't have to follow that structure, as long as you provide a complete report of your project.
+* You will soon learn what an R Markdown file is and how to use it.
+
+
+
+
+
+## Project Ideas and Data sources
+You can work on any dataset you like. The only requirements are:
+
+* Real world (messy) data.
+* An interesting question
+* An analysis that has not been done previously by you (you would be allowed to try and reproduce someone else's analysis)
+* You can use data you already work on as part of your research anyway. 
+
+
+## Possible data sources
+You do not need to use any of those data source, you are welcome to use any dataset you want.
+
+
+### Your "own" data
+If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. The only limitation is that what you do for this class project needs to be new work, not a previously done and recycled analysis.
+
+
+### Locally available data
+I have a few datasets that could be used for this project. Here are brief descriptions, if interested let me know and I can provide more details.
+
+#### Norovirus
+* A
+
+#### Influenza
+* A dataset on Avian influenza virus persistence in the environment. To understand the kind of data available (and possible questions one could ask), see [this recently published paper](http://dx.doi.org/10.1371/journal.pone.0161929).
+* A dataset on influenza infections in groups of volunteers. To get an idea of the data and a previous analysis of a similar dataset, see [this paper](https://www.ncbi.nlm.nih.gov/pubmed/18230677). 
+
+
+### Publicly available data
+You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.
+
+I have a [list of further data sources I maintain (contributions welcome)](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md). Of course you are not limited to data listed there.
+
+Often, the most interesting questions can be asked by combining data from more than one source.
+
+
+
+

@@ -1,0 +1,83 @@
+---
+title: MADA Fall 2019 - Course Syllabus
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+**EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus**
+
+
+
+## Course Information
+
+* Instructor: Andreas Handel
+* Office Location: 124 B.S. Miller Hall, Health Sciences Campus
+* Email: ahandel@uga.edu
+* Office Hours:  by appointment/online
+* Course Meeting Time and Location: online
+
+## Textbook and Other Course Material
+
+There is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download. 
+
+## Course Description
+
+This course provides a survey of modern statistical approaches to analyze data. We will cover a variety of modern approaches for analyzing and interpreting data commonly encountered in public health, biomedical sciences, and related areas. This is an applied, hands-on class. We will use &quot;real&quot; data (bring your own data if you have it) to learn different methods of analysis. We will discuss all the steps of a data analysis, including obtaining and cleaning data, exploratory and full analysis, and presentation of results.
+
+We will discuss how to formulate scientifically solid questions for a given set of data, how to decide on the right method of analysis, how to implement the analysis in R, and how to present and communicate the results. We will cover statistical methods such as linear regression, principal components analysis, regression trees, cross-validation, bootstrapping, model selection and more. Additional topics can be covered based on student request.
+
+## Course Learning Objectives
+
+
+## Grading
+
+The grade will be made up as follows:
+
+* 20% homework/quizzes
+* 20% participation/discussions
+* 20% small projects
+* 40% a course long project, broken up into pieces. The final result of the project will be a comprehensive, worked example of a data analysis to address a real-world question.
+
+The following grading scale will be used, final grades might be curved: A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F < 60
+
+
+
+## Class Attendance, Make-up Policy
+
+This class is online. You are expected to submit all assignments by their due dates. Excused misses of due dates are only provided by prior agreement with the instructor or for special reasons (medical, etc.).
+
+
+## Prerequisites
+
+This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are useful. Previous experience with writing computer programs in general and R in particular is also helpful, but not necessary. If you have no programming experience, expect to spend extra time getting yourself familiar with R. As long as you are willing to invest the time to learn the programming and you don&#39;t mind thinking quantitatively, you should be able to take the course, independent of your background.
+
+_Formal requirement for the course is BIOS7010. Knowledge of material from BIOS7010 is useful but not strictly needed._ **If you didn't take this course, please contact me to get permission to enroll.**
+
+## Getting Help
+
+If you have questions about any aspect of the course, please do not hesitate to ask for help. The course materials describe in detail the ways you can ask for help.
+
+
+## University Honor Code and Academic Honesty Policy
+
+All academic work must meet the standards contained in _A Culture of Honesty_. All students are responsible to inform themselves about those standards before performing any academic work. More detailed information about academic honesty can be found at: http://www.uga.edu/honesty/
+
+Discussions with your classmates and the instructor are encouraged. However, the final work should be your own.
+
+
+## Students with Disabilities
+
+Students with disabilities who require reasonable accommodations in order to participate in course activities or meet course requirements should contact the instructor.
+
+## General Disclaimers
+
+This syllabus is a general plan, deviations announced to the class by the instructor may be necessary.
+
+## Course Outline
+
+For an outline of the course, please see the course schedule document. 

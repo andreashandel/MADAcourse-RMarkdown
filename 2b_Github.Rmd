@@ -1,0 +1,74 @@
+---
+title: Github Introduction
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+## Overview
+This document gives a brief explanation of Github and how we will use it for this course.
+
+## Learning Objectives
+* Know what Git and Github are.
+* Now why one might want to use them.
+* Have created and set up a Github account.
+* Have joined the class organization.
+
+
+## General Git and Github Information
+
+### What are Git and Github 
+_Git_ is what is called a _version control system_. The main idea is that as you (and your collaborators) work on a project, the software keeps track of and documents any changes made by anyone.
+
+Technically _Github_ is distinct from _Git_, it in some sense is the interface and _Git_ the underlying engine (a bit like _RStudio_ and _R_). Since we will only be using _Git_ through _Github_, I tend to not distinguish between the two and in the following refer to all of it as just _Github_.
+
+
+### Why use Git/Github
+You want to use _Github_ to avoid this:
+
+```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '100%', fig.align='center'}
+knitr::include_graphics("./media/phd_versioncontrol")
+```
+
+
+_Github_ gives you a clean way to track your projects. It is also very well suited to collaborative work. Historically, version control was used for software development. However, it has become broader and is now used for many types of projects, including data science projects.
+
+
+Next, [read this article by Jenny Bryan](https://peerj.com/preprints/3159/) for some more important information on Git/Github.
+
+
+### What to (not) use Git/Github for
+Github is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.
+
+Github is less ideal if you have a lot of non-text files (e.g. Word or Powerpoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.
+
+
+### Some notes
+Github has a lot of special terminology that takes getting used to. They have a [handy page with short descriptions of some of the important terms](https://help.github.com/en/articles/github-glossary). Some of the terms you will encounter soon _Repository_ (also often called _repo_), _User_, _Organization_, _Branch_, _Fork_, _Push_, _Pull_, _Commit_ and _Stage_. For some reason, the last term is not explained in the list linked to above. It basically describes th step after you made changes and before you commit them, you need to _stage_ them. It's more or less an automatic (and in my opinion somewhat useless) extra step, but you need to know what it means.
+
+
+Github is an alternative to systems such as Dropbox. You can work locally on different machines and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox is that the syncing between your local computer and Github.com is not automatic. So don't forget to pull before you start work on a repository and push once you are done! 
+
+Because Github works similar to Dropbox, I have heard/read people say that it is a bad idea to locally store your Github repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the Github sync process can conflict, leading to a mess. __So for any github repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)__
+
+
+
+## Github for this course
+If you do not already have a github account, set one up on github.com. Github is widely used professionally, I therefore recommend using a future-proof, professional user name.  
+
+For this course, I created what Github calls an organization with the name _epid8060fall2019_. 
+Once you have a Github account, 
+I will create repositories 
+
+
+
+
+
+## Further Resources
+Jenny Bryan has a great online book [happygitwithr](https://happygitwithr.com/) explaining in a fairly accessible way how to use Github together with R. If you have a problem with Github, checking out her book for help is a great first step.
+
