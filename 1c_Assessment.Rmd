@@ -1,0 +1,17 @@
+---
+title: MADA Fall 2019 - Course Introduction Assessment 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Module Assessments
+For this module, do the online quiz on eLC. It is a fairly short quiz, all questions are easy and just check that you read
+
+Make sure you read and (sort of) remember the content of the documents from this module, as well as the _Syllabus_ and _Schedule_ documents.
+

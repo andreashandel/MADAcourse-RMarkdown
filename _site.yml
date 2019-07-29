@@ -1,4 +1,5 @@
-name: "my-website"
+name: "MADA Course"
+output_dir: 'docs'
 output:
   html_document:
     theme: cosmo

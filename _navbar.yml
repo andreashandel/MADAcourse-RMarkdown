@@ -1,22 +1,22 @@
-title: "MADA"
+title: "MADA Course"
 type: inverse
 left:
-  - text: "Home"
-    href: index.html
   - text: "General Information"
     menu:
       - text: "Syllabus"
         href: ./Course_Syllabus.html
       - text: "Schedule"
         href: ./Course_Schedule.html
-  - text: "Module"
+  - text: "Modules"
     menu:
       - text: "1. Introduction"
         menu:
-          - text: "Course Intro"
-            href: ./1a_Course_Introduction.html
           - text: "Topic Intro"
-            href: ./1b_Topic_Introduction.html
+            href: ./1a_Topic_Introduction.html
+          - text: "Course Intro"
+            href: ./1b_Course_Introduction.html
+          - text: "Assessments"
+            href: ./1c_Assessment.html
       - text: "2. Coures Tools"
         menu:
           - text: "R and Rstudio (ex)"
@@ -25,6 +25,8 @@ left:
             href: ./2b_Github.html
           - text: "RMarkdown & Co"
             href: ./2c_ToolsforReproducibility.html
+          - text: "Assessments"
+            href: ./2d_Assessments.html
       - text: "3. R Basics"
         href: ./3_RBasics.html     
       - text: "4. Data analysis overview"

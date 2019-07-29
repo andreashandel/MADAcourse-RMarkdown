@@ -1,0 +1,26 @@
+---
+title: MADA Fall 2019 - Course Introduction Assessment 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Module Assessments
+
+For this module, you need to do a small project that shows you have Rmarkdown and Github running and it will also introduce yourself to your classmates.
+
+
+
+# Introducing Ourselves
+* A bit about yourself
+* Your background, training, research interests
+* What kind of statistics, programming, data analysis experience do you have?
+* Why did you register for this course, what do you hope to learn?
+* At least one interesting personal fact about you
+
+

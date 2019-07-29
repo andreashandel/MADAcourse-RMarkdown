@@ -12,16 +12,17 @@ output:
 
 This is the current course schedule for the class. Subject to change.
 
+Assignments are described in detail in the course materials. Unless otherwise specified, deadlines for each assignment is the module end date (Friday) 5pm.
 
 | **Module Topic**   | **Start and end dates** | **Assignments** |
 | --- | --- | --- |
-| Module 1 – Course introduction | 8/14 – 8/23 |   |
-| Module 2 – Tools introduction and setup | 8/14 – 8/23 |   |
-| Module 3 – R basics | 8/14 – 8/30 |   |
-| Module 4 – Data analysis overview | 9/2 – 9/6 |   |
-| Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 |   |
-| Module 6 – Data Wrangling | 9/16 – 9/20 | **Project part 1 due 9/20** |
-| Module 7 – Visualization | 9/23 – 9/27 |   |
+| Module 1 – Course introduction | 8/14 – 8/23 |  introduction submission |
+| Module 2 – Tools introduction and setup | 8/14 – 8/23 | github submission  |
+| Module 3 – R basics | 8/14 – 8/30 | online quiz  |
+| Module 4 – Data analysis overview | 9/2 – 9/6 | online quiz  |
+| Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 | online quiz   |
+| Module 6 – Data Wrangling | 9/16 – 9/20 |online quiz, **Project part 1 due 9/20** |
+| Module 7 – Visualization | 9/23 – 9/27 | online quiz   |
 | Module 8 – Exploratory Analysis | 9/30 – 10/4 | Tidytuesday I |
 | Module 9 – Model performance assessment | 10/7 – 10/11 | **Project part 2 due 10/11** |
 | Module 10 – Model quality assessment | 10/14 – 10/18 |   |
