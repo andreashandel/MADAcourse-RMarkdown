@@ -13,9 +13,26 @@ output:
 # Introduction
 This provides a brief introduction and motivating examples for the types of data analyses you'll be learning in this class.
 
-These videos provide some interesting discussions of the vast topic of data analysis. They are meant to be entertaining and inspiring and get you thinking about the big picture.
 
-_Note that while you keep hearing __big__ data mentioned often, most of the time this applies to data in general._
+# Case studies
+It is by now very common that individuals post a complete data analysis online.
+
+
+
+
+# Motivating Videos
+
+There are lots of good videos online discussing different aspects of the vast topic of data analysis. TED is an especially good source for such videos.
+
+Arguably one of the best communicators of Public Health data was the late [Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling). He has several great entertaining and enlightening TED talks. Here is one of them.
+
+<p>
+<iframe src="https://embed.ted.com/talks/hans_rosling_at_state" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</p>
+
+The software he uses to illustrate data is available online on the [Gapminder website](https://www.gapminder.org/).
+
+
 
 
 ## Introductory/general discussions of data analysis
@@ -41,10 +58,6 @@ An interesting and entertaining story of body/health data and what it can tell u
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_GMVTJ9ZKVc" frameborder="0" allowfullscreen></iframe>
 </p>
 
-From the 'master of public health data' - one of his entertaining and enlightening TED talks:
-<p>
-<iframe src="https://embed.ted.com/talks/hans_rosling_at_state" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</p>
 
 
 ## Optional - a few TED collections/playlists focusing on data:

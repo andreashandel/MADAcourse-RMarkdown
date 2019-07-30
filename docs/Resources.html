@@ -7,13 +7,14 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
 <meta name="date" content="2019-07-29" />
 
-<title>Further Resources</title>
+<title>Course Resources</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -250,48 +251,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -481,43 +443,48 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Further Resources</h1>
+<h1 class="title toc-ignore">Course Resources</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-07-29</h4>
 
 </div>
 
 
-<div id="r-resources" class="section level2">
-<h2>R Resources</h2>
-</div>
-<div id="course-resources" class="section level2">
-<h2>Course Resources</h2>
-<p>The material for the course comes from a variety of sources. My main sources are:</p>
+<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know.</p>
+<div id="github" class="section level1">
+<h1>Github</h1>
 <ul>
-<li><a href="http://www.datacamp.com">DataCamp</a></li>
-<li><a href="http://r4ds.had.co.nz/">“R for Data Science” by Hadley Wickham and Garrett Grolemund</a></li>
-<li><a href="http://appliedpredictivemodeling.com/">“Applied Predictive Modeling” by Kuhn &amp; Johnson</a></li>
-<li><a href="http://www-bcf.usc.edu/~gareth/ISL/">“An Introduction to Statistical Learning” by James et al.</a></li>
-<li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a></li>
+<li><p>The course materials website (this one) is a public Github repository. You can see all the files that make up this website <a href="https://github.com/andreashandel/MADAcourse">here</a>, the website itself is: <a href="https://andreashandel.github.io/MADAcourse/" class="uri">https://andreashandel.github.io/MADAcourse/</a></p></li>
+<li><p>For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called <em>epid8060fall2019</em>, you can find it <a href="https://github.com/epid8060fall2019">here</a>. Note that you need to be a group member.</p></li>
 </ul>
-<p>All resources, apart from Kuhn &amp; Johnson, have both a free and a paid option. Some of the material is in the general resources folder.</p>
 </div>
-<div id="further-resources" class="section level2">
-<h2>Further Resources</h2>
+<div id="r-and-data-analysis" class="section level1">
+<h1>R and Data Analysis</h1>
 <p>There are tons of resources for learning R and Data Analysis with R. Check out a number of them and note the ones you like best. Here are some pointers to get you started:</p>
+<div id="books" class="section level2">
+<h2>Books</h2>
 <ul>
-<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
-<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
-<li><a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> - you can get it for free.</li>
 <li><a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> teaches some coding integrated with the material covered in the book.</li>
+<li><a href="http://www-bcf.usc.edu/~gareth/ISL/">“An Introduction to Statistical Learning” by James et al.</a> - good introductory book.</li>
+</ul>
+</div>
+<div id="courses-and-hands-on-resources" class="section level2">
+<h2>Courses and hands-on resources</h2>
+<ul>
+<li><a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> - you can get it for free.</li>
+<li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a></li>
 <li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice</li>
 <li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.</li>
 </ul>
 </div>
-<div id="data-science-resources" class="section level2">
-<h2>Data Science Resources</h2>
-<p><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</p>
+<div id="lists-and-other-sources" class="section level2">
+<h2>Lists and other sources</h2>
+<ul>
+<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
+<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
+<li><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</li>
+</ul>
+</div>
 </div>
 
 
@@ -538,6 +505,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
