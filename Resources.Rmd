@@ -10,26 +10,27 @@ output:
     toc_depth: 3
 ---
 
-All materials described below are (should be) freely available online. If you can't get to them, let me know.
+All materials described below are (should be) freely available online. If you can't get to them, let me know. The ones marked in __bold__ are those that we'll be using a lot.
+
+
+
 
 # General help
 * Google/Stackoverflow will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day :)
-* [R for Data Science community](https://www.rfordatasci.com/) - an online community that tries to provide newcomer friendly help.
-
+* [R for Data Science community](https://www.rfordatasci.com/) - an online community that tries to provide newcomer friendly help. They use Slack to communicate, you can join for free and ask questions.
+* The discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc.
 
 
 # Github Resources
 
-* A great resource to learn Git/Github with R is [happygitwitR](https://happygitwithr.com/) by Jenny Bryant.
-* I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use [GitKraken](https://www.gitkraken.com/) which has a fully functional free version. Jenny has a few other recommendations in her book. 
-* The course materials website (this one) is a public Github repository. You can see all the files that make up this website  [here](https://github.com/andreashandel/MADAcourse), the website itself is: https://andreashandel.github.io/MADAcourse/
+* __A great resource to learn Git/Github with R is [happygitwitR](https://happygitwithr.com/) by Jenny Bryant.__
+* __I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use [GitKraken](https://www.gitkraken.com/) which has a fully functional free version.__ Jenny has a few other recommendations in her book. 
+* The course materials website (this one) is a public Github repository. If you are curious, [you can look at all the files that make up this website](https://github.com/andreashandel/MADAcourse).
 * For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called _epid8060fall2019_, you can find it [here](https://github.com/epid8060fall2019). Note that you need to be a group member.  
 
 
-
 # Books
-
-* [Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book we'll use the most in this course. You will be assigned differet chapters to read and work through.
+* __[Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book we'll use the most in this course. You will be assigned different chapters to read and work through.__
 * [R for Data Science](http://r4ds.had.co.nz/index.html) teaches some coding integrated with the material covered in the book. Very good and worth checking out often. 
 * [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).
 * [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/). Good discussion of various analysis methods/approaches.
@@ -44,12 +45,9 @@ All materials described below are (should be) freely available online. If you ca
 
 # Hands-on/interactive resources
 
-* [Online Tutorials (primers) by Rstudio](https://rstudio.cloud/learn/primers) - we'll do several of those in the class.
+* __[Online Tutorials (primers) by Rstudio](https://rstudio.cloud/learn/primers) - we'll do several of those in the class.__
 * [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice
 * I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup) and I therefore currently won't use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.
-
-
-
 
 
 # Course materials
@@ -57,7 +55,6 @@ Many R/data science courses/instructors post materials online. Here are a few I 
 
 * [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
 * [Advanced Data Science](http://jtleek.com/advdatasci/index.html)
-* 
 
 # Lists and other sources
 

@@ -2,8 +2,8 @@ name: "MADA Course"
 output_dir: 'docs'
 output:
   html_document:
-    theme: cosmo
-    highlight: textmate
+    theme: cerulean
+    highlight: zenburn
     toc: true
     toc_depth: 2
     toc_float: 

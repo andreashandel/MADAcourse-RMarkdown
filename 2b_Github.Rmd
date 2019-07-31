@@ -10,36 +10,34 @@ output:
     toc_depth: 3
 ---
 
-## Overview
+# Overview
 This document gives a brief explanation of Github and how we will use it for this course.
 
-## Learning Objectives
+# Learning Objectives
 * Know what Git and Github are.
-* Now why one might want to use them.
+* Know why one might want to use them.
 * Have created and set up a Github account.
 * Have joined the class organization.
 
 
-## General Git and Github Information
+# General Git and Github Information
 
-### What are Git and Github 
-_Git_ is what is called a _version control system_. The main idea is that as you (and your collaborators) work on a project, the software keeps track of and documents any changes made by anyone.
-
-Technically _Github_ is distinct from _Git_, it in some sense is the interface and _Git_ the underlying engine (a bit like _RStudio_ and _R_). Since we will only be using _Git_ through _Github_, I tend to not distinguish between the two and in the following refer to all of it as just _Github_.
+## What are Git and Github 
+_Git_ is what is called a _version control system_. The main idea is that as you (and your collaborators) work on a project, the software tracks and records any changes made by anyone. Technically _Github_ is distinct from _Git_, it in some sense is the interface and _Git_ the underlying engine (a bit like _RStudio_ and _R_). Since we will only be using _Git_ through _Github_, I tend to not distinguish between the two and in the following refer to all of it as just _Github_. Note that other interfaces to _Git_ exist, e.g. _Bitbucket_, but _Github_ is the most widely used one.
 
 
 ### Why use Git/Github
 You want to use _Github_ to avoid this:
 
 ```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '100%', fig.align='center'}
-knitr::include_graphics("./media/phd_versioncontrol")
+knitr::include_graphics("./media/phd_versioncontrol.gif")
 ```
 
 
 _Github_ gives you a clean way to track your projects. It is also very well suited to collaborative work. Historically, version control was used for software development. However, it has become broader and is now used for many types of projects, including data science projects.
 
 
-Next, [read this article by Jenny Bryan](https://peerj.com/preprints/3159/) for some more important information on Git/Github.
+To learn a bit more about Git/Github and why you might want to use it, [read this article by Jenny Bryan](https://peerj.com/preprints/3159/).
 
 
 ### What to (not) use Git/Github for

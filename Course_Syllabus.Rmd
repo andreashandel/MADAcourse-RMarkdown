@@ -30,6 +30,43 @@ We will discuss how to formulate scientifically solid questions for a given set 
 
 ## Course Learning Objectives
 
+The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, to getting, cleaning and exploring the data, all the way to fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of 'Machine Learning'. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analyis.
+
+The specific learning objectives that I hope you will achieve by going through this course are:
+
+_Design_
+
+* Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.
+* Given a data science question, determine the type of data and analytic approach needed to answer it.
+
+_Processing_
+
+* Know how to obtain, process and analyze data from a variety of different sources.
+* Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.
+* Be able to thoughtfully and critically assess strengths and weaknessess of specific data sets and process and analyze the data appropriately.
+
+_Analysis_
+
+* Critically compare and evaluate the strengths and weaknesses of different data analysis approaches. 
+* Judge the appropriateness of different approaches for specific questions and data sets and know how to apply an appropriate analytic approach.
+* Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.
+
+_Communication_
+
+* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.
+* Assess the strengths and weaknesses of different formats for representing the results of data analyses.
+
+_Tools_
+
+* Explain the importance of workflow, project management and reproducibility tools, and know how to use those tools.
+* Be comfortable using R and Github to do data analysis in a reproducible manner.
+* Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.
+
+_Overall_
+
+* Judge the usefulness and appropriateness of data analyses described in the primary research literature.
+* Learn to _look yourself over the shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
+
 
 ## Grading
 

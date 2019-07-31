@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
@@ -17,7 +18,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -25,25 +26,98 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
 
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
   }
 </style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
 
 
 <style type="text/css">
@@ -250,48 +324,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -415,10 +450,10 @@ div.tocify {
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Topic_Introduction.html">Topic Intro</a>
+          <a href="./1a_Course_Introduction.html">Course intro</a>
         </li>
         <li>
-          <a href="./1b_Course_Introduction.html">Course Intro</a>
+          <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
           <a href="./1c_Assessment.html">Assessments</a>
@@ -429,7 +464,7 @@ div.tocify {
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandStudio.html">R and Rstudio (ex)</a>
+          <a href="./2a_RandRStudio.html">R and Rstudio</a>
         </li>
         <li>
           <a href="./2b_Github.html">GitHub</a>
@@ -438,14 +473,26 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessments.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessments</a>
         </li>
       </ul>
     </li>
-    <li>
-      <a href="./3_RBasics.html">3. R Basics</a>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">Assessments</a>
+        </li>
+      </ul>
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-header">5. Pondering and getting data</li>
+    <li class="dropdown-header">6. Wrangling data</li>
+    <li class="dropdown-header">7. Visualizing data</li>
+    <li class="dropdown-header">8. Exploring data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -456,13 +503,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday</a>
+      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Project Introduction</a>
+      <a href="./Project_Information.html">Main Project Introduction</a>
     </li>
     <li>
-      <a href="./Project_Template.html">Project Report Template</a>
+      <a href="./Project_Template.html">Main Project Report Template</a>
     </li>
   </ul>
 </li>
@@ -535,14 +582,14 @@ div.tocify {
 <p class="caption">Installing an R package</p>
 </div>
 <p>Try installing a package yourself. Open RStudio. Then go to the R promt (the <code>&gt;</code> symbol) in the lower left corner and type</p>
-<pre class="r"><code>install.packages(&#39;DSAIDE&#39;)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
 <p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace.</strong></p>
 <p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
 <p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>devtools</code> package and then use the <code>install_github</code> function. <a href="https://ahgroup.github.io/DSAIDE/articles/DSAIDE.html">See e.g. here for the DSAIDE package</a>. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
 <p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
-<pre class="r"><code>library(&#39;DSAIDE&#39;)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
 <p>You should see a short message on the screen. Some packages show messages when you load them, others don’t. In this case, the package tells you that you can start using it by typing <code>dsaidemenu()</code> into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won’t use it in this class, I’m just using it as an example here, since you can use the package without needing to write code. Try it briefly, by entering into the R console</p>
-<pre class="r"><code>dsaidemenu()</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">dsaidemenu</span>()</a></code></pre></div>
 <p>It should open a menu in your browser, from which you can explore different models/apps.</p>
 <p><strong>Question: In the main menu of the DSAIDE package, what’s the title of the second group of apps?</strong></p>
 <p>Once you are done with DSAIDE, close it.</p>
@@ -611,6 +658,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

@@ -11,7 +11,8 @@ output:
 ---
 
 # Module Assessments
-For this module, do the online quiz on eLC. It is a fairly short quiz, all questions are easy and just check that you read
 
-Make sure you read and (sort of) remember the content of the documents from this module, as well as the _Syllabus_ and _Schedule_ documents.
+Make sure you've gone through all the content for module 1, as well as read through the _Syllabus_, _Schedule_ and _Resources_ documents. 
+
+The only assessment for this module is to do the module 1 quiz on eLC. As mentioned, the quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have done the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
 

@@ -10,16 +10,15 @@ output:
     toc_depth: 3
 ---
 
-## Overview
-This is a very quick introduction to R and RStudio. 
-The next module goes into more detail.
+# Overview
+This is a very quick introduction to R and RStudio, just to get you set up and running. In the next module we'll go deeper into R and coding.
 
-## Learning Objectives
-* Know some of the strengths and weaknesses of R
-*	Have R and Rstudio up and running on your computer 
+# Learning Objectives
+* Know some of the strengths and weaknesses of R.
+*	Have R and Rstudio up and running on your computer. 
+* Know how to install and load R packages.
 
-
-## About R
+# About R
 Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:
 
 * **R is Open Source, FREE and cross-platform**
@@ -30,20 +29,25 @@ Like every programming language, R has its advantages and disadvantages. Feel fr
 * Through R packages, it is easy to get lots of state-of-the-art algorithms
 * Documentation and help files for R are generally good
 
-While we use R in this course, it is of course not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g. Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitabel for certain types of analyses as well (e.g. C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different in the detail, they all share certain general ways of thinking and structuring code. So once you understand a certain concept (e.g. loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one.
+While we use R in this course, it is of course not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g. Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitabel for certain types of analyses as well (e.g. C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different in the detail, they all share certain general ways of thinking and structuring code. So once you understand a certain concept (e.g. variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one.
 
   
-## Installing R, RStudio and R packages
-If you haven't already, install R first, then RStudio. Both are freely available and straightforward to install. Do a quick Google search for them and you'll figure out the install. If you want detailed instructions [read and work through chapter 1 of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help in the 'R-related' Slack channel for this class.
+# Installing R and RStudio 
+* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version. I suggest version 3.5 or newer. If yours is older, I suggest you update (simply by installing a new R version).
+* Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Again, make sure it's a recent version, it should be of the 1.2.X series.
 
+Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through chapter 1 of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help in the _R/Coding_ discussion board.
+
+I personally only have experience with Windows, but everything should work on all the standard operating systems (Windows, Mac and even Linux).
+
+# Installing and loading R packages
 Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We'll be using a number of packages in this course. Of course, you are free to install and use the functionality in any package you come across for any of the assignments in this course.
 
 The "official" place for packages is the [CRAN website](https://cran.r-project.org/web/packages/available_packages_by_name.html). If you are interested in packages on a specific topic, the [CRAN task views](http://cran.r-project.org/web/views/) provide curated descriptions of packages sorted by topic. 
 
-
 To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type `install.packages("PACKAGENAME")`. The figure shows an example where I installed a package called `learnr`. Often, a package needs other packages to work, those will be installed as well. It usually doesn't matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get upper case and lower case exactly right, otherwise it won't work.
 
-![Installing an R package](./media/installpackagesscreenshot.png)
+![Installing an R package. Right-click on the image to enlarge it.](./media/installpackagesscreenshot.png)
 
 
 Try installing a package yourself. Open RStudio. Then go to the R promt (the `>` symbol) in the lower left corner and type
@@ -64,13 +68,13 @@ You only need to install a package once, unless you upgrade/re-install R. Once i
 library('DSAIDE')
 ```
 
-You should see a short message on the screen. Some packages show messages when you load them, others don't. In this case, the package tells you that you can start using it by typing `dsaidemenu()` into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won't use it in this class, I'm just using it as an example here, since you can use the package without needing to write code. Try it briefly, by entering into the R console
+You should see a short message on the screen. Some packages show messages when you load them, others don't. In this case, the package tells you that you can start using it by typing `dsaidemenu()` into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won't use it in this class, I'm just using it as an example here, since you can use the package without having to write code. Try it briefly, by entering into the R console
 
 ```{r, eval=FALSE}
 dsaidemenu()
 ```
 
-It should open a menu in your browser, from which you can explore different models/apps.
+A menu should open in your browser, from which you can explore different models/apps.
 Once you are done with DSAIDE, close it.
 
 This was a quick overview of R packages. We'll use a lot of them, so you'll get used to them rather quickly. 
@@ -78,8 +82,7 @@ This was a quick overview of R packages. We'll use a lot of them, so you'll get 
 Next, [go through chapter 2 of IDS](https://rafalab.github.io/dsbook/getting-started.html) for some further information on setting up and getting started with R, RStudio and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience.
 
 
-## Summary
-This module got you started on your path of learning R. In future modules we will learn more R specifically as it is related to data analysis. As you continue on your coding journey, keep this in mind: **The great thing about programming is that you can't really "break" things too much. Worst case you get an error message. So experiment and try out anything you like!**
+
 
 
 

@@ -11,32 +11,40 @@ left:
     menu:
       - text: "1. Introduction"
         menu:
-          - text: "Topic Intro"
-            href: ./1a_Topic_Introduction.html
-          - text: "Course Intro"
-            href: ./1b_Course_Introduction.html
+          - text: "Course intro"
+            href: ./1a_Course_Introduction.html
+          - text: "Topic intro"
+            href: ./1b_Topic_Introduction.html
           - text: "Assessments"
             href: ./1c_Assessment.html
       - text: "2. Coures Tools"
         menu:
-          - text: "R and Rstudio (ex)"
-            href: ./2a_RandStudio.html
+          - text: "R and Rstudio"
+            href: ./2a_RandRStudio.html
           - text: "GitHub"
             href: ./2b_Github.html
           - text: "RMarkdown & Co"
             href: ./2c_ToolsforReproducibility.html
           - text: "Assessments"
-            href: ./2d_Assessments.html
-      - text: "3. R Basics"
-        href: ./3_RBasics.html     
+            href: ./2d_Assessment.html
+      - text: "3. R basics"
+        menu:
+          - text: "R basics"
+            href: ./3a_RBasics.html     
+          - text: "Assessments"
+            href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
+      - text: "5. Pondering and getting data"
+      - text: "6. Wrangling data"
+      - text: "7. Visualizing data"
+      - text: "8. Exploring data"
   - text: "Projects"
     menu:
-       - text: "Tidy Tuesday"
+       - text: "Tidy Tuesday Projects"
          href: ./Tidy_Tuesday.html
-       - text: "Project Introduction"
+       - text: "Main Project Introduction"
          href: ./Project_Information.html
-       - text: "Project Report Template"
+       - text: "Main Project Report Template"
          href: ./Project_Template.html
   - text: "Resources"
     href: Resources.html

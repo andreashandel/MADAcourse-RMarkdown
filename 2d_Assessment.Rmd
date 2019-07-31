@@ -12,10 +12,9 @@ output:
 
 # Overview
 
-For this module, you need to do a small project that shows you have Rmarkdown and Github running and it will also introduce you to your classmates.
+This module got you started with all the important tools. Let's try to apply it in a small but also comprehensive exercise. For this module, you need to do a small project that shows you have R/Studio/Rmarkdown and Github running and it will also introduce you to your classmates.
 
 For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc). I'm confident with a bit of trial and error, you'll get it to work.
-
 
 
 # Github setup
