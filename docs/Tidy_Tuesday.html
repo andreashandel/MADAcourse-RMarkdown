@@ -7,14 +7,13 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-07-29" />
+<meta name="date" content="2019-07-31" />
 
-<title>Tidy Tuesday</title>
+<title>TidyTuesday Projects</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -251,9 +250,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -443,9 +481,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Tidy Tuesday</h1>
+<h1 class="title toc-ignore">TidyTuesday Projects</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-07-29</h4>
+<h4 class="date">2019-07-31</h4>
 
 </div>
 
@@ -457,7 +495,22 @@ div.tocify {
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
 <ul>
-<li>Know some of the strengths and weaknesses of R</li>
+<li>Know what TidyTuesday is and how to get the data</li>
+<li>Know how your TidyTuesday project will work</li>
+</ul>
+</div>
+<div id="tidytuesday" class="section level2">
+<h2>TidyTuesday</h2>
+<p>An interesting initiative is <a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays</a>, where every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a> and individuals are encouraged to analyze it.</p>
+<p>Twice in this course, you are assigned to perform a TidyTuesdays analysis yourself. Currently, the plan is that you will get the dataset released on Tuesday Sept 1st and on</p>
+</div>
+<div id="tidytuesday-logistics" class="section level2">
+<h2>TidyTuesday logistics</h2>
+<ul>
+<li>On the day the data is released, go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>, click in the data and download it. You will also be provided with a data dictionary. If you are curious how this looks, check out one of the already posted ones. For instance the wine ratings dataset you saw in the introductory lesson <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28">can be found here</a>.</li>
+<li>Create a repository for your analysis. You can do that inside the class organization if you want it to be private. If you don’t care, you can create the repository directly in your Github account. The repository should be viewable as webpage later, so you need to turn on Github pages. You can just follow the directions for the <code>Introducing yourself</code> project.</li>
+<li>Write an Rmd file that does some analysis of the data and produces some results (tables, figures). The focus is on exploratory analysis, however for your 2nd TidyTuesday project there needs to be some statistical analysis and model fitting. Once done, knit your Rmd file.</li>
+<li>By/before the deadline, post your project to your github repository, make sure the html file is displaying correctly. At the minimum, post the link to your project (both the html/website and the Rmd file) in the corresponding discussion board on eLC. If you are active on social media, you might also want to post an announcement of your project there. (See for instance the Twitter posts at the bottom of the <a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays announcement site</a>.)</li>
 </ul>
 <p><a href="https://github.com/rfordatascience/tidytuesday" class="uri">https://github.com/rfordatascience/tidytuesday</a></p>
 </div>
@@ -485,49 +538,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

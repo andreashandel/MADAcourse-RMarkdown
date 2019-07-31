@@ -7,7 +7,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -246,6 +245,18 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
@@ -370,9 +381,9 @@ $(document).ready(function () {
 </div>
 
 
-<p>Welcome to the site of the Modern Applied Data Analysis (MADA) Course. This course is an online course taught as EPID/BIOS 8060 in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>.</p>
-<p>This website contains all the course information. Most materials are hosted on this site, some are on external sites and either linked or embedded from here.</p>
-<p>For students taking this course at UGA, additional materials (e.g. online quizzes) are provided on the eLC, UGA’s course software.</p>
+<p>Welcome to the Modern Applied Data Analysis (MADA) course website. This is an online course taught in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>. The course is listed at UGA as EPID or BIOS 8060.</p>
+<p>This website contains the majority of the course information. Most materials are hosted on this site, some are on external sites and either linked or embedded from here.</p>
+<p>For students taking this course at UGA, additional materials (e.g. online quizzes) are provided on the eLC, UGA’s learning management system.</p>
 
 
 
@@ -391,23 +402,6 @@ $(document).ready(function () {
 
 
 </script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

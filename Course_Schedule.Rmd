@@ -7,7 +7,7 @@ date: "`r Sys.Date()`"
 #bibliography: ../media/references.bib
 output: 
   html_document:
-    toc_depth: 3
+    toc: FALSE
 ---
 
 This is the current course schedule for the class. Subject to change.
@@ -16,8 +16,8 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 
 | **Module Topic**   | **Start and end dates** | **Assignments** |
 | --- | --- | --- |
-| Module 1 – Course introduction | 8/14 – 8/23 |  introduction submission |
-| Module 2 – Tools introduction and setup | 8/14 – 8/23 | github submission  |
+| Module 1 – Course introduction | 8/14 – 8/23 |  online quiz |
+| Module 2 – Tools introduction and setup | 8/14 – 8/23 | introduction submission  |
 | Module 3 – R basics | 8/14 – 8/30 | online quiz  |
 | Module 4 – Data analysis overview | 9/2 – 9/6 | online quiz  |
 | Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 | online quiz   |
