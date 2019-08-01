@@ -1,5 +1,5 @@
 ---
-title: Project Information 
+title: Class Project Information 
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -10,8 +10,7 @@ output:
     toc_depth: 3
 ---
 
-
-## Overview
+# Overview
 A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.
 
 * Finding a good data - question pair
@@ -24,68 +23,69 @@ A semester long data analysis project will be a major method of assessment for t
 * Doing everything reproducibly
 
 
-## Timeline
+# Timeline
 There are several deadlines throughout the course at which time you need to submit parts of your project
 
-* Part I: Have a question/hypothesis & suitable data 
-* Part II: Part I + and exploratory/univariate analysis, report draft
-* Part III: Part II + bivariate analysis, report draft
-* Part IV: Parts III + full analysis and final report
-* Part V: Updated final report based on feedback
-
-
+* Part I: Have a question/hypothesis & suitable data. 
+* Part II: Part I + and exploratory/univariate analysis. 
+* Part III: Part II + bivariate analysis.
+* Part IV: Parts III + full analysis.
+* Part V: Updated final report based on feedback.
 
 The deadlines are listed in the _Schedule_ document (it's unlikely, but they might change, so keep checking that document).
 
-## Logistics and formatting
-* Each assignment needs to be submitted in a fully reproducible form. 
-* You should create a Github repository which should contain all the d
 
 
-## Structure
-* I provided an R Markdown file with a suggested outline for the project.
-* This is a suggestion, you don't have to follow that structure, as long as you provide a complete report of your project.
-* You will soon learn what an R Markdown file is and how to use it.
+# Feedback and Assessment
+You will receive feedback from me and/or your classmates after each submission. 
+* I will provide feedback on parts 1-3. 
+* Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document.
+* Part 5 is the final submission. 
+
+I will informally assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%. 
 
 
-
-
-
-## Project Ideas and Data sources
-You can work on any dataset you like. The only requirements are:
+# Project Ideas and Data sources
+You can pick your project topic and data source pretty much however you like. The only requirements are:
 
 * Real world (messy) data.
-* An interesting question
-* An analysis that has not been done previously by you (you would be allowed to try and reproduce someone else's analysis)
-* You can use data you already work on as part of your research anyway. 
+* An interesting question.
+* An analysis that has not been done previously.
+* A fully reproducible and automated analysis using the tools we use in this class.
 
+# Data sources
+You can use data from any source you like, herer are some possible ones.
 
-## Possible data sources
-You do not need to use any of those data source, you are welcome to use any dataset you want.
+## Your "own" data
+If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).
 
-
-### Your "own" data
-If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. The only limitation is that what you do for this class project needs to be new work, not a previously done and recycled analysis.
-
-
-### Locally available data
-I have a few datasets that could be used for this project. Here are brief descriptions, if interested let me know and I can provide more details.
-
-#### Norovirus
-* A
-
-#### Influenza
-* A dataset on Avian influenza virus persistence in the environment. To understand the kind of data available (and possible questions one could ask), see [this recently published paper](http://dx.doi.org/10.1371/journal.pone.0161929).
-* A dataset on influenza infections in groups of volunteers. To get an idea of the data and a previous analysis of a similar dataset, see [this paper](https://www.ncbi.nlm.nih.gov/pubmed/18230677). 
-
-
-### Publicly available data
+## Publicly available data
 You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.
 
-I have a [list of further data sources I maintain (contributions welcome)](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md). Of course you are not limited to data listed there.
+I have a [list of data sources I maintain (contributions welcome)](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md). Of course you are not limited to data listed there.
 
-Often, the most interesting questions can be asked by combining data from more than one source.
 
+_Often, the most interesting questions can be asked by combining data from more than one source._
+
+
+## Logistics and formatting
+Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.
+
+The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf).
+
+You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders.
+
+For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.
+
+Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.
+
+
+* I provided an R Markdown file with a suggested outline for the project.
+* This is a suggestion, you don't have to follow that structure, as long as you provide a complete report of your project.
+
+
+
+## R Markdown and your Project
 
 
 

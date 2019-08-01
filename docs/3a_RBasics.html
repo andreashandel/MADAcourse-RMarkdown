@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-08-01" />
 
 <title>R Basics - Reading</title>
 
@@ -105,7 +104,7 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -324,9 +323,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -530,7 +568,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R Basics - Reading</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-07-31</h4>
+<h4 class="date">2019-08-01</h4>
 
 </div>
 
@@ -556,34 +594,7 @@ div.tocify {
 <p><img src="https://s3.amazonaws.com/viking_education/web_development/blog/coding_is_hard_confidence_competence.png" /></p>
 <p><a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">Read the article</a> from which this figure comes. Or read at least the first part and look at the first 2 figures. My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform powerful data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em> and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>.</p>
 <p>And of course it goes without saying that this is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
-</div>
-<div id="about-r" class="section level2">
-<h2>About R</h2>
-<p>Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:</p>
-<ul>
-<li><strong>R is Open Source, FREE and cross-platform</strong></li>
-<li>R is a “high-level” programming language, relatively easy to learn (compared to Fortran, C, etc.)</li>
-<li>R comes with many integrated functions</li>
-<li>R is great for statistics, data analysis and graphics</li>
-<li>The R Community is very dynamic, helpful and welcoming</li>
-<li>Through R packages, it is easy to get lots of state-of-the-art algorithms</li>
-<li>Documentation and help files for R are generally good</li>
-</ul>
-<p>While we use R in this course, it is of course not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g. Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitabel for certain types of analyses as well (e.g. C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different in the detail, they all share certain general ways of thinking and structuring code. So once you understand a certain concept (e.g. loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one.</p>
-</div>
-<div id="installing-r-rstudio-and-r-packages" class="section level2">
-<h2>Installing R, RStudio and R packages</h2>
-<p>If you haven’t already, install R first, then RStudio. Both are freely available and straightforward to install. Do a quick Google search for them and you’ll figure out the install. If you want detailed instructions <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">read and work through chapter 1 of IDS</a>. If things don’t work, ask for help in the ‘R-related’ Slack channel for this class.</p>
-<p>Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We’ll be using a number of packages in this course. Of course, you are free to install and use the functionality in any package you come across for any of the assignments in this course.</p>
-<p>The “official” place for packages is the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>. If you are interested in packages on a specific topic, the <a href="http://cran.r-project.org/web/views/">CRAN task views</a> provide curated descriptions of packages sorted by topic.</p>
-<p>To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type <code>install.packages("PACKAGENAME")</code>. The figure shows an example where I installed a package called <code>learnr</code>. Often, a package needs other packages to work, those will be installed as well. It usually doesn’t matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get upper case and lower case exactly right, otherwise it won’t work.</p>
-<div class="figure">
-<img src="media/installpackagesscreenshot.png" alt="Installing an R package" />
-<p class="caption">Installing an R package</p>
-</div>
-<p>Try installing a package yourself. Open RStudio. Then go to the R promt (the <code>&gt;</code> symbol) in the lower left corner and type</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
-<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace.</strong></p>
 <p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
 <p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>devtools</code> package and then use the <code>install_github</code> function. <a href="https://ahgroup.github.io/DSAIDE/articles/DSAIDE.html">See e.g. here for the DSAIDE package</a>. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
 <p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
@@ -658,49 +669,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

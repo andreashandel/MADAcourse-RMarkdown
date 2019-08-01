@@ -13,7 +13,7 @@
 
 <meta name="date" content="2019-08-01" />
 
-<title>MADA Fall 2019 - Course Introduction Assessment</title>
+<title>MADA Fall 2019 - Topic Introduction</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -476,7 +476,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction Assessment</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-01</h4>
 
@@ -485,62 +485,215 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This module got you started with all the important tools. Let’s try to apply it in a small but also comprehensive exercise. For this module, you need to do a small project that shows you have R/Studio/Rmarkdown and Github running and it will also introduce you to your classmates.</p>
-<p>For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time consuming and also might feel a bit intimidating. It’s partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc). I’m confident with a bit of trial and error, you’ll get it to work.</p>
+<p>In this module, we will talk about the whole data analysis workflow in a general, big-picture sense before we go into some of the details in further modules.</p>
 </div>
-<div id="github-setup" class="section level1">
-<h1>Github setup</h1>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
-<li>If not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join.</li>
-<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">its website</a> and create a new repository named <em>YOURGITHUBNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Leave the other options at <em>none</em>.</li>
-<li>Click on your new repository. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
-<li>Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use for this). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g. Dropbpox).</li>
+<li>Understand what broad types of analysis methods there are</li>
+<li>Be able to choose the right analysis to your problem</li>
+</ul>
+<div id="repeat---types-of-data-questions" class="section level2">
+<h2>Repeat - types of data questions</h2>
+<div id="doesnt-need-model-fitting" class="section level3">
+<h3>Doesn’t need model fitting:</h3>
+<ul>
+<li>Descriptive (always): What’s the data about</li>
+<li>Exploratory (almost always): Looking for patterns</li>
 </ul>
 </div>
-<div id="rstudio-project-setup" class="section level1">
-<h1>RStudio project setup</h1>
+<div id="needs-model-fitting" class="section level3">
+<h3>Needs model fitting:</h3>
 <ul>
-<li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e. the folder/repository called <em>YOURGITHUBNAME-introduction</em>. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with .Rproj ending and a README.md.</li>
-<li>Click to open the README.md file. It will only contain the name of your repository. Change the headline and call it “Introducing myself” (or something like that) and underneath write something like “This website contains a short introduction of <em>Your Name</em>.”</li>
+<li><strong>Analytical/Inferential: Quantitatively understand relations between inputs/predictors/features and outputs/outcomes</strong>
+<ul>
+<li>Causal interpretation possible under certain circumstances</li>
+</ul></li>
+<li><strong>Predictive: Use information on inputs to predict outputs</strong></li>
+<li>Mechanistic: Can be used with the right kind of data and models, both in an inferential and predictive way</li>
 </ul>
 </div>
-<div id="rmarkdown-content-creation" class="section level1">
-<h1>RMarkdown content creation</h1>
-<p><strong>For this part of the task, the book <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> and the <a href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown website</a> are likely useful.</strong></p>
-<ul>
-<li>Choose <em>File</em>, <em>New File</em>, <em>R Markdown</em>. Give it a title like <em>YOUR NAME Introduction</em>, keep output format as HTML. A new file with some template content should show up. You can leave the top of the content in there, delete what comes after the first heading (<code>## R Markdown</code>).</li>
-<li>Update the YAML header (the information in the block starting/ending with —). Specifically, choose a layout theme. To figure out how to do that, check section 3.1.4 (as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g. date, author name, etc).</li>
-<li>Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I’d also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.</li>
-<li>Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.</li>
-<li>Finally, include a link to a picture/video/website/etc that is somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
-<li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you want, e.g. you can try to include some table or a video or…</li>
-</ul>
-<p>Save the file you just created as <strong>index.Rmd</strong> into the repository folder. You need to give it this name, otherwise the Github website display won’t work. Then knit the file, you should see an index.html file show up.</p>
 </div>
-<div id="sending-updates-to-github" class="section level1">
-<h1>Sending updates to Github</h1>
+<div id="why-fit-models" class="section level2">
+<h2>Why fit models</h2>
 <ul>
-<li>Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio.</li>
-<li>Go to the program you use for Github (I will assume that it’s GitKraken, if you use something else the details might vary). I the top right of Gitkraken, there should be a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>master</em> with the computer symbol be above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</li>
-<li>Go back to github.com and to your repository website. Under <em>Settings</em> and <em>Github Pages</em> it should give you a URL at which your new website lives. Something like <code>https://epid8060fall2019.github.io/andreashandel-introduction/</code> (with my name switch with yours). Go to that website and it should show the introduction you just wrote.</li>
+<li>To test hypotheses (e.g. “there is a (linear) <em>correlation</em> between BMI and diabetes”)</li>
+<li>To estimate parameters (e.g. “a 1 unit increase of particulate matter leads to 2 more asthma attacks per person per year”)</li>
+<li>To make predictions (e.g. " exposure to N cholera bacteria leads to an infection with probability p")</li>
+<li>To draw causal conclusions (e.g. “taking statins <em>causes</em> reduction in cholesterol”)</li>
+<li>To draw mechanistic conclusions (e.g. “interferon reduces HCV virus load <em>by stopping production of new virus</em>”)</li>
 </ul>
 </div>
-<div id="sharing-your-website" class="section level1">
-<h1>Sharing your website</h1>
+<div id="inference-as-goal" class="section level2">
+<h2>Inference as goal</h2>
 <ul>
-<li>Go to eLC to the discussion forum called <em>Introduction</em> and write a short post with a link to your website/repository you created.</li>
-<li>Also, if you don’t already, upload a picture of yourself to eLC. It’s nice to see faces during the online discussions there.</li>
-<li>As you read your classmates introductions, feel free to comment/reply using the eLC discussion board.</li>
+<li>Focus is on understanding the relation between inputs/predictors/features and outputs/outcome</li>
+<li>Simpler models (e.g. linear/logistic regression, GLM, Classification and Regression Trees) are usually better, allow for easier interpretation of results</li>
+<li>Examples:
+<ul>
+<li>Is the relation between some chemical and cancer risk linear, and how much would risk increase if the chemical exposure increased by 1 unit?</li>
+<li>Understanding which markers (e.g. cytokines in blood) are most influential for a given clinical outcome</li>
+</ul></li>
 </ul>
-<p><em>You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!</em></p>
 </div>
-<div id="additional-information" class="section level1">
-<h1>Additional Information</h1>
+<div id="prediction-as-goal" class="section level2">
+<h2>Prediction as goal</h2>
 <ul>
-<li>If you want to keep making changes to your introduction, the workflow is first opening the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple local computers). If the remote is ahead of the local, do a <em>pull</em>. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server.</li>
-<li>If you like how fast you were able to create your own small website and want to learn more, 2 good resources are <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a> and <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">the Rmarkdown website chapter</a> in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files <a href="https://github.com/ahgroup/ahgroupwebsite">here</a>. The course website is simpler and uses the RStudio/Rmarkdown website setup. You can look at all these files <a href="https://github.com/andreashandel/MADAcourse">here</a>.</li>
-<li>You can get started with either a blogdown website or a simple Rmarkdown website through <em>File</em>, <em>New Project</em>, <em>New Directory</em> and then choosing the option you want.</li>
+<li>Focus is on predicting (new) output/outcomes based on knowledge of inputs/predictors/features</li>
+<li>Understanding relation between input(s) and output(s) not that important</li>
+<li>High performance, “black box” models (e.g. GAM, Forests, SVM, Neural Nets) are often used.</li>
+<li>Examples:
+<ul>
+<li>Netflix/Amazon recommendations based on past behavior</li>
+<li>Prediction of clinical outcome based on a large set of markers (e.g. cytokines in blood)</li>
+</ul></li>
 </ul>
+</div>
+<div id="types-of-analyses-based-on-outcome" class="section level2">
+<h2>Types of Analyses based on outcome</h2>
+<ul>
+<li>If an outcome is known/available, the statistical methods employed are usually called supervised learning methods/algorithms.
+<ul>
+<li>Example: Look for associations (make predictions) between flu patient characteristics and occurrence of hospitalization.</li>
+</ul></li>
+<li>If an outcome is unknown/unavailable, the statistical methods are called unsupervised learning methods/algorithms.
+<ul>
+<li>Example: Try to group pictures of cells into categories of normal/abnormal, without knowing for any of the pictures if they are normal or not.</li>
+</ul></li>
+</ul>
+<p><em>(Almost) all models you have encountered so far in your work are likely supervised methods.</em></p>
+</div>
+<div id="types-of-analyses-based-on-outcome-1" class="section level2">
+<h2>Types of Analyses based on outcome</h2>
+<div id="outcome-is-a-continuous-variable-or-can-be-treated-as-one" class="section level3">
+<h3>Outcome is a continuous variable (or can be treated as one)</h3>
+<p>Regression methods: (generalized) linear models, generalized additive models, trees, support vector machines, neural nets, …</p>
+<p>Examples: Cholesterol level, number of infected cases during outbreak</p>
+</div>
+<div id="outcome-is-categorical" class="section level3">
+<h3>Outcome is categorical</h3>
+<p>Classification Methods: Logistic regression, K-nearest neighbors, Linear Discriminant Analysis, GAM, trees, SVM, NN,…</p>
+<p>Examples: Yes/No outcome, low/medium/high responders</p>
+</div>
+</div>
+<div id="types-of-analyses-based-on-outcome-2" class="section level2">
+<h2>Types of Analyses based on outcome</h2>
+<div id="outcome-is-unknowndoes-not-exist" class="section level3">
+<h3>Outcome is unknown/does not exist</h3>
+<p>Clustering methods: K-means clustering, Principal Component Analysis (also used for other purposes), …</p>
+<p>Example: Group gene sequences based on sequence similarity</p>
+</div>
+</div>
+<div id="the-no-free-lunch-theorem" class="section level2">
+<h2>The <em>no free lunch</em> theorem</h2>
+<p><a href="http://en.wikipedia.org/wiki/No_free_lunch_theorem" class="uri">http://en.wikipedia.org/wiki/No_free_lunch_theorem</a></p>
+<ul>
+<li>There is no method that is universally best for all data/questions</li>
+<li>Even for a given dataset, there are always trade-offs between methods/approaches</li>
+</ul>
+</div>
+<div id="machine-learning-methods" class="section level2">
+<h2>Machine learning methods</h2>
+<div class="figure">
+<img src="../media/islr-fig27.png" alt="From: &quot;An Introduction to Statistical Learning with Applications in R&quot; (ISLR) by James et al." width="600px" />
+<p class="caption">
+From: “An Introduction to Statistical Learning with Applications in R” (ISLR) by James et al.
+</p>
+</div>
+</div>
+<div id="supervised-modeling-overview" class="section level2">
+<h2>Supervised modeling overview</h2>
+<ul>
+<li>We consider models where we have a single outcome, Y</li>
+<li>Y can be continuous or categorical</li>
+<li>We usually have multiple predictors, <span class="math inline">\(X_1, X_2,...\)</span></li>
+<li>Sometimes, one of the predictors is our main focus (exposure), and others are covariates</li>
+<li>Sometimes, all predictors are considered equally important</li>
+</ul>
+</div>
+<div id="continuous-modeling-approaches" class="section level2">
+<h2>Continuous modeling approaches</h2>
+<p>We formulate a model generally as: <span class="math inline">\(Y=f(X_1,X_2,...)+e\)</span></p>
+<p>If the outcome Y is continuous, these are some common models:</p>
+<ul>
+<li>Simple Linear model: <span class="math inline">\(Y=b_0 + b_1X_1 + b_2X_2 + ...\)</span></li>
+<li>Linear model with higher orders: <span class="math inline">\(Y=b_0 + b_1X_1 + b_2X_2 + b_3 X_1^2 + b_4 X_2^2 + b_5 X_1X_2 + ...\)</span></li>
+</ul>
+</div>
+<div id="some-comments-on-modeling-approaches" class="section level2">
+<h2>Some comments on modeling approaches</h2>
+<ul>
+<li>In statistics, linear refers to the parameters/coefficients. So the previous models are linear models for statisticians (but not for engineers or physicists)</li>
+<li>If you include higher order terms, the base terms <strong>also need to be in the model</strong>.</li>
+<li>Models with higher order terms (<span class="math inline">\(X^2\)</span>, <span class="math inline">\(X^3\)</span>, …) are often called polynomial models</li>
+<li>The interpretation of higher order coefficients is less intuitive.</li>
+</ul>
+</div>
+<div id="continuous-modeling-approaches-1" class="section level2">
+<h2>Continuous modeling approaches</h2>
+<p>Many other models can be used for a continuous outcome:</p>
+<ul>
+<li>Models that include piecewise polynomials or splines</li>
+<li>Generalized additive models: <span class="math inline">\(Y=b_0 + f_1(X_1) + f_2(X_2) + ...\)</span></li>
+<li>Regression trees and forests</li>
+<li>Support vector machines</li>
+<li>Neural Nets</li>
+<li>…</li>
+</ul>
+<p>For some of those models, writing down the equation that connects Y with the <span class="math inline">\(X_i\)</span> is often hard or impossible. Instead, the model is described by an algorithm.</p>
+</div>
+<div id="continuous-modeling-approaches---r-practice" class="section level2">
+<h2>Continuous modeling approaches - R practice</h2>
+<p>Get “ContinuousModels1.Rmd” and work through it.</p>
+</div>
+<div id="categorical-modeling-approaches" class="section level2">
+<h2>Categorical modeling approaches</h2>
+<p>We formulate a model generally as: <span class="math inline">\(g(Y)=f(X_1,X_2,...)+e\)</span></p>
+<p>If the outcome Y is categorical, these are some common models:</p>
+<ul>
+<li>A simple logistic model: <span class="math inline">\(\log \left( \frac{Y}{1-Y} \right) = b_0 + b_1X_1 + b_2 X_2 + ...\)</span> (Y is now a probability)</li>
+<li>More complicated logistic model: <span class="math inline">\(\log \left( \frac{Y}{1-Y} \right) = b_0 + b_1X_1 + b_1 X_1^2 + f_2(X_2) + ...\)</span></li>
+</ul>
+<p><strong>We can do anything with the predictors we did for continuous outcomes</strong></p>
+</div>
+<div id="categorical-modeling-approaches-1" class="section level2">
+<h2>Categorical modeling approaches</h2>
+<p>Many other models can be used for categorical outcomes:</p>
+<ul>
+<li>Linear and Quadratic Discriminant Analysis</li>
+<li>Regression trees and forests</li>
+<li>Support vector machines</li>
+<li>…</li>
+</ul>
+<p>Again, for some of these models, we can’t formulate an equation, but we can describe the algorithm.</p>
+</div>
+<div id="categorical-modeling-approaches---r-practice" class="section level2">
+<h2>Categorical modeling approaches - R practice</h2>
+<p>Get “CategoricalModels1.Rmd” and work through it.</p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<ul>
+<li><p>There are many different modeling approaches</p></li>
+<li><p>Most of them are relatively easy to implement in R</p></li>
+<li><p><strong>It’s hard to pick the right one! More on that next…</strong></p></li>
+<li><p>Chapters 1 and 2 of <em>Applied Predictive Modeling</em> by Kuhn (in <em>general resources</em> folder).</p></li>
+<li><p>Chapter 2.1 of <em>An Introduction to Statistical Learning</em> by James et al. (in <em>general resources</em> folder). I recommend also reading the introduction, chapter 1.</p></li>
+</ul>
+</div>
+<div id="optional" class="section level2">
+<h2>Optional</h2>
+<ul>
+<li><a href="http://r4ds.had.co.nz/index.html">R for Data Science</a>, chapters 22-24.</li>
+</ul>
+</div>
+</div>
+<div id="topical-cartoon" class="section level1">
+<h1>Topical Cartoon</h1>
+<div class="figure">
+<img src="../media/dilbert_datamining.gif" alt="Maybe Dogbert didn’t do the analysis quite right" />
+<p class="caption">Maybe Dogbert didn’t do the analysis quite right</p>
+</div>
 </div>
 
 

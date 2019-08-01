@@ -1,5 +1,5 @@
 ---
-title: "Modern Applied Data Analysis (MADA) Course website"
+title: "Modern Applied Data Analysis (MADA) course website"
 output: 
   html_document:
     toc: FALSE
@@ -7,8 +7,8 @@ output:
 
 
 Welcome to the Modern Applied Data Analysis (MADA) course website.
-This is an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](http://handelgroup.uga.edu/). The course is listed at UGA as EPID or BIOS 8060. 
+This is an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](http://handelgroup.uga.edu/). The course is listed at UGA as EPID or BIOS 8060E. 
 
 This website contains the majority of the course information. Most materials are hosted on this site, some are on external sites and either linked or embedded from here.
 
-For students taking this course at UGA, additional materials (e.g. online quizzes) are provided on the eLC, UGA's learning management system.
+For students taking this course at UGA, additional materials (e.g. online quizzes) are provided on eLC, UGA's learning management system.

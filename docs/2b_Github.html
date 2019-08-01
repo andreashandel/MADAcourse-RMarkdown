@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-08-01" />
 
 <title>Github Introduction</title>
 
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -440,37 +478,35 @@ div.tocify {
 
 <h1 class="title toc-ignore">Github Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-07-31</h4>
+<h4 class="date">2019-08-01</h4>
 
 </div>
 
 
-<div id="overview" class="section level2">
-<h2>Overview</h2>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
 <p>This document gives a brief explanation of Github and how we will use it for this course.</p>
 </div>
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
 <li>Know what Git and Github are.</li>
-<li>Now why one might want to use them.</li>
+<li>Know why one might want to use them.</li>
 <li>Have created and set up a Github account.</li>
 <li>Have joined the class organization.</li>
 </ul>
 </div>
-<div id="general-git-and-github-information" class="section level2">
-<h2>General Git and Github Information</h2>
-<div id="what-are-git-and-github" class="section level3">
-<h3>What are Git and Github</h3>
-<p><em>Git</em> is what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software keeps track of and documents any changes made by anyone.</p>
-<p>Technically <em>Github</em> is distinct from <em>Git</em>, it in some sense is the interface and <em>Git</em> the underlying engine (a bit like <em>RStudio</em> and <em>R</em>). Since we will only be using <em>Git</em> through <em>Github</em>, I tend to not distinguish between the two and in the following refer to all of it as just <em>Github</em>.</p>
-</div>
+<div id="general-git-and-github-information" class="section level1">
+<h1>General Git and Github Information</h1>
+<div id="what-are-git-and-github" class="section level2">
+<h2>What are Git and Github</h2>
+<p><em>Git</em> is what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks and records any changes made by anyone. Technically <em>Github</em> is distinct from <em>Git</em>, it in some sense is the interface and <em>Git</em> the underlying engine (a bit like <em>RStudio</em> and <em>R</em>). Since we will only be using <em>Git</em> through <em>Github</em>, I tend to not distinguish between the two and in the following refer to all of it as just <em>Github</em>. Note that other interfaces to <em>Git</em> exist, e.g. <em>Bitbucket</em>, but <em>Github</em> is the most widely used one.</p>
 <div id="why-use-gitgithub" class="section level3">
 <h3>Why use Git/Github</h3>
 <p>You want to use <em>Github</em> to avoid this:</p>
-<p><img src="./media/phd_versioncontrol" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="media/phd_versioncontrol.gif" width="100%" style="display: block; margin: auto;" /></p>
 <p><em>Github</em> gives you a clean way to track your projects. It is also very well suited to collaborative work. Historically, version control was used for software development. However, it has become broader and is now used for many types of projects, including data science projects.</p>
-<p>Next, <a href="https://peerj.com/preprints/3159/">read this article by Jenny Bryan</a> for some more important information on Git/Github.</p>
+<p>To learn a bit more about Git/Github and why you might want to use it, <a href="https://peerj.com/preprints/3159/">read this article by Jenny Bryan</a>.</p>
 </div>
 <div id="what-to-not-use-gitgithub-for" class="section level3">
 <h3>What to (not) use Git/Github for</h3>
@@ -493,6 +529,7 @@ div.tocify {
 <h2>Further Resources</h2>
 <p>Jenny Bryan has a great online book <a href="https://happygitwithr.com/">happygitwithr</a> explaining in a fairly accessible way how to use Github together with R. If you have a problem with Github, checking out her book for help is a great first step.</p>
 </div>
+</div>
 
 
 
@@ -512,49 +549,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

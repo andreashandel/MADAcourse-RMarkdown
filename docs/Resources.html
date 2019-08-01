@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-08-01" />
 
 <title>Course Resources</title>
 
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -440,36 +478,38 @@ div.tocify {
 
 <h1 class="title toc-ignore">Course Resources</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-07-31</h4>
+<h4 class="date">2019-08-01</h4>
 
 </div>
 
 
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know.</p>
+<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. The ones marked in <strong>bold</strong> are those that we’ll be using a lot.</p>
 <div id="general-help" class="section level1">
 <h1>General help</h1>
 <ul>
 <li>Google/Stackoverflow will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day :)</li>
-<li><a href="https://www.rfordatasci.com/">R for Data Science community</a> - an online community that tries to provide newcomer friendly help.</li>
+<li><a href="https://www.rfordatasci.com/">R for Data Science community</a> - an online community that tries to provide newcomer friendly help. They use Slack to communicate, you can join for free and ask questions.</li>
+<li>The discussion boards on eLC. Use them widely to ask questions, to answer others’ questions, to post links to interesting resources, etc.</li>
 </ul>
 </div>
 <div id="github-resources" class="section level1">
 <h1>Github Resources</h1>
 <ul>
-<li>A great resource to learn Git/Github with R is <a href="https://happygitwithr.com/">happygitwitR</a> by Jenny Bryant.</li>
-<li>I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use <a href="https://www.gitkraken.com/">GitKraken</a> which has a fully functional free version. Jenny has a few other recommendations in her book.</li>
-<li>The course materials website (this one) is a public Github repository. You can see all the files that make up this website <a href="https://github.com/andreashandel/MADAcourse">here</a>, the website itself is: <a href="https://andreashandel.github.io/MADAcourse/" class="uri">https://andreashandel.github.io/MADAcourse/</a></li>
+<li><strong>A great resource to learn Git/Github with R is <a href="https://happygitwithr.com/">happygitwitR</a> by Jenny Bryant.</strong></li>
+<li><strong>I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use <a href="https://www.gitkraken.com/">GitKraken</a> which has a fully functional free version.</strong> Jenny has a few other recommendations in her book.</li>
+<li>The course materials website (this one) is a public Github repository. If you are curious, <a href="https://github.com/andreashandel/MADAcourse">you can look at all the files that make up this website</a>.</li>
 <li>For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called <em>epid8060fall2019</em>, you can find it <a href="https://github.com/epid8060fall2019">here</a>. Note that you need to be a group member.</li>
 </ul>
 </div>
 <div id="books" class="section level1">
 <h1>Books</h1>
 <ul>
-<li><a href="https://rafalab.github.io/dsbook/">Introduction to Data Science (IDS)</a> is the book we’ll use the most in this course. You will be assigned differet chapters to read and work through.</li>
+<li><strong><a href="https://rafalab.github.io/dsbook/">Introduction to Data Science (IDS)</a> is the book we’ll use the most in this course. You will be assigned different chapters to read and work through.</strong></li>
 <li><a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> teaches some coding integrated with the material covered in the book. Very good and worth checking out often.</li>
 <li><a href="http://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).</li>
 <li><a href="https://bradleyboehmke.github.io/HOML/">Hands-on Machine Learning with R</a>. Good discussion of various analysis methods/approaches.</li>
 <li><a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> - you can get it for free.</li>
+<li><a href="https://moderndive.com">ModernDive - Statistical Inference via Data Science</a></li>
 </ul>
 </div>
 <div id="online-courses" class="section level1">
@@ -482,7 +522,7 @@ div.tocify {
 <div id="hands-oninteractive-resources" class="section level1">
 <h1>Hands-on/interactive resources</h1>
 <ul>
-<li><a href="https://rstudio.cloud/learn/primers">Online Tutorials (primers) by Rstudio</a> - we’ll do several of those in the class.</li>
+<li><strong><a href="https://rstudio.cloud/learn/primers">Online Tutorials (primers) by Rstudio</a> - we’ll do several of those in the class.</strong></li>
 <li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice</li>
 <li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.</li>
 </ul>
@@ -492,8 +532,8 @@ div.tocify {
 <p>Many R/data science courses/instructors post materials online. Here are a few I know of:</p>
 <ul>
 <li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
-<li><a href="http://jtleek.com/advdatasci/index.html">Advanced Data Science</a></li>
-<li></li>
+<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
+<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
 </ul>
 </div>
 <div id="lists-and-other-sources" class="section level1">
@@ -525,49 +565,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

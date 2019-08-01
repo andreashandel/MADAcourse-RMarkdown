@@ -35,7 +35,7 @@ All materials described below are (should be) freely available online. If you ca
 * [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).
 * [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/). Good discussion of various analysis methods/approaches.
 * [R Programming for Data Science](https://leanpub.com/rprogramming) - you can get it for free.
-
+* [ModernDive - Statistical Inference via Data Science](https://moderndive.com) 
 
 # Online courses
 
@@ -54,7 +54,8 @@ All materials described below are (should be) freely available online. If you ca
 Many R/data science courses/instructors post materials online. Here are a few I know of:
 
 * [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
-* [Advanced Data Science](http://jtleek.com/advdatasci/index.html)
+* Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
+* [Data science for economists](https://github.com/uo-ec607/lectures)
 
 # Lists and other sources
 

@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-07-31" />
+<meta name="date" content="2019-08-01" />
 
 <title>MADA Fall 2019 - Topic Introduction</title>
 
@@ -105,7 +104,7 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -324,9 +323,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -530,7 +568,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-07-31</h4>
+<h4 class="date">2019-08-01</h4>
 
 </div>
 
@@ -602,7 +640,8 @@ Individuals who participate in TidyTuesday often post their projects online <a h
 </div>
 <div id="research-project" class="section level2">
 <h2>Research Project</h2>
-<p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, <a href="">here is the Github repository of a recent project/paper by Brian McKay (one of the grad students in my group)</a>.</p>
+<p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay (one of the grad students in my group). His paper is currently under review.</p>
+<p><a href="https://github.com/epid8060fall2019/Virulence_Project">This is the link to the Github repository which contains all files of this project/paper.</a> You need to have joined the epid8060fall2019 organization for you to be able to access this link. If you haven’t done yet, go through the <em>Github</em> materials to figure out how. The repository contains brief instructions describing how you can reproduce all of his analyses and reproduce his complete manuscript. As you will see, it is simply a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
 </div>
 </div>
 
@@ -624,49 +663,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
