@@ -56,6 +56,8 @@ Try installing a package yourself. Open RStudio. Then go to the R promt (the `>`
 install.packages('DSAIDE')
 ```
 
+__Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer, it will likely show up in the quiz.__ 
+
 
 In RStudio, you can also install (and update/remove) packages by clicking on the 'Packages' tab in the bottom right window. 
 

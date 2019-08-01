@@ -85,7 +85,9 @@ Again, most or all of the R code might not make sense to you just yet. That's ok
 
 ## Research Project
 
-Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, [here is the Github repository of a recent project/paper by Brian McKay (one of the grad students in my group)](). 
+Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I'm sharing a recent project/paper by Brian McKay (one of the grad students in my group). His paper is currently under review.
+
+[This is the link to the Github repository which contains all files of this project/paper.](https://github.com/epid8060fall2019/Virulence_Project) You need to have joined the epid8060fall2019 organization for you to be able to access this link. If you haven't done yet, go through the _Github_ materials to figure out how. The repository contains brief instructions describing how you can reproduce all of his analyses and reproduce his complete manuscript. As you will see, it is simply a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you'll learn and use in this class.
 
 
 
