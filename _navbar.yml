@@ -40,6 +40,8 @@ left:
       - text: "8. Exploring data"
   - text: "Projects"
     menu:
+       - text: "Introducing ourselves"
+         href: ./Introducing_Ourselves.html
        - text: "Tidy Tuesday Projects"
          href: ./Tidy_Tuesday.html
        - text: "Main Project Introduction"

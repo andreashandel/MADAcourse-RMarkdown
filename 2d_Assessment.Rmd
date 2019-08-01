@@ -1,5 +1,5 @@
 ---
-title: MADA Fall 2019 - Course Introduction Assessment 
+title: MADA Fall 2019 - Course Tools Assessment 
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -10,50 +10,11 @@ output:
     toc_depth: 3
 ---
 
-# Overview
+# Module Assessments
 
-This module got you started with all the important tools. Let's try to apply it in a small but also comprehensive exercise. For this module, you need to do a small project that shows you have R/Studio/Rmarkdown and Github running and it will also introduce you to your classmates.
+Make sure you've gone through all the content for modules 2.
 
-For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc). I'm confident with a bit of trial and error, you'll get it to work.
+The assessment for this module is a project for which you'll be using Github, R, RStudio and Rmarkdown to post a short personal introduction of yourself. 
 
-
-# Github setup
-* If not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join. 
-* Once you are part of the organization, go to [its website](https://github.com/epid8060fall2019) and create a new repository named _YOURGITHUBNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Choose if you want the repository to be private or public. Check the box _Initialize this repository with a README_. Leave the other options at _none_.
-* Click on your new repository. Go to _Settings_ in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_ and switch it to _master_ from _none_. Don't choose a theme. 
-* Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use for this). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g. Dropbpox).
-
-# RStudio project setup
-* Open RStudio on your computer. Choose _File_, _New Project_, _Existing Directory_ and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e. the folder/repository called _YOURGITHUBNAME-introduction_. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with .Rproj ending and a README.md. 
-* Click to open the README.md file. It will only contain the name of your repository. Change the headline and call it "Introducing myself" (or something like that) and underneath write something like "This website contains a short introduction of _Your Name_."
-
-# RMarkdown content creation
-**For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) are likely useful.**
-
-* Choose _File_, _New File_, _R Markdown_. Give it a title like _YOUR NAME Introduction_, keep output format as HTML. A new file with some template content should show up. You can leave the top of the content in there, delete what comes after the first heading (`## R Markdown`).
-* Update the YAML header (the information in the block starting/ending with ---). Specifically, choose a layout theme. To figure out how to do that, check section 3.1.4 (as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g. date, author name, etc).
-* Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
-* Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
-* Finally, include a link to a picture/video/website/etc that is somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.
-* If you want, feel free to get creative and include other things. You can play with RMarkdown if you want, e.g. you can try to include some table or a video or...
-
-Save the file you just created as **index.Rmd** into the repository folder. You need to give it this name, otherwise the Github website display won't work. Then knit the file, you should see an index.html file show up.
-
-# Sending updates to Github
-* Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio. 
-* Go to the program you use for Github (I will assume that it's GitKraken, if you use something else the details might vary). I the top right of Gitkraken, there should be a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _master_ with the computer symbol be above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
-* Go back to github.com and to your repository website. Under _Settings_ and _Github Pages_ it should give you a URL at which your new website lives. Something like `https://epid8060fall2019.github.io/andreashandel-introduction/` (with my name switch with yours). Go to that website and it should show the introduction you just wrote.
-
-# Sharing your website
-* Go to eLC to the discussion forum called _Introduction_ and write a short post with a link to your website/repository you created.
-* Also, if you don't already, upload a picture of yourself to eLC. It's nice to see faces during the online discussions there.
-* As you read your classmates introductions, feel free to comment/reply using the eLC discussion board.
-
-_You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!_
-
-# Additional Information
-* If you want to keep making changes to your introduction, the workflow is first opening the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple local computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server.
-* If you like how fast you were able to create your own small website and want to learn more, 2 good resources are [the blogdown book](https://bookdown.org/yihui/blogdown/) and [the Rmarkdown website chapter](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files [here](https://github.com/ahgroup/ahgroupwebsite). The course website is simpler and uses the RStudio/Rmarkdown website setup. You can look at all these files [here](https://github.com/andreashandel/MADAcourse).
-* You can get started with either a blogdown website or a simple Rmarkdown website through _File_, _New Project_, _New Directory_ and then choosing the option you want.
-
+A detailed description and instructions is provided as [Introducing OUrselves](./Introducing_Ourselves.html) in the _Projects_ section.
 
