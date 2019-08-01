@@ -451,6 +451,9 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
       <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
     </li>
     <li>
@@ -483,29 +486,33 @@ div.tocify {
 </div>
 
 
-<div id="overview" class="section level2">
-<h2>Overview</h2>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
 <p>This document gives a brief explanation of TidyTuesday and how we will use it for this course.</p>
 </div>
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
 <li>Know what TidyTuesday is and how to get the data</li>
 <li>Know how your TidyTuesday project will work</li>
 </ul>
 </div>
-<div id="tidytuesday" class="section level2">
-<h2>TidyTuesday</h2>
-<p>An interesting initiative is <a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays</a>, where every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a> and individuals are encouraged to analyze it.</p>
-<p>Twice in this course, you are assigned to perform a TidyTuesdays analysis yourself. Currently, the plan is that you will get the dataset released on Tuesday Sept 1st and on</p>
+<div id="what-is-tidytuesday" class="section level1">
+<h1>What is Tidytuesday</h1>
+<p><a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays</a> is an interesting initiative by the R data science community. Every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a>. Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e. tidying) and exploring the data, though people sometimes do statistical analyses as well.</p>
+<p>If you are curious how these datasets look, check out one of the already posted datasets. For instance the wine ratings dataset you saw in the introductory lesson <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28">can be found here</a>.</p>
+<p>You have already seen one TidyTuesday analysis as one of the introductory examples. For more examples of previous analyses, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a> which scans twitter for posts mentioning <code>#tidytuesday</code>.</p>
 </div>
-<div id="tidytuesday-logistics" class="section level2">
-<h2>TidyTuesday logistics</h2>
+<div id="tidytuesday-class-projects" class="section level1">
+<h1>TidyTuesday class projects</h1>
+<p>The current plan is that twice in this course, you will perform a TidyTuesdays analysis. The schedule shows the 2 weeks/modules during which we’ll be participating in tidytuesday. For the first analysis, the focus is on getting, cleaning and exploring the data and producing a few figures/tables. For the TidyTuesdays project, you will be asked to do some suitable statistical analysis.</p>
+<p>For each project, follow these steps.</p>
 <ul>
-<li>On the day the data is released, go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>, click in the data and download it. You will also be provided with a data dictionary. If you are curious how this looks, check out one of the already posted ones. For instance the wine ratings dataset you saw in the introductory lesson <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28">can be found here</a>.</li>
-<li>Create a repository for your analysis. You can do that inside the class organization if you want it to be private. If you don’t care, you can create the repository directly in your Github account. The repository should be viewable as webpage later, so you need to turn on Github pages. You can just follow the directions for the <code>Introducing yourself</code> project.</li>
-<li>Write an Rmd file that does some analysis of the data and produces some results (tables, figures). The focus is on exploratory analysis, however for your 2nd TidyTuesday project there needs to be some statistical analysis and model fitting. Once done, knit your Rmd file.</li>
-<li>By/before the deadline, post your project to your github repository, make sure the html file is displaying correctly. At the minimum, post the link to your project (both the html/website and the Rmd file) in the corresponding discussion board on eLC. If you are active on social media, you might also want to post an announcement of your project there. For examples of previous analyses and twitter posts, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a>.</li>
+<li><p>Create a new Github repository for each analysis. Call it <code>YOURNAME-tidytuesdayN</code> (where N is 1 or 2). You can do that inside the class organization if you want it to be private. If you don’t care, you can create the repository directly in your Github account. The repository should be viewable as webpage later, so you need to turn on Github pages. You can just follow the directions from the <code>Introducing yourself</code> project.</p></li>
+<li><p>On the day the data is released, i.e. the Tuesday of the week where we’ll participate, go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset of that week, read the instructions on how to get the data. You will also be provided with a data dictionary.</p></li>
+<li><p>Write an Rmd file that does some analysis of the data and produces some results (tables, figures). For the first analysis, you don’t need to implement any statistical models, but for the 2nd project you should. Once done, knit your Rmd file into an html file.</p></li>
+<li><p>By/before the deadline, post your project to your github repository, make sure the html file is displaying correctly. Your file should display as a website, exactly like we did for the <em>Introducing ourselves</em> project.</p></li>
+<li><p>Post the link to your project (both the html/website and the Rmd file) in the corresponding discussion board on eLC. If you are active on social media, you might also want to post an announcement of your project there.</p></li>
 </ul>
 </div>
 
