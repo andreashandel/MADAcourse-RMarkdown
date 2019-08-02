@@ -11,7 +11,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
 <title>Class Project Information</title>
 
@@ -404,7 +404,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessments</a>
+          <a href="./1c_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -421,7 +421,7 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessment.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -432,15 +432,35 @@ div.tocify {
           <a href="./3a_RBasics.html">R basics</a>
         </li>
         <li>
-          <a href="./3b_Assessment.html">Assessments</a>
+          <a href="./3b_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
     <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">9. Model performance assessment</li>
+    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">11. GLM and feature selection</li>
+    <li class="dropdown-header">12. Tree-based models and tuning</li>
+    <li class="dropdown-header">13. Various ML models</li>
+    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -454,13 +474,10 @@ div.tocify {
       <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
+      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main Project Introduction</a>
-    </li>
-    <li>
-      <a href="./Project_Template.html">Main Project Report Template</a>
+      <a href="./Project_Information.html">Main class project information</a>
     </li>
   </ul>
 </li>
@@ -481,7 +498,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Class Project Information</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-01</h4>
+<h4 class="date">2019-08-02</h4>
 
 </div>
 
@@ -517,8 +534,8 @@ div.tocify {
 <p>You will receive feedback from me and/or your classmates after each submission. * I will provide feedback on parts 1-3. * Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document. * Part 5 is the final submission.</p>
 <p>I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your <em>peer reviews</em> for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%.</p>
 </div>
-<div id="project-ideas-and-data-sources" class="section level1">
-<h1>Project Ideas and Data sources</h1>
+<div id="project-requirements" class="section level1">
+<h1>Project Requirements</h1>
 <p>You can pick your project topic and data source pretty much however you like. The only requirements are:</p>
 <ul>
 <li>Real world (messy) data.</li>
@@ -540,21 +557,25 @@ div.tocify {
 <p>I have a <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md">list of data sources I maintain (contributions welcome)</a>. Of course you are not limited to data listed there.</p>
 <p><em>Often, the most interesting questions can be asked by combining data from more than one source.</em></p>
 </div>
-<div id="logistics-and-formatting" class="section level2">
-<h2>Logistics and formatting</h2>
+</div>
+<div id="logistics-and-formatting" class="section level1">
+<h1>Logistics and formatting</h1>
 <p>Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.</p>
-<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf).</p>
-<p>You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders.</p>
+<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that’s ok too.</p>
+<p>You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report.</p>
 <p>For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.</p>
 <p>Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.</p>
-<ul>
-<li>I provided an R Markdown file with a suggested outline for the project.</li>
-<li>This is a suggestion, you don’t have to follow that structure, as long as you provide a complete report of your project.</li>
-</ul>
+<p>References should be included as a bibtex file and cited in the Rmd file. See the template for an example.</p>
 </div>
-<div id="r-markdown-and-your-project" class="section level2">
-<h2>R Markdown and your Project</h2>
+<div id="project-template" class="section level1">
+<h1>Project template</h1>
+<p>I created a Github repository which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Readme files are provided to explain what each folder should contain.</p>
+<p>Inside the <code>manuscript</code> folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.</p>
+<p>In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.</p>
 </div>
+<div id="project-communications" class="section level1">
+<h1>Project communications</h1>
+<p>Any communication regarding this project should happen in the corresponding eLC discussion. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.</p>
 </div>
 
 

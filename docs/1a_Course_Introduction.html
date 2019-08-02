@@ -11,7 +11,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
 <title>MADA Fall 2019 - Course Introduction</title>
 
@@ -404,7 +404,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessments</a>
+          <a href="./1c_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -421,7 +421,7 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessment.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -432,15 +432,35 @@ div.tocify {
           <a href="./3a_RBasics.html">R basics</a>
         </li>
         <li>
-          <a href="./3b_Assessment.html">Assessments</a>
+          <a href="./3b_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
     <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">9. Model performance assessment</li>
+    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">11. GLM and feature selection</li>
+    <li class="dropdown-header">12. Tree-based models and tuning</li>
+    <li class="dropdown-header">13. Various ML models</li>
+    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -454,13 +474,10 @@ div.tocify {
       <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
+      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main Project Introduction</a>
-    </li>
-    <li>
-      <a href="./Project_Template.html">Main Project Report Template</a>
+      <a href="./Project_Information.html">Main class project information</a>
     </li>
   </ul>
 </li>
@@ -481,7 +498,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-01</h4>
+<h4 class="date">2019-08-02</h4>
 
 </div>
 
@@ -492,7 +509,7 @@ div.tocify {
 </div>
 <div id="module-overview" class="section level1">
 <h1>Module Overview</h1>
-<p>This first unit (which in this course I call modules) provides a brief introduction to the topic, and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work.</p>
+<p>The course is divided into modules. Each module consists of one or several units. This first module provides a brief introduction to the topic, and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work.</p>
 <p>This module also provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course.</p>
 </div>
 <div id="module-learning-objectives" class="section level1">
@@ -567,12 +584,12 @@ div.tocify {
 <div id="course-setup" class="section level1">
 <h1>Course Setup</h1>
 <ul>
-<li>The course is split into different units, which I call modules. Each module will usually be covered in a week. The <a href="./Course_Schedule.html">schedule document</a> gives an outline. This schedule might change, so check frequently.</li>
-<li>Each module consists of one or several documents containing a mix of things I wrote, writings or videos by others, exercises, etc.</li>
+<li>The course is split into modules, each with one or several units. Each module will usually be covered in a week. The <a href="./Course_Schedule.html">schedule document</a> gives an outline. This schedule might change, so check frequently.</li>
+<li>Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc.</li>
 <li>All the material for this course is either on or accessed through this course website or (for quizzes) on eLC. Most material is not yet available, it will be added/unlocked as the course proceeds.</li>
 <li>Your grade is made up of online quizzes (20%), discussion/participation (20%), homework/small projects (20%) and a course long project (40%).</li>
 <li>Most modules have assessments (i.e. things you need to do for which you are graded). Due dates are usually Friday 5pm the week of the module, some might be at other times, e.g. the beginning or middle of the week. Each module contains a document with instructions and deadlines for the assessments.</li>
-<li>There is <em>Project</em> section on the website with information for the small and long projects.</li>
+<li>The <em>Projects</em> section on the website with information for the small projects and the semester-long class project.</li>
 <li><em>Syllabus</em> and <em>Schedule</em> documents are in the <em>General Information</em> section of the course website. The former document contains a lot of basic logistic/legal stuff, the latter provides an outline of the course content (subject to change).</li>
 </ul>
 </div>
@@ -589,10 +606,10 @@ div.tocify {
 </div>
 <div id="assessments" class="section level1">
 <h1>Assessments</h1>
-<p>Every module will have an <em>Assessments</em> document. This document describes what work you need to do that will be graded. Most weeks, there is an online quiz and some discussion question. Sometimes, there is a small project, there is also a course-long project.</p>
+<p>Every module will have an <em>Assessment</em> document. This document describes what work you need to do that will be graded. Most weeks, there is an online quiz and some discussion question. Sometimes, there is a small project, there is also a course-long project.</p>
 <div id="online-quizzes" class="section level2">
 <h2>Online quizzes</h2>
-<p>Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. <strong>Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won’t have enough time to start the quiz and then try to find the answers in the materials.</strong> Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes in the module I tell you to write down a specific answer. This means it’s likely going to be asked in the quiz.</p>
+<p>Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. <strong>Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won’t have enough time to start the quiz and then try to find the answers in the materials.</strong> Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to write down a specific answer. This means it’s likely going to be asked in the quiz.</p>
 </div>
 <div id="small-projects" class="section level2">
 <h2>Small projects</h2>

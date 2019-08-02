@@ -11,7 +11,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
 <title>Markdown and colleagues</title>
 
@@ -404,7 +404,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessments</a>
+          <a href="./1c_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -421,7 +421,7 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessment.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -432,15 +432,35 @@ div.tocify {
           <a href="./3a_RBasics.html">R basics</a>
         </li>
         <li>
-          <a href="./3b_Assessment.html">Assessments</a>
+          <a href="./3b_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
     <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">9. Model performance assessment</li>
+    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">11. GLM and feature selection</li>
+    <li class="dropdown-header">12. Tree-based models and tuning</li>
+    <li class="dropdown-header">13. Various ML models</li>
+    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -454,13 +474,10 @@ div.tocify {
       <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
+      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main Project Introduction</a>
-    </li>
-    <li>
-      <a href="./Project_Template.html">Main Project Report Template</a>
+      <a href="./Project_Information.html">Main class project information</a>
     </li>
   </ul>
 </li>
@@ -481,7 +498,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Markdown and colleagues</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-01</h4>
+<h4 class="date">2019-08-02</h4>
 
 </div>
 
@@ -518,36 +535,21 @@ This video provides a short discussion of some of the current problems with repr
 </p>
 <p>Roger Peng has additional videos related to reproducible research, <a href="https://www.youtube.com/playlist?list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf">a playlist of those videos can be found here.</a></p>
 </div>
+<div id="how-to-do-a-reproducible-analysis" class="section level1">
+<h1>How to do a reproducible analysis</h1>
+<p>Most importantly and fundamentally, <strong>document everything</strong>.</p>
+<p>Do all processing and analysis in a scripted and well documented manner. That means no Excel, no manual copy &amp; paste, no manual figure and table generation. All of these actions are not scripted or documented and as such not reproducible.</p>
+<p>Some further things to pay attention are the use of open standards (open data standards, open source software), recording of software versions used, time-stamping data, and setting a random number seed in your code.</p>
+<p>A reproducible analysis should also be <em>practically reproducible</em> not just <em>theoretically</em>. By that I mean if you provide code, but the code only runs on some specific computer system you used, then it’s not really reproducible for others. So while providing all data and code is a good first step, your goal should also be to make reproducibility easy for both the original producer of the results and the persons trying to reproduce.</p>
+</div>
 <div id="why-reproducibility-is-good-for-you" class="section level1">
 <h1>Why reproducibility is good for you</h1>
 <p>A reproducible analysis is automated. That can save you a lot of time. Initially, it seems that doing your analysis in a reproducible and automated manner takes more time and is more difficult, because you have to learn some new tools. That is true. However, once you are used to it, you will be much more efficient. Consider the case where you had some data in Excel, moved it into SAS to do an analysis and make some raw figures, opened them in Photoshop and spend a few hours making them look good. Then you or your collaborators realize that some of the data that should have been included in the analysis was not (or some data should not have been included). You need to re-create the raw figure and re-work it in Photoshop, likely spending a good bit of time. If you had an automated analysis, you could just press one (or a few) buttons and re-run everything. Also, automation makes it less likely that errors occur from copying data and intermediate results between programs. The case-study in the introductory unit is such an example, where everything was fully automated.</p>
 <p>Making an analysis reproducible also means you to document all your steps and what you do well. This not only helps others, but your <em>future you</em> will be very thankful. As analyses get more complex, the importance of documenting the process increases.</p>
 </div>
-<div id="reproducible-workflow" class="section level1">
-<h1>Reproducible Workflow</h1>
-<p>To make things reproducible, * Start with data that is “as raw as possible.” * Do all processing and analysis in a scripted, reproducible manner * Don’t save and manipulate “by hand” any intermediary results * Don’t use Excel (or similar)! * Avoid copy &amp; paste * Use non-proprietary file formats if possible</p>
-<div id="making-research-reproducible" class="section level2">
-<h2>Making Research Reproducible</h2>
-<ul>
-<li>If data sources are subject to changes, record timestamp of used data</li>
-<li>Set a random number seed</li>
-<li>Record versions of software &amp; hardware</li>
-<li><strong>Document everything</strong></li>
-</ul>
-</div>
-</div>
-<div id="making-reproducibility-easy" class="section level1">
-<h1>Making reproducibility easy</h1>
-<ul>
-<li>Providing all data and code is a good first step.</li>
-<li>Even if everything is available, it’s sometimes hard in practice to reproduce analyses.</li>
-<li>The goal is to make reproducibility easy for both the original producer of the results and the persons trying to reproduce.</li>
-<li>A good approach is to combine the computational part with the report/documentation (literate programming).</li>
-</ul>
-</div>
 <div id="tools-for-reproducible-analysis" class="section level1">
 <h1>Tools for reproducible analysis</h1>
-<p>Reproducible and automated analysis used to be difficult. This is not the case anymore. R, Github and related tools have made it fairly easy to set up a reproducible workflow. While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one stack of tools, namely (R)markdown &amp; Co.</p>
+<p>Reproducible and automated analysis used to be a good bit of extra work. This is not the case anymore. R, Github and related tools have made it fairly easy to set up a reproducible workflow. While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one stack of tools, namely (R)markdown &amp; Co.</p>
 <div id="markdown" class="section level2">
 <h2>Markdown</h2>
 <p>Markdown is a language/platform that allows you to write nice looking documents easily. The idea is that you write plain text documents with simple formatting, and then turn them into a lot of different output formats, e.g. HTML, PDF, Word, slides. You can apply layout and styling to those documents, which is done separately from the content. This means you can quickly switch between outputs. In our flow, the software in the background that turns our text documents into different formats is called <a href="https://pandoc.org/">Pandoc</a>. The good thing is, you really don’t need to care, it all happens (almost always) behind the scences.</p>

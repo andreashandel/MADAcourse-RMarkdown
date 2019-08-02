@@ -34,6 +34,7 @@ left:
           - text: "Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
+        menu:
           - text: "Data analysis overview"
             href: ./4a_Data_Analysis_Overview.html     
           - text: "Data analysis structure"
@@ -59,7 +60,5 @@ left:
          href: ./Tidy_Tuesday.html
        - text: "Main class project information"
          href: ./Project_Information.html
-       - text: "Main project report template"
-         href: ./Project_Template.html
   - text: "Resources"
     href: Resources.html

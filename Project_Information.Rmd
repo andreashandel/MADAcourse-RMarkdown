@@ -78,7 +78,15 @@ For all your submissions, you need to provide everything needed (data, code, etc
 
 Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.
 
-I provided an R Markdown template file with a suggested outline for the report write-up. I've also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.
+References should be included as a bibtex file and cited in the Rmd file. See the template for an example.
+
+# Project template
+
+I created a Github repository which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Readme files are provided to explain what each folder should contain. 
+
+Inside the `manuscript` folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.
+
+In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.
 
 # Project communications 
 Any communication regarding this project should happen in the corresponding eLC discussion. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.

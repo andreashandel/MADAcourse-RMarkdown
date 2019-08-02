@@ -1,0 +1,20 @@
+---
+title: MADA Fall 2019 - Types of Data
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+For this module, we will discuss different types of data, how to get them into R and how to analyze them.
+
+
+# Objectives
+
+

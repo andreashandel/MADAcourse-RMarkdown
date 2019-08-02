@@ -11,9 +11,9 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
-<title>MADA Fall 2019 - Topic Introduction</title>
+<title>MADA Fall 2019 - Data Analysis Overview</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -404,7 +404,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessments</a>
+          <a href="./1c_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -421,7 +421,7 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessment.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -432,15 +432,35 @@ div.tocify {
           <a href="./3a_RBasics.html">R basics</a>
         </li>
         <li>
-          <a href="./3b_Assessment.html">Assessments</a>
+          <a href="./3b_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
     <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">9. Model performance assessment</li>
+    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">11. GLM and feature selection</li>
+    <li class="dropdown-header">12. Tree-based models and tuning</li>
+    <li class="dropdown-header">13. Various ML models</li>
+    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -454,13 +474,10 @@ div.tocify {
       <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
+      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main Project Introduction</a>
-    </li>
-    <li>
-      <a href="./Project_Template.html">Main Project Report Template</a>
+      <a href="./Project_Information.html">Main class project information</a>
     </li>
   </ul>
 </li>
@@ -479,9 +496,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Data Analysis Overview</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-01</h4>
+<h4 class="date">2019-08-02</h4>
 
 </div>
 
@@ -493,18 +510,106 @@ div.tocify {
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Understand what broad types of analysis methods there are</li>
-<li>Be able to choose the right analysis to your problem</li>
-</ul>
-<div id="repeat---types-of-data-questions" class="section level2">
-<h2>Repeat - types of data questions</h2>
-<div id="doesnt-need-model-fitting" class="section level3">
-<h3>Doesn’t need model fitting:</h3>
-<ul>
-<li>Descriptive (always): What’s the data about</li>
-<li>Exploratory (almost always): Looking for patterns</li>
+<li>Understand the elements of a data analysis</li>
 </ul>
 </div>
+<div id="data-analysis-workflow" class="section level1">
+<h1>Data Analysis Workflow</h1>
+<p>The following figure provides a conceptual illustration of the whole data analysis workflow.</p>
+<p><img src="media/analysis-workflow.png" /></p>
+<p>The spiral is meant to indicate that while the different steps in an analysis are rarely linear, things do improve over time until you have the data and code in a form that everything fits and you can produce <em>final</em> results.</p>
+<p>In the introductory chapter of their great book R for data Science (R4DS), Garrett Grolemund and Hadley wickham have a similar diagram. <a href="https://r4ds.had.co.nz/introduction.html">Check out the figure and read their short introductory chapter (1.1.) here.</a></p>
+<p>Note that the process of getting the data ready for analysis goes by different names that people use interchangably. So when you hear or read words like <em>wrangling</em>, <em>cleaning</em>, <em>processing</em> or <em>tidying</em> it often means the same thing. Sometimes people try to distinguish, e.g. <em>tidying</em> could be used to get the data into something called tidy format (we’ll talk about that more later), while <em>processing</em> could mean things like dealing with outliers or missing values. In my figure above, I wrote those two terms as separate, while in the R4DS chapter and figure, they distinguish between tidying and transforming and together call them wrangling. You need to guess from the context what is meant, but often you can think of these terms as all meaning similar things.</p>
+<p>Let’s look at the different components of an analysis in more detail.</p>
+</div>
+<div id="question-data-match" class="section level1">
+<h1>Question &amp; Data Match</h1>
+<p>Maybe the most important challenge of a good scientific project (and thus an interesting and useful data analysis) is to find a combination of questions and data that lead to a project that is both both <em>interesting</em> and <em>doable</em>. One could argue that having a good question and suitable data to answer it is part of science/research but not strictly part of the analysis. However, for your data analyis to be meaningful, it is critical to get the question-data match right.</p>
+<p><strong>If you start with a boring (or dumb) question or with data that is essentially garbage/noise, or you have a bad question/data match, no part of your analysis matters!</strong></p>
+<p>There are different approaches of finding a question-data match. The classical one is to have a specific question or hypothesis, then design a study to collect data, and analyze the collected data to adress that specific question.</p>
+<p>If you have a question but you do not have the resources to collect data specifically to answer your question, you can look for existing data that might help you answer your question. Rarely will you find data that allows you to exactyl answer your initial question. But you might find data that allows you to answer a very similar question. You might need to iterate a few times by modifying your question and changing the datasets you use before you have a good match, i.e. a good question and data that allows you to answer it.</p>
+<p>Another approach that is becoming more common is to start with the data. You might come across one or multiple datasets that interest you. You can then investigate the data to see what questions you might be able to answer with it. Since the data was not collected to answer your specific question, you will have to be somewhat flexible with the question and let the data guide your analysis. This approach can be very powerful since more and more data are becoming available for analysis. The caveat is that if you poke any data hard enough, you will eventually find something <em>statistically significant</em> but you cannot interpret this in the same way as a <em>statistically significant</em> result obtained by pre-specifying the question, collecting data specifically to answer the question and analyzing the data to answer the initial question.</p>
+<p><a href="https://projects.fivethirtyeight.com/p-hacking/">This website provides a nice example</a> of a setting where you can torture your data by including/excluding different bits to get any kind of correlation you want.</p>
+</div>
+<div id="getting-and-loading-data" class="section level1">
+<h1>Getting and loading data</h1>
+<p>In some sense the best, but also the most money- and time-consuming way of getting data is to collect it yourself. Doing so ensures that the data can answer the question you have. You can also control the quality of the data that is being collected - at least to some extent. However, it is often not feasible to collect your own data. You might not have funding or time or interest to do so. The next best source of data is directly from someone who collected it. The advantage of such data is that you can ask someone for clarification. Also, the person who collected the data is likely a subject matter expert, which can lead to asking better questions. Finally, you can get data that is generally available, e.g. in some online resource. This gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification.</p>
+<p>No matter the source, you need to get the data into your favorite data analysis system (in our case that will be R). Sometimes, you get data in a format that can be read in easily, e.g. a comma-separated CSV file without any strange formatting that messes up import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets. The general rule is to do as little as possible</p>
+</div>
+<div id="cleaning-data" class="section level1">
+<h1>Cleaning Data</h1>
+<p>The amount of data cleaning (also called <em>tidying</em> or <em>wrangling</em>) you need to do depends very much on your data.</p>
+<p>A general rule is that you should never directly edit your raw data. If you can, load the raw data into R and do all cleaning inside R with code, so everyting is automatically reproducible and documented.</p>
+<p>Sometimes, you need to edit the files in the format you got. For instance, Excel files are sometimes so poorly formatted that it’s close to impossible to read them into R, or the persons you got the data from used color to code some information, which of course won’t import into R. In those cases, you might have to make modifications in a software other than R.</p>
+<p>If you can’t directly read the data into R and need to make some changes before, make copies of your raw data AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made.</p>
+<p>There are certain cleaning actions you will need to do with almost any dataset. You will have to find and deal with data entry errors. If the mistake is obvious, you can fix it. If you know the value is wrong but don’t know what it should be, you might need to discard that data. Sometimes you get data that seems way outside the range of all other values, but it is not obviously wrong. For instance if you had a group of individuals and their weights, a person with a weight of 8000 pounds is obviously not possible and a data entry. Someone with a 800 pound weight seems wrong, but <a href="https://en.wikipedia.org/wiki/Jon_Brower_Minnoch">it’s not completely impossible</a>. You will have to decide how to deal with such outliers, either during the cleaning or the analysis stage.</p>
+<p>In almost any datasets, some values are missing. First, you need to figure out how missing values are coded and what <em>missing</em> means. Sometimes an empty entry means it was not recorded. At other times, it could be that it is not appplicable. For instance on a survey that asks if someone ever smokes, and then as follow-up for how long, if they say they never smoked, the “how long” question is moot and might be empty. For your analysis you might want to code it as duration of 0. We’ll discuss in more detail how to deal with missing values later in the course.</p>
+<p>As you do all the cleaning, you need to get your data into a shape that is ready for analysis. If you apply more than one analytic method, you might need different clean versions of your dataset.</p>
+</div>
+<div id="exploratory-data-analysis" class="section level1">
+<h1>Exploratory Data Analysis</h1>
+<p>To properly clean your data, you will already have to start exploring it.</p>
+<ul>
+<li>Look at summaries for individual variables</li>
+<li>Slice and dice your data any way you can think of</li>
+<li>Plot everything!</li>
+<li>“Get to know” your data</li>
+</ul>
+<p><strong>Checkpoint:</strong> Hopefully you’ll figure out at this stage at the latest if your project is feasible or not, i.e. if you can use the data to answer your question. If not, alter or abandon. Don’t keep going hoping against all hope that “magic might happen” and you’ll get a good final product after all.</p>
+</div>
+<div id="pre-process-data" class="section level1">
+<h1>Pre-process Data</h1>
+<p>Additional data processing could be considered part of the cleaning process, or you can think of it as a separate step. Depending on the analytic method you use, some further data processing might be suitable. For instance some methods work better if you center and scale your predictors. Some methods, such as linear models and related approaches, are not able to handle missing values, so you need to decide how to deal with those. Sometimes it might be good to not include all variables in your model, or to use the existing variables to create new ones (e.g. instead of including height and weight in your model, you might decide to compute BMI and use that variable in your model instead.) The specific pre-processing steps that need to happen depends on the statistical modeling approach(es) you plan on using.</p>
+</div>
+<div id="analyzing-data" class="section level1">
+<h1>Analyzing Data</h1>
+<p>You finally reached the step where you can apply actual statistical analysis to your data. This topic takes up the majority of time in most (bio)statistics courses. While it is obviously very important to get the statistical analysis right, for any real data analysis you will likely spend &lt;25% of your time on this task, the majority of your time (though not computing time) goes into the other tasks.</p>
+<p>At this stage in the process you should now your data well enough to apply statistical methods and approaches that are suitable for your data and question. You can either use a single approach, or explore multiple different ones. As you will see in this class, trying more than one approach is quite easy. If you try multiple models, you need to be careful to not overfit by only picking and reporting the models and analyses that give you the results you want. If you analyze data multiple ways, report all results.</p>
+</div>
+<div id="evaluate-results" class="section level1">
+<h1>Evaluate Results</h1>
+<ul>
+<li>Do the results make sense?</li>
+<li>Is the model appropriate for the data? (Use graphs to check)</li>
+<li>Anything that could have gone wrong?</li>
+</ul>
+</div>
+<div id="reporting-your-results" class="section level1">
+<h1>Reporting your results</h1>
+<ul>
+<li>Figures</li>
+<li>Tables</li>
+<li>Manuscript</li>
+<li>Concise but complete</li>
+<li>Supplementary materials allow you to give as much detail as needed</li>
+<li>Reproducibility is important</li>
+</ul>
+</div>
+<div id="ideal-versus-real-workflow" class="section level1">
+<h1>Ideal versus real workflow</h1>
+<ul>
+<li>Theoretically/ideally, the data analysis workflow is one-directional</li>
+<li>In reality, there are often back and forths.</li>
+<li>Some things that might happen:
+<ul>
+<li>Running analysis shows that cleaning/pre-processing wasn’t adequate</li>
+<li>Changing analysis method requires different kinds of cleaning and pre-processing.</li>
+<li>Evaluating results indicates that something ‘isn’t quite right’ and needs to be fixed</li>
+<li>Multiple variations of the analysis based on better understanding how to best present results</li>
+</ul></li>
+</ul>
+<p><strong>Having the whole analysis reproducible and well documented is important</strong></p>
+</div>
+<div id="data-analysis-types" class="section level1">
+<h1>Data Analysis Types</h1>
+<p>No matter what analysis you do, you will need to do the steps of getting and cleaning/processing/wrangling the data. You also always want to explore your data. After that, the further analyis steps you do depend on your goals.</p>
+<p>The simplest analysis is a <strong>descriptive</strong> one. At that stage, you process, summarize and present the data, and do not go further. Here, you don’t need to fit any statistical models.</p>
+<ul>
+<li><strong>Analytical/Inferential:</strong> “Statistical Probing” of patterns. e.g. Hypothesis is that there is a negative correlation between age and measles incidence, or that there is a difference between males and females. We can use the right data and model to test if that’s true and how strong the correlation is.</li>
+<li><strong>Predictive:</strong> Given all kinds of information (e.g. gender, age), try to predict future risk of measles infection.</li>
+<li><strong>Causal:</strong> Trying to show that ice cream causes measles. For that, data needs to be collected in the right way.</li>
+<li><strong>Mechanistic:</strong> Build a model that explicitly includes mechanisms of measles infection, e.g. a process by which an infected person transmits to a non-infected person.</li>
+</ul>
 <div id="needs-model-fitting" class="section level3">
 <h3>Needs model fitting:</h3>
 <ul>
@@ -515,7 +620,6 @@ div.tocify {
 <li><strong>Predictive: Use information on inputs to predict outputs</strong></li>
 <li>Mechanistic: Can be used with the right kind of data and models, both in an inferential and predictive way</li>
 </ul>
-</div>
 </div>
 <div id="why-fit-models" class="section level2">
 <h2>Why fit models</h2>
@@ -645,10 +749,6 @@ From: “An Introduction to Statistical Learning with Applications in R” (ISLR
 </ul>
 <p>For some of those models, writing down the equation that connects Y with the <span class="math inline">\(X_i\)</span> is often hard or impossible. Instead, the model is described by an algorithm.</p>
 </div>
-<div id="continuous-modeling-approaches---r-practice" class="section level2">
-<h2>Continuous modeling approaches - R practice</h2>
-<p>Get “ContinuousModels1.Rmd” and work through it.</p>
-</div>
 <div id="categorical-modeling-approaches" class="section level2">
 <h2>Categorical modeling approaches</h2>
 <p>We formulate a model generally as: <span class="math inline">\(g(Y)=f(X_1,X_2,...)+e\)</span></p>
@@ -669,10 +769,6 @@ From: “An Introduction to Statistical Learning with Applications in R” (ISLR
 <li>…</li>
 </ul>
 <p>Again, for some of these models, we can’t formulate an equation, but we can describe the algorithm.</p>
-</div>
-<div id="categorical-modeling-approaches---r-practice" class="section level2">
-<h2>Categorical modeling approaches - R practice</h2>
-<p>Get “CategoricalModels1.Rmd” and work through it.</p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>

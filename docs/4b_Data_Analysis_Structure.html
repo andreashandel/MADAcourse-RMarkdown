@@ -11,9 +11,9 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-01" />
+<meta name="date" content="2019-08-02" />
 
-<title>Example Template for Data Analysis Project Report</title>
+<title>MADA Fall 2019 - Structure of a Data Analysis</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -259,7 +259,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
@@ -404,7 +404,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessments</a>
+          <a href="./1c_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -421,7 +421,7 @@ div.tocify {
           <a href="./2c_ToolsforReproducibility.html">RMarkdown &amp; Co</a>
         </li>
         <li>
-          <a href="./2d_Assessment.html">Assessments</a>
+          <a href="./2d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -432,15 +432,35 @@ div.tocify {
           <a href="./3a_RBasics.html">R basics</a>
         </li>
         <li>
-          <a href="./3b_Assessment.html">Assessments</a>
+          <a href="./3b_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">4. Data analysis overview</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
     <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">9. Model performance assessment</li>
+    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">11. GLM and feature selection</li>
+    <li class="dropdown-header">12. Tree-based models and tuning</li>
+    <li class="dropdown-header">13. Various ML models</li>
+    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -454,13 +474,10 @@ div.tocify {
       <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">Tidy Tuesday Projects</a>
+      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main Project Introduction</a>
-    </li>
-    <li>
-      <a href="./Project_Template.html">Main Project Report Template</a>
+      <a href="./Project_Information.html">Main class project information</a>
     </li>
   </ul>
 </li>
@@ -479,45 +496,19 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Example Template for Data Analysis Project Report</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Structure of a Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-01</h4>
+<h4 class="date">2019-08-02</h4>
 
 </div>
 
 
-<div id="summaryabstract" class="section level1">
-<h1><span class="header-section-number">1</span> Summary/Abstract</h1>
-<p><em>Write a summary of your project.</em></p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we’ll discuss how to structure a data analysis.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">2</span> Introduction</h1>
-<div id="general-background-information" class="section level2">
-<h2><span class="header-section-number">2.1</span> General Background Information</h2>
-<p><em>Provide enough background on your topic that others can understand the why and how of your analysis</em></p>
-</div>
-<div id="description-of-data-and-data-source" class="section level2">
-<h2><span class="header-section-number">2.2</span> Description of data and data source</h2>
-<p><em>Give an overview of what the data is, what it contains, where it’s from, etc.</em></p>
-</div>
-<div id="questionshypotheses-to-be-addressed" class="section level2">
-<h2><span class="header-section-number">2.3</span> Questions/Hypotheses to be addressed</h2>
-<p><em>State the research questions you plan to answer with this analysis</em></p>
-<p>#Methods <em>Note that in a research paper, this section is often (too) short. Here, you need to provide everything to allow full reproducibiliy for the reader.</em></p>
-<p>##Data aquisition <em>As applicable, explain where and how you got the data. If you directly import the data from an online source, you can combine this section with the next.</em></p>
-<p>##Data import and cleaning <em>Write code that reads in the file and cleans it (some) so it’s ready for exploratory analysis.</em></p>
-<p>##Exploratory Analysis <em>Use a combination of text output and figures to explore your data. As you do so and find issues with your data (e.g. wrong entries, need to convert variables to different types, etc.), continue cleaning the data.</em></p>
-<p>###Exploration of outcome <em>Use graphical and non-graphical approaches to get a good understanding of any variable you plan to use as outcome in your analysis</em></p>
-<p>###Exploration of main predictor/exposure <em>If you have one or several predictor variables that you are especially interested in, explore them here</em></p>
-<p>###Exploration of other predictors <em>Look at other predictors of interest, their relation to the outcome and to each other</em></p>
-<p>##Further Pre-processing <em>Further clean and process your data to ready it for final analysis. This can involve steps such as removing any NA values, making sure all variables are coded properly (factors, numeric, etc.), collinear and/or near-zero variance variables are removed, etc. The specific steps taken will depend on the method you use in your formal analysis.</em></p>
-<p>##Formal analysis <em>Perform your formal analysis using a suitable statistical/machine learning method.</em></p>
-<p>##Final results <em>Produce meaningful figures, tables, etc for your final results.</em></p>
-<p>#Discussion</p>
-<p>##Summary and Interpretation <em>Discuss what you did and what you found</em></p>
-<p>##Strengths and Limitations <em>Discuss what you perceive as strengths and limitations of your analysis.</em></p>
-<p>##Conclusions <em>What’s the take-home message?</em></p>
-</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 </div>
 
 
