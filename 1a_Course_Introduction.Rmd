@@ -15,7 +15,7 @@ Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed a
 
 
 # Module Overview
-This first unit (which in this course I call modules) provides a brief introduction to the topic, and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work. 
+The course is divided into modules. Each module consists of one or several units. This first module provides a brief introduction to the topic, and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work. 
 
 This module also provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course.
 
@@ -102,12 +102,12 @@ __I hope this course is going to be useful, interesting, fun and also interactiv
 
 
 # Course Setup
-* The course is split into different units, which I call modules. Each module will usually be covered in a week. The [schedule document](./Course_Schedule.html) gives an outline. This schedule might change, so check frequently.
-* Each module consists of one or several documents containing a mix of things I wrote, writings or videos by others, exercises, etc. 
+* The course is split into modules, each with one or several units. Each module will usually be covered in a week. The [schedule document](./Course_Schedule.html) gives an outline. This schedule might change, so check frequently.
+* Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc. 
 * All the material for this course is either on or accessed through this course website or (for quizzes) on eLC. Most material is not yet available, it will be added/unlocked as the course proceeds.
 * Your grade is made up of online quizzes (20%), discussion/participation (20%), homework/small projects (20%) and a course long project (40%). 
 * Most modules have assessments (i.e. things you need to do for which you are graded). Due dates are usually Friday 5pm the week of the module, some might be at other times, e.g. the beginning or middle of the week. Each module contains a document with instructions and deadlines for the assessments.
-* There is _Project_ section on the website with information for the small and long projects.
+* The _Projects_ section on the website with information for the small projects and the semester-long class project.
 * _Syllabus_ and _Schedule_ documents are in the _General Information_ section of the course website. The former document contains a lot of basic logistic/legal stuff, the latter provides an outline of the course content (subject to change).
 
 # Course Tools
@@ -120,10 +120,10 @@ This is a brief overview of the tools we will be using for this class. The next 
 * We will use eLC for discussions, help and quizzes.
 
 # Assessments
-Every module will have an _Assessments_ document. This document describes what work you need to do that will be graded. Most weeks, there is an online quiz and some discussion question. Sometimes, there is a small project, there is also a course-long project. 
+Every module will have an _Assessment_ document. This document describes what work you need to do that will be graded. Most weeks, there is an online quiz and some discussion question. Sometimes, there is a small project, there is also a course-long project. 
 
 ## Online quizzes
-Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes in the module I tell you to write down a specific answer. This means it's likely going to be asked in the quiz. 
+Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to write down a specific answer. This means it's likely going to be asked in the quiz. 
 
 ## Small projects
 These projects are part of a single module, and are due at the last day of the module. They are described in more detail in the _Projects_ section. Currently planned are 2 TidyTuesday projects.

@@ -17,8 +17,8 @@ This document gives a brief explanation of TidyTuesday and how we will use it fo
 * Know what TidyTuesday is and how to get the data
 * Know how your TidyTuesday project will work
 
-# What is Tidytuesday 
-[TidyTuesdays](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/) is an interesting initiative by the R data science community. Every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday). Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e. tidying) and exploring the data, though people sometimes do statistical analyses as well. 
+# What is TidyTuesday 
+[TidyTuesday](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/) is an interesting initiative by the R data science community. Every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday). Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e. tidying) and exploring the data, though people sometimes do statistical analyses as well. 
 
 If you are curious how these datasets look, check out one of the already posted datasets. For instance the wine ratings dataset you saw in the introductory lesson [can be found here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28).
 
@@ -26,11 +26,11 @@ You have already seen one TidyTuesday analysis as one of the introductory exampl
 
 
 # TidyTuesday class projects
-The current plan is that twice in this course, you will perform a TidyTuesdays analysis. The schedule shows the 2 weeks/modules during which we'll be participating in tidytuesday. For the first analysis, the focus is on getting, cleaning and exploring the data and producing a few figures/tables. For the TidyTuesdays project, you will be asked to do some suitable statistical analysis.
+The current plan is that twice in this course, we will analyze a TidyTuesday dataset. The schedule shows the 2 weeks/modules during which we'll be participating in tidytuesday. For the first analysis, the focus is on getting, cleaning and exploring the data and producing a few figures/tables. For the TidyTuesdays project, you also need to do some suitable statistical analysis.
 
 For each project, follow these steps.
 
-* Create a new Github repository for each analysis. Call it `YOURNAME-tidytuesdayN` (where N is 1 or 2). You can do that inside the class organization if you want it to be private. If you don't care, you can create the repository directly in your Github account. The repository should be viewable as webpage later, so you need to turn on Github pages. You can just follow the directions from the `Introducing yourself` project.
+* Create a new Github repository for each analysis. Call it `YOURNAME-tidytuesdayN` (where N is 1 or 2). You can do that inside the class organization if you want it to be private. If you don't care, you can create the repository directly in your Github account. The repository should be viewable as webpage later, so you need to turn on Github pages. You can follow the directions from the `Introducing ourselves` project.
 
 * On the day the data is released, i.e. the Tuesday of the week where we'll participate, go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset of that week, read the instructions on how to get the data. You will also be provided with a data dictionary. 
 
@@ -38,6 +38,7 @@ For each project, follow these steps.
 
 * By/before the deadline, post your project to your github repository, make sure the html file is displaying correctly. Your file should display as a website, exactly like we did for the _Introducing ourselves_ project. 
 
-* Post the link to your project (both the html/website and the Rmd file) in the corresponding discussion board on eLC. If you are active on social media, you might also want to post an announcement of your project there. 
+* Post the link to your project (both the html/website and the Rmd file) in the corresponding discussion board (i.e. TidyTuesdays 1/2) on eLC. If you are active on social media, you might also want to post an announcement of your project there. If you share your work publicly, you should make sure your Github repository is also set to be public.
 
+* For any help requests, post your questions to the discussion board for this project (i.e. TidyTuesdays 1/2). 
 

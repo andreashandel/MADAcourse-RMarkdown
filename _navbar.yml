@@ -15,7 +15,7 @@ left:
             href: ./1a_Course_Introduction.html
           - text: "Topic intro"
             href: ./1b_Topic_Introduction.html
-          - text: "Assessments"
+          - text: "Assessment"
             href: ./1c_Assessment.html
       - text: "2. Coures Tools"
         menu:
@@ -25,28 +25,41 @@ left:
             href: ./2b_Github.html
           - text: "RMarkdown & Co"
             href: ./2c_ToolsforReproducibility.html
-          - text: "Assessments"
+          - text: "Assessment"
             href: ./2d_Assessment.html
       - text: "3. R basics"
         menu:
           - text: "R basics"
             href: ./3a_RBasics.html     
-          - text: "Assessments"
+          - text: "Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
+          - text: "Data analysis overview"
+            href: ./4a_Data_Analysis_Overview.html     
+          - text: "Data analysis structure"
+            href: ./4b_Data_Analysis_Structure.html     
+          - text: "Assessment"
+            href: ./4c_Assessment.html
       - text: "5. Pondering and getting data"
       - text: "6. Wrangling data"
       - text: "7. Visualizing data"
       - text: "8. Exploring data"
+      - text: "9. Model performance assessment"
+      - text: "10. Model quality assessment"
+      - text: "11. GLM and feature selection"
+      - text: "12. Tree-based models and tuning"
+      - text: "13. Various ML models"
+      - text: "14. A complete analysis"
+      - text: "15. Deep learning, AI and Big data"
   - text: "Projects"
     menu:
        - text: "Introducing ourselves"
          href: ./Introducing_Ourselves.html
-       - text: "Tidy Tuesday Projects"
+       - text: "TidyTuesday projects"
          href: ./Tidy_Tuesday.html
-       - text: "Main Project Introduction"
+       - text: "Main class project information"
          href: ./Project_Information.html
-       - text: "Main Project Report Template"
+       - text: "Main project report template"
          href: ./Project_Template.html
   - text: "Resources"
     href: Resources.html

@@ -1,0 +1,23 @@
+---
+title: MADA Fall 2019 - Structure of a Data Analysis
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+# Overview
+In this unit, we'll discuss how to structure a data analysis.
+
+
+# Learning Objectives

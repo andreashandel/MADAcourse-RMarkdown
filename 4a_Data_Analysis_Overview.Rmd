@@ -1,5 +1,5 @@
 ---
-title: MADA Fall 2019 - Topic Introduction 
+title: MADA Fall 2019 - Data Analysis Overview
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -21,15 +21,115 @@ In this module, we will talk about the whole data analysis workflow in a general
 
 
 # Learning Objectives
-*	Understand what broad types of analysis methods there are
-*	Be able to choose the right analysis to your problem
+*	Understand the elements of a data analysis  
 
 
-## Repeat - types of data questions
+# Data Analysis Workflow
+The following figure provides a conceptual illustration of the whole data analysis workflow.
 
-### Doesn't need model fitting:
-* Descriptive (always): What's the data about
-* Exploratory (almost always): Looking for patterns
+![](./media/analysis-workflow.png)
+
+The spiral is meant to indicate that while the different steps in an analysis are rarely linear, things do improve over time until you have the data and code in a form that everything fits and you can produce _final_ results.
+
+In the introductory chapter of their great book R for data Science (R4DS), Garrett Grolemund and Hadley wickham have a similar diagram. 
+[Check out the figure and read their short introductory chapter (1.1.) here.](https://r4ds.had.co.nz/introduction.html)
+
+Note that the process of getting the data ready for analysis goes by different names that people use interchangably. So when you hear or read words like _wrangling_, _cleaning_, _processing_ or _tidying_ it often means the same thing. Sometimes people try to distinguish, e.g. _tidying_ could be used to get the data into something called tidy format (we'll talk about that more later), while _processing_ could mean things like dealing with outliers or missing values. In my figure above, I wrote those two terms as separate, while in the R4DS chapter and figure, they distinguish between tidying and transforming and together call them wrangling. You need to guess from the context what is meant, but often you can think of these terms as all meaning similar things.
+
+Let's look at the different components of an analysis in more detail.
+
+
+# Question & Data Match
+
+**If you start with a boring (or dumb) question or with data that is more or less garbage/noise, or you have a bad question/data match, no part of your analysis matters!**
+
+One could argue that having a good question and suitable data to answer it is part of science/research but not strictly part of the analysis. However, since data analyis is such an integral part of science, and most scientists do both parts, i.e. coming up with questions and data ana analyzing them, it is critical to get this right.
+
+* Option 1: Start with question, find suitable data
+* Option 2: Start with data, find suitable question
+* Option 3: Iterate between question & data until you have "a match" (most common)
+
+Challenge: To find questions (& data) that are both "big enough" (to be interesting) and "small enough" (to be doable)
+
+
+## Getting Data
+* Collect it yourself
+* Get it from a collaborator
+* Get it from some (online) database/resource
+
+
+## Cleaning Data
+* Deal with missing values
+* Deal with outliers
+* Deal with data entry errors
+* Turn data into a form ready for analysis
+* ...
+
+## Exploratory Data Analysis
+* Look at summaries for individual variables
+* Slice and dice your data any way you can think of
+* Plot everything!
+* "Get to know" your data
+
+**Checkpoint:** Hopefully you'll figure out at this stage at the latest if your project is feasible or not, i.e. if you can use the data to answer your question. If not, alter or abandon. Don't keep going hoping against all hope that "magic might happen" and you'll get a good final product after all.
+
+
+## Pre-process Data
+* Scaling
+* Centering
+* Removing variables or observations
+* Removing missing entries
+* Building new variables
+* ...
+
+The specific pre-processing steps that need to happen depends on the statistical modeling approach(es) you plan on using.
+
+## Analyzing Data
+* That's the part most (bio)statistics courses focus on
+* You usually spend <25% of your time on this task
+* Figure out which approach(es) are suitable for your data
+* Analysis method should be dictated by both data and question
+* If possible/useful, use multiple approaches
+* But beware of "cherry picking" the analyses that give you the results you want. If you analyze data multiple ways, report all results.
+
+
+## Evaluate Results
+* Do the results make sense?
+* Is the model appropriate for the data? (Use graphs to check)
+* Anything that could have gone wrong?
+
+## Reporting your results
+* Figures
+* Tables
+* Manuscript
+* Concise but complete
+* Supplementary materials allow you to give as much detail as needed
+* Reproducibility is important
+
+
+## Ideal versus real workflow
+* Theoretically/ideally, the data analysis workflow is one-directional
+* In reality, there are often back and forths.
+* Some things that might happen:
+    * Running analysis shows that cleaning/pre-processing wasn't adequate
+    * Changing analysis method requires different kinds of cleaning and pre-processing.
+    * Evaluating results indicates that something 'isn't quite right' and needs to be fixed
+    * Multiple variations of the analysis based on better understanding how to best present results
+
+**Having the whole analysis reproducible and well documented is important**
+
+
+
+# Data Analysis Types
+No matter what analysis you do, you will need to do the steps of getting and cleaning/processing/wrangling the data. You also always want to explore your data. After that, the further analyis steps you do depend on your goals.
+
+The simplest analysis is a **descriptive** one. At that stage, you process, summarize and present the data, and do not go further. Here, you don't need to fit any statistical models.
+
+* **Analytical/Inferential:** "Statistical Probing" of patterns. e.g. Hypothesis is that there is a negative correlation between age and measles incidence, or that there is a difference between males and females. We can use the right data and model to test if that's true and how strong the correlation is.
+* **Predictive:** Given all kinds of information (e.g. gender, age), try to predict future risk of measles infection.
+* **Causal:** Trying to show that ice cream causes measles. For that, data needs to be collected in the right way.
+* **Mechanistic:** Build a model that explicitly includes mechanisms of measles infection, e.g. a process by which an infected person transmits to a non-infected person. 
+
 
 ### Needs model fitting:
 * **Analytical/Inferential: Quantitatively understand relations between inputs/predictors/features and outputs/outcomes**
@@ -137,11 +237,6 @@ Many other models can be used for a continuous outcome:
 
 For some of those models, writing down the equation that connects Y with the $X_i$ is often hard or impossible. Instead, the model is described by an algorithm.
 
-
-## Continuous modeling approaches - R practice
-Get "ContinuousModels1.Rmd" and work through it.
-
-
 ## Categorical modeling approaches
 We formulate a model generally as: $g(Y)=f(X_1,X_2,...)+e$
 
@@ -163,9 +258,6 @@ Many other models can be used for categorical outcomes:
 
 Again, for some of these models, we can't formulate an equation, but we can describe the algorithm.
 
-
-## Categorical modeling approaches - R practice
-Get "CategoricalModels1.Rmd" and work through it.
 
 ## Summary
 * There are many different modeling approaches

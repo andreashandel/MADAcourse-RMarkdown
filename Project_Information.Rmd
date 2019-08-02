@@ -45,7 +45,7 @@ You will receive feedback from me and/or your classmates after each submission.
 I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%. 
 
 
-# Project Ideas and Data sources
+# Project Requirements
 You can pick your project topic and data source pretty much however you like. The only requirements are:
 
 * Real world (messy) data.
@@ -64,28 +64,22 @@ You can use any data you can get access to. Since it needs to be reproducible, y
 
 I have a [list of data sources I maintain (contributions welcome)](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md). Of course you are not limited to data listed there.
 
-
 _Often, the most interesting questions can be asked by combining data from more than one source._
 
 
-## Logistics and formatting
+# Logistics and formatting
 Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.
 
-The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf).
+The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that's ok too.
 
-You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders.
+You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report.
 
 For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.
 
 Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.
 
+I provided an R Markdown template file with a suggested outline for the report write-up. I've also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.
 
-* I provided an R Markdown file with a suggested outline for the project.
-* This is a suggestion, you don't have to follow that structure, as long as you provide a complete report of your project.
-
-
-
-## R Markdown and your Project
-
-
+# Project communications 
+Any communication regarding this project should happen in the corresponding eLC discussion. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.
 

@@ -16,6 +16,9 @@ You should by now be set up with all the tools we need, namely R, RStudio and Gi
 
 _For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc). I'm confident with a bit of trial and error, you'll get it to work._
 
+# Getting help
+If you get stuck (quite possible), use the venues I list in the [Resources document](./Resources.html). It is probably best to first post to the discussion board in the _Introducing Ourselves_ section, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly. 
+
 
 # Github setup
 * If not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join. 
@@ -27,7 +30,8 @@ _For those of you who are new to Github/R/Rmarkdown, this project makes you do a
 * Open RStudio on your computer. Choose _File_, _New Project_, _Existing Directory_ and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e. the folder/repository called _YOURNAME-introduction_. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with .Rproj ending and a README.md. 
 * In the future, if you want to edit your introduction site/project, click or double-click on the `.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Creating new projects as specific R projects has some advantages as to file paths and similar, therefore I recommend you do it that way, though haveing an `.Rproj` file is not strictly required.
 
-#Update your repository Readme file
+# Update your repository Readme file
+
 * Click to open the README.md file. It will only contain the name of your repository with a `#` sign in front. As you have learned or will in this project, the `#` represents a level 1 heading in Markdown. Change the headline and call it "Introducing myself" (or something like that). Underneath write something like "This website contains a short introduction of _Your Name_."
 * Go back to this repository on Github.com. Go back into _Settings_, scroll back down to _GitHub Pages_. You should see a message saying 'This repository is published at SOME-URL'. If it doesn't show, you might have to refresh your browser. 
 * Copy that URL and add a sentence to your Readme.md file that says `You can see the website [here](SOME-URL).` The bit at the end is markdown syntax for including a link in your document. It will later turn into a html website with a link that one can click on. You can see how this looks on [my introduction site](https://github.com/epid8060fall2019/andreashandel-introduction).
@@ -56,12 +60,10 @@ Save the file you just created as **index.Rmd** into the repository folder. You 
 
 _You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!_
 
-# Getting help
-* If you get stuck (quite possible), use the venues I list in the _Resources_ document. Probably best to first post on the discussion board (in the _Introducing Ourselves_ section, I'll be checking it frequently). You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly. 
 
 
 # Additional Information
-* If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server.
+* If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. __You will be using this workflow a lot__.
 * If you like how fast you were able to create your own small website and want to learn more, 2 good resources are [the blogdown book](https://bookdown.org/yihui/blogdown/) and [the Rmarkdown website chapter](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files [here](https://github.com/ahgroup/ahgroupwebsite). The course website is simpler and uses the RStudio/Rmarkdown website setup. You can look at all these files [here](https://github.com/andreashandel/MADAcourse).
 * You can get started with either a blogdown website or a simple Rmarkdown website through _File_, _New Project_, _New Directory_ and then choosing the option you want.
 

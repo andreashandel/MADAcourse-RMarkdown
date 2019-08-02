@@ -1,74 +1,68 @@
 ---
-title: "Example Template for Data Analysis Project Report"
+title: "Example Template for Data Analysis Project"
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
 date: "`r Sys.Date()`"
-output: 
-  html_document:
-    number_sections: TRUE 
+site: bookdown::bookdown_site
+documentclass: article
+output:
+  bookdown::word_document2: 
+    toc: false
+bibliography: references.bib
+csl: vancouver-superscript.csl
 ---
+
 
 # Summary/Abstract
 _Write a summary of your project._
 
-
-# Introduction
+# Introduction (required for part 1)
 
 ## General Background Information
 _Provide enough background on your topic that others can understand the why and how of your analysis_ 
 
 ## Description of data and data source
-_Give an overview of what the data is, what it contains, where it's from, etc._
+_Describe what the data is, what it contains, where it is from, etc._
 
 ## Questions/Hypotheses to be addressed
 _State the research questions you plan to answer with this analysis_
 
 
 
-#Methods 
-_Note that in a research paper, this section is often (too) short. Here, you need to provide everything to allow full reproducibiliy for the reader._
+# Methods and Results
+
+_In most research papers, results and methods are separate. You can combine them here if you find it easier. You are also welcome to structure things such that those are separate sections._
 
 
-##Data aquisition
+## Data aquisition
 _As applicable, explain where and how you got the data. If you directly import the data from an online source, you can combine this section with the next._
 
-##Data import and cleaning
-_Write code that reads in the file and cleans it (some) so it's ready for exploratory analysis._
+## Data import and cleaning
+_Write code that reads in the file and cleans it so it's ready for analysis. Since this will be fairly long code for most datasets, it might be a good idea to have it in one or several R scripts. If that is the case, explain here briefly what each file does. The files themselves should be commented well so everyone can follow along._
+
+## Univariate analysis
+_Use a combination of text/tables/figures to explore and describe your data. You should produce plots or tables or other summary quantities for most of your variables. You definitely need to do it for the important variables, i.e. if you have main exposure or outcome variables, those need to be explored. Depending on the total number of variables in your dataset, explore all or some of the others._
+
+## Bivariate analysis
+_Create plots or tables and compute simple statistics (e.g. t-tests, simple regression model with 1 predictor, etc.) to look for associations between your outcome(s) and each individual predictor variable_
 
 
-##Exploratory Analysis
-_Use a combination of text output and figures to explore your data. As you do so and find issues with your data (e.g. wrong entries, need to convert variables to different types, etc.), continue cleaning the data._
+## Full analysis
+_Use one or several suitable statistical/machine learning methods to analyze your data and to produce meaningful figures, tables, etc. This might again be code that is best placed in one or several separate R scripts that need to be well documented. You can then load the results produced by this code_
 
-###Exploration of outcome
-_Use graphical and non-graphical approaches to get a good understanding of any variable you plan to use as outcome in your analysis_
+# Discussion
 
-###Exploration of main predictor/exposure
-_If you have one or several predictor variables that you are especially interested in, explore them here_
+## Summary and Interpretation
+_Summarize what you did, what you found and what it means._
 
-###Exploration of other predictors
-_Look at other predictors of interest, their relation to the outcome and to each other_
-
-
-##Further Pre-processing
-_Further clean and process your data to ready it for final analysis. This can involve steps such as removing any NA values, making sure all variables are coded properly (factors, numeric, etc.), collinear and/or near-zero variance variables are removed, etc. The specific steps taken will depend on the method you use in your formal analysis._
-
-
-##Formal analysis
-_Perform your formal analysis using a suitable statistical/machine learning method._
-
-
-##Final results
-_Produce meaningful figures, tables, etc for your final results._
-
-#Discussion
-
-##Summary and Interpretation
-_Discuss what you did and what you found_
-
-##Strengths and Limitations
+## Strengths and Limitations
 _Discuss what you perceive as strengths and limitations of your analysis._
 
-##Conclusions
-_What's the take-home message?_
+## Conclusions
+_What are the main take-home messages?_
 
+
+# References
+
+_Include citations in your Rmd file using bibtex, the list of references will automatically be placed at the end_
