@@ -16,11 +16,11 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 
 | **Module Topic**   | **Start and end dates** | **Assignments** |
 | --- | --- | --- |
-| Module 1 – Course introduction | 8/14 – 8/23 |  online quiz |
-| Module 2 – Tools introduction and setup | 8/14 – 8/23 | introduction submission  |
-| Module 3 – R basics | 8/14 – 8/30 | online quiz  |
-| Module 4 – Data analysis overview | 9/2 – 9/6 | online quiz  |
-| Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 | online quiz, **Project part 1 due 9/13** |
+| Module 1 – Course introduction | 8/14 – 8/23 |  quiz |
+| Module 2 – Tools introduction and setup | 8/14 – 8/23 | introducing ourselves project  |
+| Module 3 – R basics | 8/14 – 8/30 | quiz  |
+| Module 4 – Data analysis overview | 9/2 – 9/6 | quiz  |
+| Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 | quiz, project part 1 |
 | Module 6 – Data Wrangling | 9/16 – 9/20 |online quiz |
 | Module 7 – Visualization | 9/23 – 9/27 | online quiz   |
 | Module 8 – Exploratory Analysis | 9/30 – 10/4 | Tidytuesday I |
