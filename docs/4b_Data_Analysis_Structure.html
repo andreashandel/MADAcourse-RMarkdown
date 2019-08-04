@@ -11,7 +11,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-02" />
+<meta name="date" content="2019-08-03" />
 
 <title>MADA Fall 2019 - Structure of a Data Analysis</title>
 
@@ -498,7 +498,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Structure of a Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-02</h4>
+<h4 class="date">2019-08-03</h4>
 
 </div>
 
@@ -509,6 +509,16 @@ div.tocify {
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
+</div>
+<div id="how-to-structure-your-analysis" class="section level1">
+<h1>How to structure your analysis</h1>
+<ul>
+<li>If you have an R analysis with not too much code, doing one R Markdown file is best</li>
+<li>If you have lots of code, it might make sense to have some code in a separate R file (with lots of comments), which is executed inside the R Markdown file.</li>
+<li>If you have several mostly independent parts of a project, you can do an R Markdown file for each.</li>
+<li>If you have analyses that take a lot of time, saving results from analyses into files and using other R/Rmd scripts to load them and produce figures and tables is useful.</li>
+</ul>
+<p>Figure out what setup works best for you, while keeping in mind that it should be easily understandable/reproducible for a reader (or your colleague, PI,…)</p>
 </div>
 
 

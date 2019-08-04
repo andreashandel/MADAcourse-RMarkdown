@@ -21,16 +21,16 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 | Module 3 – R basics | 8/14 – 8/30 | quiz  |
 | Module 4 – Data analysis overview | 9/2 – 9/6 | quiz  |
 | Module 5 – Data Types, Getting and Loading data | 9/9 – 9/13 | quiz, project part 1 |
-| Module 6 – Data Wrangling | 9/16 – 9/20 |online quiz |
-| Module 7 – Visualization | 9/23 – 9/27 | online quiz   |
+| Module 6 – Data Wrangling | 9/16 – 9/20 |quiz |
+| Module 7 – Visualization | 9/23 – 9/27 | quiz   |
 | Module 8 – Exploratory Analysis | 9/30 – 10/4 | Tidytuesday I |
-| Module 9 – Model performance assessment | 10/7 – 10/11 | **Project part 2 due 10/11** |
-| Module 10 – Model quality assessment | 10/14 – 10/18 | online quiz   |
-| Module 11 – (Generalized) linear models, Subset/feature selection | 10/21 – 10/25 | online quiz   |
-| Module 12 – Tree based methods &amp; Parameter tuning | 10/28 – 11/1 |   |
-| Module 13 – Some more methods: GAM, SVM, KNN, LDA, PCA, etc. | 11/4 – 11/8 | **Project part 3 due 11/8** |
+| Module 9 – Model performance assessment | 10/7 – 10/11 | project part 2 |
+| Module 10 – Model quality assessment | 10/14 – 10/18 | quiz   |
+| Module 11 – (Generalized) linear models, Subset/feature selection | 10/21 – 10/25 | quiz   |
+| Module 12 – Tree based methods &amp; Parameter tuning | 10/28 – 11/1 | quiz   |
+| Module 13 – Some more methods: GAM, SVM, KNN, LDA, PCA, etc. | 11/4 – 11/8 | project part 3 |
 | Module 14 – Doing a complete data analysis project | 11/11 – 11/15 | Tidytuesday II |
-| Module 15 – Deep learning, Big Data, AI | 11/18 – 11/22 |   |
-| Finishing Project | 11/25 – 11/29 (fall break part of the week) | **Project part 4 due 12/1** |
-| Project Reviews | 12/2 – 12/6 | Project reviews due 12/6 |
-| Final project submission  | 12/11 | **Project part 5 due 12/11** |
+| Module 15 – Deep learning, Big Data, AI | 11/18 – 11/22 | quiz   |
+| Finishing Project | 11/25 – 11/29 (fall break part of the week) | project part 4 |
+| Project Reviews | 12/2 – 12/6 | project reviews due 12/6 |
+| Final project submission  | 12/11 | project part 5 |

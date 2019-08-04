@@ -11,7 +11,7 @@ output:
 ---
 
 # Introduction
-Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060/BIOS8060. It doesn't matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.
+Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.
 
 
 # Module Overview
