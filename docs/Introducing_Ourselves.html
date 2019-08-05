@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-03" />
+<meta name="date" content="2019-08-05" />
 
 <title>MADA Fall 2019 - Introducing Ourselves project</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -404,7 +366,10 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessment</a>
+          <a href="./1c_Teaching_and_Learning.html">Assessment</a>
+        </li>
+        <li>
+          <a href="./1d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -436,20 +401,7 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
+    <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
@@ -498,7 +450,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Introducing Ourselves project</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-03</h4>
+<h4 class="date">2019-08-05</h4>
 
 </div>
 
@@ -593,6 +545,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

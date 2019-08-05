@@ -76,21 +76,14 @@ Nominally, for this course some R coding skills (e.g. as obtained in our EPID 75
 
 
 # Course Philosophy
-My dream class is one that operates as described in this quote by Seth Godin:
 
-_"If you want people to become passionate, engaged in a field, transformed by an experience - you don’t test them, you don’t lecture them and you don’t force them. Instead, you create an environment where willing, caring individuals can find an experience that changes them."_ [Seth Godin](https://medium.com/swlh/will-this-be-on-the-test-237ae9cc53b4)
-
-I know all of you are taking this class because you want to learn this topic. However, I also know that everyone always has a lot going on and it's hard to stay on track without the right mix of incentives and threats (carrots and sticks). I'm trying to create a class setup which has the right mix of such carrots and sticks.
-
-The carrots are the perceived rewards you get from mastering the material. (If you don't hope to gain anything from the course, you shouldn't take it.) You might hope that achieving the learning objectives of this course  will help you with your research, prepare you for success in a future job, satisfy your intellectual curiosity, or a mix of those. I'm hopeful the class can deliver those rewards for you. 
-
-Still, while you might have general enthusiasm for the material, keeping up with it week by week just based on this enthusiasm gets hard. That's why the occasional sticks are useful, too. Deadlines keep you on schedule, grades hopefully motivate you to do things. Balancing carrots and sticks is tricky. I prefer as many rewards as possible and keeping the threats low. What does the whole 'carrot and stick' discussion mean for this course?
-
-* I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.
+I describe my thoughts on teaching and learning a bit more in the __completely optional__ [Teaching and Learning](./1c_Teaching_and_Learning.html) document. As a summary, here are my goals, promises and expectations for this course.
 
 * I will try to maximize the rewards you get by hopefully teaching useful material and trying (through online interactions) to help you learn as much as possible material that is directly useful and rewarding to you.
 
 * The environment for this class strives to be motivating and non-threatening. As such, I'll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don't grade hard - unless you fail to keep up your end of the agreement and don't put in the work.
+
+* I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.
 
 * This class is 'open everything'. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning. 
 

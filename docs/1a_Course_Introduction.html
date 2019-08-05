@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-03" />
+<meta name="date" content="2019-08-05" />
 
 <title>MADA Fall 2019 - Course Introduction</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -404,7 +366,10 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Assessment.html">Assessment</a>
+          <a href="./1c_Teaching_and_Learning.html">Assessment</a>
+        </li>
+        <li>
+          <a href="./1d_Assessment.html">Assessment</a>
         </li>
       </ul>
     </li>
@@ -436,20 +401,7 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
+    <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Wrangling data</li>
     <li class="dropdown-header">7. Visualizing data</li>
@@ -498,14 +450,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-03</h4>
+<h4 class="date">2019-08-05</h4>
 
 </div>
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060/BIOS8060. It doesn’t matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.</p>
+<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn’t matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.</p>
 </div>
 <div id="module-overview" class="section level1">
 <h1>Module Overview</h1>
@@ -566,15 +518,11 @@ div.tocify {
 </div>
 <div id="course-philosophy" class="section level1">
 <h1>Course Philosophy</h1>
-<p>My dream class is one that operates as described in this quote by Seth Godin:</p>
-<p><em>“If you want people to become passionate, engaged in a field, transformed by an experience - you don’t test them, you don’t lecture them and you don’t force them. Instead, you create an environment where willing, caring individuals can find an experience that changes them.”</em> <a href="https://medium.com/swlh/will-this-be-on-the-test-237ae9cc53b4">Seth Godin</a></p>
-<p>I know all of you are taking this class because you want to learn this topic. However, I also know that everyone always has a lot going on and it’s hard to stay on track without the right mix of incentives and threats (carrots and sticks). I’m trying to create a class setup which has the right mix of such carrots and sticks.</p>
-<p>The carrots are the perceived rewards you get from mastering the material. (If you don’t hope to gain anything from the course, you shouldn’t take it.) You might hope that achieving the learning objectives of this course will help you with your research, prepare you for success in a future job, satisfy your intellectual curiosity, or a mix of those. I’m hopeful the class can deliver those rewards for you.</p>
-<p>Still, while you might have general enthusiasm for the material, keeping up with it week by week just based on this enthusiasm gets hard. That’s why the occasional sticks are useful, too. Deadlines keep you on schedule, grades hopefully motivate you to do things. Balancing carrots and sticks is tricky. I prefer as many rewards as possible and keeping the threats low. What does the whole ‘carrot and stick’ discussion mean for this course?</p>
+<p>I describe my thoughts on teaching and learning a bit more in the <strong>completely optional</strong> <a href="./1c_Teaching_and_Learning.html">Teaching and Learning</a> document. As a summary, here are my goals, promises and expectations for this course.</p>
 <ul>
-<li><p>I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.</p></li>
 <li><p>I will try to maximize the rewards you get by hopefully teaching useful material and trying (through online interactions) to help you learn as much as possible material that is directly useful and rewarding to you.</p></li>
 <li><p>The environment for this class strives to be motivating and non-threatening. As such, I’ll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don’t grade hard - unless you fail to keep up your end of the agreement and don’t put in the work.</p></li>
+<li><p>I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.</p></li>
 <li><p>This class is ‘open everything’. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning.</p></li>
 <li><p>I will not perform any ‘policing’ to try to prevent you from taking shortcuts (i.e. not doing work yourself). The class contains graded assessments with deadlines, but those are meant to <em>help you</em> stay on track. If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. I hope you realize that this is pointless and defeats the purpose of why you take the class.</p></li>
 <li><p>Overall, I will try to to provide you with a good balance of carrots and sticks to make it doable for you to commit your effort to this class.</p></li>
@@ -659,6 +607,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

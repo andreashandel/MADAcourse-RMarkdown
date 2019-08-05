@@ -16,7 +16,9 @@ left:
           - text: "Topic intro"
             href: ./1b_Topic_Introduction.html
           - text: "Assessment"
-            href: ./1c_Assessment.html
+            href: ./1c_Teaching_and_Learning.html
+          - text: "Assessment"
+            href: ./1d_Assessment.html
       - text: "2. Coures Tools"
         menu:
           - text: "R and Rstudio"
@@ -34,13 +36,13 @@ left:
           - text: "Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
-        menu:
-          - text: "Data analysis overview"
-            href: ./4a_Data_Analysis_Overview.html     
-          - text: "Data analysis structure"
-            href: ./4b_Data_Analysis_Structure.html     
-          - text: "Assessment"
-            href: ./4c_Assessment.html
+      #  menu:
+       #   - text: "Data analysis overview"
+        #    href: ./4a_Data_Analysis_Overview.html     
+         # - text: "Data analysis structure"
+          #  href: ./4b_Data_Analysis_Structure.html     
+        #  - text: "Assessment"
+        #    href: ./4c_Assessment.html
       - text: "5. Pondering and getting data"
       - text: "6. Wrangling data"
       - text: "7. Visualizing data"
