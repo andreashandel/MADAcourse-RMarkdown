@@ -14,15 +14,15 @@ output:
 
 Make sure you've gone through all the content for this module.
 
+## Quiz
+
+Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
+
+
 ## Exercise
 
 For this module, you are asked to do a small coding project. Instructions are provided in the [R Coding](./Exercise_Coding.html) document in the _Exercises_ section.
 
 
-** Make sure you do the exercise before taking the quiz. The quiz will ask you about specific results you got in the exercise!**
 
-
-## Quiz
-
-Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
 

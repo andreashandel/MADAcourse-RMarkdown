@@ -75,5 +75,7 @@ So far, we written code that didn't require any additional packages. We only loa
 * Under `Preview` do `knit to html`. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio. 
 * Go to GitKraken. You should see a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes, then _Push_ them. If things work, your local folder and the online repository should be at the same level. Your project is now online.
 
+**I will check everyone's repository after the submission deadline.**
+
 # Getting help
 * Use any online source you want. Also, feel free to push your project with the error message to Github, then post on the discussion board a description of your problem with a link to your file, so others can see what isn't working and can help better.
