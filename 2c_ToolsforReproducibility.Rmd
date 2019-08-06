@@ -42,6 +42,8 @@ In this video, [Roger Peng](http://www.biostat.jhsph.edu/~rpeng/) goes into some
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DfBSiOupI1I" frameborder="0" allowfullscreen></iframe>
 </p>
 
+**Note the concept of mixing text and code that Roger Peng talks about.**
+
 Roger Peng has additional videos related to reproducible research, [a playlist of those videos can be found here.](https://www.youtube.com/playlist?list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf)
 
 

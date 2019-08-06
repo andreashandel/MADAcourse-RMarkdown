@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-05" />
+<meta name="date" content="2019-08-06" />
 
 <title>R and RStudio</title>
 
@@ -456,7 +456,7 @@ div.tocify {
           <a href="./1b_Topic_Introduction.html">Topic intro</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">Assessment</a>
+          <a href="./1c_Teaching_and_Learning.html">Some Teaching Comments</a>
         </li>
         <li>
           <a href="./1d_Assessment.html">Assessment</a>
@@ -507,19 +507,31 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Projects
+    Exercises
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Tidy_Tuesday.html">TidyTuesday projects</a>
+      <a href="./Exercise_Coding.html">R Coding</a>
     </li>
     <li>
-      <a href="./Project_Information.html">Main class project information</a>
+      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
 </li>
@@ -540,7 +552,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R and RStudio</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-05</h4>
+<h4 class="date">2019-08-06</h4>
 
 </div>
 
@@ -591,14 +603,16 @@ div.tocify {
 </div>
 <p>Try installing a package yourself. Open RStudio. Then go to the R promt (the <code>&gt;</code> symbol) in the lower left corner and type</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
-<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer, it will likely show up in the quiz.</strong></p>
+<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer, it will likely show up in the quiz.</strong> <em>It is unlikely, but it could be that you already have all packages required by DSAIDE installed. In that case, you won’t see any other packages installed. To see which of the packages above DSAIDE needs (and thus installs if it is not present), type <code>tools::package_dependencies("DSAIDE")</code> into the R console.</em></p>
 <p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
-<p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>devtools</code> package and then use the <code>install_github</code> function. <a href="https://ahgroup.github.io/DSAIDE/articles/DSAIDE.html">See e.g. here for the DSAIDE package</a>. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
+<p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>remotes</code> package and then use the <code>install_github</code> function. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
 <p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">library</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
 <p>You should see a short message on the screen. Some packages show messages when you load them, others don’t. In this case, the package tells you that you can start using it by typing <code>dsaidemenu()</code> into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won’t use it in this class, I’m just using it as an example here, since you can use the package without having to write code. Try it briefly, by entering into the R console</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">dsaidemenu</span>()</a></code></pre></div>
-<p>A menu should open in your browser, from which you can explore different models/apps. Once you are done with DSAIDE, close it.</p>
+<p>A menu should open in your browser, from which you can explore different models/apps.</p>
+<p><strong>Question: In the main menu of the DSAIDE package, what’s the title of the second group of apps?</strong></p>
+<p>Once you are done with DSAIDE, close it.</p>
 <p>This was a quick overview of R packages. We’ll use a lot of them, so you’ll get used to them rather quickly.</p>
 <p>Next, <a href="https://rafalab.github.io/dsbook/getting-started.html">go through chapter 2 of IDS</a> for some further information on setting up and getting started with R, RStudio and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience.</p>
 </div>

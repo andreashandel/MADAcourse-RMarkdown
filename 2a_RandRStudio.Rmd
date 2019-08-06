@@ -10,6 +10,8 @@ output:
     toc_depth: 3
 ---
 
+
+
 # Overview
 This is a very quick introduction to R and RStudio, just to get you set up and running. In the next module we'll go deeper into R and coding.
 
@@ -57,11 +59,11 @@ install.packages('DSAIDE')
 ```
 
 __Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer, it will likely show up in the quiz.__ 
-
+*It is unlikely, but it could be that you already have all packages required by DSAIDE installed. In that case, you won't see any other packages installed. To see which of the packages above DSAIDE needs (and thus installs if it is not present), type `tools::package_dependencies("DSAIDE")` into the R console.*
 
 In RStudio, you can also install (and update/remove) packages by clicking on the 'Packages' tab in the bottom right window. 
 
-It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it's good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the `devtools` package and then use the `install_github` function. [See e.g. here for the DSAIDE package](https://ahgroup.github.io/DSAIDE/articles/DSAIDE.html). We won't do that now, but it's quite likely that at one point later in this course we will.
+It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it's good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the `remotes` package and then use the `install_github` function. We won't do that now, but it's quite likely that at one point later in this course we will.
 
 
 You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the `library()` command (an alternative is `require()` but I recommend `library()`). For instance to load the `DSAIDE` package, type
@@ -77,6 +79,9 @@ dsaidemenu()
 ```
 
 A menu should open in your browser, from which you can explore different models/apps.
+
+__Question: In the main menu of the DSAIDE package, what's the title of the second group of apps?__ 
+
 Once you are done with DSAIDE, close it.
 
 This was a quick overview of R packages. We'll use a lot of them, so you'll get used to them rather quickly. 

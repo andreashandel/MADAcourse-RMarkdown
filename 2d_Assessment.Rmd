@@ -1,5 +1,5 @@
 ---
-title: MADA Fall 2019 - Course Tools Assessment 
+title: Course Tools Assessment 
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -14,7 +14,12 @@ output:
 
 Make sure you've gone through all the content for modules 2.
 
-The assessment for this module is a project for which you'll be using Github, R, RStudio and Rmarkdown to post a short personal introduction of yourself. 
+## Quiz
 
-A detailed description and instructions is provided as [Introducing Ourselves](./Introducing_Ourselves.html) in the _Projects_ section.
+Do the module 2 quiz on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
+
+
+## Exercise
+
+For this module, you are asked to do a small project for which you'll be using Github, R, RStudio and Rmarkdown to post a short personal introduction of yourself. A detailed description and instructions is provided as [Introducing Ourselves](./Exercise_Introducing_Ourselves.html) in the _Exercises_ section.
 

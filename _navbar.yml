@@ -15,7 +15,7 @@ left:
             href: ./1a_Course_Introduction.html
           - text: "Topic intro"
             href: ./1b_Topic_Introduction.html
-          - text: "Assessment"
+          - text: "Some Teaching Comments"
             href: ./1c_Teaching_and_Learning.html
           - text: "Assessment"
             href: ./1d_Assessment.html
@@ -54,13 +54,17 @@ left:
       - text: "13. Various ML models"
       - text: "14. A complete analysis"
       - text: "15. Deep learning, AI and Big data"
-  - text: "Projects"
+  - text: "Exercises"
     menu:
        - text: "Introducing ourselves"
-         href: ./Introducing_Ourselves.html
-       - text: "TidyTuesday projects"
-         href: ./Tidy_Tuesday.html
-       - text: "Main class project information"
+         href: ./Exercise_Introducing_Ourselves.html
+       - text: "R Coding"
+         href: ./Exercise_Coding.html
+       - text: "TidyTuesday"
+         href: ./Exercise_Tidy_Tuesday.html
+  - text: "Project"
+    menu:
+       - text: "Project information"
          href: ./Project_Information.html
   - text: "Resources"
     href: Resources.html

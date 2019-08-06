@@ -29,7 +29,7 @@ _Git_ is what is called a _version control system_. The main idea is that as you
 ### Why use Git/Github
 You want to use _Github_ to avoid this:
 
-```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '100%', fig.align='center'}
+```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/phd_versioncontrol.gif")
 ```
 
@@ -37,7 +37,8 @@ knitr::include_graphics("./media/phd_versioncontrol.gif")
 _Github_ gives you a clean way to track your projects. It is also very well suited to collaborative work. Historically, version control was used for software development. However, it has become broader and is now used for many types of projects, including data science projects.
 
 
-To learn a bit more about Git/Github and why you might want to use it, [read this article by Jenny Bryan](https://peerj.com/preprints/3159/).
+To learn a bit more about Git/Github and why you might want to use it, [read this article by Jenny Bryan](https://peerj.com/preprints/3159/). **Note her explanation of what's special with the `README.md` file on Github.**
+
 
 
 ### What to (not) use Git/Github for
@@ -57,16 +58,22 @@ Because Github works similar to Dropbox, I have heard/read people say that it is
 
 
 ## Github for this course
-If you do not already have a github account, set one up on github.com. Github is widely used professionally, I therefore recommend using a future-proof, professional user name.  
+To get up and running, here are the quick steps I recommend you do. Below are a few further details:
+1. Create a [Github.com]() account.
+2. Download and install [Gitkraken](), link it with your Github account.
+3. Post your Github user name into the `Github` discussion group.
+4. Wait for an invitation to join the _epid8060fall2019_ organization. Then join.
+5. Do the _Introducing Ourselves_ project for this course, for which you will be using Github.
 
-For this course, I created what Github calls an organization with the name _epid8060fall2019_. 
-Once you have a Github account, 
-I will create repositories 
+Note that Github is widely used professionally and you might want to allow other people to see your Github presence. I therefore recommend using a future-proof, professional user name. 
+
+If the quick install instructions are not detailed enough, follow thise in [Jeny's paper]() or her great online book [happygitwithr](https://happygitwithr.com/). Note that if you install Gitkraken, you don't have to separately install Git, since Gitkraken has it built in. It might still be a good idea to install it in case you want to use Github from RStudio.
+
+For this course, I created what Github calls an organization with the name _epid8060fall2019_. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create repositories which are private, i.e. can only be seen by members. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.
 
 
+## Further Resources and help
+Github can be confusing. Start slow. Using the graphical interface (Gitkraken) makes getting started fairly easy. I'm also trying to give specific instructions whenever we do something new with Github. Jenny Bryan's book and paper are great resources. There is also a lot of good beginner material online. RStudio has built-in Github support. Personally, I prefer to use Gitkraken for all my Github push/pull/sync, etc. and then work on my project in RStudio separately. But if you prefer the workflow with the built-in Github, feel free to use it. Jenny's book explains how to connect Github and RStudio.
 
 
-
-## Further Resources
-Jenny Bryan has a great online book [happygitwithr](https://happygitwithr.com/) explaining in a fairly accessible way how to use Github together with R. If you have a problem with Github, checking out her book for help is a great first step.
 

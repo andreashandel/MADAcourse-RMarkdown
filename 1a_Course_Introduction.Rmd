@@ -10,6 +10,12 @@ output:
     toc_depth: 3
 ---
 
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
 # Introduction
 Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.
 
@@ -98,9 +104,9 @@ __I hope this course is going to be useful, interesting, fun and also interactiv
 * The course is split into modules, each with one or several units. Each module will usually be covered in a week. The [schedule document](./Course_Schedule.html) gives an outline. This schedule might change, so check frequently.
 * Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc. 
 * All the material for this course is either on or accessed through this course website or (for quizzes) on eLC. Most material is not yet available, it will be added/unlocked as the course proceeds.
-* Your grade is made up of online quizzes (20%), discussion/participation (20%), homework/small projects (20%) and a course long project (40%). 
+* Your grade is made up of online quizzes (20%), discussion/participation (20%), homework exercises (20%) and a course long project (40%). 
 * Most modules have assessments (i.e. things you need to do for which you are graded). Due dates are usually Friday 5pm the week of the module, some might be at other times, e.g. the beginning or middle of the week. Each module contains a document with instructions and deadlines for the assessments.
-* The _Projects_ section on the website with information for the small projects and the semester-long class project.
+* The _Projects_ section on the website with information for the semester-long class project.
 * _Syllabus_ and _Schedule_ documents are in the _General Information_ section of the course website. The former document contains a lot of basic logistic/legal stuff, the latter provides an outline of the course content (subject to change).
 
 # Course Tools
@@ -109,34 +115,34 @@ This is a brief overview of the tools we will be using for this class. The next 
 * We will use the R software in this course.
 * We will also use RStudio (a graphical frontend to R).
 * We will use a lot of tools available within R/Rstudio, such as Rmarkdown and related features.
-* We will use Git/Github for several projects.
+* We will use Git/Github for exercises and the project.
 * We will use eLC for discussions, help and quizzes.
 
 # Assessments
-Every module will have an _Assessment_ document. This document describes what work you need to do that will be graded. Most weeks, there is an online quiz and some discussion question. Sometimes, there is a small project, there is also a course-long project. 
+Every module will have an _Assessment_ document, which describes what work you need to do for that module that will be graded. The following types of assessments are part of the course.
 
 ## Online quizzes
-Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to write down a specific answer. This means it's likely going to be asked in the quiz. 
+Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to note a specific answer. This means it's likely going to be asked in the quiz. 
 
-## Small projects
-These projects are part of a single module, and are due at the last day of the module. They are described in more detail in the _Projects_ section. Currently planned are 2 TidyTuesday projects.
+## Exercises
+The exercises are part of a single module, and are due at the last day of the module. They are listed in the _Schedule_ and described in more detail in the _Exercises_ section. I will likely add further ones, so look out for updates. 
 
 ## Class project
 This is a semester-long data analysis project broken into pieces with several deadlines. The _Projects_ section and the _Schedule_ document provide more details.
 
 ## Discussion and Participation
-At times, I ask you to post specific assignments to the discussion boards, and reply to students. I also encourage general participation on the discussion boards. This can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better `r emo::ji('smile')`.
+At times, I ask you to post specific assignments to the discussion boards, and reply to other posts. I also encourage general, continued participation on the discussion boards. This can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better `r emo::ji('smile')`.
 
 # Course Resources
-We'll be drawing on a lot of different resources. I usually point to specific resources when a certain topic is introduced. For convenience, I compiled a list with most of them in the _Resources_ section of the class website. 
+We'll be drawing on a lot of different resources. I compiled a list with the ones we'll use and others you might find helpful in the _Resources_ section of the class website. 
 
 # Getting help
-I do not expect you to figure it all out yourselves. You will get stuck, and are encouraged to seek help.
+I do not expect you to figure it all out yourselves. You will get stuck, and are encouraged to seek help. I'll suggest specific places to get help, see also the _Resources_ page.
 
 
 # Next steps
 * Make sure you've gone through all the content for module 1, as well as read through the _Syllabus_, _Schedule_ and _Resources_ documents. 
-* Once you have done all the assigned reading, video watching, code reproducing, etc. for this module, do the online quiz for module 1. 
-* As soon as possible, start with modules 2 and 3. For some of you, those modules might take a long time (20+ hours), so start early!
+* Once you have done all the assigned reading, video watching, code reproducing, etc. for this module, do the assessments for module 1. 
+* As soon as possible, start with modules 2 and 3. For some of you, those modules and their exercises might take a long time (20+ hours), so start early!
 
 
