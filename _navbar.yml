@@ -11,29 +11,29 @@ left:
     menu:
       - text: "1. Introduction"
         menu:
-          - text: "Course intro"
+          - text: "1a. Course intro"
             href: ./1a_Course_Introduction.html
-          - text: "Topic intro"
+          - text: "1b. Topic intro"
             href: ./1b_Topic_Introduction.html
-          - text: "Some Teaching Comments"
+          - text: "1c. Some Teaching Comments"
             href: ./1c_Teaching_and_Learning.html
-          - text: "Assessment"
+          - text: "1d. Assessment"
             href: ./1d_Assessment.html
       - text: "2. Coures Tools"
         menu:
-          - text: "R and Rstudio"
+          - text: "2a. R and Rstudio"
             href: ./2a_RandRStudio.html
-          - text: "GitHub"
+          - text: "2b. GitHub"
             href: ./2b_Github.html
-          - text: "RMarkdown & Co"
+          - text: "2c. RMarkdown & Co"
             href: ./2c_ToolsforReproducibility.html
-          - text: "Assessment"
+          - text: "2d. Assessment"
             href: ./2d_Assessment.html
       - text: "3. R basics"
         menu:
-          - text: "R basics"
+          - text: "3a. R basics"
             href: ./3a_RBasics.html     
-          - text: "Assessment"
+          - text: "3b. Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
       #  menu:

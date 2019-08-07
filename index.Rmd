@@ -10,7 +10,25 @@ Welcome to the Modern Applied Data Analysis (MADA) course website.
 
 This is website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](http://handelgroup.uga.edu/). Most materials are hosted here, some are on external sites and either linked or embedded from here.
 
-For students taking this course at UGA, it is listed as EPID or BIOS 8060E. We will use eLC, UGA's learning management system, for the following additional features:
+# Website content
+
+The __General Information__ section provides a class __Syllabus__ and a __Schedule__. The latter will likey be updated throughout the course, so check it regularly.
+
+The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.
+
+Instructions for specific exercises are listed in the __Exercises__ section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)
+
+As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the __Project__ section.
+
+The __Resources__ section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.
+
+
+# Additional content
+
+For students taking this course at UGA, We will use eLC, UGA's learning management system, for additional features.
+The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC> f you can't find it, search for _Modern Applied Data Analysis_. We will use the following eLC for the following:
+
+* Course related announcements
 * Course discussion boards
 * Online quizzes
-* Course related announcements
+

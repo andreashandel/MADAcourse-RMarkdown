@@ -26,11 +26,11 @@ A semester long data analysis project will be a major method of assessment for t
 # Timeline
 There are several deadlines throughout the course at which time you need to submit parts of your project
 
-* Part I: Have a question/hypothesis & suitable data. 
-* Part II: Part I + and exploratory/univariate analysis. 
-* Part III: Part II + bivariate analysis.
-* Part IV: Parts III + full analysis.
-* Part V: Updated final report based on feedback.
+* Part 1: Have a question/hypothesis & suitable data. 
+* Part 2: Part 1 + and exploratory/univariate analysis. 
+* Part 3: Part 2 + bivariate analysis.
+* Part 4: Parts 3 + full analysis.
+* Part 5: Updated final report based on feedback.
 
 The deadlines are listed in the _Schedule_ document (it's unlikely, but they might change, so keep checking that document).
 
