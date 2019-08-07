@@ -13,7 +13,7 @@
 
 <meta name="date" content="2019-08-07" />
 
-<title>Class Project Information</title>
+<title>Tidyverse Exercise</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -498,7 +498,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class Project Information</h1>
+<h1 class="title toc-ignore">Tidyverse Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-07</h4>
 
@@ -507,77 +507,94 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.</p>
+<p>You previously did a project where you used base R code to do a simple data analysis. We will revisit this analysis but now will be using R packages from the tidyverse and more. We will use the Github workflow, with some additional twists to learn a bit more about Github functionality.</p>
+</div>
+<div id="project-setup" class="section level1">
+<h1>Project setup</h1>
 <ul>
-<li>Finding a good data - question pair</li>
-<li>Getting the data</li>
-<li>Cleaning the data</li>
-<li>Exploring the data</li>
-<li>Processing the data</li>
-<li>Analyzing the data</li>
-<li>Reporting/communicating your findings</li>
-<li>Doing everything reproducibly</li>
+<li>Go to the class organization <a href="https://github.com/epid8060fall2019">Github website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-coding</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, you can leave the license at <em>none</em>. We won’t make this exercise into a website, so we can skip all the things about <em>Github pages</em> we did in the <em>Introducing Ourselves</em> exercise.</li>
+<li>Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use for this). I recommend placing the repository inside the folder you made for the class. <strong>Make sure you do not stick Github repositories inside other repositories, that can lead to Github breaking</strong>. And remember that repository folders should not be synced with some other software (e.g. Dropbpox).</li>
+<li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with .Rproj ending and a README.md.</li>
+<li>Just to practice, let’s update the Readme file. Click to open the README.md file. Replace the text with something else, e.g. “YOURNAME first R coding exercise” or something of that type. It doesn’t matter what you write exactly, we are just practicing editing the Readme file.</li>
 </ul>
 </div>
-<div id="timeline" class="section level1">
-<h1>Timeline</h1>
-<p>There are several deadlines throughout the course at which time you need to submit parts of your project</p>
+<div id="r-content-creation" class="section level1">
+<h1>R content creation</h1>
+<p><em>It is best to call things which store values <code>objects</code> and use <code>variable</code> for a data variable, i.e. usually a column. However, it is common to refer to things that store values as <code>variable</code> as well. Because of that, I sometimes use that terminology inadvertently too. So if I talk about variable, you need to determine from the context if I mean a certain variable in the data, i.e. a predictor variable, or a variable in R that stores some content, i.e. an object.</em></p>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
 <ul>
-<li>Part 1: Have a question/hypothesis &amp; suitable data.</li>
-<li>Part 2: Part 1 + and exploratory/univariate analysis.</li>
-<li>Part 3: Part 2 + bivariate analysis.</li>
-<li>Part 4: Parts 3 + full analysis.</li>
-<li>Part 5: Updated final report based on feedback.</li>
-</ul>
-<p>The deadlines are listed in the <em>Schedule</em> document (it’s unlikely, but they might change, so keep checking that document).</p>
-</div>
-<div id="feedback-and-assessment" class="section level1">
-<h1>Feedback and Assessment</h1>
-<p>You will receive feedback from me and/or your classmates after each submission. * I will provide feedback on parts 1-3. * Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document. * Part 5 is the final submission.</p>
-<p>I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your <em>peer reviews</em> for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%.</p>
-</div>
-<div id="project-requirements" class="section level1">
-<h1>Project Requirements</h1>
-<p>You can pick your project topic and data source pretty much however you like. The only requirements are:</p>
-<ul>
-<li>Real world (messy) data.</li>
-<li>An interesting question.</li>
-<li>An analysis that has not been done previously.</li>
-<li>A fully reproducible and automated analysis using the tools we use in this class.</li>
+<li>We’ll use an R Notebook for this exercise. It is a type of R Markdown document, you can <a href="https://bookdown.org/yihui/rmarkdown/notebook.html">learn more here</a>. Choose <em>File</em>, <em>New File</em>, <em>R Notebook</em>. A new file shows up. Read through the provided information, then delete all but the YAML header. Give it a title like <em>YOURNAME Coding Exercise</em>. Now you are ready to write some R code!</li>
+<li><strong>Remember to put a lot of commentary into your code/file! As a rule of thumb, I suggest around half of what you write should be comments explaining what you do and why. This is very helpful especially as you start learning to write code. And it makes it much easier for your future selves and others to follow.</strong></li>
 </ul>
 </div>
-<div id="data-sources" class="section level1">
-<h1>Data sources</h1>
-<p>You can use data from any source you like, herer are some possible ones.</p>
-<div id="your-own-data" class="section level2">
-<h2>Your “own” data</h2>
-<p>If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).</p>
+<div id="loading-and-checking-data" class="section level2">
+<h2>Loading and checking data</h2>
+<ul>
+<li>We’ll look at and play with some data from the <a href="https://simplystatistics.org/2018/01/22/the-dslabs-package-provides-datasets-for-teaching-data-science/"><code>dslabs</code> package</a>. Write a code chunk that installs and loads the package.</li>
+<li>We’ll look at the <code>gapminder</code> dataset from <code>dslabs</code>. Write a code chunk that pulls up the help page for the data to see what it contains. Then use the <code>str</code> and <code>summary</code> commands to take a look at the data. Use the <code>class</code> function to check what type of object this is.</li>
+</ul>
 </div>
-<div id="publicly-available-data" class="section level2">
-<h2>Publicly available data</h2>
-<p>You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.</p>
-<p>I have a <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md">list of data sources I maintain (contributions welcome)</a>. Of course you are not limited to data listed there.</p>
-<p><em>Often, the most interesting questions can be asked by combining data from more than one source.</em></p>
+<div id="processing-data" class="section level2">
+<h2>Processing data</h2>
+<ul>
+<li>Using <em>base R notation</em> (no <code>dplyr</code> allowed yet), assign only the African countries to a new object/variable called <code>africadata</code>. Run <code>str</code> and <code>summary</code> on the new object you created. You should now have 2907 observations, down from 10545. You might also notice that all different factor categories are still kept in the <code>continent</code> (and other) variables, but show 0. R does not automatically remove levels of factors even if they are empty. We don’t have to worry about that just now, but something to keep in mind, it can sometimes lead to strange behavior.</li>
+<li>Again using <em>base R notation</em>, take the <code>africadata</code> object and make 2 new variables (name them whatever you want), one that contains only <code>infant_mortality</code> and <code>life_expectancy</code> and onethat contains only <code>population</code> and <code>life_expectancy</code>. You should have 2 new objects/variables with 2907 rows and 2 columns. Use the <code>str</code> and <code>summary</code> commands tp take a look at both variables.</li>
+</ul>
+</div>
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<ul>
+<li>Using the new variables you created, plot life expectancy as a function of infant mortality and as a function of population size. Make 2 separate plots. Use base R plot commands, i.e. the <code>plot</code> function. Plot the data as points. For the plot with population size on the x-axis, set this axis to a log scale.</li>
+</ul>
+<p>You should see a negative correlation between infant mortality and life expectancy. That one makes sense. You should also see a positive correlation between population size and life expectancy. In both plots, especially the 2nd one, you will see ‘streaks’ of data that seem to go together. Can you figure out what is going on here? Take another look at the <code>africadata</code> data we generated, which should give you a hint of what’s happening.</p>
+</div>
+<div id="more-data-processing" class="section level2">
+<h2>More data processing</h2>
+<ul>
+<li>I’m sure you realized that the pattern we see in the data is due to the fact that we have different years for individual countries, and that over time these countries increase in population size and also life expectancy. Let’s pick only one year and see what patterns we find there. We want a year for which we have the most data. You might have noticed that in <code>africadata</code>, there are 226 NA (i.e. missing values) for infant mortality. Write some base R code that figures out what the corresponding years are for which infant mortality data is missing. You should find that there is missing up to 1981 and then again for 2016. So we’ll avoid those years and go with 2000 instead.</li>
+<li>Let’s create a new object by extracting only year 2000 from the <code>africadata</code> object. You should end up with 51 observations and 9 variables.</li>
+</ul>
+</div>
+<div id="more-plotting" class="section level2">
+<h2>More plotting</h2>
+<ul>
+<li>Let’s use base R plotting again and do the same 2 plots again, this time only for year 2000. We don’t need to create those intermediate objects that only contained the variables we want to plot. We did that just for practice.</li>
+</ul>
+<p>Based on those plots, there seems to still be a negative correlation between infant mortality and life expectancy, and no noticeable correlation between population size and life expectancy. Let’s apply some statistics to that.</p>
+</div>
+<div id="a-simple-fit" class="section level2">
+<h2>A simple fit</h2>
+<ul>
+<li>Use the <code>lm</code> function and fit life expectancy as outcome, and either infant mortality or population size as predictor. Save the result from the fit into 2 objects (e.g. <code>fit1</code> and <code>fit2</code>) and apply the <code>summary</code> command to both, which will print various fit results to the screen. Based on the p-values for each fit, what do you conclude?</li>
+</ul>
+</div>
+<div id="beyond-base-r" class="section level2">
+<h2>Beyond base R</h2>
+<p>So far, we written code that didn’t require any additional packages. We only loaded the <code>dslabs</code> package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We’ll use some now.</p>
+<ul>
+<li>Write code to load the <code>tidyverse</code> collection of packages and the <code>skimr</code> package. If you don’t have them installed, do so. This will likely install a lot of packages and take a while.</li>
+<li>Use the <code>glimpse</code> function from <code>dplyr</code> and the <code>skim</code> function from the <code>skimr</code> package to look at the <code>gapminder</code> object.</li>
+<li>Use the <code>filter</code> and <code>select</code> functions from <code>dplyr</code> to extract only the african countries from the <code>gapminder</code> object and then keep only the variables <code>infant_mortality</code>, <code>life_expectancy</code>, <code>population</code> and <code>country</code>.</li>
+<li>Make 2 plots using <code>ggplot</code> for life expectancy as function of infant mortality and population. Also give each country a separate color in the plot.</li>
+<li>Write code that uses the gapminder object, pulls out data for africa and year 2000 and creates a <code>ggplot</code> for <code>life_expectancy</code> as function of <code>infant_mortality</code>, with a linear model fit added.</li>
+</ul>
 </div>
 </div>
-<div id="logistics-and-formatting" class="section level1">
-<h1>Logistics and formatting</h1>
-<p>Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.</p>
-<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that’s ok too.</p>
-<p>You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report.</p>
-<p>For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.</p>
-<p>Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.</p>
-<p>References should be included as a bibtex file and cited in the Rmd file. See the template for an example.</p>
+<div id="sending-updates-to-github" class="section level1">
+<h1>Sending updates to Github</h1>
+<ul>
+<li>Once you are done with your exercise, under the <code>Run</code> menu (top left) select <code>Restart R and Run all Chunks</code>. Make sure no error messages show up.</li>
+<li>Under <code>Preview</code> do <code>knit to html</code>. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio.</li>
+<li>Go to GitKraken. You should see a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes, then <em>Push</em> them. If things work, your local folder and the online repository should be at the same level. Your project is now online.</li>
+</ul>
+<p><strong>I will check everyone’s repository after the submission deadline.</strong></p>
 </div>
-<div id="project-template" class="section level1">
-<h1>Project template</h1>
-<p>I created <a href="https://github.com/andreashandel/dataanalysis-template">a public Github repository called dataanalyis-template</a> which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. I highly recommend you use this template as starting point for your project. Read the description on the template Github repository for more details on how it works and how to use it.</p>
-<p>Inside the <code>manuscript</code> folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.</p>
-<p>In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.</p>
-</div>
-<div id="project-communications" class="section level1">
-<h1>Project communications</h1>
-<p>Any communication regarding this project should happen in the corresponding eLC discussion. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.</p>
+<div id="getting-help" class="section level1">
+<h1>Getting help</h1>
+<ul>
+<li>Use any online source you want. Also, feel free to push your project with the error message to Github, then post on the discussion board a description of your problem with a link to your file, so others can see what isn’t working and can help better.</li>
+</ul>
 </div>
 
 

@@ -13,7 +13,7 @@
 
 <meta name="date" content="2019-08-07" />
 
-<title>Class Project Information</title>
+<title>The Tidyverse</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -498,7 +498,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class Project Information</h1>
+<h1 class="title toc-ignore">The Tidyverse</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-07</h4>
 
@@ -507,77 +507,14 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.</p>
-<ul>
-<li>Finding a good data - question pair</li>
-<li>Getting the data</li>
-<li>Cleaning the data</li>
-<li>Exploring the data</li>
-<li>Processing the data</li>
-<li>Analyzing the data</li>
-<li>Reporting/communicating your findings</li>
-<li>Doing everything reproducibly</li>
-</ul>
+<p>In this module, we will learn about a set of packages in R commonly refered to as the <a href="">tidyverse</a>. These packages add a lot of powerful functionality to R that makes coding often much easier, especially for data analysis related tasks.</p>
 </div>
-<div id="timeline" class="section level1">
-<h1>Timeline</h1>
-<p>There are several deadlines throughout the course at which time you need to submit parts of your project</p>
-<ul>
-<li>Part 1: Have a question/hypothesis &amp; suitable data.</li>
-<li>Part 2: Part 1 + and exploratory/univariate analysis.</li>
-<li>Part 3: Part 2 + bivariate analysis.</li>
-<li>Part 4: Parts 3 + full analysis.</li>
-<li>Part 5: Updated final report based on feedback.</li>
-</ul>
-<p>The deadlines are listed in the <em>Schedule</em> document (it’s unlikely, but they might change, so keep checking that document).</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 </div>
-<div id="feedback-and-assessment" class="section level1">
-<h1>Feedback and Assessment</h1>
-<p>You will receive feedback from me and/or your classmates after each submission. * I will provide feedback on parts 1-3. * Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document. * Part 5 is the final submission.</p>
-<p>I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your <em>peer reviews</em> for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%.</p>
-</div>
-<div id="project-requirements" class="section level1">
-<h1>Project Requirements</h1>
-<p>You can pick your project topic and data source pretty much however you like. The only requirements are:</p>
-<ul>
-<li>Real world (messy) data.</li>
-<li>An interesting question.</li>
-<li>An analysis that has not been done previously.</li>
-<li>A fully reproducible and automated analysis using the tools we use in this class.</li>
-</ul>
-</div>
-<div id="data-sources" class="section level1">
-<h1>Data sources</h1>
-<p>You can use data from any source you like, herer are some possible ones.</p>
-<div id="your-own-data" class="section level2">
-<h2>Your “own” data</h2>
-<p>If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).</p>
-</div>
-<div id="publicly-available-data" class="section level2">
-<h2>Publicly available data</h2>
-<p>You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.</p>
-<p>I have a <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md">list of data sources I maintain (contributions welcome)</a>. Of course you are not limited to data listed there.</p>
-<p><em>Often, the most interesting questions can be asked by combining data from more than one source.</em></p>
-</div>
-</div>
-<div id="logistics-and-formatting" class="section level1">
-<h1>Logistics and formatting</h1>
-<p>Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.</p>
-<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that’s ok too.</p>
-<p>You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report.</p>
-<p>For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.</p>
-<p>Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.</p>
-<p>References should be included as a bibtex file and cited in the Rmd file. See the template for an example.</p>
-</div>
-<div id="project-template" class="section level1">
-<h1>Project template</h1>
-<p>I created <a href="https://github.com/andreashandel/dataanalysis-template">a public Github repository called dataanalyis-template</a> which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. I highly recommend you use this template as starting point for your project. Read the description on the template Github repository for more details on how it works and how to use it.</p>
-<p>Inside the <code>manuscript</code> folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.</p>
-<p>In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.</p>
-</div>
-<div id="project-communications" class="section level1">
-<h1>Project communications</h1>
-<p>Any communication regarding this project should happen in the corresponding eLC discussion. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.</p>
+<div id="the-tidyverse" class="section level1">
+<h1>The tidyverse</h1>
+<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. The assignments above mostly introduced ways to interact with R that is sometimes called <code>base R</code>. This refers to the fact that you can do all the operations with what is directly built into R. But a lot of the power in R comes from its packages. Over the last few years, a group of individuals has developed (many) packages that make especially data analysis easier. One such set of packages, the most widely used one, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable and more powerful. In this course, we will use the <code>tidyverse</code> packages and their functionality a lot. To start getting familiar with the tidyverse, read and work through <a href="https://rafalab.github.io/dsbook/tidyverse.html">chapter 5 of IDS</a>. The <a href="https://rstudio.cloud/learn/primers/">RStudio tutorials</a> also have several that deal with various tidyverse functionality. We’ll visit some of them at a later point, but feel free to already start exploring them.</p>
 </div>
 
 

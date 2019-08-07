@@ -7,7 +7,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -229,6 +228,18 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
@@ -393,13 +404,18 @@ $(document).ready(function () {
 <h1>Website content</h1>
 <p>The <strong>General Information</strong> section provides a class <strong>Syllabus</strong> and a <strong>Schedule</strong>. The latter will likey be updated throughout the course, so check it regularly.</p>
 <p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
-<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant modules document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)</p>
-<p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <em>Projects</em> section.</p>
-<p>The <em>Resources</em> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
+<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)</p>
+<p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
+<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
 </div>
 <div id="additional-content" class="section level1">
 <h1>Additional content</h1>
-<p>For students taking this course at UGA, it is listed as EPID or BIOS 8060E. We will use eLC, UGA’s learning management system, for the following additional features: * Course discussion boards * Online quizzes * Course related announcements</p>
+<p>For students taking this course at UGA, We will use eLC, UGA’s learning management system, for additional features. The course is listed as EPID or BIOS 8060E. It doesn’t matter which label you signed up under. It seems to show as BIOS8060 on eLC&gt; f you can’t find it, search for <em>Modern Applied Data Analysis</em>. We will use the following eLC for the following:</p>
+<ul>
+<li>Course related announcements</li>
+<li>Course discussion boards</li>
+<li>Online quizzes</li>
+</ul>
 </div>
 
 
@@ -419,23 +435,6 @@ $(document).ready(function () {
 
 
 </script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

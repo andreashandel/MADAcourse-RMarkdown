@@ -7,7 +7,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -469,7 +507,7 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This project asks you to write a bit of code to do a simple data analysis, we’ll be using both some commands from base R and from the tidyverse, so we can compare and contrast. We’ll also be using the Github workflow, so we can practice that one some more.</p>
+<p>This project asks you to write a bit of code to do a simple data analysis. For now, we’ll be using base R syntax. At some later point, you’ll repeat some of this analysis using different R packages from the tidyverse. We’ll also be using the Github workflow, so we can practice that one some more.</p>
 </div>
 <div id="project-setup" class="section level1">
 <h1>Project setup</h1>
@@ -531,17 +569,6 @@ div.tocify {
 <li>Use the <code>lm</code> function and fit life expectancy as outcome, and either infant mortality or population size as predictor. Save the result from the fit into 2 objects (e.g. <code>fit1</code> and <code>fit2</code>) and apply the <code>summary</code> command to both, which will print various fit results to the screen. Based on the p-values for each fit, what do you conclude?</li>
 </ul>
 </div>
-<div id="beyond-base-r" class="section level2">
-<h2>Beyond base R</h2>
-<p>So far, we written code that didn’t require any additional packages. We only loaded the <code>dslabs</code> package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We’ll use some now.</p>
-<ul>
-<li>Write code to load the <code>tidyverse</code> collection of packages and the <code>skimr</code> package. If you don’t have them installed, do so. This will likely install a lot of packages and take a while.</li>
-<li>Use the <code>glimpse</code> function from <code>dplyr</code> and the <code>skim</code> function from the <code>skimr</code> package to look at the <code>gapminder</code> object.</li>
-<li>Use the <code>filter</code> and <code>select</code> functions from <code>dplyr</code> to extract only the african countries from the <code>gapminder</code> object and then keep only the variables <code>infant_mortality</code>, <code>life_expectancy</code>, <code>population</code> and <code>country</code>.</li>
-<li>Make 2 plots using <code>ggplot</code> for life expectancy as function of infant mortality and population. Also give each country a separate color in the plot.</li>
-<li>Write code that uses the gapminder object, pulls out data for africa and year 2000 and creates a <code>ggplot</code> for <code>life_expectancy</code> as function of <code>infant_mortality</code>, with a linear model fit added.</li>
-</ul>
-</div>
 </div>
 <div id="sending-updates-to-github" class="section level1">
 <h1>Sending updates to Github</h1>
@@ -577,49 +604,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

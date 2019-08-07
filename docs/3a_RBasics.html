@@ -7,7 +7,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -483,10 +521,11 @@ div.tocify {
 </div>
 <div id="learning-to-code" class="section level1">
 <h1>Learning to code</h1>
-<p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not be focusing on ‘learning R’. You will do so anyway by going through the course. As with anything, as you practice more things will get smoother. And have an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week) and you will eventually figure it out. Make sure of the great resources that are out there. They are all listed below in the ‘Further Resources’ section.</p>
+<p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not be focusing on ‘learning R’. You will do so anyway by going through the course. As with anything, as you practice more things will get smoother. You should approach learning to code with an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week) and you will eventually figure it out. Make sure of the great resources that are out there. They are all listed below in the <a href="./Resources.html">Resources</a> section.</p>
 <p>This figure is <a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">from a good article</a> discussing the journey of learning to write code:</p>
 <p><img src="https://s3.amazonaws.com/viking_education/web_development/blog/coding_is_hard_confidence_competence.png" /></p>
-<p><a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">Read the article</a> from which this figure comes. Or read at least the first part and look at the first 2 figures. My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform powerful data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em> and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>.</p>
+<p><a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">Read the article</a> from which this figure comes. Or read at least the first part and look at the first 2 figures.</p>
+<p>My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em> and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>. In fact, at times I’m providing you less detailed instructions than I could to get you quickly to the stage where you have to figure out bits yourself. I guess one could say that instead of hand-holding, I let you stumble and fall some, and then will help you to get back up 😃. It might feel a bit more frustrating at least initially, but it’s a much better way to learn.</p>
 <p>And of course it goes without saying that this is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
 </div>
 <div id="learning-the-basics-of-r" class="section level1">
@@ -495,13 +534,16 @@ div.tocify {
 <p><em>Note: If you already know a god bit of R, you can likely skip some of those assignments. Take a look, and if you decide you already know it, go to the next one. Or work through them anyway as a refresher.</em></p>
 <p>RStudio is starting to develop <a href="https://rstudio.cloud/learn/primers">a nice set of online tutorials they call Primers</a>. We’ll be doing several of those in this class. For now, we’ll start with the one called <a href="https://rstudio.cloud/learn/primers/1.2">programming basics</a>. Work through this tutorial. Note that some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes and you always get a ‘that’s right’ kind of message. The R package that is used to write this tutorial is in its early stages and not full featured yet. I’m sure it will get better over time. The whole tutorial should still work.</p>
 <p><em>Note: There are 2 ways of assigning something to an object in R, one can write <code>x &lt;- 2</code> or <code>x = 2</code> and almost always that is the same. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. <code>x &lt;- 2</code>. The problem is that most other programming languages do it the second way, so if you learned coding in another language first (like I did), it’s more natural to write <code>x = 2</code>. It’s your choice. Just be aware that both notations exist and do the same thing. When write I code, I do a mix (without any logic to it).</em></p>
-<p>Once you’ve gone through the RStudio tutorial, read and work through <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>. There will be some overlap between the RStudio tutorial and this chapter. That’s ok, repetition doesn’t hurt. The IDS chapter goes beyond the RStudio tutorial. Try to code along, by entering the code you see in the book into your R console. I also recommend you try some of the exercises at the end of some of the sections.</p>
+<p><strong>As you work through the primer programming tutorial, write down the solutions to the questions. Some will show up on the quiz.</strong></p>
+<p>Once you’ve gone through the RStudio tutorial, read and work through <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>. There will be some overlap between the RStudio tutorial and this chapter. That’s ok, repetition doesn’t hurt. The IDS chapter goes beyond the RStudio tutorial. Try to code along, by entering the code you see in the book into your R console. Also do the exercises at the end of some of the sections.</p>
+<p><strong>As you do the exercises in IDS chapter 3, write down the solutions. Or write down the code in an R script so you can quickly access and re-run things. I will ask for some of the answers on the quiz.</strong></p>
 <p>Finally, read and work through <a href="https://rafalab.github.io/dsbook/programming-basics.html">chapter 4 of IDS</a>. This chapter discusses important but somewhat more advanced concepts of programming. Try to read and work through and understand as much as possible. If you are new to coding, it is likely you won’t fully understand everything on the first read. That’s ok. The important part is that you learn about these concepts and are aware of them. Once you start to need them for your analysis (and for any serious analysis, you will), you can then revisit the topics and dig in more deeply to get to the level where you can understand and apply them to your problems.</p>
+<p><em>I recommend you try some of the exercises in IDS chapter 4, but it won’t be on the quiz.</em></p>
 <p>Optional: If you want to keep going, or if you already have a good bit of R knowledge and want to learn more, the <a href="https://rstudio.cloud/learn/primers/6">RStudio <em>Functions</em> tutorial</a> lets you explore some further concepts related to functions, as well as important topics such as flow control and branching.</p>
 </div>
 <div id="the-tidyverse" class="section level1">
 <h1>The tidyverse</h1>
-<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. The assignments above mostly introduced ways to interact with R that is sometimes called <code>base R</code>. This refers to the fact that you can do all the operations with what is directly built into R. But a lot of the power in R comes from its packages. Over the last few years, a group of individuals has developed (many) packages that make especially data analysis easier. One such set of packages, the most widely used one, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable and more powerful. In this course, we will use the <code>tidyverse</code> packages and their functionality a lot. To start getting familiar with the tidyverse, read and work through <a href="https://rafalab.github.io/dsbook/tidyverse.html">chapter 5 of IDS</a>. The <a href="https://rstudio.cloud/learn/primers/">RStudio tutorials</a> also have several that deal with various tidyverse functionality. We’ll visit some of them at a later point, but feel free to already start exploring them.</p>
+<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. The assignments above mostly introduced ways to interact with R that is sometimes called <code>base R</code>. This refers to the fact that you can do all the operations with what is directly built into R. But a lot of the power in R comes from its packages. Over the last few years, a group of individuals has developed (many) packages that make especially data analysis easier. One such set of packages, the most widely used one, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable and more powerful. In this course, we will use the <code>tidyverse</code> packages and their functionality a lot. We will soon start using <code>tidyverse</code> functionality, but even if you will mostly be using <code>tidyverse</code> features for most coding, knowing some base R is very useful. Fortunately, they can easily be combined, so you can choose which style of coding to use based on what is easiest.</p>
 </div>
 <div id="getting-help" class="section level1">
 <h1>Getting help</h1>
@@ -543,49 +585,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
