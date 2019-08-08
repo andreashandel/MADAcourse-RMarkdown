@@ -17,11 +17,11 @@ library(emo)
 ```
 
 # Introduction
-Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangably. I think on eLC it is loaded as BIOS8060E.
+Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangeably. I think on eLC it is loaded as BIOS8060E.
 
 
 # Module Overview
-The course is divided into modules. Each module consists of one or several units. This first module provides a brief introduction to the topic, and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work. 
+The course is divided into modules. Each module consists of one or several units. This first module provides a brief introduction to the topic and an overview of the course. I first describe my objectives, goals, and philosophy, followed by the logistic details of how everything will (hopefully) work. 
 
 This module also provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course.
 
@@ -37,7 +37,7 @@ The specific learning objectives for this introductory module are:
 
 # Course Learning Objectives 
 
-The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, to getting, cleaning and exploring the data, all the way to fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of 'Machine Learning'. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analyis.
+The main goal for this course is for you to learn the whole process of performing a data analysis project. The first step is identifying a suitable question-data pair. Then you have to get the data, clean it, explore it, fit statistical models, and produce materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches commonly referred to as 'Machine Learning'.  Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.
 
 The specific learning objectives that I hope you will achieve by going through this course are:
 
@@ -50,7 +50,7 @@ _Processing_
 
 * Know how to obtain, process and analyze data from a variety of different sources.
 * Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.
-* Be able to thoughtfully and critically assess strengths and weaknessess of specific data sets and process and analyze the data appropriately.
+* Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process and analyze the data appropriately.
 
 _Analysis_
 
@@ -60,54 +60,54 @@ _Analysis_
 
 _Communication_
 
-* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.
+* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.
 * Assess the strengths and weaknesses of different formats for representing the results of data analyses.
 
 _Tools_
 
-* Explain the importance of workflow, project management and reproducibility tools, and know how to use those tools.
+* Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.
 * Be comfortable using R and Github to do data analysis in a reproducible manner.
 * Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.
 
 _Overall_
 
 * Judge the usefulness and appropriateness of data analyses described in the primary research literature.
-* Learn to _look yourself over the shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
+* Learn to _look yourself in the mirror_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
 
 
 
 # Course Prerequisites
 
-Nominally, for this course some R coding skills (e.g. as obtained in our EPID 7500 class), as well as basic knowledge of statistics at the level of fitting linear or logistic models to data (e.g. as obtained in our BIOS 7010 and 7020 courses) are expected. If you don't have any of the pre-requisite R coding or statistics knowledge, you can still take the class, but you need to be prepared to spend some extra time and effort to fill any gaps. This will be especially true for the R coding part. Some students of you likely have pretty solid previous R experience, while others might have little to none. That means if you are in the latter category, expect to spend extra time getting up to speed with R. I believe it's doable and worth the effort, but you need to be prepared for it. For instance we'll spend one module on _R Basics_. For those with good R knowledge, this might be a 2 hour refresher, for those with none that week might be a 20+ hour committment. There will be plenty of help from myself, classmates and the internet if you end up getting stuck with some of the coding, but your effort and committment are still required.
+Nominally, for this course, some R coding skills (e.g., as obtained in our EPID 7500 class), as well as basic knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are expected. If you don't have any of the pre-requisite R coding or statistics knowledge, you can still take the class, but you need to be prepared to spend some extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the "little to none" category, expect to spend extra time getting up to speed. I believe it's doable and worth the effort, but you need to be prepared for it. For instance, we'll spend one module on _R Basics_. For those with R knowledge, it might be a 2 hour refresher, for those with none that week might be a 20+ hour commitment. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.
 
 
 # Course Philosophy
 
-I describe my thoughts on teaching and learning a bit more in the __completely optional__ [Teaching and Learning](./1c_Teaching_and_Learning.html) document. As a summary, here are my goals, promises and expectations for this course.
+I describe my thoughts on teaching and learning a bit more in the __completely optional__ [Teaching and Learning](./1c_Teaching_and_Learning.html) document. As a summary, here are my goals, promises, and expectations for this course.
 
-* I will try to maximize the rewards you get by hopefully teaching useful material and trying (through online interactions) to help you learn as much as possible material that is directly useful and rewarding to you.
+* I will try to maximize the rewards you get by hopefully teaching methods that are useful to you and working (through online interactions) to help you learn as much as possible.
 
 * The environment for this class strives to be motivating and non-threatening. As such, I'll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don't grade hard - unless you fail to keep up your end of the agreement and don't put in the work.
 
-* I expect you to be self-motivated and committed to the material and class, and put in the effort needed to succeed.
+* I expect you to be self-motivated and committed to learning the material by putting in the effort needed to succeed.
 
 * This class is 'open everything'. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning. 
 
-* I will not perform any 'policing' to try to prevent you from taking shortcuts (i.e. not doing work yourself). The class contains graded assessments with deadlines, but those are meant to _help you_ stay on track. If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. I hope you realize that this is pointless and defeats the purpose of why you take the class.
+* I will not perform any 'policing' to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to _help you_ stay on track. If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. I hope you realize that this is pointless and defeats the purpose of why you take the class.
 
-* Overall, I will try to to provide you with a good balance of carrots and sticks to make it doable for you to commit your effort to this class.
+* Overall, I will try to provide you with the right balance of carrots and sticks to make it doable for you to commit your effort to this class.
 
-__I hope this course is going to be useful, interesting, fun and also interactive. Online courses are always a bit tricky to with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you'll get out of it.__
+__I hope this course is going to be useful, interesting, fun and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you'll get out of it.__
 
 
 # Course Setup
-* The course is split into modules, each with one or several units. Each module will usually be covered in a week. The [schedule document](./Course_Schedule.html) gives an outline. This schedule might change, so check frequently.
+* The course is split into modules, each with one or more units. Each module will usually be covered in a week. The [schedule document](./Course_Schedule.html) gives an outline. This schedule might change, so check frequently.
 * Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc. 
-* All the material for this course is either on or accessed through this course website or (for quizzes) on eLC. Most material is not yet available, it will be added/unlocked as the course proceeds.
+* All material for the course can be accessed through this course website or on eLC (for quizzes). Most material is not yet available. It will be added/unlocked as the course proceeds.
 * Your grade is made up of online quizzes (20%), discussion/participation (20%), homework exercises (20%) and a course long project (40%). 
-* Most modules have assessments (i.e. things you need to do for which you are graded). Due dates are usually Friday 5pm the week of the module, some might be at other times, e.g. the beginning or middle of the week. Each module contains a document with instructions and deadlines for the assessments.
-* The _Projects_ section on the website with information for the semester-long class project.
-* _Syllabus_ and _Schedule_ documents are in the _General Information_ section of the course website. The former document contains a lot of basic logistic/legal stuff, the latter provides an outline of the course content (subject to change).
+* Most modules have assessments (these are graded). Due dates are usually Friday 5 pm the week of the module. Some might be at other times, e.g., the beginning or middle of the week. Each module contains a document with instructions and deadlines for the assessments. You are responsible for keeping up with the due dates. 
+* The _Projects_ section on the website has information for the semester-long class project.
+* _Syllabus_ and _Schedule_ documents are in the _General Information_ section of the course website. The former document contains a lot of basic logistics/legal stuff, and the latter provides an outline of the course content (subject to change).
 
 # Course Tools
 This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.
@@ -116,28 +116,28 @@ This is a brief overview of the tools we will be using for this class. The next 
 * We will also use RStudio (a graphical frontend to R).
 * We will use a lot of tools available within R/Rstudio, such as Rmarkdown and related features.
 * We will use Git/Github for exercises and the project.
-* We will use eLC for discussions, help and quizzes.
+* We will use eLC for discussions, help, and quizzes.
 
 # Assessments
 Every module will have an _Assessment_ document, which describes what work you need to do for that module that will be graded. The following types of assessments are part of the course.
 
 ## Online quizzes
-Those quizzes are on eLC. They tend to be around 5-10 fairly easy questions. The main purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to note a specific answer. This means it's likely going to be asked in the quiz. 
+The online quizzes are on eLC. They tend to be around 5-10 fairly straightforward questions. The primary purpose of the quizzes is to ensure you worked through the assigned material. __Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won't have enough time to start the quiz and then try to find the answers in the materials.__ Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to note a specific answer. This means it's likely going to be asked in the quiz. 
 
 ## Exercises
-The exercises are part of a single module, and are due at the last day of the module. They are listed in the _Schedule_ and described in more detail in the _Exercises_ section. I will likely add further ones, so look out for updates. 
+The exercises are part of a single module and are due on the last day of the module. They are listed in the _Schedule_ and described in more detail in the _Exercises_ section. I will likely add further ones, so look out for updates. 
 
 ## Class project
-This is a semester-long data analysis project broken into pieces with several deadlines. The _Projects_ section and the _Schedule_ document provide more details.
+The project is a semester-long data analysis project broken into pieces with several deadlines. The _Projects_ section and the _Schedule_ document provides more details.
 
 ## Discussion and Participation
-At times, I ask you to post specific assignments to the discussion boards, and reply to other posts. I also encourage general, continued participation on the discussion boards. This can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better `r emo::ji('smile')`.
+At times, I will ask you to post specific assignments to the discussion boards and reply to other posts. I also encourage general, continued participation on the discussion boards. Participation can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better `r emo::ji('smile')`.
 
 # Course Resources
 We'll be drawing on a lot of different resources. I compiled a list with the ones we'll use and others you might find helpful in the _Resources_ section of the class website. 
 
 # Getting help
-I do not expect you to figure it all out yourselves. You will get stuck, and are encouraged to seek help. I'll suggest specific places to get help, see also the _Resources_ page.
+I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. I'll suggest specific places to get help, see the _Resources_ page.
 
 
 # Next steps
