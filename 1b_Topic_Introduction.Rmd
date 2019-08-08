@@ -17,7 +17,7 @@ library(emo)
 ```
 
 # Introduction
-We'll get into the details of what a data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You'll be doing similar projects yourself soon!
+We'll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You'll be doing similar projects yourself soon!
 
 
 # Motivating Videos
@@ -55,7 +55,7 @@ The TED website has [a large number of data related talks](https://www.ted.com/t
 
 
 # Case studies
-It is by now very common that individuals post data analyses online in a reproducible manner, i.e. providing all the code and data to recreate it.
+It is by now very common that individuals post data analyses online in a reproducible manner, i.e., providing all the code and data to recreate it.
 
 ## TidyTuesday
 An interesting initiative is [TidyTuesdays](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/), where every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday) and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself.
@@ -65,11 +65,11 @@ Individuals who participate in TidyTuesday often post their projects online [and
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AQzZNIyjyWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
-You don't need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real time. You might just get hooked and keep watching `r emo::ji("smile")`. It should be interesting even if you don't care about wine. If you have no R experience, you will not understand exactly the commands he types in. You will learn those commands very soon. You will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does a data analysis, [he has a bunch more of those screencasts](https://www.youtube.com/user/safe4democracy/videos).
+You don't need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching `r emo::ji("smile")`. It should be interesting even if you don't care about wine. If you have no R experience, you won't understand the details, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, [he has a bunch more of those screencasts](https://www.youtube.com/user/safe4democracy/videos).
 
-Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, [here is the link to download the code for his analysis](https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd). Just save the file after it opened in your browser. It should be named `wine-ratings.Rmd`. Click on it, it should open in RStudio (if you don't have R/RStudio installed yet, go through module 2, then come back). 
+Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, [here is the link to download the code for his analysis](https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd). Just save the file after it opens in your browser. It should be named `wine-ratings.Rmd`. Click on it, and it should open in RStudio (if you don't have R/RStudio installed yet, go through module 2, then come back). 
 
-Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don't get that auto-suggestion, you need to install the pacakges by hand. Every package that is called with the `library()` commmand needs to be installed. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:
+Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don't get that auto-suggestion, you need to install the packages by hand. Every package that is called with the `library()` command needs to be installed first. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:
 
 ```{r, eval = FALSE}
 library(doMC)
@@ -78,9 +78,9 @@ registerDoMC(cores = 4)
 
 and add a `#` in front of them to turn them into comments and therefore disable them (you could also delete these lines, but then they are gone for good, so disabling with `#` is often better).
 
-Once you have done that and installed all other packages, hit the `Knit` button. If you are still missing a package, you get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! 
+Once you have done that and installed all other packages, hit the `Knit` button. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! 
 
-Again, most or all of the R code might not make sense to you just yet. That's ok. The main point is to show you a nice example of a data analysis that is done in a way that others (you) can reproduce it with just a few clicks.
+Again, most or all of the R code might not make sense to you just yet. That's ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce it with just a few clicks.
 
 **Note the name of the last wine reviewer in the final figure of the knitted report.**
 
@@ -91,6 +91,6 @@ Fully open and reproducible analyses are also becoming common in academic resear
 
 [This is the link to the Github repository which contains all files of this project/paper.](https://github.com/epid8060fall2019/Virulence_Project) You need to have joined the epid8060fall2019 organization for you to be able to access this link. If you haven't done yet, go through the _Github_ materials to figure out how. The repository contains brief instructions describing how you can reproduce all of his analyses and reproduce his complete manuscript. As you will see, it is simply a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you'll learn and use in this class.
 
-**Note the number of files in the `Tables` folder after you ran all analysis scripts.**
+**Note the number of files in the `Tables` folder after you run all analysis scripts.**
 
 
