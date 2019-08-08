@@ -7,7 +7,6 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -229,6 +228,18 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
@@ -351,6 +362,8 @@ $(document).ready(function () {
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
     <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">Tidyverse</li>
+    <li class="dropdown-header">Visualization</li>
     <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
@@ -397,6 +410,7 @@ $(document).ready(function () {
 <p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
 <p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)</p>
 <p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
+<p>The <strong>Communication</strong> section provides information on how course communications are planned to happen.</p>
 <p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
 </div>
 <div id="additional-content" class="section level1">
@@ -426,23 +440,6 @@ $(document).ready(function () {
 
 
 </script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

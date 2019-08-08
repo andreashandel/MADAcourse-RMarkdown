@@ -5,6 +5,12 @@ output:
     toc: FALSE
 ---
 
+```{r, include = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
 
 Welcome to the Modern Applied Data Analysis (MADA) course website.
 
@@ -16,12 +22,11 @@ The __General Information__ section provides a class __Syllabus__ and a __Schedu
 
 The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.
 
-Instructions for specific exercises are listed in the __Exercises__ section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)
+Instructions for specific exercises are listed in the __Exercises__ section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed `r emo::ji('smiley')`.
 
 As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the __Project__ section.
 
 The __Communication__ section provides information on how course communications are planned to happen.
-
 
 The __Resources__ section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.
 
@@ -29,9 +34,9 @@ The __Resources__ section contains a listing of external materials. Some of this
 # Additional content
 
 For students taking this course at UGA, We will use eLC, UGA's learning management system, for additional features.
-The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can't find it, search for _Modern Applied Data Analysis_. We will use the following eLC for the following:
+The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can't find it, search for _Modern Applied Data Analysis_. We will use eLC for:
 
-* Course related announcements
-* Course discussion boards
-* Online quizzes
+* Announcements
+* Discussions
+* Quizzes
 
