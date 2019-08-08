@@ -1,0 +1,66 @@
+---
+title: Types of Data
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+For this unit, we will discuss different types of data and how data type influences analysis approach.
+
+
+# Objectives
+
+*	Understand different types of data 
+*	Know how different data types require different analysis approaches
+
+
+# What is data
+
+Broadly speaking, we can define data as anything that (potentially) contains information. This can be images, sound, video, text, or combinations of those. You likely still mostly encounter data in spreadsheets, with observations as rows and variables as columns. However, data is getting much more varied and complex. Data from fitness devices such as Fitbits, Tweets, Facebook posts, purchasing behavior, movement, etc. are all streams of data that can contain useful information.
+
+# Types of data
+
+One of the broadest ways
+
+
+The kind of data determines the amount of processing that needs to be done before analysis. You somehow need to turn your data. 
+While analysis of images, video and text is certainly interesting, we will not further focus on those. Instead, we will look more closely at the kind of data that you are most likely to encounter in your analyses, which is information collected on individuals.
+
+
+
+## Types of Variables
+* Continuous: E.g. height, weight
+* Discrete: E.g. number with/without disease (often treated as continuous for analysis)
+* Fraction/Proportion: Continuous but between 0-1
+* Categorical:
+    * Ordered/Ordinal: E.g. Socioeconomic status, levels of pain
+    * Not ordered: E.g. race    
+    * Special case: 2 categories (yes/no)
+
+The type of variables will influence the analysis approach. That's especially true for the outcome, less so for predictors.
+
+## Analysis approaches based on data
+* For continuous outcomes, we usually call the methods regression approaches
+* For categorical outcomes, we usually call the methods classification approaches (logistic regression is a bit oddly named)
+* For no outcomes, we usually call the methods clustering approaches
+
+
+
+
+##Summary
+This module explained types of data and how to get (some of them) into R.
+
+
+
+##Topical Cartoon
+![You might not want to get yourself that kind of data](../media/dilbert_wrongdata.gif)
+
+##Further Resources
+* There are no additional resources beyond the ones provided in this module.

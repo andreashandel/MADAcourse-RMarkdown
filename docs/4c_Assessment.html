@@ -14,7 +14,7 @@
 
 <meta name="date" content="2019-08-08" />
 
-<title>Course Resources</title>
+<title>MADA Fall 2019 - Course Introduction Assessment</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -477,75 +477,71 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Course Resources</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction Assessment</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-08</h4>
 
 </div>
 
 
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. The ones marked in <strong>bold</strong> are those that we’ll be using a lot.</p>
-<div id="general-help" class="section level1">
-<h1>General help</h1>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>For this module, you need to do a small project that shows you have Rmarkdown and Github running and it will also introduce you to your classmates.</p>
+<p>For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time consuming and also might feel a bit intimidating. It’s partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc). I’m confident with a bit of trial and error, you’ll get it to work.</p>
+</div>
+<div id="github-setup" class="section level1">
+<h1>Github setup</h1>
 <ul>
-<li>Google/Stackoverflow will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day :)</li>
-<li><a href="https://www.rfordatasci.com/">R for Data Science community</a> - an online community that tries to provide newcomer friendly help. They use Slack to communicate, you can join for free and ask questions.</li>
-<li>The discussion boards on eLC. Use them widely to ask questions, to answer others’ questions, to post links to interesting resources, etc.</li>
+<li>If not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join.</li>
+<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">its website</a> and create a new repository named <em>YOURGITHUBNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Leave the other options at <em>none</em>.</li>
+<li>Click on your new repository. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
+<li>Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use for this). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g. Dropbpox).</li>
 </ul>
 </div>
-<div id="github-resources" class="section level1">
-<h1>Github Resources</h1>
+<div id="rstudio-project-setup" class="section level1">
+<h1>RStudio project setup</h1>
 <ul>
-<li><strong>A great resource to learn Git/Github with R is <a href="https://happygitwithr.com/">happygitwitR</a> by Jenny Bryant.</strong></li>
-<li><strong>I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use <a href="https://www.gitkraken.com/">GitKraken</a> which has a fully functional free version.</strong> Jenny has a few other recommendations in her book.</li>
-<li>The course materials website (this one) is a public Github repository. If you are curious, <a href="https://github.com/andreashandel/MADAcourse">you can look at all the files that make up this website</a>.</li>
-<li>For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called <em>epid8060fall2019</em>, you can find it <a href="https://github.com/epid8060fall2019">here</a>. Note that you need to be a group member.</li>
+<li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e. the folder/repository called <em>YOURGITHUBNAME-introduction</em>. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with .Rproj ending and a README.md.</li>
+<li>Click to open the README.md file. It will only contain the name of your repository. Change the headline and call it “Introducing myself” (or something like that) and underneath write something like “This website contains a short introduction of <em>Your Name</em>.”</li>
 </ul>
 </div>
-<div id="books" class="section level1">
-<h1>Books</h1>
+<div id="rmarkdown-content-creation" class="section level1">
+<h1>RMarkdown content creation</h1>
+<p><strong>For this part of the task, the book <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> and the <a href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown website</a> are likely useful.</strong></p>
 <ul>
-<li><strong><a href="https://rafalab.github.io/dsbook/">Introduction to Data Science (IDS)</a> is the book we’ll use the most in this course. You will be assigned different chapters to read and work through.</strong></li>
-<li><strong><a href="http://r4ds.had.co.nz/index.html">R for Data Science (R4DS)</a> teaches some coding integrated with the material covered in the book. I’ll be refering to it frequently.</strong></li>
-<li><a href="http://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).</li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">Hands-on Machine Learning with R</a>. Good discussion of various analysis methods/approaches.</li>
-<li><a href="https://leanpub.com/rprogramming">R Programming for Data Science</a> - you can get it for free.</li>
-<li><a href="https://moderndive.com">ModernDive - Statistical Inference via Data Science</a></li>
+<li>Choose <em>File</em>, <em>New File</em>, <em>R Markdown</em>. Give it a title like <em>YOUR NAME Introduction</em>, keep output format as HTML. A new file with some template content should show up. You can leave the top of the content in there, delete what comes after the first heading (<code>## R Markdown</code>).</li>
+<li>Update the YAML header (the information in the block starting/ending with —). Specifically, choose a layout theme. To figure out how to do that, check section 3.1.4 (as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g. date, author name, etc).</li>
+<li>Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I’d also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.</li>
+<li>Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.</li>
+<li>Finally, include a link to a picture/video/website/etc that is somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
+<li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you want, e.g. you can try to include some table or a video or…</li>
+</ul>
+<p>Save the file you just created as <strong>index.Rmd</strong> into the repository folder. You need to give it this name, otherwise the Github website display won’t work. Then knit the file, you should see an index.html file show up.</p>
+</div>
+<div id="sending-updates-to-github" class="section level1">
+<h1>Sending updates to Github</h1>
+<ul>
+<li>Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio.</li>
+<li>Go to the program you use for Github (I will assume that it’s GitKraken, if you use something else the details might vary). I the top right of Gitkraken, there should be a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>master</em> with the computer symbol be above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</li>
+<li>Go back to github.com and to your repository website. Under <em>Settings</em> and <em>Github Pages</em> it should give you a URL at which your new website lives. Something like <code>https://epid8060fall2019.github.io/andreashandel-introduction/</code> (with my name switch with yours). Go to that website and it should show the introduction you just wrote.</li>
 </ul>
 </div>
-<div id="online-courses" class="section level1">
-<h1>Online courses</h1>
+<div id="sharing-your-website" class="section level1">
+<h1>Sharing your website</h1>
 <ul>
-<li><a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Cloud Based Data Science</a> - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called <a href="https://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> and seems to be now updated and rebranded as <a href="https://www.clouddatascience.org/">Cloud Based Data Science</a>.</li>
-<li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a></li>
+<li>Go to eLC to the discussion forum called <em>Introduction</em> and write a short post with a link to your website/repository you created.</li>
+<li>Also, if you don’t already, upload a picture of yourself to eLC. It’s nice to see faces during the online discussions there.</li>
+<li>As you read your classmates introductions, feel free to comment/reply using the eLC discussion board.</li>
 </ul>
+<p><em>You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!</em></p>
 </div>
-<div id="hands-oninteractive-resources" class="section level1">
-<h1>Hands-on/interactive resources</h1>
+<div id="additional-information" class="section level1">
+<h1>Additional Information</h1>
 <ul>
-<li><strong><a href="https://rstudio.cloud/learn/primers">Online Tutorials (primers) by Rstudio</a> - we’ll do several of those in the class.</strong></li>
-<li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice.</li>
-<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription.</li>
+<li>If you want to keep making changes to your introduction, the workflow is first opening the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple local computers). If the remote is ahead of the local, do a <em>pull</em>. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server.</li>
+<li>If you like how fast you were able to create your own small website and want to learn more, 2 good resources are <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a> and <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">the Rmarkdown website chapter</a> in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files <a href="https://github.com/ahgroup/ahgroupwebsite">here</a>. The course website is simpler and uses the RStudio/Rmarkdown website setup. You can look at all these files <a href="https://github.com/andreashandel/MADAcourse">here</a>.</li>
+<li>You can get started with either a blogdown website or a simple Rmarkdown website through <em>File</em>, <em>New Project</em>, <em>New Directory</em> and then choosing the option you want.</li>
 </ul>
-</div>
-<div id="course-materials" class="section level1">
-<h1>Course materials</h1>
-<p>Many R/data science courses/instructors post materials online. Here are a few I know of:</p>
-<ul>
-<li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
-<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
-<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
-</ul>
-</div>
-<div id="lists-and-other-sources" class="section level1">
-<h1>Lists and other sources</h1>
-<ul>
-<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
-<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
-<li><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</li>
-<li><a href="https://m-clark.github.io/introduction-to-machine-learning/">Machine Learning</a> - an online reference (almost book) which nicely explains some of the basics of machine learning.</li>
-</ul>
-<p><em>There are tons of resources for learning R and Data Analysis with R. What I list here is just a small fraction. You should look around and stick with the ones you like most.</em></p>
 </div>
 
 

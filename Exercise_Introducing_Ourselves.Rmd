@@ -40,14 +40,17 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 # RMarkdown content creation
 **For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) will likely be useful.**
 
-* Choose _File_, _New File_, _R Markdown_. Give it a title like _YOUR NAME Introduction_, keep output format as HTML. A new file with some template content should show up. You can leave the top of the content in there, delete what comes after the first heading (`## R Markdown`).
-* Update the YAML header (the information in the block starting/ending with ---). Specifically, choose a layout theme. To figure out how to do that, check section 3.1.4 (as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).
+* Choose _File_, _New File_, _R Markdown_. Give it a title like _YOUR NAME Introduction_, keep output format as HTML. A new file with some template content should show up. 
+* Read through the provided example, then knit it by pressing the `knit` button. You will be asked to first save the file. Save the file as **index.Rmd** into the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then `knit` the file, you should see an `index.html` file show up in the file list (bottom left) and the RStudio viewer will show you the result of the knitted file.
+* Once you looked at the result and understood what's going on, it's time to write your own. Delete everyting apart from the YAML header (the information in the block starting/ending with ---).
+* Update the YAML header. Specifically, choose a layout theme. To figure out how to do that, check the section titled _Appearance and style_ (3.1.4 as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).
 * Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
+* Give your text a nice structure with headings, subheadings, etc.
 * Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
-* Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.
+* Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.
 * If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
 
-Save the file you just created as **index.Rmd** in the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then `knit` the file, you should see an `index.html` file show up.
+
 
 # Sending updates to Github
 * Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio. 
