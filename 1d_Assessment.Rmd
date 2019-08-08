@@ -16,12 +16,12 @@ Make sure you've gone through all the content for module 1, as well as read thro
 
 ## Quiz
 
-Do the module 1 quiz on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
+Do the quiz for module 1 on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
 
 
 ## Discussion posting
 
-Find some example online of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience reproducing it in the _Reproducible Project Examples_ discussion forum. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.).
+Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience reproducing it in the _Reproducible Project Examples_ discussion forum. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.).
 
-As I was looking for examples for this course, I found it surprisingly difficult to find research projects that were _fully and fairly easily_ reproducible. I didn't find a single one "out there" that seemed both complete and easy enough to point to it. Often the projects only provided data or code to reproduce some parts, and also often the setup and effort required to reproduce things was difficult. I'm curious to see if you can find some projects that are easy to reproduce and that provide information to reproduce the majority of results.
+As I was looking for examples for this course, I found it surprisingly difficult to find research projects that were _fully and fairly easily_ reproducible. I didn't find a single one "out there" that seemed both complete and easy enough to point to it. Often the projects only provided data or code to reproduce some parts, and usually, the setup and effort required were significant. I'm curious to see if you can find some projects that are easy to reproduce and that provide the required information to reproduce the majority of results.
 
