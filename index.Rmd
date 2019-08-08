@@ -20,6 +20,9 @@ Instructions for specific exercises are listed in the __Exercises__ section. You
 
 As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the __Project__ section.
 
+The __Communication__ section provides information on how course communications are planned to happen.
+
+
 The __Resources__ section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.
 
 

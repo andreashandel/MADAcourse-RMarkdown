@@ -16,7 +16,7 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 
 | **Module Topic**   | **Start and end dates** | **Assignments** |
 | --- | --- | --- |
-| Module 1 – Course introduction | 8/14 – 8/23 |  quiz |
+| Module 1 – Course introduction | 8/14 – 8/23 |  quiz, discussion |
 | Module 2 – Course tools setup | 8/14 – 8/23 | quiz, introducing ourselves exercise|
 | Module 3 – R basics | 8/14 – 8/30 | quiz, coding exercise  |
 | Module 4 – Data analysis overview | 9/2 – 9/6 | quiz, github issues exercise  |

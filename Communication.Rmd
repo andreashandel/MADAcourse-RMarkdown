@@ -18,3 +18,5 @@ I will use eLC to post announcements. Check regularly. They should show up when 
 I prefer you use the discussion boards instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering on the discussion boards, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to email me directly. __Please do not email through eLC, because of the insane way it is configured, with usg email addresses, the emails often do not reach me.__ Send email directly to my ahandel@uga.edu address.
 
 We will also use Github for some specific communications, detailed instructions on that will be provided.
+
+eLC is at times a bit clunky and not too user-friendly. I considered using alternatives (e.g. Slack or our Github organization), but decided that it would be just one more tool to learn and that additional learning might not outweigh potential benefits. _However_ if you find the eLC discussions are just not working because of how tedious they are to navigate, let me know and we can set up some other form of group communication.  

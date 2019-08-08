@@ -21,7 +21,7 @@ Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy
 
 ## Exercise
 
-For this module, you are asked to do a small coding project. Instructions are provided in the [R Coding](./Exercise_Coding.html) document in the _Exercises_ section.
+For this module, you are asked to do a coding project. Instructions are provided in the [R Coding](./Exercise_Coding.html) document in the _Exercises_ section.
 
 
 

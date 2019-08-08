@@ -62,6 +62,10 @@ left:
          href: ./Exercise_Coding.html
        - text: "Github Issues"
          #href: ./Exercise_Coding.html
+       - text: "Tidyverse"
+         #href: ./Exercise_Tidyverse.html
+       - text: "Visualization"
+         #href: ./Exercise_Visualization.html
        - text: "TidyTuesday"
          #href: ./Exercise_Tidy_Tuesday.html
   - text: "Project"
