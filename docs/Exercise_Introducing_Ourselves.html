@@ -521,17 +521,17 @@ div.tocify {
 <div id="github-setup" class="section level1">
 <h1>Github setup</h1>
 <ul>
-<li>If you have not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join.</li>
+<li>Make sure you followed the setup steps described in <a href="./2b_Github.html">the Github document</a>, i.e. create a a Github account, have a Github client up and running, and have joined the class organization.</li>
 <li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>.</li>
 <li>Click on your new repository. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
-<li>Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
+<li><em>Clone</em> the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
 </ul>
 </div>
 <div id="rstudio-project-setup" class="section level1">
 <h1>RStudio project setup</h1>
 <ul>
 <li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e., the folder/repository called <em>YOURNAME-introduction</em>. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a README.md.</li>
-<li>In the future, if you want to edit your introduction site/project, click or double-click on the <code>.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Creating new projects as specific R projects have several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</li>
+<li>In the future, if you want to edit your just created project, click or double-click on the <code>YOURNAME-introduction.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</li>
 </ul>
 </div>
 <div id="update-your-repository-readme-file" class="section level1">
@@ -553,7 +553,7 @@ div.tocify {
 <li>Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
 <li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.</li>
 </ul>
-<p>Save the file you just created as <strong>index.Rmd</strong> in the repository folder. You need to give it this name; otherwise, the Github website display won’t work. Then knit the file, you should see an index.html file show up.</p>
+<p>Save the file you just created as <strong>index.Rmd</strong> in the repository folder. You need to give it this name; otherwise, the Github website display won’t work. Then <code>knit</code> the file, you should see an <code>index.html</code> file show up.</p>
 </div>
 <div id="sending-updates-to-github" class="section level1">
 <h1>Sending updates to Github</h1>
@@ -572,13 +572,17 @@ div.tocify {
 </ul>
 <p><em>You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!</em></p>
 </div>
-<div id="additional-information" class="section level1">
-<h1>Additional Information</h1>
-<ul>
-<li>If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a <em>pull</em>. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. <strong>You will be using this workflow a lot</strong>.</li>
-<li>If you like how fast you were able to create your own small website and want to learn more, two good resources are <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a> and <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">the Rmarkdown website chapter</a> in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files <a href="https://github.com/ahgroup/ahgroupwebsite">here</a>. The course website is more straightforward and uses the RStudio/Rmarkdown website setup. You can look at all these files <a href="https://github.com/andreashandel/MADAcourse">here</a>.</li>
-<li>You can get started with either a blogdown website or a simple Rmarkdown website through <em>File</em>, <em>New Project</em>, <em>New Directory</em> and then choosing the option you want.</li>
-</ul>
+<div id="general-github-workflow" class="section level1">
+<h1>General Github workflow</h1>
+<p>If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a <em>pull</em>. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. <strong>You will be using this workflow a lot</strong>.</p>
+</div>
+<div id="github-pages" class="section level1">
+<h1>Github pages</h1>
+<p>You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a <code>/docs</code> subfolder. For instance, the Github repository for one of my R packages is <a href="https://github.com/ahgroup/DSAIDE">https://github.com/ahgroup/DSAIDE</a>. All the files for the webpage describing the package are in the <code>docs</code> folder. For some reason, if you go into that folder and klick on <code>index.html</code> you see raw HTML. But if you go to <a href="https://ahgroup.github.io/DSAIDE/">https://ahgroup.github.io/DSAIDE/</a> you see this file (and others in the <code>docs</code> folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at <a href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a> and all the files that make up the webpage are at <a href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p>If you like how fast you were able to create your own small website and want to learn more, two good resources are <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">the Rmarkdown website chapter</a> in the Rmarkdown book and <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a>. The former setup creates fairly simple sites, it’s the one I’m using for this course. The blogdown approach is more powerful and can create fancier webpages. I use that approach for <a href="http://handelgroup.uga.edu/">my group website</a>, which employs blogdown/hugo and a theme called Academic. You can look at all the files that make up the website <a href="https://github.com/ahgroup/ahgroupwebsite">here</a>. (In this case, the actual website is not hosted on Github but instead on UGA’s server). You can get started with either a blogdown website or a simple Rmarkdown website through <em>File</em>, <em>New Project</em>, <em>New Directory</em> and then choosing the option you want.</p>
 </div>
 
 

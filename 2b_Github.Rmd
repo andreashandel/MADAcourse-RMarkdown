@@ -54,18 +54,21 @@ Because Github works similar to Dropbox, I have heard/read people say that it is
 
 
 # Github for this course
-To get up and running, here are the steps I recommend you follow. Below are a few further details:  
-1. Create a [Github.com](https://github.com) account.  
+For this course, I created what Github calls an organization with the name _epid8060fall2019_. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.
+
+To get up and running, here are the steps I recommend you follow:  
+
+1. Create a [Github.com](https://github.com) account. Note that Github is widely used professionally, and you might want to allow other people to see your Github presence. I, therefore, recommend using a future-proof, professional user name. 
+ You can user your UGA or a different email. Whichever email you use is where you will receive Github activity related notifications (including our Github class activities). 
 2. Download and install [Gitkraken](https://www.gitkraken.com/download), link it with your Github account.  
-3. Post your Github user name into the `Github` discussion group.  
-4. Wait for an invitation to join the _epid8060fall2019_ organization. Then join.  
+3. Post your Github user name into the `Github topics` discussion group.  
+4. Once I have your user name, I'll invite you to our course organization, _epid8060fall2019_.
+5. Wait for the invitation (it will come to the email you used to sign up for Github) and join the organization.   
 5. Do the _Introducing Ourselves_ project for this course, for which you will be using Github.  
 
-Note that Github is widely used professionally, and you might want to allow other people to see your Github presence. I, therefore, recommend using a future-proof, professional user name. 
 
 If the quick install instructions are not detailed enough, follow these in [Jeny's paper](https://peerj.com/preprints/3159/) or her great online book [happygitwithr](https://happygitwithr.com/). Note that if you install Gitkraken, you do not have to install Git, since Gitkraken has it. It might still be a good idea to install it in case you want to use Github from RStudio.
 
-For this course, I created what Github calls an organization with the name _epid8060fall2019_. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.
 
 # Further Resources and help
 Github can be confusing. Start slow. Using the graphical interface (Gitkraken) makes getting started fairly easy. I'm also trying to give specific instructions whenever we do something new with Github. Jenny Bryan's book and paper are great resources. There is also a lot of good beginner material online. RStudio has built-in Github support. I prefer to use Gitkraken for all my Github push/pull/sync, etc. and then work on my project in RStudio separately. But if you prefer the workflow with the built-in Github, feel free to use it. Jenny's book explains how to connect Github and RStudio.

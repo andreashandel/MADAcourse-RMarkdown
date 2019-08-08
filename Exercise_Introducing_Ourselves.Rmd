@@ -21,14 +21,15 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 
 
 # Github setup
-* If you have not done so, create a Github account, email me your Github user name, wait for the invitation to join the class organization (epid8060fall2019) and join. 
+* Make sure you followed the setup steps described in [the Github document](./2b_Github.html), i.e. create a a Github account, have a Github client up and running, and have joined the class organization. 
 * Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Choose if you want the repository to be private or public. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_.
 * Click on your new repository. Go to _Settings_ in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_ and switch it to _master_ from _none_. Don't choose a theme. 
-* Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).
+* _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).
 
 # RStudio project setup
 * Open RStudio on your computer. Choose _File_, _New Project_, _Existing Directory_ and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e., the folder/repository called _YOURNAME-introduction_. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with `.Rproj` ending and a README.md. 
-* In the future, if you want to edit your introduction site/project, click or double-click on the `.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Creating new projects as specific R projects have several advantages. One is that it makes how you write file paths easier, so while having an `.Rproj` file is not strictly required I recommend you do it that way.
+* In the future, if you want to edit your just created project, click or double-click on the `YOURNAME-introduction.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an `.Rproj` file is not strictly required I recommend you do it that way.
+
 
 # Update your repository Readme file
 
@@ -46,7 +47,7 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 * Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.
 * If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
 
-Save the file you just created as **index.Rmd** in the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then knit the file, you should see an index.html file show up.
+Save the file you just created as **index.Rmd** in the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then `knit` the file, you should see an `index.html` file show up.
 
 # Sending updates to Github
 * Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio. 
@@ -60,11 +61,14 @@ Save the file you just created as **index.Rmd** in the repository folder. You ne
 
 _You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!_
 
+# General Github workflow
+If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. __You will be using this workflow a lot__.
 
+# Github pages
+You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a `/docs` subfolder. 
+For instance, the Github repository for one of my R packages is [https://github.com/ahgroup/DSAIDE](https://github.com/ahgroup/DSAIDE). All the files for the webpage describing the package are in the `docs` folder. For some reason, if you go into that folder and klick on `index.html` you see raw HTML. But if you go to [https://ahgroup.github.io/DSAIDE/](https://ahgroup.github.io/DSAIDE/) you see this file (and others in the `docs` folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at [https://andreashandel.github.io/MADAcourse/](https://andreashandel.github.io/MADAcourse/) and all the files that make up the webpage are at [(https://github.com/andreashandel/MADAcourse)](https://github.com/andreashandel/MADAcourse).
 
-# Additional Information
-* If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. __You will be using this workflow a lot__.
-* If you like how fast you were able to create your own small website and want to learn more, two good resources are [the blogdown book](https://bookdown.org/yihui/blogdown/) and [the Rmarkdown website chapter](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) in the Rmarkdown book. For my group website, I use blogdown/hugo and a theme called Academic. You can look at all the files [here](https://github.com/ahgroup/ahgroupwebsite). The course website is more straightforward and uses the RStudio/Rmarkdown website setup. You can look at all these files [here](https://github.com/andreashandel/MADAcourse).
-* You can get started with either a blogdown website or a simple Rmarkdown website through _File_, _New Project_, _New Directory_ and then choosing the option you want.
+# Further information
+If you like how fast you were able to create your own small website and want to learn more, two good resources are [the Rmarkdown website chapter](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) in the Rmarkdown book and [the blogdown book](https://bookdown.org/yihui/blogdown/). The former setup creates fairly simple sites, it's the one I'm using for this course. The blogdown approach is more powerful and can create fancier webpages. I use that approach for [my group website](http://handelgroup.uga.edu/), which employs blogdown/hugo and a theme called Academic. You can look at all the files that make up the website [here](https://github.com/ahgroup/ahgroupwebsite). (In this case, the actual website is not hosted on Github but instead on UGA's server). You can get started with either a blogdown website or a simple Rmarkdown website through _File_, _New Project_, _New Directory_ and then choosing the option you want.
 
 

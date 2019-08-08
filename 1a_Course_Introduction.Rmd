@@ -141,7 +141,7 @@ I do not expect you to figure it all out yourselves. You will get stuck and are 
 
 
 # Next steps
-* Make sure you've gone through all the content for module 1, as well as read through the _Syllabus_, _Schedule_ and _Resources_ documents. 
+* Make sure you've gone through all the content for module 1, as well as read through the _Syllabus_, _Schedule_, _Communication_ and _Resources_ documents. 
 * Once you have done all the assigned reading, video watching, code reproducing, etc. for this module, do the assessments for module 1. 
 * As soon as possible, start with modules 2 and 3. For some of you, those modules and their exercises might take a long time (20+ hours), so start early!
 

@@ -90,7 +90,7 @@ Once you are done with DSAIDE, close it.
 
 This was a quick overview of R packages. We'll use a lot of them, so you'll get used to them rather quickly. 
 
-Next, [go through chapter 2 of IDS](https://rafalab.github.io/dsbook/getting-started.html) for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience.
+Next, [go through chapter 2 of IDS](https://rafalab.github.io/dsbook/getting-started.html) for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience. (Hint: I will ask about this chapter on the quiz).
 
 
 
