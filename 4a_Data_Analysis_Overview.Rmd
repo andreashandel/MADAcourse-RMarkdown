@@ -10,11 +10,14 @@ output:
     toc_depth: 3
 ---
 
-```{r, echo = FALSE}
+```{r, include=FALSE}
 #just so I can use emoticons
 #devtools::install_github("hadley/emo")
 library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
 ```
+
 
 # Overview
 In this module, we will talk about the whole data analysis workflow in a general, big-picture sense before we go into some of the details in further modules.
@@ -22,21 +25,26 @@ In this module, we will talk about the whole data analysis workflow in a general
 
 # Learning Objectives
 *	Understand the elements of a data analysis  
-
+*	Be able to set up a structure for an efficient, reproducible analysis
 
 # Data Analysis Workflow
 The following figure provides a conceptual illustration of the whole data analysis workflow.
 
-![](./media/analysis-workflow.png)
+
+```{r workflow,  echo=FALSE, fig.cap='Data analysis workflow', out.width = '60%', fig.align='center'}
+knitr::include_graphics("./media/analysis-workflow.png")
+```
+
+
 
 The spiral is meant to indicate that while the different steps in an analysis are rarely linear, things do improve over time until you have the data and code in a form that everything fits and you can produce _final_ results.
 
-In the introductory chapter of their great book R for data Science (R4DS), Garrett Grolemund and Hadley wickham have a similar diagram. 
-[Check out the figure and read their short introductory chapter (1.1.) here.](https://r4ds.had.co.nz/introduction.html)
+In the introductory chapter of their great book [R for data Science (R4DS)](https://r4ds.had.co.nz/), Garrett Grolemund and Hadley wickham have a similar diagram. [Check out the figure and read their short introductory chapter (1.1).](https://r4ds.had.co.nz/introduction.html)
 
 Note that the process of getting the data ready for analysis goes by different names that people use interchangably. So when you hear or read words like _wrangling_, _cleaning_, _processing_ or _tidying_ it often means the same thing. Sometimes people try to distinguish, e.g. _tidying_ could be used to get the data into something called tidy format (we'll talk about that more later), while _processing_ could mean things like dealing with outliers or missing values. In my figure above, I wrote those two terms as separate, while in the R4DS chapter and figure, they distinguish between tidying and transforming and together call them wrangling. You need to guess from the context what is meant, but often you can think of these terms as all meaning similar things.
 
-Let's look at the different components of an analysis in more detail.
+
+Let's look at the different components of an analysis in more detail. The following sections are meant as conceptual overview. Apart from the _Question and Data Match_ discussion, we will get into each of the other steps and how to do them in more detail later in the course.
 
 
 # Question & Data Match
@@ -57,7 +65,7 @@ Another approach that is becoming more common is to start with the data. You mig
 # Getting and loading data
 In some sense the best, but also the most money- and time-consuming way of getting data is to collect it yourself. Doing so ensures that the data can answer the question you have. You can also control the quality of the data that is being collected - at least to some extent. However, it is often not feasible to collect your own data. You might not have funding or time or interest to do so. The next best source of data is directly from someone who collected it. The advantage of such data is that you can ask someone for clarification. Also, the person who collected the data is likely a subject matter expert, which can lead to asking better questions. Finally, you can get data that is generally available, e.g. in some online resource. This gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification.
 
-No matter the source, you need to get the data into your favorite data analysis system (in our case that will be R). Sometimes, you get data in a format that can be read in easily, e.g. a comma-separated CSV file without any strange formatting that messes up import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets. The general rule is to do as little as possible 
+No matter the source, you need to get the data into your favorite data analysis system (in our case that will be R). Sometimes, you get data in a format that can be read in easily, e.g. a comma-separated CSV file without any strange formatting that messes up import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets or you get it by scraping data from some online source. We'll look at ways of getting data into R in a later module.  
 
 
 

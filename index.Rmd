@@ -26,7 +26,7 @@ The __Resources__ section contains a listing of external materials. Some of this
 # Additional content
 
 For students taking this course at UGA, We will use eLC, UGA's learning management system, for additional features.
-The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC> f you can't find it, search for _Modern Applied Data Analysis_. We will use the following eLC for the following:
+The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can't find it, search for _Modern Applied Data Analysis_. We will use the following eLC for the following:
 
 * Course related announcements
 * Course discussion boards

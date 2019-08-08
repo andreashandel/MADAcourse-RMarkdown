@@ -76,7 +76,7 @@ The folks from Rstudio developed [R Markdown](http://rmarkdown.rstudio.com/). Th
 
 Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It's a free typesetting system that is a bit similar to markdown, but more complicated and more powerful. I recommend [MiKTeX](https://miktex.org/) for Windows and [MacTeX ](http://www.tug.org/mactex/) for Mac. We don't absolutely need it for the class, but it's good to have and free, so I suggest you go ahead and install it.
 
-One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources.
+One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/).
 
 After developing knitr and R Markdown, [Yihui Xie](https://yihui.name/en/) and colleagues have developed several other versions of the tool. There is [bookdown](https://bookdown.org/yihui/bookdown/) which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the [bookdown website](https://bookdown.org/)) and [blogdown](https://bookdown.org/yihui/blogdown/) which lets you make webpages (see e.g. [my group webpage which is done that way](http://handelgroup.uga.edu/)). 
 

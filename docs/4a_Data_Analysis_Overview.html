@@ -441,15 +441,15 @@ div.tocify {
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
-    <li class="dropdown-header">6. Wrangling data</li>
-    <li class="dropdown-header">7. Visualizing data</li>
-    <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
+    <li class="dropdown-header">7. Visualization</li>
+    <li class="dropdown-header">8. Exploratory analysis</li>
     <li class="dropdown-header">9. Model performance assessment</li>
     <li class="dropdown-header">10. Model quality assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">14. A complete data analysis</li>
     <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -512,13 +512,20 @@ div.tocify {
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Understand the elements of a data analysis</li>
+<li>Understand the elements of a data analysis<br />
+</li>
+<li>Be able to set up a structure for an efficient, reproducible analysis</li>
 </ul>
 </div>
 <div id="data-analysis-workflow" class="section level1">
 <h1>Data Analysis Workflow</h1>
 <p>The following figure provides a conceptual illustration of the whole data analysis workflow.</p>
-<p><img src="media/analysis-workflow.png" /></p>
+<div class="figure" style="text-align: center">
+<img src="media/analysis-workflow.png" alt="Data analysis workflow" width="60%" />
+<p class="caption">
+Data analysis workflow
+</p>
+</div>
 <p>The spiral is meant to indicate that while the different steps in an analysis are rarely linear, things do improve over time until you have the data and code in a form that everything fits and you can produce <em>final</em> results.</p>
 <p>In the introductory chapter of their great book R for data Science (R4DS), Garrett Grolemund and Hadley wickham have a similar diagram. <a href="https://r4ds.had.co.nz/introduction.html">Check out the figure and read their short introductory chapter (1.1.) here.</a></p>
 <p>Note that the process of getting the data ready for analysis goes by different names that people use interchangably. So when you hear or read words like <em>wrangling</em>, <em>cleaning</em>, <em>processing</em> or <em>tidying</em> it often means the same thing. Sometimes people try to distinguish, e.g. <em>tidying</em> could be used to get the data into something called tidy format (we’ll talk about that more later), while <em>processing</em> could mean things like dealing with outliers or missing values. In my figure above, I wrote those two terms as separate, while in the R4DS chapter and figure, they distinguish between tidying and transforming and together call them wrangling. You need to guess from the context what is meant, but often you can think of these terms as all meaning similar things.</p>
