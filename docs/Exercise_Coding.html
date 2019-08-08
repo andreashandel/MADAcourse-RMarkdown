@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
 <title>Coding Exercise</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -441,15 +403,15 @@ div.tocify {
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
-    <li class="dropdown-header">6. Wrangling data</li>
-    <li class="dropdown-header">7. Visualizing data</li>
-    <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
+    <li class="dropdown-header">7. Visualization</li>
+    <li class="dropdown-header">8. Exploratory analysis</li>
     <li class="dropdown-header">9. Model performance assessment</li>
     <li class="dropdown-header">10. Model quality assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">14. A complete data analysis</li>
     <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -466,9 +428,8 @@ div.tocify {
     <li>
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
-    <li>
-      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
-    </li>
+    <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -482,6 +443,9 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="Communication.html">Communication</a>
 </li>
 <li>
   <a href="Resources.html">Resources</a>
@@ -500,7 +464,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Coding Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-07</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
@@ -604,6 +568,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

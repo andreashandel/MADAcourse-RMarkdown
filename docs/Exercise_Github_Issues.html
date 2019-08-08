@@ -10,9 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Andreas Handel" />
 
+<meta name="date" content="2019-08-08" />
 
-<title>Modern Applied Data Analysis (MADA) course website</title>
+<title>Github Issues Exercise</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +22,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
@@ -233,6 +238,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -240,6 +308,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -384,33 +462,38 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Modern Applied Data Analysis (MADA) course website</h1>
+<h1 class="title toc-ignore">Github Issues Exercise</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
 
-<p>Welcome to the Modern Applied Data Analysis (MADA) course website.</p>
-<p>This is website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
-<div id="website-content" class="section level1">
-<h1>Website content</h1>
-<p>The <strong>General Information</strong> section provides a class <strong>Syllabus</strong> and a <strong>Schedule</strong>. The latter will likey be updated throughout the course, so check it regularly.</p>
-<p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
-<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)</p>
-<p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
-<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
-</div>
-<div id="additional-content" class="section level1">
-<h1>Additional content</h1>
-<p>For students taking this course at UGA, We will use eLC, UGA’s learning management system, for additional features. The course is listed as EPID or BIOS 8060E. It doesn’t matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can’t find it, search for <em>Modern Applied Data Analysis</em>. We will use the following eLC for the following:</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>These exercises teach a bit more about Github, specifically how <em>Issues</em> work.</p>
+<p>For some background reading, see <a href="https://guides.github.com/features/issues/">this Github Guide</a>.</p>
 <ul>
-<li>Course related announcements</li>
-<li>Course discussion boards</li>
-<li>Online quizzes</li>
+<li>Go to the <a href="https://andreashandel.github.io/MADAcourse/">course website</a> and find something wrong/unclear/worth improving (e.g. a typo, something confusing, a broken link, a suggestion for a new reference).</li>
+<li>Go to the <a href="https://github.com/andreashandel/MADAcourse">course Github repository</a> and klick on <em>Issues</em>.</li>
+<li>Click the green <em>New Issue</em> button and describe your issue you found. Make the title and the content as descriptive and clear as possible. Submit your issue.</li>
 </ul>
+<p>Let’s do it once more:</p>
+<ul>
+<li>Go to <em>Classlist</em> on eLC. You should see a roster of students enrolled in the class. Make sure they are sorted by last name. Note the name of the student who is just below you (if you are the last student, note the 1st student’s name).</li>
+<li>Go to the <a href="https://github.com/epid8060fall2019">Github course organization</a> and find the repository of that student containing their introduction.</li>
+<li>Read through their introduction. Think of something you would like to know about them in addition to what they wrote. File an <em>Issue</em> on their repository.</li>
+<li>Everyone of you should be receiving a notification that someone (the student in the class list above you) has filed an <em>Issue</em>. Go ahead and address the issue (i.e. make changes to your markdown document). Follow the workflow described in <em>Introducing Ourselves</em> for this. Once you pushed your updates to the repository, go to the <em>Issues</em> page, and close the issues with a comment of what you did.</li>
+<li>The person who initiated the issue should get a reply that the issue has been closed. You can then go and check if it has been addressed.</li>
+</ul>
+<p>This <em>Issues</em> feature is a very powerful way of working collaboratively on software. For instance if you go to the Github page of a popular R package, such as <a href="https://github.com/tidyverse/ggplot2">ggplot2</a> you’ll find a lot of open (and closed) issues. Take a look at some of those issues to get an idea of how they are used. It’s a great way for developers of software (and other products) to learn about problems, to hear what features users want, etc. So don’t feel shy about opening an issue on someone’s Github project. The one thing you should make sure is to first search all the open and closed issues (and maybe a quick online search as well) to make sure it’s not something that has been discussed before.</p>
+<p>Just for fun, here is me <a href="https://github.com/mlr-org/mlr/issues/837">filing an issue for the mlr package</a>. If you read through it, you’ll see that based on that, the developers added the functionality I wanted 😃. Try that with Microsoft or any other of those software companies 😱!</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -443,6 +526,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

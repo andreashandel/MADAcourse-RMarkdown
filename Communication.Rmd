@@ -1,0 +1,20 @@
+---
+title: Course Communications
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc.
+
+I will use eLC to post announcements. Check regularly. They should show up when you log into the course and should also be in the announcements section.
+
+I prefer you use the discussion boards instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering on the discussion boards, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to email me directly. __Please do not email through eLC, because of the insane way it is configured, with usg email addresses, the emails often do not reach me.__ Send email directly to my ahandel@uga.edu address.
+
+We will also use Github for some specific communications, detailed instructions on that will be provided.

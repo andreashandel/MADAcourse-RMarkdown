@@ -50,7 +50,7 @@ The "official" place for packages is the [CRAN website](https://cran.r-project.o
 To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type `install.packages("PACKAGENAME")`. The figure shows an example where I installed a package called `learnr`. Often, a package needs other packages to work, those will be installed as well. It usually doesn't matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get upper case and lower case exactly right, otherwise it won't work.
 
 
-```{r packageinstall,  echo=FALSE, fig.cap='Installing an R package. Right-click on the image to enlarge it.', out.width = '100%', fig.align='center'}
+```{r installfig,  echo=FALSE, fig.cap='Installing an R package. Right-click on the image to enlarge it.', out.width = '100%', fig.align='center'}
 knitr::include_graphics("./media/installpackagesscreenshot.png")
 ```
 

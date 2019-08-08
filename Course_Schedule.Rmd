@@ -19,10 +19,10 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 | Module 1 – Course introduction | 8/14 – 8/23 |  quiz |
 | Module 2 – Course tools setup | 8/14 – 8/23 | quiz, introducing ourselves exercise|
 | Module 3 – R basics | 8/14 – 8/30 | quiz, coding exercise  |
-| Module 4 – Data analysis overview | 9/2 – 9/6 | quiz  |
-| Module 5 – Pndering and getting data | 9/9 – 9/13 | quiz, project part 1 |
+| Module 4 – Data analysis overview | 9/2 – 9/6 | quiz, github issues exercise  |
+| Module 5 – Pondering and getting data | 9/9 – 9/13 | quiz, project part 1 |
 | Module 6 – Data wrangling & Tidyverse | 9/16 – 9/20 |quiz, tidyverse exercise |
-| Module 7 – Visualization | 9/23 – 9/27 | quiz   |
+| Module 7 – Visualization | 9/23 – 9/27 | quiz, visualization exercise   |
 | Module 8 – Exploratory analysis | 9/30 – 10/4 | quiz, TidyTuesday 1 exercise |
 | Module 9 – Model performance assessment | 10/7 – 10/11 | quiz, project part 2 |
 | Module 10 – Model quality assessment | 10/14 – 10/18 | quiz |

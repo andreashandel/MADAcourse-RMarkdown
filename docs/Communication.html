@@ -10,9 +10,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Andreas Handel" />
 
+<meta name="date" content="2019-08-08" />
 
-<title>Modern Applied Data Analysis (MADA) course website</title>
+<title>Course Communications</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +22,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
@@ -233,6 +238,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -240,6 +308,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -384,33 +462,22 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Modern Applied Data Analysis (MADA) course website</h1>
+<h1 class="title toc-ignore">Course Communications</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
 
-<p>Welcome to the Modern Applied Data Analysis (MADA) course website.</p>
-<p>This is website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
-<div id="website-content" class="section level1">
-<h1>Website content</h1>
-<p>The <strong>General Information</strong> section provides a class <strong>Syllabus</strong> and a <strong>Schedule</strong>. The latter will likey be updated throughout the course, so check it regularly.</p>
-<p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
-<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed :)</p>
-<p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
-<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
+<p>The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others’ questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc.</p>
+<p>I will use eLC to post announcements. Check regularly. They should show up when you log into the course and should also be in the announcements section.</p>
+<p>I prefer you use the discussion boards instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering on the discussion boards, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to email me directly. <strong>Please do not email through eLC, because of the insane way it is configured, with usg email addresses, the emails often do not reach me.</strong> Send email directly to my <a href="mailto:ahandel@uga.edu" class="email">ahandel@uga.edu</a> address.</p>
+<p>We will also use Github for some specific communications, detailed instructions on that will be provided.</p>
+
+
+
 </div>
-<div id="additional-content" class="section level1">
-<h1>Additional content</h1>
-<p>For students taking this course at UGA, We will use eLC, UGA’s learning management system, for additional features. The course is listed as EPID or BIOS 8060E. It doesn’t matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can’t find it, search for <em>Modern Applied Data Analysis</em>. We will use the following eLC for the following:</p>
-<ul>
-<li>Course related announcements</li>
-<li>Course discussion boards</li>
-<li>Online quizzes</li>
-</ul>
 </div>
-
-
-
 
 </div>
 
@@ -443,6 +510,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

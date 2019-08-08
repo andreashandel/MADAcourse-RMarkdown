@@ -60,11 +60,15 @@ left:
          href: ./Exercise_Introducing_Ourselves.html
        - text: "R Coding"
          href: ./Exercise_Coding.html
+       - text: "Github Issues"
+         #href: ./Exercise_Coding.html
        - text: "TidyTuesday"
-         href: ./Exercise_Tidy_Tuesday.html
+         #href: ./Exercise_Tidy_Tuesday.html
   - text: "Project"
     menu:
        - text: "Project information"
          href: ./Project_Information.html
+  - text: "Communication"
+    href: Communication.html
   - text: "Resources"
     href: Resources.html

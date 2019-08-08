@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
 <title>Markdown and colleagues</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -441,15 +403,15 @@ div.tocify {
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
-    <li class="dropdown-header">6. Wrangling data</li>
-    <li class="dropdown-header">7. Visualizing data</li>
-    <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
+    <li class="dropdown-header">7. Visualization</li>
+    <li class="dropdown-header">8. Exploratory analysis</li>
     <li class="dropdown-header">9. Model performance assessment</li>
     <li class="dropdown-header">10. Model quality assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">14. A complete data analysis</li>
     <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -466,9 +428,8 @@ div.tocify {
     <li>
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
-    <li>
-      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
-    </li>
+    <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -482,6 +443,9 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="Communication.html">Communication</a>
 </li>
 <li>
   <a href="Resources.html">Resources</a>
@@ -500,7 +464,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Markdown and colleagues</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-07</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
@@ -561,7 +525,7 @@ This video provides a short discussion of some of the current problems with repr
 <h2>R Markdown &amp; Co</h2>
 <p>The folks from Rstudio developed <a href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allows you to combine R code with Markdown text. You can write a single Rmarkdown (Rmd) document which contains code and text. You then <code>knit</code> the document, which uses an R package called <code>knitr</code>, runs the code, produces results and turns everything into a markdown (md) document, then using the <code>rmarkdown</code> package and <code>pandoc</code> turns this into some output format of your choice, e.g. an html or pdf or Word or Powerpoint document. Again, most of the time this happens without you needing to care about the details of this process. There are by now <a href="https://rmarkdown.rstudio.com/formats.html">a lot of different output formats</a> that R Markdown supports. As an example, this whole course is written in Rmarkdown and <a href="https://github.com/andreashandel/MADAcourse">lives on GitHub</a>. You can copy all files and completley reproduce this course.</p>
 <p>Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It’s a free typesetting system that is a bit similar to markdown, but more complicated and more powerful. I recommend <a href="https://miktex.org/">MiKTeX</a> for Windows and <a href="http://www.tug.org/mactex/">MacTeX</a> for Mac. We don’t absolutely need it for the class, but it’s good to have and free, so I suggest you go ahead and install it.</p>
-<p>One great thing about R Markdown is that it’s well documented. The <a href="https://rmarkdown.rstudio.com/">R Studio R Markdown site</a> and the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a> are great resources.</p>
+<p>One great thing about R Markdown is that it’s well documented. The <a href="https://rmarkdown.rstudio.com/">R Studio R Markdown site</a> and the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a> are great resources. Another good source targeted at scientists is the online book <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a>.</p>
 <p>After developing knitr and R Markdown, <a href="https://yihui.name/en/">Yihui Xie</a> and colleagues have developed several other versions of the tool. There is <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the <a href="https://bookdown.org/">bookdown website</a>) and <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> which lets you make webpages (see e.g. <a href="http://handelgroup.uga.edu/">my group webpage which is done that way</a>).</p>
 <p>The whole R Markdown/Markdown/pandoc system has become incredibly flexible and powerful and we’ll use it exclusively in this class.</p>
 </div>
@@ -596,6 +560,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

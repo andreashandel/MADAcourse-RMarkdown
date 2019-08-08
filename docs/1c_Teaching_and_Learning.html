@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
 <title>MADA Fall 2019 - Some teaching and learning thoughts</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -441,15 +403,15 @@ div.tocify {
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
-    <li class="dropdown-header">6. Wrangling data</li>
-    <li class="dropdown-header">7. Visualizing data</li>
-    <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
+    <li class="dropdown-header">7. Visualization</li>
+    <li class="dropdown-header">8. Exploratory analysis</li>
     <li class="dropdown-header">9. Model performance assessment</li>
     <li class="dropdown-header">10. Model quality assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">14. A complete data analysis</li>
     <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -466,9 +428,8 @@ div.tocify {
     <li>
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
-    <li>
-      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
-    </li>
+    <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -482,6 +443,9 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="Communication.html">Communication</a>
 </li>
 <li>
   <a href="Resources.html">Resources</a>
@@ -500,25 +464,25 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Some teaching and learning thoughts</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-07</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>Over the last few years, I have gotten quite interested in figuring out what works best for teaching and learning, especially in an online setting. I’m describing a few of my thoughts here and an invitation for you to engage in this as an <em>unrelated side topic</em>.</p>
+<p>Over the last few years, I have gotten quite interested in figuring out what works best for teaching and learning, especially in an online setting. I’m describing a few of my thoughts here and invite you to engage in this as an <em>unrelated side topic</em>.</p>
 <p><strong>This document is not directly related to the course topic and completely optional. If you have no interest in contemplating best teaching and learning practices, feel free to skip over this document and ignore anything further on this topic throughout the course, it won’t affect your grade at all.</strong></p>
 </div>
 <div id="general-teaching-and-learning-thoughts" class="section level1">
 <h1>General teaching and learning thoughts</h1>
-<p>When I was a student, I never found lectures very useful. Real learning for me only happened when I had to engage with the material. The inferiority of lectures compared to other ways of teaching and learning is increasingly supported by solid evidence from the field of education research. I am trying to move away from lecturing as much as possible and towards modes and activities that maximize learning. Overall, it seems to me learning is best when these conditions are meant:</p>
+<p>When I was a student, I never found lectures very useful. Real learning for me only happened when I had to engage with the material. The inferiority of lectures compared to other ways of teaching and learning is increasingly supported by solid evidence from the field of education research. I am trying to move away from lecturing as much as possible and towards modes and activities that maximize learning. Overall, it seems to me learning is best when these conditions are met:</p>
 <ul>
-<li><p><strong>Relevance:</strong> As a student, the material I was supposed to learn needed to be relevant to me, either for something as basic as solving a homework problem, or something larger like I knew I wanted to learn the topic because it was useful for something I wanted to accomplish in my work/life.</p></li>
-<li><p><strong>Right level of challenge:</strong> Any assignment that consisted of mindlessly following recipes and clicking buttons (hello, undergrad physics and chemistry labs!) does not seem to help me much in learning. Assignments needed to have a certain level of difficulty th ensure the brain is sufficiently engaged.</p></li>
-<li><p><strong>Right level of freedom and constraints:</strong> Similar to the level of difficulty, the level of freedom given for specific exercises and assignments is important. If things are too constraint, things become boring, rote and not much real learning - other than going through the motions - is achieved. I used to think it’s best to give as much freedom as possible. However, I have learned that this often makes learnres feel lost and directionless. Thus, some level of constraint in the form of structures and guidance seems helpful. For instance for the class project, I’m providing you with a template. This is not meant to uneccesarilly constrain you, but instead to provide some hopefully helpful structure. In general, if you want to do things differently and your own way in this class, I’m completely ok with that as long as your way of doing it produces results that are at least as good as the way I suggest.</p></li>
-<li><p><strong>Right level of “carrots and sticks”:</strong> This is similar to the freedom and constraints one. In most classes I teach, including this one, I can assume that students take the class because you want to learn the topic. However, I also know that everyone always has a lot going on and it’s hard to stay on track without the right mix of incentives and threats (carrots and sticks). I’m trying to create a class setup which has the right mix of such carrots and sticks. The carrots are the perceived rewards you get from mastering the material. (If you don’t hope to gain anything from the course, you shouldn’t take it.) You might hope that achieving the learning objectives of this course will help you with your research, prepare you for success in a future job, satisfy your intellectual curiosity, or a mix of those. I’m hopeful the class can deliver those rewards for you. Still, while you might have general enthusiasm for the material, keeping up with it week by week just based on this enthusiasm gets hard. That’s why the occasional sticks are useful, too. Deadlines keep you on schedule, grades hopefully motivate you to do things. Balancing carrots and sticks is tricky. I prefer as many rewards as possible and keeping the threats low. But I know that many small assignments are important to stay on track, especially for an online class. Thus the many small quizzes and the different parts for the project.</p></li>
-<li><p><strong>Support and Community:</strong> Receiving the right level of support from others, especially instructor(s) and peers. Too much help hinders learning, but too little leads to frustration and thus also reduced learning. Having a community of learners that at the same time challenges each other and helps each other is ideal for learning. This is generally easier to achieve in a classroom setting. Online courses are challenging in that respect. I’m still trying to figure out how to best structure things to encourage a great and supportive community of learners in an online setting.</p></li>
+<li><p><strong>Relevance:</strong> As a student, the material I was supposed to learn needed to be relevant to me, either for something as basic as solving a homework problem, or something more substantial. For example, I knew I wanted to learn the topic because it was useful for something I wanted to accomplish in my work/life.</p></li>
+<li><p><strong>Right level of challenge:</strong> Any assignment that consisted of mindlessly following recipes and clicking buttons (hello, undergrad physics and chemistry labs!) does not seem to help me much in learning. Assignments needed to have a certain level of difficulty to ensure the brain is sufficiently engaged.</p></li>
+<li><p><strong>Right level of freedom and constraints:</strong> Similar to the level of difficulty, the level of freedom given for specific exercises and assignments is important. If things are too constraint, things become boring, rote and not much real learning - other than going through the motions - is achieved. I used to think it was best to give as much freedom as possible. However, I have learned that this often makes learners feel lost and directionless. Thus, some level of constraint in the form of structures and guidance seems helpful. For instance, for the class project, I’m providing you with a template. This is not meant to constrain you unnecessarily, but instead to provide some hopefully helpful structure. In general, if you want to do things differently or your own way in this class, I’m completely ok with that as long as your way of doing it produces results that are at least as good as the way I suggest.</p></li>
+<li><p><strong>Right level of “carrots and sticks”:</strong> This is similar to the freedom and constraints one. In most classes I teach, including this one, I can assume that students take the class because you want to learn the topic. However, I also know everyone has a lot going on, and it’s hard to stay on track without the right mix of incentives and consequences (carrots and sticks). I’m trying to create a class setup which has the right combination of such carrots and sticks. The carrots are the perceived rewards you get from mastering the material. (If you don’t hope to gain anything from the course, you shouldn’t take it.) You might hope that achieving the learning objectives of this course will help you with your research, prepare you for success in a future job, satisfy your intellectual curiosity, or a mix of those. I’m hopeful the class can deliver those rewards for you. Still, while you might have a general enthusiasm for the material, keeping up with it week by week just based on this enthusiasm gets hard. That’s why the occasional sticks are useful, too. Deadlines keep you on schedule, and grades hopefully motivate you to do things. Balancing carrots and sticks is tricky. I prefer as many rewards as possible and keeping the consequences low. But I know that many small assignments are important to stay on track, especially for an online class. Thus the many small quizzes and the different parts for the project.</p></li>
+<li><p><strong>Support and Community:</strong> Receiving the right level of support from others, especially instructor(s) and peers. Too much help hinders learning, but too little leads to frustration and thus also reduced learning. Having a community of learners that at the same time, challenges each other and helps each other is ideal for learning. This is generally easier to achieve in a classroom setting. Online courses are challenging in that respect. I’m still trying to figure out how to best structure things to encourage a great and supportive community of learners in an online setting.</p></li>
 </ul>
 <p>My dream class is one that operates as described in this quote by Seth Godin:</p>
 <p><em>“If you want people to become passionate, engaged in a field, transformed by an experience - you don’t test them, you don’t lecture them and you don’t force them. Instead, you create an environment where willing, caring individuals can find an experience that changes them.”</em> <a href="https://medium.com/swlh/will-this-be-on-the-test-237ae9cc53b4">Seth Godin</a></p>
@@ -549,6 +513,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
 <title>R and RStudio</title>
 
@@ -104,7 +105,7 @@ code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -323,48 +324,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -531,15 +493,15 @@ div.tocify {
     </li>
     <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
-    <li class="dropdown-header">6. Wrangling data</li>
-    <li class="dropdown-header">7. Visualizing data</li>
-    <li class="dropdown-header">8. Exploring data</li>
+    <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
+    <li class="dropdown-header">7. Visualization</li>
+    <li class="dropdown-header">8. Exploratory analysis</li>
     <li class="dropdown-header">9. Model performance assessment</li>
     <li class="dropdown-header">10. Model quality assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete analysis</li>
+    <li class="dropdown-header">14. A complete data analysis</li>
     <li class="dropdown-header">15. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -556,9 +518,8 @@ div.tocify {
     <li>
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
-    <li>
-      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
-    </li>
+    <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -572,6 +533,9 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="Communication.html">Communication</a>
 </li>
 <li>
   <a href="Resources.html">Resources</a>
@@ -590,7 +554,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R and RStudio</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-07</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
@@ -635,9 +599,11 @@ div.tocify {
 <p>Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We’ll be using a number of packages in this course. Of course, you are free to install and use the functionality in any package you come across for any of the assignments in this course.</p>
 <p>The “official” place for packages is the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>. If you are interested in packages on a specific topic, the <a href="http://cran.r-project.org/web/views/">CRAN task views</a> provide curated descriptions of packages sorted by topic.</p>
 <p>To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type <code>install.packages("PACKAGENAME")</code>. The figure shows an example where I installed a package called <code>learnr</code>. Often, a package needs other packages to work, those will be installed as well. It usually doesn’t matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get upper case and lower case exactly right, otherwise it won’t work.</p>
-<div class="figure">
-<img src="media/installpackagesscreenshot.png" alt="Installing an R package. Right-click on the image to enlarge it." />
-<p class="caption">Installing an R package. Right-click on the image to enlarge it.</p>
+<div class="figure" style="text-align: center">
+<img src="media/installpackagesscreenshot.png" alt="Installing an R package. Right-click on the image to enlarge it." width="100%" />
+<p class="caption">
+Installing an R package. Right-click on the image to enlarge it.
+</p>
 </div>
 <p>Try installing a package yourself. Open RStudio. Then go to the R promt (the <code>&gt;</code> symbol) in the lower left corner and type</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</a></code></pre></div>
@@ -673,6 +639,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

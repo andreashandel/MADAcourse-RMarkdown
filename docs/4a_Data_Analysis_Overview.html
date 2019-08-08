@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-07" />
+<meta name="date" content="2019-08-08" />
 
 <title>MADA Fall 2019 - Data Analysis Overview</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -466,9 +428,8 @@ div.tocify {
     <li>
       <a href="./Exercise_Coding.html">R Coding</a>
     </li>
-    <li>
-      <a href="./Exercise_Tidy_Tuesday.html">TidyTuesday</a>
-    </li>
+    <li class="dropdown-header">Github Issues</li>
+    <li class="dropdown-header">TidyTuesday</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -482,6 +443,9 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="Communication.html">Communication</a>
 </li>
 <li>
   <a href="Resources.html">Resources</a>
@@ -500,7 +464,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Data Analysis Overview</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-07</h4>
+<h4 class="date">2019-08-08</h4>
 
 </div>
 
@@ -527,9 +491,9 @@ Data analysis workflow
 </p>
 </div>
 <p>The spiral is meant to indicate that while the different steps in an analysis are rarely linear, things do improve over time until you have the data and code in a form that everything fits and you can produce <em>final</em> results.</p>
-<p>In the introductory chapter of their great book R for data Science (R4DS), Garrett Grolemund and Hadley wickham have a similar diagram. <a href="https://r4ds.had.co.nz/introduction.html">Check out the figure and read their short introductory chapter (1.1.) here.</a></p>
+<p>In the introductory chapter of their great book <a href="https://r4ds.had.co.nz/">R for data Science (R4DS)</a>, Garrett Grolemund and Hadley wickham have a similar diagram. <a href="https://r4ds.had.co.nz/introduction.html">Check out the figure and read their short introductory chapter (1.1).</a></p>
 <p>Note that the process of getting the data ready for analysis goes by different names that people use interchangably. So when you hear or read words like <em>wrangling</em>, <em>cleaning</em>, <em>processing</em> or <em>tidying</em> it often means the same thing. Sometimes people try to distinguish, e.g. <em>tidying</em> could be used to get the data into something called tidy format (we’ll talk about that more later), while <em>processing</em> could mean things like dealing with outliers or missing values. In my figure above, I wrote those two terms as separate, while in the R4DS chapter and figure, they distinguish between tidying and transforming and together call them wrangling. You need to guess from the context what is meant, but often you can think of these terms as all meaning similar things.</p>
-<p>Let’s look at the different components of an analysis in more detail.</p>
+<p>Let’s look at the different components of an analysis in more detail. The following sections are meant as conceptual overview. Apart from the <em>Question and Data Match</em> discussion, we will get into each of the other steps and how to do them in more detail later in the course.</p>
 </div>
 <div id="question-data-match" class="section level1">
 <h1>Question &amp; Data Match</h1>
@@ -543,7 +507,7 @@ Data analysis workflow
 <div id="getting-and-loading-data" class="section level1">
 <h1>Getting and loading data</h1>
 <p>In some sense the best, but also the most money- and time-consuming way of getting data is to collect it yourself. Doing so ensures that the data can answer the question you have. You can also control the quality of the data that is being collected - at least to some extent. However, it is often not feasible to collect your own data. You might not have funding or time or interest to do so. The next best source of data is directly from someone who collected it. The advantage of such data is that you can ask someone for clarification. Also, the person who collected the data is likely a subject matter expert, which can lead to asking better questions. Finally, you can get data that is generally available, e.g. in some online resource. This gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification.</p>
-<p>No matter the source, you need to get the data into your favorite data analysis system (in our case that will be R). Sometimes, you get data in a format that can be read in easily, e.g. a comma-separated CSV file without any strange formatting that messes up import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets. The general rule is to do as little as possible</p>
+<p>No matter the source, you need to get the data into your favorite data analysis system (in our case that will be R). Sometimes, you get data in a format that can be read in easily, e.g. a comma-separated CSV file without any strange formatting that messes up import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets or you get it by scraping data from some online source. We’ll look at ways of getting data into R in a later module.</p>
 </div>
 <div id="cleaning-data" class="section level1">
 <h1>Cleaning Data</h1>
@@ -822,6 +786,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
