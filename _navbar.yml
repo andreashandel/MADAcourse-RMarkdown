@@ -36,13 +36,13 @@ left:
           - text: "3b. Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
-      #  menu:
-       #   - text: "4a. Data analysis overview"
-        #    href: ./4a_Data_Analysis_Overview.html     
-         # - text: "4b. Data analysis structure"
-          #  href: ./4b_Data_Analysis_Structure.html     
-        #  - text: "4c. Assessment"
-        #    href: ./4c_Assessment.html
+        menu:
+          - text: "4a. Data analysis overview"
+            href: ./4a_Data_Analysis_Overview.html     
+          - text: "4b. Data analysis structure"
+            href: ./4b_Data_Analysis_Structure.html     
+          - text: "4c. Assessment"
+            href: ./4c_Assessment.html
       - text: "5. Pondering and getting data"
       - text: "6. Data wrangling& Tidyverse"
       - text: "7. Visualization"

@@ -24,8 +24,8 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 | Module 6 – Data wrangling & Tidyverse | 9/16 – 9/20 |quiz, tidyverse exercise |
 | Module 7 – Visualization | 9/23 – 9/27 | quiz, visualization exercise   |
 | Module 8 – Exploratory analysis | 9/30 – 10/4 | quiz, TidyTuesday 1 exercise |
-| Module 9 – Model performance assessment | 10/7 – 10/11 | quiz, project part 2 |
-| Module 10 – Model quality assessment | 10/14 – 10/18 | quiz |
+| Module 9 – Model fitting overview | 10/7 – 10/11 | quiz, project part 2 |
+| Module 10 – Model assessment | 10/14 – 10/18 | quiz |
 | Module 11 – Generalized linear models, feature selection | 10/21 – 10/25 | quiz   |
 | Module 12 – Tree-based models, parameter tuning | 10/28 – 11/1 | quiz   |
 | Module 13 – Various machine learning models | 11/4 – 11/8 | quiz, project part 3 |

@@ -66,8 +66,10 @@ To get up and running, here are the steps I recommend you follow:
 5. Wait for the invitation (it will come to the email you used to sign up for Github) and join the organization.   
 5. Do the _Introducing Ourselves_ project for this course, for which you will be using Github.  
 
-
 If the quick install instructions are not detailed enough, follow these in [Jeny's paper](https://peerj.com/preprints/3159/) or her great online book [happygitwithr](https://happygitwithr.com/). Note that if you install Gitkraken, you do not have to install Git, since Gitkraken has it. It might still be a good idea to install it in case you want to use Github from RStudio.
+
+__I also recommend you get the [Github student developer pack](https://education.github.com/pack).__ This will give you your own free private repositories (we have private repositories as part of the class organization, but that doesn't apply to any projects you do outside the class). Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use Github for a project involving data that you don't want to be publicly accessible. You also get 1 year Gitkraken Pro account (not necessary for the class but nice to have) and lots of other tools you could use if you want to get geeky with your data projects. 
+
 
 
 # Further Resources and help
