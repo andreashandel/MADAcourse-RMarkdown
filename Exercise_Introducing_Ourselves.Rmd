@@ -21,9 +21,9 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 
 
 # Github setup
-* Make sure you followed the setup steps described in [the Github document](./2b_Github.html), i.e. create a a Github account, have a Github client up and running, and have joined the class organization. 
-* Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Choose if you want the repository to be private or public. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_.
-* Click on your new repository. Go to _Settings_ in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_ and switch it to _master_ from _none_. Don't choose a theme. 
+* Make sure you followed the setup steps described in [the Github document](./2b_Github.html), i.e. create a Github account, have a Github client up and running, and have joined the class organization. 
+* Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Choose if you want the repository to be private or public. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_. Click "create repository".  
+* Your new repopository should have opened. If not click on your new repository on [the website](https://github.com/epid8060fall2019). Go to _Settings_ in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_ and switch it to _master_ from _none_. Don't choose a theme. 
 * _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).
 
 # RStudio project setup
@@ -35,7 +35,7 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 
 * Click to open the README.md file. It will only contain the name of your repository with a `#` sign in front. As you have learned or will in this project, the `#` represents a level 1 heading in Markdown. Change the headline and call it "Introducing myself" (or something like that). Underneath write something like "This website contains a short introduction of _Your Name_."
 * Go back to this repository on Github.com. Go back into _Settings_, scroll back down to _GitHub Pages_. You should see a message saying 'This repository is published at SOME-URL'. If it doesn't show, you might have to refresh your browser. 
-* Copy that URL and add a sentence to your Readme.md file that says `You can see the website [here](SOME-URL).` The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that one can click on. You can see how this looks on [my introduction site](https://github.com/epid8060fall2019/andreashandel-introduction).
+* Copy that URL and add a sentence to your Readme.md file that says `You can see the website [here](SOME-URL).` The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that someone can click on. You can see how this looks on [my introduction site](https://github.com/epid8060fall2019/andreashandel-introduction).
 
 # RMarkdown content creation
 **For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) will likely be useful.**
@@ -45,7 +45,7 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 * Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
 * Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
 * Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.
-* If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
+* If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some tables or a video or whatever.
 
 Save the file you just created as **index.Rmd** in the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then `knit` the file, you should see an `index.html` file show up.
 
