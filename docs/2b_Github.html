@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-08" />
+<meta name="date" content="2019-08-09" />
 
 <title>Github Introduction</title>
 
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -401,20 +439,7 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">4c. Assessment</a>
-        </li>
-      </ul>
-    </li>
+    <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
@@ -479,7 +504,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Github Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-08</h4>
+<h4 class="date">2019-08-09</h4>
 
 </div>
 
@@ -535,6 +560,7 @@ div.tocify {
 <li>Do the <em>Introducing Ourselves</em> project for this course, for which you will be using Github.</li>
 </ol>
 <p>If the quick install instructions are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jeny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>. Note that if you install Gitkraken, you do not have to install Git, since Gitkraken has it. It might still be a good idea to install it in case you want to use Github from RStudio.</p>
+<p><strong>I also recommend you get the <a href="https://education.github.com/pack">Github student developer pack</a>.</strong> This will give you your own free private repositories (we have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class). Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use Github for a project involving data that you don’t want to be publicly accessible. You also get 1 year Gitkraken Pro account (not necessary for the class but nice to have) and lots of other tools you could use if you want to get geeky with your data projects.</p>
 </div>
 <div id="further-resources-and-help" class="section level1">
 <h1>Further Resources and help</h1>
@@ -559,49 +585,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

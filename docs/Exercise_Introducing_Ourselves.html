@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-08" />
+<meta name="date" content="2019-08-09" />
 
 <title>MADA Fall 2019 - Introducing Ourselves project</title>
 
@@ -234,9 +233,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -401,20 +439,7 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">4c. Assessment</a>
-        </li>
-      </ul>
-    </li>
+    <li class="dropdown-header">4. Data analysis overview</li>
     <li class="dropdown-header">5. Pondering and getting data</li>
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
@@ -479,7 +504,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Introducing Ourselves project</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-08</h4>
+<h4 class="date">2019-08-09</h4>
 
 </div>
 
@@ -496,9 +521,10 @@ div.tocify {
 <div id="github-setup" class="section level1">
 <h1>Github setup</h1>
 <ul>
-<li>Make sure you followed the setup steps described in <a href="./2b_Github.html">the Github document</a>, i.e. create a a Github account, have a Github client up and running, and have joined the class organization.</li>
-<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>.</li>
-<li>Click on your new repository. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
+<li>Make sure you followed the setup steps described in <a href="./2b_Github.html">the Github document</a>, i.e. create a Github account, have a Github client up and running, and have joined the class organization.</li>
+<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. Click “create repository”.<br />
+</li>
+<li>Your new repository should have opened. If not go to <a href="https://github.com/epid8060fall2019">the website</a> for the github class organization and click on it. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
 <li><em>Clone</em> the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
 </ul>
 </div>
@@ -514,21 +540,23 @@ div.tocify {
 <ul>
 <li>Click to open the README.md file. It will only contain the name of your repository with a <code>#</code> sign in front. As you have learned or will in this project, the <code>#</code> represents a level 1 heading in Markdown. Change the headline and call it “Introducing myself” (or something like that). Underneath write something like “This website contains a short introduction of <em>Your Name</em>.”</li>
 <li>Go back to this repository on Github.com. Go back into <em>Settings</em>, scroll back down to <em>GitHub Pages</em>. You should see a message saying ‘This repository is published at SOME-URL’. If it doesn’t show, you might have to refresh your browser.</li>
-<li>Copy that URL and add a sentence to your Readme.md file that says <code>You can see the website [here](SOME-URL).</code> The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that one can click on. You can see how this looks on <a href="https://github.com/epid8060fall2019/andreashandel-introduction">my introduction site</a>.</li>
+<li>Copy that URL and add a sentence to your Readme.md file that says <code>You can see the website [here](SOME-URL).</code> The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that someone can click on. You can see how this looks on <a href="https://github.com/epid8060fall2019/andreashandel-introduction">my introduction site</a>.</li>
 </ul>
 </div>
 <div id="rmarkdown-content-creation" class="section level1">
 <h1>RMarkdown content creation</h1>
 <p><strong>For this part of the task, the book <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> and the <a href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown website</a> will likely be useful.</strong></p>
 <ul>
-<li>Choose <em>File</em>, <em>New File</em>, <em>R Markdown</em>. Give it a title like <em>YOUR NAME Introduction</em>, keep output format as HTML. A new file with some template content should show up. You can leave the top of the content in there, delete what comes after the first heading (<code>## R Markdown</code>).</li>
-<li>Update the YAML header (the information in the block starting/ending with —). Specifically, choose a layout theme. To figure out how to do that, check section 3.1.4 (as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).</li>
+<li>Choose <em>File</em>, <em>New File</em>, <em>R Markdown</em>. Give it a title like <em>YOUR NAME Introduction</em>, keep output format as HTML. A new file with some template content should show up.</li>
+<li>Read through the provided example, then knit it by pressing the <code>knit</code> button. You will be asked to first save the file. Save the file as <strong>index.Rmd</strong> into the repository folder. You need to give it this name; otherwise, the Github website display won’t work. Then <code>knit</code> the file, you should see an <code>index.html</code> file show up in the file list (bottom left) and the RStudio viewer will show you the result of the knitted file.</li>
+<li>Once you looked at the result and understood what’s going on, it’s time to write your own. Delete everything apart from the YAML header (the information in the block starting/ending with —).</li>
+<li>Update the YAML header. Specifically, choose a layout theme. To figure out how to do that, check the section titled <em>Appearance and style</em> (3.1.4 as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).</li>
 <li>Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I’d also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.</li>
+<li>Give your text a nice structure with headings, subheadings, etc.</li>
 <li>Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.</li>
-<li>Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis and that you find really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
+<li>Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
 <li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.</li>
 </ul>
-<p>Save the file you just created as <strong>index.Rmd</strong> in the repository folder. You need to give it this name; otherwise, the Github website display won’t work. Then <code>knit</code> the file, you should see an <code>index.html</code> file show up.</p>
 </div>
 <div id="sending-updates-to-github" class="section level1">
 <h1>Sending updates to Github</h1>
@@ -553,7 +581,7 @@ div.tocify {
 </div>
 <div id="github-pages" class="section level1">
 <h1>Github pages</h1>
-<p>You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a <code>/docs</code> subfolder. For instance, the Github repository for one of my R packages is <a href="https://github.com/ahgroup/DSAIDE">https://github.com/ahgroup/DSAIDE</a>. All the files for the webpage describing the package are in the <code>docs</code> folder. For some reason, if you go into that folder and klick on <code>index.html</code> you see raw HTML. But if you go to <a href="https://ahgroup.github.io/DSAIDE/">https://ahgroup.github.io/DSAIDE/</a> you see this file (and others in the <code>docs</code> folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at <a href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a> and all the files that make up the webpage are at <a href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.</p>
+<p>You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a <code>/docs</code> subfolder. For instance, the Github repository for one of my R packages is <a href="https://github.com/ahgroup/DSAIDE">https://github.com/ahgroup/DSAIDE</a>. All the files for the webpage describing the package are in the <code>docs</code> folder. For some reason, if you go into that folder and click on <code>index.html</code> you see raw HTML. But if you go to <a href="https://ahgroup.github.io/DSAIDE/">https://ahgroup.github.io/DSAIDE/</a> you see this file (and others in the <code>docs</code> folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at <a href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a> and all the files that make up the webpage are at <a href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.</p>
 </div>
 <div id="further-information" class="section level1">
 <h1>Further information</h1>
@@ -578,49 +606,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
