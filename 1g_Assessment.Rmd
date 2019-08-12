@@ -12,11 +12,11 @@ output:
 
 # Module Assessments
 
-Make sure you've gone through all the content for modules 2.
+Make sure you've gone through all the content for this module.
 
 ## Quiz
 
-Do the quiz for module 2 on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
+Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
 
 
 ## Exercise

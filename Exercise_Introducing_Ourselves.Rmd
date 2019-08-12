@@ -17,11 +17,11 @@ You should by now be set up with all the tools we need, namely R, RStudio and Gi
 _For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work._
 
 # Getting help
-If you get stuck (quite possible), use the materials I list in the [Resources document](./Resources.html). It is probably best to first post to the discussion board in the _Introducing Ourselves_ section, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
+If you get stuck (quite possible), use the materials I list in the [Resources document](./Course_Resources.html). It is probably best to first post to the discussion board in the _Introducing Ourselves_ section, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
 
 
 # Github setup
-* Make sure you followed the setup steps described in [the Github document](./2b_Github.html), i.e. create a Github account, have a Github client up and running, and have joined the class organization. 
+* Make sure you followed the setup steps described in the _Github_ document, i.e. create a Github account, have a Github client up and running, and have joined the class organization. 
 * Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Choose if you want the repository to be private or public. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_. Click "create repository".  
 * Your new repository should have opened. If not go to [the website](https://github.com/epid8060fall2019) for the github class organization and click on it. Go to _Settings_ in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_ and switch it to _master_ from _none_. Don't choose a theme. 
 * _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).
@@ -49,8 +49,6 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 * Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
 * Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.
 * If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
-
-
 
 # Sending updates to Github
 * Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio. 

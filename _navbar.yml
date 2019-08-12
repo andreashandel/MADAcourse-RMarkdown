@@ -9,26 +9,28 @@ left:
         href: ./Course_Schedule.html
   - text: "Modules"
     menu:
-      - text: "1. Introduction"
+      - text: "1. Coures and Tools Introduction"
         menu:
-          - text: "1a. Course intro"
+          - text: "1a. Course introduction"
             href: ./1a_Course_Introduction.html
-          - text: "1b. Topic intro"
-            href: ./1b_Topic_Introduction.html
-          - text: "1c. Some Teaching Comments"
-            href: ./1c_Teaching_and_Learning.html
-          - text: "1d. Assessment"
-            href: ./1d_Assessment.html
-      - text: "2. Coures Tools"
+          - text: "1b. Teaching and Learning thoughts"
+            href: ./1b_Teaching_and_Learning.html
+          - text: "1c. R and Rstudio"
+            href: ./1c_RandRStudio.html
+          - text: "1d. GitHub"
+            href: ./1d_Github.html
+          - text: "1e. RMarkdown & Co"
+            href: ./1e_ToolsforReproducibility.html
+          - text: "1f. Reference Management"
+            href: ./1f_Reference_Management.html
+          - text: "1g. Assessment"
+            href: ./1g_Assessment.html
+      - text: "2. Topic Introduction"
         menu:
-          - text: "2a. R and Rstudio"
-            href: ./2a_RandRStudio.html
-          - text: "2b. GitHub"
-            href: ./2b_Github.html
-          - text: "2c. RMarkdown & Co"
-            href: ./2c_ToolsforReproducibility.html
-          - text: "2d. Assessment"
-            href: ./2d_Assessment.html
+          - text: "2a. Topic introduction"
+            href: ./2a_Topic_Introduction.html
+          - text: "2b. Assessment"
+            href: ./2b_Assessment.html
       - text: "3. R basics"
         menu:
           - text: "3a. R basics"
@@ -36,19 +38,19 @@ left:
           - text: "3b. Assessment"
             href: ./3b_Assessment.html
       - text: "4. Data analysis overview"
-      #  menu:
-      #    - text: "4a. Data analysis overview"
-      #      href: ./4a_Data_Analysis_Overview.html     
-       #   - text: "4b. Data analysis structure"
-        #    href: ./4b_Data_Analysis_Structure.html     
-         # - text: "4c. Assessment"
-          #  href: ./4c_Assessment.html
+        menu:
+#          - text: "4a. Data analysis overview"
+ #           href: ./4a_Data_Analysis_Overview.html     
+  #        - text: "4b. Data analysis structure"
+   #         href: ./4b_Data_Analysis_Structure.html     
+    #      - text: "4c. Assessment"
+     #       href: ./4c_Assessment.html
       - text: "5. Pondering and getting data"
       - text: "6. Data wrangling& Tidyverse"
       - text: "7. Visualization"
       - text: "8. Exploratory analysis"
-      - text: "9. Model performance assessment"
-      - text: "10. Model quality assessment"
+      - text: "9. Model fitting overview"
+      - text: "10. Model assessment"
       - text: "11. GLM and feature selection"
       - text: "12. Tree-based models and tuning"
       - text: "13. Various ML models"
@@ -61,7 +63,7 @@ left:
        - text: "R Coding"
          href: ./Exercise_Coding.html
        - text: "Github Issues"
-         #href: ./Exercise_Coding.html
+      #   href: ./Exercise_Github_Issues.html
        - text: "Tidyverse"
          #href: ./Exercise_Tidyverse.html
        - text: "Visualization"
@@ -73,6 +75,6 @@ left:
        - text: "Project information"
          href: ./Project_Information.html
   - text: "Communication"
-    href: Communication.html
+    href: ./Course_Communication.html
   - text: "Resources"
-    href: Resources.html
+    href: ./Course_Resources.html

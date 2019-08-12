@@ -10,14 +10,14 @@ output:
     toc: FALSE
 ---
 
-This is the current course schedule for the class. Subject to change.
+This is the current course schedule for the class. Things might change, so check regularly for updates.
 
-Assignments are described in detail in the course materials. Unless otherwise specified, deadlines for each assignment is the module end date (Friday) 5pm.
+Assessments (i.e. things that will be graded) are described in detail in the course materials. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
 
-| **Module Topic**   | **Start and end dates** | **Assignments** |
+| **Module Topic**   | **Start and end dates** | **Assessments** |
 | --- | --- | --- |
-| Module 1 – Course introduction | 8/14 – 8/23 |  quiz, discussion |
-| Module 2 – Course tools setup | 8/14 – 8/23 | quiz, introducing ourselves exercise|
+| Module 1 – Course and tools introduction | 8/14 – 8/23 |  quiz, introducing ourselves exercise |
+| Module 2 – Topic introduction | 8/14 – 8/23 | quiz, discussion|
 | Module 3 – R basics | 8/14 – 8/30 | quiz, coding exercise  |
 | Module 4 – Data analysis overview | 9/2 – 9/6 | quiz, github issues exercise  |
 | Module 5 – Pondering and getting data | 9/9 – 9/13 | quiz, project part 1 |
@@ -32,5 +32,5 @@ Assignments are described in detail in the course materials. Unless otherwise sp
 | Module 14 – Doing a complete data analysis project | 11/11 – 11/15 | quiz, TidyTuesday 2 exercise |
 | Module 15 – Deep learning, AI and Big Data | 11/18 – 11/22 | quiz   |
 | Finishing Project | 11/25 – 11/29 (fall break part of the week) | project part 4 |
-| Project Reviews | 12/2 – 12/6 | project reviews due 12/6 |
+| Project Reviews | 12/2 – 12/6 | project reviews |
 | Final project submission  | 12/11 | project part 5 |

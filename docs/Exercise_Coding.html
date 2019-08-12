@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-12" />
 
 <title>Coding Exercise</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -395,36 +357,39 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Course_Introduction.html">1a. Course intro</a>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
         </li>
         <li>
-          <a href="./1b_Topic_Introduction.html">1b. Topic intro</a>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">1c. Some Teaching Comments</a>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
         </li>
         <li>
-          <a href="./1d_Assessment.html">1d. Assessment</a>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandRStudio.html">2a. R and Rstudio</a>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
         </li>
         <li>
-          <a href="./2b_Github.html">2b. GitHub</a>
-        </li>
-        <li>
-          <a href="./2c_ToolsforReproducibility.html">2c. RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./2d_Assessment.html">2d. Assessment</a>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
         </li>
       </ul>
     </li>
@@ -444,8 +409,8 @@ div.tocify {
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
     <li class="dropdown-header">8. Exploratory analysis</li>
-    <li class="dropdown-header">9. Model performance assessment</li>
-    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">9. Model fitting overview</li>
+    <li class="dropdown-header">10. Model assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
@@ -485,10 +450,10 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="Communication.html">Communication</a>
+  <a href="./Course_Communication.html">Communication</a>
 </li>
 <li>
-  <a href="Resources.html">Resources</a>
+  <a href="./Course_Resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -504,14 +469,15 @@ div.tocify {
 
 <h1 class="title toc-ignore">Coding Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-09</h4>
+<h4 class="date">2019-08-12</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This project asks you to write a bit of code to do a simple data analysis. For now, we’ll be using base R syntax. At some later point, you’ll repeat some of this analysis using different R packages from the tidyverse. We’ll also be using the Github workflow so that we can practice that one some more.</p>
+<p>This project asks you to write a bit of code to do a simple data analysis. We’ll be using the Github workflow so that we can practice it some more. For now, we’ll be using base R syntax. At some later point, we’ll do analyses using different R packages from the tidyverse.</p>
+<p>** Even if you are already familiar with various R packages, I want you to do this exercise without their help. The only package you are allowed to load and use is the <code>dslabs</code> package to get the data.**</p>
 </div>
 <div id="project-setup" class="section level1">
 <h1>Project setup</h1>
@@ -525,6 +491,7 @@ div.tocify {
 <div id="r-content-creation" class="section level1">
 <h1>R content creation</h1>
 <p><em>It is best to call things which store values <code>objects</code> and use <code>variable</code> for a data variable, i.e., usually a column. However, it is common to refer to things that store values as a <code>variable</code> as well. Because of that, I sometimes use that terminology inadvertently too. So if I talk about a variable, you need to determine from the context if I mean a certain variable in the data, i.e., a predictor variable, or a variable in R that stores some content, i.e., an object.</em></p>
+<p><em>In the instructions below, I will mention each function you need to use. You can do all of the tasks with the functions I mention. You can use other <strong>base R</strong> functions if you like, just no other packages.</em></p>
 <div id="getting-started" class="section level2">
 <h2>Getting started</h2>
 <ul>
@@ -535,15 +502,15 @@ div.tocify {
 <div id="loading-and-checking-data" class="section level2">
 <h2>Loading and checking data</h2>
 <ul>
-<li>We’ll look at and play with some data from the <a href="https://simplystatistics.org/2018/01/22/the-dslabs-package-provides-datasets-for-teaching-data-science/"><code>dslabs</code> package</a>. Write a code chunk that installs and loads the package.</li>
-<li>We’ll look at the <code>gapminder</code> dataset from <code>dslabs</code>. Write a code chunk that pulls up the help page for the data to see what it contains. Then use the <code>str</code> and <code>summary</code> commands to take a look at the data. Use the <code>class</code> function to check what type of object <code>gapminder</code> is.</li>
+<li>We’ll look at and play with some data from the <a href="https://simplystatistics.org/2018/01/22/the-dslabs-package-provides-datasets-for-teaching-data-science/"><code>dslabs</code> package</a>. Write a code chunk using the <code>library()</code> function that loads the package (install the <code>dslabs</code> package first if you don’t have it yet).</li>
+<li>We’ll look at the <code>gapminder</code> dataset from <code>dslabs</code>. Write a code chunk using the <code>help()</code> function that pulls up the help page for the data to see what it contains. Then use the <code>str()</code> and <code>summary()</code> functions to take a look at the data. Use the <code>class()</code> function to check what type of object <code>gapminder</code> is.</li>
 </ul>
 </div>
 <div id="processing-data" class="section level2">
 <h2>Processing data</h2>
 <ul>
-<li>Using <em>base R notation</em> (no <code>dplyr</code> allowed yet), assign only the African countries to a new object/variable called <code>africadata</code>. Run <code>str</code> and <code>summary</code> on the new object you created. You should now have 2907 observations, down from 10545. You might also notice that all the different factor categories are still kept in the <code>continent</code> (and other) variables, but show 0. R does not automatically remove levels of factors even if they are empty. We don’t have to worry about that just now, but something to keep in mind, it can sometimes lead to strange behavior.</li>
-<li>Again using <em>base R notation</em>, take the <code>africadata</code> object and make two new variables (name them whatever you want), one that contains only <code>infant_mortality</code> and <code>life_expectancy</code> and one that contains only <code>population</code> and <code>life_expectancy</code>. You should have two new objects/variables with 2907 rows and two columns. Use the <code>str</code>, and <code>summary</code> commands to take a look at both variables.</li>
+<li>Using <em>base R notation</em>, assign only the African countries to a new object/variable called <code>africadata</code>. Run <code>str</code> and <code>summary</code> on the new object you created. You should now have 2907 observations, down from 10545. You might also notice that all the different factor categories are still kept in the <code>continent</code> (and other) variables, but show 0. R does not automatically remove levels of factors even if they are empty. We don’t have to worry about that just now, but something to keep in mind, it can sometimes lead to strange behavior.</li>
+<li>Again using <em>base R notation</em>, take the <code>africadata</code> object and make two new variables (name them whatever you want), one that contains only <code>infant_mortality</code> and <code>life_expectancy</code> and one that contains only <code>population</code> and <code>life_expectancy</code>. The <code>c()</code> function might be useful to efficiently pull out the variables you want. You should have two new objects/variables with 2907 rows and two columns. Use the <code>str</code>, and <code>summary</code> commands to take a look at both variables.</li>
 </ul>
 </div>
 <div id="plotting" class="section level2">
@@ -556,8 +523,8 @@ div.tocify {
 <div id="more-data-processing" class="section level2">
 <h2>More data processing</h2>
 <ul>
-<li>I’m sure you realized that the pattern we see in the data is due to the fact that we have different years for individual countries, and that over time these countries increase in population size and also life expectancy. Let’s pick only one year and see what patterns we find. We want a year for which we have the most data. You might have noticed that in <code>africadata</code>, there are 226 NA (i.e., missing values) for infant mortality. Write some base R code that figures out which years have missing data for infant mortality. You should find that there is missing up to 1981 and then again for 2016. So we’ll avoid those years and go with 2000 instead.</li>
-<li>Let’s create a new object by extracting only the data for the year 2000 from the <code>africadata</code> object. You should end up with 51 observations and 9 variables.</li>
+<li>I’m sure you realized that the pattern we see in the data is due to the fact that we have different years for individual countries, and that over time these countries increase in population size and also life expectancy. Let’s pick only one year and see what patterns we find. We want a year for which we have the most data. You might have noticed that in <code>africadata</code>, there are 226 NA (i.e., missing values) for infant mortality. Write some base R code that figures out which years have missing data for infant mortality. You should find that there is missing up to 1981 and then again for 2016. So we’ll avoid those years and go with 2000 instead. The <code>is.na()</code> function might be helpful. You can use the <code>print()</code> function to print the missing years to the console.</li>
+<li>Let’s create a new object by extracting only the data for the year 2000 from the <code>africadata</code> object. You should end up with 51 observations and 9 variables. Check it with <code>str</code> and <code>summary</code>.</li>
 </ul>
 </div>
 <div id="more-plotting" class="section level2">
@@ -608,6 +575,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

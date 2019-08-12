@@ -10,6 +10,8 @@ output:
     toc_depth: 3
 ---
 
+_Some of this will only fully make sense once we are a few weeks into the course. It's nevertheless a good idea to read through it and get an overall idea before we have discussed all the different tools and details mentioned. Re-visit/re-read as needed._
+
 # Overview
 A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.
 
@@ -40,10 +42,10 @@ The deadlines are listed in the _Schedule_ document (it's unlikely, but they mig
 You will receive feedback from me and/or your classmates after each submission. 
 
 * I will provide feedback on parts 1-3. 
-* Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document.
+* Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document, posted to the _Project_ section of the website.
 * Part 5 is the final submission. 
 
-I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%. 
+I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the _project grade._ The final submission will count for the remaining 75%. 
 
 
 # Project Requirements
@@ -69,11 +71,11 @@ _Often, the most interesting questions can be asked by combining data from more 
 
 
 # Logistics and formatting
-Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. You can create it as public or private repository within the course organization.
+Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. Name it `YOURNAME-project`. You can create it as public or private repository within the course organization.
 
 The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that's ok too.
 
-You can structure your project as you like. I recommend an approach similar to the one we discuss in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report.
+I recommend structuring your project similar to the provided template and the structure we will cover in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report. However, as long as it makes sense and allows easy reproducibility, you can structure your project as you like. 
 
 For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.
 

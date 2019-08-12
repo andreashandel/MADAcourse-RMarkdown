@@ -1,0 +1,91 @@
+---
+title: Course Resources
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+
+All materials described below are (should be) freely available online. If you can't get to them, let me know. The ones marked in __bold__ are those that we'll be using a lot.
+
+Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn't exist or doesn't seem to make sense, please do not hesitate to ask for clarification in our discussion boards.
+
+
+# General help
+
+* The main place to get any course specific help are the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc. 
+* Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day `r emo::ji('smiley')`.
+* When you search online for help, quite often you land on some _StackExchange_ site. These are a collection of widely-used online question and answer sites covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites.
+* The [Rstudio community](https://community.rstudio.com/) is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven't used it much.
+* Another highly recommended resource is the [R for data science community](https://www.rfordatasci.com/). They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.
+* Here is another resource, [a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter](https://www.datahelpers.org/). 
+
+
+
+# Github Resources
+
+* __A great resource to learn Git/Github with R is [happygitwitR](https://happygitwithr.com/) by Jenny Bryant.__
+* __I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use [GitKraken](https://www.gitkraken.com/) which has a fully functional free version.__ Jenny has a few other recommendations in her book. 
+* For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called _epid8060fall2019_, you can find it [here](https://github.com/epid8060fall2019). You need to be a group member to have access.  
+* If you have questions for a specific R package (or other project) which is developed on Github, you can ask questions in the Github _Issues_ section. We'll discuss/practice that as part of the course.
+
+
+# Books
+* __[Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book we'll use the most in this course. You will be assigned different chapters to read and work through.__
+* __[R for Data Science (R4DS)](http://r4ds.had.co.nz/index.html) teaches some coding integrated with the material covered in the book. I'll be refering to it frequently.__ 
+* __[The Art of Data Science](https://leanpub.com/artofdatascience) has some good introductory level chapters on different aspects of a data analysis. You will be assigned to read parts of this book.__ It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
+* A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science.[^1] Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok.
+* __[An Introduction to Statistical Learning (ISLR)](http://faculty.marshall.usc.edu/gareth-james/ISL/) - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).__
+* [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/). Good discussion of various analysis methods/approaches.
+* [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
+
+By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
+
+[^1]: As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
+
+
+# Online courses
+
+* [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
+* ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
+
+
+# Hands-on/interactive resources
+
+* __[Online Tutorials (primers) by Rstudio](https://rstudio.cloud/learn/primers) - we'll do several of those in the class.__
+* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
+* I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup) and I therefore currently won't use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription. They used to give students a very good discount, but not anymore. Unless you have some extra money to spend, I therefore currently don't recommend them.
+* A new company called [Dataquest](https://www.dataquest.io/) seems to be similar to Datacamp. I have no experience with their product, but it's again not free.
+* [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
+
+
+# Materials from other courses
+Many R/data science courses/instructors post materials online. Here are a few I know of:
+
+* [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
+* Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
+* [Data science for economists](https://github.com/uo-ec607/lectures)
+
+
+# Lists and other sources
+
+* I created lists related to R and Data Analysis (as well as other topics). You can find all lists [at this link on github](https://github.com/ahgroup/research-and-teaching-resource-lists). The list specifically for learning R [is here](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
+* Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
+* [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
+* [Machine Learning](https://m-clark.github.io/introduction-to-machine-learning/) - an online reference (almost book) which nicely explains some of the basics of machine learning.
+
+
+
+_There are tons of resources for learning R and Data Analysis with R. What I list here is just a small fraction. You should look around and stick with the ones you like most. And let me know if you find other relevant and good sources._

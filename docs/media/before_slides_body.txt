@@ -1,4 +1,0 @@
-<div id="myheader" class="container">
-	<p id="classname">EPID 8510 - Dynamical Systems Approach to Infectious Disease Epidemiology</p>
-	<p id="classauthor"><a href=http://handelgroup.uga.edu>Andreas Handel</a>, Epidemiology & Biostatistics, University of Georgia</p>
-</div>

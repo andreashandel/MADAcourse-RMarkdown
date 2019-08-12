@@ -7,11 +7,19 @@ date: "`r Sys.Date()`"
 #bibliography: ../media/references.bib
 output: 
   html_document:
-    toc_depth: 3
+    toc: FALSE
 ---
 
 
-The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc.
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+
+The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use the discussion boards to build a _community of learners_ where you help and support each other. So please don't always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.
 
 I will use eLC to post announcements. Check regularly. They should show up when you log into the course and should also be in the announcements section.
 

@@ -1,4 +1,0 @@
-<div id="myheader" class="container">
-	<p id="classname">EPID/BIOS 8060 - Modern Applied Data Analysis</p>
-	<p id="classauthor"><a href=http://handelgroup.uga.edu>Andreas Handel</a>, Epidemiology & Biostatistics, University of Georgia</p>
-</div>

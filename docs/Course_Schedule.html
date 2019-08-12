@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-12" />
 
 <title>MADA Fall 2019 - Course Schedule</title>
 
@@ -230,18 +231,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -292,36 +281,39 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Course_Introduction.html">1a. Course intro</a>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
         </li>
         <li>
-          <a href="./1b_Topic_Introduction.html">1b. Topic intro</a>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">1c. Some Teaching Comments</a>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
         </li>
         <li>
-          <a href="./1d_Assessment.html">1d. Assessment</a>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandRStudio.html">2a. R and Rstudio</a>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
         </li>
         <li>
-          <a href="./2b_Github.html">2b. GitHub</a>
-        </li>
-        <li>
-          <a href="./2c_ToolsforReproducibility.html">2c. RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./2d_Assessment.html">2d. Assessment</a>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
         </li>
       </ul>
     </li>
@@ -341,8 +333,8 @@ $(document).ready(function () {
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
     <li class="dropdown-header">8. Exploratory analysis</li>
-    <li class="dropdown-header">9. Model performance assessment</li>
-    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">9. Model fitting overview</li>
+    <li class="dropdown-header">10. Model assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
@@ -382,10 +374,10 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="Communication.html">Communication</a>
+  <a href="./Course_Communication.html">Communication</a>
 </li>
 <li>
-  <a href="Resources.html">Resources</a>
+  <a href="./Course_Resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -401,13 +393,13 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Course Schedule</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-09</h4>
+<h4 class="date">2019-08-12</h4>
 
 </div>
 
 
-<p>This is the current course schedule for the class. Subject to change.</p>
-<p>Assignments are described in detail in the course materials. Unless otherwise specified, deadlines for each assignment is the module end date (Friday) 5pm.</p>
+<p>This is the current course schedule for the class. Things might change, so check regularly for updates.</p>
+<p>Assessments (i.e. things that will be graded) are described in detail in the course materials. <strong>Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.</strong></p>
 <table>
 <colgroup>
 <col width="33%" />
@@ -418,19 +410,19 @@ $(document).ready(function () {
 <tr class="header">
 <th><strong>Module Topic</strong></th>
 <th><strong>Start and end dates</strong></th>
-<th><strong>Assignments</strong></th>
+<th><strong>Assessments</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Module 1 – Course introduction</td>
-<td>8/14 – 8/23</td>
-<td>quiz, discussion</td>
-</tr>
-<tr class="even">
-<td>Module 2 – Course tools setup</td>
+<td>Module 1 – Course and tools introduction</td>
 <td>8/14 – 8/23</td>
 <td>quiz, introducing ourselves exercise</td>
+</tr>
+<tr class="even">
+<td>Module 2 – Topic introduction</td>
+<td>8/14 – 8/23</td>
+<td>quiz, discussion</td>
 </tr>
 <tr class="odd">
 <td>Module 3 – R basics</td>
@@ -505,7 +497,7 @@ $(document).ready(function () {
 <tr class="odd">
 <td>Project Reviews</td>
 <td>12/2 – 12/6</td>
-<td>project reviews due 12/6</td>
+<td>project reviews</td>
 </tr>
 <tr class="even">
 <td>Final project submission</td>
@@ -532,6 +524,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

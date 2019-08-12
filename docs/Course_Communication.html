@@ -7,13 +7,14 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-12" />
 
-<title>MADA Fall 2019 - Course Introduction Assessment</title>
+<title>Course Communications</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,9 +22,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
@@ -233,110 +231,8 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
 
 
 
@@ -346,16 +242,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -395,36 +281,39 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Course_Introduction.html">1a. Course intro</a>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
         </li>
         <li>
-          <a href="./1b_Topic_Introduction.html">1b. Topic intro</a>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">1c. Some Teaching Comments</a>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
         </li>
         <li>
-          <a href="./1d_Assessment.html">1d. Assessment</a>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandRStudio.html">2a. R and Rstudio</a>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
         </li>
         <li>
-          <a href="./2b_Github.html">2b. GitHub</a>
-        </li>
-        <li>
-          <a href="./2c_ToolsforReproducibility.html">2c. RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./2d_Assessment.html">2d. Assessment</a>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
         </li>
       </ul>
     </li>
@@ -444,8 +333,8 @@ div.tocify {
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
     <li class="dropdown-header">8. Exploratory analysis</li>
-    <li class="dropdown-header">9. Model performance assessment</li>
-    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">9. Model fitting overview</li>
+    <li class="dropdown-header">10. Model assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
@@ -485,10 +374,10 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="Communication.html">Communication</a>
+  <a href="./Course_Communication.html">Communication</a>
 </li>
 <li>
-  <a href="Resources.html">Resources</a>
+  <a href="./Course_Resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -502,31 +391,22 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction Assessment</h1>
+<h1 class="title toc-ignore">Course Communications</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-09</h4>
+<h4 class="date">2019-08-12</h4>
 
 </div>
 
 
-<div id="module-assessments" class="section level1">
-<h1>Module Assessments</h1>
-<p>Make sure you’ve gone through all the content for module 1, as well as read through the <em>Syllabus</em>, <em>Schedule</em> and <em>Resources</em> documents.</p>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
-<p>Do the quiz for module 1 on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
-</div>
-<div id="discussion-posting" class="section level2">
-<h2>Discussion posting</h2>
-<p>Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian’s project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience reproducing it in the <em>Reproducible Project Examples</em> discussion forum. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.).</p>
-<p>As I was looking for examples for this course, I found it surprisingly difficult to find research projects that were <em>fully and fairly easily</em> reproducible. I didn’t find a single one “out there” that seemed both complete and easy enough to point to it. Often the projects only provided data or code to reproduce some parts, and usually, the setup and effort required were significant. I’m curious to see if you can find some projects that are easy to reproduce and that provide the required information to reproduce the majority of results.</p>
-</div>
-</div>
+<p>The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others’ questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use the discussion boards to build a <em>community of learners</em> where you help and support each other. So please don’t always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.</p>
+<p>I will use eLC to post announcements. Check regularly. They should show up when you log into the course and should also be in the announcements section.</p>
+<p>I prefer you use the discussion boards instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering on the discussion boards, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to email me directly. <strong>Please do not email through eLC, because of the insane way it is configured, with usg email addresses, the emails often do not reach me.</strong> Send email directly to my <a href="mailto:ahandel@uga.edu" class="email">ahandel@uga.edu</a> address.</p>
+<p>If you get stuck badly enough that asynchronous discussion or email doesn’t help, or if there are other reasons you want to talk in real time, let me know and we can either set up a video conversation (skype or zoom) or you can come by my office if you are on campus.</p>
+<p>We will also use Github for some specific communications, detailed instructions on that will be provided.</p>
+<p>eLC is at times a bit clunky and not too user-friendly. I considered using alternatives (e.g. Slack or our Github organization), but decided that it would be just one more tool to learn and that additional learning might not outweigh potential benefits. <em>However</em> if you find the eLC discussions are just not working because of how tedious they are to navigate, let me know and we can set up some other form of group communication.</p>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -542,6 +422,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

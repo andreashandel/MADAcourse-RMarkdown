@@ -14,7 +14,7 @@ library(emo)
 
 Welcome to the Modern Applied Data Analysis (MADA) course website.
 
-This is website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](http://handelgroup.uga.edu/). Most materials are hosted here, some are on external sites and either linked or embedded from here.
+This website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](http://handelgroup.uga.edu/). Most materials are hosted here, some are on external sites and either linked or embedded from here.
 
 # Website content
 
@@ -22,13 +22,15 @@ The __General Information__ section provides a class __Syllabus__ and a __Schedu
 
 The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.
 
-Instructions for specific exercises are listed in the __Exercises__ section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed `r emo::ji('smiley')`.
+Instructions for specific exercises are listed in the __Exercises__ section. You will be told when you should access those documents and do the exercises. Of course, reading ahead is allowed `r emo::ji('smiley')`.
 
 As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the __Project__ section.
 
 The __Communication__ section provides information on how course communications are planned to happen.
 
-The __Resources__ section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.
+The __Resources__ section contains a listing of external materials. Some of this material will assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful. All materials are (should be) available freely online.
+
+Note that by default, all links open in the current tab. You'll likely want external ones to open in a separate tab or window. To do so, you can (with most browsers) hold the `Ctrl` button when clicking, or do a right-click and select `open in new tab/window`.
 
 
 # Additional content
@@ -40,3 +42,9 @@ The course is listed as EPID or BIOS 8060E. It doesn't matter which label you si
 * Discussions
 * Quizzes
 
+# Getting started
+
+I suggest you start by looking over the __Syllabus__ and __Schedule__ documents, then __Communication__ and __Resources__. After that, start with the __Module 1__ content in the given order. You can read through the _Project_ section early or wait until you have gone through at least modules 1 and 2.
+
+
+  

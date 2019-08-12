@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-09" />
+<meta name="date" content="2019-08-12" />
 
 <title>EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus</title>
 
@@ -233,48 +234,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -395,36 +357,39 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Course_Introduction.html">1a. Course intro</a>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
         </li>
         <li>
-          <a href="./1b_Topic_Introduction.html">1b. Topic intro</a>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">1c. Some Teaching Comments</a>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
         </li>
         <li>
-          <a href="./1d_Assessment.html">1d. Assessment</a>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandRStudio.html">2a. R and Rstudio</a>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
         </li>
         <li>
-          <a href="./2b_Github.html">2b. GitHub</a>
-        </li>
-        <li>
-          <a href="./2c_ToolsforReproducibility.html">2c. RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./2d_Assessment.html">2d. Assessment</a>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
         </li>
       </ul>
     </li>
@@ -444,8 +409,8 @@ div.tocify {
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
     <li class="dropdown-header">8. Exploratory analysis</li>
-    <li class="dropdown-header">9. Model performance assessment</li>
-    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">9. Model fitting overview</li>
+    <li class="dropdown-header">10. Model assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
@@ -485,10 +450,10 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="Communication.html">Communication</a>
+  <a href="./Course_Communication.html">Communication</a>
 </li>
 <li>
-  <a href="Resources.html">Resources</a>
+  <a href="./Course_Resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -504,7 +469,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-09</h4>
+<h4 class="date">2019-08-12</h4>
 
 </div>
 
@@ -541,7 +506,7 @@ div.tocify {
 <ul>
 <li>Know how to obtain, process and analyze data from a variety of different sources.</li>
 <li>Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.</li>
-<li>Be able to thoughtfully and critically assess strengths and weaknessess of specific data sets and process and analyze the data appropriately.</li>
+<li>Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process and analyze the data appropriately.</li>
 </ul>
 <p><em>Analysis</em></p>
 <ul>
@@ -551,19 +516,19 @@ div.tocify {
 </ul>
 <p><em>Communication</em></p>
 <ul>
-<li>Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.</li>
+<li>Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.</li>
 <li>Assess the strengths and weaknesses of different formats for representing the results of data analyses.</li>
 </ul>
 <p><em>Tools</em></p>
 <ul>
-<li>Explain the importance of workflow, project management and reproducibility tools, and know how to use those tools.</li>
+<li>Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.</li>
 <li>Be comfortable using R and Github to do data analysis in a reproducible manner.</li>
 <li>Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.</li>
 </ul>
 <p><em>Overall</em></p>
 <ul>
 <li>Judge the usefulness and appropriateness of data analyses described in the primary research literature.</li>
-<li>Learn to <em>look yourself over the shoulder</em> and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.</li>
+<li>Learn to <em>look over your shoulder</em> and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.</li>
 </ul>
 </div>
 <div id="grading" class="section level2">
@@ -630,6 +595,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

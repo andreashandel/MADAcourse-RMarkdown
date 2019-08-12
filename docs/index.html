@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -228,18 +229,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -290,36 +279,39 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./1a_Course_Introduction.html">1a. Course intro</a>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
         </li>
         <li>
-          <a href="./1b_Topic_Introduction.html">1b. Topic intro</a>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
         </li>
         <li>
-          <a href="./1c_Teaching_and_Learning.html">1c. Some Teaching Comments</a>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
         </li>
         <li>
-          <a href="./1d_Assessment.html">1d. Assessment</a>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
         </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Coures Tools</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./2a_RandRStudio.html">2a. R and Rstudio</a>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
         </li>
         <li>
-          <a href="./2b_Github.html">2b. GitHub</a>
-        </li>
-        <li>
-          <a href="./2c_ToolsforReproducibility.html">2c. RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./2d_Assessment.html">2d. Assessment</a>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
         </li>
       </ul>
     </li>
@@ -339,8 +331,8 @@ $(document).ready(function () {
     <li class="dropdown-header">6. Data wrangling&amp; Tidyverse</li>
     <li class="dropdown-header">7. Visualization</li>
     <li class="dropdown-header">8. Exploratory analysis</li>
-    <li class="dropdown-header">9. Model performance assessment</li>
-    <li class="dropdown-header">10. Model quality assessment</li>
+    <li class="dropdown-header">9. Model fitting overview</li>
+    <li class="dropdown-header">10. Model assessment</li>
     <li class="dropdown-header">11. GLM and feature selection</li>
     <li class="dropdown-header">12. Tree-based models and tuning</li>
     <li class="dropdown-header">13. Various ML models</li>
@@ -380,10 +372,10 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="Communication.html">Communication</a>
+  <a href="./Course_Communication.html">Communication</a>
 </li>
 <li>
-  <a href="Resources.html">Resources</a>
+  <a href="./Course_Resources.html">Resources</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -403,15 +395,16 @@ $(document).ready(function () {
 
 
 <p>Welcome to the Modern Applied Data Analysis (MADA) course website.</p>
-<p>This is website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
+<p>This website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
 <div id="website-content" class="section level1">
 <h1>Website content</h1>
 <p>The <strong>General Information</strong> section provides a class <strong>Syllabus</strong> and a <strong>Schedule</strong>. The latter will likey be updated throughout the course, so check it regularly.</p>
 <p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
-<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told in the relevant document when you should access those documents and do the exercises. Of course, reading ahead is allowed 😃.</p>
+<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told when you should access those documents and do the exercises. Of course, reading ahead is allowed 😃.</p>
 <p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
 <p>The <strong>Communication</strong> section provides information on how course communications are planned to happen.</p>
-<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material is assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful.</p>
+<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material will assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful. All materials are (should be) available freely online.</p>
+<p>Note that by default, all links open in the current tab. You’ll likely want external ones to open in a separate tab or window. To do so, you can (with most browsers) hold the <code>Ctrl</code> button when clicking, or do a right-click and select <code>open in new tab/window</code>.</p>
 </div>
 <div id="additional-content" class="section level1">
 <h1>Additional content</h1>
@@ -421,6 +414,10 @@ $(document).ready(function () {
 <li>Discussions</li>
 <li>Quizzes</li>
 </ul>
+</div>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>I suggest you start by looking over the <strong>Syllabus</strong> and <strong>Schedule</strong> documents, then <strong>Communication</strong> and <strong>Resources</strong>. After that, start with the <strong>Module 1</strong> content in the given order. You can read through the <em>Project</em> section early or wait until you have gone through at least modules 1 and 2.</p>
 </div>
 
 
@@ -440,6 +437,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

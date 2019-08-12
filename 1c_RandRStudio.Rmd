@@ -11,31 +11,30 @@ output:
 ---
 
 
-
 # Overview
-This is a very quick introduction to R and RStudio, to get you set up and running. In the next module, we'll go deeper into R and coding.
+This is a very quick introduction to R and RStudio, to get you set up and running. We'll go deeper into R and coding later.
 
 # Learning Objectives
 * Know some of the strengths and weaknesses of R.
-*    Have R and Rstudio up and running on your computer. 
+* Have R and Rstudio up and running on your computer. 
 * Know how to install and load R packages.
 
 # About R
 Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic, and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:
 
-* **R is Open Source, FREE and cross-platform**
-* R is a "high-level" programming language, relatively easy to learn (compared to Fortran, C, etc.)
-* R comes with many integrated functions
-* R is great for statistics, data analysis, and graphics
-* The R Community is very dynamic, helpful and welcoming
-* Through R packages, it is easy to get lots of state-of-the-art algorithms
-* Documentation and help files for R are generally good
+* R is Open Source, FREE and cross-platform.
+* R is a "high-level" programming language, relatively easy to learn (compared to Fortran, C, etc.).
+* R comes with many integrated functions.
+* R is great for statistics, data analysis, and graphics.
+* The R Community is very dynamic, helpful and welcoming.
+* Through R packages, it is easy to get lots of state-of-the-art algorithms.
+* Documentation and help files for R are generally good.
 
-While we use R in this course, it is, not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g., Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitable for certain types of analyses as well (e.g., C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different, they all share general ways of thinking and structuring code. So once you understand a specific concept (e.g., variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one.
+While we use R in this course, it is not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g., Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitable for certain types of analyses as well (e.g., C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different, they all share general ways of thinking and structuring code. So once you understand a specific concept (e.g., variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one. And R is a good one to get started with.
 
   
 # Installing R and RStudio 
-* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version. I suggest version 3.5 or newer. If yours is older, I suggest you update (install a new R version).
+* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 3.5 or newer. If yours is older, I suggest you update (install a new R version).
 * Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Again, make sure it's a recent version, it should be of the 1.2.X series.
 
 Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through chapter 1 of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help in the _R/Coding_ discussion board.

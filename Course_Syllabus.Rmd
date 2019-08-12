@@ -43,7 +43,7 @@ _Processing_
 
 * Know how to obtain, process and analyze data from a variety of different sources.
 * Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.
-* Be able to thoughtfully and critically assess strengths and weaknessess of specific data sets and process and analyze the data appropriately.
+* Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process and analyze the data appropriately.
 
 _Analysis_
 
@@ -53,19 +53,19 @@ _Analysis_
 
 _Communication_
 
-* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as lay persons, decision makers, and expert colleagues.
+* Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.
 * Assess the strengths and weaknesses of different formats for representing the results of data analyses.
 
 _Tools_
 
-* Explain the importance of workflow, project management and reproducibility tools, and know how to use those tools.
+* Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.
 * Be comfortable using R and Github to do data analysis in a reproducible manner.
 * Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.
 
 _Overall_
 
 * Judge the usefulness and appropriateness of data analyses described in the primary research literature.
-* Learn to _look yourself over the shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
+* Learn to _look over your shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
 
 
 ## Grading

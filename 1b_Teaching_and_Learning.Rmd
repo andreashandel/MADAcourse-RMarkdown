@@ -46,11 +46,10 @@ Getting that right for a specific audience, especially in an online class, is no
 
 
 # Teaching and learning course discussions
-For anyone interested, I would like to engage you in a discussion of best practices in teaching and learning (online) in general and for this course specifically. To that end, I made a discussion board on eLC. My hope is that those of you interested in the topic will post there anything of relevance. That could be feedback on specific class activities that you found especially useful or useless in learning a topic. If you found anything was either 'too little' or 'too much' based on the categories I list above, I would like to hear that. Also, if you have any good materials to share, new activities to suggest, best practices from your own teaching experience, etc. I'd love to hear about it and discuss it.
+For anyone interested, I would like to engage you in a discussion of best practices in teaching and learning (online) in general and for this course specifically. To that end, I made a discussion board on eLC. We'll start with a single discussion board called "Teaching and Learning". If we need more or other venues, we can add. For those interested, I'd also be happy to post some of the resources I've found/read over the last few years. Let me know in the discussion board if you want any (and on what topic).
+
+My hope is that those of you interested in the topic will post there anything of relevance. That could be feedback on specific class activities that you found especially useful or useless in learning a topic. If you found anything was either 'too little' or 'too much' based on the categories I list above, I would like to hear that. Also, if you have any good materials to share, new activities to suggest, best practices from your own teaching experience, etc. I'd love to hear about it and discuss it.
+
+If at any point in the course you feel that you are not learning optimally, let me know and tell me why - and ideally what would be required for optimal learning. I know I can't _make_ students learn, but I can try to provide the best environment possible for learning to happen, and I'm trying to figure out how to do that.
 
 **Again, participation in such side-discussions on this topic is completely voluntary, won't affect your grade - even if you tell me that most exercises suck. In fact, if you explain why they suck (and how to make them better), I'm more than happy to give you bonus points  `r emo::ji('smiley')`**.
-
-We'll start with a single discussion board called "Teaching and Learning". If we need more or other venues, we can add. For those interested, I'd also be happy to post some of the resources I've found/read over the last few years. Let me know in the discussion board if you want any (and on what topic).
-
-
-
