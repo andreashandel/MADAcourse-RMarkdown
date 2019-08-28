@@ -85,11 +85,13 @@ References should be included as a bibtex file and cited in the Rmd file. See th
 
 # Project template
 
-I created [a public Github repository called dataanalyis-template](https://github.com/andreashandel/dataanalysis-template) which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. I highly recommend you use this template as starting point for your project. Read the description on the template Github repository for more details on how it works and how to use it.
+I created [a public Github repository called dataanalyis-template](https://github.com/andreashandel/dataanalysis-template) which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. 
 
 Inside the `manuscript` folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.
 
 In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.
+
+I highly recommend you use this template as starting point for your project. To use the template for your class project, go [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-project`. Create the repository inside the class organization. To do so, choose the class organization as the owner of the repository. This also allows you to make it a private repository if you want to (e.g. if you have data you do not want to be public). Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
 
 
 # Project communications 

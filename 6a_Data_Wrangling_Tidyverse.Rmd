@@ -1,0 +1,123 @@
+---
+title: Data Wrangling and the Tidyverse 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+
+# Overview
+
+In this unit, we will discuss what data wrangling is and why it's a very important part of any analysis. We will then discuss and use a set of packages in R commonly referred to as the [tidyverse](https://www.tidyverse.org/). 
+
+```{r cartoon,  echo=FALSE, fig.cap='How data used to be cleaned before the tidyverse.', out.width = '80%', fig.align='center'}
+knitr::include_graphics("./media/cartoonscrubdata.jpg")
+```
+
+# Learning Objectives
+
+* Learn what data wrangling is 
+* Know about specific important wrangling tasks
+* Know what the `tidyverse` is
+* Be able to apply `tidyverse` code to data wrangling problems
+
+
+# Data wrangling overview
+
+Once you have the data loaded into your analysis software, such as R, you almost always need to clean your data and reshape it for formal statistical analysis. The term often applied to this messing around with the data is called _wrangling_ or _tidying_. _Cleaning_, _munging_ or _processing_ are other terms that generally mean the same thing. To figure out how to get your data into the right shape and what cleaning steps you need to take, you also need to explore the data. R provides a lot of functionality for data wrangling and exploring. We focus on a specific approach which makes use of R packages collectively known as the `tidyverse`, which we'll cover next. We will then use them to practice some data wrangling. 
+
+Throughout this course, you have already done a good bit of wrangling, and you have read about and used `tidyverse` packages previously, I just haven't officially introduced them yet.
+
+**As with any part of the data analysis process, wrangling should be done automated, reproducible and documented. No "fixing by hand"!**
+
+
+# Specific wrangling tasks
+
+There are some types of problems that you encounter often. Here I briefly discuss a few important ones.
+
+## Missing data
+In almost any dataset, there are some missing entries. Data can be missing for different reasons. It could have not been asked/recorded, the person refused to provide it, the variable is not applicable (e.g. for a non-smoker, the variable "number of cigarettes per day" might be left blank.) It is important to understand why data are missing and form an action plan based on that. Many analysis approaches do not allow for missing data. In this case, you need to reduce your dataset such that nothing is missing. 
+
+The easiest approach is to remove all observations with missing data. That can get problematic if you have a lot of variables, and each variable has some missing values; you might be left with almost no observations that have complete data. 
+
+Another option is to remove all variables with missing data from further analysis. Unfortunately, it is common that at least some values are missing for each variable, which means you would be left with no variables. Also, if the variable is important for the question you are trying to answer, you obviously cannot remove it.
+
+Another option is to use a combination of removing variables and observations. You could start removing variables with missing values above some threshold, e.g. any variable that has more than 10% or 20% (or some value you pick) missing. There is no rule for this, and you need to justify it. Then once all variables with missing values above some threshold are removed, you remove any remaining observations that still contain missing data. This mix of removing variables and observations might preserve the most amount of data. 
+
+There are two problems when removing data. One is the obvious fact that you lose data, and thus statistical power. The other problem is if the data are not missing at random. In that case, by removing those observations with missing data, you introduce bias into your dataset. Again, it is important to understand why and how data are missing so you can have an understanding of potential problems such as introducing bias.
+
+Instead of removing rows and columns (observations and variables) until you have no more missing entry, you can also _impute_ the missing values. Basically, you make an educated, data-driven guess as to what the missing value might have been and stick that value into the missing slot. In principle, any regression and classification method that you can use to estimate and predict an outcome can be used by temporarily thinking of the variable you want to impute as your outcome and the other variables as predictors, and then predicting the missing values. Methods such as K-nearest neighbors or random forest, which we discuss later in the course, are useful for this. _Imputation_ adds uncertainty since you made guesses for the missing values, and often, the estimated/guessed values are randomly drawn from a distribution. Multiple imputation creates several different imputed datasets, and you can then run your analysis on each of those imputed datasets, hopefully with similar results for each. In R, the [`recipes` package](https://tidymodels.github.io/recipes/), which is part of the fairly new set of tidy modeling tools called [tidymodels](https://github.com/tidymodels), and others such as the [`mice package`](https://stefvanbuuren.name/mice/) allow for imputation. We'll try some of those in a later unit.
+
+There are additional options for dealing with missing values. For instance, you could create new variables/predictors/features with less missing. As an example, if you have data that records if a person drinks beer (yes/no), wine (yes/no), or hard liquor (yes/no) and each of those variables has some missing, maybe you can create a new variable labeled _any alcohol_ and code it as yes/no. If a person has a _yes_ for at least one of the 3 original variables, they would be coded as _yes_ in the new one. If they have all _no_, they would be coded as _no_. For anyone left, you do need to decide what to do with missing values in the original variables, i.e. if you interpret them as _yes_ or _no_. You could either stick with one, e.g. if you had some additional knowledge that suggests anyone who doesn't have that value recorded is more likely a _no_. Or you can use imputation. 
+
+As you can tell, missing values can cause headaches. It is therefore very important if you design and collect data to try to do it in such a way as to minimize missing values. Of course, if you analyze data collected by someone else, there is not much you can do, and you have to decide how to deal with missing values. For that, having a good understanding of what the data mean and how they were collected is essential.
+
+In R, missing values are coded as NA. When you read data into R and that data for instance codes missing as 99, you should recode to NA. NA in R is a bit tricky, since any operation on NA returns NA. The tidyverse functions tend to be pretty good in dealing with NA, for base R code you often have to be more careful. The function `is.na()` is often useful. Some functions, e.g. `mean()` and `sum()` can deal with NA if you tell them what to do. Sometimes, functions just deal with NA in some built-in way. You need to check that this is what you want. Always perform careful checks when handling missing values!
+
+
+# Outliers
+It is not uncommon to have values in your data that are _strange_. It could be that someone at data entry made a mistake. Or your codebook doesn't properly explain the entries. Other times, it could be _real_ data that is just an outlier. It can be hard to decide if a value is _strange but real_ or a mistake. Dealing with such entries is a judgment call. The best approach is to have a pre-written analysis plan that explains exactly what to do in any such cases. Outside of clinical trials seeking FDA approval, that pretty much never happens. We usually have to decide what to do with strange entries when we run into them. Some good rules are to be consistent, fully document and explain what you do, and if you are able, do it _both ways_ (e.g. do the analysis with the values as they are, and then again with them removed). Of course _both ways_ can quickly turn into _a million different ways_ and at some point, you probably have to stop. However, trying it more than one way can be reassuring if you get pretty much the same answer each time. If you do not get similar results, then you have to be more careful and should describe in your report/paper in detail why and how different approaches to your data cleaning lead to different results.
+
+## Censored data
+Sometimes data are censored, i.e., you know that the value is "X or greater/less" but not the exact value. This is common in longitudinal (survival or similar) data. It is also common in experimental data, where you might have a measurement procedure with lower or upper limits of detection. The way to deal with censored data depends on what kind of censored data you have, and what you want to do with it. In R, packages that are used to analyse survival data, e.g. [the `survival` package](https://github.com/therneau/survival), can deal with some censored data. Otherwise, you will likely need to google around to figure out how you should deal with the censored data scenario you have and how to do it in R.
+
+
+## Merging data
+It is not uncommon that your raw data comes in more than one file. It could be multiple spreadsheets of a single study, or it could be different datasets from different sources (e.g., a dataset on asthma cases combined with a different data source that records air pollution levels). In such cases, you will likely need to combine the data. That is often called _joining_. The `dplyr` package has a great set of `_join()` functions that let you do different types of joining of data. Other tools for R exists, e.g. the [Data Table package](http://r-datatable.com).
+
+
+
+
+# The tidyverse
+
+## Overview
+
+One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. In the _R Coding_ exercise, I asked you only to use commands and functions that are built right into R, which is sometimes referred to as `base R`. In the various bits of code that you have seen and worked along so far, you have encountered a mix of base R approaches and approaches that require specific packages. A lot of the power in R comes from its packages. Over the last few years, a group of individuals have developed (many) packages that make data analysis easier. One such set of packages, the most widely used one, is called the [`tidyverse`](https://www.tidyverse.org/). By using those packages, a lot of coding applied to data analysis becomes easier, more readable, and more powerful. We have, and will continue to use the `tidyverse` packages and their functionality a lot. That said, knowing some base R is very useful, which is why I asked you to use it previously. Fortunately, they can easily be combined, so you can choose which style of coding to use based on what is easiest.
+
+
+## Tidy data
+
+The concept of the tidyverse can be traced back to the concept of _tidy data_, which [Hadley Wickham](http://hadley.nz/) introduced in [this article](https://www.jstatsoft.org/article/view/v059i10/). Read this article. __I'll ask you questions about it.__
+
+
+## Tidyverse philosophy 
+
+The R packages developed by Hadley and others were eventually grouped together and now goes by the name of tidyverse. If you want to learn more about the principles of those packages, [you can read this short manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html) written by Hadley. Some of what he writes might not be fully understandable to you (e.g., functional programming), but you'll get the overall idea. For our purpose, the important aspects to remember is that the `tidyverse` is a collection of R packages that are all structured similarly (from a user perspective), that _play nice_ with each other, and that help you in your various analysis tasks as you go from messy data to data that is tidied up and ready for formal analysis.
+
+Note that there are many more R packages that are not part of the core tidyverse, but that still follow the same principles and nicely work with other tidyverse packages.
+
+
+## Tidyverse and wrangling practice
+
+To learn more and practice some of the tidyverse functionality and apply it to data wrangling, work through all 3 lessons in the [_Work with data_](https://rstudio.cloud/learn/primers/2) module from the RStudio tutorials. After that, work through all 3 lessons of the [_Tidy your data_](https://rstudio.cloud/learn/primers/4) module. __I'll ask you questions about those tutorials.__
+
+More or less the same content, presented a bit differently and non-interactively, can be found in the [_Tidy data_ chapter (12) in R4DS](https://r4ds.had.co.nz/tidy-data.html). This might be a good reference to look up things.
+
+Next, read [the  _tidyverse_, _Data Wrangling_, _Reshaping data_ and _Joining tables_ chapters (5,21,22,23) of IDS](https://rafalab.github.io/dsbook/tidyverse.html). A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it's worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.
+
+As you do your data wrangling, a lot of code writing will be _ad hoc_. You have a specific task you need to accomplish with your data, and then you go out and look for instructions online on how to do it. The materials you just worked through are useful resources. And as always, google is your friend.
+
+
+
+# Data cleaning and exploratory analysis
+
+As you do your data cleaning/wrangling, you need to explore your data to figure out what needs fixing. As such, certain aspects of exploratory analysis and cleaning go together. 
+You need to explore your data to figure out how to clean it, and you need to clean it to allow further exploration. So remember that even though in a course like this we have to cover one topic at a time, in reality, a lot of these activities occur at the same time.
+
+We will cover exploratory analysis in a separate, later module, and we will consider exploratory _statistical_ analysis as part of the exploration process. There is no clear definition for exploratory analysis. Some people consider exploratory analysis only the parts up to and including a _descriptive_ analysis. I consider very simple bi-variate statistical approaches also part of the exploration. To me, the exploratory part is anything that comes before you apply multi-variable models to most of the data with the goal of producing "final" results. Just don't get too hung up on the terminology. In practice, there is no clear division, e.g., people often plot exploratory figures and add a simple linear regression or another simple statistical model to the figure as part of the exploration process. 
+
+
+
+
+

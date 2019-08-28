@@ -46,5 +46,24 @@ The course is listed as EPID or BIOS 8060E. It doesn't matter which label you si
 
 I suggest you start by looking over the __Syllabus__ and __Schedule__ documents, then __Communication__ and __Resources__. After that, start with the __Module 1__ content in the given order. You can read through the _Project_ section early or wait until you have gone through at least modules 1 and 2.
 
+## Acknowledgements
+
+This course was developed and is maintained by [Andreas Handel](http://handelgroup.uga.edu/).
+
+```{r, results = "asis", echo = FALSE, message = FALSE}
+#the following code snipped is taken from Hadley's R4DS intro page
+library(dplyr)
+contributors <- readr::read_csv("contributors.csv", col_types = list())
+contributors <- contributors %>% 
+  mutate(
+    link = glue::glue("[\\@{login}](https://github.com/{login})"),
+    desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
+  )
+cat("The following individuals have contributed to improving the course:\n")
+cat(paste0(contributors$desc, collapse = ", "))
+```
+
+The materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
 
   

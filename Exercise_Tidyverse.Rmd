@@ -1,0 +1,68 @@
+---
+title: Tidyverse Exercise
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+You previously did a project where you used base R code to do a simple data analysis. We will revisit this analysis but now will be using R packages from the tidyverse and more. 
+
+We will use the Github workflow, with some additional features to learn a bit more about Github functionality.
+
+# Github _fork and pull_
+Previously, you learned how filing an _Issue_ on Github can provide useful input and help improve projects. If you want to take things a step further, instead of _suggesting_ a change/improvement, you could _just do it._ Github has a great feature for that, called __pull requests__. The basic idea is as follows. First, you make a copy of someone's Github repository. In Github terminology, that is called doing a _fork_ of their repository. You can then implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main/master repository. This last part is called issuing a __pull request__. You are requesting that the other person _pull_ your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as _merge_ requests or _sync_ requests, i.e. you are requesting that they merge or sync your changes into their repository. You'll find the terminology _merge request_ is used at times. If the person who controls the main repository likes your changes, they will _merge_ your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this _fork and pull_ flow below using a data cleaning and tidyverse coding project as an example.
+
+
+# Project setup
+* Find the _Class List_ document on eLC, it's in the _Documents_ section. Note the name of the student who is __above__ you (if you are the first student on the list, note the last student's name). 
+* Go to the [Github course organization](https://github.com/epid8060fall2019) and find that student's repository from the _R Coding_ exercise (if you can't figure out their Github username, email them).
+* __Fork__ their repository. You can think of a fork as a copy. See [this section of happygitwithR](https://happygitwithr.com/fork-and-clone.html) for detailed instructions. You don't need to follow Jenny's workflow. Instead, click the _fork_ button on Github, and fork it into your __personal__ account. Then use Gitkraken to clone it to your computer.
+
+
+# Data wrangling with the tidyverse
+* Once you have the fork of their repository on your local computer, open the project with RStudio. Run their R markdown file to make sure things work. You should be able to reproduce their initial analysis.
+* Now, let's add more content. The original exercise was done using base R code that didn't require any additional packages. We only loaded the `dslabs` package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We'll use some now.
+* Write code to load the `tidyverse` collection of packages and the `skimr` package. If you don't have them installed, do so. This will likely install a lot of packages and take a while.
+* Use the `glimpse` function from `dplyr` and the `skim` function from the `skimr` package to look at the `gapminder` object.
+* Use the `filter` and `select` functions from `dplyr` to extract only the african countries from the `gapminder` object and then keep only the variables `infant_mortality`, `life_expectancy`, `population` and `country`.
+* Make 2 plots using `ggplot` for life expectancy as a function of infant mortality and population. Also, give each country a separate color in the plot.
+* Write code that uses the gapminder object, pulls out data for africa and year 2000 and creates a `ggplot` for `life_expectancy` as a function of `infant_mortality`, with a linear model fit added.   
+
+# Sending updates to Github
+* Once you are done with your exercise, under the `Run` menu (top left) select `Restart R and Run all Chunks`. Make sure no error messages show up.
+* Under `Preview` do `knit to html`. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio. 
+* Go to GitKraken. You should see a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes, then _Push_ them. If things work, your local folder and the online repository should be at the same level. Your project is now online.
+
+# Making a pull request
+* Now, let's contribute your code to your classmate's project. Go to the Github site for your repository. In the top left, you should see the _New Pull Request_ button. (Underneath, it should say 'this branch is 1 commit ahead of `epid8060fall2019:master` - or, if you committed more than once, it could be N commits). 
+* Click the _New Pull Request_ button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person _pull_ your changes into their repository. Hopefully, you'll see a green check-mark that says _able to merge_. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won't be the case. 
+* In either case (merge conflict or not), you can click the green button and _Create a pull request_. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click _Create pull request_.
+
+
+# Checking and merging pull requests
+* Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and in the repository, click on _Pull requests_, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn't change things around while they did, so there shouldn't be any conflicts. Click on the _Files changed_ button, which will show you an overview of the code they changed. Removals are red, and the additions are green.
+* On the main pull request site, you can do various things. If you don't like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes, you can merge the pull request and close it. Their updates are now part of your repository.
+* As a final check, open the repository on Gitkraken. You should see the _remote_ ahead of your local copy. Do a _pull_ to get the latest to your local computer. Then open the project in Rstudio and run the R markdown file to check that what they added works.
+
+# A few further notes on Github 
+* At times, you will get merge conflicts. At that stage, it gets a bit tricky. Gitkraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn't work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself.
+* To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don't want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.
+* Some more information on _forks_ and _pulls_ and what to do if things don't go right can be found in [chapters 22, 26 (as of 8/14/19), of happygitwithR](https://happygitwithr.com/). Note that a lot of the commands described as using on the command line (e.g. `stash`) can be applied graphically through Gitkraken.
+* Github also has _branches_. Those are similar to forks but meant for internal use. For instance, if you have a project and want to implement something new, but it might not work, you can create a branch, work in that branch, and once everything is ok, you can merge the branch into the main/master. This is useful if you write software that others are using, and you don't want to break the whole thing. It is also helpful if you work with collaborators on a project. To be able to use branches, you need to be an owner or member of a repository. In contrast, you can fork any public repository.
+
+
+# Another _fork and pull_ exercise
+
+_This part of the exercise is optional._
+
+* Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).
+* Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse).
+* Follow the exact steps above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to Github, then initiate a pull request with the master.
+* I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have again contributed to improving this course!

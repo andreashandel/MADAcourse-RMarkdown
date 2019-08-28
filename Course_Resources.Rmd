@@ -77,7 +77,7 @@ Many R/data science courses/instructors post materials online. Here are a few I 
 * [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
 * Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
 * [Data science for economists](https://github.com/uo-ec607/lectures)
-
+* [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 
 # Lists and other sources
 

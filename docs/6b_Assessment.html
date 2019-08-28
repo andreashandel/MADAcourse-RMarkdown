@@ -14,7 +14,7 @@
 
 <meta name="date" content="2019-08-28" />
 
-<title>Class Project Information</title>
+<title>Data types and getting data assessment</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -507,93 +507,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class Project Information</h1>
+<h1 class="title toc-ignore">Data types and getting data assessment</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-28</h4>
 
 </div>
 
 
-<p><em>Some of this will only fully make sense once we are a few weeks into the course. It’s nevertheless a good idea to read through it and get an overall idea before we have discussed all the different tools and details mentioned. Re-visit/re-read as needed.</em></p>
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.</p>
-<ul>
-<li>Finding a good data - question pair</li>
-<li>Getting the data</li>
-<li>Cleaning the data</li>
-<li>Exploring the data</li>
-<li>Processing the data</li>
-<li>Analyzing the data</li>
-<li>Reporting/communicating your findings</li>
-<li>Doing everything reproducibly</li>
-</ul>
+<div id="module-assessments" class="section level1">
+<h1>Module Assessments</h1>
+<p>Make sure you’ve gone through all the content for this module.</p>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p>Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
 </div>
-<div id="timeline" class="section level1">
-<h1>Timeline</h1>
-<p>There are several deadlines throughout the course at which time you need to submit parts of your project</p>
-<ul>
-<li>Part 1: Have a question/hypothesis &amp; suitable data.</li>
-<li>Part 2: Part 1 + and exploratory/univariate analysis.</li>
-<li>Part 3: Part 2 + bivariate analysis.</li>
-<li>Part 4: Parts 3 + full analysis.</li>
-<li>Part 5: Updated final report based on feedback.</li>
-</ul>
-<p>The deadlines are listed in the <em>Schedule</em> document (it’s unlikely, but they might change, so keep checking that document).</p>
+<div id="exercise" class="section level2">
+<h2>Exercise</h2>
+<p>For this module, do the exercise called <em>Tidyverse</em>. In this exercise, you will repeat an analysis you previously did using base R, but now using the <code>Tidyverse</code> packages. You will also learn some more Github functionality and workflows.</p>
 </div>
-<div id="feedback-and-assessment" class="section level1">
-<h1>Feedback and Assessment</h1>
-<p>You will receive feedback from me and/or your classmates after each submission.</p>
-<ul>
-<li>I will provide feedback on parts 1-3.</li>
-<li>Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document, posted to the <em>Project</em> section of the website.</li>
-<li>Part 5 is the final submission.</li>
-</ul>
-<p>I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your <em>peer reviews</em> for part 4. Those portions are about 25% of the <em>project grade.</em> The final submission will count for the remaining 75%.</p>
-</div>
-<div id="project-requirements" class="section level1">
-<h1>Project Requirements</h1>
-<p>You can pick your project topic and data source pretty much however you like. The only requirements are:</p>
-<ul>
-<li>Real world (messy) data.</li>
-<li>An interesting question.</li>
-<li>An analysis that has not been done previously.</li>
-<li>A fully reproducible and automated analysis using the tools we use in this class.</li>
-</ul>
-</div>
-<div id="data-sources" class="section level1">
-<h1>Data sources</h1>
-<p>You can use data from any source you like, herer are some possible ones.</p>
-<div id="your-own-data" class="section level2">
-<h2>Your “own” data</h2>
-<p>If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).</p>
-</div>
-<div id="publicly-available-data" class="section level2">
-<h2>Publicly available data</h2>
-<p>You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.</p>
-<p>I have a <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md">list of data sources I maintain (contributions welcome)</a>. Of course you are not limited to data listed there.</p>
-<p><em>Often, the most interesting questions can be asked by combining data from more than one source.</em></p>
-</div>
-</div>
-<div id="logistics-and-formatting" class="section level1">
-<h1>Logistics and formatting</h1>
-<p>Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. Name it <code>YOURNAME-project</code>. You can create it as public or private repository within the course organization.</p>
-<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that’s ok too.</p>
-<p>I recommend structuring your project similar to the provided template and the structure we will cover in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report. However, as long as it makes sense and allows easy reproducibility, you can structure your project as you like.</p>
-<p>For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.</p>
-<p>Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.</p>
-<p>References should be included as a bibtex file and cited in the Rmd file. See the template for an example.</p>
-</div>
-<div id="project-template" class="section level1">
-<h1>Project template</h1>
-<p>I created <a href="https://github.com/andreashandel/dataanalysis-template">a public Github repository called dataanalyis-template</a> which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work.</p>
-<p>Inside the <code>manuscript</code> folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.</p>
-<p>In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.</p>
-<p>I highly recommend you use this template as starting point for your project. To use the template for your class project, go <a href="https://github.com/andreashandel/dataanalysis-template">its Github repository</a> and follow the instructions to turn it into a new repository for your class project, call it <code>YOURNAME-project</code>. Create the repository inside the class organization. To do so, choose the class organization as the owner of the repository. This also allows you to make it a private repository if you want to (e.g. if you have data you do not want to be public). Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere “This is YOURNAME class project repository”.</p>
-</div>
-<div id="project-communications" class="section level1">
-<h1>Project communications</h1>
-<p>Any communication regarding this project should happen in the <em>Class Project</em> discussion board. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.</p>
 </div>
 
 

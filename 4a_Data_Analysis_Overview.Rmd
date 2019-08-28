@@ -1,0 +1,160 @@
+---
+title: MADA Fall 2019 - Data Analysis Overview
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+In this module, we will talk about the whole data analysis workflow in a general, big-picture sense before we go into some of the details in further modules.
+
+
+# Learning Objectives
+*	Understand the elements of a data analysis.  
+* Know the role and importance of each component of a data analysis.
+
+
+# Data Analysis Workflow
+The following figure provides a conceptual illustration of the whole data analysis workflow.
+
+
+```{r workflow,  echo=FALSE, fig.cap='Data analysis workflow', out.width = '60%', fig.align='center'}
+knitr::include_graphics("./media/analysis-workflow.png")
+```
+
+The spiral is meant to represent that while the different steps in an analysis are rarely linear, things should improve over time until you have the data and code in a form that everything fits and you can produce _final_ results.
+
+Some things that might send you around in circles (or hopefully spirals) are:
+
+* Exploring data indicates that more cleaning needs to happen.
+* Exploring data indicates that the current question can't be answered.
+* An analysis fails and indicates that cleaning/pre-processing wasn't adequate.
+* A change in analysis method requires different kinds of cleaning and pre-processing.
+* Evaluating results indicate that something 'isn't quite right' and needs to be fixed.
+* New analysis based on a better understanding of the data and how to best analyze the data and present results.
+
+In the introductory chapter of their great book [R for data Science (R4DS)](https://r4ds.had.co.nz/), Garrett Grolemund and Hadley Wickham have a similar diagram. [Check out the figure and read through the introductory chapter.](https://r4ds.had.co.nz/introduction.html)
+
+Note that the process of getting the data ready for analysis goes by different names often used slightly differently by different people. In my figure above, I separated _cleaning_ and _pre-processing_, while in the R4DS chapter and figure, they distinguish between _tidying_ and _transforming_ and together call them _wrangling_. Sometimes, these terms mean a specific part of the cleaning process, sometimes they are used interchangeably. You need to guess from the context what is meant, but often you can think of these terms as all having similar meanings.
+
+Let's look at the different components of an analysis in a bit more detail. The following sections are meant as a conceptual overview. Apart from the _Question and Data Match_ discussion, we will get into each of the other steps and how to do them in more detail later in the course.
+
+
+
+# Question & Data Match
+
+Maybe the most important challenge of a good scientific project (and thus an interesting and useful data analysis) is to find a combination of questions and data that lead to a project that is both _interesting_ and _doable_. One could argue that having a good question and suitable data to answer it is part of science/research but not strictly part of the analysis. However, for your data analysis to be meaningful, it is critical to get the question-data match right. 
+
+**If you start with a boring (or dumb) question or with data that is essentially garbage/noise, or you have a bad question/data match, no part of your analysis matters!**
+
+There are different approaches to finding a question-data match. The classical one is to have a specific question or hypothesis, then design a study to collect data, and analyze the collected data to address that specific question. 
+
+If you have a question, but you do not have the resources to collect data specifically to answer your question, you can look for existing data that might help you answer your question. You rarely find data that allows you to answer your initial question exactly. But you might find data that enables you to answer a very similar question. You might need to iterate a few times by modifying your question and changing the datasets you use before you have a good match, i.e., a good question and data that allows you to answer it.
+
+Another approach that is becoming more common is to start with the data. You might come across one or multiple datasets that interest you. You can then investigate the data to see what questions you might be able to answer with it. Since the data was not collected to answer your specific question, you will have to be somewhat flexible with the question and let the data guide your analysis. This approach can be very powerful since more and more data are becoming available for analysis. 
+
+Any of these different approaches for coming up with a good data-question match are valid. It is important to keep in mind that unless you start with the question and analysis plan, then collect the data and follow exactly your plan, the usual statistics (e.g., p-values and such) do not really apply. 
+
+By fiddling with the data or adjusting data and question, you are using what is sometimes called _investigator's degrees of freedom_ or less kindly, _data dredging_ or _data torturing_. Essentially, if you fiddle with your data and question long enough, you will eventually find something _statistically significant_. You cannot interpret this in the same way as a _statistically significant_ result obtained by pre-specifying the question, collecting data specifically to answer the question, and analyzing the data to answer the initial question.
+
+[This website provides a nice example](https://projects.fivethirtyeight.com/p-hacking/) of a setting where you can adjust your question and data __in a very reasonable way__ and "show" _in a statistically significant way_ whatever you want to show.
+
+For some more thoughts on this topic, read chapters 1-3 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). It is a _pay what you want_ book with a minimum price of _zero_, which means you can get it for free (note that the book + video bundle has a non-zero minimum price). Chapter 2 has a figure similar to the one above. __Make special notes of the 3 steps they call the "epicycle of data analysis" and the characteristics of a good question.__
+
+
+
+
+# Getting and loading data
+In some sense, the best, but also the most money and time-consuming way of getting data is to collect it yourself. Doing so ensures that the data can answer the question you have. You can also control the quality of the data that is being collected - at least to some extent. However, it is often not feasible to collect your own data. You might not have funding or time or interest to do so. The next best source of data is directly from someone who collected it. The advantage of such data is that you can ask someone for clarification. Also, the person who collected the data is likely a subject matter expert, who can help you generate better questions. Finally, you can get data that is generally available, e.g., in some online resource. This gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification.
+
+No matter the source, you need to get the data into your favorite data analysis system (in our case, that will be R). Sometimes, you get data in a format that can be read in easily, e.g., a comma-separated CSV file without any strange formatting that messes up the import. At other times, you might get data in a collection of terribly formatted Excel spreadsheets, or you get it by scraping data from some online source. We'll look at ways of getting data into R in a later module.  
+
+
+
+# Exploring and cleaning data
+
+Once you have the data loaded into your analysis software, such as R, you want to explore the data to get an overall idea of what is going on. At the same time, you'll likely have to engage in data cleaning.
+
+Data exploration can and should be done both graphically and by looking at text output of various summaries describing your data, e.g., summary tables for all variables. We will get into that in more detail later. As you explore, you will likely find that your data is _dirty_, i.e., there are things wrong with it. The amount of data cleaning (also called _tidying_ or _wrangling_) you need to do depends very much on your data. 
+
+A general rule is that you should never directly edit your raw data. If you can, load the raw data into R and do all cleaning inside R with code, so everything is automatically reproducible and documented. Sometimes, you need to edit the files in the format you got before you are even able to load them into R. In those cases, you might have to make modifications in a software other than R. If you can't directly read the data into R and need to make some changes before, make copies of your raw data AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made. 
+
+There are certain cleaning actions you will need to do with almost any dataset. You will have to find and deal with data entry errors. If the mistake is obvious, you can fix it. If you know the value is wrong but don't know what it should be, you might need to discard that data. Sometimes you get data that seems way outside the range of all other values, but it is not obviously wrong. For instance, if you had a group of individuals and their weights, a person with a weight of 8000 pounds is obviously not possible. Someone with an 800 pound weight seems wrong, but [it's not impossible](https://en.wikipedia.org/wiki/Jon_Brower_Minnoch). You will have to decide how to deal with such outliers, either during the cleaning or the analysis stage.
+
+In almost any datasets, some values are missing. First, you need to figure out how missing values are coded and what _missing_ means. Sometimes an empty entry means it was not recorded. At other times, it could be that it is not applicable. For instance on a survey that asks if someone ever smokes, and the next question is for how long, if they say they never smoked, the "how long" question is moot and might be empty. For your analysis, you might want to code it as a duration of 0. We'll discuss in more detail how to deal with missing values later in the course.
+
+As you do all the cleaning, you need to get your data into a shape that is ready for analysis. If you apply more than one analytic method, you might need different clean versions of your dataset.
+
+To start practicing a bit of data cleaning, read and work through chapter 4 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). Get the data they analyze. Note that the link provided in the book does not work anymore; the data [is now here](https://aqs.epa.gov/aqsweb/airdata/download_files.html). Search for the right data. Take a careful look at the number of entries/rows reported on the website and those reported in the book.
+
+Start a new R script, copy the code from the book and follow along by replicating their code on your computer.  _Loading the data will take a while!_  You will notice differences between what they report in the book (on an older version of the dataset) and what you will find. Also note that there are errors/typos in the book, e.g., what the code does and what the text says are not the same when looking at time (page 41). The code in the book uses packages from the `tidyverse`. We will talk more about those packages later, for now, go ahead and use them by copying and executing their code. Also, note that the `+` signs in the book are useful when you wrap code across lines. You can write everything into a single line and delete all `+` signs.
+
+__Make a special note of the differences between what they find for their dataset regarding odd reporting times, and what you find. Also, closely compare the list of states in their dataset and what you find.__
+
+
+# Pause and ponder
+At pretty much every stage of your analysis workflow, you should include short pauses where you sit back and briefly contemplate _what it all means_ and what is going on. Careful thinking and reflection is the most important (and unfortunately most under-used) component of a data analysis.
+
+Somewhere during the exploring and cleaning process, you might want to take a longer break. You should have come to a stage where you will be fairly sure if your project is feasible or not, i.e., if you can use the data to answer your question. If not, alter or abandon. Ideally, you will want to alter. That means either changing your question to one that is similar (or sometimes quite different) to your original question, and that can be answered with the data. Or, if feasible, it is to change the data, i.e., get a different dataset or another dataset that contains information which, when combined with your first dataset, lets you answer the question.
+
+Sometimes, you might find that changing the question or data is not possible or will lead to a project that is of no interest to you. In that case, you should abandon your analysis. This is hard, but the honest thing to do.
+
+**Don't keep going hoping against all hope that "magic might happen" and you'll get a good final product after all.** If you keep going, you will get some results. Often, you might even be able to publish them. Unfortunately, they will be useless and wrong  - [which is a common occurrence in the academic literature](https://doi.org/10.1371/journal.pmed.0020124) - [and probably even worse outside of the peer-reviewed academic literature](https://designingforanalytics.com/resources/failure-rates-for-analytics-bi-iot-and-big-data-projects-85-yikes/).
+
+
+# Pre-process Data
+
+Additional data processing could be considered part of the cleaning process, or you can think of it as a separate step. Depending on the analytic method you use, some further data processing might be suitable. For instance, some methods work better if you center and scale your predictors. Some methods, such as linear models and related approaches, are not able to handle missing values, so you need to decide how to deal with those. Sometimes it might be good to not include all variables in your model, or to use the existing variables to create new ones (e.g., instead of including height and weight in your model, you might decide to compute BMI and use that variable in your model instead.) The specific pre-processing steps that need to happen depends on the statistical modeling approach(es) you plan on using.
+
+
+# Analyzing Data
+You finally reached the step where you can apply actual statistical analysis to your data. This topic takes up the majority of time in most (bio)statistics courses. While it is obviously very important to get the statistical analysis right, for any real data analysis you will likely spend <25% of your time on this task, the majority of your time (though not computing time) goes into the other tasks.
+
+At this stage in the process, you should know your data well enough to apply statistical methods and approaches that are suitable for your data and question. You can either use a single approach or explore multiple different ones. As you will learn in this course, trying more than one approach is quite easy. If you try multiple models, you need to be careful to not overfit by only picking and reporting the models and analyses that give you the results you want. If you analyze data in multiple ways, report all results. 
+
+
+
+
+# Evaluating and interpreting results
+Once you have your results, and before you decide on how (or if) to report them, you should take another break and carefully contemplate what your findings mean. Do the results make sense? Occasionally, there is some new and interesting finding that goes against everything we think we know. However, most of the time if you find something that doesn't ring true (e.g., increased exercise shortens your lifespan), it probably isn't. You need to think carefully about what your result actually means and how to interpret results. We can certainly think of a way to get a result that suggests increased exercise shortens lifespan. For instance, we could look at a group of people who practice some kind of extreme sport that not infrequently leads to death, and compare that group to people who do not practice this sport. You might find that those with increased exercise live less long _in that particular scenario_. But of course, that doesn't mean you have overall shown that normal exercise shortens lifespan.
+
+Unfortunately, the scientific literature is full of examples where the interpretation of the results are likely not right. [This is a good and amusing example, published in a very prestigious journal.](./media/messerli12nejm.pdf) While there is no arguing with the data, the interpretation that _"...it seems most likely that in a dose-dependent way, chocolate intake provides the abundant fertile ground needed for the sprouting of Nobel laureates..."_ is if course [nonsense](https://epianalysis.wordpress.com/2012/11/19/chocolate/), see also [here](https://academic.oup.com/jn/article/143/6/931/4571741). You can find more rebuttals online. Unfortunately, since the original study was in a prestigious journal, the nonsense [was widely reported in the media](https://www.google.com/search?q=Chocolate+Consumption+Nobel+Laureates). You can see Forbes, BusinessInsider, Time Magazine, and some other news outlets reporting the finding fairly uncritically. To this day, I do not know if this NEJM paper was [meant as a satire or for real.](https://www.reuters.com/article/us-eat-chocolate-win-the-nobel-prize/eat-chocolate-win-the-nobel-prize-idUSBRE8991MS20121010) 
+
+__Note: In the articles linked to above, pay close attention to the _luxury car_ figure.__
+
+To close this section, read chapter 9 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience), in which the authors discuss some more aspects of result interpretation and walk through a nice example. 
+
+__Note: I'll ask a question about this chapter, which should be easy to answer once you read through it.__
+
+
+# Reporting and communicating your results
+Unless you do an analysis just for yourself, you will want to communicate your findings to others. In academia, this is usually done with peer-reviewed publications, as well as presentations at conferences in the form of talks (for which most people use slides) and posters. In those settings, the readers or listeners are usually your peers.
+
+Outside of academia, you might also need to present your work in written or oral form, but it might have a different target audience. For instance, you might want to communicate your findings to a lay audience, to your superiors, to groups of stakeholders, to colleagues and team members, etc. 
+
+While you will need to tailor your products and way of communication to your situation and audience, there are components that are common. Figures, tables, and descriptive text are almost always part.
+
+You want to make as much of your reporting automated as possible. For that, all figures, tables, and numeric results should be auto-generated by code. Similarly, for an efficient and automated workflow, you will want as many aspects of the products (reports, slides, etc.) as possible to be automated. Of course, you have to write the text yourself. But results should be loaded automatically, but text layout should be automated, as should formatting of references. You also want to use a system that is as flexible as possible. (R)Markdown is ideal because you are writing in plain text and can easily send the text into different output formats, e.g., reports, slides, posters, websites, blogs, etc. This is much harder to do with other common software, e.g., going from Word to Excel to Powerpoint is much less seamless and certainly not automated. 
+
+You want automation for both efficiency and reproducibility purposes. Especially if you design an analysis that might be repeated often (maybe not so common in academia, but very common in other settings), you want to be able to automatically re-run and regenerate as much of the whole process as possible.
+
+For some more thoughts on communicating results, read chapters 10 and 11 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). 
+
+__Note: I'll ask a question about this chapter, which should be easy to answer once you read through it.__
+
+
+

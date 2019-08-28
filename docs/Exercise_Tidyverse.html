@@ -14,7 +14,7 @@
 
 <meta name="date" content="2019-08-28" />
 
-<title>Class Project Information</title>
+<title>Tidyverse Exercise</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -507,93 +507,84 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class Project Information</h1>
+<h1 class="title toc-ignore">Tidyverse Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-08-28</h4>
 
 </div>
 
 
-<p><em>Some of this will only fully make sense once we are a few weeks into the course. It’s nevertheless a good idea to read through it and get an overall idea before we have discussed all the different tools and details mentioned. Re-visit/re-read as needed.</em></p>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>A semester long data analysis project will be a major method of assessment for this class. The project should include all the different components of a data analysis we will cover in this class.</p>
+<p>You previously did a project where you used base R code to do a simple data analysis. We will revisit this analysis but now will be using R packages from the tidyverse and more.</p>
+<p>We will use the Github workflow, with some additional features to learn a bit more about Github functionality.</p>
+</div>
+<div id="github-fork-and-pull" class="section level1">
+<h1>Github <em>fork and pull</em></h1>
+<p>Previously, you learned how filing an <em>Issue</em> on Github can provide useful input and help improve projects. If you want to take things a step further, instead of <em>suggesting</em> a change/improvement, you could <em>just do it.</em> Github has a great feature for that, called <strong>pull requests</strong>. The basic idea is as follows. First, you make a copy of someone’s Github repository. In Github terminology, that is called doing a <em>fork</em> of their repository. You can then implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main/master repository. This last part is called issuing a <strong>pull request</strong>. You are requesting that the other person <em>pull</em> your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as <em>merge</em> requests or <em>sync</em> requests, i.e. you are requesting that they merge or sync your changes into their repository. You’ll find the terminology <em>merge request</em> is used at times. If the person who controls the main repository likes your changes, they will <em>merge</em> your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this <em>fork and pull</em> flow below using a data cleaning and tidyverse coding project as an example.</p>
+</div>
+<div id="project-setup" class="section level1">
+<h1>Project setup</h1>
 <ul>
-<li>Finding a good data - question pair</li>
-<li>Getting the data</li>
-<li>Cleaning the data</li>
-<li>Exploring the data</li>
-<li>Processing the data</li>
-<li>Analyzing the data</li>
-<li>Reporting/communicating your findings</li>
-<li>Doing everything reproducibly</li>
+<li>Find the <em>Class List</em> document on eLC, it’s in the <em>Documents</em> section. Note the name of the student who is <strong>above</strong> you (if you are the first student on the list, note the last student’s name).</li>
+<li>Go to the <a href="https://github.com/epid8060fall2019">Github course organization</a> and find that student’s repository from the <em>R Coding</em> exercise (if you can’t figure out their Github username, email them).</li>
+<li><strong>Fork</strong> their repository. You can think of a fork as a copy. See <a href="https://happygitwithr.com/fork-and-clone.html">this section of happygitwithR</a> for detailed instructions. You don’t need to follow Jenny’s workflow. Instead, click the <em>fork</em> button on Github, and fork it into your <strong>personal</strong> account. Then use Gitkraken to clone it to your computer.</li>
 </ul>
 </div>
-<div id="timeline" class="section level1">
-<h1>Timeline</h1>
-<p>There are several deadlines throughout the course at which time you need to submit parts of your project</p>
+<div id="data-wrangling-with-the-tidyverse" class="section level1">
+<h1>Data wrangling with the tidyverse</h1>
 <ul>
-<li>Part 1: Have a question/hypothesis &amp; suitable data.</li>
-<li>Part 2: Part 1 + and exploratory/univariate analysis.</li>
-<li>Part 3: Part 2 + bivariate analysis.</li>
-<li>Part 4: Parts 3 + full analysis.</li>
-<li>Part 5: Updated final report based on feedback.</li>
-</ul>
-<p>The deadlines are listed in the <em>Schedule</em> document (it’s unlikely, but they might change, so keep checking that document).</p>
-</div>
-<div id="feedback-and-assessment" class="section level1">
-<h1>Feedback and Assessment</h1>
-<p>You will receive feedback from me and/or your classmates after each submission.</p>
-<ul>
-<li>I will provide feedback on parts 1-3.</li>
-<li>Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document, posted to the <em>Project</em> section of the website.</li>
-<li>Part 5 is the final submission.</li>
-</ul>
-<p>I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your <em>peer reviews</em> for part 4. Those portions are about 25% of the <em>project grade.</em> The final submission will count for the remaining 75%.</p>
-</div>
-<div id="project-requirements" class="section level1">
-<h1>Project Requirements</h1>
-<p>You can pick your project topic and data source pretty much however you like. The only requirements are:</p>
-<ul>
-<li>Real world (messy) data.</li>
-<li>An interesting question.</li>
-<li>An analysis that has not been done previously.</li>
-<li>A fully reproducible and automated analysis using the tools we use in this class.</li>
+<li>Once you have the fork of their repository on your local computer, open the project with RStudio. Run their R markdown file to make sure things work. You should be able to reproduce their initial analysis.</li>
+<li>Now, let’s add more content. The original exercise was done using base R code that didn’t require any additional packages. We only loaded the <code>dslabs</code> package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We’ll use some now.</li>
+<li>Write code to load the <code>tidyverse</code> collection of packages and the <code>skimr</code> package. If you don’t have them installed, do so. This will likely install a lot of packages and take a while.</li>
+<li>Use the <code>glimpse</code> function from <code>dplyr</code> and the <code>skim</code> function from the <code>skimr</code> package to look at the <code>gapminder</code> object.</li>
+<li>Use the <code>filter</code> and <code>select</code> functions from <code>dplyr</code> to extract only the african countries from the <code>gapminder</code> object and then keep only the variables <code>infant_mortality</code>, <code>life_expectancy</code>, <code>population</code> and <code>country</code>.</li>
+<li>Make 2 plots using <code>ggplot</code> for life expectancy as a function of infant mortality and population. Also, give each country a separate color in the plot.</li>
+<li>Write code that uses the gapminder object, pulls out data for africa and year 2000 and creates a <code>ggplot</code> for <code>life_expectancy</code> as a function of <code>infant_mortality</code>, with a linear model fit added.</li>
 </ul>
 </div>
-<div id="data-sources" class="section level1">
-<h1>Data sources</h1>
-<p>You can use data from any source you like, herer are some possible ones.</p>
-<div id="your-own-data" class="section level2">
-<h2>Your “own” data</h2>
-<p>If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).</p>
+<div id="sending-updates-to-github" class="section level1">
+<h1>Sending updates to Github</h1>
+<ul>
+<li>Once you are done with your exercise, under the <code>Run</code> menu (top left) select <code>Restart R and Run all Chunks</code>. Make sure no error messages show up.</li>
+<li>Under <code>Preview</code> do <code>knit to html</code>. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio.</li>
+<li>Go to GitKraken. You should see a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes, then <em>Push</em> them. If things work, your local folder and the online repository should be at the same level. Your project is now online.</li>
+</ul>
 </div>
-<div id="publicly-available-data" class="section level2">
-<h2>Publicly available data</h2>
-<p>You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.</p>
-<p>I have a <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md">list of data sources I maintain (contributions welcome)</a>. Of course you are not limited to data listed there.</p>
-<p><em>Often, the most interesting questions can be asked by combining data from more than one source.</em></p>
+<div id="making-a-pull-request" class="section level1">
+<h1>Making a pull request</h1>
+<ul>
+<li>Now, let’s contribute your code to your classmate’s project. Go to the Github site for your repository. In the top left, you should see the <em>New Pull Request</em> button. (Underneath, it should say ’this branch is 1 commit ahead of <code>epid8060fall2019:master</code> - or, if you committed more than once, it could be N commits).</li>
+<li>Click the <em>New Pull Request</em> button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person <em>pull</em> your changes into their repository. Hopefully, you’ll see a green check-mark that says <em>able to merge</em>. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won’t be the case.</li>
+<li>In either case (merge conflict or not), you can click the green button and <em>Create a pull request</em>. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click <em>Create pull request</em>.</li>
+</ul>
 </div>
+<div id="checking-and-merging-pull-requests" class="section level1">
+<h1>Checking and merging pull requests</h1>
+<ul>
+<li>Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and in the repository, click on <em>Pull requests</em>, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn’t change things around while they did, so there shouldn’t be any conflicts. Click on the <em>Files changed</em> button, which will show you an overview of the code they changed. Removals are red, and the additions are green.</li>
+<li>On the main pull request site, you can do various things. If you don’t like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes, you can merge the pull request and close it. Their updates are now part of your repository.</li>
+<li>As a final check, open the repository on Gitkraken. You should see the <em>remote</em> ahead of your local copy. Do a <em>pull</em> to get the latest to your local computer. Then open the project in Rstudio and run the R markdown file to check that what they added works.</li>
+</ul>
 </div>
-<div id="logistics-and-formatting" class="section level1">
-<h1>Logistics and formatting</h1>
-<p>Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. Name it <code>YOURNAME-project</code>. You can create it as public or private repository within the course organization.</p>
-<p>The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that’s ok too.</p>
-<p>I recommend structuring your project similar to the provided template and the structure we will cover in class, with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report. However, as long as it makes sense and allows easy reproducibility, you can structure your project as you like.</p>
-<p>For all your submissions, you need to provide everything needed (data, code, etc.) to all full and automated reproduction of your analysis.</p>
-<p>Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.</p>
-<p>References should be included as a bibtex file and cited in the Rmd file. See the template for an example.</p>
+<div id="a-few-further-notes-on-github" class="section level1">
+<h1>A few further notes on Github</h1>
+<ul>
+<li>At times, you will get merge conflicts. At that stage, it gets a bit tricky. Gitkraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn’t work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself.</li>
+<li>To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don’t want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.</li>
+<li>Some more information on <em>forks</em> and <em>pulls</em> and what to do if things don’t go right can be found in <a href="https://happygitwithr.com/">chapters 22, 26 (as of 8/14/19), of happygitwithR</a>. Note that a lot of the commands described as using on the command line (e.g. <code>stash</code>) can be applied graphically through Gitkraken.</li>
+<li>Github also has <em>branches</em>. Those are similar to forks but meant for internal use. For instance, if you have a project and want to implement something new, but it might not work, you can create a branch, work in that branch, and once everything is ok, you can merge the branch into the main/master. This is useful if you write software that others are using, and you don’t want to break the whole thing. It is also helpful if you work with collaborators on a project. To be able to use branches, you need to be an owner or member of a repository. In contrast, you can fork any public repository.</li>
+</ul>
 </div>
-<div id="project-template" class="section level1">
-<h1>Project template</h1>
-<p>I created <a href="https://github.com/andreashandel/dataanalysis-template">a public Github repository called dataanalyis-template</a> which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work.</p>
-<p>Inside the <code>manuscript</code> folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.</p>
-<p>In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.</p>
-<p>I highly recommend you use this template as starting point for your project. To use the template for your class project, go <a href="https://github.com/andreashandel/dataanalysis-template">its Github repository</a> and follow the instructions to turn it into a new repository for your class project, call it <code>YOURNAME-project</code>. Create the repository inside the class organization. To do so, choose the class organization as the owner of the repository. This also allows you to make it a private repository if you want to (e.g. if you have data you do not want to be public). Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere “This is YOURNAME class project repository”.</p>
-</div>
-<div id="project-communications" class="section level1">
-<h1>Project communications</h1>
-<p>Any communication regarding this project should happen in the <em>Class Project</em> discussion board. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.</p>
+<div id="another-fork-and-pull-exercise" class="section level1">
+<h1>Another <em>fork and pull</em> exercise</h1>
+<p><em>This part of the exercise is optional.</em></p>
+<ul>
+<li>Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).</li>
+<li>Go to the <a href="https://github.com/andreashandel/MADAcourse">Github repository for this course</a>.</li>
+<li>Follow the exact steps above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to Github, then initiate a pull request with the master.</li>
+<li>I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have again contributed to improving this course!</li>
+</ul>
 </div>
 
 

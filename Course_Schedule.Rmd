@@ -12,25 +12,31 @@ output:
 
 This is the current course schedule for the class. Things might change, so check regularly for updates.
 
-Assessments (i.e. things that will be graded) are described in detail in the course materials. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
+The _Assignments_ column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.
 
-| **Module Topic**   | **Start and end dates** | **Assessments** |
-| --- | --- | --- |
-| Module 1 – Course and tools introduction | 8/14 – 8/23 |  quiz, introducing ourselves exercise |
-| Module 2 – Topic introduction | 8/14 – 8/23 | quiz, discussion|
-| Module 3 – R basics | 8/14 – 8/30 | quiz, coding exercise  |
-| Module 4 – Data analysis overview | 9/2 – 9/6 | quiz, github issues exercise  |
-| Module 5 – Pondering and getting data | 9/9 – 9/13 | quiz, project part 1 |
-| Module 6 – Data wrangling & Tidyverse | 9/16 – 9/20 |quiz, tidyverse exercise |
-| Module 7 – Visualization | 9/23 – 9/27 | quiz, visualization exercise   |
-| Module 8 – Exploratory analysis | 9/30 – 10/4 | quiz, TidyTuesday 1 exercise |
-| Module 9 – Model fitting overview | 10/7 – 10/11 | quiz, project part 2 |
-| Module 10 – Model assessment | 10/14 – 10/18 | quiz |
-| Module 11 – Generalized linear models, feature selection | 10/21 – 10/25 | quiz   |
-| Module 12 – Tree-based models, parameter tuning | 10/28 – 11/1 | quiz   |
-| Module 13 – Various machine learning models | 11/4 – 11/8 | quiz, project part 3 |
-| Module 14 – Doing a complete data analysis project | 11/11 – 11/15 | quiz, TidyTuesday 2 exercise |
-| Module 15 – Deep learning, AI and Big Data | 11/18 – 11/22 | quiz   |
-| Finishing Project | 11/25 – 11/29 (fall break part of the week) | project part 4 |
-| Project Reviews | 12/2 – 12/6 | project reviews |
-| Final project submission  | 12/11 | project part 5 |
+Abbreviations used are: [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/), [R4DS = R for Data Science](https://r4ds.had.co.nz/), [RP = RStudio Primers](https://rstudio.cloud/learn/primers), 
+[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/). Numbers behind abbreviations refer to the chapter.
+
+The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
+
+| **Module Topic**   | **Start and end dates** | **Assignments** | **Assessments** |
+| --- | --- | --- | --- |
+| Module 1 – Course and tools introduction | 8/14 – 8/23 | IDS:1,2,39,40, HGR, R4DS:27,29,30| quiz, introducing ourselves exercise |
+| Module 2 – Topic introduction | 8/14 – 8/23 | none | quiz, discussion|
+| Module 3 – R basics | 8/14 – 8/30 | RP:Basics, IDS:3,4 | quiz, coding exercise  |
+| Module 4 – Data analysis overview | 9/2 – 9/6 | R4DS:1, ADS:1-4,9-11 | quiz, github issues exercise  |
+| Module 5 – Pondering and getting data | 9/9 – 9/13 | R4DS:14-16, IDS:6,24-27  | quiz, project part 1 |
+| Module 6 – Data wrangling & Tidyverse | 9/16 – 9/20 |RP:WorkData,TidyData, R4DS:12,  IDS:5,21,22,23 |quiz, tidyverse exercise |
+| Module 7 – Visualization | 9/23 – 9/27 | RP:Visualize | quiz, visualization exercise   |
+| Module 8 – Model fitting overview | 9/30 – 10/4 | | quiz, TidyTuesday 1 exercise |
+| Module 9 – Model assessment | 10/7 – 10/11 | | quiz, project part 2 |
+| Module 10 – Basic models | 10/14 – 10/18 | | quiz |
+| Module 11 – Generalized linear models, feature selection | 10/21 – 10/25 | | quiz   |
+| Module 12 – Tree-based models, parameter tuning | 10/28 – 11/1 | | quiz   |
+| Module 13 – Various machine learning models | 11/4 – 11/8 | | quiz, project part 3 |
+| Module 14 – Doing a complete data analysis project | 11/11 – 11/15 | | quiz, TidyTuesday 2 exercise |
+| Module 15 – Deep learning, AI and Big Data | 11/18 – 11/22 | | quiz   |
+| Finishing Project | 11/25 – 11/29 (fall break part of the week) | | project part 4 |
+| Project Reviews | 12/2 – 12/6 | | project reviews |
+| Final project submission  | 12/11 | | project part 5 |
+
