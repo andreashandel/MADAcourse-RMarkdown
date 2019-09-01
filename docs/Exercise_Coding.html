@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-28" />
+<meta name="date" content="2019-09-01" />
 
 <title>Coding Exercise</title>
 
@@ -26,6 +25,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -234,9 +235,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -497,7 +537,12 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -509,7 +554,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Coding Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-28</h4>
+<h4 class="date">2019-09-01</h4>
 
 </div>
 
@@ -522,7 +567,7 @@ div.tocify {
 <div id="project-setup" class="section level1">
 <h1>Project setup</h1>
 <ul>
-<li>Go to the class organization <a href="https://github.com/epid8060fall2019">Github website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-coding</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. We won’t make this exercise into a website, so we can skip all the things about <em>Github pages</em> we did in the <em>Introducing Ourselves</em> exercise.</li>
+<li>Go to the class organization <a href="https://github.com/epid8060fall2019">Github website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-coding</em>. You can leave the description empty. Set the repository to be public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. We won’t make this exercise into a website, so we can skip all the things about <em>Github pages</em> we did in the <em>Introducing Ourselves</em> exercise.</li>
 <li>Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend placing the repository inside the folder you made for the class. <strong>Make sure you do not stick Github repositories inside other repositories, that can cause Github to break</strong>. And remember that repository folders should not be synced with some other software (e.g., Dropbox).</li>
 <li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a README.md.</li>
 <li>Just to practice, let’s update the Readme file. Click to open the README.md file. Replace the text with something else, e.g., “YOURNAME first R coding exercise” or something similar. It doesn’t matter what you write exactly. We are just practicing editing the Readme file.</li>
@@ -615,49 +660,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

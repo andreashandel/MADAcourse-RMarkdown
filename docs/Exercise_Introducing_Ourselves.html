@@ -7,12 +7,11 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-08-28" />
+<meta name="date" content="2019-09-01" />
 
 <title>MADA Fall 2019 - Introducing Ourselves project</title>
 
@@ -26,6 +25,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -234,9 +235,48 @@ $(document).ready(function () {
 }
 </style>
 
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
 <!-- code folding -->
 
 
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <style type="text/css">
 
@@ -497,7 +537,12 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -509,7 +554,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Introducing Ourselves project</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-08-28</h4>
+<h4 class="date">2019-09-01</h4>
 
 </div>
 
@@ -527,7 +572,7 @@ div.tocify {
 <h1>Github setup</h1>
 <ul>
 <li>Make sure you followed the setup steps described in the <em>Github</em> document, i.e. create a Github account, have a Github client up and running, and have joined the class organization.</li>
-<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Choose if you want the repository to be private or public. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. Click “create repository”.<br />
+<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Set the repository to be public (if you set it to private, you might not be able to access it with the free version of Gitkraken). Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. Click “create repository”.<br />
 </li>
 <li>Your new repository should have opened. If not go to <a href="https://github.com/epid8060fall2019">the website</a> for the github class organization and click on it. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
 <li><em>Clone</em> the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
@@ -611,49 +656,6 @@ $(document).ready(function () {
 });
 
 
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
-<!-- code folding -->
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

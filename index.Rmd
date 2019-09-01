@@ -63,7 +63,7 @@ cat("The following individuals have contributed to improving the course:\n")
 cat(paste0(contributors$desc, collapse = ", "))
 ```
 
-The materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses.
 
 
   

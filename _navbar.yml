@@ -90,3 +90,6 @@ left:
     href: ./Course_Communication.html
   - text: "Resources"
     href: ./Course_Resources.html
+right:
+  - icon: fa-github fa-lg
+    href: https://github.com/andreashandel/MADAcourse
