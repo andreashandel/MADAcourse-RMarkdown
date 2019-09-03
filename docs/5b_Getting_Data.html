@@ -7,11 +7,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-01" />
+<meta name="date" content="2019-09-03" />
 
 <title>Getting Data</title>
 
@@ -235,48 +236,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -554,7 +516,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-01</h4>
+<h4 class="date">2019-09-03</h4>
 
 </div>
 
@@ -585,7 +547,7 @@ div.tocify {
 </div>
 <div id="data-import-in-r" class="section level1">
 <h1>Data import in R</h1>
-<p>Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend <code>emo:ji('smile')</code>.</p>
+<p>Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend 😄.</p>
 <p>Here are some of the most prominent ones:</p>
 <ul>
 <li>The <a href="https://readr.tidyverse.org/index.html"><code>readr</code> package</a> is good for importing CSV and similar spreadsheet type data. For some more introductory material on the <code>readr</code> package, see <a href="https://r4ds.had.co.nz/data-import.html">chapter 11 of R4DS</a>.</li>
@@ -634,6 +596,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

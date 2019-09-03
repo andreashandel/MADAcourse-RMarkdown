@@ -10,6 +10,14 @@ output:
     toc_depth: 3
 ---
 
+
+```{r, include = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+
 # Overview
 
 For this unit, we will discuss where to find data and how to get different types of data into R.
@@ -44,7 +52,7 @@ Treat the raw data as you would a very fragile object. Ideally, do not touch it.
 
 # Data import in R
 
-Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend `emo:ji('smile')`.
+Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend `r emo::ji('smile')`.
 
 Here are some of the most prominent ones:
 
