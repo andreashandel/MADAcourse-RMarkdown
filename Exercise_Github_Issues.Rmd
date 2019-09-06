@@ -23,26 +23,34 @@ This exercise will teach you a bit more about Github, specifically how _Issues_ 
 
 For some background reading, see [this Github Guide](https://guides.github.com/features/issues/).
 
+The _Issues_ feature is a very powerful way of working collaboratively. For instance, if you go to the Github page of a popular R package, such as [ggplot2](https://github.com/tidyverse/ggplot2) you'll find a lot of open (and closed) issues. Take a look at some of those issues to get an idea of how they are used. It is a great way for developers of software (and other products) to learn about problems, to hear what features users want, etc. So don't feel shy about opening an issue on someone's Github project. Before opening an issue, you should first search all the open and closed issues (and maybe a quick online search as well). This is to make sure it's not something that has been discussed before. 
+
+Just for fun, here is an example of me [filing an issue for the mlr package](https://github.com/mlr-org/mlr/issues/837). If you read through it, you'll see that based on that, the developers added the functionality I wanted `r emo::ji('smiley')`. Try that with Microsoft or any other of those software companies `r emo::ji('scream')`!
+
+
+# Request and add features to your introduction postings
+This is an exercise which will put you on both sides of the issue `r emo::ji('wink')`.
+
+## File an Issue
+**This part is due by Wednesday evening (so everyone has time to do the second part by Friday).**
+
+* Find the _Class List_ document on eLC, it's in the _Documents_ section. Note the name of the student who is __below__ you (if you are the last student on the list, note the 1st student's name). 
+* Go to the [Github course organization](https://github.com/epid8060fall2019) and find that student's repository from the _Introducing Ourselves_ exercise (if you can't figure out their Github username, email them).
+* Read through their introduction. Think of something you would like to know about them in addition to what they wrote. File an _Issue_ on their repository requesting this additional information/feature. 
+
+
+## Respond to an Issue
+
+* Everyone of you should be receiving a notification that someone (the student in the class list above you) has filed an _Issue_. Go ahead and address the issue (i.e., make changes to your markdown document). Follow the Github/RStudio workflow described in [Introducing Ourselves](./Exercise_Introducing_Ourselves.html) for this. Once you pushed your updates to the repository, go to the _Issues_ page, and close the issue with a comment of what you did.
+* Once the issue you opened is closed, you should get a notification. You can then go and check if it has been addressed.
+
+
 # Help improve this course
 
 * Find something wrong/unclear/worth improving with this course (e.g., a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).
 * Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse) and click on _Issues_.
 * Click the green _New Issue_ button and describe your issue. Make the title and the content as descriptive and clear as possible. Submit your issue.
 * I will get a notification, will read and address your issue. You might then get a notification that the issue has been addressed.
-
-
-# Request and add features to your introduction postings
-
-* We'll do the same process again, this time you are on both sides of the issue `r emo::ji('wink')`.
-* Find the _Class List_ document on eLC, it's in the _Documents_ section. Note the name of the student who is __below__ you (if you are the last student on the list, note the 1st student's name). 
-* Go to the [Github course organization](https://github.com/epid8060fall2019) and find that student's repository from the _Introducing Ourselves_ exercise (if you can't figure out their Github username, email them).
-* Read through their introduction. Think of something you would like to know about them in addition to what they wrote. File an _Issue_ on their repository requesting this additional information/feature. 
-* Everyone of you should be receiving a notification that someone (the student in the class list above you) has filed an _Issue_. Go ahead and address the issue (i.e., make changes to your markdown document). Follow the Github/RStudio workflow described in [Introducing Ourselves](./Exercise_Introducing_Ourselves.html) for this. Once you pushed your updates to the repository, go to the _Issues_ page, and close the issue with a comment of what you did.
-* Once the issue you opened is closed, you should get a notification. You can then go and check if it has been addressed.
-
-This _Issues_ feature is a very powerful way of working collaboratively. For instance, if you go to the Github page of a popular R package, such as [ggplot2](https://github.com/tidyverse/ggplot2) you'll find a lot of open (and closed) issues. Take a look at some of those issues to get an idea of how they are used. It is a great way for developers of software (and other products) to learn about problems, to hear what features users want, etc. So don't feel shy about opening an issue on someone's Github project. Before opening an issue, you should first search all the open and closed issues (and maybe a quick online search as well). This is to make sure it's not something that has been discussed before. 
-
-Just for fun, here is an example of me [filing an issue for the mlr package](https://github.com/mlr-org/mlr/issues/837). If you read through it, you'll see that based on that, the developers added the functionality I wanted `r emo::ji('smiley')`. Try that with Microsoft or any other of those software companies `r emo::ji('scream')`!
 
 
 # Doing _Issues_ for real
@@ -53,4 +61,6 @@ _This part of the exercise is optional._
 * Find something that's wrong/unclear/etc. That could be as simple as a typo, or a suggestion for some addition/improvement, etc. It could also be a question or feature request.
 * File an issue. Wait and see what happens. See if and how the repository owner(s)/maintainer(s) respond.
 * Post what you did and what happened to the _Github topics_ discussion board.
+
+ 
 

@@ -98,7 +98,7 @@ I describe my thoughts on teaching and learning a bit more in the __completely o
 * I will not perform any 'policing' to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to _help you stay on track._ If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. 
 
 
-__Overall, I hope this course is going to be useful, interesting, challengin and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you'll get out of it.__
+__Overall, I hope this course is going to be useful, interesting, challenging and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you'll get out of it.__
 
 
 # Course Setup

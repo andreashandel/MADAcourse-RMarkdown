@@ -102,7 +102,9 @@ Note that there are many more R packages that are not part of the core tidyverse
 
 To learn more and practice some of the tidyverse functionality and apply it to data wrangling, work through all 3 lessons in the [_Work with data_](https://rstudio.cloud/learn/primers/2) module from the RStudio tutorials. After that, work through all 3 lessons of the [_Tidy your data_](https://rstudio.cloud/learn/primers/4) module. __I'll ask you questions about those tutorials.__
 
+:::fyi
 More or less the same content, presented a bit differently and non-interactively, can be found in the [_Tidy data_ chapter (12) in R4DS](https://r4ds.had.co.nz/tidy-data.html). This might be a good reference to look up things.
+:::
 
 Next, read [the  _tidyverse_, _Data Wrangling_, _Reshaping data_ and _Joining tables_ chapters (5,21,22,23) of IDS](https://rafalab.github.io/dsbook/tidyverse.html). A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it's worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.
 

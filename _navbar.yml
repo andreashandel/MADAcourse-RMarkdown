@@ -9,7 +9,7 @@ left:
         href: ./Course_Schedule.html
   - text: "Modules"
     menu:
-      - text: "1. Coures and Tools Introduction"
+      - text: "1. Course and Tools Introduction"
         menu:
           - text: "1a. Course introduction"
             href: ./1a_Course_Introduction.html

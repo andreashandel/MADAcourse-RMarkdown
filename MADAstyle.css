@@ -1,0 +1,47 @@
+
+
+.thumbnail .caption {
+  padding: 0;
+  padding-top: 4px;
+  padding-left: 3px;
+  font-size: 0.9em;
+  color: gray;
+}
+
+a.thumbnail:hover {
+  text-decoration: none;
+}
+
+/* -----------div tips------------- */
+/* http://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/ */
+
+
+  div.puzzle, div.fyi, div.demo, div.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+  }
+  
+  
+ div.puzzle {
+  background-image: url("./media/Your-turn.png");
+}
+
+div.fyi {
+ background-image: url("./media/fyi.png");
+}
+
+div.demo {
+  background-image: url("./media/Live-code.png");
+}
+
+div.note {
+  background-image: url("./media/lightbulb.png");
+}

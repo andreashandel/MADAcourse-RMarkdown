@@ -25,3 +25,4 @@ Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy
 
 While the exercise for this module does not directly deal with data analysis workflow and structure, it introduces you to some more Github functionality, a tool that you have probably figured out by now is a great component of any good a reproducible project. Specifically, we will be looking at the concept of _Issues_. The exercise is called [Github Issues](./Exercise_Github_Issues.html).
 
+**Note that part of this exercise is due by Wednesday evening.**

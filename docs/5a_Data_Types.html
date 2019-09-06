@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-03" />
+<meta name="date" content="2019-09-06" />
 
 <title>Types of Data</title>
 
@@ -59,7 +59,7 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
 
 
 
@@ -359,7 +359,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Coures and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
@@ -516,7 +516,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Types of Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-03</h4>
+<h4 class="date">2019-09-06</h4>
 
 </div>
 
@@ -579,8 +579,8 @@ You might not want to get yourself that kind of data. Source: dilbert.com.
 <p>To efficiently work with data in R, you need to understand how the types of data described above are represented in and handled by R.</p>
 <p>The following is a summary of the most important data types in R. I’m also listing useful packages to deal with them. We’ll look at them in more detail in the next module. You have already seen some of the information I describe below. Now would be a good time to revisit the <em>Types</em> section of the RStudio <a href="https://rstudio.cloud/learn/primers/1.2">programming basic primer</a> and to revisit <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>.</p>
 <p><strong>Characters/strings:</strong> A string is a collection of characters. You will often hear the labels “character” and “string” used interchangeably to describe a variable. Strings are the most flexible variable type. Everything can be a character string. Unfortunately, you cannot do a lot of analysis with them. For instance, if you have the numbers 2 and 3, you can add and subtract. But if you code those numbers as characters “2” and “3”, you can’t do much with them. Thus, transforming characters into other, more useful categories (if applicable) is a common task. It is common that you read in some data and there is a variable which should be numeric, but some entries are not (e.g., the original spreadsheet shows something like “&lt;10”). In this case, R reads all of these variables as characters. You then have to go in, clean the “&lt;10” value, and convert the rest to numeric. Sometimes you do want to work with strings directly. For that purpose, the <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a> in R is very useful. To learn some more about strings, work through <a href="https://r4ds.had.co.nz/strings.html">the <em>Strings</em> chapter (14) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
-<p>Working with strings and text is a type of analysis that will continue to increase in importance, given the increasing data streams of that type. Thus, learning more about this topic is a good idea. <a href="https://rafalab.github.io/dsbook/string-processing.html">The <em>string processing</em> chapter (25) of IDS</a> contains further good material that is worth working through.</p>
-<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. A good source for additional information is <a href="https://stat545.com/block022_regular-expression.html">this write-up by Jenny Bryan</a>. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a></p>
+<p>Working with strings and text is a type of analysis that will continue to increase in importance, given the increasing data streams of that type. Thus, learning more about this topic is a good idea. <a href="https://rafalab.github.io/dsbook/string-processing.html">The <em>string processing</em> chapter (25) of IDS</a> contains further good material that is worth working through. (I won’t as any quiz questions on that.)</p>
+<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. A good source for additional information is <a href="https://stat545.com/block022_regular-expression.html">this write-up by Jenny Bryan</a>. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a> (I won’t as any quiz questions on that.)</p>
 <p><strong>Factors:</strong> That’s what R calls categorical variables. They can be ordered/ordinal or not. You need to make sure variables that should be coded as a factor are, and that those that shouldn’t be aren’t. For instance, you might have a variable with entries of 0, 1, and 2. Those could be numeric values, e.g., the number of siblings a person has. Or it could be a factor coding for 3 types of ethnicity (unordered), or 3 levels of socioeconomic status (ordered). You need to make sure it is coded as factor or numeric, based on what you know about the variable. An excellent package to work with factors is the <a href="https://forcats.tidyverse.org/"><code>forcats</code> package</a>. To learn some more about factors, work through <a href="https://r4ds.had.co.nz/factors.html"><em>Factors</em> chapter (15) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
 <p><strong>Logical:</strong> You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R 0 is interpreted as FALSE and 1 as TRUE. You will use those logical values often when checking your data, e.g., if you want to see if your variable <code>x</code> is greater than 5, then the R command <code>x&gt;5</code> will return either TRUE or FALSE, based on the value of <code>x</code>.</p>
 <p><strong>Numeric (double/integer:</strong> Numeric values that are either integers or any other numeric value (double). You generally do not need to care too much how exactly your numeric values are coded. Often, you can treat integers as general numeric (which in R is <code>double</code>). You might rarely come across a case where some analytic method or other bits of code requires integers to be specified as such. In R, you can use the <code>as.integer()</code> function to convert general numeric values to integers. You don’t really need any other special packages in R to deal with numeric values.</p>
