@@ -24,7 +24,7 @@ The _Assessments_ column lists items that need to be submitted and that will be 
 | Module 1 – Course and tools introduction | 8/14 – 8/23 | IDS:1,2,39,40, HGR, R4DS:27,29,30| quiz, introducing ourselves exercise |
 | Module 2 – Topic introduction | 8/14 – 8/23 | none | quiz, discussion|
 | Module 3 – R basics | 8/14 – 8/30 | RP:Basics, IDS:3,4 | quiz, coding exercise  |
-| Module 4 – Data analysis overview | 9/2 – 9/6 | R4DS:1, ADS:1-4,9-11 | quiz, github issues exercise  |
+| Module 4 – Data analysis overview | 9/2 – 9/6 | R4DS:1, ADS:1-4,9-11 | quiz, github issues exercise **(part due Wed)**  |
 | Module 5 – Pondering and getting data | 9/9 – 9/13 | R4DS:14-16, IDS:6,24-27  | quiz, project part 1 |
 | Module 6 – Data wrangling & Tidyverse | 9/16 – 9/20 |RP:WorkData,TidyData, R4DS:12,  IDS:5,21,22,23 |quiz, tidyverse exercise |
 | Module 7 – Visualization | 9/23 – 9/27 | RP:Visualize | quiz, visualization exercise   |

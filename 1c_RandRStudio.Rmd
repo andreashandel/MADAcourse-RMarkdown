@@ -92,6 +92,9 @@ This was a quick overview of R packages. We'll use a lot of them, so you'll get 
 Next, [go through chapter 2 of IDS](https://rafalab.github.io/dsbook/getting-started.html) for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience. (Hint: I will ask about this chapter on the quiz).
 
 
+# Learning R Studio
+While one can use R and do pretty much every task, including all the ones we cover in this class, without using RStudio, RStudio is very useful, has lots of features that make your R coding life easier and has become pretty much the default integrated development environment (IDE) for R. Since RStudio has lots of features, it takes time to learn them. A good resource to learn more about RStudio are the [R Studio Essentials](https://resources.rstudio.com/) collection of videos. 
+
 
 
 

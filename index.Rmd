@@ -56,14 +56,14 @@ library(dplyr)
 contributors <- readr::read_csv("contributors.csv", col_types = list())
 contributors <- contributors %>% 
   mutate(
-    link = glue::glue("[\\@{login}](https://github.com/{login})"),
-    desc = ifelse(is.na(name), link, glue::glue("{name} ({link})"))
+    link = glue::glue("[\\@{GithubID}](https://github.com/{GithubID})"),
+    desc = ifelse(is.na(LastName), link, glue::glue("{FirstName} {LastName} ({link})"))
   )
 cat("The following individuals have contributed to improving the course:\n")
 cat(paste0(contributors$desc, collapse = ", "))
 ```
 
-The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](http://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses.
+The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses.
 
 
   
