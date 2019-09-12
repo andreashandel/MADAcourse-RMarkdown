@@ -86,6 +86,8 @@ left:
     menu:
        - text: "Project information"
          href: ./Project_Information.html
+       - text: "Project grading rubric"
+         href: ./Project_Rubric.html
   - text: "Communication"
     href: ./Course_Communication.html
   - text: "Resources"

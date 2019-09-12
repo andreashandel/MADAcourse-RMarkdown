@@ -24,7 +24,6 @@ A semester long data analysis project will be a major method of assessment for t
 * Reporting/communicating your findings
 * Doing everything reproducibly
 
-
 # Timeline
 There are several deadlines throughout the course at which time you need to submit parts of your project
 
@@ -35,17 +34,6 @@ There are several deadlines throughout the course at which time you need to subm
 * Part 5: Updated final report based on feedback.
 
 The deadlines are listed in the _Schedule_ document (it's unlikely, but they might change, so keep checking that document).
-
-
-
-# Feedback and Assessment
-You will receive feedback from me and/or your classmates after each submission. 
-
-* I will provide feedback on parts 1-3. 
-* Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document, posted to the _Project_ section of the website.
-* Part 5 is the final submission. 
-
-I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the _project grade._ The final submission will count for the remaining 75%. 
 
 
 # Project Requirements
@@ -60,7 +48,7 @@ You can pick your project topic and data source pretty much however you like. Th
 You can use data from any source you like, herer are some possible ones.
 
 ## Your "own" data
-If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available).
+If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available). _I strongly encourage you to use the class project toward helping you do an analysis and write a report that can be something you can publish as part of your research!_ 
 
 ## Publicly available data
 You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.
@@ -91,9 +79,18 @@ Inside the `manuscript` folder, there is a R Markdown template file with a sugge
 
 In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.
 
-I highly recommend you use this template as starting point for your project. To use the template for your class project, go [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-project`. Create the repository inside the class organization. To do so, choose the class organization as the owner of the repository. This also allows you to make it a private repository if you want to (e.g. if you have data you do not want to be public). Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
+I recommend you use this template as starting point for your project. To use the template for your class project, go [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-project`. Create the repository inside the class organization. To do so, choose the class organization as the owner of the repository. This also allows you to make it a private repository if you want to (e.g. if you have data you do not want to be public). Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
 
+# Feedback and Assessment
+You will receive feedback from me and/or your classmates after each submission. 
+
+* I will provide feedback on parts 1-3. 
+* Some of your classmates will provide peer-review on part 4. Details on that will be provided in a separate document, posted to the _Project_ section of the website.
+* Part 5 is the final submission. 
+
+I will assess parts 1-3, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 4. Those portions are about 25% of the _project grade._ The final submission will count for the remaining 75%. 
+
+**More details on what exactly is expected and how it is assessed is provided in the _Project Rubric_ document.**
 
 # Project communications 
 Any communication regarding this project should happen in the _Class Project_ discussion board. Go there to ask project-specific questions, to post links to your repository whenever you have a part finished, etc. I will also post any further or clarifying information there.
-

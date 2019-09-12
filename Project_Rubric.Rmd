@@ -1,0 +1,56 @@
+---
+title: Project Rubric 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+This documents provides more detailed instructions and grading rubrics for each part of the project.
+
+
+## Part 1
+
+**The main objective for part 1 is to describe data and qestion in enough detail that I can assess if the planned project is feasible.** 
+
+To that end, provide the following pieces of information:
+
+* Briefly describe what the data is, how it was collected, where you will get (or got) it from. How many observations do you have, what was measured? Anything else important to report about the data?
+* At this stage you are not required to already have and show the data, but if you do, even better. Then add a few lines of code which load the data and using some of the commands you learned about, provide summmary descriptions of the data. 
+* Explain the question you want to answer using the data. What will be your outcome(s) of interest (if any)? What (if any) specific predictors will you focus on? What relations/patterns are you looking for in the data?
+* As much as you know, suggest how you will analyze it. At this stage in the course, we haven't covered analysis approaches yet, so you can keep things vague and non-technical here.
+* You are allowed, but not yet required, to provide background information for the question you plan to answer. For instance you can describe why it's an interesting question, who else has done similar analyses, how your analysis will be new/different, etc. Similar to what you read in an introduction to a research paper. For the final report, you'll need these parts. For part 1, they are not required, but you are welcome to already scribble down some of that.
+* Eventually, for your final report, what you write for this part will go into different sections of the full report. Some will go into the introdcution, some in the methods section. You can already place these items there, or for now just write them as a single section.
+
+Grading for this part will follow the following rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Absent | Everything or majority of submission is missing | 0 |
+| Not sufficient | Submission is very incomplete, has major missing parts which does not allow assessment of feasiblity of proposed project | 50 |
+| Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 100 |
+
+
+**Rest to come**
+
+## Part 2
+
+
+
+## Part 3
+
+## Part 4
+
+## Part 5
+
+## Peer Review
+
+
+
+
