@@ -2,7 +2,7 @@
 title: Data Wrangling and the Tidyverse 
 subtitle: ""
 author: Andreas Handel
-Suggestions by: Megan Beaudry
+contributors: Megan Beaudry
 institute: "University of Georgia"
 date: "`r Sys.Date()`"
 #bibliography: ../media/references.bib
@@ -89,9 +89,8 @@ One of the strengths of R (and also a source of confusion) is that it is very fl
 
 ## Tidy data
 
-The concept of the tidyverse can be traced back to the concept of _tidy data_, which [Hadley Wickham](http://hadley.nz/) introduced in [this article](https://www.jstatsoft.org/article/view/v059i10/). Read this article. __I'll ask you questions about it.__
- ###Megan Beaudry's suggestion for this section
- When reading Hadley Wickham's article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers. In addition feel free to read this summary of Wickham's article https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/. A link to a tidy data tutorial using an excel spreadsheet is provided at the bottom in the "final words" section. For those of you with "realworld" data in a an excel spreadsheet, going through this tutorial or other similar tutorials may be useful. 
+The concept of the tidyverse can be traced back to the concept of _tidy data_, which [Hadley Wickham](http://hadley.nz/) introduced in [this article](https://www.jstatsoft.org/article/view/v059i10/). Read this article. __I'll ask you questions about it.__ When reading Hadley Wickham's article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers. 
+
 
 ## Tidyverse philosophy 
 
@@ -109,6 +108,9 @@ More or less the same content, presented a bit differently and non-interactively
 :::
 
 Next, read [the  _tidyverse_, _Data Wrangling_, _Reshaping data_ and _Joining tables_ chapters (5,21,22,23) of IDS](https://rafalab.github.io/dsbook/tidyverse.html). A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it's worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.
+
+If you want some more data tyding practice, check out [this tutorial by Garrett Grolemund](http://garrettgman.github.io/tidying/) or [this short blog post by Joachim Goedhart](https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/). 
+
 
 As you do your data wrangling, a lot of code writing will be _ad hoc_. You have a specific task you need to accomplish with your data, and then you go out and look for instructions online on how to do it. The materials you just worked through are useful resources. And as always, google is your friend.
 
