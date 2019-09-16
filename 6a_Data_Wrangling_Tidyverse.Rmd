@@ -2,6 +2,7 @@
 title: Data Wrangling and the Tidyverse 
 subtitle: ""
 author: Andreas Handel
+Suggestions by: Megan Beaudry
 institute: "University of Georgia"
 date: "`r Sys.Date()`"
 #bibliography: ../media/references.bib
@@ -89,7 +90,8 @@ One of the strengths of R (and also a source of confusion) is that it is very fl
 ## Tidy data
 
 The concept of the tidyverse can be traced back to the concept of _tidy data_, which [Hadley Wickham](http://hadley.nz/) introduced in [this article](https://www.jstatsoft.org/article/view/v059i10/). Read this article. __I'll ask you questions about it.__
-
+ ###Megan Beaudry's suggestion for this section
+ When reading Hadley Wickham's article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers. In addition feel free to read this summary of Wickham's article https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/. A link to a tidy data tutorial using an excel spreadsheet is provided at the bottom in the "final words" section. 
 
 ## Tidyverse philosophy 
 
