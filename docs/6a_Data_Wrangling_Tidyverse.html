@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-16" />
+<meta name="date" content="2019-09-17" />
 
 <title>Data Wrangling and the Tidyverse</title>
 
@@ -444,15 +444,52 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -474,8 +511,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -489,12 +530,15 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -518,7 +562,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Data Wrangling and the Tidyverse</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-16</h4>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
@@ -584,7 +628,7 @@ How data used to be cleaned before the tidyverse.
 </div>
 <div id="tidy-data" class="section level2">
 <h2>Tidy data</h2>
-<p>The concept of the tidyverse can be traced back to the concept of <em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a> introduced in <a href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>. Read this article. <strong>I’ll ask you questions about it.</strong> ###Megan Beaudry’s suggestion for this section When reading Hadley Wickham’s article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers. In addition feel free to read this summary of Wickham’s article <a href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/" class="uri">https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/</a>. A link to a tidy data tutorial using an excel spreadsheet is provided at the bottom in the “final words” section. For those of you with “realworld” data in a an excel spreadsheet, going through this tutorial or other similar tutorials may be useful.</p>
+<p>The concept of the tidyverse can be traced back to the concept of <em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a> introduced in <a href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>. Read this article. <strong>I’ll ask you questions about it.</strong> When reading Hadley Wickham’s article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers.</p>
 </div>
 <div id="tidyverse-philosophy" class="section level2">
 <h2>Tidyverse philosophy</h2>
@@ -598,6 +642,7 @@ How data used to be cleaned before the tidyverse.
 <p>More or less the same content, presented a bit differently and non-interactively, can be found in the <a href="https://r4ds.had.co.nz/tidy-data.html"><em>Tidy data</em> chapter (12) in R4DS</a>. This might be a good reference to look up things.</p>
 </div>
 <p>Next, read <a href="https://rafalab.github.io/dsbook/tidyverse.html">the <em>tidyverse</em>, <em>Data Wrangling</em>, <em>Reshaping data</em> and <em>Joining tables</em> chapters (5,21,22,23) of IDS</a>. A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it’s worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.</p>
+<p>If you want some more data tyding practice, check out <a href="http://garrettgman.github.io/tidying/">this tutorial by Garrett Grolemund</a> or <a href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/">this short blog post by Joachim Goedhart</a>.</p>
 <p>As you do your data wrangling, a lot of code writing will be <em>ad hoc</em>. You have a specific task you need to accomplish with your data, and then you go out and look for instructions online on how to do it. The materials you just worked through are useful resources. And as always, google is your friend.</p>
 </div>
 </div>

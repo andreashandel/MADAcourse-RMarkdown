@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-12" />
+<meta name="date" content="2019-09-17" />
 
 <title>MADA Fall 2019 - Course Schedule</title>
 
@@ -72,7 +72,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -369,15 +368,52 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -399,8 +435,12 @@ $(document).ready(function () {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -414,12 +454,15 @@ $(document).ready(function () {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -443,14 +486,14 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Course Schedule</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-12</h4>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
 
 <p>This is the current course schedule for the class. Things might change, so check regularly for updates.</p>
 <p>The <em>Assignments</em> column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.</p>
-<p>Abbreviations used are: <a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a>, <a href="https://r4ds.had.co.nz/">R4DS = R for Data Science</a>, <a href="https://rstudio.cloud/learn/primers">RP = RStudio Primers</a>, <a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a>, <a href="https://happygitwithr.com/">HGR = happygitwithR</a>. Numbers behind abbreviations refer to the chapter.</p>
+<p>Abbreviations used are: <a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a>, <a href="https://r4ds.had.co.nz/">R4DS = R for Data Science</a>, <a href="https://rstudio.cloud/learn/primers">RP = RStudio Primers</a>, <a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a>, <a href="https://happygitwithr.com/">HGR = happygitwithR</a>, <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">ISL = Introduction to Statistical Learning</a>, <a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a>. Numbers behind abbreviations refer to the chapter.</p>
 <p>The <em>Assessments</em> column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. <strong>Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.</strong></p>
 <table>
 <colgroup>
@@ -507,70 +550,76 @@ $(document).ready(function () {
 <tr class="odd">
 <td>Module 7 – Visualization</td>
 <td>9/23 – 9/27</td>
-<td>RP:Visualize</td>
+<td>IDS:7-11, RP:Visualize, R4DS:3,7,28</td>
 <td>quiz, visualization exercise</td>
 </tr>
 <tr class="even">
-<td>Module 8 – Model fitting overview</td>
-<td>9/30 – 10/4</td>
-<td></td>
-<td>quiz, TidyTuesday 1 exercise</td>
+<td>Module 8 – Pre-processing</td>
+<td><strong>9/23 – 9/27</strong></td>
+<td>FES</td>
+<td><strong>none</strong></td>
 </tr>
 <tr class="odd">
-<td>Module 9 – Model assessment</td>
+<td>Module 9 – Model fitting overview</td>
+<td>9/30 – 10/4</td>
+<td>ISL:1,2.1, R4DS:22-23</td>
+<td>quiz, TidyTuesday 1 exercise</td>
+</tr>
+<tr class="even">
+<td>Module 10 – Model assessment</td>
 <td>10/7 – 10/11</td>
 <td></td>
 <td>quiz, project part 2</td>
 </tr>
-<tr class="even">
-<td>Module 10 – Basic models</td>
+<tr class="odd">
+<td>Module 11 – Basic models</td>
 <td>10/14 – 10/18</td>
 <td></td>
-<td>quiz</td>
-</tr>
-<tr class="odd">
-<td>Module 11 – Generalized linear models, feature selection</td>
-<td>10/21 – 10/25</td>
-<td></td>
-<td>quiz</td>
+<td>quiz, TBD exercise</td>
 </tr>
 <tr class="even">
-<td>Module 12 – Tree-based models, parameter tuning</td>
-<td>10/28 – 11/1</td>
+<td>Module 12 – Generalized linear models, feature selection</td>
+<td>10/21 – 10/25</td>
 <td></td>
-<td>quiz</td>
+<td>quiz, TBD exercise</td>
 </tr>
 <tr class="odd">
-<td>Module 13 – Various machine learning models</td>
+<td>Module 13 – Tree-based models, parameter tuning</td>
+<td>10/28 – 11/1</td>
+<td></td>
+<td>quiz, TBD exercise</td>
+</tr>
+<tr class="even">
+<td>Module 14 – Various machine learning models</td>
 <td>11/4 – 11/8</td>
 <td></td>
 <td>quiz, project part 3</td>
 </tr>
-<tr class="even">
-<td>Module 14 – Doing a complete data analysis project</td>
+<tr class="odd">
+<td>Module 15 – Doing a complete data analysis project</td>
 <td>11/11 – 11/15</td>
 <td></td>
 <td>quiz, TidyTuesday 2 exercise</td>
 </tr>
-<tr class="odd">
-<td>Module 15 – Deep learning, AI and Big Data</td>
+<tr class="even">
+<td>Module 16 – Deep learning, AI and Big Data</td>
 <td>11/18 – 11/22</td>
 <td></td>
-<td>quiz</td>
+<td>quiz, TBD exercise</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Finishing Project</td>
 <td>11/25 – 11/29 (fall break part of the week)</td>
 <td></td>
 <td>project part 4</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Project Reviews</td>
 <td>12/2 – 12/6</td>
 <td></td>
 <td>project reviews</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Final project submission</td>
 <td>12/11</td>
 <td></td>

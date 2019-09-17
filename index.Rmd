@@ -1,5 +1,5 @@
 ---
-title: "Modern Applied Data Analysis (MADA) course website"
+title: "Modern Applied Data Analysis course website"
 output: 
   html_document:
     toc: FALSE
@@ -28,6 +28,8 @@ As part of the class, you will be doing a semester-long data analysis project. I
 
 The __Communication__ section provides information on how course communications are planned to happen.
 
+The __Glossary__ section provides brief definitions of terms used in this course. 
+
 The __Resources__ section contains a listing of external materials. Some of this material will assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful. All materials are (should be) available freely online.
 
 Note that by default, all links open in the current tab. You'll likely want external ones to open in a separate tab or window. To do so, you can (with most browsers) hold the `Ctrl` button when clicking, or do a right-click and select `open in new tab/window`.
@@ -36,11 +38,7 @@ Note that by default, all links open in the current tab. You'll likely want exte
 # Additional content
 
 For students taking this course at UGA, We will use eLC, UGA's learning management system, for additional features.
-The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can't find it, search for _Modern Applied Data Analysis_. We will use eLC for:
-
-* Announcements
-* Discussions
-* Quizzes
+The course is listed as EPID or BIOS 8060E. It doesn't matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can't find it, search for _Modern Applied Data Analysis_. We will use eLC for Announcements, Discussions and Quizzes.
 
 # Getting started
 
@@ -50,7 +48,7 @@ I suggest you start by looking over the __Syllabus__ and __Schedule__ documents,
 
 This course was developed and is maintained by [Andreas Handel](http://handelgroup.uga.edu/).
 
-```{r, results = "asis", echo = FALSE, message = FALSE}
+```{r, results = "asis", echo = FALSE, message = FALSE, warning=FALSE}
 #the following code snipped is taken from Hadley's R4DS intro page
 library(dplyr)
 contributors <- readr::read_csv("contributors.csv", col_types = list())
@@ -63,7 +61,7 @@ cat("The following individuals have contributed to improving the course:\n")
 cat(paste0(contributors$desc, collapse = ", "))
 ```
 
-The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses.
+The course materials are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.
 
 
   

@@ -1,0 +1,55 @@
+---
+title: Visualization in R
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include = FALSE}
+library(emo)
+```
+
+
+# Visualization and graphics in R 
+Visualization and graphics is a strength of R. There are currently three main - and unfortunately not compatible - ways of doing graphs in R. 
+
+The first approach is the use the base R commands, with the `plot` function as the main workhorse, and related functions for more specialized plots (e.g. `boxplot`). You can make a lot of very good graphs using base R, but it often takes many lines of code and a good bit of fiddling. 
+
+The second approach is using the [`lattice` package](http://lattice.r-forge.r-project.org/), and extensions that build on this package. `lattice` seems to have largely "lost" against option number 3 and I don't see it used much anymore these days.
+
+The third, and currently most popular approach is to make graphs using the [`ggplot2` package](https://ggplot2.tidyverse.org/) and [various extensions to it](http://www.ggplot2-exts.org/gallery/). This has by now become more or less the standard for good graphics in R. Note that while the package is called ggplot2, people interchangeably refer to it as ggplot or ggplot2.
+
+My recommendation for learning to make plots in R is to learn ggplot mainly. For almost any graph you want for a publication, ggplot is best, it - and many add-on packages to it - produce very good quality graphs with not too much code writing required. While you could use ggplot2 exclusively for any figures you make, it is also useful to know a little bit about how to make plots using base R, since they are often very good for quick and dirty plots, especially during the data exploration stage. 
+
+
+# Practicing ggplot2
+
+If you are new to ggplot2, a good and gentle introduction is the [_Visualize Data_ RStudio primer](https://rstudio.cloud/learn/primers/3). Similar material, though a little bit more advanced, is covered in a non-interactive form in [chapters 3 and 7 and 28 of R4DS](http://r4ds.had.co.nz/). I won't check/quiz you on those two sources, but they are worth going through if you haven't used ggplot (much).
+
+I do want you to work through the [Data visualization section of IDS (chapters 7-11, skim 12)](https://rafalab.github.io/dsbook/). Optionally, also do some of the exercises. __I'll ask questions about that reading on the quiz.__
+
+
+# Further R graphics resources
+There are lots of resources online to learn ggplot. The best approach - at least the one I use most - is to google "how do I do X in ggplot", and something comes up pretty much always. Another good source is the [R graphics cookbook](https://r-graphics.org/), which is meant to give you quick recipes for common questions and plots. [This website](http://www.sthda.com/english/wiki/ggplot2-essentials) also has some great information describing how to do specific plots and specific tasks in ggplot2 (and many other R and data analysis related topics). 
+
+ggplot is based on what is called "grammar of graphics". Learning a bit more about those ideas behind ggplot and what is possible with it is a good idea. Hadley wrote a book on ggplot2, and there is [a print edition](https://www.springer.com/gp/book/9780387981413) which you can get for free through many universities (including UGA) that have SpringerLink access. Hadley is also working on a new edition of the book, that draft of the new book [is freely available online](https://ggplot2-book.org/). 
+
+The book [Data Visualization - A practical introduction](https://socviz.co/) is another great source. The book provides a general introduction to making good graphs, and the R code for the figures is shown.
+
+For inspiration and ideas, there is also the [R graphics gallery](https://www.r-graph-gallery.com/) where you can see all kinds of plots made in R, and you can also see the code. They are nicely organized into categories. It's definitely worth browsing around.
+
+
+# Beyond static graphs
+While you will likely always need regular figures for papers, reports, presentation slides, etc., it is becoming increasingly common to have interactive and dynamic visualizations. R has pretty good facilities for that, some in rapid development. The [`ggvis` package](https://ggvis.rstudio.com/) is meant to be similar to `ggplot2` but allow for interactive and dynamic visualizations. The [`plotly` package](https://plot.ly/r/) also works well with R and allows interactive graphs.
+
+For even richer, interactive graphical visualizations, you can use the [`shiny` package](https://shiny.rstudio.com/) and extensions to it. The [shiny gallery](https://shiny.rstudio.com/gallery/) has examples of apps. The R packages I wrote and which you briefly played with early in the course, [DSAIDE](https://ahgroup.github.io/DSAIDE/) and [DSAIRM](https://ahgroup.github.io/DSAIRM/) are also both using Shiny for the interactive graphical interface. 
+
+Often, getting professional-looking interactive figures, dashboards, and other widgets in R is not that difficult. However, since those are all specialized products, they usually require commands and concepts that are somewhat different from basic or tidyverse R, which generally takes some time to learn. 
+ 
+Interactive graphs and apps are beyond what we'll cover in this class, but it is something that might be worth learning, and you are certainly welcome to make use of some of these packages and tools for your class project `r emo::ji('smiley')`.
+
+

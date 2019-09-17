@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-12" />
+<meta name="date" content="2019-09-17" />
 
 <title>Project Rubric</title>
 
@@ -75,7 +75,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -445,15 +444,52 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -475,8 +511,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -490,12 +530,15 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -519,7 +562,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Project Rubric</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-12</h4>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
@@ -571,22 +614,127 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<p><strong>Rest to come</strong></p>
 </div>
 <div id="part-2" class="section level2">
 <h2>Part 2</h2>
+<p><strong>The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.</strong></p>
+<p>To that end, provide the following pieces of information:</p>
+<ul>
+<li>Everything from part 1. That doesn’t mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).</li>
+<li>A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details.</li>
+<li>The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).</li>
+<li>It is up to you how you structure things. The combination of R or Rmd scripts and if you add comments into the code or use the text+code approach of Rmd files is your choice. Look for instance at Brian’s project for ideas.</li>
+<li>Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.</li>
+<li>Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.</li>
+<li>I recommend that at this stage you start including references using the bibtex reference approach. The bib file should be provided too.</li>
+</ul>
+<p>Grading for this part will follow the following rubric:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Category</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Score</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Absent</td>
+<td>Everything or majority of submission is missing</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Insufficient</td>
+<td>Submission is very incomplete, major parts missing or not reproducible</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>Not fully sufficient</td>
+<td>Submission is somewhat incomplete, minor parts missing or not reproducible</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>Sufficient</td>
+<td>Submission is complete or fairly complete</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="part-3" class="section level2">
 <h2>Part 3</h2>
+<p><strong>The main objective for part 3 is to have started the analysis part of the project and continued to improve everything.</strong></p>
+<p>To that end, provide the following pieces of information:</p>
+<ul>
+<li>All relevant previous files and documents. Of course, restructuring is ok as you go along.</li>
+<li>Any new relevant files that are needed to reproduce everything.</li>
+<li>Code and text describing the first few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.</li>
+</ul>
+<p>Grading for this part will follow this rubric:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Category</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Score</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Absent</td>
+<td>Everything or majority of submission is missing</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Insufficient</td>
+<td>Submission is very incomplete, major parts missing or not reproducible</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>Not fully sufficient</td>
+<td>Submission is somewhat incomplete, minor parts missing or not reproducible</td>
+<td>75</td>
+</tr>
+<tr class="even">
+<td>Sufficient</td>
+<td>Submission is complete or fairly complete</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="part-4" class="section level2">
 <h2>Part 4</h2>
+<p><strong>The main objective for part 4 is to have a fully completed project, ready for peer review.</strong></p>
+<p>To that end, provide the following pieces of information:</p>
+<ul>
+<li>Every file needed to reproduce your complete analysis and report in your project repository.</li>
+<li>A complete report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).</li>
+<li>Supplementary material/text, Rmd/R scripts, data, etc. as needed.</li>
+<li>bibtex file.</li>
+<li>Everything well documented.</li>
+<li>Instructions on how to reproduce all your results.</li>
+</ul>
+<p>I will not grade this part but it will be assessed by your peers, as described in the <em>Project Review</em> document.</p>
 </div>
 <div id="part-5" class="section level2">
 <h2>Part 5</h2>
-</div>
-<div id="peer-review" class="section level2">
-<h2>Peer Review</h2>
+<p><strong>The main objective for part 5 is to have a finished project, ready for final grading.</strong></p>
+<p>To that end, provide the following pieces of information:</p>
+<ul>
+<li>Everything from part 4, with improvements/edits based on peer review feedback.</li>
+</ul>
+<p>Grading for this part will follow the rubric provided in the <em>Project Review</em> document.</p>
 </div>
 </div>
 

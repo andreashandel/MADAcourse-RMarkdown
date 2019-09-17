@@ -60,14 +60,34 @@ left:
           - text: "6b. Assessment"
             href: ./6b_Assessment.html
       - text: "7. Visualization"
-      - text: "8. Model fitting overview"
-      - text: "9. Model assessment"
-      - text: "10. Basic models"
-      - text: "11. GLM and feature selection"
-      - text: "12. Tree-based models and tuning"
-      - text: "13. Various ML models"
-      - text: "14. A complete data analysis"
-      - text: "15. Deep learning, AI and Big data"
+        menu:
+          - text: "7a. Visualization Overview"
+            href: ./7a_Visualization_Overview.html     
+          - text: "7b. Visualization in R"
+            href: ./7b_Visualization_in_R.html     
+          - text: "7c. Assessment"
+            href: ./7c_Assessment.html
+      - text: "8. Pre-processing Data"
+        menu:
+          - text: "8a. Pre-processing data"
+            href: ./8a_Preprocessing_Data.html     
+      - text: "9. Model fitting overview"
+        menu:
+          - text: "9a. Model fitting overview"
+            href: ./9a_Model_Fitting_Overview.html     
+          - text: "9b. Model Fitting Terminology"
+            href: ./9b_Model_Fitting_Terminology.html     
+          - text: "9c. Supervised Modeling"
+            href: ./9c_Model_Fitting_Supervised.html     
+          - text: "9d. Assessment"
+            href: ./9d_Assessment.html
+      - text: "10. Model assessment"
+      - text: "11. Basic models"
+      - text: "12. GLM and feature selection"
+      - text: "13. Tree-based models and tuning"
+      - text: "14. Various ML models"
+      - text: "15. A complete data analysis"
+      - text: "16. Deep learning, AI and Big data"
   - text: "Exercises"
     menu:
        - text: "Introducing ourselves"
@@ -79,17 +99,19 @@ left:
        - text: "Tidyverse"
          href: ./Exercise_Tidyverse.html
        - text: "Visualization"
-         #href: ./Exercise_Visualization.html
-       - text: "TidyTuesday"
-         #href: ./Exercise_Tidy_Tuesday.html
+         href: ./Exercise_Visualization.html
+       - text: "TidyTuesday 1"
+         href: ./Exercise_Tidy_Tuesday_1.html
   - text: "Project"
     menu:
        - text: "Project information"
          href: ./Project_Information.html
-       - text: "Project grading rubric"
+       - text: "Project rubric"
          href: ./Project_Rubric.html
   - text: "Communication"
     href: ./Course_Communication.html
+  - text: "Glossary"
+    href: ./Course_Glossary.html
   - text: "Resources"
     href: ./Course_Resources.html
 right:

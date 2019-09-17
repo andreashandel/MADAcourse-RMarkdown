@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-12" />
+<meta name="date" content="2019-09-17" />
 
 <title>EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus</title>
 
@@ -75,7 +75,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -445,15 +444,52 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -475,8 +511,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -490,12 +530,15 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -519,7 +562,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-12</h4>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
@@ -547,35 +590,37 @@ div.tocify {
 <h2>Course Learning Objectives</h2>
 <p>The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, to getting, cleaning and exploring the data, all the way to fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of ‘Machine Learning’. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analyis.</p>
 <p>The specific learning objectives that I hope you will achieve by going through this course are:</p>
-<p><em>Design</em></p>
+<p><em>Define meaningful data analysis questions and assess the feasibility of answering these questions with the available data.</em></p>
 <ul>
 <li>Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.</li>
-<li>Given a data science question, determine the type of data and analytic approach needed to answer it.</li>
+<li>Given a data analysis question, determine the type of data and analytic approach needed to answer it.</li>
 </ul>
-<p><em>Processing</em></p>
+<p><em>Be able to obtain, organize and process data for detailed analysis.</em></p>
 <ul>
-<li>Know how to obtain, process and analyze data from a variety of different sources.</li>
-<li>Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.</li>
-<li>Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process and analyze the data appropriately.</li>
+<li>Know how to obtain data from a variety of different sources.</li>
+<li>Be knowledgeable about data types and standards and how to process them.</li>
+<li>Be able to organize and process data in a reproducible, automated and documented manner.</li>
+<li>Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process the data appropriately.</li>
 </ul>
-<p><em>Analysis</em></p>
+<p><em>Be knowledgeable of different data analysis methods and select the appropriate approach for a given project based on data and question.</em></p>
 <ul>
 <li>Critically compare and evaluate the strengths and weaknesses of different data analysis approaches.</li>
 <li>Judge the appropriateness of different approaches for specific questions and data sets and know how to apply an appropriate analytic approach.</li>
 <li>Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.</li>
 </ul>
-<p><em>Communication</em></p>
+<p><em>Efficiently communicate results from data analyses to a variety of stakeholders.</em></p>
 <ul>
 <li>Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.</li>
 <li>Assess the strengths and weaknesses of different formats for representing the results of data analyses.</li>
 </ul>
-<p><em>Tools</em></p>
+<p><em>Use modern coding and analysis tools to implement automated, reproducible analysis and project management workflows.</em></p>
 <ul>
 <li>Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.</li>
+<li>Be proficient in R coding to implement and execute a complete data analysis project in a reproducible and automated manner.</li>
 <li>Be comfortable using R and Github to do data analysis in a reproducible manner.</li>
 <li>Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.</li>
 </ul>
-<p><em>Overall</em></p>
+<p><em>Develop skills to critically assess your own and others’ analyses and conclusions.</em></p>
 <ul>
 <li>Judge the usefulness and appropriateness of data analyses described in the primary research literature.</li>
 <li>Learn to <em>look over your shoulder</em> and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.</li>

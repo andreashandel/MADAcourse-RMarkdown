@@ -1,0 +1,36 @@
+---
+title: "TidyTuesday 1 Exercise" 
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+For this exercise, we will join the R data science community and participate in a weekly exercise that allows you to practice some parts of data analysis.
+
+
+# What is TidyTuesday 
+[TidyTuesday](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/) is an interesting initiative by the R data science community. Every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday). Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e., tidying) and exploring the data, though people sometimes do statistical analyses as well. 
+
+If you are curious how these datasets look, check out one of the already posted datasets. For instance, the wine ratings dataset you saw in the introductory lesson [can be found here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28).
+
+You have already seen one TidyTuesday analysis as one of the introductory examples. For more examples of previous analyses, [see this nice Shiny app](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) which scans twitter for posts mentioning `#tidytuesday`.
+
+
+# TidyTuesday Exercise
+For this week's exercise, your assignment is to participate in TidyTuesday by analyzing this week's dataset. You can start as soon as the dataset is posted, which is usually Monday. Here are some more detailed instructions:
+
+* Create a new Github repository inside the class organization and call it `YOURNAME-tidytuesday1`. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the `Introducing ourselves` project if you forgot how to do that.
+
+* Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset for this week, read the instructions on how to get the data. You will also be provided with a data dictionary. 
+
+* Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don't need to implement any statistical models (we'll do another TidyTuesday exercise later, for which you'll be asked to implement some statistical model). 
+
+* Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the _Introducing ourselves_ project. 
+
+* Post the link to your project (both the html/website and the Rmd file) in the Tidytuesday 1 discussion board. If you are active on social media, you can post an announcement of your project there. 
+
+* For any help requests, post your questions to the discussion board for this project. 

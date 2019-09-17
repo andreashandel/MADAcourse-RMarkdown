@@ -12,7 +12,7 @@
 
 
 
-<title>Modern Applied Data Analysis (MADA) course website</title>
+<title>Modern Applied Data Analysis course website</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,7 +70,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -367,15 +366,52 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -397,8 +433,12 @@ $(document).ready(function () {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -412,12 +452,15 @@ $(document).ready(function () {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -439,7 +482,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Modern Applied Data Analysis (MADA) course website</h1>
+<h1 class="title toc-ignore">Modern Applied Data Analysis course website</h1>
 
 </div>
 
@@ -453,17 +496,13 @@ $(document).ready(function () {
 <p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told when you should access those documents and do the exercises. Of course, reading ahead is allowed 😃.</p>
 <p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
 <p>The <strong>Communication</strong> section provides information on how course communications are planned to happen.</p>
+<p>The <strong>Glossary</strong> section provides brief definitions of terms used in this course.</p>
 <p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material will assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful. All materials are (should be) available freely online.</p>
 <p>Note that by default, all links open in the current tab. You’ll likely want external ones to open in a separate tab or window. To do so, you can (with most browsers) hold the <code>Ctrl</code> button when clicking, or do a right-click and select <code>open in new tab/window</code>.</p>
 </div>
 <div id="additional-content" class="section level1">
 <h1>Additional content</h1>
-<p>For students taking this course at UGA, We will use eLC, UGA’s learning management system, for additional features. The course is listed as EPID or BIOS 8060E. It doesn’t matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can’t find it, search for <em>Modern Applied Data Analysis</em>. We will use eLC for:</p>
-<ul>
-<li>Announcements</li>
-<li>Discussions</li>
-<li>Quizzes</li>
-</ul>
+<p>For students taking this course at UGA, We will use eLC, UGA’s learning management system, for additional features. The course is listed as EPID or BIOS 8060E. It doesn’t matter which label you signed up under. It seems to show as BIOS8060 on eLC. If you can’t find it, search for <em>Modern Applied Data Analysis</em>. We will use eLC for Announcements, Discussions and Quizzes.</p>
 </div>
 <div id="getting-started" class="section level1">
 <h1>Getting started</h1>
@@ -472,7 +511,7 @@ $(document).ready(function () {
 <h2>Acknowledgements</h2>
 <p>This course was developed and is maintained by <a href="http://handelgroup.uga.edu/">Andreas Handel</a>.</p>
 <p>The following individuals have contributed to improving the course: Ian Bachli (<a href="https://github.com/idbachli">@idbachli</a>), Megan Beaudry (<a href="https://github.com/MeganSarah">@MeganSarah</a>), Amanda Blubaugh (<a href="https://github.com/alblubaugh">@alblubaugh</a>), McKay Brian (<a href="https://github.com/bmckay">@bmckay</a>), Mia Carmichael (<a href="https://github.com/mncarmic">@mncarmic</a>), Ellen Cheng (<a href="https://github.com/ellenmonster">@ellenmonster</a>), Paige Duffin (<a href="https://github.com/paigeduffin">@paigeduffin</a>), Robert Edenfield (<a href="https://github.com/ClaytonEdenfield">@ClaytonEdenfield</a>), Julia Frederick (<a href="https://github.com/JuliaFrederick">@JuliaFrederick</a>), Megan Lott (<a href="https://github.com/meganejlott">@meganejlott</a>), William Norfolk (<a href="https://github.com/williamnorfolk">@williamnorfolk</a>), Trang Quach (<a href="https://github.com/TrangQuach">@TrangQuach</a>), Emily Rayens (<a href="https://github.com/Rayense">@Rayense</a>), Megan Robertson (<a href="https://github.com/meganjro">@meganjro</a>), Amanda Skarlupka (<a href="https://github.com/askarlupka">@askarlupka</a>), Jonathan Wilson (<a href="https://github.com/JJWilson1991">@JJWilson1991</a>), Yang Zhang (<a href="https://github.com/yz17970">@yz17970</a>)</p>
-<p>The course materials are licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. Linked and embedded materials are governed by their own licenses.</p>
+<p>The course materials are licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.</p>
 </div>
 </div>
 

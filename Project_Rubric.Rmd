@@ -37,20 +37,77 @@ Grading for this part will follow the following rubric:
 | Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 100 |
 
 
-**Rest to come**
-
 ## Part 2
+
+**The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.** 
+
+To that end, provide the following pieces of information:
+
+* Everything from part 1. That doesn't mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).
+* A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details. 
+* The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).
+* It is up to you how you structure things. The combination of R or Rmd scripts and if you add comments into the code or use the text+code approach of Rmd files is your choice. Look for instance at Brian's project for ideas.
+* Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
+* Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.
+* I recommend that at this stage you start including references using the bibtex reference approach. The bib file should be provided too.
+
+Grading for this part will follow the following rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Absent | Everything or majority of submission is missing | 0 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Not fully sufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 75 |
+| Sufficient | Submission is complete or fairly complete | 100 |
 
 
 
 ## Part 3
 
+**The main objective for part 3 is to have started the analysis part of the project and continued to improve everything.** 
+
+To that end, provide the following pieces of information:
+
+* All relevant previous files and documents. Of course, restructuring is ok as you go along.
+* Any new relevant files that are needed to reproduce everything.
+* Code and text describing the first few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.
+
+Grading for this part will follow this rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Absent | Everything or majority of submission is missing | 0 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Not fully sufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 75 |
+| Sufficient | Submission is complete or fairly complete | 100 |
+
+
+
 ## Part 4
+
+**The main objective for part 4 is to have a fully completed project, ready for peer review.** 
+
+To that end, provide the following pieces of information:
+
+* Every file needed to reproduce your complete analysis and report in your project repository.
+* A complete report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
+* Supplementary material/text, Rmd/R scripts, data, etc. as needed.
+* bibtex file.
+* Everything well documented.
+* Instructions on how to reproduce all your results.
+
+I will not grade this part but it will be assessed by your peers, as described in the _Project Review_ document.
+
+
 
 ## Part 5
 
-## Peer Review
+**The main objective for part 5 is to have a finished project, ready for final grading.** 
 
+To that end, provide the following pieces of information:
 
+* Everything from part 4, with improvements/edits based on peer review feedback.
+
+Grading for this part will follow the rubric provided in the _Project Review_ document. 
 
 

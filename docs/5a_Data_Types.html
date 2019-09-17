@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-12" />
+<meta name="date" content="2019-09-17" />
 
 <title>Types of Data</title>
 
@@ -75,7 +75,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -445,15 +444,52 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">7. Visualization</li>
-    <li class="dropdown-header">8. Model fitting overview</li>
-    <li class="dropdown-header">9. Model assessment</li>
-    <li class="dropdown-header">10. Basic models</li>
-    <li class="dropdown-header">11. GLM and feature selection</li>
-    <li class="dropdown-header">12. Tree-based models and tuning</li>
-    <li class="dropdown-header">13. Various ML models</li>
-    <li class="dropdown-header">14. A complete data analysis</li>
-    <li class="dropdown-header">15. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">10. Model assessment</li>
+    <li class="dropdown-header">11. Basic models</li>
+    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
 <li class="dropdown">
@@ -475,8 +511,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
     </li>
-    <li class="dropdown-header">Visualization</li>
-    <li class="dropdown-header">TidyTuesday</li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -490,12 +530,15 @@ div.tocify {
       <a href="./Project_Information.html">Project information</a>
     </li>
     <li>
-      <a href="./Project_Rubric.html">Project grading rubric</a>
+      <a href="./Project_Rubric.html">Project rubric</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
 </li>
 <li>
   <a href="./Course_Resources.html">Resources</a>
@@ -519,7 +562,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Types of Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-12</h4>
+<h4 class="date">2019-09-17</h4>
 
 </div>
 
@@ -568,7 +611,7 @@ You might not want to get yourself that kind of data. Source: dilbert.com.
 <li>Descriptive, e.g., free text data from participant interviews.</li>
 <li>Categorical, e.g., hair color, ethnicity. No ordering is possible. A special and common case of categorical is data with 2 categories, e.g., yes/no, dead/alive, diseased/healthy.</li>
 </ul>
-<p><strong>In between:</strong> This isn’t a formally recognized category, it’s one I made up. Some data fall in between being strictly quantitative or strictly qualitative. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7. Thus it is not clear if one can do operations like subtraction (to get a difference of 1 in each case). Another example is level of education, which a survey might collect in categories of ‘no high school’, ‘high school’, ‘some college’, ‘college degree’, ‘graduate degree’. We could code that with numbers 1-5, and in some sense these items are ordered, but it’s unclear if one is justified in considering the difference between ‘high school (2)’ and ‘some college (3)’ the same as ‘some college (3)’ and ‘college degree (4)’.</p>
+<p><strong>Ordinal:</strong> This is usually considered a type of categorical variable, but it is worth thinking about it as something on its own. Ordinal data fall in between being strictly quantitative or strictly qualitative. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7. Thus it is not clear if one can do operations like subtraction (to get a difference of 1 in each case). Another example is level of education, which a survey might collect in categories of ‘no high school’, ‘high school’, ‘some college’, ‘college degree’, ‘graduate degree’. We could code that with numbers 1-5, and in some sense these items are ordered, but it’s unclear if one is justified in considering the difference between ‘high school (2)’ and ‘some college (3)’ the same as ‘some college (3)’ and ‘college degree (4)’.</p>
 </div>
 <div id="analysis-approaches-based-on-data" class="section level1">
 <h1>Analysis approaches based on data</h1>
@@ -583,7 +626,7 @@ You might not want to get yourself that kind of data. Source: dilbert.com.
 <p>The following is a summary of the most important data types in R. I’m also listing useful packages to deal with them. We’ll look at them in more detail in the next module. You have already seen some of the information I describe below. Now would be a good time to revisit the <em>Types</em> section of the RStudio <a href="https://rstudio.cloud/learn/primers/1.2">programming basic primer</a> and to revisit <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>.</p>
 <p><strong>Characters/strings:</strong> A string is a collection of characters. You will often hear the labels “character” and “string” used interchangeably to describe a variable. Strings are the most flexible variable type. Everything can be a character string. Unfortunately, you cannot do a lot of analysis with them. For instance, if you have the numbers 2 and 3, you can add and subtract. But if you code those numbers as characters “2” and “3”, you can’t do much with them. Thus, transforming characters into other, more useful categories (if applicable) is a common task. It is common that you read in some data and there is a variable which should be numeric, but some entries are not (e.g., the original spreadsheet shows something like “&lt;10”). In this case, R reads all of these variables as characters. You then have to go in, clean the “&lt;10” value, and convert the rest to numeric. Sometimes you do want to work with strings directly. For that purpose, the <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a> in R is very useful. To learn some more about strings, work through <a href="https://r4ds.had.co.nz/strings.html">the <em>Strings</em> chapter (14) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
 <p>Working with strings and text is a type of analysis that will continue to increase in importance, given the increasing data streams of that type. Thus, learning more about this topic is a good idea. <a href="https://rafalab.github.io/dsbook/string-processing.html">The <em>string processing</em> chapter (25) of IDS</a> contains further good material that is worth working through. (I won’t as any quiz questions on that.)</p>
-<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. A good source for additional information is <a href="https://stat545.com/block022_regular-expression.html">this write-up by Jenny Bryan</a>. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a> (I won’t as any quiz questions on that.)</p>
+<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a> (I won’t as any quiz questions on that.)</p>
 <p><strong>Factors:</strong> That’s what R calls categorical variables. They can be ordered/ordinal or not. You need to make sure variables that should be coded as a factor are, and that those that shouldn’t be aren’t. For instance, you might have a variable with entries of 0, 1, and 2. Those could be numeric values, e.g., the number of siblings a person has. Or it could be a factor coding for 3 types of ethnicity (unordered), or 3 levels of socioeconomic status (ordered). You need to make sure it is coded as factor or numeric, based on what you know about the variable. An excellent package to work with factors is the <a href="https://forcats.tidyverse.org/"><code>forcats</code> package</a>. To learn some more about factors, work through <a href="https://r4ds.had.co.nz/factors.html"><em>Factors</em> chapter (15) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
 <p><strong>Logical:</strong> You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R 0 is interpreted as FALSE and 1 as TRUE. You will use those logical values often when checking your data, e.g., if you want to see if your variable <code>x</code> is greater than 5, then the R command <code>x&gt;5</code> will return either TRUE or FALSE, based on the value of <code>x</code>.</p>
 <p><strong>Numeric (double/integer:</strong> Numeric values that are either integers or any other numeric value (double). You generally do not need to care too much how exactly your numeric values are coded. Often, you can treat integers as general numeric (which in R is <code>double</code>). You might rarely come across a case where some analytic method or other bits of code requires integers to be specified as such. In R, you can use the <code>as.integer()</code> function to convert general numeric values to integers. You don’t really need any other special packages in R to deal with numeric values.</p>

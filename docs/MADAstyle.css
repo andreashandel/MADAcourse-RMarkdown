@@ -31,7 +31,7 @@ a.thumbnail:hover {
   
   
  div.puzzle {
-  background-image: url("./media/Your-turn.png");
+  background-image: url("./media/yourturn.png");
 }
 
 div.fyi {
@@ -39,7 +39,7 @@ div.fyi {
 }
 
 div.demo {
-  background-image: url("./media/Live-code.png");
+  background-image: url("./media/livecode.png");
 }
 
 div.note {

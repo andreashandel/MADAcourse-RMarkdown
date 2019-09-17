@@ -29,7 +29,7 @@ There are several deadlines throughout the course at which time you need to subm
 
 * Part 1: Have a question/hypothesis & suitable data. 
 * Part 2: Part 1 + and exploratory/univariate analysis. 
-* Part 3: Part 2 + bivariate analysis.
+* Part 3: Part 2 + basic analysis.
 * Part 4: Parts 3 + full analysis.
 * Part 5: Updated final report based on feedback.
 

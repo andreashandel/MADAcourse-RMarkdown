@@ -1,0 +1,98 @@
+---
+title: Course Glossary
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc: FALSE
+---
+
+
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+__This page is work in progress.__
+
+There are lots of technical terms related to data and its analysis. In this course, I try to explain them whenever they show up first. However, I figured it might also be useful to have one central place for quick reference. Terms are ordered alphabetically. This is how I define them, others might have different definitions - and so might I in the future, I try to change/update my understanding of things every so often `r emo::ji('grin')`.
+
+Note that in general, there is no regulatory terminology agency, so everyone can use these words to mean whatever they want. While some are fairly well defined, other terms are often used and abused in ways outside the definitions I provide. Always look carefully at what is described to decide what exactly is going on.
+
+--- 
+
+Not surprisingly, I'm not the 1st one with the idea of compiling a list of data science related terms and definitions. After starting this, I found another one by Frank Harrell, which you can find [here](http://hbiostat.org/doc/glossary.pdf). I'm sure more will come.
+
+
+--- 
+
+
+__Artificial Intelligence:__ The use of __Deep Learning__ and related approaches applied to "complex" problems. Historically, it was used for trying to solve problems using modeling approaches that mimic in a simplified form a brain (i.e. neural net models). Currently this term has become _hot_ and is used more widely than it should. 
+
+__Big Data:__ Any dataset that doesn't easily fit into the memory of a regular computer (or cluster) and thus needs to be analyzed using special tools. Alternatively, data that is so big that doing analysis on it takes too long using standard tools (e.g. R on a regular computer) and instead requires specical treatment. Of course this also depends on the type of analysis, not only the type of data. As computers keep getting faster and tools more flexible and integrated, the label __big data__ is a moving target.
+
+__Binary Variable:__ A categorical variable with 2 categories, e.g., yes/no, dead/alive, diseased/healthy. 
+
+__Categorical Variable:__ A variable that can take on discrete values. Those categories can be ordered (at which point it is an __Ordinal variable__ - see there) or not. Examples of non-ordered variabales are hair color or ethnicity. No ordering is possible. A special and common case of categorical variables are __Binary variables__.
+
+__Causal Modeling:__ Analysis of data with the goal to make causal inferences between variables (e.g. X (partially) caused Y).
+
+__Classification:__ Analysis approaches for __Categorical Variables__.
+
+__Continuous Variable:__ A variable that can take on any numeric value. E.g. weight. Note that in practice the values are often discrete, e.g. while age is in principle a contiuous variable, it is usually expressed in some units (say years) and individual values are reported in discrete units (e.g. whole years). For analysis purposes, we still generally treat it as if it could have been any value.
+
+__Data Mining:__ Often used interchangeably with __Machine Learning__. It might sometimes indicate specifically a "fishing" approach of combing through data to look for patterns, without pre-defined hypotheses to be tested. I that sense it is similar to __Exploratory Data Analysis__ or __Secondary Data Analysis__, though those two are often done using smaller (__Statistical__) as opposed to larger (__Machine Learning__) models. 
+
+__Deep Learning:__ Generally applied to a specific class of machine learning models, namely neural nets. The "deep" part comes from the fact that the neural net models generally have multiple layers stacked on top of it (it has nothing to do with deep as in especially insightful).
+
+__Dependent (variable):__ An alternative name for __Outcome__.
+
+__Descriptive Analysis:__ Describing and presenting data in meaningful ways using tables and figures, without trying to perform statistical modeling, i.e. without looking for correlations/patterns.
+
+__Exploratory Data Analysis:__ Looking for patterns in data, without a hypothesis specified before data collection (or at least before looking at the data). Very useful, but any result needs to be tested on independent data.
+
+__Exposure (variable):__ A name for a __predictor__ variable of particular interest. For instance, if we wanted to study if the daily duration of exercise had an impact on BMI. We would consider BMI our outcome, exercise duration our exposure (our main predictor of interest), and any other variable we record (e.g., a person's age and gender) as other predictors (sometimes called covariates). The term exposure is common in the biomedical and related disciplines, not so much in other areas.
+
+__Feature (variable):__ An alternative name for __Predictor__ often used in the machine learning literature. 
+
+__Independent (variable):__ An alternative name for _predictor_, most often used in the statistical literature.
+
+__Labeled data:__ If we have data for which there is a specific outcome of interest and we know it, it is called labeled data. For instance, if we had a lot of pictures of tissue samples, and someone had gone through them and labeled them as cancerous or not cancerous, it is labeled data. Labeled data (the most common type) is usually analyzed using __Supervised Learning/Analysis__ approaches.
+
+__Machine Learning:__ An approach to data analysis that tends to use more complex models. The goal is mainly to obtain a model that is good at prediction. Understanding how different inputs lead to different outcomes is of secondary importance. Data is often abundant, so more complex models can be used. Often this term and __Statistics/Statistical Learning__ are used interchangably (though some people try to distinguish them, see e.g. [this blog post](https://www.fharrell.com/post/stat-ml/)).
+
+__Mechanistic Modeling:__ Building and using models that explicitly incorporate mechanisms and processes of the system under study to understand _how_ things interact and lead to specific outcomes. Many models in the hard sciences are of this type. A common way to formulate such models is with differential equations.
+
+__Observation:__ An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different _variables_ should be available. In R, it is most common that each observation is stored as a row in a data frame.
+
+__Ordinal (variable):__ A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it's unclear if the difference between 5 and 6 is the same as 6 and 7. 
+
+__Outcome (variable):__ The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not.  
+
+__Predictive Modeling:__ Using models with the main goal of predicting future outcomes, given a collection of predictors.
+
+__Predictor (variable):__ All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.
+
+__Regression:__ A type of supervised learning/modeling, where the outcome of interest is quantitative (or can be treated as such).
+
+__Secondary Data Analysis:__ Analysis of a dataset that was not specifically collected for the purpose of answering the question one wants to answer. With an increasing abundance and rountine collection of data, such secondary analyses are becoming very common. If a clear hypothesis is formulated before one looks at the data, one might consider any results _confirmatory_, otherwise it is an __Exploratory Analysis__. Even just looking at the data a little bit during the cleaning process should move such a secondary analysis into the exploratory category. 
+
+__Statistics:__ The basic/classical machinery for data analysis. Depending on the type of data, many different approaches have been developed (parametric vs. non-parametric methods, longitudinal analysis, time-series analysis, and many more). Models tend to be simple and interpretable, the goal is to understand how inputs (predictors) relate to outcomes. Statistics was developed when data was sparse, computers didn't exist, and mainly scientists interested in a deep understanding of their data used it. Because of this, statistical models tend to be simple and work well on small datasets. 
+
+__Statistical Learning:__ A term that seems to become more widely used in recent years. While some people distinguish this term from __Statistics__ and consider it a sub-field (see e.g. Chapter 1 of [_Introduction to Statistical Learning_ ](http://faculty.marshall.usc.edu/gareth-james/ISL/)), the two terms are often used interchangably.
+
+__Supervised Learning/Analysis:__ Fitting __Labeled data__. The two types of supervised learning are __Regression__ and __Classification__.
+
+__Unlabeled data:__ If we have data for which there is either no specific outcome variable of interest or we do not know it, it is called unlabelled data. For instance, if we had a lot of pictures of tissue samples, and we knew that some showed cancerous tissue and others not, but we didn't know which are which, it is unlabeled data. Similarly, if we had pictures of different tissue samples (or say a number of gene sequences) and all we wanted to know is if some samples are more related to each other than others, but there is no main outcome, it is considered unlabeled data. Unlabeled data is usually analyzed using _unsupervised_ analysis approaches.
+
+__Variable:__ Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable. 
+
+
+
+
+
