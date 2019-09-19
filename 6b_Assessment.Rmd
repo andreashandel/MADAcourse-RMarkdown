@@ -1,5 +1,5 @@
 ---
-title: Data types and getting data assessment
+title: Data wrangling & Tidyverse assessment
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"

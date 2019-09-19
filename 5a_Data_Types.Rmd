@@ -87,20 +87,19 @@ We will discuss and apply some of those methods in more detail when we begin our
 # Working with different data types in R
 To efficiently work with data in R, you need to understand how the types of data described above are represented in and handled by R. 
 
-The following is a summary of the most important data types in R. I'm also listing useful packages to deal with them. We'll look at them in more detail in the next module. You have already seen some of the information I describe below. Now would be a good time to revisit the _Types_ section of the RStudio [programming basic primer](https://rstudio.cloud/learn/primers/1.2) and to revisit [chapter 3 of IDS](https://rafalab.github.io/dsbook/r-basics.html).
+The following is a summary of the most important data types in R. I'm also listing useful packages to deal with them. You have already seen some of the information I describe below. Now would be a good time to revisit the _Types_ section of the RStudio [programming basic primer](https://rstudio.cloud/learn/primers/1.2) and to revisit [chapter 3 of IDS](https://rafalab.github.io/dsbook/r-basics.html).
 
 
-
+## Basic data types
 
 __Characters/strings:__ A string is a collection of characters. You will often hear the labels "character" and "string" used interchangeably to describe a variable. Strings are the most flexible variable type. Everything can be a character string. Unfortunately, you cannot do a lot of analysis with them. For instance, if you have the numbers 2 and 3, you can add and subtract. But if you code those numbers as characters "2" and "3", you can't do much with them. Thus, transforming characters into other, more useful categories (if applicable) is a common task. It is common that you read in some data and there is a variable which should be numeric, but some entries are not (e.g., the original spreadsheet shows something like "<10"). In this case, R reads all of these variables as characters. You then have to go in, clean the "<10" value, and convert the rest to numeric. Sometimes you do want to work with strings directly. For that purpose, the [`stringr` package](https://stringr.tidyverse.org/) in R is very useful. To learn some more about strings, work through [the _Strings_ chapter (14) of R4DS](https://r4ds.had.co.nz/strings.html), and do the exercises. __I'll ask about the content of this chapter in the quiz.__ 
 
-Working with strings and text is a type of analysis that will continue to increase in importance, given the increasing data streams of that type. Thus, learning more about this topic is a good idea. [The _string processing_ chapter (25) of IDS](https://rafalab.github.io/dsbook/string-processing.html) contains further good material that is worth working through. (I won't as any quiz questions on that.)
+It is quite likely that you will need to work with strings at some point during a data analysis, even if it is only to find specific values, clean up variable names, etc. Thus, learning more about this topic is a good idea. [The _string processing_ chapter (25) of IDS](https://rafalab.github.io/dsbook/string-processing.html) contains further good material that is worth working through. (I won't as any quiz questions on that.)
 
-A very powerful, and also very confusing way to deal with strings is to use what are called _regular expressions_. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. If you are interested in doing full analyses of text data, the [`tidytext` R package](https://juliasilge.github.io/tidytext/) and the [Text mining with R book](https://www.tidytextmining.com/) are great resources. A short introduction to this topic is [The _text mining_ chapter (27) of IDS.](https://rafalab.github.io/dsbook/text-mining.html) (I won't as any quiz questions on that.)
+A very powerful, and also very confusing way to deal with strings is to use what are called _regular expressions_. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. 
+
 
 __Factors:__ That's what R calls categorical variables. They can be ordered/ordinal or not. You need to make sure variables that should be coded as a factor are, and that those that shouldn't be aren't. For instance, you might have a variable with entries of 0, 1, and 2. Those could be numeric values, e.g., the number of siblings a person has. Or it could be a factor coding for 3 types of ethnicity (unordered), or 3 levels of socioeconomic status (ordered). You need to make sure it is coded as factor or numeric, based on what you know about the variable. An excellent package to work with factors is the [`forcats` package](https://forcats.tidyverse.org/). To learn some more about factors, work through [_Factors_ chapter (15) of R4DS](https://r4ds.had.co.nz/factors.html), and do the exercises. __I'll ask about the content of this chapter in the quiz.__ 
-
-
 
 __Logical:__ You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R 0 is interpreted as FALSE and 1 as TRUE. You will use those logical values often when checking your data, e.g., if you want to see if your variable `x` is greater than 5, then the R command `x>5` will return either TRUE or FALSE, based on the value of `x`. 
 
@@ -109,7 +108,8 @@ __Numeric (double/integer:__ Numeric values that are either integers or any othe
 __Date/time:__ While dates are a type of continuous numeric variable, you should assign the date class explicitly in R, which allows you to do more with them. The [`lubridate` package](https://lubridate.tidyverse.org/) is a good one to work with dates. Others exist. To learn some more about dates and times in R, work through [_Dates and times_ chapter (16) of R4DS](https://r4ds.had.co.nz/dates-and-times.html). You should consider working through the [_Parsing Dates and Times_ chapter (26) of IDS](https://rafalab.github.io/dsbook/parsing-dates-and-times.html). __I will not ask about the content of either source in the quiz.__ 
 
 
-# Some data structures in R
+
+## Data structures in R
 The basic data types in R are usually combined into larger objects. The main ones in R are described in the following.
 
 __Vectors:__ vectors are a simple collection of elements in a single row or column. In R, the easiest way to create vectors is with the `concatenate` command, `c()`. An example is `x1 <- c(3,12,5)`. A single vector can contain only one element type (e.g., all characters or all numeric). If you try to mix and match, everything ends up as a character. Type the command for `x1` and  `x2 <- c(6, 5, 'h')` into R and apply the `class()` command to both `x1` and `x2` and note the difference.
@@ -128,6 +128,22 @@ In the following video, [Jeff Leek](http://jtleek.com/) talks about the types of
 <p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T9n7j8180GQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+
+
+## Complex data types
+
+It is impossible to cover in detail all the different types of data and how to process them in R. The following are very brief descriptions of common complex data types and a few pointers for resources that allow you to work with such data in R.
+
+__Timeseries:__  A very useful set of tools to allow times-series work in R is the set of packages called [the tidyverts](https://tidyverts.org/). CRAN also has a [Task View for _Time Series Analysis_.](https://cran.r-project.org/web/views/TimeSeries.html) (A _Task View_ on CRAN is a site that tries to combine and summarize various R packages for a specific topic). Another task view that deals with longitudinal/time-series data is the [_Survival Analysis_ Task View](https://cran.r-project.org/web/views/Survival.html).
+
+
+__Omics:__ The [bioconductor](https://www.bioconductor.org/) website is your source for (almost) all tools and resources related to omics-type data analyses in R.
+
+
+__Text:__  Working with and analyzing larger sections of text is different from the simple string manipulation discussed above. These days, analysis of text often goes by the term _natural language processing_. Such text analysis will continue to increase in importance, given the increasing data streams of that type. If you are interested in doing full analyses of text data, the [`tidytext` R package](https://juliasilge.github.io/tidytext/) and the [Text mining with R book](https://www.tidytextmining.com/) are great resources. A short introduction to this topic is [The _text mining_ chapter (27) of IDS.](https://rafalab.github.io/dsbook/text-mining.html) 
+
+
+
 
 # Some data terminology
 
