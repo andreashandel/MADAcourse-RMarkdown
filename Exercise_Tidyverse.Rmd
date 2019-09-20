@@ -31,9 +31,9 @@ Previously, you learned how filing an _Issue_ on Github can provide useful input
 * Now, let's add more content. The original exercise was done using base R code that didn't require any additional packages. We only loaded the `dslabs` package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We'll use some now.
 * Write code to load the `tidyverse` collection of packages and the `skimr` package. If you don't have them installed, do so. This will likely install a lot of packages and take a while.
 * Use the `glimpse` function from `dplyr` and the `skim` function from the `skimr` package to look at the `gapminder` object.
-* Use the `filter` and `select` functions from `dplyr` to extract only the african countries from the `gapminder` object and then keep only the variables `infant_mortality`, `life_expectancy`, `population` and `country`.
+* Use the `filter` and `select` functions from `dplyr` to extract only the African countries from the `gapminder` object and then keep only the variables `infant_mortality`, `life_expectancy`, `population` and `country`.
 * Make 2 plots using `ggplot` for life expectancy as a function of infant mortality and population. Also, give each country a separate color in the plot.
-* Write code that uses the gapminder object, pulls out data for africa and year 2000 and creates a `ggplot` for `life_expectancy` as a function of `infant_mortality`, with a linear model fit added.   
+* Write code that uses the gapminder object, pulls out data for Africa and year 2000 and creates a `ggplot` for `life_expectancy` as a function of `infant_mortality`, with a linear model fit added.   
 
 # Sending updates to Github
 * Once you are done with your exercise, under the `Run` menu (top left) select `Restart R and Run all Chunks`. Make sure no error messages show up.
