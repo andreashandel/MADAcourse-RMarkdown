@@ -21,6 +21,8 @@ knitr::opts_chunk$set(out.width = '70%')
 
 This project asks you to write code to practice the variable selection (subset and regularization) discussed in this module. We'll also use some more general data analysis tasks. This is a continuation of the previous _Data Analysis_ exercise.
 
+**This exercise is likely to take a good bit of time, plan for it!**
+
 
 # Instructions
 
