@@ -82,10 +82,31 @@ left:
           - text: "9d. Assessment"
             href: ./9d_Assessment.html
       - text: "10. Model assessment"
+        menu:
+          - text: "10a. Model Assessment overview"
+            href: ./10a_Model_Assessment_Overview.html     
+          - text: "10b. Model Performance"
+            href: ./10b_Model_Performance.html     
+          - text: "10c. Model Diagostics"
+            href: ./10c_Model_Diagnostics.html     
+          - text: "10d. Model Uncertainty"
+            href: ./10d_Model_Uncertainty.html     
+          - text: "10e. Assessment"
+            href: ./10e_Assessment.html
       - text: "11. Basic models"
-      - text: "12. GLM and feature selection"
+        menu:
+          - text: "11a. Basic Models"
+            href: ./11a_Basic_Models.html     
+          - text: "11b. Assessment"
+            href: ./11b_Assessment.html
+      - text: "12. Subset selection and regularization"
+        menu:
+          - text: "12a. Subset selection and regularization"
+            href: ./12a_Subset_Selection_and_Regularization.html     
+          - text: "12b. Assessment"
+            href: ./12b_Assessment.html
       - text: "13. Tree-based models and tuning"
-      - text: "14. Various ML models"
+      - text: "14. More models"
       - text: "15. A complete data analysis"
       - text: "16. Deep learning, AI and Big data"
   - text: "Exercises"
@@ -102,6 +123,10 @@ left:
          href: ./Exercise_Visualization.html
        - text: "TidyTuesday 1"
          href: ./Exercise_Tidy_Tuesday_1.html
+       - text: "Data Analysis"
+         href: ./Exercise_Dataanalysis.html
+       - text: "Variable Selection"
+         href: ./Exercise_Variable_Selection.html
   - text: "Project"
     menu:
        - text: "Project information"

@@ -1,0 +1,36 @@
+---
+title: Variable Selection Exercise
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+
+This project asks you to write code to practice the variable selection (subset and regularization) discussed in this module. We'll also use some more general data analysis tasks. This is a continuation of the previous _Data Analysis_ exercise.
+
+
+# Instructions
+
+* We'll be using the repository and website you created for the _Data Analysis_ exercise.
+* Get the starter file `Variable_Selection.Rmd` from [here](./media/Variable_Selection.Rmd). Copy the file into the repository you created for the _Data Analysis_ exercise.
+* Open the project and file. Follow the instructions provided in the file. 
+* Once you are done with your analysis, open the file `_navbar.yml` and edit it to include your newly generated file under the `Analysis` section by replacing the `Future Analysis` entry with the right text.
+* Next, hit the "build website" button in the top left RStudio window. If everything works, you should see no error messages and a preview of your website should open, now including your new analysis.
+* Make any further needed changes. If all looks good, push your website to Github. Give it a few seconds, then check to make sure it is there.
+* If you have implemented some of the suggestions listed as _Optional_ under the _Data Analysis_ exercise, simply include this new analysis in your website in a location where it is easy to find and reach.
+* Post an announcement to the discussion board with a link to your repository. That is likely the same repository as you had for your _Data Analysis_. However, if you moved the repository, as suggested in the _Optional_ section of the _Data Analysis_ exercise, post a link to the new repository. This can be outside the class organization, but needs to be a public repository.
+* If you need help with any part of this exercise, use the usual communication channels (Slack or the discussion board for this exercise).
+

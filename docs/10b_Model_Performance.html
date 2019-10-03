@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+<meta name="date" content="2019-10-03" />
+
+<title>MADA Course - Model Performance</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
+        </li>
+        <li>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
+        </li>
+        <li>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
+        </li>
+        <li>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">13. Tree-based models and tuning</li>
+    <li class="dropdown-header">14. More models</li>
+    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li>
+  <a href="./Course_Resources.html">Resources</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">MADA Course - Model Performance</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2019-10-03</h4>
+
+</div>
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>When you fit a model, e.g., a linear modeling using <code>lm</code> in R, what exactly happens? What does it mean when we ask the computer to <em>fit a model</em>? Think about what’s going on for a minute.</p>
+<p>What <code>lm</code> or similar functions do is to vary the parameters of a model to get the model predicted outcomes as close as possible to the outcomes seen in the data. For a linear model like this one,</p>
+<p><span class="math display">\[Y_m=b_0 + b_1X_1 + b_2X_2 + ...\]</span></p>
+<p>it means the computer starts with some values of the coefficients <em>b<sub>i</sub></em> and then varies them (in a smart way) until the predicted <em>Y</em> from the model are as close as possible to the data <em>Y<sub>d</sub></em>.</p>
+<p>This procedure is very general and applies to any kind of model and both continuous and categorical outcomes. What changes between problems and approaches is how exactly the fitting routine goes about varying the parameters (something we won’t discuss in this course), and how we define <em>closeness</em> between data and model outcomes. The latter is a scientific choice, and you need to specify it when you fit models.</p>
+</div>
+<div id="the-cost-function" class="section level1">
+<h1>The cost function</h1>
+<p>For the computer to perform the routine of “vary model parameters to get the model as close to the data as possible”, we have to quantify this closeness (or difference) between model and data. To do so, we define some function of both model predictions (<em>Y<sub>m</sub></em>) and measured/data (<em>Y<sub>d</sub></em>) outcomes. This function goes by different names, the terms most commonly used are <strong>cost function</strong> or <strong>loss function</strong> or more generally <strong>objective function</strong>. The convention is to set up the problem such that larger discrepancies between model and data lead to a larger numerical value of this function. Then our goal is to minimize the objective function. (Occasionally, problems are set up to maximize this function, one can always switch from one to the other by taking the inverse.)</p>
+<p>In equation form, we have in the general case. <span class="math display">\[C = f(Y_m,Y_d)\]</span></p>
+<p>The different types of functions, <em>f</em>, depend on the type of data and other considerations. Once you defined <em>f</em>, this is the performance metric which quantifies how well a given model fits the data.</p>
+<p>When you do a single model fit, e.g., using <code>lm</code>, the computer calculates <em>f</em> for different values of the parameters, <em>b<sub>i</sub></em>, until it finds the ones that produce the best (i.e., lowest) value for <em>C</em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Similarly, if you fit two different models (e.g., one linear model without interaction and one with interaction terms), you can use the value of <em>C</em> to compare model performance (with some caveats, which we will discuss below).</p>
+</div>
+<div id="least-squares" class="section level1">
+<h1>Least squares</h1>
+<p>You are likely familiar with one of the most widely used functions for <em>f</em>, the least-squares method. This is a setup where we compute the squared difference between model and data for each observation and sum it all up. In equation form:</p>
+<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i (Y_m^i - Y_d^i)^2\]</span></p>
+<p>This is called the least squares error, and when you use <code>lm</code> in R, this is what the function computes and minimizes.</p>
+<p>There are different names for this least squares equation, it is often called Sum of Square Residuals (SSR), or Residual Sum of Squares (RSS), or Sum of Squares (SS), or Residual Square Error (RSE), and a bunch of similar names. You will usually be able to tell from the context what is being used as the performance metric. You will often see that instead of SSR, one minimizes the MSE, which is just SSR/N (with N being the number of observations), or the root mean squared error (RMSE), defined as <span class="math inline">\(\sqrt{\left( SSR/N \right)}\)</span>. Dividing by the sample size has the advantage of allowing one to compare values across samples of different size from the same dataset (but it doesn’t really work for comparing across different datasets).<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>An equivalent alternative to SSR is the <span class="math inline">\(R^2\)</span>, which is defined as 1-SSR/SST. Here, SST is the sum of square totals, defined as</p>
+<p><span class="math display">\[SST =  \sum_i (Y_{av} - Y_d^i)^2\]</span></p>
+<p>where <span class="math inline">\(Y_{av}\)</span> is the mean of the data. Since SST is fixed for a given dataset, minimizing SSR is equivalent to maximizing <span class="math inline">\(R^2\)</span>. You might see <span class="math inline">\(R^2\)</span> reported in papers, and it is highly likely that the fitting was performed by minimizing SSR (or MSE or RMSE). The SST is a useful quantity since it tells us the performance of a <em>dumb/null model</em> which uses no information from any predictor variables, but instead just predicts the mean of the outcomes. Any model you build that includes predictors needs to do better than this null model.</p>
+<p>Least squares fitting is simple and frequently used. A lot of standard routines in major statistical packages use least squares. It often makes good sense to penalize with the squared distance (and under certain conditions, this is equivalent to maximizing the likelihood). However, sometimes a different way to define the function <em>f</em> might be useful. We’ll discuss a few of them briefly.</p>
+</div>
+<div id="beyond-least-squares" class="section level1">
+<h1>Beyond least squares</h1>
+<p>An alternative to least squares is to penalize not with the distance squared, but linearly with the distance. This leads to absolute value/least absolute deviation (LAD functions), and the model is</p>
+<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i |Y_m^i - Y_d^i|\]</span></p>
+<p>This approach can be useful if the data contains outliers (that are real, and one can’t justify removing them during cleaning). With a squared distance penalty, outliers have a strong impact on the model fit. With a linear penalty, such outliers carry less weight. Because of this, the linear difference approach is sometimes called a robust estimation. One drawback is that functions like <code>lm</code> or <code>glm</code> do not allow you to use this approach. However, a large number of R packages exist that allow fitting this way, see e.g., the <a href="https://cran.r-project.org/web/views/Robust.html">CRAN Robust Task View</a>.</p>
+<p>Another way to define <em>f</em> is with step functions. The idea is that as long as model and data are within some distance, the penalty is zero. Once model and data differ by some threshold, a penalty is given, e.g., a fixed value or a linear or quadratic penalty. Such types of schemes to define <em>f</em> are common in the class of models called Support Vector Machines, which we will look at later in the course.</p>
+<p>No matter what scheme you choose, it might often be useful to weigh data points. In the examples given above, each model-data pair was given the same importance. Sometimes it might be that you have some data points that should carry more weight. A common case is if you have measurements not on the individual level but some aggregate level. As an example, assume you have a fraction of heart attacks among all patients for some time period in different hospitals, and you want to fit that fraction. You don’t know the number of people who had heart attacks, only the fraction. But you do know something about the total number of beds each hospital has. You could then argue that hospitals with more beds have more patients and thus likely more heart attacks, and therefore the data from larger hospitals should get more weight, and you could e.g., multiply each term in the sum by bed size. Note that this is a scientific decision based on your expert knowledge of the data. Almost all fitting routines allow you to provide weights for your data and you can then perform <em>weighted least squares</em> (or a weighted version of whatever other approaches you choose).</p>
+<p>To get some more intuition with fitting a continuous outcome, <a href="https://epibiouga.shinyapps.io/modelperformancecontinuous/">go through this interactive tutorial</a>. If it looks like the RStudio Primer tutorials you’ve seen, that is no accident. It uses the (fairly new) <a href="https://rstudio.github.io/learnr/">learnr package</a>. The difference is that I wrote this tutorial, the other ones were written by RStudio (and are therefore more polished and less buggy).</p>
+</div>
+<div id="performance-measures-for-categorical-outcomes" class="section level1">
+<h1>Performance measures for categorical outcomes</h1>
+<p>For categorical outcomes, the above performance measures do not apply, so we need to define a different function <em>f</em> to measure how close model and data are. The simplest form is to count the fraction of times the model did not properly predict the outcome. This is called the (mis)classification error. If we instead count the fraction of correct calls by the model, it is called accuracy.</p>
+<p>While this often works well, sometimes just counting the number of times a model didn’t get it right might not be the best idea. Common situations were the misclassification error is not very useful are where the outcome is rare but important (this is often called <strong>unbalanced data</strong>). Say we had some algorithm that tried to screen people to predict if they are about to go on a mass-shooting rampage. Fortunately, people like this are very rare. Let’s say (I’m making this number up) that 1 in a million people are at risk of committing such a crime. Therefore, a model that predicts <em>all negative</em>, i.e., that predicts that out of a sample of say 1 million, <em>nobody</em> is about to go out and start a mass-shooting, would be a very accurate model, it would only make one mistake in a million. However, missing that one person would be a very important mistake, and a model that would predict that 10 people are at risk of starting a mass-shooting, including the person really at risk, would be much better, even if it gets 9 cases wrong, namely 9 people that it suggests might be a risk but really are not.</p>
+<p>In instances like this, using misclassification as the model performance metric is thus not the best idea. Other metrics are more helpful. A large variety of such metrics exist. Some only apply to the special (but very common) case of a binary outcome, and others apply more generally. For the binary case, one can construct what is called the <a href="https://en.wikipedia.org/wiki/Confusion_matrix"><strong>confusion matrix</strong></a> (also known as 2x2 table in epidemiology). The confusion matrix tracks 4 quantities: true positives (TP, model predicts positive, and data is positive), true negative (TN, both model and data are negative), false positive (FP, model wrongly predicts positive) and false negative (FN, model wrongly predicts negative). Based on those 4 quantities, one can derive many different scores that try to balance the ability of a model to correctly predict positives and negatives and minimize wrong predictions in both directions. A common metric to assess model performance instead of misclassification/accuracy is the F1-score (or F score), defined as 2TP/(2TP+FN+FP) (1 is best). Other similar quantities exist (e.g., Youden’s J, Cohen’s <span class="math inline">\(\kappa\)</span>, Matthew’s correlation).</p>
+<p>The confusion matrix comes with very confusing terminology since many of the quantities are labeled differently in different fields. For instance, epidemiologists tend to call the quantity TP/(TP+FN) <em>sensitivity</em>, while in other areas, such as machine learning, it is called <em>recall</em>. For a good overview of those different quantities and terminology <a href="https://en.wikipedia.org/wiki/Confusion_matrix">see this Wikipedia article</a>. Another good discussion of this topic can be found in <a href="https://rafalab.github.io/dsbook/cross-validation.html">chapter 28 of IDS</a>.</p>
+</div>
+<div id="custom-cost-functions" class="section level1">
+<h1>Custom cost functions</h1>
+<p>While one of the standard cost functions (e.g., SSR, Accuracy, F1-score) might work for your data and question, it is worth thinking carefully about what it is you want to optimize, i.e., how exactly the function <em>f</em> should work.</p>
+<p>There are many different performance measures that have already been “invented”. As an example, the website for the <code>Machine Learning in R (mlr)</code> package <a href="https://mlr.mlr-org.com/articles/tutorial/measures.html">lists a lot of different performance measures</a> that are implemented as part of the package. While <code>mlr</code> is a good package, it takes some time getting used so we won’t use <code>mlr</code> in this course. If you continue your data analysis career, <code>mlr</code> is worth checking out. For this course, we’ll use the alternative <code>caret</code> package, which also has a number of different performance measured <a href="http://topepo.github.io/caret/measuring-performance.html">described here</a>.</p>
+<p>If no existing measure is suitable for your problem, you can and should define your own. Based on scientific/expert knowledge, you should define the most appropriate cost function and then measure your models based on that. <strong>Getting the cost function right is an important, and often overlooked part of the modeling process.</strong> For instance, revisiting the example I gave above, if we think that falsely accusing a person of being a criminal has cost (in some units, that could be monetary or otherwise) of 1, but missing to identify a person who is a threat has cost of 1000, then we should weigh FP and FN accordingly when computing our cost function and designing our model. This is similar to applying weights in the continuous case.</p>
+</div>
+<div id="likelihood-approach" class="section level1">
+<h1>Likelihood approach</h1>
+<p>The most general approach to defining the cost/loss function, <em>f</em>, is the likelihood approach. Using this approach, which underlies a lot of modern statistics, both frequentist and bayesian, you start by explicitly specifying a model/distribution for the data (both deterministic and probability parts). As an example, you might postulate that expected number of cases of Cholera in a given month depends linearly on the monthly amount of rainfall (deterministic component) and that the actual/measured number of cases are Poisson distributed (probability component). Both the deterministic and probabilistic components of your model have parameters. You write down (or simulate) the likelihood and then run some optimization routine which varies parameters until it found the optimal result (maximum of the likelihood, or more commonly the minimum of the log-likelihood).</p>
+<p>Using the Likelihood is the most general and flexible approach to model fitting and for more complex problems, often the only feasible approach. It applies to any kind of outcome, and you can specify any model you want. Unfortunately, it is generally a bit more complicated and often requires more custom-written code (though a lot more user-friendly R packages have become available in recent times). We can’t get much into likelihood-based fitting in this course. For more information, I recommend <a href="https://ms.mcmaster.ca/~bolker/emdbook/">Ben Bolker’s book “Ecological Models and Data in R”</a> as a good starting point for (mostly frequentists) Likelihood fitting approaches. Another book that introduces the ideas from a bayesian perspective is <a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a>. Unfortunately, neither book is freely available online (as far as I’m aware). If you know of any good introductory books that teach model fitting using likelihood approaches with R, please let me know.</p>
+</div>
+<div id="should-we-really-minimize-the-cost-function" class="section level1">
+<h1>Should we really minimize the cost function?</h1>
+<p>Above, we discussed that once we have chosen a cost function for our problem, we are trying to find a model that minimizes this cost function (e.g., minimizes the RMSE or the misclassification error), and models with smaller cost functions are better.</p>
+<p>However, this is not entirely true. The problem here is that in general, a bigger model will be more flexible and thus able to fit the data better. However, when we do data analysis, we generally are not only interested in saying something about the specific data we are fitting. <strong>Our main question/hypothesis usually does not concern the actual data we have/fit.</strong> Instead, we generally want to say something about ‘the larger world’.</p>
+<p>If we are asking <em>inferential</em> questions, we are interested in what the data analysis teaches us about this system in general. E.g., if we analyze data to see if there is a correlation between levels atmospheric pollutants and cases of asthma among our study population, we are usually really interested in knowing if such a correlation is real <strong>in general</strong>.</p>
+<p>If we are asking predictive questions, we are interested in a model that can predict future observations, not the ones we already have. E.g., if we analyze data for a specific treatment, we are not very interested how well the model predicts the effect of the drug on the people for which we collected the data (we already know that). Instead, we want to make general predictions about the effectiveness of the treatment on future patients.</p>
+<p>In either case, what we want is a model that is generalizable, and that applies equally well to new and similar data beyond the data we already collected.</p>
+<p><strong>What truly matters is how well our model can explain/predict other/future data, not just the data we are fitting!</strong></p>
+<p>If we build a very complex model in an effort to fit our existing data as closely as possible, what generally happens is that our model <strong>overfits</strong>. That means it becomes very good at modeling the data we use to build the model, but it won’t generalize very well to the general, broader context of other/future data.</p>
+</div>
+<div id="bias-variance-trade-off" class="section level1">
+<h1>Bias-variance trade-off</h1>
+<p>The general concept that models tend to fit the data that is used to build the model better as model complexity increases, but not perform so well on future/new data is known as bias-variance trade-off.</p>
+<p><strong>Bias</strong> describes the fact that a model that is too simple might get the data “systematically wrong”. A more restricted model like a linear model usually has more bias. More complex models will lead to reduced bias.</p>
+<p><strong>Variance </strong> describes how much a model would vary if it were fit to another, similar dataset. If a model goes close to the training data, it will likely produce a different fit if we re-fit it to a new dataset. More complex models tend to have higher variance.</p>
+<p>The following figure illustrates this concept. In this example, the data was produced by taking the black curve and adding some noise on top. This gives the data shown as circles. Three models are fit. A linear model (yellow) is too restrictive and misses important patterns. The next model (blue line) is more flexible and is able to capture the main patterns. The most complex models (green line) gets fairly close to the data. But you can tell that it is trying to get too close to the data and thus overfits. If we had another data sample (took the black line and added some noise on top), the green model would not do so well. This is shown on the right side, where the grey line plots the MSE for each model for the given dataset. As the model gets more complex/flexible, they get closer to the data, and the MSE goes down. However, what matters is the model performance on an independent dataset. This is shown with the red curve. Here, you can see that the blue model has the lowest MSE.</p>
+<div class="figure" style="text-align: center">
+<img src="media/islr-fig29.jpg" alt="Bias-variance tradeoff. Source: ISLR." width="90%" />
+<p class="caption">
+Bias-variance tradeoff. Source: ISLR.
+</p>
+</div>
+<p>The same concept holds for categorical outcomes, and for models with multiple predictors. No matter what the model, there is always a sweet spot for model complexity somewhere “in the middle”. This “middle” depends on the data and the question. Often, linear models are as good as one can get, and more complex models will overfit. Even for linear models, we might have to remove predictors to prevent overfitting (we’ll discuss that later). At other times, somewhat complicated models (e.g., neural nets) might perform best. In general, the more data (both quantity and richness), the less likely it is that a more complex model will lead to overfitting. However, we always need to check.</p>
+</div>
+<div id="dealing-with-overfitting" class="section level1">
+<h1>Dealing with overfitting</h1>
+<p>So now that you learned that the model with the minimum cost function is not necessarily the best one, how can we evaluate model performance in a better way? There are different options.</p>
+<p>The ultimate test is, of course, to check your model on newly collected data. However, that takes a long time and is not always feasible. If you have enough data, you can perform an evaluation of model performance that is close to ‘new data performance’. What you do is that <strong>right at the start of your analysis</strong>, you set some of your data aside and do not look at it until the very end! A common fraction of data that is set aside is 20%-40%, but there is no clear rule. This is called your <strong>test/validation data.</strong> You then take the rest of your data, referred to as <strong>training data</strong>, and do all your model building and fitting and model choosing, etc.</p>
+<p>At the end <strong>and only once at the very end</strong> do you run your model on the test data and compute the performance. This gives you an estimate of your model performance that is as honest as you can get without collecting new data. Of course, you are likely still get slightly better results this way than if a new, independent study (with somewhat different data collection approaches) were to be evaluated. If you look at data analysis competitions such as Kaggle, this is how they operate. People need to submit their model predictions, and the model will be evaluated on a final dataset, only once, at the end of the competition. And whoever scores highest on that dataset wins, no matter how well they did on the leaderboard.</p>
+<p>While such a <strong>train/test split</strong> is an excellent thing to do, there are some constraints. First, you need to have enough data. If you don’t have a lot of data (&lt;100-1000 observations, depending on the number of predictors and model complexity), then this approach will make you give away data that you need to build your model, and won’t provide robust insights. Second, you still need a way to decide which model to chose as your final model, and as mentioned above, using the one with the smallest cost function <strong>as evaluated on the data that was used to build the model</strong> is not good. Thus, you still need to figure out how to resolve this. To that end, an approach called <strong>cross-validation</strong> has become very widely used and is currently - in my opinion - the best method to evaluate and choose your model.</p>
+</div>
+<div id="cross-validation" class="section level1">
+<h1>Cross-validation</h1>
+<p>Cross-validation is a reasonably straightforward approach. It mimics the train/test idea just described but is now applied during the model fitting process. The idea is that you split your data into train/test sets, fit the model (i.e., determine the best-fitting parameter values) to the <em>training</em> data, but then use the value of the cost function for the <em>test</em> data to determine how well the model does. You repeat this many times to get several samples and compute the average performance of the model <strong>on the data you didn’t use to fit the model</strong>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>The basic setup is to divide the data set into k blocks (called <em>folds</em>). Use k-1 to fit the model, then compute the cost function (e.g., the SSR) using the remaining block. Do that for all k blocks. The average value of the cost function over the k blocks is the model error that should be minimized. One usually chooses k=5 or 10 blocks/folds, which has shown in simulation studies to give the best variance-bias tradeoff. The figure shows an example of a 4-fold cross-validation for a categorical outcome (color of the balls).</p>
+<div class="figure" style="text-align: center">
+<img src="media/cross_validation.jpg" alt="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" width="80%" />
+<p class="caption">
+<a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" class="uri">https://en.wikipedia.org/wiki/Cross-validation_(statistics)</a>
+</p>
+</div>
+<p>In addition to the standard way of splitting the data, there are different sampling variants. For instance, if you have longitudinal data, or otherwise data with structure, you might want to sample in a different way (e.g., sample the earlier times and predict later times). One variant of the cross-validation approach is the leave-one-out (LOO) cross-validation, which removes each data point one at a time as the test data and therefore performs the train/test part <em>N</em> times. You will also often see repeated cross-validation, which just adds another round of sampling on top to get better distributions (e.g., a 10-fold CV 10 times repeated gives 100 samples, which will be used to compute model performance).</p>
+<p>Cross-validation works for pretty much any model and data and is quite robust. The potential limitations are that one needs a decent amount of data to make meaningful splits, and since this involves repeated fitting, it can be too slow for large datasets or complex models.</p>
+<p>For more on cross-validation, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 5.1 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">chapter 30 of IDS</a>. Those readings are optional.</p>
+</div>
+<div id="other-model-assessment-methods" class="section level1">
+<h1>Other model assessment methods</h1>
+<p>In my opinion, cross-validation is the most flexible and overall best method to evaluate model performance. Thus, if possible, one should use it. Sometimes it might not be possible. Occasionally, datasets are so small that doing the train-evaluate split required for CV is not feasible. More commonly, your data or model are so large that running CV just takes too much time. In those instances, one can use model selection criteria. These quantities, such as AIC, BIC, DIC and similar, compute a measure that is a trade-off between good fit to the data (low-cost function) and model complexity (number of parameters). As such, approaches based on such selection criteria try to guess how the model would perform if it were to be fit to new data, without actually trying to do it (as is done in CV). The disadvantage is that these guesses as to how the model might perform on new data are not as reliable as actually evaluating model performance on such data through CV. The advantage is that no sampling is needed, which means these approaches are much less computationally intensive. There is a lot of math behind information criteria (AIC and similar), see the book <a href="https://www.springer.com/gp/book/9780387953649">Model Selection and Multimodel Inference</a>. Fortunately, one does not need to know the mathematical details to use those measures, just common sense.</p>
+<p>For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p&lt;0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. However, it is my opinion that going by those values alone (or CV measures for that matter) is not a good decision criterion, and other checks should be done.</p>
+<p>For some more reading on AIC and similar approaches, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 6.1.3 of ISLR</a>. This reading is optional.</p>
+<p>There are other ways to try and evaluate model performance, e.g., by looking at P-values of nested models, performing Likelihood ratio or F-tests, etc. In the age of ample computational power, I don’t see any reason to use these approaches anymore. I’m willing to be convinced otherwise, but so far have not found anything that would convince me that those methods are still useful, in my opinion, they have overstayed their welcome and should disappear.</p>
+</div>
+<div id="fitting-the-right-way" class="section level1">
+<h1>Fitting the right way</h1>
+<p>To repeat: <strong>We generally want to know how well a model performs in general and on new data - not the sample we fit it to.</strong> Testing/reporting model performance for the data the model was fit to very often leads to overfitting and optimistic/wrong conclusions about new/future data.</p>
+<p>To minimize overfitting, here is my recommended strategy:</p>
+<ul>
+<li>If you have a lot of data and care about predictive performance, set some data aside for a final validation/test, otherwise skip this split.</li>
+<li>If you have enough data (&gt;100s observations) and CPU power, use cross-validation approaches to determine the best model. If for some reason (mainly computational time or small data) CV is not feasible, use AIC &amp; Co.</li>
+<li>Think carefully about your cost function! A model that is great at predicting the wrong outcome is useless! (See the mass-shooting example above.)</li>
+<li>No matter what approach you use, choosing a model based on performance as measured by your cost function alone is not enough. Perform additional evaluations (see next).</li>
+</ul>
+<p>For some more reading, see <a href="https://bradleyboehmke.github.io/HOML/process.html">Chapter 2 of HMLR</a>, which covers a lot of similar ground to what I discussed above, and provides some additional information. Another nice overview and short, discussing similar points to the ones I made above, is <a href="https://bookdown.org/max/FES/important-concepts.html">chapter 1.2 of FES</a>. Those readings are optional.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Technically, for <code>lm</code> it is possible to find the best parameter values other than by ‘trial and error’, but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of <em>C</em>) is part of the large field of <a href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a>. Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimum is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the <code>nloptr</code> package - but we won’t need it in this course.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>If you want to compare different models, and one of your models can deal with missing data while the other cannot, you need to use MSE/RMSE, or make sure that both models are only fit to the data without missing values. Otherwise, you essentially fit two different datasets, and comparison between models is not valid anymore.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>Note that some of the terminologies are at times, confusing. The words <em>training data</em> and <em>test/validation data</em> are used both for the initial split described above, and the split done in the CV. A recent suggestion by Max Kuhn, creator of the <code>caret</code> package which we’ll soon be using, is to call the splits done by CV the <em>analysis</em> and <em>assessment</em> portions of the data. I like that terminology and will try to use it, though I might not be consistent.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

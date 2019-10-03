@@ -71,7 +71,9 @@ Once you have an idea of the kinds of models you want to apply, figure out if th
 
 
 # Further Resources
-Max Kuhn, the creator of the `caret` R package, wrote a book called [Feature Engineering and Selection](https://bookdown.org/max/FES/) which - among other topics - covers most of these topics.
+
+For some more (optional) reading see [Chapter 3 of HMLR](https://bradleyboehmke.github.io/HOML/process.html). 
+[Section 3 of the `caret` package website](http://topepo.github.io/caret/pre-processing.html) also briefly discusses some of these topics (we'll make use of `caret` later in this course). Max Kuhn, the creator of the `caret` R package, wrote a book called [Feature Engineering and Selection](https://bookdown.org/max/FES/) which - among other topics - covers most of these topics in detail.
 
 
 

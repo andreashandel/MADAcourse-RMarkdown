@@ -1,0 +1,53 @@
+---
+title: Data Analysis Exercise
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+
+This project asks you to write code to perform a few fits to simple models. As a side project, we'll also explore making webpages on Github a bit more.
+
+**This is likely a fairly long exercise, plan for it!**
+
+# Instructions
+
+* We'll be using a template repository that I created, which contains all the files you need to get started. You can find this repository [here](https://github.com/andreashandel/dataanalysis-exercise).
+* Create your own repository based on this template inside the class organization. Call it _YOURNAME-dataanalysis_. Turn on _Github pages_ so your final project renders as a website (as we did in the _Introducing Ourselves_ exercise). 
+* Open the `Continuous_Outcome_Analysis.Rmd` file. Follow the instructions provided in the file. 
+* Once you are done with your analysis, open the files `author.Rmd` and `_navbar.yml` and replace the ALL CAPS parts with the right information.
+* Next, hit the "build website" button in the top left RStudio window. If everything works, you should see no error messages, and a preview of your website should open.
+* Make changes as needed. If all looks good, push your website to Github. Give it a few seconds, then check to make sure it is there.
+* Write a post in the _Data Analysis Exercise_ board that provides the link to your website.
+* If you need help with any part of this exercise, use the usual communication channels.
+
+# Optional
+As part of this exercise, you created a small website. If you are interested, you could use this website and build an **online portfolio.** 
+Here are some suggestions on how you could do that:
+
+* Replace the current `author.Rmd` file with your Rmd file from your introduction exercise. Make sure you also copy all images over.
+* Add your coding exercise Rmd file to the folder.
+* Add your Visualization Rmd file (and any images) to the folder.
+* Add your Tidytuesday Rmd file to the folder.
+* Edit the `Readme.md` and `index.Rmd` files to say whatever you want. 
+* Edit the `name` entry in the `_site.yml` file to whatever you want.
+* Edit the `_navbar.yml` file such that you have a menu that points to all your files. You can structure it in whatever way you want. For an example, see the [MADA Course _navbar.yml file](https://github.com/andreashandel/MADAcourse/blob/master/_navbar.yml).
+* Once you made all edits you like, hit the "build website" button in the top left RStudio window.
+* If everything works, the preview should show up. Check to make sure it looks the way you want, then push it to Github.
+
+**With that, you have just built a simple but nice website which features all the products you have made in this course so far!** If you think this is a good site to have for the future, I recommend you make a new repository in your personal GitHub account (outside the class organization) and give the repository a better name (e.g., DataAnalysis-Portfolio - or whatever you like). Feel free to add any additional content you like, both further content you create for this class and other materials.
+
+And of course, share a link to your site with the class and anyone else who should see your data analysis and GitHub/R/Markdown/Website prowess! `r emo::ji('smiley')`. Let Twitter `r emo::ji('bird')` know!

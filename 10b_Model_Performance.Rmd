@@ -1,0 +1,206 @@
+---
+title: MADA Course - Model Performance
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '80%')
+```
+
+
+
+# Introduction
+
+When you fit a model, e.g., a linear modeling using `lm` in R, what exactly happens? What does it mean when we ask the computer to _fit a model_? Think about what's going on for a minute.
+
+
+What `lm` or similar functions do is to vary the parameters of a model to get the model predicted outcomes as close as possible to the outcomes seen in the data. For a linear model like this one,
+
+$$Y_m=b_0 + b_1X_1 + b_2X_2 + ...$$
+
+it means the computer starts with some values of the coefficients _b~i~_ and then varies them (in a smart way) until the predicted _Y_ from the model are as close as possible to the data _Y~d~_. 
+
+This procedure is very general and applies to any kind of model and both continuous and categorical outcomes. What changes between problems and approaches is how exactly the fitting routine goes about varying the parameters (something we won't discuss in this course), and how we define _closeness_ between data and model outcomes. The latter is a scientific choice, and you need to specify it when you fit models.
+
+
+# The cost function
+
+For the computer to perform the routine of "vary model parameters to get the model as close to the data as possible", we have to quantify this closeness (or difference) between model and data. To do so, we define some function of both model predictions (_Y~m~_) and measured/data (_Y~d~_) outcomes. This function goes by different names, the terms most commonly used are **cost function** or **loss function** or more generally **objective function**. The convention is to set up the problem such that larger discrepancies between model and data lead to a larger numerical value of this function. Then our goal is to minimize the objective function. (Occasionally, problems are set up to maximize this function, one can always switch from one to the other by taking the inverse.) 
+
+In equation form, we have in the general case. 
+$$C = f(Y_m,Y_d)$$
+
+The different types of functions, _f_, depend on the type of data and other considerations. Once you defined _f_, this is the performance metric which quantifies how well a given model fits the data. 
+
+When you do a single model fit, e.g., using `lm`, the computer calculates _f_ for different values of the parameters, _b~i~_, until it finds the ones that produce the best (i.e., lowest) value for _C_.[^1] 
+
+[^1]: Technically, for `lm` it is possible to find the best parameter values other than by 'trial and error', but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of _C_) is part of the large field of [optimization](https://en.wikipedia.org/wiki/Mathematical_optimization). Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimum is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the `nloptr` package - but we won't need it in this course.
+
+
+Similarly, if you fit two different models (e.g., one linear model without interaction and one with interaction terms), you can use the value of _C_ to compare model performance (with some caveats, which we will discuss below).
+
+
+
+# Least squares 
+You are likely familiar with one of the most widely used functions for _f_, the least-squares method. This is a setup where we compute the squared difference between model and data for each observation and sum it all up. In equation form:
+
+$$C = f(Y_m,Y_d) = \sum_i (Y_m^i - Y_d^i)^2$$
+
+This is called the least squares error, and when you use `lm` in R, this is what the function computes and minimizes.
+
+There are different names for this least squares equation, it is often called Sum of Square Residuals (SSR), or Residual Sum of Squares (RSS), or Sum of Squares (SS), or Residual Square Error (RSE), and a bunch of similar names. You will usually be able to tell from the context what is being used as the performance metric. You will often see that instead of SSR, one minimizes the MSE, which is just SSR/N (with N being the number of observations), or the root mean squared error (RMSE), defined as $\sqrt{\left( SSR/N \right)}$. Dividing by the sample size has the advantage of allowing one to compare values across samples of different size from the same dataset (but it doesn't really work for comparing across different datasets).[^2] 
+
+An equivalent alternative to SSR is the $R^2$, which is defined as 1-SSR/SST. Here, SST is the sum of square totals, defined as 
+
+$$SST =  \sum_i (Y_{av} - Y_d^i)^2$$
+
+where $Y_{av}$ is the mean of the data. Since SST is fixed for a given dataset, minimizing SSR is equivalent to maximizing $R^2$. You might see $R^2$ reported in papers, and it is highly likely that the fitting was performed by minimizing SSR (or MSE or RMSE). The SST is a useful quantity since it tells us the performance of a _dumb/null model_ which uses no information from any predictor variables, but instead just predicts the mean of the outcomes. Any model you build that includes predictors needs to do better than this null model.
+
+
+[^2]: If you want to compare different models, and one of your models can deal with missing data while the other cannot, you need to use MSE/RMSE, or make sure that both models are only fit to the data without missing values. Otherwise, you essentially fit two different datasets, and comparison between models is not valid anymore.
+
+
+Least squares fitting is simple and frequently used. A lot of standard routines in major statistical packages use least squares. It often makes good sense to penalize with the squared distance (and under certain conditions, this is equivalent to maximizing the likelihood). However, sometimes a different way to define the function _f_ might be useful. We'll discuss a few of them briefly.
+
+
+
+# Beyond least squares
+
+An alternative to least squares is to penalize not with the distance squared, but linearly with the distance. This leads to absolute value/least absolute deviation (LAD functions), and the model is
+
+$$C = f(Y_m,Y_d) = \sum_i |Y_m^i - Y_d^i|$$
+
+This approach can be useful if the data contains outliers (that are real, and one can't justify removing them during cleaning). With a squared distance penalty, outliers have a strong impact on the model fit. With a linear penalty, such outliers carry less weight. Because of this, the linear difference approach is sometimes called a robust estimation. One drawback is that functions like `lm` or `glm` do not allow you to use this approach. However, a large number of R packages exist that allow fitting this way, see e.g., the [CRAN Robust Task View](https://cran.r-project.org/web/views/Robust.html).
+
+Another way to define _f_ is with step functions. The idea is that as long as model and data are within some distance, the penalty is zero. Once model and data differ by some threshold, a penalty is given, e.g., a fixed value or a linear or quadratic penalty. Such types of schemes to define _f_ are common in the class of models called Support Vector Machines, which we will look at later in the course. 
+
+
+No matter what scheme you choose, it might often be useful to weigh data points. In the examples given above, each model-data pair was given the same importance. Sometimes it might be that you have some data points that should carry more weight. A common case is if you have measurements not on the individual level but some aggregate level. As an example, assume you have a fraction of heart attacks among all patients for some time period in different hospitals, and you want to fit that fraction. You don't know the number of people who had heart attacks, only the fraction. But you do know something about the total number of beds each hospital has. You could then argue that hospitals with more beds have more patients and thus likely more heart attacks, and therefore the data from larger hospitals should get more weight, and you could e.g., multiply each term in the sum by bed size. Note that this is a scientific decision based on your expert knowledge of the data. Almost all fitting routines allow you to provide weights for your data and you can then perform _weighted least squares_ (or a weighted version of whatever other approaches you choose).
+
+To get some more intuition with fitting a continuous outcome, [go through this interactive tutorial ](https://epibiouga.shinyapps.io/modelperformancecontinuous/). If it looks like the RStudio Primer tutorials you've seen, that is no accident. It uses the (fairly new) [learnr package](https://rstudio.github.io/learnr/). The difference is that I wrote this tutorial, the other ones were written by RStudio (and are therefore more polished and less buggy). 
+
+
+# Performance measures for categorical outcomes 
+For categorical outcomes, the above performance measures do not apply, so we need to define a different function _f_ to measure how close model and data are. The simplest form is to count the fraction of times the model did not properly predict the outcome. This is called the (mis)classification error. If we instead count the fraction of correct calls by the model, it is called accuracy. 
+
+While this often works well, sometimes just counting the number of times a model didn't get it right might not be the best idea. Common situations were the misclassification error is not very useful are where the outcome is rare but important (this is often called **unbalanced data**). Say we had some algorithm that tried to screen people to predict if they are about to go on a mass-shooting rampage. Fortunately, people like this are very rare. Let's say (I'm making this number up) that 1 in a million people are at risk of committing such a crime. Therefore, a model that predicts _all negative_, i.e., that predicts that out of a sample of say 1 million, _nobody_ is about to go out and start a mass-shooting, would be a very accurate model, it would only make one mistake in a million. However, missing that one person would be a very important mistake, and a model that would predict that 10 people are at risk of starting a mass-shooting, including the person really at risk, would be much better, even if it gets 9 cases wrong, namely 9 people that it suggests might be a risk but really are not.
+
+In instances like this, using misclassification as the model performance metric is thus not the best idea. Other metrics are more helpful. A large variety of such metrics exist. Some only apply to the special (but very common) case of a binary outcome, and others apply more generally. For the binary case, one can construct what is called the [**confusion matrix**](https://en.wikipedia.org/wiki/Confusion_matrix) (also known as 2x2 table in epidemiology). The confusion matrix tracks 4 quantities: true positives (TP, model predicts positive, and data is positive), true negative (TN, both model and data are negative), false positive (FP, model wrongly predicts positive) and false negative (FN, model wrongly predicts negative). Based on those 4 quantities, one can derive many different scores that try to balance the ability of a model to correctly predict positives and negatives and minimize wrong predictions in both directions. A common metric to assess model performance instead of misclassification/accuracy is the F1-score (or F score), defined as  2TP/(2TP+FN+FP) (1 is best). Other similar quantities exist (e.g., Youden's J, Cohen's $\kappa$, Matthew's correlation). 
+
+The confusion matrix comes with very confusing terminology since many of the quantities are labeled differently in different fields. For instance, epidemiologists tend to call the quantity TP/(TP+FN) _sensitivity_, while in other areas, such as machine learning, it is called _recall_. For a good overview of those different quantities and terminology [see this Wikipedia article](https://en.wikipedia.org/wiki/Confusion_matrix). Another good discussion of this topic can be found in [chapter 28 of IDS](https://rafalab.github.io/dsbook/cross-validation.html).
+
+
+# Custom cost functions
+While one of the standard cost functions (e.g., SSR, Accuracy, F1-score) might work for your data and question, it is worth thinking carefully about what it is you want to optimize, i.e., how exactly the function _f_ should work. 
+
+There are many different performance measures that have already been "invented". As an example, the website for the `Machine Learning in R (mlr)` package [lists a lot of different performance measures](https://mlr.mlr-org.com/articles/tutorial/measures.html) that are implemented as part of the package. While `mlr` is a good package, it takes some time getting used so we won't use `mlr` in this course. If you continue your data analysis career, `mlr` is worth checking out. For this course, we'll use the alternative `caret` package, which also has a number of different performance measured [described here](http://topepo.github.io/caret/measuring-performance.html).
+
+If no existing measure is suitable for your problem, you can and should define your own. Based on scientific/expert knowledge, you should define the most appropriate cost function and then measure your models based on that. **Getting the cost function right is an important, and often overlooked part of the modeling process.** For instance, revisiting the example I gave above, if we think that falsely accusing a person of being a criminal has cost (in some units, that could be monetary or otherwise) of 1, but missing to identify a person who is a threat has cost of 1000, then we should weigh FP and FN accordingly when computing our cost function and designing our model. This is similar to applying weights in the continuous case.
+
+
+# Likelihood approach
+The most general approach to defining the cost/loss function, _f_, is the likelihood approach. Using this approach, which underlies a lot of modern statistics, both frequentist and bayesian, you start by explicitly specifying a model/distribution for the data (both deterministic and probability parts). As an example, you might postulate that expected number of cases of Cholera in a given month depends linearly on the monthly amount of rainfall (deterministic component) and that the actual/measured number of cases are Poisson distributed (probability component). Both the deterministic and probabilistic components of your model have parameters. You write down (or simulate) the likelihood and then run some optimization routine which varies parameters until it found the optimal result (maximum of the likelihood, or more commonly the minimum of the log-likelihood).
+
+Using the Likelihood is the most general and flexible approach to model fitting and for more complex problems, often the only feasible approach. It applies to any kind of outcome, and you can specify any model you want.
+Unfortunately, it is generally a bit more complicated and often requires more custom-written code (though a lot more user-friendly R packages have become available in recent times). We can't get much into likelihood-based fitting in this course. For more information, I recommend [Ben Bolker's book "Ecological Models and Data in R"](https://ms.mcmaster.ca/~bolker/emdbook/) as a good starting point for (mostly frequentists) Likelihood fitting approaches. Another book that introduces the ideas from a bayesian perspective is [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/). Unfortunately, neither book is freely available online (as far as I'm aware). If you know of any good introductory books that teach model fitting using likelihood approaches with R, please let me know.
+
+
+# Should we really minimize the cost function?
+
+Above, we discussed that once we have chosen a cost function for our problem, we are trying to find a model that minimizes this cost function (e.g., minimizes the RMSE or the misclassification error), and models with smaller cost functions are better.
+
+However, this is not entirely true. The problem here is that in general, a bigger model will be more flexible and thus able to fit the data better. However, when we do data analysis, we generally are not only interested in saying something about the specific data we are fitting. **Our main question/hypothesis usually does not concern the actual data we have/fit.** Instead, we generally want to say something about 'the larger world'. 
+
+If we are asking _inferential_ questions, we are interested in what the data analysis teaches us about this system in general. E.g., if we analyze data to see if there is a correlation between levels atmospheric pollutants and cases of asthma among our study population, we are usually really interested in knowing if such a correlation is real **in general**. 
+
+If we are asking predictive questions, we are interested in a model that can predict future observations, not the ones we already have. E.g., if we analyze data for a specific treatment, we are not very interested how well the model predicts the effect of the drug on the people for which we collected the data (we already know that). Instead, we want to make general predictions about the effectiveness of the treatment on future patients. 
+
+In either case, what we want is a model that is generalizable, and that applies equally well to new and similar data beyond the data we already collected. 
+
+**What truly matters is how well our model can explain/predict other/future data, not just the data we are fitting!**
+
+
+If we build a very complex model in an effort to fit our existing data as closely as possible, what generally happens is that our model **overfits**. That means it becomes very good at modeling the data we use to build the model, but it won't generalize very well to the general, broader context of other/future data.
+
+
+# Bias-variance trade-off 
+The general concept that models tend to fit the data that is used to build the model better as model complexity increases, but not perform so well on future/new data is known as bias-variance trade-off.
+
+**Bias** describes the fact that a model that is too simple might get the data "systematically wrong". A more restricted model like a linear model usually has more bias. More complex models will lead to reduced bias.
+
+**Variance ** describes how much a model would vary if it were fit to another, similar dataset. If a model goes close to the training data, it will likely produce a different fit if we re-fit it to a new dataset. More complex models tend to have higher variance.
+
+The following figure illustrates this concept. In this example, the data was produced by taking the black curve and adding some noise on top. This gives the data shown as circles. Three models are fit. A linear model (yellow) is too restrictive and misses important patterns. The next model (blue line) is more flexible and is able to capture the main patterns. The most complex models (green line) gets fairly close to the data. But you can tell that it is trying to get too close to the data and thus overfits. If we had another data sample (took the black line and added some noise on top), the green model would not do so well. This is shown on the right side, where the grey line plots the MSE for each model for the given dataset. As the model gets more complex/flexible, they get closer to the data, and the MSE goes down. However, what matters is the model performance on an independent dataset. This is shown with the red curve. Here, you can see that the blue model has the lowest MSE.
+
+```{r trainfit,  fig.show='hold', fig.cap='Bias-variance tradeoff. Source: ISLR.', echo=FALSE, fig.align='center', out.width = '90%'}
+knitr::include_graphics("./media/islr-fig29.jpg")
+```
+
+
+The same concept holds for categorical outcomes, and for models with multiple predictors. No matter what the model, there is always a sweet spot for model complexity somewhere "in the middle". This "middle" depends on the data and the question. Often, linear models are as good as one can get, and more complex models will overfit. Even for linear models, we might have to remove predictors to prevent overfitting (we'll discuss that later). At other times, somewhat complicated models (e.g., neural nets) might perform best. In general, the more data (both quantity and richness), the less likely it is that a more complex model will lead to overfitting. However, we always need to check.
+
+
+
+# Dealing with overfitting 
+
+So now that you learned that the model with the minimum cost function is not necessarily the best one, how can we evaluate model performance in a better way? There are different options. 
+
+The ultimate test is, of course, to check your model on newly collected data. However, that takes a long time and is not always feasible. If you have enough data, you can perform an evaluation of model performance that is close to 'new data performance'. What you do is that **right at the start of your analysis**, you set some of your data aside and do not look at it until the very end! A common fraction of data that is set aside is 20%-40%, but there is no clear rule. This is called your **test/validation data.** You then take the rest of your data, referred to as **training data**, and do all your model building and fitting and model choosing, etc.
+
+At the end **and only once at the very end** do you run your model on the test data and compute the performance. This gives you an estimate of your model performance that is as honest as you can get without collecting new data. Of course, you are likely still get slightly better results this way than if a new, independent study (with somewhat different data collection approaches) were to be evaluated. If you look at data analysis competitions such as Kaggle, this is how they operate. People need to submit their model predictions, and the model will be evaluated on a final dataset, only once, at the end of the competition. And whoever scores highest on that dataset wins, no matter how well they did on the leaderboard.
+
+While such a **train/test split** is an excellent thing to do, there are some constraints. First, you need to have enough data. If you don't have a lot of data (<100-1000 observations, depending on the number of predictors and model complexity), then this approach will make you give away data that you need to build your model, and won't provide robust insights. Second, you still need a way to decide which model to chose as your final model, and as mentioned above, using the one with the smallest cost function **as evaluated on the data that was used to build the model** is not good. Thus, you still need to figure out how to resolve this. To that end, an approach called **cross-validation** has become very widely used and is currently - in my opinion - the best method to evaluate and choose your model.
+
+
+# Cross-validation
+
+Cross-validation is a reasonably straightforward approach. It mimics the train/test idea just described but is now applied during the model fitting process. The idea is that you split your data into train/test sets, fit the model (i.e., determine the best-fitting parameter values) to the _training_ data, but then use the value of the cost function for the _test_ data to determine how well the model does. You repeat this many times to get several samples and compute the average performance of the model **on the data you didn't use to fit the model**.[^3]
+
+[^3]: Note that some of the terminologies are at times, confusing. The words _training data_ and _test/validation data_ are used both for the initial split described above, and the split done in the CV. A recent suggestion by Max Kuhn, creator of the `caret` package which we'll soon be using, is to call the splits done by CV the _analysis_ and _assessment_ portions of the data. I like that terminology and will try to use it, though I might not be consistent.
+
+The basic setup is to divide the data set into k blocks (called _folds_). Use k-1 to fit the model, then compute the cost function (e.g., the SSR) using the remaining block. Do that for all k blocks. The average value of the cost function over the k blocks is the model error that should be minimized. One usually chooses k=5 or 10 blocks/folds, which has shown in simulation studies to give the best variance-bias tradeoff. The figure shows an example of a 4-fold cross-validation for a categorical outcome (color of the balls).
+
+```{r cvfig,  fig.show='hold', fig.cap='https://en.wikipedia.org/wiki/Cross-validation_(statistics)', echo=FALSE, fig.align='center'}
+knitr::include_graphics("./media/cross_validation.jpg")
+```
+
+In addition to the standard way of splitting the data, there are different sampling variants. For instance, if you have longitudinal data, or otherwise data with structure, you might want to sample in a different way (e.g., sample the earlier times and predict later times). One variant of the cross-validation approach is the leave-one-out (LOO) cross-validation, which removes each data point one at a time as the test data and therefore performs the train/test part _N_ times. You will also often see repeated cross-validation, which just adds another round of sampling on top to get better distributions (e.g., a 10-fold CV 10 times repeated gives 100 samples, which will be used to compute model performance).
+
+Cross-validation works for pretty much any model and data and is quite robust. The potential limitations are that one needs a decent amount of data to make meaningful splits, and since this involves repeated fitting, it can be too slow for large datasets or complex models.
+
+For more on cross-validation, see [section 5.1 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/) and [chapter 30 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Those readings are optional.
+
+
+# Other model assessment methods
+
+In my opinion, cross-validation is the most flexible and overall best method to evaluate model performance. Thus, if possible, one should use it. Sometimes it might not be possible. Occasionally, datasets are so small that doing the train-evaluate split required for CV is not feasible. More commonly, your data or model are so large that running CV just takes too much time. In those instances, one can use model selection criteria. These quantities, such as AIC, BIC, DIC and similar, compute a measure that is a trade-off between good fit to the data (low-cost function) and model complexity (number of parameters). As such, approaches based on such selection criteria try to guess how the model would perform if it were to be fit to new data, without actually trying to do it (as is done in CV). The disadvantage is that these guesses as to how the model might perform on new data are not as reliable as actually evaluating model performance on such data through CV. The advantage is that no sampling is needed, which means these approaches are much less computationally intensive. There is a lot of math behind information criteria (AIC and similar), see the book [Model Selection and Multimodel Inference](https://www.springer.com/gp/book/9780387953649). Fortunately, one does not need to know the mathematical details to use those measures, just common sense.
+
+For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p<0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. However, it is my opinion that going by those values alone (or CV measures for that matter) is not a good decision criterion, and other checks should be done. 
+
+For some more reading on AIC and similar approaches, see [section 6.1.3 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/). This reading is optional.
+
+There are other ways to try and evaluate model performance, e.g., by looking at P-values of nested models, performing Likelihood ratio or F-tests, etc. In the age of ample computational power, I don't see any reason to use these approaches anymore. I'm willing to be convinced otherwise, but so far have not found anything that would convince me that those methods are still useful, in my opinion, they have overstayed their welcome and should disappear.
+
+
+# Fitting the right way
+
+To repeat: **We generally want to know how well a model performs in general and on new data - not the sample we fit it to.** Testing/reporting model performance for the data the model was fit to very often leads to overfitting and optimistic/wrong conclusions about new/future data. 
+
+To minimize overfitting, here is my recommended strategy:
+
+* If you have a lot of data and care about predictive performance, set some data aside for a final validation/test, otherwise skip this split.
+* If you have enough data (>100s observations) and CPU power, use cross-validation approaches to determine the best model. If for some reason (mainly computational time or small data) CV is not feasible, use AIC & Co.
+* Think carefully about your cost function! A model that is great at predicting the wrong outcome is useless! (See the mass-shooting example above.)
+* No matter what approach you use, choosing a model based on performance as measured by your cost function alone is not enough. Perform additional evaluations (see next).
+
+For some more reading, see [Chapter 2 of HMLR](https://bradleyboehmke.github.io/HOML/process.html), which covers a lot of similar ground to what I discussed above, and provides some additional information. Another nice overview and short, discussing similar points to the ones I made above, is [chapter 1.2 of FES](https://bookdown.org/max/FES/important-concepts.html). Those readings are optional.

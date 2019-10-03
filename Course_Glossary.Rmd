@@ -26,7 +26,7 @@ Note that in general, there is no regulatory terminology agency, so everyone can
 
 --- 
 
-Not surprisingly, I'm not the 1st one with the idea of compiling a list of data science related terms and definitions. After starting this, I found another one by Frank Harrell, which you can find [here](http://hbiostat.org/doc/glossary.pdf). I'm sure more will come.
+Not surprisingly, I'm not the 1st one with the idea of compiling a list of data science related terms and definitions. After starting this, I found another one by Frank Harrell, which you can find [here](http://hbiostat.org/doc/glossary.pdf). I'm sure I'll find and list more alternatives soon.
 
 
 --- 
@@ -72,13 +72,15 @@ __Observation:__ An observation is a recording of the different variables for a 
 
 __Ordinal (variable):__ A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it's unclear if the difference between 5 and 6 is the same as 6 and 7. 
 
-__Outcome (variable):__ The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not.  
+__Outcome (variable):__ The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not. Also called __response (variable)__ or __dependent (variable)__.
 
 __Predictive Modeling:__ Using models with the main goal of predicting future outcomes, given a collection of predictors.
 
 __Predictor (variable):__ All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.
 
 __Regression:__ A type of supervised learning/modeling, where the outcome of interest is quantitative (or can be treated as such).
+
+__Response (variable):__ See __Outcome (variable).__
 
 __Secondary Data Analysis:__ Analysis of a dataset that was not specifically collected for the purpose of answering the question one wants to answer. With an increasing abundance and rountine collection of data, such secondary analyses are becoming very common. If a clear hypothesis is formulated before one looks at the data, one might consider any results _confirmatory_, otherwise it is an __Exploratory Analysis__. Even just looking at the data a little bit during the cleaning process should move such a secondary analysis into the exploratory category. 
 

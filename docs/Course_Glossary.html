@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-17" />
+<meta name="date" content="2019-10-03" />
 
 <title>Course Glossary</title>
 
@@ -407,11 +407,50 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">10. Model assessment</li>
-    <li class="dropdown-header">11. Basic models</li>
-    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">14. More models</li>
     <li class="dropdown-header">15. A complete data analysis</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
@@ -440,6 +479,12 @@ $(document).ready(function () {
     </li>
     <li>
       <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
   </ul>
 </li>
@@ -486,7 +531,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Course Glossary</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-17</h4>
+<h4 class="date">2019-10-03</h4>
 
 </div>
 
@@ -495,7 +540,7 @@ $(document).ready(function () {
 <p>There are lots of technical terms related to data and its analysis. In this course, I try to explain them whenever they show up first. However, I figured it might also be useful to have one central place for quick reference. Terms are ordered alphabetically. This is how I define them, others might have different definitions - and so might I in the future, I try to change/update my understanding of things every so often 😁.</p>
 <p>Note that in general, there is no regulatory terminology agency, so everyone can use these words to mean whatever they want. While some are fairly well defined, other terms are often used and abused in ways outside the definitions I provide. Always look carefully at what is described to decide what exactly is going on.</p>
 <hr />
-<p>Not surprisingly, I’m not the 1st one with the idea of compiling a list of data science related terms and definitions. After starting this, I found another one by Frank Harrell, which you can find <a href="http://hbiostat.org/doc/glossary.pdf">here</a>. I’m sure more will come.</p>
+<p>Not surprisingly, I’m not the 1st one with the idea of compiling a list of data science related terms and definitions. After starting this, I found another one by Frank Harrell, which you can find <a href="http://hbiostat.org/doc/glossary.pdf">here</a>. I’m sure I’ll find and list more alternatives soon.</p>
 <hr />
 <p><strong>Artificial Intelligence:</strong> The use of <strong>Deep Learning</strong> and related approaches applied to “complex” problems. Historically, it was used for trying to solve problems using modeling approaches that mimic in a simplified form a brain (i.e. neural net models). Currently this term has become <em>hot</em> and is used more widely than it should.</p>
 <p><strong>Big Data:</strong> Any dataset that doesn’t easily fit into the memory of a regular computer (or cluster) and thus needs to be analyzed using special tools. Alternatively, data that is so big that doing analysis on it takes too long using standard tools (e.g. R on a regular computer) and instead requires specical treatment. Of course this also depends on the type of analysis, not only the type of data. As computers keep getting faster and tools more flexible and integrated, the label <strong>big data</strong> is a moving target.</p>
@@ -517,10 +562,11 @@ $(document).ready(function () {
 <p><strong>Mechanistic Modeling:</strong> Building and using models that explicitly incorporate mechanisms and processes of the system under study to understand <em>how</em> things interact and lead to specific outcomes. Many models in the hard sciences are of this type. A common way to formulate such models is with differential equations.</p>
 <p><strong>Observation:</strong> An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different <em>variables</em> should be available. In R, it is most common that each observation is stored as a row in a data frame.</p>
 <p><strong>Ordinal (variable):</strong> A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7.</p>
-<p><strong>Outcome (variable):</strong> The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not.</p>
+<p><strong>Outcome (variable):</strong> The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not. Also called <strong>response (variable)</strong> or <strong>dependent (variable)</strong>.</p>
 <p><strong>Predictive Modeling:</strong> Using models with the main goal of predicting future outcomes, given a collection of predictors.</p>
 <p><strong>Predictor (variable):</strong> All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.</p>
 <p><strong>Regression:</strong> A type of supervised learning/modeling, where the outcome of interest is quantitative (or can be treated as such).</p>
+<p><strong>Response (variable):</strong> See <strong>Outcome (variable).</strong></p>
 <p><strong>Secondary Data Analysis:</strong> Analysis of a dataset that was not specifically collected for the purpose of answering the question one wants to answer. With an increasing abundance and rountine collection of data, such secondary analyses are becoming very common. If a clear hypothesis is formulated before one looks at the data, one might consider any results <em>confirmatory</em>, otherwise it is an <strong>Exploratory Analysis</strong>. Even just looking at the data a little bit during the cleaning process should move such a secondary analysis into the exploratory category.</p>
 <p><strong>Statistics:</strong> The basic/classical machinery for data analysis. Depending on the type of data, many different approaches have been developed (parametric vs. non-parametric methods, longitudinal analysis, time-series analysis, and many more). Models tend to be simple and interpretable, the goal is to understand how inputs (predictors) relate to outcomes. Statistics was developed when data was sparse, computers didn’t exist, and mainly scientists interested in a deep understanding of their data used it. Because of this, statistical models tend to be simple and work well on small datasets.</p>
 <p><strong>Statistical Learning:</strong> A term that seems to become more widely used in recent years. While some people distinguish this term from <strong>Statistics</strong> and consider it a sub-field (see e.g. Chapter 1 of <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/"><em>Introduction to Statistical Learning</em></a>), the two terms are often used interchangably.</p>

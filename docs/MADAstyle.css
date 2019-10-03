@@ -13,6 +13,7 @@ a.thumbnail:hover {
 }
 
 /* -----------div tips------------- */
+/* adapted from  */
 /* http://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/ */
 
 
@@ -30,7 +31,7 @@ a.thumbnail:hover {
   }
   
   
- div.puzzle {
+div.puzzle {
   background-image: url("./media/yourturn.png");
 }
 
@@ -44,4 +45,48 @@ div.demo {
 
 div.note {
   background-image: url("./media/lightbulb.png");
+}
+
+
+
+/* -----------another set of customized divs------------- */
+/* this one is adapted from  */
+/* https://github.com/koalaverse/homlr */
+/* need to get and fix icons if i want to use it  */
+
+
+.note, .tip, .warning, .question, .exercise {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #FEF9E7 5px center/3em no-repeat;
+}
+
+.yourturn {
+  padding: 5em 5em 1em 11em;
+  margin-bottom: 10px;
+  background: #FEF9E7 5px center/10em no-repeat;
+}
+
+.note {
+ background-image: url("./media/note.png");
+}
+
+.tip {
+ background-image: url("./media/fyi.png");
+}
+
+.warning {
+ background-image: url("./media/warning.png");
+}
+
+.question {
+ background-image: url("./media/fyi.png");
+}
+
+.exercise {
+ background-image: url("./media/fyi.png");
+}
+
+.yourturn {
+ background-image: url("./media/fyi.png");
 }

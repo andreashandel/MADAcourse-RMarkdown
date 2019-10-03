@@ -1,0 +1,60 @@
+---
+title: MADA Course - Model Assessment Overview
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this module, we will discuss how one can assess the quality of different models, and what aspects of model quality one needs to consider.
+
+
+
+```{r trainfit,  fig.show='hold', fig.cap='', echo=FALSE, fig.align='center'}
+knitr::include_graphics("./media/assessment-cartoon.jpg")
+```
+
+
+
+
+# Learning Objectives
+* Know how to determine different aspects of model quality
+* Be familiar with different types of model performance metrics
+* Be able to choose the right assessment metric for your problem
+* Know what model uncertainty is and how to compute it
+* Be familiar with model diagnostics
+
+
+
+# Introduction
+
+If we fit any kind of model to data, we need to determine the quality of a fit somehow. How do we know one model is _better_ than another? How do we know any given model is _good_? These questions, i.e., what model is _better_ among a group of models, and if a model is _good_ (even the best among a group of awful models can be a bad model!) have multiple parts to them, some of which can be answered by statistics and others are judgment calls. 
+
+There is no single way to define quality. Instead, multiple factors should be considered. Here are some important aspects to think about:
+
+* Model performance: How well do the predictions from the model compare to the actual data?
+* Model complexity: How easy or hard is it to understand the model? How fast and robust does it run?
+* Model uncertainty: How much uncertainty is associated with the predictions made by the model?
+* Model misspecification: How much systematic deviation is there between model predictions and actual data?
+
+
+We will discuss these different ways one can assess model quality in this module.
+
+
+
+
+

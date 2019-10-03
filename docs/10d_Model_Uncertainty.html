@@ -12,9 +12,9 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-17" />
+<meta name="date" content="2019-10-03" />
 
-<title>TidyTuesday 2 Exercise</title>
+<title>MADA Course - Model Uncertainty</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -483,11 +483,50 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">10. Model assessment</li>
-    <li class="dropdown-header">11. Basic models</li>
-    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">14. More models</li>
     <li class="dropdown-header">15. A complete data analysis</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
@@ -516,6 +555,12 @@ div.tocify {
     </li>
     <li>
       <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
   </ul>
 </li>
@@ -560,35 +605,45 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">TidyTuesday 2 Exercise</h1>
+<h1 class="title toc-ignore">MADA Course - Model Uncertainty</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-17</h4>
+<h4 class="date">2019-10-03</h4>
 
 </div>
 
 
+<div class="figure">
+<img src="media/smbc-sample-size.png" alt="A study with n=1 has large uncertainty. Source: SMBC." />
+<p class="caption">A study with n=1 has large uncertainty. <a href="http://www.smbc-comics.com">Source: SMBC</a>.</p>
+</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>For this exercise, we will do another TidyTuesday project. This time, you are asked to include some statistical analyses into your project.</p>
+<p>Quantifying uncertainty is an important part of model evaluation. During model building and selection, we often like to know how the distribution of model performance measures (e.g., RMSE or Accuracy as measured by CV) differs between models.</p>
+<p>For our “final” model, we are most often interested in the uncertainty associated with predictions of outcomes. At times, we might also be interested in the values of model parameters and thus might want to know uncertainty associated with those estimates.</p>
 </div>
-<div id="tidytuesday-2-workflow" class="section level1">
-<h1>TidyTuesday 2 Workflow</h1>
-<p>Follow the workflow of the previous TidyTuesday exercise (see there for details). As a quick reminder:</p>
-<ul>
-<li><p><a href="https://github.com/rfordatascience/tidytuesday">Get this week’s TidyTuesday data</a>.</p></li>
-<li><p>Create a new Github repository inside the class organization and call it <code>YOURNAME-tidytuesday2</code>. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the <code>Introducing ourselves</code> project if you forgot how to do that.</p></li>
-<li><p>Once you finished your project, post the link to the html site with your report/write-up to the Tidytuesday 2 discussion board. If you are active on social media, you can post an announcement of your project there.</p></li>
-<li><p>For any help requests, post your questions to the discussion board for this project.</p></li>
-</ul>
+<div id="model-performance-uncertainty" class="section level1">
+<h1>Model performance uncertainty</h1>
+<p>If we perform cross-validation, (often repeated), we get multiple estimates for model performance based on the test set performance. For instance, in 10-fold CV 10 times repeated, we get 100 values for the model performance (e.g., RMSE). We can look at the distribution of those RMSE. While the standard approach is to pick a model with lower mean RMSE (or other performance measures), that doesn’t have to be the case. We might prefer one with a somewhat higher mean but less variance. To that end, looking at distributions of model performance is useful.</p>
 </div>
-<div id="tidytuesday-2-specific-instructions" class="section level1">
-<h1>TidyTuesday 2 Specific Instructions</h1>
-<ul>
-<li><p>After learning what the dataset is, think of one or a few questions you might want to answer. That means, decide what your outcome(s) of interest is/are, and what (if any) your main predictor of interest. Based on that, decide on what kinds of models you might want to use for analysis.</p></li>
-<li><p>Do enough wrangling/cleaning/processing to get your data into a shape that you can use for your analysis. You can be briefer here than in the previous TidyTuesday exercise, but of course you have to get the data ready for modeling.</p></li>
-<li><p>Fit at least 2 different suitable models to your data. Report model performance, model diagnostics and overall findings. Discuss what it means, both for the models you used and for the overall question you asked.</p></li>
-<li><p>The focus of this exercise should be on the modeling part, so I expect that to take up more then 50% of your code/report/overall analysis. Once done, write it all up and post as described above.</p></li>
-</ul>
+<div id="model-parameter-uncertainty" class="section level1">
+<h1>Model parameter uncertainty</h1>
+<p>At times, we might be interested in knowing the uncertainty of the model parameters. This will also give us the uncertainty in the predicted <em>expected</em> values of the model. Both of those quantities, uncertainty in parameters and model expectations can be quantified with <strong>confidence intervals.</strong> (Or the bayesian equivalent of <strong>credible intervals</strong>).</p>
+<p>Some functions in R, e.g. <code>lm</code> have a built-in command to compute confidence intervals. For more complex models or approaches, such built-in functions might not exist. A general approach to produce confidence or prediction intervals is with a sampling method that is very similar in spirit to cross-validation, namely by performing <strong>bootstrapping.</strong></p>
+<div id="bootstrapping" class="section level2">
+<h2>Bootstrapping</h2>
+<p>The idea for bootstrapping is fairly straightforward. Bootstrapping tries to imitate a scenario in which you repeated your study and collected new data. Instead of having actual new data, the idea is that the existing data is sampled to form a new “dataset”, which is then fit. Sampling is performed <em>with replacement</em> to obtain a sample the size of the original dataset. Some observations now show up more than once, and some do not show up. For each such sample, you fit your model and estimate parameters. You will thus get a distribution of parameter estimates. From those distributions, you can compute confidence intervals, e.g., the usual 95% interval. For each fit, you can also predict outcomes and thus obtain a distribution of prediction outcomes (see next).</p>
+<p>Like cross-validation, the bootstrap method is very general and can be applied to pretty much any problem. If your data has a specific structure, you can adjust the sampling approach (e.g., if you have observations from different locations, you might want to sample with replacement for each location.) Limitations for the bootstrap are that you need a decent amount of data for it to work well, and since you are repeating this sampling procedure many times</p>
+<p>For more on bootstrapping, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 5.2 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">section 30.5 of IDS</a>. Those readings are optional.</p>
+</div>
+</div>
+<div id="model-prediction-uncertainty" class="section level1">
+<h1>Model prediction uncertainty</h1>
+<p>If we are interested in model predictions, we generally also want to know how much uncertainty is associated with those predictions. For continuous outcomes, computing prediction intervals gives an idea of the uncertainty in our predictions. As for parameter uncertainty, some <code>R</code> functions have built-in methods to compute prediction intervals, or you can use the bootstrap approach.</p>
+<p>Note that prediction intervals are not the same as confidence intervals. The latter quantifies the uncertainty in model parameters, e.g., the <em>b<sub>i</sub></em> in a regression model. Since those <em>b<sub>i</sub></em> have uncertainty, the model predictions for the <em>expected</em> observation has uncertainty. However, each real observation has additional scatter around the expected value. This additional uncertainty needs to be factored in when trying to make predictions for individual outcomes. As such, prediction intervals are wider than confidence intervals.</p>
+</div>
+<div id="p-values" class="section level1">
+<h1>P-values</h1>
+<p>So what about the <strong>p-value?</strong>. This quantity doesn’t measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, not too useful and can most often be skipped (though sometimes one needs them just to make reviewers happy). I’m thus not talking about them further.</p>
 </div>
 
 

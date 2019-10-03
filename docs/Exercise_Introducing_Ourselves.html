@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-17" />
+<meta name="date" content="2019-10-03" />
 
 <title>MADA Fall 2019 - Introducing Ourselves project</title>
 
@@ -483,11 +483,50 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">10. Model assessment</li>
-    <li class="dropdown-header">11. Basic models</li>
-    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">14. More models</li>
     <li class="dropdown-header">15. A complete data analysis</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
@@ -516,6 +555,12 @@ div.tocify {
     </li>
     <li>
       <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
   </ul>
 </li>
@@ -562,7 +607,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Introducing Ourselves project</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-17</h4>
+<h4 class="date">2019-10-03</h4>
 
 </div>
 
@@ -582,7 +627,9 @@ div.tocify {
 <li>Make sure you followed the setup steps described in the <em>Github</em> document, i.e. create a Github account, have a Github client up and running, and have joined the class organization.</li>
 <li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Set the repository to be public (if you set it to private, you might not be able to access it with the free version of Gitkraken). Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. Click “create repository”.<br />
 </li>
-<li>Your new repository should have opened. If not go to <a href="https://github.com/epid8060fall2019">the website</a> for the github class organization and click on it. Go to <em>Settings</em> in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em> and switch it to <em>master</em> from <em>none</em>. Don’t choose a theme.</li>
+<li>Your new repository should have opened. If not go to <a href="https://github.com/epid8060fall2019">the website</a> for the github class organization and click on it.</li>
+<li>We want set things that your repository can at the same time become a public website. Github allows you to do that with its <a href="https://pages.github.com/"><em>Github Pages</em></a> feature. By default, this is turned off. You can turn it on and then place (at the minimum) an <code>index.html</code> file either into the main repository folder (the master branch) or in a sub-folder called <code>docs</code> inside the master branch. You can add many more html files to build a full website.</li>
+<li>To turn on the <em>Github Pages</em> feature, go to <em>Settings</em> of your repository in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em>. Set it to <em>master branch</em>. Don’t choose a theme.</li>
 <li><em>Clone</em> the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
 </ul>
 </div>

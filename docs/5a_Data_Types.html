@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-09-17" />
+<meta name="date" content="2019-10-03" />
 
 <title>Types of Data</title>
 
@@ -483,11 +483,50 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">10. Model assessment</li>
-    <li class="dropdown-header">11. Basic models</li>
-    <li class="dropdown-header">12. GLM and feature selection</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. Various ML models</li>
+    <li class="dropdown-header">14. More models</li>
     <li class="dropdown-header">15. A complete data analysis</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
@@ -516,6 +555,12 @@ div.tocify {
     </li>
     <li>
       <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
   </ul>
 </li>
@@ -562,7 +607,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Types of Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-09-17</h4>
+<h4 class="date">2019-10-03</h4>
 
 </div>
 
@@ -623,17 +668,19 @@ You might not want to get yourself that kind of data. Source: dilbert.com.
 <div id="working-with-different-data-types-in-r" class="section level1">
 <h1>Working with different data types in R</h1>
 <p>To efficiently work with data in R, you need to understand how the types of data described above are represented in and handled by R.</p>
-<p>The following is a summary of the most important data types in R. I’m also listing useful packages to deal with them. We’ll look at them in more detail in the next module. You have already seen some of the information I describe below. Now would be a good time to revisit the <em>Types</em> section of the RStudio <a href="https://rstudio.cloud/learn/primers/1.2">programming basic primer</a> and to revisit <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>.</p>
+<p>The following is a summary of the most important data types in R. I’m also listing useful packages to deal with them. You have already seen some of the information I describe below. Now would be a good time to revisit the <em>Types</em> section of the RStudio <a href="https://rstudio.cloud/learn/primers/1.2">programming basic primer</a> and to revisit <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>.</p>
+<div id="basic-data-types" class="section level2">
+<h2>Basic data types</h2>
 <p><strong>Characters/strings:</strong> A string is a collection of characters. You will often hear the labels “character” and “string” used interchangeably to describe a variable. Strings are the most flexible variable type. Everything can be a character string. Unfortunately, you cannot do a lot of analysis with them. For instance, if you have the numbers 2 and 3, you can add and subtract. But if you code those numbers as characters “2” and “3”, you can’t do much with them. Thus, transforming characters into other, more useful categories (if applicable) is a common task. It is common that you read in some data and there is a variable which should be numeric, but some entries are not (e.g., the original spreadsheet shows something like “&lt;10”). In this case, R reads all of these variables as characters. You then have to go in, clean the “&lt;10” value, and convert the rest to numeric. Sometimes you do want to work with strings directly. For that purpose, the <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a> in R is very useful. To learn some more about strings, work through <a href="https://r4ds.had.co.nz/strings.html">the <em>Strings</em> chapter (14) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
-<p>Working with strings and text is a type of analysis that will continue to increase in importance, given the increasing data streams of that type. Thus, learning more about this topic is a good idea. <a href="https://rafalab.github.io/dsbook/string-processing.html">The <em>string processing</em> chapter (25) of IDS</a> contains further good material that is worth working through. (I won’t as any quiz questions on that.)</p>
-<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a> (I won’t as any quiz questions on that.)</p>
+<p>It is quite likely that you will need to work with strings at some point during a data analysis, even if it is only to find specific values, clean up variable names, etc. Thus, learning more about this topic is a good idea. <a href="https://rafalab.github.io/dsbook/string-processing.html">The <em>string processing</em> chapter (25) of IDS</a> contains further good material that is worth working through. (I won’t as any quiz questions on that.)</p>
+<p>A very powerful, and also very confusing way to deal with strings is to use what are called <em>regular expressions</em>. This concept applies to any programming language, not just R. Both the R4DS and IDS readings above cover this topic.</p>
 <p><strong>Factors:</strong> That’s what R calls categorical variables. They can be ordered/ordinal or not. You need to make sure variables that should be coded as a factor are, and that those that shouldn’t be aren’t. For instance, you might have a variable with entries of 0, 1, and 2. Those could be numeric values, e.g., the number of siblings a person has. Or it could be a factor coding for 3 types of ethnicity (unordered), or 3 levels of socioeconomic status (ordered). You need to make sure it is coded as factor or numeric, based on what you know about the variable. An excellent package to work with factors is the <a href="https://forcats.tidyverse.org/"><code>forcats</code> package</a>. To learn some more about factors, work through <a href="https://r4ds.had.co.nz/factors.html"><em>Factors</em> chapter (15) of R4DS</a>, and do the exercises. <strong>I’ll ask about the content of this chapter in the quiz.</strong></p>
 <p><strong>Logical:</strong> You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R 0 is interpreted as FALSE and 1 as TRUE. You will use those logical values often when checking your data, e.g., if you want to see if your variable <code>x</code> is greater than 5, then the R command <code>x&gt;5</code> will return either TRUE or FALSE, based on the value of <code>x</code>.</p>
 <p><strong>Numeric (double/integer:</strong> Numeric values that are either integers or any other numeric value (double). You generally do not need to care too much how exactly your numeric values are coded. Often, you can treat integers as general numeric (which in R is <code>double</code>). You might rarely come across a case where some analytic method or other bits of code requires integers to be specified as such. In R, you can use the <code>as.integer()</code> function to convert general numeric values to integers. You don’t really need any other special packages in R to deal with numeric values.</p>
 <p><strong>Date/time:</strong> While dates are a type of continuous numeric variable, you should assign the date class explicitly in R, which allows you to do more with them. The <a href="https://lubridate.tidyverse.org/"><code>lubridate</code> package</a> is a good one to work with dates. Others exist. To learn some more about dates and times in R, work through <a href="https://r4ds.had.co.nz/dates-and-times.html"><em>Dates and times</em> chapter (16) of R4DS</a>. You should consider working through the <a href="https://rafalab.github.io/dsbook/parsing-dates-and-times.html"><em>Parsing Dates and Times</em> chapter (26) of IDS</a>. <strong>I will not ask about the content of either source in the quiz.</strong></p>
 </div>
-<div id="some-data-structures-in-r" class="section level1">
-<h1>Some data structures in R</h1>
+<div id="data-structures-in-r" class="section level2">
+<h2>Data structures in R</h2>
 <p>The basic data types in R are usually combined into larger objects. The main ones in R are described in the following.</p>
 <p><strong>Vectors:</strong> vectors are a simple collection of elements in a single row or column. In R, the easiest way to create vectors is with the <code>concatenate</code> command, <code>c()</code>. An example is <code>x1 &lt;- c(3,12,5)</code>. A single vector can contain only one element type (e.g., all characters or all numeric). If you try to mix and match, everything ends up as a character. Type the command for <code>x1</code> and <code>x2 &lt;- c(6, 5, 'h')</code> into R and apply the <code>class()</code> command to both <code>x1</code> and <code>x2</code> and note the difference.</p>
 <p><strong>Matrices:</strong> A matrix is a collection of elements in rows and columns. A matrix can contain only one element type. You can think of a matrix as a collection of <code>horizontal vectors</code> stacked on top of each other or <code>vertical vectors</code> next to each other.</p>
@@ -645,6 +692,14 @@ You might not want to get yourself that kind of data. Source: dilbert.com.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T9n7j8180GQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </p>
+</div>
+<div id="complex-data-types" class="section level2">
+<h2>Complex data types</h2>
+<p>It is impossible to cover in detail all the different types of data and how to process them in R. The following are very brief descriptions of common complex data types and a few pointers for resources that allow you to work with such data in R.</p>
+<p><strong>Timeseries:</strong> A very useful set of tools to allow times-series work in R is the set of packages called <a href="https://tidyverts.org/">the tidyverts</a>. CRAN also has a <a href="https://cran.r-project.org/web/views/TimeSeries.html">Task View for <em>Time Series Analysis</em>.</a> (A <em>Task View</em> on CRAN is a site that tries to combine and summarize various R packages for a specific topic). Another task view that deals with longitudinal/time-series data is the <a href="https://cran.r-project.org/web/views/Survival.html"><em>Survival Analysis</em> Task View</a>.</p>
+<p><strong>Omics:</strong> The <a href="https://www.bioconductor.org/">bioconductor</a> website is your source for (almost) all tools and resources related to omics-type data analyses in R.</p>
+<p><strong>Text:</strong> Working with and analyzing larger sections of text is different from the simple string manipulation discussed above. These days, analysis of text often goes by the term <em>natural language processing</em>. Such text analysis will continue to increase in importance, given the increasing data streams of that type. If you are interested in doing full analyses of text data, the <a href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R package</a> and the <a href="https://www.tidytextmining.com/">Text mining with R book</a> are great resources. A short introduction to this topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The <em>text mining</em> chapter (27) of IDS.</a></p>
+</div>
 </div>
 <div id="some-data-terminology" class="section level1">
 <h1>Some data terminology</h1>
