@@ -13,7 +13,7 @@ output:
 ```{r, echo = FALSE}
 #just so I can use emoticons
 #devtools::install_github("hadley/emo")
-library(emo)
+#library(emo)
 ```
 
 # Overview
@@ -41,6 +41,7 @@ As an example, and hopefully useful guide for your class project, I created [a p
 # Setting paths 
 One problem that I encounter **every time** I teach a course like this is the use of paths that are specific only to the user's computer and do not work on someone else's machine. Do not set paths or load files from paths that only exist on your machine! The best way to avoid this is to always use _projects_ in R, always open a project by clicking on the `.Rproj` file, and only setting _relative_ paths. A _relative_ path is a file path that is relative to the main project directory. You can see how that's done in the examples we shared, e.g., in Brian's project and my data analysis template. A good helper for this is the [`here` package](https://github.com/r-lib/here). I don't use it, but Jenny Bryan recommends it. However you do things, make sure that for your exercises and especially final project, someone else can clone your repository (or otherwise copy your project if it's not on Github) to their computer and run everything, without having to have exactly your setup of folders.
 
+For a detailed breakdown of relative paths take a look at this [video](https://www.youtube.com/watch?v=fe6GA200dks) by Sam Burer.
 
 # Further Resources
 Several efforts to develop further tools to help improve reproducible research within the R system exist. The few I know about are listed below. I have not tried to use any of them, but feel free to try/use them as part of this class.
