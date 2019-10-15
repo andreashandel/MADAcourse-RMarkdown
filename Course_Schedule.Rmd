@@ -12,14 +12,14 @@ output:
 
 This is the current course schedule for the class. Things might change, so check regularly for updates.
 
-The _Assignments_ column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.
+The _External Sources_ column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.
 
 Abbreviations used are: [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/), [R4DS = R for Data Science](https://r4ds.had.co.nz/), [RP = RStudio Primers](https://rstudio.cloud/learn/primers), 
-[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/), [ISL = Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/), [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/), [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/process.html). Numbers behind abbreviations refer to the chapter.
+[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/), [ISL = Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/), [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/), [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/). Numbers behind abbreviations refer to the chapter.
 
 The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
 
-| **Module Topic**   | **Start and end dates** | **Assignments** | **Assessments** |
+| **Module Topic**   | **Start and end dates** | **External Sources** | **Assessments** |
 | --- | --- | --- | --- |
 | Module 1 – Course and tools introduction | 8/14 – 8/23 | IDS:1,2,39,40, HGR, R4DS:27,29,30| quiz, introducing ourselves exercise |
 | Module 2 – Topic introduction | 8/14 – 8/23 | none | quiz, discussion|
@@ -33,11 +33,11 @@ The _Assessments_ column lists items that need to be submitted and that will be 
 | Module 10 – Model assessment | 10/7 – 10/11 | HMLR:2, IDS:28,30, ISRL:5 | quiz, project part 2 |
 | Module 11 – Basic models | 10/14 – 10/18 | HMLR:4,5,7,8 | data analysis exercise |
 | Module 12 – Subset selection and regularization | 10/21 – 10/25 | ISLR:6 | quiz, variable selection exercise   |
-| Module 13 – Tree-based models, parameter tuning | 10/28 – 11/1 | ISLR:8  | quiz, fitting trees exercise   |
-| Module 14 – Various machine learning models | 11/4 – 11/8 | ISLR:9 | quiz, project part 3 |
-| Module 15 – Doing a complete data analysis project | 11/11 – 11/15 | | quiz, TidyTuesday 2 exercise |
-| Module 16 – Deep learning, AI and Big Data | 11/18 – 11/22 | | **none**  |
-| Finishing Project | 11/25 – 11/29 (fall break part of the week) | **none** | project part 4 |
-| Project Reviews | 12/2 – 12/6 | **none** | project reviews |
-| Final project submission  | 12/11 | **none** | project part 5 |
+| Module 13 – Parameter tuning & tree-based models | 10/28 – 11/1 | ISLR:8, HMLR:9-12  | tree fitting exercise   |
+| Module 14 – More machine learning models & model interpretation | 11/4 – 11/8 | ISLR:9,10, HMLR:14,17 |  project part 3 |
+| Module 15 – Revisiting the complete data analysis workflow | 11/11 – 11/15 | none | TidyTuesday 2 exercise |
+| Module 16 – Deep learning, AI and Big Data | 11/18 – 11/22 | HMLR:13 | deep learning exercise  |
+| Finishing Project | 11/25 – 11/29 (fall break part of the week) | none | project part 4 |
+| Project Reviews | 12/2 – 12/6 | none | project reviews |
+| Final project submission  | 12/11 | none | project part 5 |
 

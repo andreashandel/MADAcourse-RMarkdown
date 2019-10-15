@@ -55,7 +55,12 @@ There are several reasons why we might want to fit models. The following is a br
 
 # Data Analysis Types
 
-The following way of categorizing types of data analyses follows [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience) - specifically, chapter 3, which now might be a good time to re-read.
+The following way of categorizing types of data analyses follows [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience) - specifically, chapter 3, which now might be a good time to re-read. A very similar, shortened version of the ADA chapter 3 discussion can be found in [this article by Jeff Leek and Roger Peng](./media/leek15science.pdf). The following figure from their paper gives a good summary of what follows.
+
+```{r workflow2,  echo=FALSE, fig.cap='', out.width = '80%', fig.align='center'}
+knitr::include_graphics("./media/data-analysis-chart.jpg")
+```
+
 
 The most straightforward analysis is a **descriptive** one. At that stage, you process, summarize and present the data, and do not go further. You don't need to fit any statistical models. A lot of data collected by surveillance systems or government agencies falls into the descriptive category. For most scientific projects, we want to go beyond the descriptive presentation of data.
 

@@ -14,7 +14,7 @@
 
 <meta name="date" content="2019-10-15" />
 
-<title>TidyTuesday 1 Exercise</title>
+<title>More Data Science Resources</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -633,34 +633,75 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">TidyTuesday 1 Exercise</h1>
+<h1 class="title toc-ignore">More Data Science Resources</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-10-15</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>For this exercise, we will join the R data science community and participate in a weekly exercise that allows you to practice some parts of data analysis.</p>
-</div>
-<div id="what-is-tidytuesday" class="section level1">
-<h1>What is TidyTuesday</h1>
-<p><a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesday</a> is an interesting initiative by the R data science community. Every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a>. Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e., tidying) and exploring the data, though people sometimes do statistical analyses as well.</p>
-<p>If you are curious how these datasets look, check out one of the already posted datasets. For instance, the wine ratings dataset you saw in the introductory lesson <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28">can be found here</a>.</p>
-<p>You have already seen one TidyTuesday analysis as one of the introductory examples. For more examples of previous analyses, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a> which scans twitter for posts mentioning <code>#tidytuesday</code>.</p>
-</div>
-<div id="tidytuesday-exercise" class="section level1">
-<h1>TidyTuesday Exercise</h1>
-<p>For this week’s exercise, your assignment is to participate in TidyTuesday by analyzing this week’s dataset. You can start as soon as the dataset is posted, which is usually Monday. Here are some more detailed instructions:</p>
+<p>The <em>Course Resources</em> page was becoming too large, so I decided to split things into two pages. The <em>Course Resources</em> page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.</p>
+<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. The ones marked in <strong>bold</strong> are those that we’ll be using a lot.</p>
+<p>Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn’t exist or doesn’t seem to make sense, please do not hesitate to ask for clarification in our discussion boards.</p>
+<div id="data-science-books" class="section level1">
+<h1>Data Science Books</h1>
 <ul>
-<li><p>Create a new Github repository inside the class organization and call it <code>YOURNAME-tidytuesday1</code>. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the <code>Introducing ourselves</code> project if you forgot how to do that.</p></li>
-<li><p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, read the instructions on how to get the data. You will also be provided with a data dictionary.</p></li>
-<li><p>Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don’t need to implement any statistical models (we’ll do another TidyTuesday exercise later, for which you’ll be asked to implement some statistical model).</p></li>
-<li><p>Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the <em>Introducing ourselves</em> project.</p></li>
-<li><p>Post the link to your project (both the html/website and the Rmd file) in the Tidytuesday 1 discussion board. If you are active on social media, you can post an announcement of your project there.</p></li>
-<li><p>For any help requests, post your questions to the discussion board for this project.</p></li>
+<li>A few individuals, most notably <a href="https://leanpub.com/u/rdpeng">Roger Peng</a>, <a href="https://leanpub.com/u/bcaffo">Brian Caffo</a> and <a href="https://leanpub.com/u/jtleek">Jeff Leek</a> have books on Leanpub related to R and data science.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living 😄, so if you can’t or don’t want to pay, getting them for free is ok.</li>
+<li><a href="https://moderndive.com">ModernDive - Statistical Inference via Data Science</a> - another good recent book covering data analysis with R.</li>
 </ul>
+<p>By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out <a href="https://bookdown.org/">the main bookdown website</a> as well as the <a href="https://bookdown.org/home/archive/">archive list</a> and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of “noise”.</p>
+</div>
+<div id="online-courses" class="section level1">
+<h1>Online courses</h1>
+<ul>
+<li><a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Cloud Based Data Science</a> - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called <a href="https://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> and seems to be now updated and rebranded as <a href="https://www.clouddatascience.org/">Cloud Based Data Science</a>. It is done by <a href="http://jtleek.com/">Jeff Leek</a> and his team. You’ll run into Jeff multiple times throught this course.</li>
+<li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a>. One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free.</li>
+<li><a href="https://stat545.com/index.html">Stat 545</a> is the name of Jenny Bryan’s previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.</li>
+</ul>
+</div>
+<div id="hands-oninteractive-resources" class="section level1">
+<h1>Hands-on/interactive resources</h1>
+<ul>
+<li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice.</li>
+<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription. They used to give students a very good discount, but not anymore. Unless you have some extra money to spend, I therefore currently don’t recommend them.</li>
+<li>A new company called <a href="https://www.dataquest.io/">Dataquest</a> seems to be similar to Datacamp. I have no experience with their product, but it’s again not free.</li>
+<li><a href="https://www.kaggle.com/">Kaggle (owned by Google)</a> is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out.</li>
+</ul>
+</div>
+<div id="courses" class="section level1">
+<h1>Courses</h1>
+<p>Many R/data science courses/instructors post materials online. Here are a few I know of:</p>
+<ul>
+<li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
+<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
+<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
+<li><a href="https://idc9.github.io/stor390/">STOR 390 - Introduction to data science</a></li>
+</ul>
+</div>
+<div id="podcasts" class="section level1">
+<h1>Podcasts</h1>
+<p>To be filled</p>
+</div>
+<div id="videos" class="section level1">
+<h1>Videos</h1>
+<p>To be filled</p>
+</div>
+<div id="lists-and-other-sources" class="section level1">
+<h1>Lists and other sources</h1>
+<ul>
+<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
+<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
+<li><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</li>
+<li><a href="https://m-clark.github.io/introduction-to-machine-learning/">Machine Learning</a> - an online reference (almost book) which nicely explains some of the basics of machine learning.</li>
+<li><a href="http://www.datasciguide.com/">Data Sci Guide</a> is a website that is trying to collect and curate a lot of data science sources.</li>
+</ul>
+<p><em>Obviously, there is no way my list is exhaustive. Let me know if you find other relevant and good sources.</em></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That’s how those individuals made their books, as spin-offs from their RMarkdown course materials.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
 
 

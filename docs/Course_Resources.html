@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-03" />
+<meta name="date" content="2019-10-15" />
 
 <title>Course Resources</title>
 
@@ -525,9 +525,22 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. More models</li>
-    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">14. More ML models and interpretation</li>
+    <li class="dropdown-header">15. Revisiting the complete workflow</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -562,6 +575,9 @@ div.tocify {
     <li>
       <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -585,8 +601,20 @@ div.tocify {
 <li>
   <a href="./Course_Glossary.html">Glossary</a>
 </li>
-<li>
-  <a href="./Course_Resources.html">Resources</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -607,13 +635,13 @@ div.tocify {
 
 <h1 class="title toc-ignore">Course Resources</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-03</h4>
+<h4 class="date">2019-10-15</h4>
 
 </div>
 
 
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. The ones marked in <strong>bold</strong> are those that we’ll be using a lot.</p>
-<p>Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn’t exist or doesn’t seem to make sense, please do not hesitate to ask for clarification in our discussion boards.</p>
+<p>This page lists resources that are used or mentioned in this course. For a more extensive list of data science resources, see the <em>General Resources</em> page.</p>
+<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that’s not quite right, please let me know.</p>
 <div id="general-help" class="section level1">
 <h1>General help</h1>
 <ul>
@@ -628,69 +656,29 @@ div.tocify {
 <div id="github-resources" class="section level1">
 <h1>Github Resources</h1>
 <ul>
-<li><strong>A great resource to learn Git/Github with R is <a href="https://happygitwithr.com/">happygitwitR</a> by Jenny Bryant.</strong></li>
-<li><strong>I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use <a href="https://www.gitkraken.com/">GitKraken</a> which has a fully functional free version.</strong> Jenny has a few other recommendations in her book.</li>
-<li>For classwork, projects and other materials that we might not want to share publicly, I set up a Github organization called <em>epid8060fall2019</em>, you can find it <a href="https://github.com/epid8060fall2019">here</a>. You need to be a group member to have access.<br />
-</li>
-<li>If you have questions for a specific R package (or other project) which is developed on Github, you can ask questions in the Github <em>Issues</em> section. We’ll discuss/practice that as part of the course.</li>
+<li>A great resource to learn Git/Github with R is <a href="https://happygitwithr.com/">happygitwitR (HGR)</a> by Jenny Bryant.</li>
+<li>I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use <a href="https://www.gitkraken.com/">GitKraken</a> which has a fully functional free version. As a student, you can also get a free 1 year subscription to the Pro version (see the GitHub course document for details). Other graphical Git/GitHub clients exist, see e.g. Jenny’s book.</li>
+<li>For classwork, projects and other materials that we might not want to share publicly, we will use a GitHub organization specifically created for the class. Instructions on how to join the organization and use it are provided in the course documents.</li>
+<li>If you have questions for a specific R package (or other project) which is developed on GitHub, you can ask questions in the GitHub <em>Issues</em> section. We’ll discuss/practice that as part of the course.</li>
 </ul>
 </div>
 <div id="books" class="section level1">
 <h1>Books</h1>
 <ul>
-<li><strong><a href="https://rafalab.github.io/dsbook/">Introduction to Data Science (IDS)</a> is the book we’ll use the most in this course. You will be assigned different chapters to read and work through.</strong></li>
-<li><strong><a href="http://r4ds.had.co.nz/index.html">R for Data Science (R4DS)</a> teaches some coding integrated with the material covered in the book. I’ll be refering to it frequently.</strong></li>
-<li><strong><a href="https://leanpub.com/artofdatascience">The Art of Data Science</a> has some good introductory level chapters on different aspects of a data analysis. You will be assigned to read parts of this book.</strong> It is a <em>pay what you want</em> book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).<br />
+<li><a href="https://rafalab.github.io/dsbook/">Introduction to Data Science (IDS)</a> is the book I’ll refer to a good bit in the 1st part of the course.</li>
+<li><a href="http://r4ds.had.co.nz/index.html">R for Data Science (R4DS)</a> is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I’ll be refering to it frequently.</li>
+<li><a href="https://leanpub.com/artofdatascience">The Art of Data Science (ADS)</a> has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a <em>pay what you want</em> book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).<br />
 </li>
-<li>A few individuals, most notably <a href="https://leanpub.com/u/rdpeng">Roger Peng</a>, <a href="https://leanpub.com/u/bcaffo">Brian Caffo</a> and <a href="https://leanpub.com/u/jtleek">Jeff Leek</a> have books on Leanpub related to R and data science.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living 😄, so if you can’t or don’t want to pay, getting them for free is ok.</li>
-<li><strong><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">An Introduction to Statistical Learning (ISL)</a> - good introductory book focusing more on the data analysis side of things (as opposed to getting/wrangling/exploring data).</strong></li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">Hands-on Machine Learning with R</a>. Good discussion of various analysis methods/approaches.</li>
-<li><a href="https://moderndive.com">ModernDive - Statistical Inference via Data Science</a> - another good recent book covering data analysis with R.</li>
-</ul>
-<p>By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out <a href="https://bookdown.org/">the main bookdown website</a> as well as the <a href="https://bookdown.org/home/archive/">archive list</a> and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of “noise”.</p>
-</div>
-<div id="online-courses" class="section level1">
-<h1>Online courses</h1>
-<ul>
-<li><a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Cloud Based Data Science</a> - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called <a href="https://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> and seems to be now updated and rebranded as <a href="https://www.clouddatascience.org/">Cloud Based Data Science</a>. It is done by <a href="http://jtleek.com/">Jeff Leek</a> and his team. You’ll run into Jeff multiple times throught this course.</li>
-<li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a>. One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free.</li>
+<li><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">An Introduction to Statistical Learning (ISL)</a> is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I’ll refer to it frequently in the second part of the course.</li>
+<li><a href="https://bradleyboehmke.github.io/HOML/">Hands-on Machine Learning with R</a> covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.</li>
+<li><a href="https://bookdown.org/max/FES/">Feature Engineering and Selection (FES)</a> focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.</li>
 </ul>
 </div>
 <div id="hands-oninteractive-resources" class="section level1">
 <h1>Hands-on/interactive resources</h1>
 <ul>
-<li><strong><a href="https://rstudio.cloud/learn/primers">Online Tutorials (primers) by Rstudio</a> - we’ll do several of those in the class.</strong></li>
-<li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice.</li>
-<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription. They used to give students a very good discount, but not anymore. Unless you have some extra money to spend, I therefore currently don’t recommend them.</li>
-<li>A new company called <a href="https://www.dataquest.io/">Dataquest</a> seems to be similar to Datacamp. I have no experience with their product, but it’s again not free.</li>
-<li><a href="https://www.kaggle.com/">Kaggle (owned by Google)</a> is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out.</li>
+<li><a href="https://rstudio.cloud/learn/primers">Online Tutorials (primers) by Rstudio (RP)</a> are a great source for introductory, interactive tutorials covering basics of R coding and data analysis. We’ll use several of those primers in the class.</li>
 </ul>
-</div>
-<div id="materials-from-other-courses" class="section level1">
-<h1>Materials from other courses</h1>
-<p>Many R/data science courses/instructors post materials online. Here are a few I know of:</p>
-<ul>
-<li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
-<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
-<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
-<li><a href="https://idc9.github.io/stor390/">STOR 390 - Introduction to data science</a></li>
-</ul>
-</div>
-<div id="lists-and-other-sources" class="section level1">
-<h1>Lists and other sources</h1>
-<ul>
-<li>I created lists related to R and Data Analysis (as well as other topics). You can find all lists <a href="https://github.com/ahgroup/research-and-teaching-resource-lists">at this link on github</a>. The list specifically for learning R <a href="https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md">is here</a>. (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).</li>
-<li>Another recent list of good R and Data Science resources <a href="https://github.com/Chris-Engelhardt/data_sci_guide">can be found here</a>.</li>
-<li><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</li>
-<li><a href="https://m-clark.github.io/introduction-to-machine-learning/">Machine Learning</a> - an online reference (almost book) which nicely explains some of the basics of machine learning.</li>
-</ul>
-<p><em>There are tons of resources for learning R and Data Analysis with R. What I list here is just a small fraction. You should look around and stick with the ones you like most. And let me know if you find other relevant and good sources.</em></p>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That’s how those individuals made their books, as spin-offs from their RMarkdown course materials.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
 </div>
 
 

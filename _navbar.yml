@@ -106,8 +106,27 @@ left:
           - text: "12b. Assessment"
             href: ./12b_Assessment.html
       - text: "13. Tree-based models and tuning"
-      - text: "14. More models"
-      - text: "15. A complete data analysis"
+        menu:
+          - text: "13a. Parameter tuning"
+            href: ./13a_Parameter_Tuning.html     
+          - text: "13b. Tree based Models"
+            href: ./13b_Tree_based_Models.html     
+          - text: "13c. Assessment"
+            href: ./13c_Assessment.html
+      - text: "14. More ML models and interpretation"
+        # menu:
+        #  - text: "14a. More ML Models"
+        #    href: ./14a_More_ML_Models.html     
+        #  - text: "14b. Model Interpretation"
+        #    href: ./14b_Model_Interpretation.html     
+        #  - text: "14c. Assessment"
+        #    href: ./14c_Assessment.html
+      - text: "15. Revisiting the complete workflow"
+        # menu:
+        #  - text: "15a. Complete data analysis workflow"
+        #   href: ./15a_Complete_data_analysis_workflow.html     
+        #  - text: "15b. Assessment"
+        #    href: ./15b_Assessment.html
       - text: "16. Deep learning, AI and Big data"
   - text: "Exercises"
     menu:
@@ -127,6 +146,8 @@ left:
          href: ./Exercise_Dataanalysis.html
        - text: "Variable Selection"
          href: ./Exercise_Variable_Selection.html
+       - text: "Tree Fitting"
+         href: ./Exercise_Tree_Fitting.html
   - text: "Project"
     menu:
        - text: "Project information"
@@ -138,7 +159,11 @@ left:
   - text: "Glossary"
     href: ./Course_Glossary.html
   - text: "Resources"
-    href: ./Course_Resources.html
+    menu:
+       - text: "Course Resources"
+         href: ./Course_Resources.html
+       - text: "General Resources"
+         href: ./General_Resources.html
 right:
   - icon: fa-github fa-lg
     href: https://github.com/andreashandel/MADAcourse

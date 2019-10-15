@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-03" />
+<meta name="date" content="2019-10-15" />
 
 <title>MADA Fall 2019 - Course Schedule</title>
 
@@ -449,9 +449,22 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. More models</li>
-    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">14. More ML models and interpretation</li>
+    <li class="dropdown-header">15. Revisiting the complete workflow</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -486,6 +499,9 @@ $(document).ready(function () {
     <li>
       <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -509,8 +525,20 @@ $(document).ready(function () {
 <li>
   <a href="./Course_Glossary.html">Glossary</a>
 </li>
-<li>
-  <a href="./Course_Resources.html">Resources</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -531,14 +559,14 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Course Schedule</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-03</h4>
+<h4 class="date">2019-10-15</h4>
 
 </div>
 
 
 <p>This is the current course schedule for the class. Things might change, so check regularly for updates.</p>
-<p>The <em>Assignments</em> column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.</p>
-<p>Abbreviations used are: <a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a>, <a href="https://r4ds.had.co.nz/">R4DS = R for Data Science</a>, <a href="https://rstudio.cloud/learn/primers">RP = RStudio Primers</a>, <a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a>, <a href="https://happygitwithr.com/">HGR = happygitwithR</a>, <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">ISL = Introduction to Statistical Learning</a>, <a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a>, <a href="https://bradleyboehmke.github.io/HOML/process.html">HMLR = Hands-on Machine Learning in R</a>. Numbers behind abbreviations refer to the chapter.</p>
+<p>The <em>External Sources</em> column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.</p>
+<p>Abbreviations used are: <a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a>, <a href="https://r4ds.had.co.nz/">R4DS = R for Data Science</a>, <a href="https://rstudio.cloud/learn/primers">RP = RStudio Primers</a>, <a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a>, <a href="https://happygitwithr.com/">HGR = happygitwithR</a>, <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">ISL = Introduction to Statistical Learning</a>, <a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a>, <a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on Machine Learning in R</a>. Numbers behind abbreviations refer to the chapter.</p>
 <p>The <em>Assessments</em> column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. <strong>Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.</strong></p>
 <table>
 <colgroup>
@@ -551,7 +579,7 @@ $(document).ready(function () {
 <tr class="header">
 <th><strong>Module Topic</strong></th>
 <th><strong>Start and end dates</strong></th>
-<th><strong>Assignments</strong></th>
+<th><strong>External Sources</strong></th>
 <th><strong>Assessments</strong></th>
 </tr>
 </thead>
@@ -629,45 +657,45 @@ $(document).ready(function () {
 <td>quiz, variable selection exercise</td>
 </tr>
 <tr class="odd">
-<td>Module 13 – Tree-based models, parameter tuning</td>
+<td>Module 13 – Parameter tuning &amp; tree-based models</td>
 <td>10/28 – 11/1</td>
-<td>ISLR:8</td>
-<td>quiz, fitting trees exercise</td>
+<td>ISLR:8, HMLR:9-12</td>
+<td>tree fitting exercise</td>
 </tr>
 <tr class="even">
-<td>Module 14 – Various machine learning models</td>
+<td>Module 14 – More machine learning models &amp; model interpretation</td>
 <td>11/4 – 11/8</td>
-<td>ISLR:9</td>
-<td>quiz, project part 3</td>
+<td>ISLR:9,10, HMLR:14,17</td>
+<td>project part 3</td>
 </tr>
 <tr class="odd">
-<td>Module 15 – Doing a complete data analysis project</td>
+<td>Module 15 – Revisiting the complete data analysis workflow</td>
 <td>11/11 – 11/15</td>
-<td></td>
-<td>quiz, TidyTuesday 2 exercise</td>
+<td>none</td>
+<td>TidyTuesday 2 exercise</td>
 </tr>
 <tr class="even">
 <td>Module 16 – Deep learning, AI and Big Data</td>
 <td>11/18 – 11/22</td>
-<td></td>
-<td><strong>none</strong></td>
+<td>HMLR:13</td>
+<td>deep learning exercise</td>
 </tr>
 <tr class="odd">
 <td>Finishing Project</td>
 <td>11/25 – 11/29 (fall break part of the week)</td>
-<td><strong>none</strong></td>
+<td>none</td>
 <td>project part 4</td>
 </tr>
 <tr class="even">
 <td>Project Reviews</td>
 <td>12/2 – 12/6</td>
-<td><strong>none</strong></td>
+<td>none</td>
 <td>project reviews</td>
 </tr>
 <tr class="odd">
 <td>Final project submission</td>
 <td>12/11</td>
-<td><strong>none</strong></td>
+<td>none</td>
 <td>project part 5</td>
 </tr>
 </tbody>

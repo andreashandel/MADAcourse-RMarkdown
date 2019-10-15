@@ -14,7 +14,7 @@
 
 <meta name="date" content="2019-10-15" />
 
-<title>TidyTuesday 1 Exercise</title>
+<title>MADA Course - Model interpretation</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -633,7 +633,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">TidyTuesday 1 Exercise</h1>
+<h1 class="title toc-ignore">MADA Course - Model interpretation</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2019-10-15</h4>
 
@@ -642,25 +642,27 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>For this exercise, we will join the R data science community and participate in a weekly exercise that allows you to practice some parts of data analysis.</p>
+<p>In this unit, we will discuss ways one can try to begin understanding the <em>black box</em> that complex models often are.</p>
 </div>
-<div id="what-is-tidytuesday" class="section level1">
-<h1>What is TidyTuesday</h1>
-<p><a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesday</a> is an interesting initiative by the R data science community. Every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a>. Individuals are encouraged to analyze the dataset. The focus is on getting, cleaning (i.e., tidying) and exploring the data, though people sometimes do statistical analyses as well.</p>
-<p>If you are curious how these datasets look, check out one of the already posted datasets. For instance, the wine ratings dataset you saw in the introductory lesson <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28">can be found here</a>.</p>
-<p>You have already seen one TidyTuesday analysis as one of the introductory examples. For more examples of previous analyses, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a> which scans twitter for posts mentioning <code>#tidytuesday</code>.</p>
-</div>
-<div id="tidytuesday-exercise" class="section level1">
-<h1>TidyTuesday Exercise</h1>
-<p>For this week’s exercise, your assignment is to participate in TidyTuesday by analyzing this week’s dataset. You can start as soon as the dataset is posted, which is usually Monday. Here are some more detailed instructions:</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
-<li><p>Create a new Github repository inside the class organization and call it <code>YOURNAME-tidytuesday1</code>. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the <code>Introducing ourselves</code> project if you forgot how to do that.</p></li>
-<li><p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, read the instructions on how to get the data. You will also be provided with a data dictionary.</p></li>
-<li><p>Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don’t need to implement any statistical models (we’ll do another TidyTuesday exercise later, for which you’ll be asked to implement some statistical model).</p></li>
-<li><p>Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the <em>Introducing ourselves</em> project.</p></li>
-<li><p>Post the link to your project (both the html/website and the Rmd file) in the Tidytuesday 1 discussion board. If you are active on social media, you can post an announcement of your project there.</p></li>
-<li><p>For any help requests, post your questions to the discussion board for this project.</p></li>
+<li>Understand what tree-based methods are and how to use them</li>
+<li>Know when it might be good to use a tree-based method</li>
+<li>Understand advantages and disadvantages of single trees versus tree ensembles</li>
 </ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+</div>
+<div id="understanding-multi-tree-and-other-complicated-models" class="section level1">
+<h1>Understanding multi-tree (and other complicated) models</h1>
+<p>The models produced by bagging, random forest and boosting are all hard to interpret. There are no coefficients in front of predictors that independently act on the outcome, or simple decision diagrams that can be drawn like for an individual tree. An important question we often want to know is the importance of specific predictors on the outcome. For linear and similar models, we can assess the size of the coefficient. For single trees, we can see if a specific predictor is part of the final tree or not. For these multi-tree models, and other complicated models, investigating the importance of a specific variable in those ways is not possible.</p>
+<p>Fortunately, there are methods that allow you to estimate the importance of predictors. Importance is defined as the impact of a specific predictor on model performance. We’ll look at some examples in the exercise. For a lot of good information on model interpretability see the <a href="https://christophm.github.io/interpretable-ml-book/"><em>Interpretable Machine Learning (IML) book</em></a>. I recommend reading through chapters 1 and 2 which provide a very nice introduction to the topic. Chapter 5 describes some approaches that allow one to interpret all kinds of different machine learning models. A good R package to perform model interpretation is <code>lime</code>. Both <code>caret</code> and <code>mlr</code> also provide some functionality to assess variable/feature importance, though this is only supported by some models. See <a href="http://topepo.github.io/caret/variable-importance.html">here</a> and <a href="https://mlr.mlr-org.com/articles/tutorial/feature_selection.html#feature-importance-from-trained-models">here</a>.</p>
+<p>Of course, interpretation is even harder for <strong>ensemble models</strong>, since you now potentially average over, say, weighted versions of a linear model, a random forest, and a support vector machine. Fortunately, the methods described above looking at importance of predictors often still work, so some insight can be gleaned into the <em>black box</em> of your complicated model.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
 </div>
 
 

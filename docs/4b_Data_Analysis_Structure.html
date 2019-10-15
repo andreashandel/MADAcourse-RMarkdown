@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-03" />
+<meta name="date" content="2019-10-15" />
 
 <title>MADA Fall 2019 - Structure of a Data Analysis</title>
 
@@ -525,9 +525,22 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. More models</li>
-    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">14. More ML models and interpretation</li>
+    <li class="dropdown-header">15. Revisiting the complete workflow</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -562,6 +575,9 @@ div.tocify {
     <li>
       <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -585,8 +601,20 @@ div.tocify {
 <li>
   <a href="./Course_Glossary.html">Glossary</a>
 </li>
-<li>
-  <a href="./Course_Resources.html">Resources</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -607,7 +635,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Structure of a Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-03</h4>
+<h4 class="date">2019-10-15</h4>
 
 </div>
 
@@ -635,8 +663,9 @@ div.tocify {
 </div>
 <div id="setting-paths" class="section level1">
 <h1>Setting paths</h1>
-<p>One problem that I encounter <strong>every time</strong> I teach a course like this is the use of paths that are specific only to the user’s computer and do not work on someone else’s machine. Do not set paths or load files from paths that only exist on your machine! The best way to avoid this is to always use <em>projects</em> in R, always open a project by clicking on the <code>.Rproj</code> file, and only setting <em>relative</em> paths. A <em>relative</em> path is a file path that is relative to the main project directory. So what should <strong>not</strong> be part of your code is the command <code>setwd()</code> (because your working directory is likely different from everyone else’s) or anything that involves a full path name (e.g. <code>C:/myusername/mydesktop/myfolder/</code>) since nobody you share the code with will have that folder. If you want to read/write/load files, place them in the same directory as the script you are running (or the main project directory) and then only specify the file name (e.g. <code>load('mydata.Rda')</code>) or have a path relative to your current directory (e.g. <code>load('./data/mydata.Rda')</code>. Using the <code>.</code> and <code>..</code> notation, you can have any directory structure you want, it just needs to all be relative to your project location. You can see how that’s done in the examples we shared, e.g., in Brian’s project and my data analysis template.</p>
-<p>A good helper for this is the <a href="https://github.com/r-lib/here"><code>here</code> package</a>. I don’t use it, but Jenny Bryan recommends it. However you do things, make sure that for your exercises and especially final project, someone else can clone your repository (or otherwise copy your project if it’s not on Github) to their computer and run everything, without having to have exactly your setup of folders.</p>
+<p>One problem that I encounter <strong>every time</strong> I teach a course like this is the use of paths that are specific only to the user’s computer and do not work on someone else’s machine. Do not set paths or load files from paths that only exist on your machine! The best way to avoid this is to always use <em>projects</em> in R, always open a project by clicking on the <code>.Rproj</code> file, and only setting <em>relative</em> paths. A <em>relative</em> path is a file path that is relative to the main project directory. So what should <strong>not</strong> be part of your code is the command <code>setwd()</code> (because your working directory is likely different from everyone else’s) or anything that involves a full path name (e.g. <code>C:/myusername/mydesktop/myfolder/</code>) since nobody you share the code with will have that folder.</p>
+<p>If you want to read/write/load files, load them with a command that accessess a path relative to your current (or the main project) directory (e.g. <code>load('./data/mydata.Rda')</code>. Using the <code>.</code> and <code>..</code> notation, you can have any directory structure you want, it just needs to all be relative to your project location. If you have a file in the the same directory as the script you are running, you can load it by only specifying the file name (e.g. <code>load('mydata.Rda')</code>). You can see how that’s done in the examples we shared, e.g., in Brian’s project and my data analysis template. For a short video tutorial, see this <a href="https://www.youtube.com/watch?v=fe6GA200dks">video</a>. Note that the video is several years old and he doesn’t use R Projects. <strong>I stronlgy recommend using R Projects.</strong> By having any project you work on as an R project, relative paths will always be relative to the main directory in which your <code>.Rproj</code> file is located. As long as someone loads the project by clicking on the <code>.Rproj</code> file, and you only use relative paths, things should work well on any computer.</p>
+<p>A good helper for this whole path business is the <a href="https://github.com/r-lib/here"><code>here</code> package</a>. I don’t use it, but Jenny Bryan recommends it. However you do things, make sure that for your exercises and especially final project, someone else can clone your repository (or otherwise copy your project if it’s not on Github) to their computer and run everything, without having to have exactly your setup of folders.</p>
 </div>
 <div id="further-resources" class="section level1">
 <h1>Further Resources</h1>

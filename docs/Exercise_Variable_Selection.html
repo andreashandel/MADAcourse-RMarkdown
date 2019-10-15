@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-03" />
+<meta name="date" content="2019-10-15" />
 
 <title>Variable Selection Exercise</title>
 
@@ -525,9 +525,22 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">13. Tree-based models and tuning</li>
-    <li class="dropdown-header">14. More models</li>
-    <li class="dropdown-header">15. A complete data analysis</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-header">14. More ML models and interpretation</li>
+    <li class="dropdown-header">15. Revisiting the complete workflow</li>
     <li class="dropdown-header">16. Deep learning, AI and Big data</li>
   </ul>
 </li>
@@ -562,6 +575,9 @@ div.tocify {
     <li>
       <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
     </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -585,8 +601,20 @@ div.tocify {
 <li>
   <a href="./Course_Glossary.html">Glossary</a>
 </li>
-<li>
-  <a href="./Course_Resources.html">Resources</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -607,7 +635,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Variable Selection Exercise</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-03</h4>
+<h4 class="date">2019-10-15</h4>
 
 </div>
 
@@ -615,6 +643,7 @@ div.tocify {
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <p>This project asks you to write code to practice the variable selection (subset and regularization) discussed in this module. We’ll also use some more general data analysis tasks. This is a continuation of the previous <em>Data Analysis</em> exercise.</p>
+<p><strong>This exercise is likely to take a good bit of time, plan for it!</strong></p>
 </div>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>

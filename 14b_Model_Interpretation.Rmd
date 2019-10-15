@@ -1,0 +1,46 @@
+---
+title: MADA Course - Model interpretation
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will discuss ways one can try to begin understanding the _black box_ that complex models often are.
+
+
+# Learning Objectives
+* Understand what tree-based methods are and how to use them
+* Know when it might be good to use a tree-based method
+* Understand advantages and disadvantages of single trees versus tree ensembles
+
+
+# Introduction
+
+
+# Understanding multi-tree (and other complicated) models 
+
+The models produced by bagging, random forest and boosting are all hard to interpret. There are no coefficients in front of predictors that independently act on the outcome, or simple decision diagrams that can be drawn like for an individual tree. An important question we often want to know is the importance of specific predictors on the outcome. For linear and similar models, we can assess the size of the coefficient. For single trees, we can see if a specific predictor is part of the final tree or not. For these multi-tree models, and other complicated models, investigating the importance of a specific variable in those ways is not possible. 
+
+Fortunately, there are methods that allow you to estimate the importance of predictors. Importance is defined as the impact of a specific predictor on model performance. We'll look at some examples in the exercise. For a lot of good information on model interpretability see the [_Interpretable Machine Learning (IML) book_](https://christophm.github.io/interpretable-ml-book/). I recommend reading through chapters 1 and 2 which provide a very nice introduction to the topic. Chapter 5 describes some approaches that allow one to interpret all kinds of different machine learning models. A good R package to perform model interpretation is `lime`. Both `caret` and `mlr` also provide some functionality to assess variable/feature importance, though this is only supported by some models. See [here](http://topepo.github.io/caret/variable-importance.html) and [here](https://mlr.mlr-org.com/articles/tutorial/feature_selection.html#feature-importance-from-trained-models).
+
+
+Of course, interpretation is even harder for **ensemble models**, since you now potentially average over, say, weighted versions of a linear model, a random forest, and a support vector machine. Fortunately, the methods described above looking at importance of predictors often still work, so some insight can be gleaned into the _black box_ of your complicated model.
+
+
+# Further information
+
