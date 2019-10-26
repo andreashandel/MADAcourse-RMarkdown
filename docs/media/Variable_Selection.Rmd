@@ -11,7 +11,7 @@ output:
 
 This document will guide you through some data analysis tasks with a focus on performing variable selection. For this exercise, we consider a categorical outcome.
 
-While this is in some sense a stand-alone analysis, I assume that you have worked through the _Data Analysis_ exercise and are familiar with the dataset and all the things we discovered during the cleaning process. We'll use the same dataset here but focus on a different outcome. Other than that, the way to work through the exercise is like in the _Data Analysis_ exercise, namely by writing/completing the missing code.
+While this is, in some sense, a stand-alone analysis, I assume that you have worked through the _Data Analysis_ exercise and are familiar with the dataset and all the things we discovered during the cleaning process. We'll use the same dataset here but focus on a different outcome. Other than that, the way to work through the exercise is like in the _Data Analysis_ exercise, namely by writing/completing the missing code.
 
 # Project setup
 We need a variety of different packages, which are loaded here. Install as needed.
@@ -45,7 +45,7 @@ For this analysis, our main outcome of interest is if an outbreak was caused by 
 ```{r checkoutcome}
 #write code to take a look at the outcome variable (gg2c4)
 ```
-Overall, it looks ok, a decent amout in each category (i.e. no unbalanced data). However, we see an odd coding, there are only 2 types of entries, either "Yes" or "", i.e. an empty space. The codebook tells us that this is how things were coded, if it was G2.4 it got a "Yes", if it wasn't it did get an empty space instead of a "No". That's somewhat strange and while the analysis should work, it is better to re-code the empty slots with "No".
+Overall, it looks ok, a decent amount in each category (i.e., no unbalanced data). However, we see an odd coding. There are only 2 types of entries, either "Yes" or "", i.e., an empty space. The codebook tells us that this is how things were coded, if it was G2.4 it got a "Yes", if it wasn't it did get an empty space instead of a "No". That's somewhat strange, and while the analysis should work, it is better to re-code the empty slots with "No".
 
 ```{r clean-outcome}
 #write code to change the empty values in gg2c4 to "No"
@@ -65,7 +65,7 @@ dim(d)
 
 # Cleaning predictors
 
-We'll likely have to perform similar cleaning steps as before. A difference is that earlier we had to drop about half of the observations because no outcome was available. Here, we have outcome for every outbreak. Thus, there is more data to clean, which - as we will see - introduces a few issues we didn't have before, since we dropped the troublesome observations early in the process.
+We'll likely have to perform similar cleaning steps as before. A difference is that earlier we had to drop about half of the observations because no outcome was available. Here, we have an outcome for every outbreak. Thus, there is more data to clean, which - as we will see - introduces a few issues we didn't have before since we dropped the troublesome observations early in the process.
 
 Let's first check for missing values.
 
@@ -73,7 +73,7 @@ Let's first check for missing values.
 # write code that looks at missing values
 ```
 
-Looks like we have again some missing in `Hospitalization` and `Deaths`, and some more in `RiskAll`. Since the missing is not excessive, and to make our life easier, we'll drop them for now. Note however the 'blocks' of missing values for RiskAll. Given that these outbreaks should be entered fairly randomly into the spreadsheet, it is strange to see the NA show up in such blocks. For a real data analysis, it would be worth looking closer and checking why there is a clustering like that.
+It looks like we have again some missing in `Hospitalization`,  `Deaths`, and some more in `RiskAll`. Since the missing is not excessive, and to make our life easier, we'll drop them for now. Note the 'blocks' of missing values, for RiskAll. Given that these outbreaks should be entered fairly randomly into the spreadsheet, it is strange to see the NAs showing up in such blocks. For a real data analysis, it would be worth looking closer and checking why there is a clustering like that.
 
 ```{r further-reduce-data}
 # write code to remove any observations with NA
@@ -88,7 +88,7 @@ You will likely find that as you convert `OBYear` to numeric, something doesn't 
 #also convert any other variables as needed
 ```
 
-Next, we remove the `Unspecified` entry in `Hemisphere` and recode `Action1` and `Path1` as described in the Data Analysis script, i.e. from `Unknown` to `Unspecified`. Also do the same grouping into just `Restaurant` and `Other` with the `Setting_1` variable. Again, remember that there are `restaurant` and `Restaurant` values, so you need to fix that too. 
+Next, we remove the `Unspecified` entry in `Hemisphere` and recode `Action1` and `Path1` as described in the Data Analysis script, i.e., from `Unknown` to `Unspecified`. Also, do the same grouping into just `Restaurant` and `Other` with the `Setting_1` variable. Again, remember that there are `restaurant` and `Restaurant` values, so you need to fix that too. 
 
 
 ```{r clean-more-predictors}
@@ -101,7 +101,7 @@ Next, we remove the `Unspecified` entry in `Hemisphere` and recode `Action1` and
 
 # Data visualization
 
-Next, let's create a few plots showing the outcome and the predictors. For the continuous predictors, I suggest scatter/box/violinplots with the outcome on the x-axis.
+Next, let's create a few plots showing the outcome and the predictors. For the continuous predictors, I suggest scatter/box/violin plots with the outcome on the x-axis.
 
 
 ```{r plots-1}
@@ -111,21 +111,21 @@ Next, let's create a few plots showing the outcome and the predictors. For the c
 
 Things look ok, apart from the skew in the predictors we discussed previously.
 
-Next, let's create plots for the categorical variabless. You can use for instance `geom_count` for it, or some other representation. If you prefer lots of tables, that's ok too.
+Next, let's create plots for the categorical variables. You can use, for instance, `geom_count` for it, or some other representation. If you prefer lots of tables, that's ok too.
 
 ```{r plots-2}
 #write code that produces plots or tables showing our outcome of interest and each categorical predictor.
 ```
 
-You should see from plots or tables that some of the categories are small, e.g. for Action1, the "No" category is very small. Very few entries for a given factor create problems during cross-validation (since we can't have a level show up in the holdout if it wasn't part of the fitting set). So let's look at those factor variables a bit closer and fix as needed.
+You should see from plots or tables that some of the categories are small, e.g., for Action1, the "No" category is very small. Very few entries for a given factor create problems during cross-validation (since we can't have a level show up in the holdout if it wasn't part of the fitting set). So let's look at those factor variables a bit closer and fix as needed.
 
 ```{r, more-factor-check}
 #write code that looks at tables/summaries of factors 
 ```
 
-You should see from your explorations above that there is only a single entry for _No_ in `Action1`, and small entries for _Multiple_ and _Unspecified_ in `Country` and _Environmental_ in `Trans1`. The single _No_ should be fixed, the other somewhat small groupings might be ok. It depends on scientific rationale and method of analysis if you should modify/group those or not. We'll do that.
+You should see from your explorations above that there is only a single entry for _No_ in `Action1`, and small entries for _Multiple_ and _Unspecified_ in `Country` and _Environmental_ in `Trans1`. The single _No_ should be fixed. The other somewhat small groupings might be ok. It depends on scientific rationale and method of analysis if you should modify/group those or not. We'll do that.
 
-Change things as follows: Remove the observation for which action is _No_, combine Countries into 3 groups Japan/USA/Other, and since I don't even know what biologically the difference is between _Environmental_ and _Waterborne_ transmission (seems the same route to me based on my norovirus knowledge), we'll move the Waterborne into the environmental. Finally, I noticed there is a blank category for season. That likely means it wasn't stated in the paper. Let's recode that as _Unknown_. Finally, re-order data such that the outcome is the first column and again remove empty factor levels. Then look at your resulting data frame.
+Change things as follows: Remove the observation for which action is _No_, combine Countries into 3 groups Japan/USA/Other, and since I don't even know what biologically the difference is between _Environmental_ and _Waterborne_ transmission (seems the same route to me based on my norovirus knowledge), we'll move the Waterborne into the environmental. Finally, I noticed there is a blank category for the season. That likely means it wasn't stated in the paper. Let's recode that as _Unknown_. Finally, re-order data such that the outcome is the first column and again remove empty factor levels. Then look at your resulting data frame.
 
 
 ```{r, more-factor-cleaning}
@@ -139,19 +139,18 @@ At this step, you should have a dataframe containing 850 observations, and 18 va
 
 # Data splitting 
 
-We could do data splitting again as we did in the previous exercise, to have a final test set. But since you saw how it works in the previous exercise, we skip it here. We use the full data to fit to our models. We'll still use cross-validation to get a more honest estimate of model performance. For a real data analysis, the choice to keep some for a final test or not is based on your goals. If your focus is predictive performance, you should consider this split. If your focus is inference or exploratory analysis, you might want to skip this.
-
+We could do data splitting again as we did in the previous exercise, to have a final test set. But since you saw how it works in the previous exercise, we skip it here. We use the full data to fit our models. We'll still use cross-validation to get a more honest estimate of model performance. For a real data analysis, the choice to keep some for a final test or not is based on your goals. If your focus is the predictive performance, you should consider this split. If your focus is inference or exploratory analysis, you might want to skip this.
 
 # Model fitting
 
-So I had planned to use `caret` exclusivley for this course. Last time I tried feature/subset selection with `caret`, I found it buggy and not too well documented. I had hoped this had improved since. Unortunately, I was again not really able to get things to work. So even though I said we likely won't use the `mlr` package, I decided that to be able to nicely practice feature/subset selection, we need to do so. It's not a bad idea to get familiar with that package, at times `caret` can do things `mlr` can't do and the reverse. So knowing how to use both is good. We'll thus use `mlr` to do our model fitting in this exercise.
+So I had planned to use `caret` exclusively for this course. Last time I tried feature/subset selection with `caret`, I found it buggy and not too well documented. I had hoped this had improved since. Unfortunately, I was again not really able to get things to work. So even though I said we likely wouldn't use the `mlr` package, I decided that to be able to practice feature/subset selection nicely, we need to do so. It's not a bad idea to get familiar with that package, at times `caret` can do things `mlr` can't do and the reverse. So knowing how to use both is good. We'll thus use `mlr` to do our model fitting in this exercise.
 
 
 # Parallelization
 
-`mlr` allows you to run things in parallel by using multiple cores (`caret` does too). For instance, if you do 5x cross-validation 5x repeated, you essentially run a very similar piece of code 25 times. Normally, you would run one at a time. But if you have it on a machine with 25 cores, all those 25 could run at the same time, giving you a speed-up of 25 (or close to, there is usually some overhead related to doing things in parallel). This kind of parallel computing is sometimes called _embarassingly parallel_, because it's so embarassingly simple to split the task into parallel streams. 
+`mlr` allows you to run things in parallel by using multiple cores (`caret` does too). For instance, if you do 5x cross-validation 5x repeated, you essentially run a very similar piece of code 25 times. Normally, you would run one at a time. But if you have it on a machine with 25 cores, all those 25 could run at the same time, giving you a speed-up of 25 (or close to, there is usually some overhead related to doing things in parallel). This kind of parallel computing is sometimes called _embarassingly parallel_, because it's so embarrassingly simple to split the task into parallel streams. 
 
-Since doing the subset selection below starts getting slow, and because it's a good topic to know about, we are going to use  parallelization here. `mlr` uses the package `parallelMap` for this. All you need to do is specify the number of cores/processors you want to use and start the parallel system, and `mlr` then automatically does things in parallel if feasible.
+Since doing the subset selection below starts getting slow, and because it's a good topic to know about, we are going to use parallelization here. `mlr` uses the package `parallelMap` for this. All you need to do is specify the number of cores/processors you want to use and start the parallel system, and `mlr` then automatically does things in parallel if feasible.
 
 ```{r, start-parallel}
 #set the number of cores you want to use. Note that this is actually the number of 'logical processors', which is 2x the number of cores. On a windows machine, the number of cores/logical processors can be found in the task manager. You should only set it to what your computer has (or less). So if your computer has say 4 or 6 cores, you can set it to that, or some lower number. Setting it to a number higher than the cores your computer has doesn't further speed up things, in fact it slows things down.
@@ -164,7 +163,7 @@ parallelStartSocket(ncpu, show.info=FALSE)
 
 # Setup
 
-Some setup settings that are used in various code chunks below. 
+The code below provides the setup settings that are used in various code chunks below.  
 
 ```{r mlr-setup}
 outcome <- d$gg2c4 
@@ -180,7 +179,7 @@ sampling_choice = makeResampleDesc("RepCV", reps = 5, folds = 5)
 
 ## A null model
 
-To define a null model, we need to determine what performance measure we want to track. As mentioned in the course materials, there are different performance measures. Accuracy or misclassification error is simple, it just counts the number of times the model got it right/wrong. We'll start with that one, and then try another one later. `mlr` allows for a lot of different performance measures for both categorical and continuous outcomes, see [here](https://mlr.mlr-org.com/articles/tutorial/performance.html) and [here](https://mlr.mlr-org.com/articles/tutorial/measures.html).
+To define a null model, we need to determine what performance measure we want to track. As mentioned in the course materials, there are different performance measures. Accuracy or misclassification error is simple since it just counts the number of times the model got it right/wrong. We'll start with that one, and then try another one later. `mlr` allows for a lot of different performance measures for both categorical and continuous outcomes, see [here](https://mlr.mlr-org.com/articles/tutorial/performance.html) and [here](https://mlr.mlr-org.com/articles/tutorial/measures.html).
 
 For accuracy, the simplest null model always predicts the most frequent category. We can use that as baseline performance.
 
@@ -194,7 +193,7 @@ You should find that the null model has an accuracy of around 0.69.
 
 ## Single predictor models
 
-Now let's consider single predictor models, i.e. we'll fit the outcome to each predictor one at a time to get an idea of the importance of individual predictors. To evaluate our model performance, we will use cross-validation. Since our outcome is categorical, we'll use a logistic model.
+Now let's consider single predictor models, i.e., we'll fit the outcome to each predictor one at a time to get an idea of the importance of individual predictors. To evaluate our model performance, we will use cross-validation. Since our outcome is categorical, we'll use a logistic model.
 
 ```{r, unifit, warning=FALSE}
 set.seed(1111) #makes each code block reproducible
@@ -217,7 +216,7 @@ for (nn in 1:npred)
 kable(unifmat)
 ```
 
-So looks like none of the single predictor models have a higher accuracy than the null. Maybe surprising. We'll get back to that below.
+So it looks like none of the single predictor models have better accuracy than the null. Maybe surprising. We'll get back to that below.
 
 # Full model
 
@@ -234,9 +233,9 @@ print(ACC_fullmodel)
 
 So a very small improvement over the simple models.
 
-Now let's do subset selection. The code below does it several ways. It does regular forward and backward selection and floating versions of those. It also uses a genetic algorithm for selection. See the `mlr` website [here](https://mlr.mlr-org.com/articles/tutorial/feature_selection.html) for details.
+Now let's do subset selection. The code below does it in several ways. It does regular forward and backward selection along with floating versions of both. It also uses a genetic algorithm for selection. See the `mlr` website [here](https://mlr.mlr-org.com/articles/tutorial/feature_selection.html) for details.
 
-Also note that I included a kind of timer in the code, to see how long things take. That's a good idea if you run bigger models. You first run a few iterations on maybe a few cores, then you can compute how long it would take if you doubled the iterations, or doubled the cores, etc. This prevents bad surprises of trying to _quickly_ run a piece of code and waiting hours. You should always use short runs to make sure everything works in principle, and only at the end do the real, long "production" runs. Otherwise you might waste hours/days/weeks waiting for results only to realize that you made a basic mistake and you have to do it all over.
+Also note that I included a kind of timer in the code, to see how long things take. That's a good idea if you run bigger models. You first run a few iterations on maybe a few cores, and then you can compute how long it would take if you doubled the iterations, or doubled the cores, etc. This prevents bad surprises of trying to _quickly_ run a piece of code and waiting hours. You should always use short runs to make sure everything works in principle, and only at the end do the real, long "production" runs. Otherwise, you might waste hours/days/weeks waiting for results only to realize that you made a fundamental mistake, and you have to do it all over.
 
 ```{r mlr-subset selection}
 set.seed(1111) 
@@ -279,17 +278,17 @@ print(sprintf('subset selection took %f minutes',runtime.minutes_SS));
 kable(resmat)
 ```
 
-So we find that some of the sub-models perform somewhat better. Note that the different methods find different submodels and the forward selection method seems to fail (since none of the single-predictor models is better than the null, it stops there). Also note that the genetic algorithm was only allowed to run for a short time (the number if iterations is small). To get potentially better results, that should be increased to a larger number, e.g. 1000 or more. But this will take a longer time, unless you have many cores you can use when you parallelize.
+So we find that some of the sub-models perform somewhat better. Note that the different methods find different submodels, and the forward selection method seems to fail (since none of the single-predictor models is better than the null, it stops there). Also, note that the genetic algorithm was only allowed to run for a short time (the number of iterations is small). To get potentially better results, that should be increased to a larger number, e.g., 1000 or more. But this will take a long time unless you have many cores you can use when you parallelize.
 
 # Different performance measures
 
 So far, we found that some of the sub-models provide a minor improvement over the simple null or single-predictor models or the full model. However, the improvement is not much.
 
-We could try tweaking further, e.g. by pre-processing the predictors (which is a good idea to try, but we won't do here) or testing a different model (which we'll do below). 
+We could try tweaking further, e.g., by pre-processing the predictors (which is a good idea to try, but we won't do here) or testing a different model (which we'll do below). 
 
-For now, I want to discuss performance measure a bit more. The problem is that logistic regression, as well as many (though not all) algorithms that are used for classification (predicting categorical outcomes) return probabilities for an outcome to belong to a certain category. Those are then turned into Yes/No predictions (in the case with 2 outcomes like we have here), based on some cut-off. By default, a probability value of 0.5 is chosen. If the model predicts that there is a 0.5 or greater probability of the outcome being "Yes", it is scored as such in the prediction, otherwise as no. However, this 0.5 threshold is not always good. It could be that we might get a much better model if we use another threshold. There is a technique that scans over different thresholds and evaluates model performance for each threshold. This is generally called _receiver operating curve_. If this concept is new to you, check out [this article on Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) or [this tutorial on the mlr website](https://mlr.mlr-org.com/articles/tutorial/roc_analysis.html).
+For now, I want to discuss performance measures a bit more. The problem is that logistic regression, as well as many (though not all) algorithms that are used for classification (predicting categorical outcomes), return probabilities for an outcome to belong to a certain category. Those are then turned into Yes/No predictions (in the case with 2 outcomes like we have here), based on some cut-off. By default, a probability value of 0.5 is chosen. If the model predicts that there is a 0.5 or greater probability of the outcome being "Yes", it is scored as such in the prediction, otherwise as no. However, this 0.5 threshold is not always good. It could be that we might get a much better model if we use another threshold. There is a technique that scans over different thresholds and evaluates model performance for each threshold. This is generally called the _receiver operating curve_. If this concept is new to you, check out [this article on Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) or [this tutorial on the mlr website](https://mlr.mlr-org.com/articles/tutorial/roc_analysis.html).
 
-Using this approach, a model is evaluated based on the Area under the curve (AUC), with an AUC=0.5 meaning a model is not better than chance, and AUC=1 meaning a perfect model. Let's re-do the analysis above, but replace accuracy with AUC.
+Using this approach, the model is evaluated based on the Area under the curve (AUC), with an AUC=0.5, meaning a model is not better than chance, and AUC=1 meaning a perfect model. Let's re-do the analysis above, but replace accuracy with AUC.
 
 
 # Model performance with AUC
@@ -303,13 +302,13 @@ Using this approach, a model is evaluated based on the Area under the curve (AUC
 
 You should find that the null model has an AUC of 0.5, as expected for a "no information" model.
 
-Now we run the single-predictor models again.
+Now we rerun the single-predictor models.
 
 ```{r, unifit-auc, warning=FALSE}
 #copy and paste the code from above for single predictor fits, but now switch to AUC instead of accuracy.
 ```
 
-Looks like there are a few single-predictor models with better performance than the null model.
+It looks like there are a few single-predictor models with better performance than the null model.
 
 
 Now let's again fit a full model with all predictors. 
@@ -326,12 +325,12 @@ This is better than any single-predictor models. Let's see if a sub-model can do
 #copy and paste the code from above for the subset selection, but now switch to AUC instead of accuracy.
 ```
 
-Looks like we get some sub-models that are slightly better than the full model, at least as evaluated using the (cross-validated) AUC measure.
+It looks like we get some sub-models that are slightly better than the full model, at least as evaluated using the (cross-validated) AUC measure.
 
 
 # More on ROC/AUC 
 
-While this is a common measure and useful to evaluate how models perform at different cut-off levels, one needs to keep in mind that this doesn't really measure the performance of a single model, but instead the combined performance of all models with different cut-offs. In practice, if we want to use a model, we have to pick one cut-off. For that purpose, one can look at the whole ROC curve and one then usually chooses the model in the "top-left" corner of the curve, which gives the best overall performance with a good balance between FP and TP. Let's plot that ROC curve for the model found by the GA.
+While this is a common measure and useful to evaluate how models perform at different cut-off levels, one needs to keep in mind that this doesn't really measure the performance of a single model, but instead the combined performance of all models with different cut-offs. In practice, if we want to use a model, we have to pick one cut-off. For that purpose, one can look at the whole ROC curve, and one then usually chooses the model in the "top-left" corner of the curve, which gives the best overall performance with a good balance between FP and TP. Let's plot that ROC curve for the model found by the GA.
 
 ```{r roc-plot}
 set.seed(1111) #makes each code block reproducible
@@ -344,18 +343,18 @@ plotROCCurves(df)
 ```
 
 
-Based on this plot, a FP of around 0.5 an TP of around 0.75 seem to produce a good model. Digging into the `df` object, you can find the raw data underlying the curve in `df$data` and will find 
+Based on this plot, a FP of around 0.5, a TP of around 0.75, seems to produce a good model. Digging into the `df` object, you can find the raw data underlying the curve in `df$data` and will find 
 
 ```{r roc-best}
 print(df$data[29:31,])
 ```
 
-This means for this model, if we were to use it we might want to set a threshold of around 0.3, i.e. everything above that probability would be predicted as positive/yes.
+So for this model, if we were to use it, we might want to set a threshold of around 0.3, i.e., everything above that probability would be predicted as positive/yes.
 
 
 # Trying a different model
 
-Let's see if we can find another model that might perform even better. Let's look at a Linear Discriminant Analysis (LDA) model. See e.g. chapter 4 of ISLR for more on that model. We again consider AUC as our measure. The null-model performance is the same, we need to re-do the remainder.
+Let's see if we can find another model that might perform even better. Let's look at a Linear Discriminant Analysis (LDA) model. See e.g., chapter 4 of ISLR for more on that model. We again consider AUC as our measure. The null-model performance is the same, and we need to re-do the remainder.
 
 Let's re-run the single model, followed by the full model and subset selection.
 
@@ -394,11 +393,11 @@ parallelStop()
 
 Based on the above, we could choose a model simply by best performance. However, we likely also still want to look at model prediction uncertainty and do some residual plots and other diagnostics for our chosen model before we finalize our choice. As was the case for `caret`, `mlr` also comes with lots of functions that make these - and many other - tasks easier. We'll leave it at this for now, and might revisit some of those topics in further exercises.
 
-Also, none of the models here are that great. We might want to think more about our initial premise, i.e. looking for associations between virus strain type and other variables and what the scientific rationale is for expecting variations. Here, we just ran the model and looked what we might find. That approach, sometimes called _data exploration_ or _data mining_ or - less charitable _fishing expedition_ is ok, but we need to be careful how we interpret and use the results. Going in with a clear hypothesis is usually better.
+Also, none of the models here are that great. We might want to think more about our initial premise, i.e., looking for associations between virus strain type and other variables and what the scientific rationale is for expecting variations. Here, we just ran the model and looked at what we might find. That approach, sometimes called _data exploration_ or _data mining_ or - less charitable _fishing expedition_, is ok, but we need to be careful how we interpret and use the results. Going in with a clear hypothesis is usually better.
 
 
 
 # A few more comments
 
-Things are getting a bit slow now, despite the multiple cores we need minutes to run things. Also, code chunks get larger. At this point, it might be worth considering a structure whereby most of the code lives in one or several **well documented** R scripts, which can be run independently. Those R scripts should save their results, and those results are then loaded here. The advantage is that if one wants to make changes to a small part of the analysis, one can modify and run just that part and update the whole document by re-knitting without having to run all code. For any big/serious analysis, I suggest such a setup that splits R code from RMarkdown files, at least for the computationally intensive parts.
+Things are getting a bit slow now. Despite the multiple cores, we need minutes to run things. Also, code chunks get larger. At this point, it might be worth considering a structure whereby most of the code lives in one or several **well documented** R scripts, which can be run independently. Those R scripts should save their results, and those results are then loaded here. The advantage is that if one wants to make changes to a small part of the analysis, one can modify and run just that part and update the whole document by re-knitting without having to run all code. For any big/serious analysis, I suggest such a setup that splits R code from RMarkdown files, at least for the computationally intensive parts.
 
