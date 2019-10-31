@@ -1,0 +1,46 @@
+---
+title: Project Review Information 
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+After the project has been completed, each of you will review the projects of 2 of your classmates, similar to peer-review of a manuscript submitted for publication.
+
+I have several goals for this project review:
+
+* You get feedback that helps you improve your project.
+* You get experience with giving and receiving reviewer feedback, like you would when you submit a paper for publication or review someone's submitted paper.
+* You practice being on the 'receiving end' of reproducible research, i.e. you will have to be able to reproduce someone else's project so you can properly critique it.
+
+# Logistics
+* The last week of the class is devoted to project review.
+* By Friday 11/29, everyone has to push their finished project to their repository. Please have only one project repository and delete any others, so it's easier for your classmates to figure out where your project is located.
+* Go to the class list document and find the 2 persons listed below you. If you are the last or 2nd to last person, you start again at the top (i.e. you review the last and first, or first and second person).
+* For reviewing, we'll use the _fork and pull_ workflow. Fork the project repositories of your classmates into your personal GitHub account, then clone them to your local computer. 
+* Follow their provided instructions to reproduce everything. Review the whole project using [this review template](./media/Project_Review_Template.Rmd).
+* Write up a detailed review using and filling out the template Markdown file. Once you are done, send a pull request for each project you review, containing your completed review document.
+
+
+
+# Review Assessment Rubric
+Ok, now it gets maybe a bit complicated. I will review and assess the quality of your reviews. To that end, I'll use a fairly simple rubric, similar to the ones for the previous project submissions.
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Absent | No reviews were submitted | 0 |
+| Insufficient | Only one review was submitted, or submissions were very incomplete | 50 |
+| Not fully sufficient | Reviews are somewhat incomplete, lack useful/detailed feedback | 75 |
+| Sufficient | Reviews are complete or fairly complete | 100 |
+
+
+# Finals steps
+* Use the feedback/reviews you get to further improve your project.
+* Push your final project to your GitHub repository by the specified deadline for final grading.
+* I will assess your final project using the same categories in the template used during peer review.

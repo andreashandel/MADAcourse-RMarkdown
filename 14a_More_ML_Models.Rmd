@@ -1,0 +1,112 @@
+---
+title: MADA Course - More Machine Learning Models 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will very briefly cover some further useful machine learning/statistical models that can be used to analyze and fit data.
+
+
+# Learning Objectives
+* Be familiar with several common machine learning methods.
+* Understand advantages and disadvantages of different model types.
+
+
+# Introduction
+By now, through using `caret` and `mlr` and general exposure to this material, I am sure you have picked up on the fact that there are many different statistical and machine learning models. [Sections 6 and 7 of the caret manual](http://topepo.github.io/caret/available-models.html) and the [Integrated Learners section of mlr](https://mlr.mlr-org.com/articles/tutorial/integrated_learners.html) list all the models that can be accessed through those 2 packages. And of course, there are many more machine learning and statistical methods available that are not implemented in either one of those 2 packages.
+
+Models fall in broad classes, and within each class, there are many different variants. The following brief discussion covers some of the more common, important and widely used types of models. This is a very cursory overview. The provided references give more information for different methods, if you want to learn more. A fair share of these methods are also covered in separate units.
+
+
+# Generalized linear models (GLM)
+The most common types of multi-predictor models are GLM. Among GLM, linear and logistic regression models are by far the most commonly used ones. Other models that assume specific distributions of the outcome, e.g. a Poisson distribution, can be accomodated by choosing the appropriate _link function_, which connects a linear combination of predictor variables with the outcome. GLM  models are fast and easy to fit (using e.g. the `glm` function in R), fairly easy to interpret, and often provide performance that is hard to improve upon with more complicated models, especially if the data is on the small side. To prevent overfitting, variable/feature selection or regularization approaches are often used. GLM assume a specific relation between predictors and outcome (e.g. linear, logistic) and as such might not perform well on data that does not show the assumed pattern.
+
+[Chapters 3 and 4 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discuss linear and logistic models. So do [chapters 4 and 5 of HMLR](https://bradleyboehmke.github.io/HOML/linear-regression.html).
+
+
+# Splines and Generalized additive models (GAM)
+
+GLM enforce a specific relation between outcome and predictors (e.g. linear or logistic). While this is often a decent approximation, at times the relation might be more complicated and nonlinear. In such a case, moving from GLM to more flexible models might improve performance. You can think of GLM as the multi-variable equivalent of a parametric statistical test (e.g. a t-test) and splines/GAM as the multi-variable equivalent of a non-parametric test (e.g. a rank test).
+These types of models preserve the feature that predictors enter the equation one at a time and are added. But now, each predictor can be related to the outcome with a - potentially complicated - function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAM allow for more flexible relations between predictors and outcome than GLM, and are still fairly easy to fit and interpret, but not quite as easily. Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that's not the case, one often uses spline function, and let the data determine the exact shape of the splines. In that way, one can think of GAM as a non-parametric way of getting a good and still fairly simple model that fits the data.
+
+[Chapter 7 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses splines and GAM. So does [chapter 7 of HMLR](https://bradleyboehmke.github.io/HOML/mars.html).
+
+
+
+# Tree based models
+
+We covered tree based models in a separate unit. This class of models is very flexible, it allows analysis of both continuous and categorical data (with multiple categories). Many tree algorithms can deal with missing data. Tree algorithms can take into account non-linear relations between predictor variables and outcome. Basic tree models are easy to build and understand. The y also perform automatic variable selection and only use predictors in the tree that are useful. Methods based on combining multiple trees tend to improve performance, but take longer to fit and are harder to interpret. Overall, tree-based methods are a class of very useful, flexible, and often great performing models.
+
+[Chapter 8 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses tree based models. So do [chapters 9-12 of HMLR](https://bradleyboehmke.github.io/HOML/DT.html).
+
+
+# K nearest neighbors (KNN)
+We've previously seen some KNN models. KNN models are somewhat strange, inasmuch as they are in some sense not real models. Instead, all the data is used to predict new observations by comparing them to existing ones and predicting outcomes based on closeness of predictor variables. KNN often perform well, but they are not very "portable". For other models, once you trained/fit a model, you can "take it with you" and apply the model to new data, leaving the old data you used for model building behind. For KNN, the data is the model, so you always need the data for new predictions. This makes such models often not too useful in practice. KNN are however good for some tasks, e.g. for imputation of missing values during the fitting process.
+
+[Chapter 3 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses KNN. So does [chapter 8 of HMLR](https://bradleyboehmke.github.io/HOML/DT.html).
+
+
+
+# Discriminant Analysis
+
+While logistic regression is the most widely used approach for classification, it has several limitations. For one, it doesn't easily generalize to outcomes that have more than 2 categories. Also, for certain types of data, logistic regression might not perform very well. Other methods like tree-based, KNN or SVM methods can ne used for multi-category outcome classification and often provide good performance. Another option are discriminant analysis methods. Those approaches are fairly easy to implement and fit. At times, they provide better performance than logistic regression and might do as well as more complicated models.
+
+[Chapter 4 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses discriminant analysis.
+
+
+
+# Support Vector Machines (SVM)
+
+This is a class of models we have not talked about yet. SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contains outliers. As with multi-tree methods, SVM models are somewhat hard to interpret. 
+
+[Chapter 9 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses SVM. So does [chapter 14 of HMLR](https://bradleyboehmke.github.io/HOML/svm.html).
+
+
+# Neural Nets
+
+Neural Nets are currently the most powerful and flexible class of machine learning methods. We will discuss them a bit more in the _Deep Learning_ module. Those types of models generally have many parameters that need tuning. Therefore, for good and reliable performance they usually need a lot of data, and since training can take a long time, fast computers.
+
+[Chapter 13 of HMLR](https://bradleyboehmke.github.io/HOML/deep-learning.html) discusses neural nets.
+
+
+# Ensemble methods
+It is possible to build models which are combinations of different types of base models, e.g. combine a tree-based model with an SVM. Those approaches are known variously as _ensemble methods_ or _super learners_ or _stacked models_. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more _black box_) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.
+
+[Chapter 15 of HMLR](https://bradleyboehmke.github.io/HOML/deep-learning.html) discusses ensemble/stacked models.
+
+
+# Unsupervised learning
+We haven't discussed unsupervised learning much in this course. The reason is that most data analysis problems deal with supervised learning, i.e. with data that has a specific outcome of interest. However, there are situations where data without a given outcome needs to be analyzed. For instance images or customers might need to be sorted into categories. This analysis approach is also called _clustering_. Sometimes, unsupervised learning is also used as a preparatory step in a supervised learning setting. For instance it can be used to reduce the number of predictors. This is called _dimension reduction._ It is common in areas where one measures lots of variables but the observations are small, e.g. genetic information on a few hundred individuals, with 1000s of genetic markers measured for each person. In such a case, one can reduce the number of predictor variables into a set of combinations of the original predictors such that the new set contains the most important information. Then one can use that reduced set to perform supervised learning.
+
+Methods like _K-means clustering_ or _Hierarchical clustering_ are - as the name suggests - used for clustering of unlabeled data. _Partial least squares (PLS)_ and _Principal component analysis (PCA)_ are methods for dimension reduction. Since for unsupervised learning, a performance measure like RMSE or Accuracy does not exist, other metrics are used to define the quality of model results. Different algorithms use different ways to perform the unsupervised learning task.
+
+[Chapter 10 of ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/) discusses several unsupervised learning methods. So do [sections 3 and 4 (chapters 17-22) of HMLR](https://bradleyboehmke.github.io/HOML/) and [chapter 34 of IDS](https://rafalab.github.io/dsbook/clustering.html).
+
+
+# General considerations
+There is no recipe for choosing a specific machine learning/statistical model. It depends on the data, the question, the overall goal, what others in the field are using, and potentially further factors. In general, the most thorough approach is to try both simple and complex models, and then decide based on model performance and other considerations such as simplicity, speed, scalability, etc. on a specific model. There is always a level of subjectivity involved, i.e. different analysts might favor different models. As long as the thought process behind choosing a specific model is well explained and justified, you should be allowed to choose the model that you think is overall best for a given situation. Since it is very easy to fit multiple different models and compare results (using e.g. `caret` or `mlr`), it is not a bad idea to do that. You can report the results form the main model you chose as the main findings, with results from other models as supplementary material.
+
+
+# Further information
+
+The references above for each class of models provide further reading. Those 3 sources, namely [ISL](http://faculty.marshall.usc.edu/gareth-james/ISL/), [IDS](https://rafalab.github.io/dsbook/) and [HMLR](https://bradleyboehmke.github.io/HOML/) are very good starting points for learning more about different machine learning methods. The _Resources_ section of the course provides some further pointers to additional material, and of course there is a lot of other, often free, information available online. You should be able to find more details on any of these methods with just a few online searches.
+
+
+
+

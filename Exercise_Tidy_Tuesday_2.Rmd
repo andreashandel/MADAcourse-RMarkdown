@@ -1,0 +1,38 @@
+---
+title: TidyTuesday 2 Exercise 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+For this exercise, we will do another TidyTuesday project. This time, you are asked to include some statistical analyses into your project.
+
+
+# TidyTuesday 2 Workflow
+
+Follow the usual GitHub workflow.
+
+* Either set up a new repository for this exercise, or make it part of your Data Analysis repository/website.
+* [Get this week's TidyTuesday data](https://github.com/rfordatascience/tidytuesday). 
+* Write code to analyze the data (see below). 
+* Once you finished your analysis/Rmd file, turn it into html and either update your Data Analysis website with the appropriate link, or if you created a stand-alone repository, make sure it displays as website (see the "Introducing Ourselves" exercise). If you want, post an annoncement to eLC about your analysis. If you are active on social media, you can post an announcement of your project there. 
+* For any help requests, post your questions to the discussion boards. 
+
+
+# TidyTuesday 2 specific instructions
+
+* After learning what the dataset is, think of one or a few questions you might want to answer. That means, decide what your outcome(s) of interest is/are, and what (if any) your main predictor of interest. Based on that, decide on what kinds of models you might want to use for analysis.
+
+* Do enough wrangling/cleaning/processing to get your data into a shape that you can use for your analysis. You can be briefer here than in the previous TidyTuesday exercise, but of course you have to get the data ready for modeling.
+
+* Fit at least 2 different suitable models to your data. Report model performance, model diagnostics and overall findings. Discuss what it means, both for the models you used and for the overall question you asked.
+
+* You can (but don't have to) follow the structure of some of the recent exercises where we analyzed the Norovirus dataset. The focus of this exercise should be on the modeling part. Once done, write it all up and post as described above.
+
+

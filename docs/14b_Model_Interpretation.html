@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-26" />
+<meta name="date" content="2019-10-31" />
 
 <title>MADA Course - Model interpretation</title>
 
@@ -539,9 +539,42 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">14. More ML models and interpretation</li>
-    <li class="dropdown-header">15. Revisiting the complete workflow</li>
-    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -578,6 +611,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
     </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -592,6 +631,9 @@ div.tocify {
     </li>
     <li>
       <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
     </li>
   </ul>
 </li>
@@ -635,34 +677,35 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Model interpretation</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-26</h4>
+<h4 class="date">2019-10-31</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will discuss ways one can try to begin understanding the <em>black box</em> that complex models often are.</p>
+<p>This very short unit introduces ways one can try to begin understanding the <em>black box</em> that complex models often are.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Understand what tree-based methods are and how to use them</li>
-<li>Know when it might be good to use a tree-based method</li>
-<li>Understand advantages and disadvantages of single trees versus tree ensembles</li>
+<li>Understand how one can study results from complex models</li>
+<li>Know how to do such analyses in R</li>
 </ul>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
+<p>In the materials describing tree-based models, I mentioned that once you make multi-tree models, it is difficult to interpret the final model. This is also true for other more complex models that we didn’t discuss in much detail, e.g. support vector machines (SVM). The nice ability to write down a simple model like we can do for GLM has been lost. For more complex models, we gave up simplicity in the search of better predictive performance. It is however still possible to peek inside the black box that is a complicated model and try to understand how specific variables impact the outcome. This is the topic of this short unit.</p>
 </div>
-<div id="understanding-multi-tree-and-other-complicated-models" class="section level1">
-<h1>Understanding multi-tree (and other complicated) models</h1>
-<p>The models produced by bagging, random forest and boosting are all hard to interpret. There are no coefficients in front of predictors that independently act on the outcome, or simple decision diagrams that can be drawn like for an individual tree. An important question we often want to know is the importance of specific predictors on the outcome. For linear and similar models, we can assess the size of the coefficient. For single trees, we can see if a specific predictor is part of the final tree or not. For these multi-tree models, and other complicated models, investigating the importance of a specific variable in those ways is not possible.</p>
-<p>Fortunately, there are methods that allow you to estimate the importance of predictors. Importance is defined as the impact of a specific predictor on model performance. We’ll look at some examples in the exercise. For a lot of good information on model interpretability see the <a href="https://christophm.github.io/interpretable-ml-book/"><em>Interpretable Machine Learning (IML) book</em></a>. I recommend reading through chapters 1 and 2 which provide a very nice introduction to the topic. Chapter 5 describes some approaches that allow one to interpret all kinds of different machine learning models. A good R package to perform model interpretation is <code>lime</code>. Both <code>caret</code> and <code>mlr</code> also provide some functionality to assess variable/feature importance, though this is only supported by some models. See <a href="http://topepo.github.io/caret/variable-importance.html">here</a> and <a href="https://mlr.mlr-org.com/articles/tutorial/feature_selection.html#feature-importance-from-trained-models">here</a>.</p>
-<p>Of course, interpretation is even harder for <strong>ensemble models</strong>, since you now potentially average over, say, weighted versions of a linear model, a random forest, and a support vector machine. Fortunately, the methods described above looking at importance of predictors often still work, so some insight can be gleaned into the <em>black box</em> of your complicated model.</p>
-</div>
-<div id="further-information" class="section level1">
-<h1>Further information</h1>
+<div id="interpretation-of-complex-models" class="section level1">
+<h1>Interpretation of complex models</h1>
+<p>A nice feature of using subset selection or LASSO with GLMs, or fitting a single tree, is that the algorithm decides which predictor variables are important, and throws out the remaining ones. For the ones that stay in the model, we can look at the coefficients in front of each predictor variable, or look at the final tree/decision diagram, to assess the importance of individual predictor variables on the outcome. This provides an easy way to understand <em>how</em> specific variables influence the outcome.</p>
+<p>Those simple approaches are not available anymore for more complex models. With complex models, we generally give up interpretability in exchange for better performance. However, we ideally want both. The last several years have seen a good amount of development to come up with methods that allow one to peek inside the black box, i.e. to understand why and how a complex model makes its predictions, and what the role of specific predictor variables is on the outcome. This area is generally called <em>interpretable machine learning</em>.</p>
+<p>There’s no point in me repeating what others have already said (much better than I could) 😃, therefore, instead of me writing more on this, please read <a href="https://christophm.github.io/interpretable-ml-book/">chapters 1 and 2 of the <em>Interpretable Machine Learning (IML) book</em></a>, which gives a very nice introduction on this topic. As you can tell by the title, the whole book is about interpretation of machine learning methods, and is a great resource. <a href="https://christophm.github.io/interpretable-ml-book/agnostic.html">Chapter 5 of IML</a> describes some approaches that allow one to interpret all kinds of different machine learning models.</p>
+<p>For a shorter, but also great resource, check out <a href="https://bradleyboehmke.github.io/HOML/iml.html">chapter 16 of HMLR</a>, which provides both a quick introduction and overview to the topic, and lists and illustrates the use of several R packages to do various interpretation tasks.</p>
+<p>Also note that both <code>caret</code> and <code>mlr</code> provide functions that allow assessment of variable importance for some of the included models. See <a href="http://topepo.github.io/caret/variable-importance.html">section 15 of the <code>caret</code> manual</a> and <a href="https://mlr.mlr-org.com/articles/tutorial/feature_selection.html">the feature importance section of <code>mlr</code></a> for more details.</p>
+<p>As models get more complex, making sense of them will increase in importance. Even if you are mainly interested in predictive performance and less on understanding your system, it is a good idea to investigate your model in some detail. You might often figure out things that can help further increase model performance. Also, without understanding at least to some extent how complex models make their predictions, the potential for unnoticed bias increases. A good example of this can be found <a href="https://science.sciencemag.org/content/366/6464/447">in this very recent Science paper</a> which describes racial bias in a machine learning model that tries to predict healthcare needs of patients. See also <a href="https://science.sciencemag.org/content/366/6464/421">this commentary</a> on the article. Thus, this area of interpreting results from complex models will likely see much development in the near future, hopefully leading to models that are both powerful (and thus likely complex) and interpretable.</p>
+<p>Given how easy it is to apply some of these methods to your models, I recommend that if you decide to use a somewhat complex model (or even a not-so complex one), you should always do at least some analyses that probe the model, e.g. perform a variable importance analysis and related investigations as described in the references above. I hope to see some model explorations as part of your final project 😃.</p>
 </div>
 
 

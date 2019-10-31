@@ -1,0 +1,32 @@
+---
+title: Deep learning, AI and big data 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+
+# Module Assessments
+
+Make sure you've gone through all the content for this module.
+
+
+## Quiz
+
+There is no quiz for this module.
+
+
+## Exercise
+
+For this week's (short) exercise, you are asked to reproduce one of 3 tutorials using Keras. See the `Deep Learning` exercise document for more information. **This exercise is optional.**
+
+
+
+
+

@@ -114,20 +114,25 @@ left:
           - text: "13c. Assessment"
             href: ./13c_Assessment.html
       - text: "14. More ML models and interpretation"
-        # menu:
-        #  - text: "14a. More ML Models"
-        #    href: ./14a_More_ML_Models.html     
-        #  - text: "14b. Model Interpretation"
-        #    href: ./14b_Model_Interpretation.html     
-        #  - text: "14c. Assessment"
-        #    href: ./14c_Assessment.html
-      - text: "15. Revisiting the complete workflow"
-        # menu:
-        #  - text: "15a. Complete data analysis workflow"
-        #   href: ./15a_Complete_data_analysis_workflow.html     
-        #  - text: "15b. Assessment"
-        #    href: ./15b_Assessment.html
+        menu:
+          - text: "14a. More ML Models"
+            href: ./14a_More_ML_Models.html     
+          - text: "14b. Model Interpretation"
+            href: ./14b_Model_Interpretation.html     
+          - text: "14c. Assessment"
+            href: ./14c_Assessment.html
+      - text: "15. Revisiting the complete analysis workflow"
+        menu:
+          - text: "15a. Complete data analysis workflow"
+            href: ./15a_Complete_data_analysis_workflow.html     
+          - text: "15b. Assessment"
+            href: ./15b_Assessment.html
       - text: "16. Deep learning, AI and Big data"
+        menu:
+          - text: "16a. Deep Learning, AI and Big Data"
+            href: ./16a_DL_AI_BigData.html     
+          - text: "16b. Assessment"
+            href: ./16b_Assessment.html
   - text: "Exercises"
     menu:
        - text: "Introducing ourselves"
@@ -148,12 +153,18 @@ left:
          href: ./Exercise_Variable_Selection.html
        - text: "Tree Fitting"
          href: ./Exercise_Tree_Fitting.html
+       - text: "TidyTuesday 2"
+         href: ./Exercise_Tidy_Tuesday_2.html
+       - text: "Deep Learning"
+         href: ./Exercise_Deep_Learning.html
   - text: "Project"
     menu:
        - text: "Project information"
          href: ./Project_Information.html
        - text: "Project rubric"
          href: ./Project_Rubric.html
+       - text: "Project review"
+         href: ./Project_Review.html
   - text: "Communication"
     href: ./Course_Communication.html
   - text: "Glossary"

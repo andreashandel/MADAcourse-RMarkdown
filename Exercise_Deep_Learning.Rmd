@@ -1,0 +1,33 @@
+---
+title: Deep Learning exercise
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+
+This exercise asks you to reproduce one of 3 tutorials found on the [RStudio Keras website](https://keras.rstudio.com/). 
+This is meant to be a short exercise that allows you to play around and get a bit of an idea of some deep learning approaches in R.
+
+# Instructions
+
+* You can use the repository and website you created for the _Data Analysis_ exercise.
+* Follow the [Getting Started](https://keras.rstudio.com/articles/getting_started.html) instructions on the RStudio Keras website. Note that you can now install Keras from CRAN with `install.packages`, you do not need to install it from GitHub.
+* For Keras to work, you need to install Anaconda, a version of Python. You'll be told what to do in the error message when you run `install_keras()`.
+* Once Keras is up and running, do one of these 3 tutorials: [Basic Classification](https://keras.rstudio.com/articles/tutorial_basic_classification.html), [Text Classification](https://keras.rstudio.com/articles/tutorial_basic_text_classification.html) or [Basic Regression](https://keras.rstudio.com/articles/tutorial_basic_regression.html). Essentially just copy the code from those tutorials into an Rmd file and execute it. Feel free to add or modify the code for any additional explorations you want to try out. Of course, feel free to do more than one of these 3 tutorials, or some of the others.
+* Once you finished with playing around with Keras, create an html page from your Rmd file, update your website and push your exercise to the site.
+
+

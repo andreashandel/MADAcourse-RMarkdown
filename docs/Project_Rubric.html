@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-26" />
+<meta name="date" content="2019-10-31" />
 
 <title>Project Rubric</title>
 
@@ -539,9 +539,42 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-header">14. More ML models and interpretation</li>
-    <li class="dropdown-header">15. Revisiting the complete workflow</li>
-    <li class="dropdown-header">16. Deep learning, AI and Big data</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -578,6 +611,12 @@ div.tocify {
     <li>
       <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
     </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -592,6 +631,9 @@ div.tocify {
     </li>
     <li>
       <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
     </li>
   </ul>
 </li>
@@ -635,7 +677,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Project Rubric</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-26</h4>
+<h4 class="date">2019-10-31</h4>
 
 </div>
 
@@ -643,8 +685,9 @@ div.tocify {
 <div id="overview" class="section level1">
 <h1>Overview</h1>
 <p>This documents provides more detailed instructions and grading rubrics for each part of the project.</p>
-<div id="part-1" class="section level2">
-<h2>Part 1</h2>
+</div>
+<div id="part-1" class="section level1">
+<h1>Part 1</h1>
 <p><strong>The main objective for part 1 is to describe data and qestion in enough detail that I can assess if the planned project is feasible.</strong></p>
 <p>To that end, provide the following pieces of information:</p>
 <ul>
@@ -688,8 +731,8 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="part-2" class="section level2">
-<h2>Part 2</h2>
+<div id="part-2" class="section level1">
+<h1>Part 2</h1>
 <p><strong>The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.</strong></p>
 <p>To that end, provide the following pieces of information:</p>
 <ul>
@@ -739,14 +782,15 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="part-3" class="section level2">
-<h2>Part 3</h2>
+<div id="part-3" class="section level1">
+<h1>Part 3</h1>
 <p><strong>The main objective for part 3 is to have started the analysis part of the project and continued to improve everything.</strong></p>
 <p>To that end, provide the following pieces of information:</p>
 <ul>
-<li>All relevant previous files and documents. Of course, restructuring is ok as you go along.</li>
-<li>Any new relevant files that are needed to reproduce everything.</li>
-<li>Code and text describing the first few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.</li>
+<li>All relevant files and documents needed to reproduce everything.</li>
+<li>Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everyting.</li>
+<li>A main article/manuscript file which contains the most pertinent findings. You should include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable, so don’t produce page-long raw R output or similar things. Further figures and tables con go into supplementary document(s). The way you split content between main manuscript file and supplement is up to you.</li>
+<li>Files with code that are well documented, and that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.</li>
 </ul>
 <p>Grading for this part will follow this rubric:</p>
 <table>
@@ -786,29 +830,28 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<div id="part-4" class="section level2">
-<h2>Part 4</h2>
+<div id="part-4" class="section level1">
+<h1>Part 4</h1>
 <p><strong>The main objective for part 4 is to have a fully completed project, ready for peer review.</strong></p>
 <p>To that end, provide the following pieces of information:</p>
 <ul>
 <li>Every file needed to reproduce your complete analysis and report in your project repository.</li>
-<li>A complete report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).</li>
-<li>Supplementary material/text, Rmd/R scripts, data, etc. as needed.</li>
+<li>Detailed instructions (e.g. as a <code>readme.md</code> file) explaining how to reproduce all your results.</li>
+<li>A complete, nicely readable and well formatted report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).</li>
+<li>Well documented supplementary material/text, Rmd/R scripts, data, etc. as needed.</li>
 <li>bibtex file.</li>
 <li>Everything well documented.</li>
-<li>Instructions on how to reproduce all your results.</li>
 </ul>
 <p>I will not grade this part but it will be assessed by your peers, as described in the <em>Project Review</em> document.</p>
 </div>
-<div id="part-5" class="section level2">
-<h2>Part 5</h2>
+<div id="part-5" class="section level1">
+<h1>Part 5</h1>
 <p><strong>The main objective for part 5 is to have a finished project, ready for final grading.</strong></p>
 <p>To that end, provide the following pieces of information:</p>
 <ul>
-<li>Everything from part 4, with improvements/edits based on peer review feedback.</li>
+<li>Everything from part 4, with improvements based on peer review feedback.</li>
 </ul>
 <p>Grading for this part will follow the rubric provided in the <em>Project Review</em> document.</p>
-</div>
 </div>
 
 

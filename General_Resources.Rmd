@@ -32,9 +32,11 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 
 [^1]: As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
 
+# Publications
+* The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
+
 
 # Online courses
-
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
 * ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
 * [Stat 545](https://stat545.com/index.html) is the name of Jenny Bryan's previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.
@@ -58,7 +60,8 @@ Many R/data science courses/instructors post materials online. Here are a few I 
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 
 # Podcasts
-To be filled
+* Roger Peng and Hillary Parker have a Stats and Data Science related podcast called [Not so standard deviations](http://nssdeviations.com/).
+
 
 # Videos
 To be filled

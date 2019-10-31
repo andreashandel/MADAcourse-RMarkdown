@@ -15,7 +15,7 @@ output:
 This documents provides more detailed instructions and grading rubrics for each part of the project.
 
 
-## Part 1
+# Part 1
 
 **The main objective for part 1 is to describe data and qestion in enough detail that I can assess if the planned project is feasible.** 
 
@@ -37,7 +37,7 @@ Grading for this part will follow the following rubric:
 | Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 100 |
 
 
-## Part 2
+# Part 2
 
 **The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.** 
 
@@ -62,15 +62,16 @@ Grading for this part will follow the following rubric:
 
 
 
-## Part 3
+# Part 3
 
 **The main objective for part 3 is to have started the analysis part of the project and continued to improve everything.** 
 
 To that end, provide the following pieces of information:
 
-* All relevant previous files and documents. Of course, restructuring is ok as you go along.
-* Any new relevant files that are needed to reproduce everything.
-* Code and text describing the first few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.
+* All relevant files and documents needed to reproduce everything.
+* Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everyting.
+* A main article/manuscript file which contains the most pertinent findings. You should include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable, so don't produce page-long raw R output or similar things. Further figures and tables con go into supplementary document(s). The way you split content between main manuscript file and supplement is up to you.
+* Files with code that are well documented, and that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.
 
 Grading for this part will follow this rubric: 
 
@@ -83,30 +84,30 @@ Grading for this part will follow this rubric:
 
 
 
-## Part 4
+# Part 4
 
 **The main objective for part 4 is to have a fully completed project, ready for peer review.** 
 
 To that end, provide the following pieces of information:
 
 * Every file needed to reproduce your complete analysis and report in your project repository.
-* A complete report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
-* Supplementary material/text, Rmd/R scripts, data, etc. as needed.
+* Detailed instructions (e.g. as a `readme.md` file) explaining how to reproduce all your results.
+* A complete, nicely readable and well formatted report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
+* Well documented supplementary material/text, Rmd/R scripts, data, etc. as needed.
 * bibtex file.
 * Everything well documented.
-* Instructions on how to reproduce all your results.
 
 I will not grade this part but it will be assessed by your peers, as described in the _Project Review_ document.
 
 
 
-## Part 5
+# Part 5
 
 **The main objective for part 5 is to have a finished project, ready for final grading.** 
 
 To that end, provide the following pieces of information:
 
-* Everything from part 4, with improvements/edits based on peer review feedback.
+* Everything from part 4, with improvements based on peer review feedback.
 
 Grading for this part will follow the rubric provided in the _Project Review_ document. 
 

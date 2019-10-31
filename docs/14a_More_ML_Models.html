@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+<meta name="date" content="2019-10-31" />
+
+<title>MADA Course - More Machine Learning Models</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./1a_Course_Introduction.html">1a. Course introduction</a>
+        </li>
+        <li>
+          <a href="./1b_Teaching_and_Learning.html">1b. Teaching and Learning thoughts</a>
+        </li>
+        <li>
+          <a href="./1c_RandRStudio.html">1c. R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./1d_Github.html">1d. GitHub</a>
+        </li>
+        <li>
+          <a href="./1e_ToolsforReproducibility.html">1e. RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./1f_Reference_Management.html">1f. Reference Management</a>
+        </li>
+        <li>
+          <a href="./1g_Assessment.html">1g. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./2a_Topic_Introduction.html">2a. Topic introduction</a>
+        </li>
+        <li>
+          <a href="./2b_Assessment.html">2b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">MADA Course - More Machine Learning Models</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2019-10-31</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will very briefly cover some further useful machine learning/statistical models that can be used to analyze and fit data.</p>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Be familiar with several common machine learning methods.</li>
+<li>Understand advantages and disadvantages of different model types.</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>By now, through using <code>caret</code> and <code>mlr</code> and general exposure to this material, I am sure you have picked up on the fact that there are many different statistical and machine learning models. <a href="http://topepo.github.io/caret/available-models.html">Sections 6 and 7 of the caret manual</a> and the <a href="https://mlr.mlr-org.com/articles/tutorial/integrated_learners.html">Integrated Learners section of mlr</a> list all the models that can be accessed through those 2 packages. And of course, there are many more machine learning and statistical methods available that are not implemented in either one of those 2 packages.</p>
+<p>Models fall in broad classes, and within each class, there are many different variants. The following brief discussion covers some of the more common, important and widely used types of models. This is a very cursory overview. The provided references give more information for different methods, if you want to learn more. A fair share of these methods are also covered in separate units.</p>
+</div>
+<div id="generalized-linear-models-glm" class="section level1">
+<h1>Generalized linear models (GLM)</h1>
+<p>The most common types of multi-predictor models are GLM. Among GLM, linear and logistic regression models are by far the most commonly used ones. Other models that assume specific distributions of the outcome, e.g. a Poisson distribution, can be accomodated by choosing the appropriate <em>link function</em>, which connects a linear combination of predictor variables with the outcome. GLM models are fast and easy to fit (using e.g. the <code>glm</code> function in R), fairly easy to interpret, and often provide performance that is hard to improve upon with more complicated models, especially if the data is on the small side. To prevent overfitting, variable/feature selection or regularization approaches are often used. GLM assume a specific relation between predictors and outcome (e.g. linear, logistic) and as such might not perform well on data that does not show the assumed pattern.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapters 3 and 4 of ISL</a> discuss linear and logistic models. So do <a href="https://bradleyboehmke.github.io/HOML/linear-regression.html">chapters 4 and 5 of HMLR</a>.</p>
+</div>
+<div id="splines-and-generalized-additive-models-gam" class="section level1">
+<h1>Splines and Generalized additive models (GAM)</h1>
+<p>GLM enforce a specific relation between outcome and predictors (e.g. linear or logistic). While this is often a decent approximation, at times the relation might be more complicated and nonlinear. In such a case, moving from GLM to more flexible models might improve performance. You can think of GLM as the multi-variable equivalent of a parametric statistical test (e.g. a t-test) and splines/GAM as the multi-variable equivalent of a non-parametric test (e.g. a rank test). These types of models preserve the feature that predictors enter the equation one at a time and are added. But now, each predictor can be related to the outcome with a - potentially complicated - function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAM allow for more flexible relations between predictors and outcome than GLM, and are still fairly easy to fit and interpret, but not quite as easily. Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that’s not the case, one often uses spline function, and let the data determine the exact shape of the splines. In that way, one can think of GAM as a non-parametric way of getting a good and still fairly simple model that fits the data.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 7 of ISL</a> discusses splines and GAM. So does <a href="https://bradleyboehmke.github.io/HOML/mars.html">chapter 7 of HMLR</a>.</p>
+</div>
+<div id="tree-based-models" class="section level1">
+<h1>Tree based models</h1>
+<p>We covered tree based models in a separate unit. This class of models is very flexible, it allows analysis of both continuous and categorical data (with multiple categories). Many tree algorithms can deal with missing data. Tree algorithms can take into account non-linear relations between predictor variables and outcome. Basic tree models are easy to build and understand. The y also perform automatic variable selection and only use predictors in the tree that are useful. Methods based on combining multiple trees tend to improve performance, but take longer to fit and are harder to interpret. Overall, tree-based methods are a class of very useful, flexible, and often great performing models.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 8 of ISL</a> discusses tree based models. So do <a href="https://bradleyboehmke.github.io/HOML/DT.html">chapters 9-12 of HMLR</a>.</p>
+</div>
+<div id="k-nearest-neighbors-knn" class="section level1">
+<h1>K nearest neighbors (KNN)</h1>
+<p>We’ve previously seen some KNN models. KNN models are somewhat strange, inasmuch as they are in some sense not real models. Instead, all the data is used to predict new observations by comparing them to existing ones and predicting outcomes based on closeness of predictor variables. KNN often perform well, but they are not very “portable”. For other models, once you trained/fit a model, you can “take it with you” and apply the model to new data, leaving the old data you used for model building behind. For KNN, the data is the model, so you always need the data for new predictions. This makes such models often not too useful in practice. KNN are however good for some tasks, e.g. for imputation of missing values during the fitting process.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 3 of ISL</a> discusses KNN. So does <a href="https://bradleyboehmke.github.io/HOML/DT.html">chapter 8 of HMLR</a>.</p>
+</div>
+<div id="discriminant-analysis" class="section level1">
+<h1>Discriminant Analysis</h1>
+<p>While logistic regression is the most widely used approach for classification, it has several limitations. For one, it doesn’t easily generalize to outcomes that have more than 2 categories. Also, for certain types of data, logistic regression might not perform very well. Other methods like tree-based, KNN or SVM methods can ne used for multi-category outcome classification and often provide good performance. Another option are discriminant analysis methods. Those approaches are fairly easy to implement and fit. At times, they provide better performance than logistic regression and might do as well as more complicated models.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 4 of ISL</a> discusses discriminant analysis.</p>
+</div>
+<div id="support-vector-machines-svm" class="section level1">
+<h1>Support Vector Machines (SVM)</h1>
+<p>This is a class of models we have not talked about yet. SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contains outliers. As with multi-tree methods, SVM models are somewhat hard to interpret.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 9 of ISL</a> discusses SVM. So does <a href="https://bradleyboehmke.github.io/HOML/svm.html">chapter 14 of HMLR</a>.</p>
+</div>
+<div id="neural-nets" class="section level1">
+<h1>Neural Nets</h1>
+<p>Neural Nets are currently the most powerful and flexible class of machine learning methods. We will discuss them a bit more in the <em>Deep Learning</em> module. Those types of models generally have many parameters that need tuning. Therefore, for good and reliable performance they usually need a lot of data, and since training can take a long time, fast computers.</p>
+<p><a href="https://bradleyboehmke.github.io/HOML/deep-learning.html">Chapter 13 of HMLR</a> discusses neural nets.</p>
+</div>
+<div id="ensemble-methods" class="section level1">
+<h1>Ensemble methods</h1>
+<p>It is possible to build models which are combinations of different types of base models, e.g. combine a tree-based model with an SVM. Those approaches are known variously as <em>ensemble methods</em> or <em>super learners</em> or <em>stacked models</em>. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more <em>black box</em>) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.</p>
+<p><a href="https://bradleyboehmke.github.io/HOML/deep-learning.html">Chapter 15 of HMLR</a> discusses ensemble/stacked models.</p>
+</div>
+<div id="unsupervised-learning" class="section level1">
+<h1>Unsupervised learning</h1>
+<p>We haven’t discussed unsupervised learning much in this course. The reason is that most data analysis problems deal with supervised learning, i.e. with data that has a specific outcome of interest. However, there are situations where data without a given outcome needs to be analyzed. For instance images or customers might need to be sorted into categories. This analysis approach is also called <em>clustering</em>. Sometimes, unsupervised learning is also used as a preparatory step in a supervised learning setting. For instance it can be used to reduce the number of predictors. This is called <em>dimension reduction.</em> It is common in areas where one measures lots of variables but the observations are small, e.g. genetic information on a few hundred individuals, with 1000s of genetic markers measured for each person. In such a case, one can reduce the number of predictor variables into a set of combinations of the original predictors such that the new set contains the most important information. Then one can use that reduced set to perform supervised learning.</p>
+<p>Methods like <em>K-means clustering</em> or <em>Hierarchical clustering</em> are - as the name suggests - used for clustering of unlabeled data. <em>Partial least squares (PLS)</em> and <em>Principal component analysis (PCA)</em> are methods for dimension reduction. Since for unsupervised learning, a performance measure like RMSE or Accuracy does not exist, other metrics are used to define the quality of model results. Different algorithms use different ways to perform the unsupervised learning task.</p>
+<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">Chapter 10 of ISL</a> discusses several unsupervised learning methods. So do <a href="https://bradleyboehmke.github.io/HOML/">sections 3 and 4 (chapters 17-22) of HMLR</a> and <a href="https://rafalab.github.io/dsbook/clustering.html">chapter 34 of IDS</a>.</p>
+</div>
+<div id="general-considerations" class="section level1">
+<h1>General considerations</h1>
+<p>There is no recipe for choosing a specific machine learning/statistical model. It depends on the data, the question, the overall goal, what others in the field are using, and potentially further factors. In general, the most thorough approach is to try both simple and complex models, and then decide based on model performance and other considerations such as simplicity, speed, scalability, etc. on a specific model. There is always a level of subjectivity involved, i.e. different analysts might favor different models. As long as the thought process behind choosing a specific model is well explained and justified, you should be allowed to choose the model that you think is overall best for a given situation. Since it is very easy to fit multiple different models and compare results (using e.g. <code>caret</code> or <code>mlr</code>), it is not a bad idea to do that. You can report the results form the main model you chose as the main findings, with results from other models as supplementary material.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p>The references above for each class of models provide further reading. Those 3 sources, namely <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">ISL</a>, <a href="https://rafalab.github.io/dsbook/">IDS</a> and <a href="https://bradleyboehmke.github.io/HOML/">HMLR</a> are very good starting points for learning more about different machine learning methods. The <em>Resources</em> section of the course provides some further pointers to additional material, and of course there is a lot of other, often free, information available online. You should be able to find more details on any of these methods with just a few online searches.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

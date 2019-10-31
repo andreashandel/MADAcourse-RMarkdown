@@ -1,0 +1,76 @@
+---
+title: MADA Course - Revisting the full data analysis workflow
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+This very short unit revsits all of the data analysis concepts and components we discussed so far, and provides a fairly brief summary and big-picture discussion, meant to wrap up things.
+
+
+# Learning Objectives
+* Have a good grasp of all the components of a full data analysis workflow
+* Know how to implement each part of a data analysis in R 
+
+
+# Introduction
+In module 4 of the course, we covered the whole data analysis workflow and all its components in a big-picture, forward-looking manner. Back then, the topics were abstract. At this stage, we have covered each topic and worked on specific examples. It might be a good idea at this stage to revisit the module 4 documents and refresh your memory. Here, I want to briefly repeat and re-iterate the main components. I'll keep things short and focus on the most important parts. Now that you have some experience with all the components yourself, this might make more sense and you can better appreciate what it means in practical terms.
+
+
+# The Data Analysis workflow
+While I hope you appreciate by now that every data analysis is different, and you need to make many small decisions along the way for which there is often more than one possible reasonable decision, there are some components that I think are needed for any high quality project. Those can be seen as the basic ingredients of a good data analysis, with lots of freedom within each category. (As a side note, this freedom in deciding how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For a nice discussion on this topic, see [this unpublished paper by Gelman](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf), which nicely, and in an easy to understand manner, describes the problem in detail.)
+
+
+## The question 
+**Having a good question (hypothesis) that is interesting, important, new, and can be answered with the resources you have (data, skills, computing power) is the most crucial part of any project.** You can do an analysis that is technically perfect, but if you don't answer an interesting and relevant question, nobody will care. While I think one should use state-of-the art analysis approaches as much as possible, it is in my opinion still more important to answer a good question. I believe that an important question analyzed with a simple model is almost always better than using a complicated model to answer a question that nobody cares about. Of course, the simple model still needs to be reasonable. If one uses a completely wrong model or performs a faulty analysis, the whole project/paper might also be meaningless.
+
+## The setup
+You should do your whole analysis as automated, reproducible, well structured and well documented as possible. Your colleagues, your readers and your future self will thank you for it. We have used tools in this course (R/RMarkdown/GitHub) which help in performing an analysis in such a way. Many other tools are available. While some tools are worse than others (e.g. Excel), in the end it doesn't matter too much what tools you use, as long as you can do things automated, reproducible and well documented.
+
+## The wrangling
+As you will likely appreciate by now, getting the data into a shape that can be analyzed is - for almost any dataset - time consuming and also incredibly important. Lots of mistakes happen at that stage. For a recent prominent example where things went wrong, see e.g. [this JAMA article](https://jamanetwork.com/journals/jama/fullarticle/2752474), where a mis-coding of a factor variable led to one conclusion, and upon fixing it, the conclusion changed in the other direction, leading to retraction of the original study (and republication of the corrected study). This is an example where an error was found and fixed. Unfortunately, there are probably a lot of studies in the literature where mistakes during the wrangling process were made, wrong results published, and nobody noticed. It is impossible to fully prevent making mistakes. But there are ways to try and minimize those problems. To do so, follow these rules: 
+
+* Document everything very well. Every step in the wrangling/cleaning process should be explained and justified (e.g. if you drop observations with NA, what does it mean and why do you think it's ok to do).
+* Automate things as much as possible. Manual tasks often introduces errors. 
+* Make everything reproducible. That helps you and others spot mistakes faster.
+* Critically evaluate every step you take. If something is happening that doesn't look quite right, or you get warning messages in your code, stop and figure out what is going on. Only proceed once you know exactly what is happening and are ok with it.
+* Try different alternatives. For instance if you are unclear if you should remove missing observations, or remove a variable that has a lot of missing, or use imputation, why not try it all 3 ways? It usually doesn't take much extra work to do a few alternatives. If each version of doing things gives you more or less the same results, it helps convince yourself and the readers that your finding might be robust to the details of the anaysis. If different reasonable ways of doing the analysis lead to different results, you have learned something too, and it might be worth digging deeper to understand why results differ. You might find some new, unexpected and interesting bit of science lurking.
+
+
+## The analysis
+You have learned that there are a lot of different analysis approaches out there, and which one to choose depends on many factors, such as the question (e.g. do you care more about interpretability or performance), available resources, and many other considerations. All the rules listed above for wrangling hold for the analysis bit too. Make it reproducible, well documented, well explained and justified. Make sure you understand results at each step. If possible, try different alternative approaches. Some additional, analysis-specific considerations are the following:
+
+* Think carefully about the performance measure you want to fit to. While the 'standard' ones, like RMSE/SSR for continuous outcomes and accuracy for categorical outcomes are at times ok, often other measures might be more meaningful. E.g. for continuous outcomes, you might want to do RMSE not on the outcome but the log of the outcome. Or you might want to penalize with least absolute difference to better deal with outliers. Similarly, for categorical outcomes, especially when there is imbalance in the data and you have much fewer of one category than of others, using accuracy might not be best. Some other metric such as F1 score, or a custom performance measure might be better. Spend some time thinking about the best performance measure before you do all your fitting.
+* Once you picked your performance measure and are ready to fit/train your model, make sure to not evaluate performance on the data used for building the model. More complex models can always give improved performance on the data used to build the model, thus this metric is not meaningful! Instead, to evaluate model performance, ideally use some version of cross-validation, i.e. **fitting the model to some of the data and evaluating model performance on a part of the data that was not used for fitting.** If this is not possible, e.g. because you don't have much data or it takes too long to run, us AIC & Co. as a backup option to determine model quality.
+* Compare your model to baseline/null models and simple single-predictor models to get an idea for the improvement you can get. Try a complex model to estimate the upper bound of model performance. Then try a few reasonable models "in between" the null model and the really complex model, and pick the one that works overall best for your purpose. That last step is subjective. That is ok, as long as you can explain and justify why you ended up going with the model you chose.
+* Once you have chosen your best model (or even before, for the purpose of picking your final model), perform model assessment. Look at uncertainty, investigate residuals, look at variable importance, etc. Poke your model in as many ways as possible to understand how it works and what its limitations might be.
+
+## The reporting
+You almost never do an analysis just for fun and for yourself. Usually, there are other reasons. For instance in academia/science, we analyze data to better understand our system, to test hypotheses, to answer questions. Similarly in industry and other applied settings, we analyze data to come to actionable conclusions (e.g. we determine which images show a likely cancer and therefore which patients need further tests or surgery). In all those situations, we want to communicate our findings to others. That can be through the peer-reviewed literature, in a meeting with our colleagues and bosses, as a report for patients, etc. Being able to report findings from a potentially complicated analysis in a way that it has an impact, and is appropriate for the right audience, is not easy. Some of the ideas listed above, as well as others are worth keeping in mind:
+
+* Present your findings in such a way that people can (but don't have to) go deeper easily. Start with a short summary (often called _executive summary_ in industry and _abstract_ in academia). This short write-up should summarize your findings understandably and honestly. Do not spin/hype things that are not supported by your actual analysis. Also, focus on the main important finding(s) and their implications. The main deliverable (usually some form of written report or a paper), should present all the main findings and steps you took, nicely explained. Then provide additional information (e.g. supplement, appendices) with more details. Finally, provide all the 'raw materials', i.e. data and well documented code, for others to look at. By layering content, different audiences can go into your findings in as much or little detail as they want.
+* Explain and justify everything. It's unlikely that everyone would have made exactly the same decisions you did during your analysis. But by explaining your rationale, readers can decide if they find what you did reasonable, and thus make an informed decision as to how much they trust your findings. 
+* Report results from multiple approaches: If you show how certain decisions during the analysis do or don't affect the results, it makes things more transparent and can instill greater confidence in readers.
+* Automate things. As much of your final products as possible should be automated. That means that figures and tables should not be created by hand. This way, if you want or have to change things upstream (e.g. you noticed a mistake in some analysis step or reviewers/your boss request changes), you can update everything as quickly, automated and seamless as possible.
+* Use modern ways to report and disseminate your findings. The standard academic way is still to write peer-reviewed papers, or in industry, prepare a report. However, such documents are generally not too widely read and at times have only limited impact. As appropriate for your project, consider other sources of dissemination. For instance, make a website for your analysis. Turn it into a blog post. Tweet about it. Use interactive tools (e.g. [the R Shiny package](https://shiny.rstudio.com/)) to allow the audience to interact with your results. Be creative and think about the best ways to reach your intended audience.
+
+
+# Further information
+
+It might be worth revisit module 4 and the readings referenced there, especially [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). 
+

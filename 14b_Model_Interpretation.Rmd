@@ -20,27 +20,33 @@ knitr::opts_chunk$set(out.width = '70%')
 
 
 # Overview
-In this unit, we will discuss ways one can try to begin understanding the _black box_ that complex models often are.
+This very short unit introduces ways one can try to begin understanding the _black box_ that complex models often are.
 
 
 # Learning Objectives
-* Understand what tree-based methods are and how to use them
-* Know when it might be good to use a tree-based method
-* Understand advantages and disadvantages of single trees versus tree ensembles
+* Understand how one can study results from complex models
+* Know how to do such analyses in R
 
 
 # Introduction
+In the materials describing tree-based models, I mentioned that once you make multi-tree models, it is difficult to interpret the final model. This is also true for other more complex models that we didn't discuss in much detail, e.g. support vector machines (SVM). The nice ability to write down a simple model like we can do for GLM has been lost. For more complex models, we gave up simplicity in the search of better predictive performance. It is however still possible to peek inside the black box that is a complicated model and try to understand how specific variables impact the outcome. This is the topic of this short unit.
 
 
-# Understanding multi-tree (and other complicated) models 
 
-The models produced by bagging, random forest and boosting are all hard to interpret. There are no coefficients in front of predictors that independently act on the outcome, or simple decision diagrams that can be drawn like for an individual tree. An important question we often want to know is the importance of specific predictors on the outcome. For linear and similar models, we can assess the size of the coefficient. For single trees, we can see if a specific predictor is part of the final tree or not. For these multi-tree models, and other complicated models, investigating the importance of a specific variable in those ways is not possible. 
+# Interpretation of complex models 
 
-Fortunately, there are methods that allow you to estimate the importance of predictors. Importance is defined as the impact of a specific predictor on model performance. We'll look at some examples in the exercise. For a lot of good information on model interpretability see the [_Interpretable Machine Learning (IML) book_](https://christophm.github.io/interpretable-ml-book/). I recommend reading through chapters 1 and 2 which provide a very nice introduction to the topic. Chapter 5 describes some approaches that allow one to interpret all kinds of different machine learning models. A good R package to perform model interpretation is `lime`. Both `caret` and `mlr` also provide some functionality to assess variable/feature importance, though this is only supported by some models. See [here](http://topepo.github.io/caret/variable-importance.html) and [here](https://mlr.mlr-org.com/articles/tutorial/feature_selection.html#feature-importance-from-trained-models).
+A nice feature of using subset selection or LASSO with GLMs, or fitting a single tree, is that the algorithm decides which predictor variables are important, and throws out the remaining ones. For the ones that stay in the model, we can look at the coefficients in front of each predictor variable, or look at the final tree/decision diagram, to assess the importance of individual predictor variables on the outcome. This provides an easy way to understand _how_ specific variables influence the outcome.
 
+Those simple approaches are not available anymore for more complex models. With complex models, we generally give up interpretability in exchange for better performance. However, we ideally want both. The last several years have seen a good amount of development to come up with methods that allow one to peek inside the black box, i.e. to understand why and how a complex model makes its predictions, and what the role of specific predictor variables is on the outcome. This area is generally called _interpretable machine learning_. 
 
-Of course, interpretation is even harder for **ensemble models**, since you now potentially average over, say, weighted versions of a linear model, a random forest, and a support vector machine. Fortunately, the methods described above looking at importance of predictors often still work, so some insight can be gleaned into the _black box_ of your complicated model.
+There's no point in me repeating what others have already said (much better than I could) `r emo::ji('smiley')`, therefore, instead of me writing more on this, please read [chapters 1 and 2 of the _Interpretable Machine Learning (IML) book_](https://christophm.github.io/interpretable-ml-book/), which gives a very nice introduction on this topic. As you can tell by the title, the whole book is about interpretation of machine learning methods, and is a great resource. [Chapter 5 of IML](https://christophm.github.io/interpretable-ml-book/agnostic.html) describes some approaches that allow one to interpret all kinds of different machine learning models. 
 
+For a shorter, but also great resource, check out [chapter 16 of HMLR](https://bradleyboehmke.github.io/HOML/iml.html), which provides both a quick introduction and overview to the topic, and lists and illustrates the use of several R packages to do various interpretation tasks.
 
-# Further information
+Also note that both `caret` and `mlr` provide functions that allow assessment of variable importance for some of the included models. See [section 15 of the `caret` manual](http://topepo.github.io/caret/variable-importance.html) and [the feature importance section of `mlr`](https://mlr.mlr-org.com/articles/tutorial/feature_selection.html) for more details.
+
+As models get more complex, making sense of them will increase in importance. Even if you are mainly interested in predictive performance and less on understanding your system, it is a good idea to investigate your model in some detail. You might often figure out things that can help further increase model performance. Also, without understanding at least to some extent how complex models make their predictions, the potential for unnoticed bias increases. A good example of this can be found [in this very recent Science paper](https://science.sciencemag.org/content/366/6464/447) which describes racial bias in a machine learning model that tries to predict healthcare needs of patients. See also [this commentary](https://science.sciencemag.org/content/366/6464/421) on the article. Thus, this area of interpreting results from complex models will likely see much development in the near future, hopefully leading to models that are both powerful (and thus likely complex) and interpretable. 
+
+Given how easy it is to apply some of these methods to your models, I recommend that if you decide to use a somewhat complex model (or even a not-so complex one), you should always do at least some analyses that probe the model, e.g. perform a variable importance analysis and related investigations as described in the references above. I hope to see some model explorations as part of your final project `r emo::ji('smiley')`.
+
 
