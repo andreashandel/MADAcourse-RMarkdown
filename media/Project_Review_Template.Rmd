@@ -6,6 +6,7 @@ date: "`r Sys.Date()`"
 output: 
   html_document:
     toc_depth: 3
+    number_sections: true
 ---
 
 # Overview
@@ -17,9 +18,11 @@ Author of project:
 
 # Instructions
 
-Write your comments and feedback below for each section/compontent of the project. You are welcome to provide both positive and negative comments. The goal should be to help the author improve their project. Make comments as constructive and actionable as possible. 
+Write your comments and feedback below for each section/compontent of the project. The goal should be to help the author improve their project. Make comments as constructive and actionable as possible. You can provide both criticism and praise.
 
 For each component, pick one summary statement by deleting the ones that do not apply and keeping only the one that you think most closely summarizes a given component. 
+
+Delete any sections/text of this template that are not part of your final review document.
 
 
 # Specific project content evaluation
@@ -27,7 +30,7 @@ Evaluate the different parts of the project by filling in the sections below.
 
 
 ## Background, Context and Motivation
-How well is the context of the project described? Is it clear why the project was undertaken? Is the project well placed into the context of existing work (including proper referencing of existing work), and why it was undertaken?
+How well is the context of the project described? Is a comprehensive background, including summary of previous/related work given? Is the project well placed into the context of existing work (including proper referencing of existing work). Is it clear why the project was undertaken and what new information it hopes to provide?
 
 ### Feedback and Comments
 
@@ -40,7 +43,7 @@ WRITE YOUR FEEDBACK HERE
 
 
 ## Question description
-How well are the question(s)/hypotheses addressed by the project described? Is it clear how the questions relate to the data?
+How well and clear are the question(s)/hypotheses the project aims to address described? Is it clear how the questions relate to the data?
 
 
 ### Feedback and Comments
@@ -156,7 +159,7 @@ WRITE YOUR FEEDBACK HERE
 
 
 ## Reproducibility
-Are all results fully reproducible? Is it clearly explained how to reproduce things, and does it work without the need for any manual intervention?
+Are all results fully reproducible? Is documentation provided which clearly explains how to reproduce things, and does it work without the need for any manual intervention?
 
 ### Feedback and Comments
 
