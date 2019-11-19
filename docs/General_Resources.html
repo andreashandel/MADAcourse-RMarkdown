@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-10-31" />
+<meta name="date" content="2019-11-18" />
 
 <title>More Data Science Resources</title>
 
@@ -251,6 +251,12 @@ $(document).ready(function () {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -677,24 +683,25 @@ div.tocify {
 
 <h1 class="title toc-ignore">More Data Science Resources</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-10-31</h4>
+<h4 class="date">2019-11-18</h4>
 
 </div>
 
 
-<p>The <em>Course Resources</em> page was becoming too large, so I decided to split things into two pages. The <em>Course Resources</em> page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.</p>
+<p>The <em>Course Resources</em> page was becoming too large, so I decided to split things into two pages. The <em>Course Resources</em> page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.</p>
 <p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. The ones marked in <strong>bold</strong> are those that we’ll be using a lot.</p>
 <p>Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn’t exist or doesn’t seem to make sense, please do not hesitate to ask for clarification in our discussion boards.</p>
-<div id="data-science-books" class="section level1">
-<h1>Data Science Books</h1>
+<div id="books" class="section level1">
+<h1>Books</h1>
 <ul>
 <li>A few individuals, most notably <a href="https://leanpub.com/u/rdpeng">Roger Peng</a>, <a href="https://leanpub.com/u/bcaffo">Brian Caffo</a> and <a href="https://leanpub.com/u/jtleek">Jeff Leek</a> have books on Leanpub related to R and data science.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living 😄, so if you can’t or don’t want to pay, getting them for free is ok.</li>
 <li><a href="https://moderndive.com">ModernDive - Statistical Inference via Data Science</a> - another good recent book covering data analysis with R.</li>
+<li><a href="https://learningstatisticswithr.com/">Learning statistics with R</a> - I’ve not read/used it, but heard from others who like it.</li>
 </ul>
 <p>By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out <a href="https://bookdown.org/">the main bookdown website</a> as well as the <a href="https://bookdown.org/home/archive/">archive list</a> and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of “noise”.</p>
 </div>
-<div id="publications" class="section level1">
-<h1>Publications</h1>
+<div id="journal-articles" class="section level1">
+<h1>Journal articles</h1>
 <ul>
 <li>The journal PeerJ has a collection of articles on the topic of <a href="https://peerj.com/collections/50-practicaldatascistats/">Practical Data Science for Stats</a>. A lot of the papers in that collection use R.</li>
 </ul>
@@ -705,6 +712,10 @@ div.tocify {
 <li><a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Cloud Based Data Science</a> - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called <a href="https://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> and seems to be now updated and rebranded as <a href="https://www.clouddatascience.org/">Cloud Based Data Science</a>. It is done by <a href="http://jtleek.com/">Jeff Leek</a> and his team. You’ll run into Jeff multiple times throught this course.</li>
 <li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a>. One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free.</li>
 <li><a href="https://stat545.com/index.html">Stat 545</a> is the name of Jenny Bryan’s previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.</li>
+<li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
+<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
+<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
+<li><a href="https://idc9.github.io/stor390/">STOR 390 - Introduction to data science</a></li>
 </ul>
 </div>
 <div id="hands-oninteractive-resources" class="section level1">
@@ -714,16 +725,6 @@ div.tocify {
 <li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription. They used to give students a very good discount, but not anymore. Unless you have some extra money to spend, I therefore currently don’t recommend them.</li>
 <li>A new company called <a href="https://www.dataquest.io/">Dataquest</a> seems to be similar to Datacamp. I have no experience with their product, but it’s again not free.</li>
 <li><a href="https://www.kaggle.com/">Kaggle (owned by Google)</a> is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out.</li>
-</ul>
-</div>
-<div id="courses" class="section level1">
-<h1>Courses</h1>
-<p>Many R/data science courses/instructors post materials online. Here are a few I know of:</p>
-<ul>
-<li><a href="http://www.princeton.edu/~mjs3/soc504_s2015/">Advanced data analysis for the social sciences</a></li>
-<li>Advanced Data Science <a href="http://jtleek.com/advdatasci/index.html">version 1</a> and <a href="https://jhu-advdatasci.github.io/2018/index.html">version 2</a></li>
-<li><a href="https://github.com/uo-ec607/lectures">Data science for economists</a></li>
-<li><a href="https://idc9.github.io/stor390/">STOR 390 - Introduction to data science</a></li>
 </ul>
 </div>
 <div id="podcasts" class="section level1">
@@ -744,6 +745,7 @@ div.tocify {
 <li><a href="https://teachdatascience.com/">Teach Data Science</a> - a blog with short, informative posts on various aspects related to data science using R.</li>
 <li><a href="https://m-clark.github.io/introduction-to-machine-learning/">Machine Learning</a> - an online reference (almost book) which nicely explains some of the basics of machine learning.</li>
 <li><a href="http://www.datasciguide.com/">Data Sci Guide</a> is a website that is trying to collect and curate a lot of data science sources.</li>
+<li>RStudio has a <a href="https://resources.rstudio.com/the-essentials-of-data-science">collection of materials for data science</a>.</li>
 </ul>
 <p><em>Obviously, there is no way my list is exhaustive. Let me know if you find other relevant and good sources.</em></p>
 </div>

@@ -17,22 +17,23 @@ output:
 library(emo)
 ```
 
-The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.
+The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.
 
 All materials described below are (should be) freely available online. If you can't get to them, let me know. The ones marked in __bold__ are those that we'll be using a lot.
 
 Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn't exist or doesn't seem to make sense, please do not hesitate to ask for clarification in our discussion boards.
 
 
-# Data Science Books
+# Books
 * A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science.[^1] Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok.
 * [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
+* [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
 
 By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 
 [^1]: As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
 
-# Publications
+# Journal articles
 * The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
 
 
@@ -40,7 +41,10 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
 * ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
 * [Stat 545](https://stat545.com/index.html) is the name of Jenny Bryan's previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.
-
+* [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
+* Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
+* [Data science for economists](https://github.com/uo-ec607/lectures)
+* [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 
 
 # Hands-on/interactive resources
@@ -51,13 +55,6 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
 
 
-# Courses
-Many R/data science courses/instructors post materials online. Here are a few I know of:
-
-* [Advanced data analysis for the social sciences](http://www.princeton.edu/~mjs3/soc504_s2015/)
-* Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
-* [Data science for economists](https://github.com/uo-ec607/lectures)
-* [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 
 # Podcasts
 * Roger Peng and Hillary Parker have a Stats and Data Science related podcast called [Not so standard deviations](http://nssdeviations.com/).
@@ -74,6 +71,7 @@ To be filled
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
 * [Machine Learning](https://m-clark.github.io/introduction-to-machine-learning/) - an online reference (almost book) which nicely explains some of the basics of machine learning.
 * [Data Sci Guide](http://www.datasciguide.com/) is a website that is trying to collect and curate a lot of data science sources.
+* RStudio has a [collection of materials for data science](https://resources.rstudio.com/the-essentials-of-data-science).
 
 
 _Obviously, there is no way my list is exhaustive. Let me know if you find other relevant and good sources._
