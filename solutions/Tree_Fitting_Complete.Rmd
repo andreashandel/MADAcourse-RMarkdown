@@ -1,0 +1,473 @@
+---
+title: Tree fitting exercise
+author: YOURNAME
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+This document will guide you through some data analysis tasks with a focus on fitting tree-based models and training them. We'll also (re)-visit some other topics.
+
+
+While this is in some sense a stand-alone analysis, I assume that you have worked through the _Data Analysis_ exercise and are familiar with the dataset and all the things we discovered during the cleaning process. We'll use the same dataset here but focus on a different outcome. Other than that, the way to work through the exercise is like in the _Data Analysis_ exercise, namely by writing/completing the missing code.
+
+# Project setup
+We need a variety of different packages, which are loaded here. Install as needed.
+For this analysis, we'll again use the `caret` package.
+If you use others, load them here. 
+
+```{r setup, warning=FALSE, message=FALSE}
+library('tidyr')
+library('dplyr')
+library('forcats')
+library('ggplot2')
+library('knitr')
+library('caret')
+library('doParallel')
+library('rpart')
+library('rpart.plot')
+library('mda')
+library('ranger')
+library('e1071')
+```
+
+
+# Data loading and cleaning
+We will again use the Norovirus dataset. 
+
+
+```{r loaddata}
+#Write code that loads the dataset 
+#You can of course re-use code you wrote in the other file.
+d <- read.csv('norodata.csv',header=TRUE,stringsAsFactors=TRUE)
+```
+
+
+# Looking at the outcome
+
+For this analysis, we consider as our main outcome of interest the season. This is a categorical outcome with more than 2 categories, something we haven't looked at before. Because it's more than 2 categories, a basic logistic model won't work. Fortunately, tree-based models can deal with multiple categories. 
+
+```{r checkoutcome}
+#write code to take a look at the outcome variable (season)
+table(d$season)
+```
+We already knew from previous explorations that some entries do not have a season. We could either code them as "other" and keep them in the model, or remove them. Since it's hard to see any potential scientific reason why there should be a correlation between an "other" season and some variable, we'll remove it here.
+
+We also notice that while winter is dominant (makes sense, we know that norovirus is more common in winter), we got a decent number of outbreaks for each season, so we shouldn't have a problem with (un)balanced data.
+
+```{r clean-outcome}
+#write code that removes all observations that have an empty/missing value for season
+#then drop the empty level and check that you have 4 categories for season left
+d <- d %>% dplyr::filter( season !="") %>% droplevels()
+table(d$season)
+```
+
+
+# Selecting predictors
+
+We will pick similar variables as previously, but with some changes. Keep the following variables: `Action1, CasesAll, Country, Deaths, EndMonth, GG2C4, Hemisphere, Hospitalizations,  MeanD1, MeanI1, MedianD1, MedianI1, OBYear, Path1, RateAll, RiskAll, Season, Setting, StartMonth, State, Trans1, Vomit.` 
+
+
+```{r reducepredictors}
+# write code that retains the above mentioned variables
+d <- d %>% dplyr::select(Action1, CasesAll, Country, Deaths, EndMonth, gg2c4, Hemisphere, Hospitalizations,  MeanD1, MeanI1, MedianD1, MedianI1, OBYear, Path1, RateAll, RiskAll, season, Setting_1, StartMonth, State, Trans1, Vomit)
+dim(d)
+```
+
+
+# Cleaning predictors
+
+We'll have to perform the usual cleaning steps. You might have realized by now that even for the same dataset, cleaning steps can differ based on the outcome (and as you see below, the model). 
+
+Let's first check for missing values.
+
+```{r check-reduced-data}
+# write code that looks at missing values
+print(colSums(is.na(d))) 
+visdat::vis_dat(d)
+```
+
+Looks like none of the new variables we included had a ton of missing, so we would probably be ok just removing any observation that has missing data. **However**, tree-based models can deal with missing data in predictors. Therefore, we'll keep them for now. We'll later compare how the model does or does not change if we remove those observations. 
+
+
+
+Let's make sure everything has the right format (numeric/integer/factor). Adjust/recode variables as needed. 
+You will likely find that as you convert `OBYear` to numeric, something doesn't quite work. Take a look. Fix by removing the observation with the troublesome entry, then convert to numeric. Finally, remove the observations that have 0 as OByear - there are more than 1 now.
+
+```{r adjust}
+#write code that cleans OBYear, convert it to numeric. Remove observations with OBYear = 0. 
+#also convert any other variables as needed
+d <- d %>%  dplyr::mutate(Vomit = as.factor(Vomit)) %>%
+            dplyr::filter(OBYear != "2002-2007") %>%
+            dplyr::mutate(OBYear = as.numeric(as.character(OBYear))) %>%
+            dplyr::filter(OBYear != 0) 
+```
+
+Look at the data to see what else we need to do.
+
+```{r}
+str(d)
+summary(d)
+```
+
+Some things we noted previously. We need to remove the `Unspecified` entry in `Hemisphere` and recode `Action1` and `Path1` as described in the _Data Analysis exercise_, i.e. from `Unknown` to `Unspecified`. Also we want to group the `Setting_1` variable into just `Restaurant` and `Other` with . Again, remember that there are `restaurant` and `Restaurant` values, so you need to fix that too. 
+
+We'll also recode the gg2c4 blank entries to "No". We further note that `Action1` has a single `No` entry. Let's remove that observation to prevent potential problems during cross-validation. 
+
+Let's also lump country together, make 3 categories, Japan, USA, and Other.
+
+As discussed previously, it makes sense to move the Waterborne to the Environmental in the `Trans1` variable. It also turns out that most outbreaks have no information for state, so best to drop the `State` variable.
+
+Finally, move the outcome into the first column.
+
+```{r clean-more-predictors}
+# write code that performs the actions described above
+# at the end, use the droplevels() command to remove empty factor levels
+d <- d %>% dplyr::filter(Hemisphere != "Unspecified") %>% 
+            dplyr::mutate(Action1 = replace(Action1, Action1 == "Unknown", "Unspecified")) %>%
+            dplyr::mutate(Path1 = replace(Path1, Path1 == "Unknown", "Unspecified")) %>%
+            dplyr::mutate(Setting = fct_lump(Setting_1, n = 3)) %>% 
+            dplyr::mutate(Setting = fct_recode(Setting,
+                                     "Restaurant" = "restaurant",
+                                     "Other" = "0")) %>%
+            dplyr::select(-Setting_1) %>%
+            dplyr::filter(Action1 != "No") %>%
+            dplyr::mutate(Trans1 = fct_recode(Trans1, "Environmental" = "Waterborne")) %>% 
+            mutate(gg2c4 = fct_recode(gg2c4, "No" = ""  )) %>%
+            dplyr::mutate(Country = fct_lump(Country, n = 3)) %>% 
+            dplyr::select(-State) %>%
+            dplyr::select(season, everything() ) %>%
+            droplevels() #gets rid of unused/empty levels in factor variables
+summary(d)
+```
+
+
+
+
+# Data visualization
+
+We know our data fairly well by now, so we might not discover much new in any plots, but it's always good to do them anyway. Let's create a few plots showing the outcome and the predictors. We'll start with the continuous predictors. I suggest scatter/box/violinplots with the outcome on the x-axis.
+
+
+```{r plots-1}
+#write code that produces plots showing our outcome of interest on the x-axis and each numeric predictor on the y-axis.
+#you can use the facet_wrap functionality in ggplot for it, or do it some other way.
+p1 <- d %>% select_if(is.numeric) %>% mutate(season = d$season) %>%
+            gather(-season, key = "var", value = "value") %>% 
+            ggplot(aes(x = season, y=value)) + geom_point()  + geom_violin() +
+            facet_wrap(~ var, scales = "free") + theme_bw()
+plot(p1)
+```
+
+Things look ok, apart from the skew in the predictors we discussed previously.
+
+Next, let's create plots for the categorical variabless. You can use for instance `geom_count` for it, or some other representation. If you prefer lots of tables, that's ok too.
+
+```{r plots-2}
+#write code that produces plots or tables showing our outcome of interest and each categorical predictor.
+p1 <- d %>% select_if(is.factor) %>%
+            gather(-season, key = "var", value = "value") %>% 
+            ggplot(aes(x = value, y=season)) + geom_count()  +
+            facet_wrap(~ var, scales = "free") + theme_bw()
+print(p1)
+```
+
+Looks ok. Notice the NA for vomiting. We are ok with that for now.
+
+```{r}
+dim(d)
+str(d)
+```
+
+At this step, you should have a dataframe containing 952 observations, and 21 variables: 1 outcome, 12 numeric/integer predictors, and 8 factor variables. All variables should have values that are ready for analysis. The outcome should be in the 1st slot.
+
+
+
+# Data splitting 
+
+Let's do data splitting again. Use `caret` functions (or any other way you like) to split the data into 70/30 train/test portions.
+
+```{r}
+#d <- d %>% drop_na()
+```
+
+
+```{r split-data}
+set.seed(123)
+trainset <- caret::createDataPartition(y = d$season, p = 0.7, list = FALSE)
+data_train = d[trainset,] #extract observations/rows for training, assign to new variable
+data_test = d[-trainset,] #do the same for the test set
+```
+
+# Parallelization
+
+Similar to `mlr`, `caret` allows you to use multiple processors at the same time. It is easy to set up, the few lines below do the trick.
+
+```{r parallel}
+n_cores <- 4 #number of cores to use
+cl <- makePSOCKcluster(n_cores)
+registerDoParallel(cl) #comment out this line if you don't want parallel computing
+```
+
+
+# Model fitting
+
+We'll now explore fitting and training several tree-based models. We'll also explore how including/excluding missing values and centering/scaling or not might affect the results.
+
+
+## A null model
+
+To define a null model, we need to determine what performance measure we want to track. Since we now have a categorical outcome with more than 2 categories, the regular 2x2 table/confusion matrix and measurements that rely on it don't quite work, though many of them have versions that go beyond the 2x2 table. Here, to keep things simple, we use accuracy, which is simply the fraction of correct predictions, and as such is easy to compute no matter how many categories we have. The null model still just predicts the most frequent category. We can use that as baseline performance.
+
+
+```{r nullmodel-acc}
+#write code that computes accuracy for a null model that always predicts the most common category
+outcome <- data_train$season 
+table(outcome)/length(outcome) #this shows what fraction is winter, which is the accuracy ( which is 1 - MCE).
+most_common = names(which.max(table(outcome)))
+null_pred <- factor(rep(most_common,length(outcome)), levels = levels(outcome)) 
+Acc_null = sum(null_pred == outcome)/length(outcome)
+print(Acc_null)
+```
+
+You should find that the null model has an accuracy of around 0.46. 
+
+
+## Single predictor models
+
+Now let's consider single predictor models, i.e. we'll fit the outcome to each predictor one at a time to get an idea of the importance of individual predictors. Here, our model will be a tree. I'm actually not so sure if this makes a lot of sense, since a "tree" with only one predictor seems a bit silly. But I guess we can try, it's similar to a 1-predictor GLM. 
+
+We'll also do some parameter tuning here. Looking at the [caret documentation](http://topepo.github.io/caret/available-models.html), we find that the tuning parameter for the `rpart` model (which is the tree algorithm) is called `cp`. We could also find that using `modelLookup("rpart")`. We could either specify a grid of values to try for `cp` (we'll use a grid below), or, for a single tuning parameter, `caret` allows one to set the number of values to try and picks those values automatically. We'll do this atter approach here.
+
+
+
+```{r singlepredictor}
+#There is probably a nicer tidyverse way of doing this. I just couldn't think of it, so did it this way.
+set.seed(1111) #makes each code block reproducible
+outcomename = "season"
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) #setting CV method for caret
+Npred <- ncol(data_train)-1 # number of predictors
+resultmat <- data.frame(Variable = names(data_train)[-1], Accuracy = rep(0,Npred)) #store performance for each variable
+for (n in 2:ncol(data_train)) #loop over each predictor. For this to work, outcome must be in 1st column
+{
+  fit1 <- train( as.formula(paste(outcomename, "~",names(data_train)[n])) , data = data_train, method = "rpart", trControl = fitControl, na.action = na.pass, tuneLength = 10) 
+resultmat[n-1,2]= max(fit1$results$Accuracy)  
+}
+print(resultmat)
+```
+
+So looks like most of the single predictor models don't have accuracy much better than the null. 2 exceptions are `StartMonth` and `EndMonth`. Well, we would expect that the outbreak season and the month at which the outbreak started (and ended) have a strong correlation. I kept those variables here to see if that would happen and get some reassurance that our model works ok. Of course in a real analysis, keeping those seems kind of silly, we wouldn't learn much from it (other than that data entry seemed to have been done ok).
+
+# Full model
+
+For now, we keep all the predictors we currenty have and fit a tree to the full model with all predictors. 
+
+```{r fullfit}
+set.seed(1111) #makes each code block reproducible
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) 
+fit1 = train(season  ~ ., data=data_train, method="rpart",  trControl = fitControl, na.action = na.pass, tuneLength = 10) 
+print(fit1$results)
+```
+
+This printout shows us model performance for different values of the tuning parameter, cp. It seems for a low cp, we get a close to perfect model. Let's take a look at this model. We could use the regular `plot` function, but the resulting tree looks ugly. The `prp` function from the `rpart.plot` package makes a much nicer tree (other packages to plot nice trees exist).
+
+
+```{r printfigure, message=FALSE}
+prp(fit1$finalModel, extra = 1, type = 1)
+ww=17.8/2.54; wh=ww; #for saving plot
+dev.print(device=png,width=ww,height=wh,units="in",res=600,file="rparttree.png") #save tree to file
+```
+
+So the model splits on month, repeatedly. And it also splits on hemisphere, which makes sense since the seasons are switched on the Southern hemisphere. This is also likely the reason why the model with month only didn't produce a perfect fit. It could get one hemisphere right, but not both. With both bits of information, we can get almost perfect predictions.
+
+Note two distinguising features of this tree model: Even though we fed the algorithm the full model incuding all predictor variables, some - in fact almost all - of them are not part of the final model. This is a good illustration of the feature/variable selection property that a tree does automatically. If it doesn't find a certain predictor variable useful, it leaves it out.
+
+Also note that some predictor variables are used more than once. In fact, in this example, only 2 variables are used, and they are used repeatedly. 
+
+You can also see on each node the predictions for each outcome category at that step. It is always possible to build a tree that predicts perfectly, but that would lead to overfitting. That's why we use cross-validation and tuning of the `cp` parameter, which reduces the risk of overfitting. 
+
+Finall, note that by default, levels are ordered alphabetically (Fall/Spring/Summer/Winter). We could re-order the factor manually in the more logical Spring/Summer/Fall/Winter order. I would do that for a 'real' analysis where I want to show a nice final result, but here we can leave it as is, as long as we pay attention to this fact.
+
+
+# Re-fitting the tree
+
+So the above produces an almost perfect fit, and thus more powerful models are not really needed. However, using start (and end) month information seems a bit like cheating. Of course, if we give the model that kind of information, it will do well. Let's make it harder and remove those 2 variables, from both the training and test sets.
+
+Also, further below I had problems fitting some of the models, the NA caused problems. The issue often is that while the underlying algorithm can handle the missing values (as you saw above), when using wrappers like `caret`, things break down. I could either skip `caret` and try to access the different models directly. For now, I decided to go the other route and drop the data with the missing values. To be able to compare the different models below, I'm dropping those NA obersvations here. Since the data changed, we also need to re-do the null model computation to be able to compare properly.
+
+```{r reduce-data}
+#write code that removes StartMonth and EndMonth from both training and test sets
+# then drop all observations with missing values in both trian and test sets
+# copy and paste the code from above that computes performance of a null model
+data_train <- data_train %>% select( -StartMonth, -EndMonth) %>% drop_na()
+data_test <- data_test %>% select( -StartMonth, -EndMonth) %>% drop_na()
+outcome <- data_train$season 
+table(outcome)/length(outcome) #this shows what fraction is winter, which is the accuracy ( which is 1 - MCE).
+most_common = names(which.max(table(outcome)))
+null_pred <- factor(rep(most_common,length(outcome)), levels = levels(outcome)) 
+Accuracy = sum(null_pred == outcome)/length(outcome)
+print(Accuracy) #misclassification error
+```
+
+You should find a very similar null-model accuracy, around 0.46.
+
+Now, let's re-do the fit above fitting a single tree. I'll increase the tuneLength value a bit so the algorithm can try a few more parameter values.
+
+```{r fullfit-2}
+#copy and paste the code from above that fits the single tree. set tuneLength to 20. 
+# look at model performance for different cp values. Also plot the tree.
+set.seed(1111) #makes each code block reproducible
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) 
+fit1 = train(season  ~ ., data=data_train, method="rpart",  trControl = fitControl, na.action = na.pass, tuneLength = 20) 
+print(fit1$results)
+prp(fit1$finalModel, extra = 1, type = 1)
+```
+
+With those variables removed, the tree model doesn't perform very well, accuracy is similar to the null model. You can see that in the tree figure, the final nodes (leaves) show a lot of mis-predictions. Note again that only a few variables are used to build the tree and OBYear shows up more than once. 
+
+Let's see if we can get improved performance with more complicated models. That is of course not guaranteed. If there is no "signal" in the data, it doesn't matter how complicated the model is, we won't get anything predictive.
+
+# Random forest
+
+Let's try a random random forest. We'll use the `ranger` algorithm for this (it's generally faster than the `rf` algorithm). This model has parameters that can and should be tuned.
+To do the tuning, we set up a grid of parameters and search over that grid. More efficient ways exist, e.g. doing an optimization using something like a genetic algorithm. The `mlr` package allows you to do that, `caret` doesn't have those features out of the box, you would need to write your own code for that.
+
+Note that running the code below (and several models that follow) might take a few seconds or minutes, depending on the speed of your computer. 
+
+```{r randomforest, echo=TRUE}
+set.seed(1111) #makes each code block reproducible
+tuning_grid <- expand.grid( .mtry = seq(1,7,by=1), .splitrule = "gini", .min.node.size = seq(2,8,by=1) )
+fit2 = train(season ~ ., data=data_train, method="ranger",  trControl = fitControl, tuneGrid = tuning_grid, na.action = na.pass) 
+```
+
+We can't plot a nice final tree anymore since the model is now a combination of trees. We can look at a plot of model performance as a function of the model tuning parameters. 
+
+```{r randomforestresult, echo=TRUE}
+plot(fit2)
+```
+
+This plot suggests that for aroud 4 randomly selected parameters and a minimum node size of 6, we get the best model. Note that there isn't much difference in model performance for several different values of the tuning parameters, and the overall model isn't that great either, an accuracy just shy of 0.5.
+  
+  
+  
+# Boosted tree ensemble
+
+Let's now try a boosted regression tree ensemble. This method also has several parameters that need tuning, which are specified in `gbmGrid`. 
+
+```{r gbm, echo=TRUE}
+gbmGrid <- expand.grid(interaction.depth = seq(1, 7, by = 2), n.trees = 300, shrinkage = c(0.1, 0.01), n.minobsinnode = c(2,4,6))
+fit3 = train(season ~ ., data=data_train, method="gbm", trControl = fitControl, verbose=FALSE, tuneGrid = gbmGrid) 
+```
+
+We can again look at diagnostic fits and variable importance plots for this model, as well as check performance.
+
+```{r gbmresult, echo=TRUE}
+plot(fit3)
+```
+
+It doesn't look like the boosted tree model performs any better. It is quite possible that there is just no information in the predictors that strongly correlates with season.
+  
+But let's not give up yet, we'll try a bit more. Let's see if pre-processing helps.
+
+# Random forest with pre-processed predictors
+
+Here, we'll fit another random forest model but now use centering and scaling for the predictors.
+
+```{r randomforest-2, echo=TRUE}
+# copy the random forest code from above. Add a statement to the train() function that centers and scales predictors.
+# save the result as fit4. plot model results.
+set.seed(1111) #makes each code block reproducible
+tuning_grid <- expand.grid( .mtry = seq(1,7,by=1), .splitrule = "gini", .min.node.size = seq(2,8,by=1) )
+fit4 = train(season ~ ., data=data_train, method="ranger",  trControl = fitControl, tuneGrid = tuning_grid, preProc = c("center","scale")) 
+plot(fit4)
+```
+
+It doesn't look like it helped a lot.
+
+
+# Discriminant analysis 
+
+Ok, let's try one more. Since the trees don't seem to work too well, and a logistic model doesn't work for multiple categorical outcomes, let's use another model that can do that, namely a discriminant analysis. We've already seen one of those previously. Let's pick a different one. The caret package website lists a lot of algorithms. I really don't know how exactly they all differ. Let's try the one called penalized discriminant analysis (pda) (penalized is another way of saying regularized, and we learned that regularization might sometimes help.)
+
+
+```{r da, echo=TRUE}
+#write code that trains a pda model, use tuneLength 20. Save as fit5 and plot.
+set.seed(1111) #makes each code block reproducible
+fit5 = train(season ~ ., data=data_train, method="pda",  trControl = fitControl, tuneLength = 20) 
+plot(fit5)
+```
+
+Ok, that doesn't look very good either. Alright, enough models, there just doesn't seem to be much information in the data that could help predict season. So let's start to wrap up.
+
+# Comparing model performance
+
+To recap: After we removed the obvious predictors, we fitted 1 tree, 1 random forest, 1 gradient boosted tree, 1 random forest with processed predictors, and 1 discriminant analysis. Let's compare performance.
+
+```{r randomforest-3, echo=TRUE}
+resamps <- resamples(list(tree = fit1,
+                          RF1 = fit2,
+                          GBM = fit3,
+                          RF2 = fit4, 
+                          PDA = fit5))
+bwplot(resamps)
+```
+
+This plot suggests that while none of the models are great, the random forest ones seem overall slighly better. 
+
+# Evaluating the final model
+
+Even though we didn't really have any good model, and thus further evaluating it seems in some sense pointless, for this exercise we'll look at our "best" model anyway. We'll declare the 1st random forest model (saved as `fit2`) to be the best. 
+
+Model uncertainty in the predictions is shown in the previous plot.
+
+For categorical outcomes, we can't plot residuals. But we can look at the final "2x2" (in this case a 4x4) table (the confusion matrix) and compare true versus predicted outcomes and see if it shows any pattern.
+
+```{r}
+#Write code to get model predictions for the outcome on the training data.
+#use predicted and actual outcomes, make a table and compute accuracy.
+pred <- predict(fit2,data_train)
+outcome <- data_train$season
+table(pred,outcome)
+Acc_train = sum(pred == outcome)/nrow(data_train)
+print(Acc_train)
+```
+
+You should see that the model gets a lot right (high numbers on the diagonal), but predicts winter more often than it should (last row). Accuracy on the training data pretty good.
+
+But we know that performance on the training set is not that meaningful, especially with complex model we always get fairly good performance on the data used to build the model. What matters is how it performs on new data, so let's check that. We can look at the same for the test set, which is more of an estimate of the true performance. 
+
+```{r predict}
+#copy and paste the code from above, but now do it for the test set.
+pred_test = predict(fit2, newdata = data_test)
+outcome_test <- data_test$season
+table(pred_test,outcome_test)
+Acc_test = sum(pred_test == outcome_test)/nrow(data_test)
+print(Acc_test) 
+```
+
+Here, the confusion matrix doesn't look good at all. Off-diagonal entries are larger than diagonal, accuracy is about as good as a null model, and agrees with the cross-validated results. That last point is good, that means our cross-validation routine properly estimates the performance of "new" data. Of course, even this estimate on test data is a bit optimistic, since real new data is usually collected under slightly different circumstances and with different protocols, making it more likely that model performance is reduced.
+
+
+
+# Wrapping up
+
+```{r stop parallel}
+# shut down the parallel computing cluster we created at the beginning of the analysis
+stopCluster(cl)
+```
+
+Overall, this suggests there is just no "signal" in the variables we are trying to use to predict the outcome, and the model just fits to "noise" - thus doing ok on training data but failing on the test/cross-validated performance evaluation.
+
+We can conclude that this is an analysis where we walk away "empty handed". If this were a real analysis and you had data and did a 'let's see if something is going on' analysis, this would be somewhat disappointing. If you had a specific, plausible hypothesis before you started your analysis (e.g. that outbreak size is correlated with season), finding that your biologically reasonable hypothesis doesn't seem to be right is useful. Though null results are unfortunately still hard to publish.
+
+Note that we didn't use p-values here, but I bet we would have found several that are statistically significant **when evaluated on the training data** (as they usually are). But they would be meaningless and essentially "fitting the noise". I contend that a lot of what's published out there is exactly that, spurious p-values because models are evaluated on the training data.
+
+
+# End notes
+
+Above, I kept search grids fairly small and specified other things (e.g. number of trees) to make sure things run fairly fast.
+For a real project, I would make my searches and tuning more exhaustive, which might mean waiting a few hours for the code to run. If you want to, try to increase the search space or try different models to see if you can get a better performing model. It doesn't seem to me that the data has any meaningful signal that would lead to a great model with much improved performance. But you are welcome to see if you can find a model that performs better. If you do gt a model that performs well (>0.6 accuracy), let me know I'd be curious to see it.
+
