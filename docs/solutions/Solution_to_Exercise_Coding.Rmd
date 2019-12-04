@@ -1,0 +1,77 @@
+---
+title: "Coding Exercise Solution"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+Load packages. You need to install them if they are not present.
+
+```{r}
+library(dslabs)
+```
+
+
+We'll use the gapminder data. We'll first take a look at it. The help for the data will not show up in the notebook but should be coming up in the bottom right RStudio window.
+```{r}
+help("gapminder")
+str(gapminder)
+summary(gapminder)
+class(gapminder)
+```
+
+# Base R practice
+
+The following uses base R commands. 
+
+We extract the African countries and save them as a new object. We also look at them using `str` and `summary`.
+```{r}
+africadata <- gapminder[gapminder$continent == 'Africa',]
+str(africadata)
+summary(africadata)
+```
+
+Now we make 2 variables/data frames that contain only infant_mortality+life_expectancy and infant_mortality+population.
+```{r}
+dat1 <- africadata[,c("infant_mortality","life_expectancy")]
+dat2 <- africadata[,c("population","life_expectancy")]
+str(dat1)
+summary(dat1)
+str(dat2)
+summary(dat2)
+```
+
+Using base plot commands, we create scatterplots for each dataset, using a log scale for the x-axis in the second plot.
+```{r}
+plot(dat1$infant_mortality,dat1$life_expectancy,type = 'p')
+plot(dat2$population,dat2$life_expectancy,type = 'p',log = 'x')
+```
+
+Find years for which infant mortality is missing
+```{r}
+missingyears <- africadata$year[is.na(africadata$infant_mortality)]
+print(missingyears)
+```
+
+Extract data for year 2000
+```{r}
+africa2000 <- africadata[africadata$year == 2000,]
+str(africa2000)
+summary(africa2000)
+```
+
+Plot data for year 2000
+```{r}
+plot(africa2000$infant_mortality,africa2000$life_expectancy,type = 'p')
+plot(africa2000$population,africa2000$life_expectancy,type = 'p',log = 'x')
+```
+
+Fit linear model using life expectancy as outcome and mortality or population as predictors. We can look at the results from the fit using the `summary` function.
+```{r}
+fit1 <- lm(africa2000$life_expectancy ~ africa2000$infant_mortality)
+fit2 <- lm(africa2000$life_expectancy ~ africa2000$population)
+summary(fit1)
+summary(fit2)
+```
+

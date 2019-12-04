@@ -1,0 +1,53 @@
+---
+title: "Coding Exercise Solution"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+
+# Tidyverse practice
+
+We'll what we did above, but now we are using functionality from some of the packages in the `tidyverse` and others.
+
+We'll load the `tidyverse` collection of packages. If you don't have them installed, do so. This will likely install a lot of packages and take a while. We'll also load the `skimr` package. Install as needed.
+
+```{r}
+library(dslabs)
+library(tidyverse)
+library(skimr)
+```
+
+_Note that while I'm only loading these packages here for didactic reasons, it is generally best to have all `library` commands at the beginning of a document, this way a user can quickly see which ones to install. That prevents someone running a long simulation, only to get an error message at the end because a package to produce the final plot is missing._ 
+
+```{r}
+dplyr::glimpse(gapminder)
+skimr::skim(gapminder)
+```
+
+Pull out african countries and only some of the variables. 
+
+```{r}
+africasmall <- gapminder %>% dplyr::filter(continent == "Africa") %>% dplyr::select(life_expectancy,country,population,infant_mortality) 
+skim(africasmall)
+```
+
+
+Note that I often write both the function name and the package where the function comes from, i.e. `dplyr::filter` instead of just `filter`. It is not strictly needed, but if multiple functions with the same name exist in different packages (which is for instance true for `filter`), being explicit about which one you want helps with potential problems in the code.
+
+
+Plotting life expectancy as function of infant mortality and population, giving each country a separate color.
+
+```{r}
+p1 <- africasmall %>% ggplot(aes(x = infant_mortality, y = life_expectancy, color = country)) + geom_point()
+plot(p1)
+p2 <- africasmall %>% ggplot(aes(x = population, y = life_expectancy, color = country )) + geom_point() + scale_x_log10()
+plot(p2)
+```
+```{r}
+gapminder %>% dplyr::filter(continent == "Africa", year == 2000) %>%  
+             ggplot(aes(x = infant_mortality, y = life_expectancy)) + geom_point() + geom_smooth(method = "lm") -> p3
+plot(p3)
+```
+

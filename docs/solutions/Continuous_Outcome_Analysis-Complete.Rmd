@@ -1,0 +1,426 @@
+---
+title: Continuous Outcome Analysis
+author: YOURNAME
+date: "`r Sys.Date()`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Overview
+
+This document will guide you through a few data analysis tasks and model fitting models.
+
+Below, I provide commentary and instructions, and you are expected to write all or some of the missing code to perform the steps I describe. 
+
+Note that I call the main data variable `d`. So if you see bits of code with that variable, it is the name of the data. You are welcome to give it different names, then just adjust the code snippets accordingly.
+
+
+# Project setup
+We need a variety of different packages, which are loaded here. Install as needed.
+If you use others, load them here.
+
+```{r setup}
+library('tidyr')
+library('dplyr')
+library('forcats')
+library('ggplot2')
+library('corrplot') #to make a correlation plot. You can use other options/packages.
+library('visdat') #for missing data visualization
+library('caret') #for model fitting
+library('earth')
+```
+
+
+# Data loading
+We will be exploring and fitting a dataset of norovirus outbreaks. You can look at the codebook, which briefly explains the meaning of each variable. If you are curious, you can check some previous papers that we published using (slighly different versions of) this dataset [here](http://handelgroup.uga.edu/publication/devasia15epiinf/) and [here](http://handelgroup.uga.edu/publication/desai2012cid/).
+
+```{r loaddata}
+#Write code that loads the dataset and does a quick check to make sure the data loaded ok (using e.g. `str` and `summary` or similar such functions).
+
+data_raw=read.csv('norodata.csv',header=TRUE,stringsAsFactors=TRUE)
+dim(data_raw) #dimensions of the data (rows and columns)
+#uncommenting all but dim since it produces a lot of output. Still worth looking it on first check.
+#head(data_raw) #first 6 rows
+#str(data_raw) #structure of the data
+#summary(data_raw)
+```
+
+
+# Data exploration and cleaning
+
+
+## Investigating the outcome of interest
+
+Let's assume that our main outcome of interest is the fraction of individuals that become infected in a given outbreak. The data reports that outcome (called `RateAll`), but we'll also compute it ourselves, so we can practice creating new variables. To do so, take a look at the data (maybe peek at the Codebook) and decide which of the existing variables you should use to compute the new one. This new outcome variable will be added to the data frame.
+
+```{r createvar}
+# Use the `mutate()` function from the `dplyr` package to create a new column with this value. Call the new variable `fracinf`.
+d <- data_raw %>% dplyr::mutate( fracinf = CasesAll / RiskAll )
+```
+
+
+:::note
+Note the notation `dplyr::` in front of `mutate`. This is not strictly necessary, but it helps in 2 ways. First, this tells the reader explicitly from which package the function comes. This is useful for quickly looking at the help file of the function, or if we want to adjust which packages are loaded/used. It also avoids occasional confusion if a function exists more than once (e.g. `filter` exists both in the `stats` and `dplyr` package). If the package is not specified, `R` takes the function from the package that was loaded last. This can sometimes produce strange error messages. I thus often (but not always) write the package name in front of the function.
+:::
+
+:::fyi
+As you see in the Rmd file, the previous text box is created by placing texts between the `:::` symbols and specifying some name. This allows you to apply your own styling to specific parts of the text. You define your style in a css file (here called `customstyles.css`) and you need to list that file in the `_site.yml` file. The latter file also lets you change the overall theme. You can choose from the library of [free Bootswatch themes](https://bootswatch.com/). 
+:::
+
+Use both text summaries and plots to take a look at the new variable you created to see if everything looks ok or if we need further cleaning.
+
+```{r checkdata}
+#Write code that takes a look at the values of the `fracinf` variable you created. Look at both text summaries and a figure.
+summary(d$fracinf)
+hist(d$fracinf, xlab="Fraction infected")
+print(sum(is.na(d$fracinf)))
+print(sum(is.infinite(d$fracinf)))
+```
+
+We notice there are NAs in this variable and the distribution is not normal. The latter is somewhat expected since our variable is a proportion, so has to be between 0 and 1. There are also a lot infinite values. Understand where they come from. 
+
+Let's take a look at the `RateAll` variable recorded in the dataset and compare it to ours. 
+First, create a plot that lets you quickly see if/how the variables differ. 
+
+```{r checkoutcome}
+# Plot one variable on the x axis, the other on the y axis
+# make sure you adjust so both are in the same units
+plot(d$RateAll, d$fracinf*100)
+# plot the difference of the 2 variables
+plot(d$RateAll-d$fracinf*100)
+```
+
+Both ways of plotting show that for most outbreaks the 2 ways of getting the outcome agree. So that's good. But we need to look closer and resolve the problem with infinite values above. Check to see what the `RateAll` variable has for those infinite values.
+
+```{r infvalues}
+#Write code that looks at the values of RateAll where we have inifinite values
+print(d$RateAll[is.infinite(d$fracinf)])
+```
+
+You should find that all of the reported values are 0. So what makes more sense? You should have figured out that the infinite values in our computed variables arise because the `RiskAll` variable is 0. That variable contains the total number of persons at risk for an outbreak. If nobody is at risk of getting infected, then of course we can't get any infected. So `RateAll` being 0 is technically correct. But does it make sense to include "outbreaks" in our analysis where nobody is at risk of getting infected? One should question how those got into the spreadsheet in the first place. 
+
+**Having to deal with "weirdness" in your data like this example is common. You often need to make a decision based on best judgment.** 
+
+Here, I think that if nobody is at risk, we shouldn't include those outbreaks in further analysis. Thus, we'll go with our computed outcome and remove all observations that have missing or infinite values for the outcome of interest, since thos can't be used for model fitting. Thus, we go ahead and remove any observations that have un-useable values in the outcome.
+
+```{r filter1}
+#Write code that removes all observations that have an outcome that is not very useful, i.e. either NA or infinity. Then look at the outcome variable again to make sure things are fixed. Also check the size of the new dataset to see by how much it shrunk.
+d <- d %>% dplyr::filter(!is.na(fracinf) & !is.infinite(fracinf))
+summary(d$fracinf)
+dim(d)
+```
+
+
+You should find that we lost a lot of data, we are down to 579 observations (from a starting 1022). That would be troublesome for most studies if that would mean subjects drop out (that could lead to bias). Here it's maybe less problematic since each observation is an outbreak collected from the literature. Still, dropping this many could lead to bias if all the ones that had NA or Infinity were somehow systematically different. It would be useful to look into and discuss in a real analysis.
+
+
+## Wrangling the predictors
+
+Not uncommon for real datasets, this one has a lot of variables. Many are not too meaningful for modeling. Our question is what predicts the fraction of those that get infected, i.e. the new outcome we just created. We should first narrow down the predictor variables of interest _based on scientific grounds._ 
+
+For this analysis exercise, we just pick the following variables for further analysis: `Action1, CasesAll, Category, Country, Deaths, GG2C4, Hemisphere, Hospitalizations`, `MeanA1, MeanD1, MeanI1, MedianA1, MedianD1, MedianI1`, `OBYear, Path1, RiskAll, Season, Setting, Trans1, Vomit.` Of course we also need to keep our outcome of interest.
+
+Note that - as happens often for real data - there are inconsistencies between the codebook and the actual data sheet. Here, names of variables and spelling in the codebook do not fully agree with the data. Above list of variables is based on codebook, you need to make sure you get the right names from the data when selecting those variables.
+
+```{r reducepredictors}
+#write code to select the specified variables
+d <- d %>% dplyr::select(fracinf, Action1, CasesAll, Category, Country, Deaths, gg2c4, Hemisphere, Hospitalizations, MeanA1, MeanD1, MeanI1, MedianA1, MedianD1, MedianI1, OBYear, Path1, RiskAll, season, Setting_1, Trans1, Vomit)
+dim(d)
+```
+
+Your reduced dataset should contain 579 obeservations and 22 variables.
+
+With this reduced dataset, we'll likely still need to perform further cleaning. 
+We can start by looking at missing data. While the `summary` function gives that information, it is somewhat tedious to pull out. We can just focus on NA for each variable and look at the text output, or for lots of predictors, a graphical view is easier to understand. The latter has the advantage of showing potential clustering of missing values.
+
+
+```{r check-reduced-data}
+# this code prints number of missing for each variable
+x=colSums(is.na(d)) 
+print(x) 
+# using the visdat R package, add code that plots a heatmap of missing values  
+visdat::vis_dat(d)
+```
+
+Looks like we have a lot of missing data for the `MeanA1` and `MedianA1` variables. If we wanted to keep those variables, we would be left with very few observations. So let's drop those 2 variables, after that we drop all observations that have missing data (seems to be `Hospitalization` and `Deaths`).
+
+```{r further-reduce-data}
+# write code to drop the 2 variables and then this code prints number of missing for each variable
+d <- d %>% dplyr::select( -c(MeanA1,MedianA1)) %>% tidyr::drop_na()
+#check dimension of data, you should have 553 observations and 21 variables
+dim(d)
+```
+
+
+Let's now check the format of each variable. Depending on how you loaded the data, some variables might not be in the right format. Make sure everything that should be numeric is numeric/integer, everything that should be a factor is a factor. There should be no variable coded as `character`. Once all variables have the right format, take a look at the data again.
+
+```{r further-clean-data}
+# write code to format variables as needed
+# for my dataset, OByear is coded as factor, convert to numeric (could also convert to date, but numeric is easier). Note the weird way of first turning it into a character. That's because factors are strored in a specific way in R, which means if you convert it directly, you get the factor level.
+d$OBYear <- as.numeric(as.character(d$OBYear))
+d$Vomit <- as.factor(d$Vomit)
+```
+
+You should find that for the dataset, most things look reasonable, but the variable `Setting_1` has a lot of different levels/values. That many categories, most with only a single entry, will likely not be meaningful for modeling. One option is to drop the variable it. But assume we think it's an important variable to include and we are especially interested in the difference between restaurant settings and other settings. We could then create a new variable that has only 2 levels, `Restaurant` and `Other`.
+
+```{r recode-setting}
+#write code that creates a new variable called `Setting` based on `Setting_1` buth with only 2 levels, `Restaurant` and `Other`. Then remove the `Setting_1` variable. Note that restaurant is sometimes capitalized and sometimes not. You need to fix that first. For these lines of code, the 'Factor' chapter in R4DS might be helpful here.
+d <- d %>%  dplyr::mutate(Setting = replace(Setting_1, Setting_1 == "restaurant", "Restaurant")) %>%
+            dplyr::mutate(Setting = fct_lump(Setting, n = 1)) %>% 
+            dplyr::select(-Setting_1)
+str(d)
+```
+
+
+
+## Data visualization
+
+Next, let's create a few plots showing the outcome and the predictors. 
+
+
+```{r plots-1}
+#write code that produces plots showing our outcome of interest on the y-axis and each numeric predictor on the x-axis.
+#you can use the facet_wrap functionality in ggplot for it, or do it some other way.
+p1 <- d %>% select_if(is.numeric) %>% gather(-fracinf, key = "var", value = "value") %>% 
+            ggplot() + geom_point(aes(x = value, y=fracinf)) +
+            facet_wrap(~ var, scales = "free") + theme_bw()
+print(p1)
+```
+
+One thing I notice in the plots is that there are lots of zeros for many predictors and things look skewed. That's ok, but means we should probably standardize these predictors. One strange finding (that I could have caught further up when printing the numeric summaries, but didn't) is that there is (at least) one outbreak that has outbreak year reported as 0. That is of course wrong and needs to be fixed. There are different ways of fixing it, the best of course would be to trace it back and try to fix it with the right value. We won't do that here. Instead, we'll remove that observation.
+
+```{r remove-wrong-year}
+# write code that figures out which observation(s) have 0 years and remove those from the dataset.
+d <- d %>% filter(OBYear != 0)
+#do some quick check to make sure OByear values are all reasonable now
+hist(d$OBYear)
+```
+
+Another useful check is to see if there are strong correlations between some of the numeric predictors. That might indicate collinearity and some models can't handle that very well. In such cases, one might want to remove a predictor. We'll create a correlation plot of the numeric variables to inspect this.
+
+```{r corrplot}
+# using e.g. the corrplot package (or any other you like), create a correlation plot of the numeric variables
+d %>% select_if(is.numeric) %>% cor() %>% corrplot::corrplot(addCoef.col = "red")
+```
+
+
+It doesn't look like there are any very strong correlations between continuous variables, so we can keep them all for now.
+
+
+Next, let's create plots for the categorical variables, again our main outcome of interest on the y-axis.
+
+```{r plots-2}
+#write code that produces plots showing our outcome of interest on the y-axis and each categorical predictor on the x-axis.
+#you can use the facet_wrap functionality in ggplot for it, or do it some other way.
+d2 <- d %>% select_if(is.factor)
+d2$fracinf <- d$fracinf
+p1 <- d2 %>% gather(-fracinf, key = "var", value = "value") %>% 
+            ggplot() + geom_violin(aes(x = value, y=fracinf)) + geom_point(aes(x = value, y=fracinf)) +
+            facet_wrap(~ var, scales = "free") + theme_bw()
+print(p1)
+```
+
+The plots do not look pretty, which is ok for exploratory. We can see that a few variables have categries with very few values (again, something we could have also seen using `summary`, but graphically it is usually easier to see). This will likely produce problems when we fit using cross-validation, so we should fix that. Options we have: 
+
+* Completely drop those variables if we decide they are not of interest after all.
+* Recode values by combining, like we did above with the `Setting` variable. 
+* Remove observations with those rare values.
+
+Let's use a mix of these approaches. We'll drop the `Category` variable, we'll remove the observation(s) with `Unspecified` in the `Hemisphere` variable, and  we'll combine `Unknown` with `Unspecified` for `Action1` and `Path1` variables.
+
+```{r clean-categorical}
+# write code that implements the cleaning steps described above.
+# then check again (e.g. with a plot) to make sure things worked
+d <- d %>% dplyr::select(-Category) %>% dplyr::filter(Hemisphere != "Unspecified") %>% 
+            dplyr::mutate(Action1 = replace(Action1, Action1 == "Unknown", "Unspecified")) %>%
+            dplyr::mutate(Path1 = replace(Path1, Path1 == "Unknown", "Unspecified")) %>%
+            droplevels() 
+d2 <- d %>% select_if(is.factor)
+d2$fracinf <- d$fracinf
+p1 <- d2 %>% gather(-fracinf, key = "var", value = "value") %>% 
+            ggplot() + geom_violin(aes(x = value, y=fracinf)) + geom_point(aes(x = value, y=fracinf)) +
+            facet_wrap(~ var, scales = "free") + theme_bw()
+print(p1)
+```
+
+```{r}
+dim(d)
+```
+
+At this step, you should have a dataframe containing 551 observations, and 19 variables: 1 outcome, 9 numeric/integer predictors, and 9 factor variables. There should be no missing values.
+
+
+# Model fitting
+
+
+We can finally embark on some modeling - or at least we can get ready to do so.
+
+We will use a lot of the `caret` package functionality for the following tasks. You might find [the package website](https://topepo.github.io/caret/index.html) useful as you try to figure things out.
+
+
+## Data splitting 
+Depending on the data and question, we might want to reserve some of the data for a final validation/testing step or not. Here, to illustrate this process and the idea of reserving some data for the very end, we'll split things into a train and test set. All the modeling will be done with the train set, and final evaluation of the model(s) happens on the test set. We use the `caret` package for this. 
+
+```{r split-data}
+set.seed(123)
+trainset <- caret::createDataPartition(y = d$fracinf, p = 0.7, list = FALSE)
+data_train = d[trainset,] #extract observations/rows for training, assign to new variable
+data_test = d[-trainset,] #do the same for the test set
+```
+
+:::note
+Since the above code involves drawing samples and we want to do that reproducible, we also set a random number seed with `set.seed()`. With that, each time we perform this sampling it will be the same, unless we change the seed. If nothing about the code changes, setting the seed once at the beginning is enough. If you want to be extra sure, it is a good idea to set the seed at the beginning of every code chunck that involves random numbers (i.e. sampling or some other stochastic/random procedure). We do that here.
+:::
+
+## A null model
+
+Now let's begin with the model fitting. We'll start by looking at a _null model_, which is just the mean of the data. This is of course a stupid "model" but provides some baseline for performance.
+
+```{r clean-na}
+#write code that computes the RMSE for a null model, which is just the mean of the outcome
+#remember that from now on until the end, everything happens with the training data
+outcome = data_train$fracinf
+Nobs=nrow(data_train)
+base_RMSE <- sqrt(sum((outcome-mean(outcome))^2)/Nobs)
+print(sprintf('RMSE of baseline model is %f',base_RMSE))
+```
+
+
+## Single predictor models
+
+Now we'll fit the outcome to each predictor one at a time. To evaluate our model performance, we will use cross-validation and the caret package. Note that we just fit a linear model. `caret` itself is not a model. Instead, it provides an interface that allows easy access to many different models, and has functions to do a lot of steps quickly - as you will see below. Most of the time, you can do all our work through the `caret` (or `mlr`) workflow. The problem is that because `caret` calls another package/function, sometimes things are not as clear, especially when you get error message. So occasionally, if you know you want to use a specific model and want more control over things, you might want to not use `caret` and instead go straight to the model function (e.g. `lm` or `glm` or...). We've done a bit of that before, for the remainder of the class we'll mostly access underlying functions through `caret`.
+
+
+```{r}
+#There is probably a nicer tidyverse way of doing this. I just couldn't think of it, so did it this way.
+set.seed(1111) #makes each code block reproducible
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) #setting CV method for caret
+Npred <- ncol(data_train)-1 # number of predictors
+resultmat <- data.frame(Variable = names(data_train)[-1], RMSE = rep(0,Npred)) #store values for RMSE for each variable
+for (n in 2:ncol(data_train)) #loop over each predictor. For this to work, outcome must be in 1st column
+{
+  fit1 <- train( as.formula(paste("fracinf ~",names(data_train)[n])) , data = data_train, method = "lm", trControl = fitControl) 
+ resultmat[n-1,2]= fit1$results$RMSE  
+}
+print(resultmat)
+```
+
+This analyis shows 2 things that might need closer inspections. We get some error/warning messages and most RMSE of the single-predictor model are not better than the null model. Usually, this is cause for more careful checking until you fully understand what is going on. But for this exercise, let's blightly press on!
+
+
+## Multi-predictor models
+
+Now let's perform fitting with multiple predictors. Use the same setup as the code above to fit the outcome to all predictors at the same time. Do that for 3 diffent models: linear (`lm`), regression splines (`earth`), K nearest neighbor (`knn`). You might have to install/load some extra R packages for that. If that's the case `caret` will tell you.
+
+```{r}
+#write code that uses the train function in caret to fit the outcome to all predictors using the 3 methods specified.
+#report the RMSE for each method. Note that knn and earth perform some model tuning (we'll discuss this soon) and report multiple RMSE. Use the lowest value.
+set.seed(1111) #makes each code block reproducible
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) 
+fit2 <- train(fracinf ~ ., data = data_train, method = "lm", trControl = fitControl) 
+fit3 <- train(fracinf ~ ., data = data_train, method = "knn", trControl = fitControl)
+fit4 <- train(fracinf ~ ., data = data_train, method = "earth", trControl = fitControl) 
+print(sprintf('RMSE of lm/knn/mars model %f/%f/%f', fit2$results$RMSE, min(fit3$results$RMSE), min(fit4$results$RMSE) ))
+```
+
+So we find that some of these models do better than the null model and the single-predictor ones. KNN seems the best of those 3. Next, we want to see if pre-processing our data a bit more might lead to even better results.
+
+
+
+## Multi-predictor models with pre-processing
+
+Above, we fit outcome and predictors without doing anything to them. Let's see if some further processing improves performance of our multi-predictor models.
+
+First, we look at near zero variance predictors. Those are predictors that have very little variation. For instance for a categorical predictor, if 99% of the values are a single category, it is likely not a useful predictor. A similar idea holds for continuous predictors. If they have very little spread they might likely not contribute much 'signal' to our fitting and intead mainly contain noise. Some models, such as trees, which we'll cover soon, can ignore useless predictors and just remove them. Other models, e.g. linear models, are generally performing better if we remove such useless predictors.
+
+Note that in general, one should apply all these processing steps to the training data only, otherwise you would use information from the test set to decide on data manipulations for all data (called data leakage). It is a bit hard to say when to make the train/test split. Above, we did a good bit of cleaning on the full dataset before we split. One could argua that one should split right at the start, then do cleaning. However, this doesn't work for certain procedures (e.g. removing observations with NA). 
+
+```{r}
+#write code using the caret function `nearZeroVar` to look at potential uninformative predictors. Set saveMetrics to TRUE. Look at the results 
+nzv <- caret::nearZeroVar(data_train, saveMetrics= TRUE)
+print(nzv)
+```
+You'll see that several variables are flagged as having near-zero variance. Look for instance at `Deaths`, you'll see that almost all outbreaks have zero deaths. It is a judgment call if we should remove all those flagged as near-zero-variance or not. For this exercise, we will.
+
+
+```{r}
+#write code that removes all variables with near zero variance from the data 
+#also have code that removes those variables from the test set
+nzv <- caret::nearZeroVar(data_train)
+data_train_proc <- data_train[,-nzv]
+data_test_proc <- data_test[,-nzv]
+str(data_train_proc)
+```
+
+You should be left with 13 variables (including the outcome).
+
+
+Next, we noticed during our exploratory analysis that it might be useful to center and scale predictors. So let's do that now. With caret, one can do that by providing the `preProc` setting inside the `train` function. Set it to center and scale the data, then run the 3 models from above again.
+
+
+```{r processed-fit}
+#write code that repeats the multi-predictor fits from above, but this time applies centering and scaling of variables.
+#look at the RMSE for the new fits
+fitControl <- trainControl(method="repeatedcv",number=5,repeats=5) 
+fit2a <- train(fracinf ~ ., data = data_train_proc, method = "lm", trControl = fitControl, preProc = c("center","scale")) 
+fit3a <- train(fracinf ~ ., data = data_train_proc, method = "knn", trControl = fitControl, preProc = c("center","scale"))
+fit4a <- train(fracinf ~ ., data = data_train_proc, method = "earth", trControl = fitControl, preProc = c("center","scale")) 
+print(sprintf('RMSE of lm/knn/mars model %f/%f/%f', fit2a$results$RMSE, min(fit3a$results$RMSE), min(fit4a$results$RMSE) ))
+```
+
+So it looks like the linear mode got a bit better, KNN actually got worse and MARS didn't change much. Since for KNN "the data is the model", removing some predictors might have had a detrimental impact. Though to say something more useful, I would want to look much closer into what's going on and if these pre-processing steps are useful or not. For this exercise, let's move on.
+
+## Model uncertainty
+
+We can look at the uncertainty in model performance, e.g. the RMSE. Let's look at it for the models fit to the un-processed data.
+
+```{r uncertainty}
+#Use the `resamples` function in caret to extract uncertainty from the 3 models fit to the data  that doesn't have predictor pre-processing, then plot it
+resamps <- caret::resamples(list(LM = fit2, KNN = fit3, MARS = fit4))
+bwplot(resamps, layout = c(3, 1))
+```
+
+It seems that the model uncertainty for the outcome is fairly narrow for all models. We can (and in a real setting should) do further explorations to decide which model to choose. This is based part on what the model results are, and part on what we want. If we want a very simple, interpretable model, we'd likely use the linear model. If we want a model that has better performance, we might use MARS or - with the un-processed dataset - KNN.
+
+
+## Residual plots
+
+For this exercise, let's just pick one model. We'll go with the best performing one, namely KNN (fit to non-pre-processed data). Let's take a look at the residual plot.
+
+```{r}
+#Write code to get model predictions for the outcome on the training data, and plot it as function of actual outcome values.
+#also compute residuals (the difference between prediction and actual outcome) and plot that
+pred <- predict(fit3,data_train)
+outcome <- data_train$fracinf
+resid <- outcome - pred
+plot(outcome,pred,xlim = c(0,1),ylim=c(0,1))
+plot(resid)
+```
+
+Both plots look ok, predicted vs outcome is along the 45 degree line, residual plot shows no major pattern. Of course, for a real analysis, we would again want to dig a bit deeper. But we'll leave it at this for now. 
+
+
+## Final model evaluation
+
+Let's do a final check, evaluate performance of our final model on the test set.
+
+```{r}
+#Write code that computes model predictions and for test data, then compute SSR and RMSE.
+pred <- predict(fit3,data_test)
+outcome <- data_test$fracinf
+SSR <- sum( (outcome - pred)^2 )
+RMSE = sqrt(SSR/length(outcome))
+print(RMSE)
+```
+
+Since we have a different number of observations, the result isn't expected to be quite the same as for the training data (despite dividing by sample size to account for that). But it's fairly close, and surprisingly not actually worse. So the KNN model seems to be reasonable at predicting. Now if its performance is 'good enough' is a scientific question.
+
+
+We will leave it at this for now, we will likely (re)visit some other topics soon as we perform more such analysis exercises in upcoming weeks. But you are welcome to keep exploring this dataset and try some of the other bits and pieces we covered. 
+
+
+
+

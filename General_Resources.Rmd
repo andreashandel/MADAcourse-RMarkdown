@@ -3,7 +3,7 @@ title: More Data Science Resources
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
-date: "`r Sys.Date()`"
+date: "`r file.mtime(knitr::current_input())`"
 #bibliography: ../media/references.bib
 output: 
   html_document:
@@ -17,17 +17,17 @@ output:
 library(emo)
 ```
 
-The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other data science resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed is related to the course (i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. There is of course way more material out there that I do not list.
+The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed here is related to the course, i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. For even more materials, see the links to various lists by others at the end of this document.
 
-All materials described below are (should be) freely available online. If you can't get to them, let me know. The ones marked in __bold__ are those that we'll be using a lot.
-
-Note: For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. So if I point you to some resource throught this class and it doesn't exist or doesn't seem to make sense, please do not hesitate to ask for clarification in our discussion boards.
+All materials described below are (should be) freely available online. For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If any link does not work and you can't access the materials for some reason, let me know so I can update this document.
 
 
 # Books
 * A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science.[^1] Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok.
 * [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
 * [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
+* [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
+* [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
 
 By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 
@@ -45,7 +45,7 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 * Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
 * [Data science for economists](https://github.com/uo-ec607/lectures)
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
-
+* [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
 
 # Hands-on/interactive resources
 
