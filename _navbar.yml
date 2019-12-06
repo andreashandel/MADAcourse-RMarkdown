@@ -1,4 +1,7 @@
+name: "MADAcourse"
 title: "MADA Course"
+logo:
+    image: ./media/MADAlogo.png
 type: inverse
 left:
   - text: "General Information"
