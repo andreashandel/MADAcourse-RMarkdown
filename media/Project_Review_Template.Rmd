@@ -1,7 +1,7 @@
 ---
 title: Project Review Template 
 author: YOURNAME
-date: "`r Sys.Date()`"
+date: "`r file.mtime(knitr::current_input())`"
 #bibliography: ../media/references.bib
 output: 
   html_document:

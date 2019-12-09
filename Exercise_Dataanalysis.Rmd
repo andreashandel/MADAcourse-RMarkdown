@@ -2,7 +2,7 @@
 title: Data Analysis Exercise
 author: Andreas Handel
 institute: "University of Georgia"
-date: "`r Sys.Date()`"
+date: "`r file.mtime(knitr::current_input())`"
 output: 
   html_document:
     toc_depth: 3
