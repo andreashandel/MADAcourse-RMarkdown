@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
-<meta name="date" content="2019-12-06" />
+<meta name="date" content="2019-12-09" />
 
 <title>MADA Course - Tree based models</title>
 
@@ -683,7 +683,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Tree based models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-12-06</h4>
+<h4 class="date">2019-12-09</h4>
 
 </div>
 
@@ -724,9 +724,13 @@ An interesting classification tree. Source: xkcd.
 <p>We now take each leaf and run through all predictors again <strong>including the one we just used</strong> and see which predictor split at some value will further improve model performance. Let’s say we find that for those exercising more than 23min, we can split by gender and get 2 new BMI values, one for males exercising &gt;23min and one for females exercising &gt;23min, which gives the maximum reduction in RMSE. Similarly, we find that for the &lt;23min exercise people, splitting at 1500 calories a day is best. We now have a tree with a root, 2 internal nodes, and 4 terminal nodes.</p>
 <p>We keep building the tree in this way until some criterion is met (e.g., not more than n observations in a given leaf, no further increase in performance). Note that in this procedure, some predictors may never enter the model. In that way, a tree performs an automatic subset selection, i.e., it might decide to not <em>use</em> predictor variables it doesn’t find useful. Also, any predictor might be used more than once.</p>
 <p>Algorithms that implement the tree building routine differ in their details, which is why you will see many different options in both <code>mlr</code> and <code>caret</code>. In general, if you have a good signal in your data, any algorithm should pick up on it.</p>
-<p>Since trees have a tendency to overfit, it is common to <strong>regluarize</strong> them by including a penalty for tree size. For instance, if we were to minimize SSR/RMSE, we would add a penalty to the cost function, <em>C</em>, to get</p>
+<p>Since trees have a tendency to overfit, it is common to <strong>regularize</strong> them by including a penalty for tree size. For instance, if we were to minimize SSR/RMSE, we would add a penalty to the cost function, <em>C</em>, to get</p>
 <p><span class="math display">\[C = SSR + \lambda T, \]</span></p>
 <p>where <em>T</em> is the number of leaves of the tree. More leaves means a larger tree, which is being penalized. <span class="math inline">\(\lambda\)</span> is a tuning parameter that needs to be determined using parameter tuning/model training.</p>
+</div>
+<div id="fast-and-frugal-trees" class="section level1">
+<h1>Fast and frugal trees</h1>
+<p>While trees are fairly simple to understand, sometimes, especially if there are many branching points, a complex decision tree might still not be suitable in practice. Further, even with regularization, trees tend to overfit. There is a type of tree, called <em>fast and frugal tree (FFT)</em>, which can potentially help with both aspects. The difference between a regular tree and a FFT is that for the FFT, at each split/decision point, at least one of the splits needs to end in a terminal node. Check e.g. the <a href="https://en.wikipedia.org/wiki/Fast-and-frugal_trees">example diagrams shown in the FFT Wikipedia article</a> to see what this means. This constraint makes the trees are simpler and thus easier to implement in practice (e.g. by a doctor) and they might be more robust. Disadvantages of FFT are that they might be too simple and thus not performing as well as a full tree, and they only work for binary outcomes. There is a very nice R package called <code>FFTrees</code> that implements FFT (and automatically compares their performance to regular trees and some of the tree based methods discussed below). You can find <a href="https://ndphillips.github.io/FFTrees.html">more about this R package here</a>.</p>
 </div>
 <div id="advantages-and-disadvantages-of-tree-models" class="section level1">
 <h1>Advantages and disadvantages of tree models</h1>

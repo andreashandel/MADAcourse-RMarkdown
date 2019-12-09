@@ -64,13 +64,15 @@ We keep building the tree in this way until some criterion is met (e.g., not mor
 
 Algorithms that implement the tree building routine differ in their details, which is why you will see many different options in both `mlr` and `caret`. In general, if you have a good signal in your data, any algorithm should pick up on it.
 
-Since trees have a tendency to overfit, it is common to __regluarize__ them by including a penalty for tree size. For instance, if we were to minimize SSR/RMSE, we would add a penalty to the cost function, _C_, to get 
+Since trees have a tendency to overfit, it is common to __regularize__ them by including a penalty for tree size. For instance, if we were to minimize SSR/RMSE, we would add a penalty to the cost function, _C_, to get 
 
 $$C = SSR + \lambda T, $$
 
 where _T_ is the number of leaves of the tree. More leaves means a larger tree, which is being penalized. $\lambda$ is a tuning parameter that needs to be determined using parameter tuning/model training.
 
 
+# Fast and frugal trees
+While trees are fairly simple to understand, sometimes, especially if there are many branching points, a complex decision tree might still not be suitable in practice. Further, even with regularization, trees tend to overfit. There is a type of tree, called _fast and frugal tree (FFT)_, which can potentially help with both aspects. The difference between a regular tree and a FFT is that for the FFT, at each split/decision point, at least one of the splits needs to end in a terminal node. Check e.g. the [example diagrams shown in the FFT Wikipedia article](https://en.wikipedia.org/wiki/Fast-and-frugal_trees) to see what this means. This constraint makes the trees are simpler and thus easier to implement in practice (e.g. by a doctor) and they might be more robust. Disadvantages of FFT are that they might be too simple and thus not performing as well as a full tree, and they only work for binary outcomes. There is a very nice R package called `FFTrees` that implements FFT (and automatically compares their performance to regular trees and some of the tree based methods discussed below). You can find [more about this R package here](https://ndphillips.github.io/FFTrees.html).
 
 
 # Advantages and disadvantages of tree models
@@ -78,6 +80,7 @@ where _T_ is the number of leaves of the tree. More leaves means a larger tree, 
 A great feature of trees is that they are relatively quick and easy to build and especially easy to understand. They can easily be communicated to and used by non-experts (e.g., doctors, other decision-makers). As such, trees (sometimes called decision diagrams or other names) are common in many fields. As mentioned, trees are also able to handle missing data in predictors, and they are often reasonably robust in the presence of collinear or near-zero-variance predictors since trees tend to use one of the variables and ignore the others. Often trees also don't need normalization of predictors.
 
 The main disadvantage of trees is that they usually have reduced performance compared to many other methods. Thus, if a simple, interpretable model is the primary goal, trees are ideal. If instead, a high-performance predictive model is the goal, trees are rarely the best choice. 
+
 
 
 # Many trees (forests)
