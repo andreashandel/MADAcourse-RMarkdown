@@ -13,7 +13,9 @@ output:
 
 Title of project:
 
-Author of project:
+Name of project author:
+
+Name of project reviewer:
 
 
 # Instructions
