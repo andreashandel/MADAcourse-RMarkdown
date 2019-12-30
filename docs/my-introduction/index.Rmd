@@ -1,0 +1,43 @@
+---
+title: "Andreas Handel Introduction"
+output: 
+  html_document:
+    theme: spacelab
+    highlight: tango
+---
+
+
+# Introducing myself
+
+This is the introduction page for Andreas Handel.
+
+## A picture
+Here is a picture of me pursuing one of my favorite activities. 
+
+```{r andreas,  out.width = "30%", fig.cap='', fig.align = "center", echo=FALSE}
+knitr::include_graphics("./andreas.jpg")
+```
+
+This is a Muffaletta Sandwich from [Cochon Butcher](https://cochonbutcher.com/) in New Orleans. 
+
+## More about me
+Now I am going to cheat a little bit and mostly link to existing material that introduces me. Those sources above will tell you about my education, training, research and some hobbies. 
+
+You can read a bit more about my work and my training on my [group website](http://handelgroup.uga.edu/) and specifically [my entry](http://handelgroup.uga.edu/authors/andreashandel/).
+
+As part of making this course, UGA's office of online learning made a general introductory video for me.
+
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_lfTsTOykwM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+
+## A cool data analysis link
+
+There are a lot of cool data analysis projects out there by now. Here is one from 538, which gives a nice [interactive illustration of the phenomenon of _p-hacking_](https://projects.fivethirtyeight.com/p-hacking/), which basically means investigators playing with data until they get something _statistically significant_ - a problem [that is very widespread in science](https://doi.org/10.1371/journal.pbio.1002106). We'll likely touch on that topic at some point in the course.
+
+
+
+
+
+
