@@ -17,7 +17,7 @@ For this exercise, we will join the R data science community and participate in 
 
 If you are curious how these datasets look, check out one of the already posted datasets. For instance, the wine ratings dataset you saw in the introductory lesson [can be found here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-28).
 
-You have already seen one TidyTuesday analysis as one of the introductory examples [at the beginning of the course](./Topic_Introduction.html). [Here is another example](https://www.andreashandel.com/post/tidytuesday-analysis/), an analysis I did in October 2019, concurrently with the students doing theirs. 
+You have already seen one TidyTuesday analysis as one of the introductory examples [at the beginning of the course](./2a_Topic_Introduction.html). [Here is another example](https://www.andreashandel.com/post/tidytuesday-analysis/), an analysis I did in October 2019, concurrently with the students doing theirs. 
 
 For more examples of previous analyses, [see this nice Shiny app](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) which scans twitter for posts mentioning `#tidytuesday`. Or check out [this person's Github repositories](https://github.com/jkaupp/tidytuesdays), who analyzed all weekly TidyTuesday datasets in 2019!
 
