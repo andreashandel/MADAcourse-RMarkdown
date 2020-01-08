@@ -51,9 +51,7 @@ You can use data from any source you like, herer are some possible ones.
 If you have data that you are using for some research project(s) you are doing, you are welcome and encouraged to work on this as part of the class project. Of course, what you do for this class project needs to be new work, not a previously done and recycled analysis. Also, since the analysis needs to be fully reproducible, you need to provide the data at least within the class (no need to make it publicly available). _I strongly encourage you to use the class project toward helping you do an analysis and write a report that can be something you can publish as part of your research!_ 
 
 ## Publicly available data
-You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project.
-
-I have a [list of data sources I maintain (contributions welcome)](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/Data_Resources.md). Of course you are not limited to data listed there.
+You can use any data you can get access to. Since it needs to be reproducible, you need to be able to share the data at least with me and the classmates who will review your project. If you need some ideas for data, check out [this website I maintain with various links to resources](https://andreashandel.github.io/research-and-teaching-resources/), among them is a list with links to various data sources. Of course you are not limited to data listed there.
 
 _Often, the most interesting questions can be asked by combining data from more than one source._
 

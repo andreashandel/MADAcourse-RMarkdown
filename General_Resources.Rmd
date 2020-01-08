@@ -66,7 +66,7 @@ To be filled
 
 # Lists and other sources
 
-* I created lists related to R and Data Analysis (as well as other topics). You can find all lists [at this link on github](https://github.com/ahgroup/research-and-teaching-resource-lists). The list specifically for learning R [is here](https://github.com/ahgroup/research-and-teaching-resource-lists/blob/master/R_Resources.md). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
+* I created lists related to R and Data Analysis (as well as other topics). [You can find all resource lists here](https://andreashandel.github.io/research-and-teaching-resources/). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
 * Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
 * [Machine Learning](https://m-clark.github.io/introduction-to-machine-learning/) - an online reference (almost book) which nicely explains some of the basics of machine learning.
