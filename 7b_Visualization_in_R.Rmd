@@ -42,6 +42,7 @@ The book [Data Visualization - A practical introduction](https://socviz.co/) is 
 
 For inspiration and ideas, there is also the [R graphics gallery](https://www.r-graph-gallery.com/) where you can see all kinds of plots made in R, and you can also see the code. They are nicely organized into categories. It's definitely worth browsing around.
 
+An interesting R package that is worth checking out is [esquisse](https://dreamrs.github.io/esquisse/). This package allows you to load a data frame and interactively make a ggplot. It can't do a lot of different plots, but it is a good start. The great feature is that at the end you can download the code for your plot, so you see how it works and you can use that code and further edit to include features that are beyond what the package allows you to do.
 
 # Beyond static graphs
 While you will likely always need regular figures for papers, reports, presentation slides, etc., it is becoming increasingly common to have interactive and dynamic visualizations. R has pretty good facilities for that, some in rapid development. The [`ggvis` package](https://ggvis.rstudio.com/) is meant to be similar to `ggplot2` but allow for interactive and dynamic visualizations. The [`plotly` package](https://plot.ly/r/) also works well with R and allows interactive graphs.
