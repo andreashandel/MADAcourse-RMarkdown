@@ -1,5 +1,5 @@
 ---
-title: Reproduciblity, Markdown and colleagues
+title: Reproducibility, Markdown and colleagues
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
