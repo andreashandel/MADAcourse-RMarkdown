@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -682,7 +683,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Model Performance</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-12-09 08:08:51</h4>
+<h4 class="date">2020-08-04 14:37:42</h4>
 
 </div>
 
@@ -808,9 +809,9 @@ Bias-variance tradeoff. Source: ISLR.
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Technically, for <code>lm</code> it is possible to find the best parameter values other than by ‘trial and error’, but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of <em>C</em>) is part of the large field of <a href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a>. Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimum is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the <code>nloptr</code> package - but we won’t need it in this course.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>If you want to compare different models, and one of your models can deal with missing data while the other cannot, you need to use MSE/RMSE, or make sure that both models are only fit to the data without missing values. Otherwise, you essentially fit two different datasets, and comparison between models is not valid anymore.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>Note that some of the terminologies are at times, confusing. The words <em>training data</em> and <em>test/validation data</em> are used both for the initial split described above, and the split done in the CV. A recent suggestion by Max Kuhn, creator of the <code>caret</code> package which we’ll soon be using, is to call the splits done by CV the <em>analysis</em> and <em>assessment</em> portions of the data. I like that terminology and will try to use it, though I might not be consistent.<a href="#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>Technically, for <code>lm</code> it is possible to find the best parameter values other than by ‘trial and error’, but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of <em>C</em>) is part of the large field of <a href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a>. Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimum is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the <code>nloptr</code> package - but we won’t need it in this course.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>If you want to compare different models, and one of your models can deal with missing data while the other cannot, you need to use MSE/RMSE, or make sure that both models are only fit to the data without missing values. Otherwise, you essentially fit two different datasets, and comparison between models is not valid anymore.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Note that some of the terminologies are at times, confusing. The words <em>training data</em> and <em>test/validation data</em> are used both for the initial split described above, and the split done in the CV. A recent suggestion by Max Kuhn, creator of the <code>caret</code> package which we’ll soon be using, is to call the splits done by CV the <em>analysis</em> and <em>assessment</em> portions of the data. I like that terminology and will try to use it, though I might not be consistent.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -864,7 +865,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

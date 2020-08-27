@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -682,7 +683,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Visualization in R</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-12-09 08:08:51</h4>
+<h4 class="date">2020-08-04 14:37:42</h4>
 
 </div>
 
@@ -706,6 +707,7 @@ div.tocify {
 <p>ggplot is based on what is called “grammar of graphics”. Learning a bit more about those ideas behind ggplot and what is possible with it is a good idea. Hadley wrote a book on ggplot2, and there is <a href="https://www.springer.com/gp/book/9780387981413">a print edition</a> which you can get for free through many universities (including UGA) that have SpringerLink access. Hadley is also working on a new edition of the book, that draft of the new book <a href="https://ggplot2-book.org/">is freely available online</a>.</p>
 <p>The book <a href="https://socviz.co/">Data Visualization - A practical introduction</a> is another great source. The book provides a general introduction to making good graphs, and the R code for the figures is shown.</p>
 <p>For inspiration and ideas, there is also the <a href="https://www.r-graph-gallery.com/">R graphics gallery</a> where you can see all kinds of plots made in R, and you can also see the code. They are nicely organized into categories. It’s definitely worth browsing around.</p>
+<p>An interesting R package that is worth checking out is <a href="https://dreamrs.github.io/esquisse/">esquisse</a>. This package allows you to load a data frame and interactively make a ggplot. It can’t do a lot of different plots, but it is a good start. The great feature is that at the end you can download the code for your plot, so you see how it works and you can use that code and further edit to include features that are beyond what the package allows you to do.</p>
 </div>
 <div id="beyond-static-graphs" class="section level1">
 <h1>Beyond static graphs</h1>
@@ -765,7 +767,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

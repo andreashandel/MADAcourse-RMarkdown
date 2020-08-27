@@ -24,15 +24,16 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -42,14 +43,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -59,7 +62,7 @@ pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   { color: #cccccc; background-color: #303030; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ffcfaf; } /* Alert */
 code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
@@ -772,7 +775,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-12-09 08:08:51</h4>
+<h4 class="date">2020-08-27 10:12:17</h4>
 
 </div>
 
@@ -843,8 +846,8 @@ Individuals who participate in TidyTuesday often post their projects online <a h
 <p>You don’t need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching 😄. It should be interesting even if you don’t care about wine. If you have no R experience, you won’t understand the details, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, <a href="https://www.youtube.com/user/safe4democracy/videos">he has a bunch more of those screencasts</a>.</p>
 <p>Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, <a href="https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd">here is the link to download the code for his analysis</a>. Just save the file after it opens in your browser. It should be named <code>wine-ratings.Rmd</code>. Click on it, and it should open in RStudio (if you don’t have R/RStudio installed yet, go through module 2, then come back).</p>
 <p>Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don’t get that auto-suggestion, you need to install the packages by hand. Every package that is called with the <code>library()</code> command needs to be installed first. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(doMC)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">registerDoMC</span>(<span class="dt">cores =</span> <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(doMC)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">registerDoMC</span>(<span class="dt">cores =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p>and add a <code>#</code> in front of them to turn them into comments and therefore disable them (you could also delete these lines, but then they are gone for good, so disabling with <code>#</code> is often better).</p>
 <p>Once you have done that and installed all other packages, hit the <code>Knit</code> button. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video!</p>
 <p>Again, most or all of the R code might not make sense to you just yet. That’s ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce it with just a few clicks.</p>
@@ -859,7 +862,7 @@ Individuals who participate in TidyTuesday often post their projects online <a h
 <div id="research-project" class="section level2">
 <h2>Research Project</h2>
 <p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay (one of the grad students in my group). This is a full analysis project with the main product being a peer-reviewed journal article (the paper is currently under review). As you will see, it is more complex and complete compared to the examples above. You will also see how easy it is to “write a whole paper” with just a few clicks of a button.</p>
-<p><a href="https://github.com/epid8060fall2019/Virulence_Project">This is the link to the Github repository which contains all files of this project/paper.</a> You need to have joined the <em>epid8060fall2019</em> organization for you to be able to access this link. If you haven’t done yet, go through the <em>Github</em> materials to figure out how. The repository contains brief instructions describing how you can reproduce all of his analyses and reproduce his complete manuscript. As you will see, it is simply a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
+<p><a href="https://github.com/epid8060fall2019/Virulence_Analysis_Example">This is the link to the Github repository which contains all files of this project/paper.</a> You need to have joined the <em>epid8060fall2019</em> organization for you to be able to access this link. If you haven’t done yet, go through the <em>Github</em> materials to figure out how. The repository contains brief instructions describing how you can reproduce all of his analyses and reproduce his complete manuscript. As you will see, it is simply a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
 <p><strong>Note the number of files in the <code>Tables</code> folder after you run all analysis scripts.</strong></p>
 </div>
 </div>
@@ -914,7 +917,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

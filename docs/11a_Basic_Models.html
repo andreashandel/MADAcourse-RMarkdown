@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -682,7 +683,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - A few simple models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2019-12-09 08:08:51</h4>
+<h4 class="date">2020-08-04 14:37:42</h4>
 
 </div>
 
@@ -733,7 +734,7 @@ div.tocify {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>What they are doing is essentially building many smaller packages that each have some functionality of <code>caret</code> and can go beyond the original package. Keep an eye out on the <code>tidymodels</code>, as those will likely be where most of the future development is happening. Currently, the documentation for the <code>tidymodels</code> suite of packages is much less extensive than that for the <code>tidyverse</code> packages - an excellent introductory article <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/">can be found here</a>.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>What they are doing is essentially building many smaller packages that each have some functionality of <code>caret</code> and can go beyond the original package. Keep an eye out on the <code>tidymodels</code>, as those will likely be where most of the future development is happening. Currently, the documentation for the <code>tidymodels</code> suite of packages is much less extensive than that for the <code>tidyverse</code> packages - an excellent introductory article <a href="https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/">can be found here</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -787,7 +788,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
