@@ -8,4 +8,6 @@ output:
     toc_depth: 2
     toc_float: 
       collapsed: false
+    includes:
+      in_header: include_head.html
     css: MADAstyle.css
