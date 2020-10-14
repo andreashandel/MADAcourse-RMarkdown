@@ -684,7 +684,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-08-04 14:37:42</h4>
+<h4 class="date">2020-10-14 08:05:05</h4>
 
 </div>
 
@@ -712,6 +712,7 @@ div.tocify {
 <p>No matter the source, you should try to get the data <em>as raw</em> as possible so that you can be in control of as many cleaning and processing steps as possible. That is (a bit) more work for you, but it gives you more flexibility to decide what to do with the data as you process it. If for instance, you get data with age in years, you can leave it as is, or decide to categorize it as young/old. Categorizing is generally a bad idea, we’ll talk about that later. If you get data in an already processed form and someone already did this categorization for you, you cannot choose.</p>
 <p>Wherever you get data from, document it as much as possible. When did you get it? Where and how? Did it come with other meta-information, e.g., a codebook? Where is it? Are there other things about the data that one should know about? Write down everything in some document.</p>
 <p>Treat the raw data as you would a very fragile object. Ideally, do not touch it. Do not edit it. You want to only <strong>read</strong> the data into R, even if it is in a bad format, and then apply fixes/cleaning in R. If this is not possible, and you need to make edits to the data in whatever format you got it (e.g., Excel, SAS), <strong>make a copy of the data files and place those copies in a separate folder, AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made.</strong></p>
+<p>A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could be potentially very time-saving for you. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper <a href="./media/broman18amstat.pdf">Data Organization in Spreadsheets</a> by Browman and Woo.</p>
 </div>
 <div id="data-import-in-r" class="section level1">
 <h1>Data import in R</h1>
