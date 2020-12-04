@@ -28,6 +28,7 @@ All materials described below are (should be) freely available online. For bette
 * [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
 * [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
 * [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
+* [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
 
 By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 
@@ -62,6 +63,7 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 
 # Videos
 To be filled
+
 
 
 # Lists and other sources
