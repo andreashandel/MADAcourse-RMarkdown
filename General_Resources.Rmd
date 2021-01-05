@@ -38,7 +38,18 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 * The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
 
 
-# Online courses
+
+# Online courses and interactive resources
+
+_I placed them into categories according to main topic, but there is a lot of overlap. Many R coding resources focus on data analysis, and almost all data science resources I list focus on R._
+
+## R coding
+* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
+* [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
+* [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
+
+
+## Data Science
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
 * ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
 * [Stat 545](https://stat545.com/index.html) is the name of Jenny Bryan's previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.
@@ -47,14 +58,14 @@ By now, there are hundreds of books on R and Data Science available online. Of c
 * [Data science for economists](https://github.com/uo-ec607/lectures)
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 * [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
-
-# Hands-on/interactive resources
-
-* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
-* [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
-* [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
 * I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). [Here is the latest write-up on this I could find.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0). They also became  much less academic-friendly, their student discount is way less nice than it used to be, and apparently recently sued R Studio (a company I think highly of). Overall, it seems that currently greed is the main driver of the company and they seem to not have improved much as of this writing. I therefore currently do not use or recommend them anymore. Here is a good resource that shows [possible alternatives to Datacamp's courses.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0)
+
+
+
+## Git/Github
+* The [Software Carpentry](https://software-carpentry.org/) has a great introductory course that walks you through the basics of Git (and Github) step-by-step. This is useful if you want to know what exactly is going on, even if you mainly use a graphical interface (e.g. [GitKraken](https://www.gitkraken.com/)) for your Git/Github work. The whole course materials [are online](http://swcarpentry.github.io/git-novice/).
+
 
 
 # Podcasts
