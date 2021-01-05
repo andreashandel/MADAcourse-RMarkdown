@@ -14,9 +14,10 @@ library(emo)
 
 Welcome to the **Modern Applied Data Analysis (MADA)** course website.
 
-This website contains almost all the content of an online course taught in Fall 2019 at the University of Georgia by [Andreas Handel](https://www.andreashandel.com/). Most materials are hosted here, some are on external sites and either linked or embedded from here.
+This website contains almost all the content of an online course taught at the University of Georgia by [Andreas Handel](https://www.andreashandel.com/). Most materials are hosted here, some are on external sites and either linked or embedded from here.
 
-I plan to keep this website continuously online, with updates happening every time I teach the course again. 
+I last offered the course in fall 2019 and it is currently scheduled to be offered again in fall 2021.
+I plan to keep this website continuously online, with small updates happening on an ongoing basis and likely larger updates every time I teach the course again. 
 
 # Website content
 
