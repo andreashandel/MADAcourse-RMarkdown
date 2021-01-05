@@ -14,6 +14,7 @@
 
 <title>MADA Course - Deep Learning, Artificial Intelligence and Big Data</title>
 
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -24,10 +25,20 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -726,8 +737,8 @@ div.tocify {
 <p>There has been rapid developments in the tools that allow DL/AI applications. Several major technology companies have made some of their products publicly available. A very widely used and powerful tools is <a href="https://www.tensorflow.org/">TensorFlow</a>, partly developed by Google. It implements several powerful NN and other ML methods and allows one to fit those on various hardware platforms.</p>
 <p>To use TensorFlow directly, one needs to write a good bit of probably somewhat complicated code (I’ve never tried). To make using TensorFlow easier, other packages exist that provide a nice interface (a bit like using <code>caret</code> or <code>mlr</code> to access all kinds of ML models). A widely used tool to do DL/AI in an easy manner using TensorFlow (or similar such low-level engines) is <a href="https://keras.io/">Keras</a> (see also <a href="https://en.wikipedia.org/wiki/Keras">it’s Wikipedia entry</a>.) Keras was originally developed for Python, a programming language that is somewhat similar to R and heavily used in the ML/DL/AI community. The folks from RStudio, together with the Keras development team, have since <a href="https://keras.rstudio.com/index.html">ported Keras to R</a>. It is thus possible to use these powerful tools (Keras and TensorFlow) from within R (though a Python installation is also required).</p>
 <p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras website</a> has a lot of good information and documentation on how to use Keras through R to do DL/AI. The very brief <a href="https://keras.rstudio.com/articles/why_use_keras.html"><em>Why Use Keras?</em> article</a> provides some motivation and explanation of Keras strengths (and also shows a few nice graphs where you can see alternativel DL tools). While I’m sure a DL/AI expert uses more than just Keras/Tensorflow as their tools (I’m not one, so I’m not sure), you can get very far with those. And for playing around with DL/AI, Keras through R is a great place to start. See the exercise for suggested starting points.</p>
-<div class="note">
-<h2 id="side-note-gpu-computing">Side note: GPU computing</h2>
+<div id="side-note-gpu-computing" class="section level2 note">
+<h2>Side note: GPU computing</h2>
 <p>Since DL/AI usually fit large amounts of data to complex models, time constraints are often important. Powerful computers are at times needed. An important development is the use of GPU (graphical processing unit) computing. While modern computers usually have more than 1 CPU, they are still generally limited to a small number. Even a very powerful single desktop will have generally less than 100 CPUs. In contrast, modern graphics cards often have &gt;1000 GPUs. Those can all be used in parallel to perform model fitting. Products such as Tensorflow allow one to use (mainly NVIDIA) GPUs to fit complex models to a lot of data in an often reasonable amount of time without requiring a supercomputer cluster.</p>
 </div>
 </div>
@@ -758,7 +769,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

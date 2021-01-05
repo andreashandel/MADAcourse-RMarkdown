@@ -14,6 +14,7 @@
 
 <title>More Data Science Resources</title>
 
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -24,10 +25,20 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -684,7 +695,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">More Data Science Resources</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-10-13 14:45:01</h4>
+<h4 class="date">2021-01-05 09:47:42</h4>
 
 </div>
 
@@ -699,6 +710,7 @@ div.tocify {
 <li><a href="https://learningstatisticswithr.com/">Learning statistics with R</a> - I’ve not read/used it, but heard from others who like it.</li>
 <li><a href="https://rstats.wtf/">What They Forgot to Teach You About R</a> is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the <em>debugging R code</em> sections are worth learning/reading.</li>
 <li><a href="https://csgillespie.github.io/efficientR/">Efficient R programming</a> contains a lot of good tips and tricks towards writing better code.</li>
+<li><a href="https://www.tmwr.org/">Tidy Modeling with R</a> are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the <code>tidyverse</code> set of packages.</li>
 </ul>
 <p>By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out <a href="https://bookdown.org/">the main bookdown website</a> as well as the <a href="https://bookdown.org/home/archive/">archive list</a> and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of “noise”.</p>
 </div>
@@ -725,9 +737,10 @@ div.tocify {
 <h1>Hands-on/interactive resources</h1>
 <ul>
 <li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice.</li>
-<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has nice interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a> and I therefore currently won’t use or recommend them anymore. That said, their courses are still good. Most of the material is not free and requires a subscription. They used to give students a very good discount, but not anymore. Unless you have some extra money to spend, I therefore currently don’t recommend them.</li>
-<li>A new company called <a href="https://www.dataquest.io/">Dataquest</a> seems to be similar to Datacamp. I have no experience with their product, but it’s again not free.</li>
+<li><a href="https://rstudio.cloud/learn/primers">R Studio primers</a> are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them.</li>
+<li><a href="https://education.rstudio.com/">R Studio education</a> is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their <em>Learn</em> section for links to resources.</li>
 <li><a href="https://www.kaggle.com/">Kaggle (owned by Google)</a> is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out.</li>
+<li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a>. <a href="https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0">Here is the latest write-up on this I could find.</a>. They also became much less academic-friendly, their student discount is way less nice than it used to be, and apparently recently sued R Studio (a company I think highly of). Overall, it seems that currently greed is the main driver of the company and they seem to not have improved much as of this writing. I therefore currently do not use or recommend them anymore. Here is a good resource that shows <a href="https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0">possible alternatives to Datacamp’s courses.</a></li>
 </ul>
 </div>
 <div id="podcasts" class="section level1">
@@ -770,7 +783,7 @@ div.tocify {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

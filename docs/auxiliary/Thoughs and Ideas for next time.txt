@@ -1,0 +1,6 @@
+Check out:
+http://jtleek.com/ads2020/
+https://www.opencasestudies.org/
+https://cedricscherer.netlify.app/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/
+
+Reduce amount of material, cut some of the analysis parts.
