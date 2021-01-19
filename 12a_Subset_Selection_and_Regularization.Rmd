@@ -87,7 +87,7 @@ You might have learned other approaches to compare model performance, e.g., usin
 
 Sometimes, you have predictors of particular interest, e.g., your main exposure. What if the subset selection algorithm removes those variables? You have to decide. Most routines allow you to specify some variables that must be kept in the model so that you can perform subset selection on the others. It is also worth thinking about what the model is trying to tell you. If it throws out the variable you are interested in, it means it might not be as important in influencing the outcome as you thought. This is a situation that requires careful thinking and judgement and then based on your best judgment, you proceed.
 
-For more details on subset selection, [see section 6.1. of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/) and [sections 18-22 of the caret manual](https://topepo.github.io/caret/). Those readings are optional.
+For more details on subset selection, [see section 6.1. of ISLR](https://statlearning.com/) and [sections 18-22 of the caret manual](https://topepo.github.io/caret/). Those readings are optional.
 
 
 # Regularization
@@ -135,15 +135,15 @@ Now one needs to try different values for $\lambda$ and $\alpha$ to determine th
 
 You might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.
 
-If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. [See section 6.2. of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/) for more.
+If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. [See section 6.2. of ISLR](https://statlearning.com/) for more.
 
-There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I won't quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
+There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](https://statlearning.com/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I won't quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
 
 
 # Other methods
 
 Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled _feature reduction methods_, can be used. Some of those are _Partial Least Squares_, _Principal Component Analysis (PCA)_, _Generalized Low Rank Models (GLRM)_, _Autoencoders_. 
-Those methods are for instance discussed in [chapters 17-19 of HMLR](https://bradleyboehmke.github.io/HOML/) and [section 6.3. of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/). We won't cover those, but if you are interested, take a look.
+Those methods are for instance discussed in [chapters 17-19 of HMLR](https://bradleyboehmke.github.io/HOML/) and [section 6.3. of ISLR](https://statlearning.com/). We won't cover those, but if you are interested, take a look.
 
 
 # Further comments

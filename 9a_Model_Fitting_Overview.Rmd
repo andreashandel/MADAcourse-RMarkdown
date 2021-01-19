@@ -103,7 +103,7 @@ Note that there is, unfortunately [no one method that is universally best for al
 
 # Further reading
 
-For some additional (as well as overlapping) information to what I wrote, read [Chapters 1 and 2.1. _An Introduction to Statistical Learning_ (ILS)](http://faculty.marshall.usc.edu/gareth-james/ISL/), as well as  [chapters 22-23 (24 optional) of _R for Data Science_ (R4DS)](http://r4ds.had.co.nz/index.html). **I will cover that content in the quiz.** 
+For some additional (as well as overlapping) information to what I wrote, read [Chapters 1 and 2.1. _An Introduction to Statistical Learning_ (ILS)](https://statlearning.com/), as well as  [chapters 22-23 (24 optional) of _R for Data Science_ (R4DS)](http://r4ds.had.co.nz/index.html). **I will cover that content in the quiz.** 
 
 Another (optional) source is [chapter 1 of HMLR](https://bradleyboehmke.github.io/HOML/process.html). 
 

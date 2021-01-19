@@ -15,7 +15,7 @@ This is the current course schedule for the class. Things might change, so check
 The _External Sources_ column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.
 
 Abbreviations used are: [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/), [R4DS = R for Data Science](https://r4ds.had.co.nz/), [RP = RStudio Primers](https://rstudio.cloud/learn/primers), 
-[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/), [ISL = Introduction to Statistical Learning](http://faculty.marshall.usc.edu/gareth-james/ISL/), [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/), [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/). Numbers behind abbreviations refer to the chapter.
+[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/), [ISL = Introduction to Statistical Learning](https://statlearning.com/), [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/), [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/). Numbers behind abbreviations refer to the chapter.
 
 The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
 

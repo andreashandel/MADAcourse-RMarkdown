@@ -86,7 +86,7 @@ __Secondary Data Analysis:__ Analysis of a dataset that was not specifically col
 
 __Statistics:__ The basic/classical machinery for data analysis. Depending on the type of data, many different approaches have been developed (parametric vs. non-parametric methods, longitudinal analysis, time-series analysis, and many more). Models tend to be simple and interpretable, the goal is to understand how inputs (predictors) relate to outcomes. Statistics was developed when data was sparse, computers didn't exist, and mainly scientists interested in a deep understanding of their data used it. Because of this, statistical models tend to be simple and work well on small datasets. 
 
-__Statistical Learning:__ A term that seems to become more widely used in recent years. While some people distinguish this term from __Statistics__ and consider it a sub-field (see e.g. Chapter 1 of [_Introduction to Statistical Learning_ ](http://faculty.marshall.usc.edu/gareth-james/ISL/)), the two terms are often used interchangably.
+__Statistical Learning:__ A term that seems to become more widely used in recent years. While some people distinguish this term from __Statistics__ and consider it a sub-field (see e.g. Chapter 1 of [_Introduction to Statistical Learning_ ](https://statlearning.com/)), the two terms are often used interchangably.
 
 __Supervised Learning/Analysis:__ Fitting __Labeled data__. The two types of supervised learning are __Regression__ and __Classification__.
 

@@ -178,7 +178,7 @@ In addition to the standard way of splitting the data, there are different sampl
 
 Cross-validation works for pretty much any model and data and is quite robust. The potential limitations are that one needs a decent amount of data to make meaningful splits, and since this involves repeated fitting, it can be too slow for large datasets or complex models.
 
-For more on cross-validation, see [section 5.1 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/) and [chapter 30 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Those readings are optional.
+For more on cross-validation, see [section 5.1 of ISLR](https://statlearning.com/) and [chapter 30 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Those readings are optional.
 
 
 # Other model assessment methods
@@ -187,7 +187,7 @@ In my opinion, cross-validation is the most flexible and overall best method to 
 
 For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p<0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. However, it is my opinion that going by those values alone (or CV measures for that matter) is not a good decision criterion, and other checks should be done. 
 
-For some more reading on AIC and similar approaches, see [section 6.1.3 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/). This reading is optional.
+For some more reading on AIC and similar approaches, see [section 6.1.3 of ISLR](https://statlearning.com/). This reading is optional.
 
 There are other ways to try and evaluate model performance, e.g., by looking at P-values of nested models, performing Likelihood ratio or F-tests, etc. In the age of ample computational power, I don't see any reason to use these approaches anymore. I'm willing to be convinced otherwise, but so far have not found anything that would convince me that those methods are still useful, in my opinion, they have overstayed their welcome and should disappear.
 

@@ -122,5 +122,5 @@ The multi-tree methods described above are examples of what is often called **en
 
 [This interactive tutorial](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) gives a very nice, visual introduction to machine learning in general and trees in particular. It covers and nicely illustrates some of the topics discussed here, as well as topics discussed in previous units.
 
-For more on tree-based methods, see [chapter 8 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/), [chapters 9-12 of HMLR](https://bradleyboehmke.github.io/HOML/DT.html) and [section 32.9 and 32.10 of ISL](https://rafalab.github.io/dsbook/examples-of-algorithms.html).
+For more on tree-based methods, see [chapter 8 of ISLR](https://statlearning.com/), [chapters 9-12 of HMLR](https://bradleyboehmke.github.io/HOML/DT.html) and [section 32.9 and 32.10 of ISL](https://rafalab.github.io/dsbook/examples-of-algorithms.html).
 

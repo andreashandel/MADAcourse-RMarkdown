@@ -43,7 +43,7 @@ Sampling is performed _with replacement_ to obtain a sample the size of the orig
 
 Like cross-validation, the bootstrap method is very general and can be applied to pretty much any problem. If your data has a specific structure, you can adjust the sampling approach (e.g., if you have observations from different locations, you might want to sample with replacement for each location.) Limitations for the bootstrap are that you need a decent amount of data for it to work well, and since you are repeating this sampling procedure many times 
 
-For more on bootstrapping, see [section 5.2 of ISLR](http://faculty.marshall.usc.edu/gareth-james/ISL/) and [section 30.5 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Those readings are optional.
+For more on bootstrapping, see [section 5.2 of ISLR](https://statlearning.com/) and [section 30.5 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Those readings are optional.
 
 
 # Model prediction uncertainty

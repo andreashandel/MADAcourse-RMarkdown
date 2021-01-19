@@ -694,7 +694,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Model Performance</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-10-13 14:45:01</h4>
+<h4 class="date">2021-01-19 08:05:13</h4>
 
 </div>
 
@@ -796,13 +796,13 @@ Bias-variance tradeoff. Source: ISLR.
 </div>
 <p>In addition to the standard way of splitting the data, there are different sampling variants. For instance, if you have longitudinal data, or otherwise data with structure, you might want to sample in a different way (e.g., sample the earlier times and predict later times). One variant of the cross-validation approach is the leave-one-out (LOO) cross-validation, which removes each data point one at a time as the test data and therefore performs the train/test part <em>N</em> times. You will also often see repeated cross-validation, which just adds another round of sampling on top to get better distributions (e.g., a 10-fold CV 10 times repeated gives 100 samples, which will be used to compute model performance).</p>
 <p>Cross-validation works for pretty much any model and data and is quite robust. The potential limitations are that one needs a decent amount of data to make meaningful splits, and since this involves repeated fitting, it can be too slow for large datasets or complex models.</p>
-<p>For more on cross-validation, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 5.1 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">chapter 30 of IDS</a>. Those readings are optional.</p>
+<p>For more on cross-validation, see <a href="https://statlearning.com/">section 5.1 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">chapter 30 of IDS</a>. Those readings are optional.</p>
 </div>
 <div id="other-model-assessment-methods" class="section level1">
 <h1>Other model assessment methods</h1>
 <p>In my opinion, cross-validation is the most flexible and overall best method to evaluate model performance. Thus, if possible, one should use it. Sometimes it might not be possible. Occasionally, datasets are so small that doing the train-evaluate split required for CV is not feasible. More commonly, your data or model are so large that running CV just takes too much time. In those instances, one can use model selection criteria. These quantities, such as AIC, BIC, DIC and similar, compute a measure that is a trade-off between good fit to the data (low-cost function) and model complexity (number of parameters). As such, approaches based on such selection criteria try to guess how the model would perform if it were to be fit to new data, without actually trying to do it (as is done in CV). The disadvantage is that these guesses as to how the model might perform on new data are not as reliable as actually evaluating model performance on such data through CV. The advantage is that no sampling is needed, which means these approaches are much less computationally intensive. There is a lot of math behind information criteria (AIC and similar), see the book <a href="https://www.springer.com/gp/book/9780387953649">Model Selection and Multimodel Inference</a>. Fortunately, one does not need to know the mathematical details to use those measures, just common sense.</p>
 <p>For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p&lt;0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. However, it is my opinion that going by those values alone (or CV measures for that matter) is not a good decision criterion, and other checks should be done.</p>
-<p>For some more reading on AIC and similar approaches, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 6.1.3 of ISLR</a>. This reading is optional.</p>
+<p>For some more reading on AIC and similar approaches, see <a href="https://statlearning.com/">section 6.1.3 of ISLR</a>. This reading is optional.</p>
 <p>There are other ways to try and evaluate model performance, e.g., by looking at P-values of nested models, performing Likelihood ratio or F-tests, etc. In the age of ample computational power, I don’t see any reason to use these approaches anymore. I’m willing to be convinced otherwise, but so far have not found anything that would convince me that those methods are still useful, in my opinion, they have overstayed their welcome and should disappear.</p>
 </div>
 <div id="fitting-the-right-way" class="section level1">

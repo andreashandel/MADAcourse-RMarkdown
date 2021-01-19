@@ -694,7 +694,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Subset Selection and Regularization</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-10-13 14:45:01</h4>
+<h4 class="date">2021-01-19 08:05:13</h4>
 
 </div>
 
@@ -753,7 +753,7 @@ Bias-variance tradeoff. Source: ISLR.
 <p>One could then perform subset selection by removing each term (though if one removes the linear form, one also needs to remove higher orders). It is rarely done, and I don’t think I’ve seen an example of this in the literature. If interactions or higher-order terms are suspected, one often uses a different model that performs some form of feature selection automatically. We’ll visit some of those models soon.</p>
 <p>You might have learned other approaches to compare model performance, e.g., using AIC or similar metrics or F-tests. As previously mentioned, I consider cross-validation the most robust and reliable method and, thus, do not discuss the others. AIC or similar might sometimes be necessary if the cross-validation approach takes too long to run, e.g., if you have a lot of data or a complicated model. I don’t see a use for any of the other methods. (But I’m happy to change my mind if someone gives me some convincing reasons 😃.)</p>
 <p>Sometimes, you have predictors of particular interest, e.g., your main exposure. What if the subset selection algorithm removes those variables? You have to decide. Most routines allow you to specify some variables that must be kept in the model so that you can perform subset selection on the others. It is also worth thinking about what the model is trying to tell you. If it throws out the variable you are interested in, it means it might not be as important in influencing the outcome as you thought. This is a situation that requires careful thinking and judgement and then based on your best judgment, you proceed.</p>
-<p>For more details on subset selection, <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">see section 6.1. of ISLR</a> and <a href="https://topepo.github.io/caret/">sections 18-22 of the caret manual</a>. Those readings are optional.</p>
+<p>For more details on subset selection, <a href="https://statlearning.com/">see section 6.1. of ISLR</a> and <a href="https://topepo.github.io/caret/">sections 18-22 of the caret manual</a>. Those readings are optional.</p>
 </div>
 </div>
 <div id="regularization" class="section level1">
@@ -786,13 +786,13 @@ Bias-variance tradeoff. Source: ISLR.
 <div id="further-comments-1" class="section level2">
 <h2>Further comments</h2>
 <p>You might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.</p>
-<p>If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">See section 6.2. of ISLR</a> for more.</p>
-<p>There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">see section 6.2. of ISLR</a>, <a href="https://bradleyboehmke.github.io/HOML/regularized-regression.html">chapter 6 of HMLR</a> and <a href="https://rafalab.github.io/dsbook/">section 34.9 of IDS</a>. I won’t quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques.</p>
+<p>If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. <a href="https://statlearning.com/">See section 6.2. of ISLR</a> for more.</p>
+<p>There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization <a href="https://statlearning.com/">see section 6.2. of ISLR</a>, <a href="https://bradleyboehmke.github.io/HOML/regularized-regression.html">chapter 6 of HMLR</a> and <a href="https://rafalab.github.io/dsbook/">section 34.9 of IDS</a>. I won’t quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques.</p>
 </div>
 </div>
 <div id="other-methods" class="section level1">
 <h1>Other methods</h1>
-<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Some of those are <em>Partial Least Squares</em>, <em>Principal Component Analysis (PCA)</em>, <em>Generalized Low Rank Models (GLRM)</em>, <em>Autoencoders</em>. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
+<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Some of those are <em>Partial Least Squares</em>, <em>Principal Component Analysis (PCA)</em>, <em>Generalized Low Rank Models (GLRM)</em>, <em>Autoencoders</em>. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="https://statlearning.com/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
 </div>
 <div id="further-comments-2" class="section level1">
 <h1>Further comments</h1>

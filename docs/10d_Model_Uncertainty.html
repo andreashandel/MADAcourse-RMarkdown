@@ -694,7 +694,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Course - Model Uncertainty</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-10-13 14:45:01</h4>
+<h4 class="date">2021-01-19 08:05:13</h4>
 
 </div>
 
@@ -720,7 +720,7 @@ div.tocify {
 <h2>Bootstrapping</h2>
 <p>The idea for bootstrapping is fairly straightforward. Bootstrapping tries to imitate a scenario in which you repeated your study and collected new data. Instead of having actual new data, the idea is that the existing data is sampled to form a new “dataset”, which is then fit. Sampling is performed <em>with replacement</em> to obtain a sample the size of the original dataset. Some observations now show up more than once, and some do not show up. For each such sample, you fit your model and estimate parameters. You will thus get a distribution of parameter estimates. From those distributions, you can compute confidence intervals, e.g., the usual 95% interval. For each fit, you can also predict outcomes and thus obtain a distribution of prediction outcomes (see next).</p>
 <p>Like cross-validation, the bootstrap method is very general and can be applied to pretty much any problem. If your data has a specific structure, you can adjust the sampling approach (e.g., if you have observations from different locations, you might want to sample with replacement for each location.) Limitations for the bootstrap are that you need a decent amount of data for it to work well, and since you are repeating this sampling procedure many times</p>
-<p>For more on bootstrapping, see <a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">section 5.2 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">section 30.5 of IDS</a>. Those readings are optional.</p>
+<p>For more on bootstrapping, see <a href="https://statlearning.com/">section 5.2 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">section 30.5 of IDS</a>. Those readings are optional.</p>
 </div>
 </div>
 <div id="model-prediction-uncertainty" class="section level1">
