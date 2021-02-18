@@ -1,0 +1,18 @@
+---
+title: "Least Squares"
+output:
+  bookdown::html_document2
+---
+
+
+
+<!---LEARNR EX 5-->
+
+<iframe class="interactive" id="myIframe5" src="https://tinystats.shinyapps.io/06-standardError-ex5/" scrolling="no" frameborder="no"></iframe>
+
+<!------------->
+
+
+<script>
+  iFrameResize({}, ".interactive");
+</script>
