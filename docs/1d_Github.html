@@ -12,15 +12,24 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Github Introduction</title>
+<title>Git/GitHub Introduction</title>
 
-<script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -41,32 +50,6 @@
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 <link rel="stylesheet" href="MADAstyle.css" type="text/css" />
@@ -78,10 +61,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -98,40 +77,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -159,7 +111,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -171,7 +123,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -182,10 +134,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -197,7 +162,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -329,13 +293,13 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
 <div id="TOC" class="tocify">
 </div>
 </div>
 
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
@@ -688,87 +652,89 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
-<h1 class="title toc-ignore">Github Introduction</h1>
+<h1 class="title toc-ignore">Git/GitHub Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2020-10-13 14:45:01</h4>
+<h4 class="date">2021-03-25 13:16:36</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This document gives a brief explanation of Github and how we will use it for this course.</p>
+<p>This document gives a brief explanation of Git, GitHub and related tools, and describes why and how we will use them for this course.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Know what Git and Github are.</li>
+<li>Know what Git and GitHub are.</li>
 <li>Know why one might want to use them.</li>
-<li>Have created and set up a Github account.</li>
-<li>Joining the class organization on Github.</li>
+<li>Create and set up a GitHub account.</li>
+<li>Join the class organization on GitHub.</li>
+<li>Set up a Git/GitHub workflow using GitKraken or an equivalent setup.</li>
 </ul>
 </div>
 <div id="what-are-git-and-github" class="section level1">
-<h1>What are Git and Github</h1>
-<p><em>Git</em> is what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks, and records any changes made by anyone. Technically <em>Github</em> is distinct from <em>Git</em>. <em>Github</em> is in some sense the interface and <em>Git</em> the underlying engine (a bit like <em>RStudio</em> and <em>R</em>). Since we will only be using <em>Git</em> through <em>Github</em>, I tend to not distinguish between the two. In the following, I refer to all of it as just <em>Github</em>. Note that other interfaces to <em>Git</em> exist, e.g., <em>Bitbucket</em>, but <em>Github</em> is the most widely used one.</p>
+<h1>What are Git and GitHub</h1>
+<p><a href="https://git-scm.com/"><strong>Git</strong></a> is software that implements what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks, and records any changes made by anyone. <a href="https://github.com/"><strong>GitHub</strong></a> is distinct from Git. GitHub is in some sense on online interface/website, and Git the underlying engine (a bit like RStudio and R). Since we will only be using Git through GitHub, I tend to not distinguish between the two. Throughout the course, I will usually refer to all of it as just GitHub. Note that other interfaces/platforms for Git exist, e.g., <a href="https://about.gitlab.com/">GitLab</a> or <a href="https://bitbucket.org/product">Bitbucket</a>.</p>
 </div>
 <div id="why-use-gitgithub" class="section level1">
-<h1>Why use Git/Github</h1>
-<p>You want to use <em>Github</em> to avoid this:</p>
+<h1>Why use Git/GitHub</h1>
+<p>You want to use GitHub to avoid this:</p>
 <p><img src="media/phd_versioncontrol.gif" width="60%" style="display: block; margin: auto;" /></p>
-<p><em>Github</em> gives you a clean way to track your projects. It is also very well suited to collaborative work. Historically, version control was used for software development. However, it has become broader and is now used for many types of projects, including data science projects.</p>
-<p>To learn a bit more about Git/Github and why you might want to use it, <a href="https://peerj.com/preprints/3159/">read this article by Jenny Bryan</a>. <strong>Note her explanation of what’s special with the <code>README.md</code> file on Github.</strong></p>
+<p><em>GitHub</em> gives you an organized way to track your projects. It is very well suited for collaborative work. Historically, version control was used for software development. It has since become broader and is now used for many types of projects, including data science projects. If you want to learn a bit more about Git/GitHub and why it is a great tool for data analysis, <a href="https://peerj.com/preprints/3159/">check out this article by Jenny Bryan</a>.</p>
 </div>
 <div id="what-to-not-use-gitgithub-for" class="section level1">
-<h1>What to (not) use Git/Github for</h1>
-<p>Github is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.</p>
-<p>Github is less useful if you have a lot of non-text files (e.g. Word or Powerpoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
+<h1>What to (not) use Git/GitHub for</h1>
+<p>GitHub is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.</p>
+<p>GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
+</div>
+<div id="getting-gitgithub" class="section level1">
+<h1>Getting Git/GitHub</h1>
+<p>Git is a piece of software. It can be installed <a href="https://git-scm.com/">from here</a>. If you use GitKraken as described below, you don’t need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken.</p>
+<p>GitHub is an online platform. You don’t need to install anything, but if you don’t have a GitHub account yet, you need to create one <a href="https://github.com/">here</a>. Note that GitHub is widely used professionally, and you might want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional user name for your GitHub account. You can user your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities).</p>
 </div>
 <div id="how-to-use-gitgithub" class="section level1">
-<h1>How to use Git/Github</h1>
-<p>Git and Github is fundamentally based on commands you type into the command line. Lots of online resources show you how to use the command line. This is the most powerful, but also most confusing way to use Github. I pretty much never use the command line. Instead, I use a graphical interface, and I recommend you do the same (at least initially). There are several options for such graphical interfaces. <a href="https://desktop.github.com/">Github itself</a> provides a grapical interface with basic functionality. RStudio also has <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Git/Github integration</a>. Of course this only works for R project Github integration. There are also third party Github clients, which in my opinion provide the most powerful, flexible and best means to use Github. Those clients have many advanced features, most of which you won’t need initially but might eventually. I currently use and recommend (in general and for this course) a software called <a href="https://www.gitkraken.com/">Gitkraken</a>. You can get a free version of Gitkraken that can do pretty much everything we need. The one important limitation is that the free version does not allow you to access private repositories. As student, you can (and should) upgrade to the Pro version for free, see the <em>Github developer pack</em> section below on how to do it. By using Gitkraken for your Github workflow, you do not need to go through the command line (unless things get so bad that you can’t fix them inside Gitkraken). You also do not need to install <em>Git</em> separately, you get it with <em>Gitkraken</em>. For this course, I assume you will be using the Pro version of <em>Gitkraken</em>. If you are already an experienced Github user and have your own preferred setup (e.g. the command line or some other 3rd party software), you are certainly welcome to stick with your workflow. I assume if you are at that level of Github skills, you are experienced enough to <em>translate</em> my Gitkraken-centric instructions to your setup.</p>
+<h1>How to use Git/GitHub</h1>
+<p>The most powerful and flexible way of using Git/GitHub is to open a command-line terminal (e.g., the one that comes with the Git install) and type a bunch of commands. This is often very confusing and we will not be using this approach.</p>
+<p>The approach recommended for this class, and the one I assume you will be using, is to interact with GitHub through a graphical interface. Specifically, for this class I recommend a software called <a href="https://www.gitkraken.com/">GitKraken</a>.</p>
+<p>If you are already an experienced GitHub user and have your own preferred setup (e.g. the command line or some other 3rd party software), or for some other reason you don’t want to use GitKraken, you can instead use another graphical client. <a href="https://desktop.github.com/">GitHub itself</a> provides a graphical interface with basic functionality. RStudio also has <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Git/GitHub integration</a>, for R projects. Other graphical interfaces exist. I assume if you decide to do it your way, you are experienced enough to translate my GitKraken-centric instructions to your setup. While my instructions throughout this course assume you use GitKraken, you can do everything without using it. But then you have to figure out on your own how to do it 😁.</p>
+</div>
+<div id="gitkraken" class="section level1">
+<h1>GitKraken</h1>
+<p>Download and install <a href="https://www.gitkraken.com/">GitKraken</a>. The free version can do pretty much everything we need. One important limitation is that the free version does not allow you to access private repositories. As student, you can (and should) upgrade to the Pro version for free, see the <strong>GitHub developer pack</strong> section below on how to do it. By using GitKraken for your GitHub workflow, you do not need to go through the command line (unless things get so bad that you can’t fix them inside GitKraken). You also do not need to install Git separately, you get it with GitKraken. For this course, I assume you will be using the Pro version of GitKraken.</p>
+<p>Once you have your GitHub account set up and GitKraken installed, make sure you <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect the two</a>.</p>
 </div>
 <div id="gitgithub-terminology" class="section level1">
-<h1>Git/Github terminology</h1>
-<p>Git/Github has a lot of specialized terminology that takes getting used to. The Github folks posted a <a href="https://help.github.com/en/articles/github-glossary">handy page with short descriptions of some of the important terms</a>. Some of the terms you will encounter soon are <em>Repository</em> (also often called <em>repo</em>), <em>User</em>, <em>Organization</em>, <em>Branch</em>, <em>Fork</em>, <em>Push</em>, <em>Pull</em>, <em>Commit</em> and <em>Stage</em>. For some reason, the last term is not explained in the list linked to above. <em>Staging</em> is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the Github workflow.</p>
+<h1>Git/GitHub terminology</h1>
+<p>Git/GitHub has a lot of specialized terminology that takes getting used to. The GitHub folks posted a <a href="https://docs.github.com/en/github/getting-started-with-github/github-glossary">handy page with short descriptions of some of the important terms</a>. Some of the terms you will encounter soon are <em>Repository</em> (also often called <em>repo</em>), <em>User</em>, <em>Organization</em>, <em>Branch</em>, <em>Fork</em>, <em>Push</em>, <em>Pull</em>, <em>Commit</em> and <em>Stage</em>. For some reason, the last term is not explained in the list linked to above. <em>Staging</em> is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the GitHub workflow.</p>
 </div>
 <div id="gitgithub-and-other-cloud-based-sync-options" class="section level1">
-<h1>Git/Github and other cloud based sync options</h1>
-<p>You should think of Github as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, Box, etc. With the Github workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox &amp; Co is that the syncing between your local computer and Github.com is not automatic. So don’t forget to pull before you start work on a repository and push once you are done!</p>
-<p>Because Github works similar to Dropbox, I have heard/read people say that it is a bad idea to locally store your Github repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the Github sync process can conflict, leading to a mess. <strong>So for any Github repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)</strong></p>
-<p>I am a heavy user of both Github and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don’t use Github, are run through Dropbox. Dropbox is convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use Github. It seems to be using both the Github workflow and a Dropbox/OneDrive/etc. workflow, depending on the type of project, is best. I just would try to avoid mix and match within the same project, especially don’t have Github repositories inside folders that are auto-synced by some other software.</p>
+<h1>Git/GitHub and other cloud based sync options</h1>
+<p>You should think of GitHub as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, Box, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox &amp; Co is that the syncing between your local computer and github.com is not automatic. So don’t forget to pull before you start work on a repository and push once you are done!</p>
+<p>Because GitHub works similar to Dropbox, it is a bad idea to locally store your GitHub repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the GitHub sync process can conflict, leading to a mess. <strong>For any GitHub repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)</strong></p>
+<p>I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don’t use GitHub, are run through Dropbox. Dropbox or a similar service are convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use GitHub. It seems to be using both the GitHub workflow and a Dropbox/OneDrive/etc. workflow, depending on the type of project, is best. I just would try to avoid mix and match within the same project, especially don’t have GitHub repositories inside folders that are auto-synced by some other software.</p>
 </div>
 <div id="github-developer-pack" class="section level1">
-<h1>Github developer pack</h1>
-<p><strong>I strongly recommend you get the <a href="https://education.github.com/pack">Github student developer pack</a>.</strong> This will give you your own free private repositories (we have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class). Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use Github for a project involving data that you don’t want to be publicly accessible.</p>
-<p>With the <a href="https://education.github.com/pack">Github student developer pack</a>, you also get 1 year of free Gitkraken Pro access. While the free version of Gitkraken should work ok for this course, you can’t access private repositories with it. Often, being able to use private repositories is useful.</p>
-<p>The <a href="https://education.github.com/pack">Github student developer pack</a> also comes with lots of other tools that we won’t need for this course, but that might be of interest to some of you and you could explore and use them if you want to get geeky with your data projects.</p>
+<h1>GitHub developer pack</h1>
+<p><strong>I strongly recommend you get the <a href="https://education.github.com/pack">GitHub student developer pack</a>.</strong> This pack as a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:</p>
+<p><strong>GitHub Pro account:</strong> This will give you your own free private repositories. We have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class. Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use GitHub for a project involving data that you don’t want to be publicly accessible.</p>
+<p><strong>GitKraken Pro:</strong> Free GitKraken Pro access. While the free version of GitKraken might work ok for this course, you can’t access private repositories with it. Often, being able to use private repositories is useful.</p>
+<p><em>Note that there is a similar offering for teachers/educators, which you can <a href="https://education.github.com/toolbox">get here</a>.</em></p>
 </div>
 <div id="github-for-this-course" class="section level1">
-<h1>Github for this course</h1>
-<p>For this course, I created what Github calls an organization with the name <em>epid8060fall2019</em>. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.</p>
-<p>To get up and running, here are the steps I recommend you follow:</p>
-<ol style="list-style-type: decimal">
-<li>If you do not already have a <a href="https://github.com">Github.com</a> account, create one. Note that Github is widely used professionally, and you might want to allow other people to see your Github presence. I, therefore, recommend using a future-proof, professional user name. You can user your UGA or a different email for Github. Whichever email you use is where you will receive Github activity related notifications (including our Github class activities).</li>
-<li>Post your Github user name into the <code>Github topics</code> discussion group.<br />
-</li>
-<li>Once I have your user name, I’ll invite you to our course organization, <em>epid8060fall2019</em>. Wait for the invitation (it will come to the email you used to sign up for Github) and join the organization.<br />
-</li>
-<li>Download and install <a href="https://www.gitkraken.com/download">Gitkraken</a>, link it with your Github account.<br />
-</li>
-<li>Get the <em>github developer pack</em> and upgrade your Github account and Gitkraken to the Pro version.</li>
-<li>Do the <em>Introducing Ourselves</em> project for this course, for which you will be using Github.</li>
-</ol>
+<h1>GitHub for this course</h1>
+<p>For this course, I created what GitHub calls an organization with the name <em>MADA2021</em>. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.</p>
+<p>Once you have created your GitHub account, post your GitHub user name into the <code>GitHub topics</code> discussion group. I will then invite you to the course organization. You will get an invitation email to the account you used for your GitHub registration. Then you should be all set to start the first exercise of the course, where you will be using GitHub.</p>
 </div>
 <div id="further-resources-and-help" class="section level1">
 <h1>Further Resources and help</h1>
-<p>Github can be confusing. Start slow. Using the graphical interface (Gitkraken) makes getting started fairly easy. I’m also trying to give specific instructions whenever we do something new with Github.</p>
-<p>If the quick install instructions above are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jeny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>. Note that if you install Gitkraken, you do not have to install Git, since Gitkraken has it. It might still be a good idea to install Git in case you want to use Github from RStudio.</p>
-<p>Another source worth looking at for Github information is <a href="https://rafalab.github.io/dsbook/git.html">chapter 39 of IDS</a>. There is also a lot of good beginner material online. As mentioned, RStudio has built-in Github support. I prefer to use Gitkraken for all my Github push/pull/sync, etc. and then work on my project in RStudio separately. But if you prefer the workflow with the built-in Github, feel free to use it. Jenny’s book explains how to connect Github and RStudio (but that is not required for using Github with R projects).</p>
+<p>GitHub can be confusing. Start slow. Using the graphical interface (GitKraken) makes getting started fairly easy. I’m also trying to give specific instructions whenever we do something new with GitHub. Both the <a href="https://docs.github.com/en">GitHub documentation</a> and <a href="https://support.gitkraken.com/">GitKraken support page</a> are good resources for information.</p>
+<p>If the quick install instructions above are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jenny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>.</p>
+<p>Another source worth looking at for GitHub information is <a href="https://rafalab.GitHub.io/dsbook/git.html">this chapter of IDS</a>. There is also a lot of good beginner material online.</p>
 </div>
 
 
@@ -800,7 +766,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
