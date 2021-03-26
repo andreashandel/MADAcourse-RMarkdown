@@ -1,0 +1,101 @@
+---
+title: The GitHub and R Workflow
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+This document gives a brief discussion of working with R projects through GitHub. Several approaches are described, they should be equivalent in most instances.
+
+# Learning Objectives
+* Know how to get your R projects synced through GitHub.
+
+
+# Prerequisites
+I assume you read through the [Git/GitHub introduction]().
+
+I also assume that you are using the GitKraken client. If you don't, you need to adjust things accordingly.
+
+
+# Approach 1 - start on GitHub
+
+## GitHub
+For this approach, you start by creating your repository on Github. If you are doing this as part of a class or organization, create your repository inside the organization. Otherwise, create it under your own name/account. (As an example, my Github user name is `andreashandel` and the name of my research group/organization is `ahgroup`. Depending on if I want a repository under my name or under the research group/organization, I'll go to `https://github.com/andreashandel` or `https://github.com/ahgroup/`).
+
+Once you are in the location/account  where you want the new repository, and see your list of repositories (which might initially be empty), create a new repository  by (clicking the green _New_ button). A page should show up where you can specify details for your new repository, something like this:
+
+```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
+knitr::include_graphics("./media/newrepo.png")
+```
+
+
+Specify the repository owner. Make sure it's the one you want, e.g., yourself or an organization you are part of. Pick a good name for your repository. Set the repository as private or public. In general, you should consider doing it public, unless there is an important reason to have it private (e.g. confidential data). Note that if you set it to private, you might not be able to access it with the free version of GitKraken. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`. You can keep the license box unchecked, or choose a license for your page. Click "create repository".  
+
+Open Gitkraken, under `File` choose `Clone Repo` go to `Github.com`, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called `mynewrepo`, and you place it on your desktop under windows, you might choose `C:\Users\yourname\Desktop` as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it.
+
+**Remember to not place your repository in a location that is synced by other software such as DropBox or Onedrive. Also do not place GitHub repositories inside other GitHub repositories.**
+
+
+
+## RStudio
+
+Open RStudio on your computer. Choose `File`, `New Project`, `Existing Directory` and find the directory/folder you just created on Github and copied to your local computer (e.g. `C:\Users\yourname\Desktop\mynewrepo`). If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with `.Rproj` ending and a `README.md`. 
+
+Click to open the `README.md` file. It will only contain the name of your repository with a `#` sign in front. At some point, it is useful to add meaningful information. For now, just to practice, you can add whatever you want. 
+
+In the future, if you want to edit your project, click or double-click on the `.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an `.Rproj` file is not strictly required I recommend you do it that way.
+
+Now create your content, place any files you create inside your project directory or its subfolders. 
+
+
+
+
+## Syncing
+
+Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.
+
+If you use GitKraken, in the top right you should see  a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _main_ (sometimes also labeled _master_) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
+
+If your code cannot sync you will likely receive an option from GitKraken to perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **overwritten** by the force push since they are not on your local repo. Thus, use with care.
+
+Now that everything is established, the workflow is simple, you just need to remember to go through all the steps.
+
+1. Before working on a repo/project, check GitKraken to make sure the local and remote are in sync. If not, then push or pull to get them to the same state.
+2. Open your project in RStudio (assuming it is an RStudio project). Make any changes you want to make. Once done for the day, go back to GitKraken and stage, then commit your changes, then push. 
+
+
+
+
+
+# Approach 2 - start with an R Project
+
+Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse.
+
+## RStudio
+Open RStudio. Choose `File`, `New Project`, `New Directory` and (usually) you'll choose `New Project`. Pick a project name and location. Check the `Create a git repository` box. 
+
+```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
+knitr::include_graphics("./media/newproject.png")
+```
+
+Create content in the project folder.
+
+
+## GitKraken
+
+Once done, open GitKraken. Go to `File -> Init Repo` and choose the folder where your project is in. You'll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the `Push` button.
+
+
+
+
+## Syncing
+
+
+
+# Further Resources and help
