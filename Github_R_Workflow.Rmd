@@ -89,12 +89,16 @@ Create content in the project folder.
 
 ## GitKraken
 
-Once done, open GitKraken. Go to `File -> Init Repo` and choose the folder where your project is in. You'll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the `Push` button.
+Once you finished working on your project for now, open GitKraken. Go to `File -> Init Repo` and choose the folder where your project is in. You'll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the `Push` button.
 
+At this point, if you didn't properly connect GitKraken and GitHub previously, you'll likely get an error message. Follow the error message and the [connect Gitkraken to your Github account](https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet) information to get it to work.
 
+You'll see a message about no remote existing and if you want to add one. Say `yes`. A menu on the left should show up. Make sure the repository name is the same as your local repository/folder name. Then click the green button. If things worked, your local repository has been created on GitHub.com.
 
 
 ## Syncing
+
+Once Github.com and your local repository are connected, the syncing process is exactly as described under _Approach 1_.
 
 
 
