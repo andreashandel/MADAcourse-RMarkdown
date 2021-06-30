@@ -47,9 +47,12 @@ _I placed them into categories according to main topic, but there is a lot of ov
 * [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
 * [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
 * [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
+* [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
 
+## Data Visualization
+* [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
 
-## Data Science
+## General Data Science
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
 * ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
 * [Stat 545](https://stat545.com/index.html) is the name of Jenny Bryan's previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.
