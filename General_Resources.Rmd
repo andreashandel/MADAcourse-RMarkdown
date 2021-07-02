@@ -29,6 +29,8 @@ All materials described below are (should be) freely available online. For bette
 * [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
 * [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
 * [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
+* [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
+
 
 By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 
@@ -48,9 +50,11 @@ _I placed them into categories according to main topic, but there is a lot of ov
 * [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
 * [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
 * [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
+* [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 
 ## Data Visualization
 * [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
+
 
 ## General Data Science
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
@@ -63,6 +67,7 @@ _I placed them into categories according to main topic, but there is a lot of ov
 * [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
 * I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). [Here is the latest write-up on this I could find.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0). They also became  much less academic-friendly, their student discount is way less nice than it used to be, and apparently recently sued R Studio (a company I think highly of). Overall, it seems that currently greed is the main driver of the company and they seem to not have improved much as of this writing. I therefore currently do not use or recommend them anymore. Here is a good resource that shows [possible alternatives to Datacamp's courses.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0)
+* [Exploratory Data Analysis](https://eda.seas.gwu.edu/) - materials for an online course teaching exploratory data analysis using R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 
 
 
