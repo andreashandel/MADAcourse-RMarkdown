@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Course - Model Diagnostics</title>
+<title>Git/GitHub Introduction</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -656,52 +656,85 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Course - Model Diagnostics</h1>
+<h1 class="title toc-ignore">Git/GitHub Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-03-25 13:16:36</h4>
 
 </div>
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>In the previous unit, we discussed a way to evaluate model quality by looking at performance based on some cost function we defined. While this is an important component of the model building and choosing process, it is important to go further.</p>
-<p>The absolute value of a model’s performance is not always very meaningful. Is an SSR of 0.2 good? Is 90% accuracy a good model? We can’t say without knowing something about the system and looking more closely.</p>
-<p>Performing a detailed model diagnosis often increases our understanding of the data/model/analysis, and can help us figure out how to fix or improve the model. The following sections briefly describe some checks you can do to evaluate the quality of your model further.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This document gives a brief explanation of Git, GitHub and related tools, and describes why and how we will use them for this course.</p>
 </div>
-<div id="null-model-comparisons" class="section level1">
-<h1>Null model comparisons</h1>
-<p>You should always compare your models to a “dumb” null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can’t beat such a null model (based on the performance metric you chose), you need to question what your model is good for.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know what Git and GitHub are.</li>
+<li>Know why one might want to use them.</li>
+<li>Create and set up a GitHub account.</li>
+<li>Join the class organization on GitHub.</li>
+<li>Set up a Git/GitHub workflow using GitKraken or an equivalent setup.</li>
+</ul>
 </div>
-<div id="single-predictor-comparisons" class="section level1">
-<h1>Single predictor comparisons</h1>
-<p>Before building and fitting a big model, it is useful to look at the different predictors individually. (Or if you have too many, at least at some you think are important.)</p>
-<p>To that end, you can perform bi-variate analyses, fitting models that each only contain a single predictor and evaluate the model performance (ideally using cross-validation) of such single-predictor models. Once you start fitting your larger models, you can compare those to your single predictor models. In an ideal world, your multi-predictor model performs better than any of your single predictor models, which in turn perform better than your null model. If that is not the case, it means something went wrong in the analysis, or the correlations/patterns between your outcome and predictors that you thought existed do not exist (or at least are not to be found in your dataset).</p>
-<p>As an example, if you want to predict mortality and you have a model that includes diet, exercise, BMI, gender and age, and that model performs as well as a model with only age, it means that including those additional variables does not add to model performance.</p>
+<div id="what-are-git-and-github" class="section level1">
+<h1>What are Git and GitHub</h1>
+<p><a href="https://git-scm.com/"><strong>Git</strong></a> is software that implements what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks, and records any changes made by anyone. <a href="https://github.com/"><strong>GitHub</strong></a> is distinct from Git. GitHub is in some sense on online interface/website, and Git the underlying engine (a bit like RStudio and R). Since we will only be using Git through GitHub, I tend to not distinguish between the two. Throughout the course, I will usually refer to all of it as just GitHub. Note that other interfaces/platforms for Git exist, e.g., <a href="https://about.gitlab.com/">GitLab</a> or <a href="https://bitbucket.org/product">Bitbucket</a>.</p>
 </div>
-<div id="observed-versus-predicted-values" class="section level1">
-<h1>Observed versus predicted values</h1>
-<p>Once you have some models with good performance, you want to inspect their actual predictions. For continuous outcomes, you can plot observed (data) versus predicted (model) outcomes. For a (hypothetical) perfect model, all points are along the 45-degree line. You don’t actually want them all on the line since this suggests overfitting. However, you want to look for systematic deviations from this line, as it suggests potential problems, i.e., it likely means your model is <em>biased</em> and is not flexible enough to capture important patterns still found in the data. In that case, you will want to try different models. Similarly, for categorical outcomes, you can look at the confusion matrix to see if there are lots of FN or FP, which might suggest the model gets certain categories systematically wrong.</p>
+<div id="why-use-gitgithub" class="section level1">
+<h1>Why use Git/GitHub</h1>
+<p>You want to use GitHub to avoid this:</p>
+<p><img src="media/phd_versioncontrol.gif" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>GitHub</em> gives you an organized way to track your projects. It is very well suited for collaborative work. Historically, version control was used for software development. It has since become broader and is now used for many types of projects, including data science projects. If you want to learn a bit more about Git/GitHub and why it is a great tool for data analysis, <a href="https://peerj.com/preprints/3159/">check out this article by Jenny Bryan</a>.</p>
 </div>
-<div id="residuals" class="section level1">
-<h1>Residuals</h1>
-<p>Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference, which is called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn’t capture.</p>
+<div id="what-to-not-use-gitgithub-for" class="section level1">
+<h1>What to (not) use Git/GitHub for</h1>
+<p>GitHub is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.</p>
+<p>GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
 </div>
-<div id="data-simulation" class="section level1">
-<h1>Data simulation</h1>
-<p>One of the best general approaches toward testing models is to simulate data and fit the model to the simulated data. You know what you used to generate the fake data, so you know what the model should return. For instance if you simulate data for the linear model <span class="math display">\[Y=b_0 + b_1X_1 + b_2X_2\]</span> (and add a bit of noise on top), and you chose <em>b<sub>0</sub></em>=<em>b<sub>1</sub></em>=<em>b<sub>2</sub></em>=2, then when you fit such a linear model to this simulated data, those are the values for the coefficients you expect to get back (not quite, since you added a bit of noise, but they shouldn’t be far off). If you can’t get out what you stuck in, you have a problem. Most likely, it means you are over-fitting, and more than one combination of parameter values is giving almost the same performance measure (e.g., SSR), and the model can’t differentiate. You should then either get more data or make your model simpler.</p>
-<p>This approach of simulating data is a very useful general approach. You should always consider if it is an option for your specific data and question and use it if possible.</p>
+<div id="getting-gitgithub" class="section level1">
+<h1>Getting Git/GitHub</h1>
+<p>Git is a piece of software. It can be installed <a href="https://git-scm.com/">from here</a>. If you use GitKraken as described below, you don’t need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken.</p>
+<p>GitHub is an online platform. You don’t need to install anything, but if you don’t have a GitHub account yet, you need to create one <a href="https://github.com/">here</a>. Note that GitHub is widely used professionally, and you might want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional user name for your GitHub account. You can user your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities).</p>
 </div>
-<div id="sensitivity-analysis" class="section level1">
-<h1>Sensitivity analysis</h1>
-<p>Sometimes you have observations that might have a strong impact on the model, i.e., without those observations, the best fitting model would look quite different. If you decided that those points are <em>real</em> (i.e., not data entry or other mistakes), you might want to run the model both with those data points present and absent to investigate how results might change. Similarly, you might make decisions along the data cleaning path (e.g., to remove all observations with missing values, or instead remove some variables with lots of missing) which could affect results. Performing analyses in multiple ways to see how these decisions affect outcomes is useful. If you find that the overall results stay the same, it instills confidence in the robustness of your findings. If in contrast, different decisions lead to different answers, it might point to something worth investigating further.</p>
-<p>Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.</p>
+<div id="how-to-use-gitgithub" class="section level1">
+<h1>How to use Git/GitHub</h1>
+<p>The most powerful and flexible way of using Git/GitHub is to open a command-line terminal (e.g., the one that comes with the Git install) and type a bunch of commands. This is often very confusing and we will not be using this approach.</p>
+<p>The approach recommended for this class, and the one I assume you will be using, is to interact with GitHub through a graphical interface. Specifically, for this class I recommend a software called <a href="https://www.gitkraken.com/">GitKraken</a>.</p>
+<p>If you are already an experienced GitHub user and have your own preferred setup (e.g. the command line or some other 3rd party software), or for some other reason you don’t want to use GitKraken, you can instead use another graphical client. <a href="https://desktop.github.com/">GitHub itself</a> provides a graphical interface with basic functionality. RStudio also has <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Git/GitHub integration</a>, for R projects. Other graphical interfaces exist. I assume if you decide to do it your way, you are experienced enough to translate my GitKraken-centric instructions to your setup. While my instructions throughout this course assume you use GitKraken, you can do everything without using it. But then you have to figure out on your own how to do it 😁.</p>
 </div>
-<div id="other-checks" class="section level1">
-<h1>Other checks</h1>
-<p>Many fitting functions return useful information as output (which you can read with the <code>summary</code> or similar commands). Take a close look. If you thought you had 200 data points but your fitting function result states that N=180, it means the function might have dropped observations with missing values without warning you (<code>R</code> unfortunately does things like that at times). By carefully reading/plotting model returns, you can diagnose your model and catch problems.</p>
-<p>If you get <em>strange</em> results (either unexpectedly bad or unexpectedly good), look carefully. As you know, most often things that are too good to be true are in fact not true. Bugs (either of the coding or thinking type) in any step of your analysis can lead to strange results.</p>
-<p>If at any time during your analysis, you get warning messages, you need to investigate them carefully. Sometimes it is ok to ignore warning messages in R <strong>but only after you know precisely what they mean and why they happen!</strong>. Frequently, warning messages indicate you are doing something you shouldn’t be doing and can lead to wrong results.</p>
+<div id="gitkraken" class="section level1">
+<h1>GitKraken</h1>
+<p>Download and install <a href="https://www.gitkraken.com/">GitKraken</a>. The free version can do pretty much everything we need. One important limitation is that the free version does not allow you to access private repositories. As student, you can (and should) upgrade to the Pro version for free, see the <strong>GitHub developer pack</strong> section below on how to do it. By using GitKraken for your GitHub workflow, you do not need to go through the command line (unless things get so bad that you can’t fix them inside GitKraken). You also do not need to install Git separately, you get it with GitKraken. For this course, I assume you will be using the Pro version of GitKraken.</p>
+<p>Once you have your GitHub account set up and GitKraken installed, make sure you <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect the two</a>.</p>
+</div>
+<div id="gitgithub-terminology" class="section level1">
+<h1>Git/GitHub terminology</h1>
+<p>Git/GitHub has a lot of specialized terminology that takes getting used to. The GitHub folks posted a <a href="https://docs.github.com/en/github/getting-started-with-github/github-glossary">handy page with short descriptions of some of the important terms</a>. Some of the terms you will encounter soon are <em>Repository</em> (also often called <em>repo</em>), <em>User</em>, <em>Organization</em>, <em>Branch</em>, <em>Fork</em>, <em>Push</em>, <em>Pull</em>, <em>Commit</em> and <em>Stage</em>. For some reason, the last term is not explained in the list linked to above. <em>Staging</em> is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the GitHub workflow.</p>
+</div>
+<div id="gitgithub-and-other-cloud-based-sync-options" class="section level1">
+<h1>Git/GitHub and other cloud based sync options</h1>
+<p>You should think of GitHub as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, Box, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox &amp; Co is that the syncing between your local computer and github.com is not automatic. So don’t forget to pull before you start work on a repository and push once you are done!</p>
+<p>Because GitHub works similar to Dropbox, it is a bad idea to locally store your GitHub repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the GitHub sync process can conflict, leading to a mess. <strong>For any GitHub repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)</strong></p>
+<p>I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don’t use GitHub, are run through Dropbox. Dropbox or a similar service are convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use GitHub. It seems to be using both the GitHub workflow and a Dropbox/OneDrive/etc. workflow, depending on the type of project, is best. I just would try to avoid mix and match within the same project, especially don’t have GitHub repositories inside folders that are auto-synced by some other software.</p>
+</div>
+<div id="github-developer-pack" class="section level1">
+<h1>GitHub developer pack</h1>
+<p><strong>I strongly recommend you get the <a href="https://education.github.com/pack">GitHub student developer pack</a>.</strong> This pack as a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:</p>
+<p><strong>GitHub Pro account:</strong> This will give you your own free private repositories. We have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class. Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use GitHub for a project involving data that you don’t want to be publicly accessible.</p>
+<p><strong>GitKraken Pro:</strong> Free GitKraken Pro access. While the free version of GitKraken might work ok for this course, you can’t access private repositories with it. Often, being able to use private repositories is useful.</p>
+<p><em>Note that there is a similar offering for teachers/educators, which you can <a href="https://education.github.com/toolbox">get here</a>.</em></p>
+</div>
+<div id="github-for-this-course" class="section level1">
+<h1>GitHub for this course</h1>
+<p>For this course, I created what GitHub calls an organization with the name <em>MADA2021</em>. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.</p>
+<p>Once you have created your GitHub account, post your GitHub user name into the <code>GitHub topics</code> discussion group. I will then invite you to the course organization. You will get an invitation email to the account you used for your GitHub registration. Then you should be all set to start the first exercise of the course, where you will be using GitHub.</p>
+</div>
+<div id="further-resources-and-help" class="section level1">
+<h1>Further Resources and help</h1>
+<p>GitHub can be confusing. Start slow. Using the graphical interface (GitKraken) makes getting started fairly easy. I’m also trying to give specific instructions whenever we do something new with GitHub. Both the <a href="https://docs.github.com/en">GitHub documentation</a> and <a href="https://support.gitkraken.com/">GitKraken support page</a> are good resources for information.</p>
+<p>If the quick install instructions above are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jenny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>.</p>
+<p>Another source worth looking at for GitHub information is <a href="https://rafalab.GitHub.io/dsbook/git.html">this chapter of IDS</a>. There is also a lot of good beginner material online.</p>
 </div>
 
 

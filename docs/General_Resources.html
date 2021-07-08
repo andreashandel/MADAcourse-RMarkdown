@@ -14,13 +14,22 @@
 
 <title>More Data Science Resources</title>
 
-<script src="site_libs/header-attrs-2.6.4/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -41,32 +50,6 @@
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 <link rel="stylesheet" href="MADAstyle.css" type="text/css" />
@@ -78,10 +61,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -98,40 +77,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -159,7 +111,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -171,7 +123,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -182,10 +134,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -197,7 +162,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -329,7 +293,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -688,13 +652,13 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">More Data Science Resources</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-01-05 10:19:39</h4>
+<h4 class="date">2021-06-30 19:21:01</h4>
 
 </div>
 
@@ -710,6 +674,7 @@ div.tocify {
 <li><a href="https://rstats.wtf/">What They Forgot to Teach You About R</a> is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the <em>debugging R code</em> sections are worth learning/reading.</li>
 <li><a href="https://csgillespie.github.io/efficientR/">Efficient R programming</a> contains a lot of good tips and tricks towards writing better code.</li>
 <li><a href="https://www.tmwr.org/">Tidy Modeling with R</a> are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the <code>tidyverse</code> set of packages.</li>
+<li><a href="https://openintro-ims.netlify.app/">Introduction to Modern Statistics</a> is a free online textbook teaching statistics using R in a modern framework.</li>
 </ul>
 <p>By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out <a href="https://bookdown.org/">the main bookdown website</a> as well as the <a href="https://bookdown.org/home/archive/">archive list</a> and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of “noise”.</p>
 </div>
@@ -728,10 +693,18 @@ div.tocify {
 <li><a href="http://swirlstats.com">Swirl</a> is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write <code>real</code> code. It’s still worth checking out if you want to get some more direct, hands-on R practice.</li>
 <li><a href="https://rstudio.cloud/learn/primers">R Studio primers</a> are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them.</li>
 <li><a href="https://education.rstudio.com/">R Studio education</a> is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their <em>Learn</em> section for links to resources.</li>
+<li><a href="https://ready4r.netlify.app/">Ready for R</a> - materials for a basic introductory online R course taught by <a href="https://laderast.github.io/">Ted Laderas</a>.</li>
+<li><a href="http://p4a.seas.gwu.edu/">Intro to Programming for Analytics</a> - materials for an online course teaching intro to programming with R, taught by <a href="https://www.jhelvy.com/">John Paul Helveston</a>.</li>
 </ul>
 </div>
-<div id="data-science" class="section level2">
-<h2>Data Science</h2>
+<div id="data-visualization" class="section level2">
+<h2>Data Visualization</h2>
+<ul>
+<li><a href="https://datavizs21.classes.andrewheiss.com/">Data Visualization</a> - comprehensive materials for an online course on data visualization in R, taught by <a href="https://www.andrewheiss.com/">Andrew Heiss</a>.</li>
+</ul>
+</div>
+<div id="general-data-science" class="section level2">
+<h2>General Data Science</h2>
 <ul>
 <li><a href="https://leanpub.com/universities/set/jhu/chromebook-data-science">Cloud Based Data Science</a> - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called <a href="https://jhudatascience.org/chromebookdatascience/index.html">Chromebook Data Science</a> and seems to be now updated and rebranded as <a href="https://www.clouddatascience.org/">Cloud Based Data Science</a>. It is done by <a href="http://jtleek.com/">Jeff Leek</a> and his team. You’ll run into Jeff multiple times throught this course.</li>
 <li><a href="https://www.coursera.org/specialization/jhudatascience/1">“Data Science Specialization” on Coursera</a>. One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free.</li>
@@ -743,6 +716,7 @@ div.tocify {
 <li><a href="https://github.com/adw96/biost509/">Introduction to R for Data Analysis in the Health Sciences</a></li>
 <li><a href="https://www.kaggle.com/">Kaggle (owned by Google)</a> is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out.</li>
 <li>I used to recommend and use <a href="https://www.datacamp.com/">Datacamp</a>, an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a <a href="https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup">case of sexual harassment</a>. <a href="https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0">Here is the latest write-up on this I could find.</a>. They also became much less academic-friendly, their student discount is way less nice than it used to be, and apparently recently sued R Studio (a company I think highly of). Overall, it seems that currently greed is the main driver of the company and they seem to not have improved much as of this writing. I therefore currently do not use or recommend them anymore. Here is a good resource that shows <a href="https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0">possible alternatives to Datacamp’s courses.</a></li>
+<li><a href="https://eda.seas.gwu.edu/">Exploratory Data Analysis</a> - materials for an online course teaching exploratory data analysis using R, taught by <a href="https://www.jhelvy.com/">John Paul Helveston</a>.</li>
 </ul>
 </div>
 <div id="gitgithub" class="section level2">
@@ -810,7 +784,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -819,6 +793,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

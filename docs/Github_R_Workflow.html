@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Course - Model Diagnostics</title>
+<title>The GitHub and R Workflow</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -656,52 +656,80 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Course - Model Diagnostics</h1>
+<h1 class="title toc-ignore">The GitHub and R Workflow</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-07-08 08:02:20</h4>
 
 </div>
 
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>In the previous unit, we discussed a way to evaluate model quality by looking at performance based on some cost function we defined. While this is an important component of the model building and choosing process, it is important to go further.</p>
-<p>The absolute value of a model’s performance is not always very meaningful. Is an SSR of 0.2 good? Is 90% accuracy a good model? We can’t say without knowing something about the system and looking more closely.</p>
-<p>Performing a detailed model diagnosis often increases our understanding of the data/model/analysis, and can help us figure out how to fix or improve the model. The following sections briefly describe some checks you can do to evaluate the quality of your model further.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This document gives a brief discussion of working with R projects through GitHub. Several approaches are described, they should be equivalent in most instances.</p>
 </div>
-<div id="null-model-comparisons" class="section level1">
-<h1>Null model comparisons</h1>
-<p>You should always compare your models to a “dumb” null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can’t beat such a null model (based on the performance metric you chose), you need to question what your model is good for.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know how to get your R projects synced through GitHub.</li>
+</ul>
 </div>
-<div id="single-predictor-comparisons" class="section level1">
-<h1>Single predictor comparisons</h1>
-<p>Before building and fitting a big model, it is useful to look at the different predictors individually. (Or if you have too many, at least at some you think are important.)</p>
-<p>To that end, you can perform bi-variate analyses, fitting models that each only contain a single predictor and evaluate the model performance (ideally using cross-validation) of such single-predictor models. Once you start fitting your larger models, you can compare those to your single predictor models. In an ideal world, your multi-predictor model performs better than any of your single predictor models, which in turn perform better than your null model. If that is not the case, it means something went wrong in the analysis, or the correlations/patterns between your outcome and predictors that you thought existed do not exist (or at least are not to be found in your dataset).</p>
-<p>As an example, if you want to predict mortality and you have a model that includes diet, exercise, BMI, gender and age, and that model performs as well as a model with only age, it means that including those additional variables does not add to model performance.</p>
+<div id="prerequisites" class="section level1">
+<h1>Prerequisites</h1>
+<p>I assume you read through the <a href="">Git/GitHub introduction</a>.</p>
+<p>I also assume that you are using the GitKraken client. If you don’t, you need to adjust things accordingly.</p>
 </div>
-<div id="observed-versus-predicted-values" class="section level1">
-<h1>Observed versus predicted values</h1>
-<p>Once you have some models with good performance, you want to inspect their actual predictions. For continuous outcomes, you can plot observed (data) versus predicted (model) outcomes. For a (hypothetical) perfect model, all points are along the 45-degree line. You don’t actually want them all on the line since this suggests overfitting. However, you want to look for systematic deviations from this line, as it suggests potential problems, i.e., it likely means your model is <em>biased</em> and is not flexible enough to capture important patterns still found in the data. In that case, you will want to try different models. Similarly, for categorical outcomes, you can look at the confusion matrix to see if there are lots of FN or FP, which might suggest the model gets certain categories systematically wrong.</p>
+<div id="approach-1---start-on-github" class="section level1">
+<h1>Approach 1 - start on GitHub</h1>
+<div id="github" class="section level2">
+<h2>GitHub</h2>
+<p>For this approach, you start by creating your repository on Github. If you are doing this as part of a class or organization, create your repository inside the organization. Otherwise, create it under your own name/account. (As an example, my Github user name is <code>andreashandel</code> and the name of my research group/organization is <code>ahgroup</code>. Depending on if I want a repository under my name or under the research group/organization, I’ll go to <code>https://github.com/andreashandel</code> or <code>https://github.com/ahgroup/</code>).</p>
+<p>Once you are in the location/account where you want the new repository, and see your list of repositories (which might initially be empty), create a new repository by (clicking the green <em>New</em> button). A page should show up where you can specify details for your new repository, something like this:</p>
+<p><img src="media/newrepo.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Specify the repository owner. Make sure it’s the one you want, e.g., yourself or an organization you are part of. Pick a good name for your repository. Set the repository as private or public. In general, you should consider doing it public, unless there is an important reason to have it private (e.g. confidential data). Note that if you set it to private, you might not be able to access it with the free version of GitKraken. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>. You can keep the license box unchecked, or choose a license for your page. Click “create repository”.</p>
+<p>Open Gitkraken, under <code>File</code> choose <code>Clone Repo</code> go to <code>Github.com</code>, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called <code>mynewrepo</code>, and you place it on your desktop under windows, you might choose <code>C:\Users\yourname\Desktop</code> as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it.</p>
+<p><strong>Remember to not place your repository in a location that is synced by other software such as DropBox or Onedrive. Also do not place GitHub repositories inside other GitHub repositories.</strong></p>
 </div>
-<div id="residuals" class="section level1">
-<h1>Residuals</h1>
-<p>Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference, which is called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn’t capture.</p>
+<div id="rstudio" class="section level2">
+<h2>RStudio</h2>
+<p>Open RStudio on your computer. Choose <code>File</code>, <code>New Project</code>, <code>Existing Directory</code> and find the directory/folder you just created on Github and copied to your local computer (e.g. <code>C:\Users\yourname\Desktop\mynewrepo</code>). If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a <code>README.md</code>.</p>
+<p>Click to open the <code>README.md</code> file. It will only contain the name of your repository with a <code>#</code> sign in front. At some point, it is useful to add meaningful information. For now, just to practice, you can add whatever you want.</p>
+<p>In the future, if you want to edit your project, click or double-click on the <code>.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</p>
+<p>Now create your content, place any files you create inside your project directory or its subfolders.</p>
 </div>
-<div id="data-simulation" class="section level1">
-<h1>Data simulation</h1>
-<p>One of the best general approaches toward testing models is to simulate data and fit the model to the simulated data. You know what you used to generate the fake data, so you know what the model should return. For instance if you simulate data for the linear model <span class="math display">\[Y=b_0 + b_1X_1 + b_2X_2\]</span> (and add a bit of noise on top), and you chose <em>b<sub>0</sub></em>=<em>b<sub>1</sub></em>=<em>b<sub>2</sub></em>=2, then when you fit such a linear model to this simulated data, those are the values for the coefficients you expect to get back (not quite, since you added a bit of noise, but they shouldn’t be far off). If you can’t get out what you stuck in, you have a problem. Most likely, it means you are over-fitting, and more than one combination of parameter values is giving almost the same performance measure (e.g., SSR), and the model can’t differentiate. You should then either get more data or make your model simpler.</p>
-<p>This approach of simulating data is a very useful general approach. You should always consider if it is an option for your specific data and question and use it if possible.</p>
+<div id="syncing" class="section level2">
+<h2>Syncing</h2>
+<p>Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.</p>
+<p>If you use GitKraken, in the top right you should see a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>main</em> (sometimes also labeled <em>master</em>) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</p>
+<p>If your code cannot sync you will likely receive an option from GitKraken to perform a <strong>force push</strong>. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be <strong>overwritten</strong> by the force push since they are not on your local repo. Thus, use with care.</p>
+<p>Now that everything is established, the workflow is simple, you just need to remember to go through all the steps.</p>
+<ol style="list-style-type: decimal">
+<li>Before working on a repo/project, check GitKraken to make sure the local and remote are in sync. If not, then push or pull to get them to the same state.</li>
+<li>Open your project in RStudio (assuming it is an RStudio project). Make any changes you want to make. Once done for the day, go back to GitKraken and stage, then commit your changes, then push.</li>
+</ol>
 </div>
-<div id="sensitivity-analysis" class="section level1">
-<h1>Sensitivity analysis</h1>
-<p>Sometimes you have observations that might have a strong impact on the model, i.e., without those observations, the best fitting model would look quite different. If you decided that those points are <em>real</em> (i.e., not data entry or other mistakes), you might want to run the model both with those data points present and absent to investigate how results might change. Similarly, you might make decisions along the data cleaning path (e.g., to remove all observations with missing values, or instead remove some variables with lots of missing) which could affect results. Performing analyses in multiple ways to see how these decisions affect outcomes is useful. If you find that the overall results stay the same, it instills confidence in the robustness of your findings. If in contrast, different decisions lead to different answers, it might point to something worth investigating further.</p>
-<p>Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.</p>
 </div>
-<div id="other-checks" class="section level1">
-<h1>Other checks</h1>
-<p>Many fitting functions return useful information as output (which you can read with the <code>summary</code> or similar commands). Take a close look. If you thought you had 200 data points but your fitting function result states that N=180, it means the function might have dropped observations with missing values without warning you (<code>R</code> unfortunately does things like that at times). By carefully reading/plotting model returns, you can diagnose your model and catch problems.</p>
-<p>If you get <em>strange</em> results (either unexpectedly bad or unexpectedly good), look carefully. As you know, most often things that are too good to be true are in fact not true. Bugs (either of the coding or thinking type) in any step of your analysis can lead to strange results.</p>
-<p>If at any time during your analysis, you get warning messages, you need to investigate them carefully. Sometimes it is ok to ignore warning messages in R <strong>but only after you know precisely what they mean and why they happen!</strong>. Frequently, warning messages indicate you are doing something you shouldn’t be doing and can lead to wrong results.</p>
+<div id="approach-2---start-with-an-r-project" class="section level1">
+<h1>Approach 2 - start with an R Project</h1>
+<p>Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse.</p>
+<div id="rstudio-1" class="section level2">
+<h2>RStudio</h2>
+<p>Open RStudio. Choose <code>File</code>, <code>New Project</code>, <code>New Directory</code> and (usually) you’ll choose <code>New Project</code>. Pick a project name and location. Check the <code>Create a git repository</code> box.</p>
+<p><img src="media/newproject.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Create content in the project folder.</p>
+</div>
+<div id="gitkraken" class="section level2">
+<h2>GitKraken</h2>
+<p>Once you finished working on your project for now, open GitKraken. Go to <code>File -&gt; Init Repo</code> and choose the folder where your project is in. You’ll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the <code>Push</code> button.</p>
+<p>At this point, if you didn’t properly connect GitKraken and GitHub previously, you’ll likely get an error message. Follow the error message and the <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect Gitkraken to your Github account</a> information to get it to work.</p>
+<p>You’ll see a message about no remote existing and if you want to add one. Say <code>yes</code>. A menu on the left should show up. Make sure the repository name is the same as your local repository/folder name. Then click the green button. If things worked, your local repository has been created on GitHub.com.</p>
+</div>
+<div id="syncing-1" class="section level2">
+<h2>Syncing</h2>
+<p>Once Github.com and your local repository are connected, the syncing process is exactly as described under <em>Approach 1</em>.</p>
+</div>
+</div>
+<div id="further-resources-and-help" class="section level1">
+<h1>Further Resources and help</h1>
 </div>
 
 

@@ -30,7 +30,7 @@ For this approach, you start by creating your repository on Github. If you are d
 
 Once you are in the location/account  where you want the new repository, and see your list of repositories (which might initially be empty), create a new repository  by (clicking the green _New_ button). A page should show up where you can specify details for your new repository, something like this:
 
-```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
+```{r ,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/newrepo.png")
 ```
 
@@ -80,7 +80,7 @@ Above we created the repository on GitHub first, then cloned it to the local mac
 ## RStudio
 Open RStudio. Choose `File`, `New Project`, `New Directory` and (usually) you'll choose `New Project`. Pick a project name and location. Check the `Create a git repository` box. 
 
-```{r versioncontrol,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
+```{r ,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/newproject.png")
 ```
 
