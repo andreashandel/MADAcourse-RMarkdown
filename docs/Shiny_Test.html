@@ -11,8 +11,9 @@
 
 <meta name="author" content="Andreas Handel" />
 
+<meta name="date" content="2021-03-30" />
 
-<title>Visualization Exercise</title>
+<title>A testbed for Shiny</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -30,9 +31,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -214,75 +212,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -290,16 +219,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -659,38 +578,29 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Visualization Exercise</h1>
+<h1 class="title toc-ignore">A testbed for Shiny</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-03-30</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>For this exercise, you are asked to recreate a “professional-looking” graph that you find online.</p>
-<p>For some motivating examples, take a look at <a href="https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/">this recent blog post by Rafael Irizarry</a> (the author of the IDS book we’ve been using). He shows how one can use R and ggplot to reproduce figures that look very similar to “professional” ones. You’ll see that it usually doesn’t require that many lines of code to get an outstanding looking figure!</p>
+<p>This page currently only exists so I can test embedding of Shiny apps and other interactive content.</p>
+<div id="dsaide" class="section level1">
+<h1>DSAIDE</h1>
+<p>This is an embedding of the DSAIDE R package. You should not use it through this website. I suggest you either go directly to its online location <a href="https://shiny.ovpr.uga.edu/DSAIDE/">here</a> or install it locally. <a href="https://ahgroup.github.io/DSAIDE/">See more here.</a></p>
+<iframe src="https://shiny.ovpr.uga.edu/DSAIDE/" width="672" height="400px">
+</iframe>
 </div>
-<div id="detailed-instructions" class="section level1">
-<h1>Detailed Instructions</h1>
-<ul>
-<li><p>Create a new, public Github repository inside the class organization and call it <code>YOURNAME-visualization</code>. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the <code>Introducing ourselves</code> project if you forgot how to do that.</p></li>
-<li><p>Find some graph from the news website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. (I chose that site since they are known for regularly producing high-quality graphs). Good starting points might be these collections of best and weirdest graphs from <a href="https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/">2015</a>, <a href="https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/">2016</a>, <a href="https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/">2018</a>. <a href="https://fivethirtyeight.com/tag/in-one-chart/">This site</a> or <a href="">this one</a> might be other options. But you don’t need to restrict yourself to those. Any graph from their site is fine.</p></li>
-<li><p>If you absolutely can’t find a graph on FiveThirtyEight that you like and would like to reproduce, you are also allowed to check out other “high quality” news outlets (NY Times, Wall Street Journal, The Guardian, etc.). The original graph must be freely available online, so not behind a paywall.</p></li>
-<li><p>Once you got a graph you’d like to reproduce, either extract (read off) the data right from the graph or find the original data source (some FiveThirtyEight data might be found <a href="https://data.fivethirtyeight.com/">here</a>). If neither is an option, move on to the next graph.</p></li>
-<li><p>Once you have the data and the original graph, use R code to try and get as close as possible to the original graph. You will likely use ggplot2 &amp; friends, but if you want to use base R, lattice or another plotting approach that’s ok too, as long as everything happens with R code.</p></li>
-<li><p>The goal is to put in some effort to get close, but don’t spend an insane amount of time trying to make a perfect copy. 1-2 hours of writing code is plenty, after that time you should have something that looks at least somewhat similar to the original - which is good enough for this exercise.</p></li>
-<li><p>Your final product should be an Rmd file that shows the original plot (and links to its source), shows the code for your graph, and your graph. Essentially like one of the examples in Rafa’s post above. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you might provide some additional text describing things you tried that didn’t work, or include links to sources from which you adapted your code, etc.</p></li>
-<li><p>Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the <em>Introducing ourselves</em> project.</p></li>
-<li><p>Post the link to your project (both the html/website and the Rmd file) in the Visualization discussion board. If you are active on social media, you can post an announcement of your project there.</p></li>
-<li><p>For any help requests, post your questions to the discussion board for this project.</p></li>
-</ul>
+<div id="learnr" class="section level1">
+<h1>LearnR</h1>
+<p>This embeds a learnR bit of code. Content not related to this course, just a test.</p>
+<iframe src="https://tinystats.shinyapps.io/06-standardError-ex5/" width="672" height="400px">
+</iframe>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -723,35 +633,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
