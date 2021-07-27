@@ -178,6 +178,8 @@ left:
          href: ./Course_Resources.html
        - text: "General Resources"
          href: ./General_Resources.html
+  - text: "Test"
+    href: ./Shiny_Test.html
 right:
   - icon: fab fa-github 
     href: https://github.com/andreashandel/MADAcourse
