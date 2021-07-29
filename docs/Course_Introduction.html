@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Course - Model Diagnostics</title>
+<title>MADA Fall 2019 - Course Introduction</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -662,7 +662,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Course - Model Diagnostics</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Course Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-03-25 08:29:29</h4>
 
@@ -671,43 +671,135 @@ div.tocify {
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>In the previous unit, we discussed a way to evaluate model quality by looking at performance based on some cost function we defined. While this is an important component of the model building and choosing process, it is important to go further.</p>
-<p>The absolute value of a model’s performance is not always very meaningful. Is an SSR of 0.2 good? Is 90% accuracy a good model? We can’t say without knowing something about the system and looking more closely.</p>
-<p>Performing a detailed model diagnosis often increases our understanding of the data/model/analysis, and can help us figure out how to fix or improve the model. The following sections briefly describe some checks you can do to evaluate the quality of your model further.</p>
+<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn’t matter if you are enrolled under the EPID or BIOS label. I will refer to the course as MADA or EPID8060 interchangeably. I think on eLC it is loaded as BIOS8060E.</p>
 </div>
-<div id="null-model-comparisons" class="section level1">
-<h1>Null model comparisons</h1>
-<p>You should always compare your models to a “dumb” null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can’t beat such a null model (based on the performance metric you chose), you need to question what your model is good for.</p>
+<div id="module-overview" class="section level1">
+<h1>Module Overview</h1>
+<p>The course is divided into modules. Each module consists of one or several units. This first module provides a brief introduction to the course, followed by discussing and setting up our various tools.</p>
 </div>
-<div id="single-predictor-comparisons" class="section level1">
-<h1>Single predictor comparisons</h1>
-<p>Before building and fitting a big model, it is useful to look at the different predictors individually. (Or if you have too many, at least at some you think are important.)</p>
-<p>To that end, you can perform bi-variate analyses, fitting models that each only contain a single predictor and evaluate the model performance (ideally using cross-validation) of such single-predictor models. Once you start fitting your larger models, you can compare those to your single predictor models. In an ideal world, your multi-predictor model performs better than any of your single predictor models, which in turn perform better than your null model. If that is not the case, it means something went wrong in the analysis, or the correlations/patterns between your outcome and predictors that you thought existed do not exist (or at least are not to be found in your dataset).</p>
-<p>As an example, if you want to predict mortality and you have a model that includes diet, exercise, BMI, gender and age, and that model performs as well as a model with only age, it means that including those additional variables does not add to model performance.</p>
+<div id="module-learning-objectives" class="section level1">
+<h1>Module Learning Objectives</h1>
+<p>The specific learning objectives for this module are:</p>
+<ul>
+<li>Know what this course is all about.</li>
+<li>Know how this course is set up and what you are expected to do.</li>
+<li>Have all course tools and software set up and running.</li>
+<li>Get to know the instructor and your fellow students.</li>
+</ul>
 </div>
-<div id="observed-versus-predicted-values" class="section level1">
-<h1>Observed versus predicted values</h1>
-<p>Once you have some models with good performance, you want to inspect their actual predictions. For continuous outcomes, you can plot observed (data) versus predicted (model) outcomes. For a (hypothetical) perfect model, all points are along the 45-degree line. You don’t actually want them all on the line since this suggests overfitting. However, you want to look for systematic deviations from this line, as it suggests potential problems, i.e., it likely means your model is <em>biased</em> and is not flexible enough to capture important patterns still found in the data. In that case, you will want to try different models. Similarly, for categorical outcomes, you can look at the confusion matrix to see if there are lots of FN or FP, which might suggest the model gets certain categories systematically wrong.</p>
+<div id="course-learning-objectives" class="section level1">
+<h1>Course Learning Objectives</h1>
+<p>The main goal for this course is for you to learn the whole process of performing a data analysis project. The focus is on applied analysis of real world, messy data.</p>
+<p>A second goal is to introduce you to some modern analysis approaches commonly referred to as ‘Machine Learning’.</p>
+<p>A related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.</p>
+<div class="figure" style="text-align: center">
+<img src="media/phd_dataisorare.gif" alt="In this course, we randomly switch back and forth. Source: phdcomics.com." width="100%" />
+<p class="caption">
+In this course, we randomly switch back and forth. Source: phdcomics.com.
+</p>
 </div>
-<div id="residuals" class="section level1">
-<h1>Residuals</h1>
-<p>Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference, which is called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn’t capture.</p>
+<p>We will cover these goals in these specific learning objectives that I hope you will achieve by going through this course:</p>
+<p><em>Design</em></p>
+<ul>
+<li>Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.</li>
+<li>Given a data science question, determine the type of data and analytic approach needed to answer it.</li>
+</ul>
+<p><em>Processing</em></p>
+<ul>
+<li>Know how to obtain, process and analyze data from a variety of different sources.</li>
+<li>Be knowledgeable about data types and standards and what analysis methods to apply to specific situations.</li>
+<li>Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process and analyze the data appropriately.</li>
+</ul>
+<p><em>Analysis</em></p>
+<ul>
+<li>Critically compare and evaluate the strengths and weaknesses of different data analysis approaches.</li>
+<li>Judge the appropriateness of different approaches for specific questions and data sets and know how to apply an appropriate analytic approach.</li>
+<li>Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.</li>
+</ul>
+<p><em>Communication</em></p>
+<ul>
+<li>Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.</li>
+<li>Assess the strengths and weaknesses of different formats for representing the results of data analyses.</li>
+</ul>
+<p><em>Tools</em></p>
+<ul>
+<li>Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.</li>
+<li>Be comfortable using R and Github to do data analysis in a reproducible manner.</li>
+<li>Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.</li>
+</ul>
+<p><em>Overall</em></p>
+<ul>
+<li>Judge the usefulness and appropriateness of data analyses described in the primary research literature.</li>
+<li>Learn to <em>look over your shoulder</em> and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.</li>
+</ul>
 </div>
-<div id="data-simulation" class="section level1">
-<h1>Data simulation</h1>
-<p>One of the best general approaches toward testing models is to simulate data and fit the model to the simulated data. You know what you used to generate the fake data, so you know what the model should return. For instance if you simulate data for the linear model <span class="math display">\[Y=b_0 + b_1X_1 + b_2X_2\]</span> (and add a bit of noise on top), and you chose <em>b<sub>0</sub></em>=<em>b<sub>1</sub></em>=<em>b<sub>2</sub></em>=2, then when you fit such a linear model to this simulated data, those are the values for the coefficients you expect to get back (not quite, since you added a bit of noise, but they shouldn’t be far off). If you can’t get out what you stuck in, you have a problem. Most likely, it means you are over-fitting, and more than one combination of parameter values is giving almost the same performance measure (e.g., SSR), and the model can’t differentiate. You should then either get more data or make your model simpler.</p>
-<p>This approach of simulating data is a very useful general approach. You should always consider if it is an option for your specific data and question and use it if possible.</p>
+<div id="course-prerequisites" class="section level1">
+<h1>Course Prerequisites</h1>
+<p>Some R coding skills (e.g., as obtained in our EPID 7500 class), as well as basic knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are ideal. If you do not have any such R coding or statistics knowledge, you can still take the class, but you need to be prepared to spend some extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the “little to none” category, expect to spend extra time getting up to speed. I believe it’s doable and worth the effort, but you need to be prepared for it. For instance, we’ll spend one module on <em>R Basics</em>. For those with R knowledge, it might be a 2 hour refresher, for those with none that week might be a 20+ hour commitment. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.</p>
 </div>
-<div id="sensitivity-analysis" class="section level1">
-<h1>Sensitivity analysis</h1>
-<p>Sometimes you have observations that might have a strong impact on the model, i.e., without those observations, the best fitting model would look quite different. If you decided that those points are <em>real</em> (i.e., not data entry or other mistakes), you might want to run the model both with those data points present and absent to investigate how results might change. Similarly, you might make decisions along the data cleaning path (e.g., to remove all observations with missing values, or instead remove some variables with lots of missing) which could affect results. Performing analyses in multiple ways to see how these decisions affect outcomes is useful. If you find that the overall results stay the same, it instills confidence in the robustness of your findings. If in contrast, different decisions lead to different answers, it might point to something worth investigating further.</p>
-<p>Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.</p>
+<div id="course-philosophy" class="section level1">
+<h1>Course Philosophy</h1>
+<p>I describe my thoughts on teaching and learning a bit more in the <strong>completely optional</strong> <em>Teaching and Learning thoughts</em> document, which is part of this module. As a summary, here are my goals, promises, and expectations for this course.</p>
+<ul>
+<li><p>I expect you to be self-motivated and committed to learning the material by putting in the effort needed to succeed.</p></li>
+<li><p>I will try to maximize the rewards you get by hopefully teaching methods that are useful to you, and I will try to provide as much help as needed to maximize your learning.</p></li>
+<li><p>This class strives to be challenging but non-threatening. As such, I’ll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don’t grade hard - unless you fail to keep up your end of the agreement and don’t put in the work.</p></li>
+<li><p>This class is ‘open everything’. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning.</p></li>
+<li><p>I will not perform any ‘policing’ to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to <em>help you stay on track.</em> If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning.</p></li>
+</ul>
+<p><strong>Overall, I hope this course is going to be useful, interesting, challenging and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you’ll get out of it.</strong></p>
 </div>
-<div id="other-checks" class="section level1">
-<h1>Other checks</h1>
-<p>Many fitting functions return useful information as output (which you can read with the <code>summary</code> or similar commands). Take a close look. If you thought you had 200 data points but your fitting function result states that N=180, it means the function might have dropped observations with missing values without warning you (<code>R</code> unfortunately does things like that at times). By carefully reading/plotting model returns, you can diagnose your model and catch problems.</p>
-<p>If you get <em>strange</em> results (either unexpectedly bad or unexpectedly good), look carefully. As you know, most often things that are too good to be true are in fact not true. Bugs (either of the coding or thinking type) in any step of your analysis can lead to strange results.</p>
-<p>If at any time during your analysis, you get warning messages, you need to investigate them carefully. Sometimes it is ok to ignore warning messages in R <strong>but only after you know precisely what they mean and why they happen!</strong>. Frequently, warning messages indicate you are doing something you shouldn’t be doing and can lead to wrong results.</p>
+<div id="course-setup" class="section level1">
+<h1>Course Setup</h1>
+<ul>
+<li>The course is split into modules, each with one or more units. Each module will usually be covered in a week. The <em>Schedule</em> document gives an outline. The schedule is not fully finalized and will change, so check frequently.</li>
+<li>Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc. They are listed in the order you should go through them.</li>
+<li>All material for the course can be accessed through this course website or through eLC. Most material is not yet available. It will be added/unlocked as the course proceeds.</li>
+<li>The main page of the course describes the different sections and documents.</li>
+</ul>
+</div>
+<div id="course-tools" class="section level1">
+<h1>Course Tools</h1>
+<p>This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.</p>
+<ul>
+<li>We will use the R software in this course.</li>
+<li>We will also use RStudio (a graphical frontend to R).</li>
+<li>We will use a lot of tools available within R/Rstudio, such as Rmarkdown and related features.</li>
+<li>We will use Git/Github for exercises and the project.</li>
+<li>We will use eLC for discussions, help, and quizzes.</li>
+</ul>
+</div>
+<div id="assessments" class="section level1">
+<h1>Assessments</h1>
+<ul>
+<li>Your grade is made up of online quizzes (20%), discussion/participation (20%), homework exercises (20%) and a course long project (40%).</li>
+<li>Most modules have assessments (these are graded). Due dates are usually Friday 5 pm the week of the module. Some might be at other times, e.g., the beginning or middle of the week. You are responsible for keeping up with the due dates. If in doubt, ask.</li>
+</ul>
+<p>Every module will have an <em>Assessment</em> document, which describes what work you need to do for that module that will be graded. The following types of assessments are part of the course.</p>
+<div id="online-quizzes" class="section level2">
+<h2>Online quizzes</h2>
+<p>The online quizzes are on eLC. They tend to be around 5-10 fairly straightforward questions. The primary purpose of the quizzes is to ensure you worked through the assigned material. <strong>Quizzes are timed (usually 20min). You will have enough time to look up something you forgot but remember where it was, but you won’t have enough time to start the quiz and then try to find the answers in the materials.</strong> Therefore, before taking a quiz, make sure you do all the assigned reading, video watching, exercises, coding, etc. for the module. Sometimes I tell you to note a specific answer. This means it’s likely going to be asked in the quiz.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
+<p>The exercises are part of a single module and are due on the last day of the module. They are listed in the <em>Schedule</em> and described in more detail in the <em>Exercises</em> section. I will likely add further ones, so look out for updates. The <em>Assessment</em> document for each module will tell you which exercise to do.</p>
+</div>
+<div id="class-project" class="section level2">
+<h2>Class project</h2>
+<p>The project is a semester-long data analysis project broken into pieces with several deadlines. The <em>Projects</em> section provides more details.</p>
+</div>
+<div id="discussion-and-participation" class="section level2">
+<h2>Discussion and Participation</h2>
+<p>At times, I will ask you to post specific assignments to the discussion boards and reply to other posts. I also encourage general, continued participation on the discussion boards. Participation can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better 😄. Both quality and quantity will affect your participation grade.</p>
+</div>
+</div>
+<div id="course-resources" class="section level1">
+<h1>Course Resources</h1>
+<p>We’ll be drawing on a lot of different resources. I compiled a list with the ones we’ll use and others you might find helpful in the <em>Resources</em> section of the class website.</p>
+</div>
+<div id="getting-help" class="section level1">
+<h1>Getting help</h1>
+<p>I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. I’ll suggest specific places to get help, see the <em>Resources</em> page.</p>
 </div>
 
 

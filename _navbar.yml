@@ -14,19 +14,21 @@ left:
     menu:
       - text: "1. Course and Tools Introduction"
         menu:
-          - text: "1a. Course introduction"
-            href: ./1a_Course_Introduction.html
-          - text: "1b. Teaching and Learning thoughts"
-            href: ./1b_Teaching_and_Learning.html
-          - text: "1c. R and Rstudio"
-            href: ./1c_RandRStudio.html
-          - text: "1d. GitHub"
-            href: ./1d_Github.html
-          - text: "1e. RMarkdown & Co"
-            href: ./1e_ToolsforReproducibility.html
-          - text: "1f. Reference Management"
-            href: ./1f_Reference_Management.html
-          - text: "1g. Assessment"
+          - text: "Course introduction"
+            href: .Course_Introduction.html
+          - text: "Teaching and Learning thoughts"
+            href: .Teaching_and_Learning.html
+          - text: "R and Rstudio"
+            href: ./RandRStudio.html
+          - text: "GitHub Introduction"
+            href: ./Github_Introduction.html
+          - text: "GitHub and R Workflow"
+            href: ./Github_R_Workflow.html
+          - text: "RMarkdown & Co"
+            href: .ToolsforReproducibility.html
+          - text: "Reference Management"
+            href: .Reference_Management.html
+          - text: "Assessment"
             href: ./1g_Assessment.html
       - text: "2. Topic Introduction"
         menu:
