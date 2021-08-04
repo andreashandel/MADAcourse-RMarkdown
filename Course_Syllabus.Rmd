@@ -1,5 +1,5 @@
 ---
-title: EPID/BIOS 8060E - Modern Applied Data Analysis – Fall 2019 – Syllabus
+title: Modern Applied Data Analysis – Fall 2021 – Syllabus
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -16,7 +16,7 @@ output:
 * Office Location: 124 B.S. Miller Hall, Health Sciences Campus
 * Email: ahandel@uga.edu
 * Office Hours:  by appointment/online
-* Course Meeting Time and Location: online
+* Course Meeting Time and Location: asynchronous, online. For optional synchronous meeting, see _Communication_.
 
 ## Textbook and Other Course Material
 
@@ -26,11 +26,11 @@ There is no required textbook. We will make use of several freely available text
 
 This course provides a survey of modern statistical approaches to analyze data. We will cover a variety of modern approaches for analyzing and interpreting data commonly encountered in public health, biomedical sciences, and related areas. This is an applied, hands-on class. We will use real data (bring your own data if you have it) to learn different methods of analysis. We will discuss all the steps of a data analysis, including obtaining and cleaning data, exploratory and full analysis, and presentation of results.
 
-We will discuss how to formulate scientifically solid questions for a given set of data, how to decide on the right method of analysis, how to implement the analysis in R, and how to present and communicate the results. We will cover statistical methods such as regression, tree based models, cross-validation, bootstrapping, model selection and more. 
+We will discuss how to formulate scientifically solid questions for a given set of data, how to decide on the right method of analysis, how to implement the analysis in R, and how to present and communicate the results. We will cover statistical topics such as regression, tree based models, cross-validation, bootstrapping, and model selection. 
 
 ## Course Learning Objectives
 
-The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, to getting, cleaning and exploring the data, all the way to fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of 'Machine Learning'. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analyis.
+The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, proceeds to getting, cleaning and exploring the data, culminates with fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of 'Machine Learning'. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.
 
 The specific learning objectives that I hope you will achieve by going through this course are:
 
@@ -92,7 +92,7 @@ This class is online. You are expected to submit all assignments by their due da
 
 This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are useful. Previous experience with writing computer programs in general and R in particular is also helpful, but not necessary. If you have no programming experience, expect to spend extra time getting yourself familiar with R. As long as you are willing to invest the time to learn the programming and you do not mind thinking quantitatively, you should be able to take the course, independent of your background.
 
-_Formal requirement for the course is BIOS7010. Knowledge of material from BIOS7010 is assumed. If you didn't take this course, please contact me to get permission to enroll._
+_Formal requirement for the course is BIOS7010. Knowledge of material from BIOS7010 is assumed. If your lack of pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll._
 
 ## Getting Help
 
@@ -116,7 +116,7 @@ This syllabus is a general plan, deviations announced to the class by the instru
 
 ## Course Outline
 
-For an outline of the course, please see the course schedule document. 
+For an outline of the course, please see the _Course Schedule_ document. 
 
 ## More Details
 

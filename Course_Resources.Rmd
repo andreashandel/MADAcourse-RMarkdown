@@ -50,3 +50,19 @@ All materials described below are (should be) freely available online. If you ca
 # Hands-on/interactive resources
 
 * [Online Tutorials (primers) by Rstudio (RP)](https://rstudio.cloud/learn/primers) are a great source for introductory, interactive tutorials covering basics of R coding and data analysis. We'll use several of those primers in the class.
+
+
+# Quiz sheets
+For each module, you are asked to fill out one or more than one sheets with questions related to the course material. Usually, there is one quiz covering the DSAIDE tasks and one quiz covering the other materials (reading, videos) for a given module (the latter I call _Theory Quiz_ below.)
+
+Each quiz sheet is an Excel file. Download them from the links below, fill in the "Answer" column, and submit [to this website](https://shiny.ovpr.uga.edu/gradingapp/).
+
+__Please do not make any other changes to the sheets apart from filling the "Answer" column. If you do make changes, submission might fail. If that happens and you get an error message, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.__
+
+
+## Module 1 - Course and Topic Introduction
+* [Basic SIR DSAIDE Quiz](./quizsheets/dsaide_basicsir.xlsx)
+
+## Module 2 - Course Tools
+* [ID Characteristics DSAIDE Quiz](./quizsheets/dsaide_idcharacteristics.xlsx)
+

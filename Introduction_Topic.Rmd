@@ -1,0 +1,106 @@
+---
+title: MADA Fall 2019 - Topic Introduction 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, echo = FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+```
+
+# Overview
+This module provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course. We'll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You'll be doing similar projects yourself soon! In fact, you will be fully reproducing several analyses below.
+
+
+# Learning Objectives
+* Get motivated toward learning and doing data science.
+* See what's possible with R and what you'll be able to do yourself soon.
+
+
+# Motivating Videos
+
+There are lots of good videos online discussing different aspects of the vast topic of data analysis. [TED](https://www.ted.com/) is an especially good source for such videos.
+
+## TED talk 1
+Arguably one of the best communicators of public health data was the late [Hans Rosling](https://en.wikipedia.org/wiki/Hans_Rosling). He has several great entertaining and enlightening TED talks. Here is one of them - a statistics talk with >13 million views!
+
+<p>
+<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
+</p>
+
+You can watch [more TED talks by Hans Rosling here](https://www.ted.com/speakers/hans_rosling). The software he uses to illustrate data is called Gapminder and [available online](https://www.gapminder.org/tools/#$chart-type=bubbles) on the [Gapminder website](https://www.gapminder.org/).
+
+
+## TED talk 2
+In this entertaining and empowering talk, [Talithia Williams](https://www.ted.com/speakers/talithia_williams) argues for the utility of careful assessment of data in your personal life.
+
+<p>
+<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/talithia_williams_own_your_body_s_data" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
+</p>
+
+
+## TED talk 3
+In this talk, [Sebastian Wernicke](https://www.ted.com/speakers/sebastian_wernicke) gives some cautionary suggestions about trusting data too much and argues for critical assessment as an important part of any data analysis and decision process.
+
+<p>
+<iframe src="https://embed.ted.com/talks/sebastian_wernicke_how_to_use_data_to_make_a_hit_tv_show" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</p>
+
+
+## More TED talks 
+The TED website has [a large number of data related talks](https://www.ted.com/topics/data). Feel free to explore as much as you like. If you find especially good ones, post them on the class discussion board.
+
+
+# Case studies
+It is by now very common that individuals post data analyses online in a reproducible manner, i.e., providing all the code and data to recreate it.
+
+## TidyTuesday
+An interesting initiative is [TidyTuesdays](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/), where every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday) and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself.
+
+Individuals who participate in TidyTuesday often post their projects online [and link to it on social media](https://nsgrantham.shinyapps.io/tidytuesdayrocks/). We will look at a nice example by [David Robinson](http://varianceexplained.org/) analyzing a wine rating dataset. He does a live recording of him digging into the data. 
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AQzZNIyjyWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+You don't need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching `r emo::ji("smile")`. It should be interesting even if you don't care about wine. If you have no R experience, you won't understand the details, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, [he has a bunch more of those screencasts](https://www.youtube.com/user/safe4democracy/videos).
+
+Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, [here is the link to download the code for his analysis](https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd). Just save the file after it opens in your browser. It should be named `wine-ratings.Rmd`. Click on it, and it should open in RStudio (if you don't have R/RStudio installed yet, go through module 2, then come back). 
+
+Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don't get that auto-suggestion, you need to install the packages by hand. Every package that is called with the `library()` command needs to be installed first. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:
+
+```{r, eval = FALSE}
+library(doMC)
+registerDoMC(cores = 4)
+````
+
+and add a `#` in front of them to turn them into comments and therefore disable them (you could also delete these lines, but then they are gone for good, so disabling with `#` is often better).
+
+Once you have done that and installed all other packages, hit the `Knit` button. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! 
+
+Again, most or all of the R code might not make sense to you just yet. That's ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce it with just a few clicks.
+
+**Note the name of the last wine reviewer in the final figure of the knitted report.**
+
+
+## A simple Kaggle analysis
+This is a very simplified example of a "full" analysis I wrote. It is only for illustrative purposes, the whole analysis is rather incomplete and poor quality `r emo::ji('smile')`, but hopefully still a bit helpful in getting an overall feel how such analyses look.
+
+The analysis is based on and inspired by the [Kaggle Titanic challenge.](https://www.kaggle.com/c/titanic) The RMarkdown file gives some more details. [This is the link to the Github repository which contains all files you need to look at and run the analysis yourself.](https://github.com/epid8060fall2019/titanic-analysis)  In the repository, you will find one `Rmd` file and 1 `csv` files. Download them (right-click and `save as`). The double-click the `Rmd` file, which should open in RStudio. You will need to install a few R packages first. Also make sure you are in the correct folder by doing `Session -> Set Working Directory -> To Source File Location`. Then `knit` the document, which should run the complete analysis, produce a report which should open in the viewer, and save a file to the folder which you could upload to Kaggle.
+
+**Take a close look or save the decision tree.**
+
+
+## Research Project
+
+Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I'm sharing a recent project/paper by Brian McKay, aa former grad student in my group. [Here are all the materials to reproduce a full analysis and manuscript files](https://doi.org/10.5061/dryad.51c59zw4v), with the main product being a peer-reviewed journal article, [which has since been published](http://handelgroup.uga.edu/publication/2020-mckay-prsb/). As you will see, it is more complex and complete compared to the examples above. You can also see how easy it is to "write a whole paper" with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you'll learn and use in this class.
+
+
+

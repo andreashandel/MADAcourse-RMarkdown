@@ -5,11 +5,27 @@ output:
     toc: FALSE
 ---
 
+
 ```{r, include = FALSE}
 #just so I can use emoticons
 #devtools::install_github("hadley/emo")
 library(emo)
 ```
+
+
+<!-- Some trickery to get the logo to show -->
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=\"media/MADAlogo.png\" style=\"float: right; border: none; width: 150px;\"/>')
+   });
+</script>
+
+
+Last update/recompile: `r Sys.time()`
+
+
+**This site is currently undergoing revisions in preparation for the upcoming fall 2021 offering of the course. As long as you see this message, assume Some things are not correct.**
 
 
 Welcome to the **Modern Applied Data Analysis (MADA)** course website.
@@ -41,6 +57,8 @@ Note that by default, all links open in the current tab. You'll likely want exte
 # Getting started
 
 I suggest you start by looking over the __Syllabus__ and __Schedule__ documents, then __Communication__ and __Resources__. After that, start with the __Module 1__ content in the given order. You can read through the _Project_ section early or wait until you have gone through at least modules 1 and 2.
+
+
 
 ## Acknowledgements
 

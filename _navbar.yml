@@ -12,12 +12,16 @@ left:
         href: ./Course_Schedule.html
   - text: "Modules"
     menu:
-      - text: "1. Course and Tools Introduction"
+      - text: "1. Course and Topic Introduction"
         menu:
-          - text: "Course introduction"
-            href: .Course_Introduction.html
-          - text: "Teaching and Learning thoughts"
-            href: .Teaching_and_Learning.html
+          - text: "Course Logistics"
+            href: ./Introduction_Course.html
+          - text: "Topic Introduction"
+            href: ./Introduction_Topic.html
+          - text: "Assessment"
+            href: ./Introduction_Assessment.html
+      - text: "2. Tools Introduction"
+        menu:
           - text: "R and Rstudio"
             href: ./RandRStudio.html
           - text: "GitHub Introduction"
@@ -25,17 +29,11 @@ left:
           - text: "GitHub and R Workflow"
             href: ./Github_R_Workflow.html
           - text: "RMarkdown & Co"
-            href: .ToolsforReproducibility.html
+            href: ./ToolsforReproducibility.html
           - text: "Reference Management"
-            href: .Reference_Management.html
+            href: ./Reference_Management.html
           - text: "Assessment"
-            href: ./1g_Assessment.html
-      - text: "2. Topic Introduction"
-        menu:
-          - text: "2a. Topic introduction"
-            href: ./2a_Topic_Introduction.html
-          - text: "2b. Assessment"
-            href: ./2b_Assessment.html
+            href: ./Tools_Assessment.html
       - text: "3. R basics"
         menu:
           - text: "3a. R basics"
