@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Data Wrangling and the Tidyverse</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Logistics</a>
+        </li>
+        <li>
+          <a href="./Introduction_Topic.html">Topic Introduction</a>
+        </li>
+        <li>
+          <a href="./Introduction_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Tools_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Shiny_Test.html">Test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Data Wrangling and the Tidyverse</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-03-25 08:29:29</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will discuss what data wrangling is and why it’s a very important part of any analysis. We will then discuss and use a set of packages in R commonly referred to as the <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
+<div class="figure" style="text-align: center">
+<img src="media/cartoonscrubdata.jpg" alt="How data used to be cleaned before the tidyverse." width="80%" />
+<p class="caption">
+How data used to be cleaned before the tidyverse.
+</p>
+</div>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Learn what data wrangling is</li>
+<li>Know about specific important wrangling tasks</li>
+<li>Know what the <code>tidyverse</code> is</li>
+<li>Be able to apply <code>tidyverse</code> code to data wrangling problems</li>
+</ul>
+</div>
+<div id="data-wrangling-overview" class="section level1">
+<h1>Data wrangling overview</h1>
+<p>Once you have the data loaded into your analysis software, such as R, you almost always need to clean your data and reshape it for formal statistical analysis. The term often applied to this messing around with the data is called <em>wrangling</em> or <em>tidying</em>. <em>Cleaning</em>, <em>munging</em> or <em>processing</em> are other terms that generally mean the same thing. To figure out how to get your data into the right shape and what cleaning steps you need to take, you also need to explore the data. R provides a lot of functionality for data wrangling and exploring. We focus on a specific approach which makes use of R packages collectively known as the <code>tidyverse</code>, which we’ll cover next. We will then use them to practice some data wrangling.</p>
+<p>Throughout this course, you have already done a good bit of wrangling, and you have read about and used <code>tidyverse</code> packages previously, I just haven’t officially introduced them yet.</p>
+<p><strong>As with any part of the data analysis process, wrangling should be done automated, reproducible and documented. No “fixing by hand”!</strong></p>
+</div>
+<div id="specific-wrangling-tasks" class="section level1">
+<h1>Specific wrangling tasks</h1>
+<p>There are some types of problems that you encounter often. Here I briefly discuss a few important ones.</p>
+<div id="missing-data" class="section level2">
+<h2>Missing data</h2>
+<p>In almost any dataset, there are some missing entries. Data can be missing for different reasons. It could have not been asked/recorded, the person refused to provide it, the variable is not applicable (e.g. for a non-smoker, the variable “number of cigarettes per day” might be left blank.) It is important to understand why data are missing and form an action plan based on that. Many analysis approaches do not allow for missing data. In this case, you need to reduce your dataset such that nothing is missing.</p>
+<p>The easiest approach is to remove all observations with missing data. That can get problematic if you have a lot of variables, and each variable has some missing values; you might be left with almost no observations that have complete data.</p>
+<p>Another option is to remove all variables with missing data from further analysis. Unfortunately, it is common that at least some values are missing for each variable, which means you would be left with no variables. Also, if the variable is important for the question you are trying to answer, you obviously cannot remove it.</p>
+<p>Another option is to use a combination of removing variables and observations. You could start removing variables with missing values above some threshold, e.g. any variable that has more than 10% or 20% (or some value you pick) missing. There is no rule for this, and you need to justify it. Then once all variables with missing values above some threshold are removed, you remove any remaining observations that still contain missing data. This mix of removing variables and observations might preserve the most amount of data.</p>
+<p>There are two problems when removing data. One is the obvious fact that you lose data, and thus statistical power. The other problem is if the data are not missing at random. In that case, by removing those observations with missing data, you introduce bias into your dataset. Again, it is important to understand why and how data are missing so you can have an understanding of potential problems such as introducing bias.</p>
+<p>Instead of removing rows and columns (observations and variables) until you have no more missing entry, you can also <em>impute</em> the missing values. Basically, you make an educated, data-driven guess as to what the missing value might have been and stick that value into the missing slot. In principle, any regression and classification method that you can use to estimate and predict an outcome can be used by temporarily thinking of the variable you want to impute as your outcome and the other variables as predictors, and then predicting the missing values. Methods such as K-nearest neighbors or random forest, which we discuss later in the course, are useful for this. <em>Imputation</em> adds uncertainty since you made guesses for the missing values, and often, the estimated/guessed values are randomly drawn from a distribution. Multiple imputation creates several different imputed datasets, and you can then run your analysis on each of those imputed datasets, hopefully with similar results for each. In R, the <a href="https://tidymodels.github.io/recipes/"><code>recipes</code> package</a>, which is part of the fairly new set of tidy modeling tools called <a href="https://github.com/tidymodels">tidymodels</a>, and others such as the <a href="https://stefvanbuuren.name/mice/"><code>mice package</code></a> allow for imputation. We’ll try some of those in a later unit.</p>
+<p>There are additional options for dealing with missing values. For instance, you could create new variables/predictors/features with less missing. As an example, if you have data that records if a person drinks beer (yes/no), wine (yes/no), or hard liquor (yes/no) and each of those variables has some missing, maybe you can create a new variable labeled <em>any alcohol</em> and code it as yes/no. If a person has a <em>yes</em> for at least one of the 3 original variables, they would be coded as <em>yes</em> in the new one. If they have all <em>no</em>, they would be coded as <em>no</em>. For anyone left, you do need to decide what to do with missing values in the original variables, i.e. if you interpret them as <em>yes</em> or <em>no</em>. You could either stick with one, e.g. if you had some additional knowledge that suggests anyone who doesn’t have that value recorded is more likely a <em>no</em>. Or you can use imputation.</p>
+<p>As you can tell, missing values can cause headaches. It is therefore very important if you design and collect data to try to do it in such a way as to minimize missing values. Of course, if you analyze data collected by someone else, there is not much you can do, and you have to decide how to deal with missing values. For that, having a good understanding of what the data mean and how they were collected is essential.</p>
+<p>In R, missing values are coded as NA. When you read data into R and that data for instance codes missing as 99, you should recode to NA. NA in R is a bit tricky, since any operation on NA returns NA. The tidyverse functions tend to be pretty good in dealing with NA, for base R code you often have to be more careful. The function <code>is.na()</code> is often useful. Some functions, e.g. <code>mean()</code> and <code>sum()</code> can deal with NA if you tell them what to do. Sometimes, functions just deal with NA in some built-in way. You need to check that this is what you want. Always perform careful checks when handling missing values!</p>
+</div>
+</div>
+<div id="outliers" class="section level1">
+<h1>Outliers</h1>
+<p>It is not uncommon to have values in your data that are <em>strange</em>. It could be that someone at data entry made a mistake. Or your codebook doesn’t properly explain the entries. Other times, it could be <em>real</em> data that is just an outlier. It can be hard to decide if a value is <em>strange but real</em> or a mistake. Dealing with such entries is a judgment call. The best approach is to have a pre-written analysis plan that explains exactly what to do in any such cases. Outside of clinical trials seeking FDA approval, that pretty much never happens. We usually have to decide what to do with strange entries when we run into them. Some good rules are to be consistent, fully document and explain what you do, and if you are able, do it <em>both ways</em> (e.g. do the analysis with the values as they are, and then again with them removed). Of course <em>both ways</em> can quickly turn into <em>a million different ways</em> and at some point, you probably have to stop. However, trying it more than one way can be reassuring if you get pretty much the same answer each time. If you do not get similar results, then you have to be more careful and should describe in your report/paper in detail why and how different approaches to your data cleaning lead to different results.</p>
+<div id="censored-data" class="section level2">
+<h2>Censored data</h2>
+<p>Sometimes data are censored, i.e., you know that the value is “X or greater/less” but not the exact value. This is common in longitudinal (survival or similar) data. It is also common in experimental data, where you might have a measurement procedure with lower or upper limits of detection. The way to deal with censored data depends on what kind of censored data you have, and what you want to do with it. In R, packages that are used to analyse survival data, e.g. <a href="https://github.com/therneau/survival">the <code>survival</code> package</a>, can deal with some censored data. Otherwise, you will likely need to google around to figure out how you should deal with the censored data scenario you have and how to do it in R.</p>
+</div>
+<div id="merging-data" class="section level2">
+<h2>Merging data</h2>
+<p>It is not uncommon that your raw data comes in more than one file. It could be multiple spreadsheets of a single study, or it could be different datasets from different sources (e.g., a dataset on asthma cases combined with a different data source that records air pollution levels). In such cases, you will likely need to combine the data. That is often called <em>joining</em>. The <code>dplyr</code> package has a great set of <code>_join()</code> functions that let you do different types of joining of data. Other tools for R exists, e.g. the <a href="http://r-datatable.com">Data Table package</a>.</p>
+</div>
+</div>
+<div id="the-tidyverse" class="section level1">
+<h1>The tidyverse</h1>
+<div id="overview-1" class="section level2">
+<h2>Overview</h2>
+<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. In the <em>R Coding</em> exercise, I asked you only to use commands and functions that are built right into R, which is sometimes referred to as <code>base R</code>. In the various bits of code that you have seen and worked along so far, you have encountered a mix of base R approaches and approaches that require specific packages. A lot of the power in R comes from its packages. Over the last few years, a group of individuals have developed (many) packages that make data analysis easier. One such set of packages, the most widely used one, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable, and more powerful. We have, and will continue to use the <code>tidyverse</code> packages and their functionality a lot. That said, knowing some base R is very useful, which is why I asked you to use it previously. Fortunately, they can easily be combined, so you can choose which style of coding to use based on what is easiest.</p>
+</div>
+<div id="tidy-data" class="section level2">
+<h2>Tidy data</h2>
+<p>The concept of the tidyverse can be traced back to the concept of <em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a> introduced in <a href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>. Read this article. <strong>I’ll ask you questions about it.</strong> When reading Hadley Wickham’s article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers.</p>
+</div>
+<div id="tidyverse-philosophy" class="section level2">
+<h2>Tidyverse philosophy</h2>
+<p>The R packages developed by Hadley and others were eventually grouped together and now goes by the name of tidyverse. If you want to learn more about the principles of those packages, <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">you can read this short manifesto</a> written by Hadley. Some of what he writes might not be fully understandable to you (e.g., functional programming), but you’ll get the overall idea. For our purpose, the important aspects to remember is that the <code>tidyverse</code> is a collection of R packages that are all structured similarly (from a user perspective), that <em>play nice</em> with each other, and that help you in your various analysis tasks as you go from messy data to data that is tidied up and ready for formal analysis.</p>
+<p>Note that there are many more R packages that are not part of the core tidyverse, but that still follow the same principles and nicely work with other tidyverse packages.</p>
+</div>
+<div id="tidyverse-and-wrangling-practice" class="section level2">
+<h2>Tidyverse and wrangling practice</h2>
+<p>To learn more and practice some of the tidyverse functionality and apply it to data wrangling, work through all 3 lessons in the <a href="https://rstudio.cloud/learn/primers/2"><em>Work with data</em></a> module from the RStudio tutorials. After that, work through all 3 lessons of the <a href="https://rstudio.cloud/learn/primers/4"><em>Tidy your data</em></a> module. <strong>I’ll ask you questions about those tutorials.</strong></p>
+<div class="fyi">
+<p>More or less the same content, presented a bit differently and non-interactively, can be found in the <a href="https://r4ds.had.co.nz/tidy-data.html"><em>Tidy data</em> chapter (12) in R4DS</a>. This might be a good reference to look up things.</p>
+</div>
+<p>Next, read <a href="https://rafalab.github.io/dsbook/tidyverse.html">the <em>tidyverse</em>, <em>Data Wrangling</em>, <em>Reshaping data</em> and <em>Joining tables</em> chapters (5,21,22,23) of IDS</a>. A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it’s worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.</p>
+<p>If you want some more data tyding practice, check out <a href="http://garrettgman.github.io/tidying/">this tutorial by Garrett Grolemund</a> or <a href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/">this short blog post by Joachim Goedhart</a>.</p>
+<p>As you do your data wrangling, a lot of code writing will be <em>ad hoc</em>. You have a specific task you need to accomplish with your data, and then you go out and look for instructions online on how to do it. The materials you just worked through are useful resources. And as always, google is your friend.</p>
+</div>
+</div>
+<div id="data-cleaning-and-exploratory-analysis" class="section level1">
+<h1>Data cleaning and exploratory analysis</h1>
+<p>As you do your data cleaning/wrangling, you need to explore your data to figure out what needs fixing. As such, certain aspects of exploratory analysis and cleaning go together. You need to explore your data to figure out how to clean it, and you need to clean it to allow further exploration. So remember that even though in a course like this we have to cover one topic at a time, in reality, a lot of these activities occur at the same time.</p>
+<p>We will cover exploratory analysis in a separate, later module, and we will consider exploratory <em>statistical</em> analysis as part of the exploration process. There is no clear definition for exploratory analysis. Some people consider exploratory analysis only the parts up to and including a <em>descriptive</em> analysis. I consider very simple bi-variate statistical approaches also part of the exploration. To me, the exploratory part is anything that comes before you apply multi-variable models to most of the data with the goal of producing “final” results. Just don’t get too hung up on the terminology. In practice, there is no clear division, e.g., people often plot exploratory figures and add a simple linear regression or another simple statistical model to the figure as part of the exploration process.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

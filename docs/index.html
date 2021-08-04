@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Modern Applied Data Analysis</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Logistics</a>
+        </li>
+        <li>
+          <a href="./Introduction_Topic.html">Topic Introduction</a>
+        </li>
+        <li>
+          <a href="./Introduction_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Tools_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Shiny_Test.html">Test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Modern Applied Data Analysis</h1>
+
+</div>
+
+
+<!-- Some trickery to get the logo to show -->
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=\"media/MADAlogo.png\" style=\"float: right; border: none; width: 150px;\"/>')
+   });
+</script>
+<p>Last update/recompile: 2021-08-04 07:55:06</p>
+<p><strong>This site is currently undergoing revisions in preparation for the upcoming fall 2021 offering of the course. As long as you see this message, assume Some things are not correct.</strong></p>
+<p>Welcome to the <strong>Modern Applied Data Analysis (MADA)</strong> course website.</p>
+<p>This website contains almost all the content of an online course taught at the University of Georgia by <a href="https://www.andreashandel.com/">Andreas Handel</a>. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
+<p>I last offered the course in fall 2019 and it is currently scheduled to be offered again in fall 2021. I plan to keep this website continuously online, with small updates happening on an ongoing basis and likely larger updates every time I teach the course again.</p>
+<div id="website-content" class="section level1">
+<h1>Website content</h1>
+<p>The <strong>General Information</strong> section provides a class <strong>Syllabus</strong> and a <strong>Schedule</strong>. The latter will likey be updated throughout the course, so check it regularly.</p>
+<p>The majority of the content is listed under the <strong>Modules</strong> heading. Each module has several units in a drop-down/pop-out menu. Go through them in the listed order.</p>
+<p>Instructions for specific exercises are listed in the <strong>Exercises</strong> section. You will be told when you should access those documents and do the exercises. Of course, reading ahead is allowed 😃.</p>
+<p>As part of the class, you will be doing a semester-long data analysis project. Instructions and detailed information for this are given in the <strong>Project</strong> section.</p>
+<p>The <strong>Communication</strong> section provides information on how course communications are planned to happen.</p>
+<p>The <strong>Glossary</strong> section provides brief definitions of terms used in this course.</p>
+<p>The <strong>Resources</strong> section contains a listing of external materials. Some of this material will assigned as part of this course. You will be told what exactly to read or work through in the modules documents. Other resources are listed in case you might find them helpful. All materials are (should be) available freely online.</p>
+<p>Note that by default, all links open in the current tab. You’ll likely want external ones to open in a separate tab or window. To do so, you can (with most browsers) hold the <code>Ctrl</code> button when clicking, or do a right-click and select <code>open in new tab/window</code>.</p>
+</div>
+<div id="getting-started" class="section level1">
+<h1>Getting started</h1>
+<p>I suggest you start by looking over the <strong>Syllabus</strong> and <strong>Schedule</strong> documents, then <strong>Communication</strong> and <strong>Resources</strong>. After that, start with the <strong>Module 1</strong> content in the given order. You can read through the <em>Project</em> section early or wait until you have gone through at least modules 1 and 2.</p>
+<div id="acknowledgements" class="section level2">
+<h2>Acknowledgements</h2>
+<p>This course was developed and is maintained by <a href="https://www.andreashandel.com/">Andreas Handel</a>.</p>
+<p>The following individuals have contributed to improving the course: Ian Bachli (<a href="https://github.com/idbachli">@idbachli</a>), Megan Beaudry (<a href="https://github.com/MeganSarah">@MeganSarah</a>), Amanda Blubaugh (<a href="https://github.com/alblubaugh">@alblubaugh</a>), Brian McKay (<a href="https://github.com/bmckay">@bmckay</a>), Mia Carmichael (<a href="https://github.com/mncarmic">@mncarmic</a>), Ellen Cheng (<a href="https://github.com/ellenmonster">@ellenmonster</a>), Paige Duffin (<a href="https://github.com/paigeduffin">@paigeduffin</a>), Robert Edenfield (<a href="https://github.com/ClaytonEdenfield">@ClaytonEdenfield</a>), Julia Frederick (<a href="https://github.com/JuliaFrederick">@JuliaFrederick</a>), Megan Lott (<a href="https://github.com/meganejlott">@meganejlott</a>), William Norfolk (<a href="https://github.com/williamnorfolk">@williamnorfolk</a>), Trang Quach (<a href="https://github.com/TrangQuach">@TrangQuach</a>), Emily Rayens (<a href="https://github.com/Rayense">@Rayense</a>), Megan Robertson (<a href="https://github.com/meganjro">@meganjro</a>), Amanda Skarlupka (<a href="https://github.com/askarlupka">@askarlupka</a>), Jonathan Wilson (<a href="https://github.com/JJWilson1991">@JJWilson1991</a>), Yang Zhang (<a href="https://github.com/yz17970">@yz17970</a>)</p>
+<p>The course materials are licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. Linked and embedded materials are governed by their own licenses. I assume that all external materials used or embedded here are covered under the educational fair use policy. If this is not the case and any material displayed here violates copyright, please let me know and I will remove it.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

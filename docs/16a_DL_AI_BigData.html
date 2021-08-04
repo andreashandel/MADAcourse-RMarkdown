@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>MADA Course - Deep Learning, Artificial Intelligence and Big Data</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Logistics</a>
+        </li>
+        <li>
+          <a href="./Introduction_Topic.html">Topic Introduction</a>
+        </li>
+        <li>
+          <a href="./Introduction_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Tools_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Shiny_Test.html">Test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">MADA Course - Deep Learning, Artificial Intelligence and Big Data</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-03-25 08:29:29</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will <strong>very</strong> briefly talk about the topics of Deep Learning, Artificial Intelligence and Big Data, and how R can be used for them.</p>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know what Deep Learning, Artificial Intelligence and Big Data are.</li>
+<li>Know how one can use R for such tasks</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The terms deep learning (DL) and artifical intelligence (AI), and to a lesser extent Big Data, are popping up a lot lately, even in the mainstream media. DL/AI approaches have led to some impressive recent technological advances, such as self-driving cars, very good language translation, biometrics and image recognition, computers that beat humans at games like Chess/Go/Poker, etc. I have no doubt that progress in AI/DL in the next 10-20 will be rapid and lead to many important advances. With everything “new and shiny” there comes a good bit of hype. The goal for this short unit is to give you a very brief introduction to what these topics are, how they related to data analysis/machine learning, and how you could - if you wanted - do DL/AI yourself (using R).</p>
+</div>
+<div id="neural-networks-nn" class="section level1">
+<h1>Neural networks (NN)</h1>
+<p>The main workhorse of deep learning (DL) and artifical intelligence (AI) are a type of method/algorithm called neural net/network (NN). Those are specific kinds of models that originated as an attempt to capture the functioning of biological neurons, and thus brains. While neural nets have been around for a while and have had some successes (e.g. in digit recognition), they have really taken off in recent years with the advent of more data, faster computers, and better algorithms. Without going into details, there are a few ways you can think of how neural nets work. One is that those are collections of individual, in silico, neurons, which are combined into layers. On one end, the input is fed into the model, at the other end, the output is produced. See e.g. <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">this Wikipedia page</a> for some schematic drawing. The input are your predictor variables, e.g. lots of characteristics measured for a patient; data from an -omics array; pixels of an image; words of some text; sounds of an audio file, etc. The output is whatever label you want to predict, e.g. for some images it could be the 4 categories <em>cat/dog/neither/both</em>. You feed the data to the model and train it. Training of NN is conceptually similar to training other ML algorithms. Each neuron has parameters associated with it. As you fit the model, those parameters are tweaked to optimize performance. The bigger your neural network (more neurons and more layers), the more flexible the model. That means potentially more powerful, but also more data-hungry.</p>
+<p>While the analogy to a biological brain is apt, this comparison does sometimes make NN sound more complicated and fancy than they are. To demystify NN somewhat, you can switch out the comparison to a biological brain, and instead think of them as a coupled set of logistic regressions. Each neuron is more or less described by some type of logistic regression function. It gets some input from multiple variables (either the original input, or a previous layer of neurons), and then based on that input and its parameter setting returns either 0/No or Yes/1. The output is then fed to the next layer of networks. The NN is thus a combination of individual logistic regression models, coupled together in some way.</p>
+<p>Of course, neural networks are complicated and understanding them in more detail is time-consuming. However, as general user, you don’t need to understand all the details. Instead, like for other complex models we discussed, as long as you know how to use them and evaluate what they return, it is ok to not fully understand their inner workings. Properly training/fitting NN can be tricky, because they generally have many different parameters that need tuning to achieve good performance. Thus a lot of development has gone into methods that allow for efficient tuning/fitting. Fortunately for us as users, those methods have become fairly good such that it is possible to use NN algorithms built by others and generally trust they work well - similar to us using other models (GLM, trees, SVM, etc.) without having to worry about all the details.</p>
+<p>If you want to learn more about neural nets, <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">the wikipedia entry</a> is a good place to start. <a href="https://bradleyboehmke.github.io/HOML/deep-learning.html">Chapter 13 of HMLR</a> also provides a nice introduction.</p>
+</div>
+<div id="deep-learning-dl" class="section level1">
+<h1>Deep Learning (DL)</h1>
+<p>Deep Learning (DL) generally refers to using a specific class of neural networks, namely those that have multiple layers of (in silico) neurons (it has nothing to do with deep as in especially insightful). These days, DL is sometimes used a bit more loosely and can refer to any NN based complex algorithm (or sometimes even a non-NN complex model) applied to a problem. However, most often if someone says/writes that they use deep learning to address some problem, they mean using a type of neural net to fit data.</p>
+</div>
+<div id="artificial-intelligence-ai" class="section level1">
+<h1>Artificial Intelligence (AI)</h1>
+<p>Artificial Intelligence (AI) is definitely a trendy topic these days. It is widely used and also widely mis-used in many contexts these days. Roughly speaking, AI is the use of complex models, usually NN, to solve difficult problems. If one wanted to differentiate DL and AI, one might say that AI is the use of DL approaches applied to “complex” problems. However, it seems these days that DL and AI are terms that are used largely interchangeably. Overall, if you hear AI or DL, you can think of it roughly as <em>fitting a neural net model to data.</em> Unfortunately, since DL and AI have become such <em>hot</em> topics, terms are often misused these days, especially outside academia. You might find someone claiming to do DL/AI even though all they do is fit a linear regression to some data.</p>
+<p>As with all “new and shiny” things, there seems to be a bit of a current trend to use DL/AI approaches even when not needed. As an example, <a href="https://www.nature.com/articles/s41586-018-0438-y">this Nature article</a> used deep learning to analyze data; <a href="https://www.nature.com/articles/s41586-019-1582-8">this follow-up correspondence article</a> showed that a single logistic regression produced more or less the same results. <a href="https://www.nature.com/articles/s41586-019-1583-7">The reply by one of the original authors</a> is also worth reading.</p>
+<p>Overall, DL and AI are certainly very promising approaches and will without lead to significant improvements in our ability to harness data. As with most technologies going through a “bubble” there is currently work that is both substantial and important, and work that is fluffy and full of hype.</p>
+</div>
+<div id="dl-and-ai-in-r" class="section level1">
+<h1>DL and AI in R</h1>
+<p>There has been rapid developments in the tools that allow DL/AI applications. Several major technology companies have made some of their products publicly available. A very widely used and powerful tools is <a href="https://www.tensorflow.org/">TensorFlow</a>, partly developed by Google. It implements several powerful NN and other ML methods and allows one to fit those on various hardware platforms.</p>
+<p>To use TensorFlow directly, one needs to write a good bit of probably somewhat complicated code (I’ve never tried). To make using TensorFlow easier, other packages exist that provide a nice interface (a bit like using <code>caret</code> or <code>mlr</code> to access all kinds of ML models). A widely used tool to do DL/AI in an easy manner using TensorFlow (or similar such low-level engines) is <a href="https://keras.io/">Keras</a> (see also <a href="https://en.wikipedia.org/wiki/Keras">it’s Wikipedia entry</a>.) Keras was originally developed for Python, a programming language that is somewhat similar to R and heavily used in the ML/DL/AI community. The folks from RStudio, together with the Keras development team, have since <a href="https://keras.rstudio.com/index.html">ported Keras to R</a>. It is thus possible to use these powerful tools (Keras and TensorFlow) from within R (though a Python installation is also required).</p>
+<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras website</a> has a lot of good information and documentation on how to use Keras through R to do DL/AI. The very brief <a href="https://keras.rstudio.com/articles/why_use_keras.html"><em>Why Use Keras?</em> article</a> provides some motivation and explanation of Keras strengths (and also shows a few nice graphs where you can see alternativel DL tools). While I’m sure a DL/AI expert uses more than just Keras/Tensorflow as their tools (I’m not one, so I’m not sure), you can get very far with those. And for playing around with DL/AI, Keras through R is a great place to start. See the exercise for suggested starting points.</p>
+<div id="side-note-gpu-computing" class="section level2 note">
+<h2>Side note: GPU computing</h2>
+<p>Since DL/AI usually fit large amounts of data to complex models, time constraints are often important. Powerful computers are at times needed. An important development is the use of GPU (graphical processing unit) computing. While modern computers usually have more than 1 CPU, they are still generally limited to a small number. Even a very powerful single desktop will have generally less than 100 CPUs. In contrast, modern graphics cards often have &gt;1000 GPUs. Those can all be used in parallel to perform model fitting. Products such as Tensorflow allow one to use (mainly NVIDIA) GPUs to fit complex models to a lot of data in an often reasonable amount of time without requiring a supercomputer cluster.</p>
+</div>
+</div>
+<div id="big-data" class="section level1">
+<h1>Big Data</h1>
+<p>You often hear the term <em>big data</em> when people talk about DL or AI. The reason for that is that complex models, such as DL models, need a lot of data to work well. Thus, DL models and big data often - but not always - go together. That said, you can analyze big data with any model you want, including simple GLM or similar such models.</p>
+<p>While the term <em>big data</em> is a bit fuzzy, in general people mean any dataset that doesn’t easily fit into the memory of a regular computer (or cluster) and thus needs to be analyzed using special tools. Alternatively, data that is so big that doing analysis on it takes too long using standard tools (e.g. R on a regular computer) and instead requires specical treatment. Of course this also depends on the type of analysis, not only the type of data. As computers keep getting faster and tools more flexible and integrated, the label <strong>big data</strong> is a moving target.</p>
+<p>Generally, big data is stored somewhere in a database. <a href="https://en.wikipedia.org/wiki/SQL">SQL type databases</a> are most common. You then want to access that database in a form that allows you to perform your analysis. There are different ways of dealing with big data. Most methods are general and apply independent of the programming language you use. <a href="https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/">This article</a> describes a few general approaches and explains how they can be implemented in R. <a href="https://rstudio.com/resources/webinars/working-with-big-data-in-r/">This webinar</a> gives a bit more information and a nice description of the overall setup for big data. As you learn in that tutorial, R is often used together with other software to analyze big data. A tool that is often used for big data analysis is <a href="http://spark.apache.org/">Spark</a>. For R, there is the <a href="https://spark.rstudio.com/">sparklyr package</a>, which allows one to nicely interface with Spark.</p>
+<p>In general, when you work with big data, you will have to carefully look at the data, the type of database it is stored, and the analysis goals. Based on that, you should use a stack of tools that allows analysis. The <a href="https://cran.r-project.org/web/views/Databases.html">Databases task view</a> gives a good overview of different R packages for specific types of databases. You will use R for your analysis, and R will then interface with other software. This interfacing usually works fairly seamlessly.</p>
+</div>
+<div id="computing-resources" class="section level1">
+<h1>Computing resources</h1>
+<p>As you do DL/AI or use big data, you might exceed what your desktop can do in a reasonable amount of time. The tips described above (e.g. using a GPU for DL or sampling to reduce data size) often help. But at times, you need more powerful computing. Fortunately, this is increasingly available for cheap. You can often access academic computing resources, such as UGA’s <a href="https://gacrc.uga.edu/">Georgia Advanced Computing Resources Center (GACRC)</a> and use them for free. Commercial services also exist, such as <a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a> which allow you to tap into a vast amount of computing power. Of course, for AWS and similar services, you need to pay. At times, you might get a discount as a student/academic. You can find good information on such services online, for instance on the GACRC website.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras website</a> has a lot of good information, and also provides links to further resources. Starting there and then branching out to some of the listed resources (e.g. the <em>Learn</em> section on that website), will get you very far.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

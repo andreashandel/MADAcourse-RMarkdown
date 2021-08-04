@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Tidyverse Exercise</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Logistics</a>
+        </li>
+        <li>
+          <a href="./Introduction_Topic.html">Topic Introduction</a>
+        </li>
+        <li>
+          <a href="./Introduction_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Tools_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Shiny_Test.html">Test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Tidyverse Exercise</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-03-25 08:29:29</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>You previously did a project where you used base R code to do a simple data analysis. We will revisit this analysis but now will be using R packages from the tidyverse and more.</p>
+<p>We will use the Github workflow, with some additional features to learn a bit more about Github functionality.</p>
+</div>
+<div id="github-fork-and-pull" class="section level1">
+<h1>Github <em>fork and pull</em></h1>
+<p>Previously, you learned how filing an <em>Issue</em> on Github can provide useful input and help improve projects. If you want to take things a step further, instead of <em>suggesting</em> a change/improvement, you could <em>just do it.</em> Github has a great feature for that, called <strong>pull requests</strong>. The basic idea is as follows. First, you make a copy of someone’s Github repository. In Github terminology, that is called doing a <em>fork</em> of their repository. You can then implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main/master repository. This last part is called issuing a <strong>pull request</strong>. You are requesting that the other person <em>pull</em> your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as <em>merge</em> requests or <em>sync</em> requests, i.e. you are requesting that they merge or sync your changes into their repository. You’ll find the terminology <em>merge request</em> is used at times. If the person who controls the main repository likes your changes, they will <em>merge</em> your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this <em>fork and pull</em> flow below using a data cleaning and tidyverse coding project as an example.</p>
+</div>
+<div id="project-setup" class="section level1">
+<h1>Project setup</h1>
+<ul>
+<li>Find the <em>Class List</em> document on eLC, it’s in the <em>Documents</em> section. Note the name of the student who is <strong>above</strong> you (if you are the first student on the list, note the last student’s name).</li>
+<li>Go to the <a href="https://github.com/epid8060fall2019">Github course organization</a> and find that student’s repository from the <em>R Coding</em> exercise (if you can’t figure out their Github username, email them).</li>
+<li><strong>Fork</strong> their repository. You can think of a fork as a copy. See <a href="https://happygitwithr.com/fork-and-clone.html">this section of happygitwithR</a> for detailed instructions. You don’t need to follow Jenny’s workflow. Instead, click the <em>fork</em> button on Github, and fork it into your <strong>personal</strong> account. Then use Gitkraken to clone it to your computer.</li>
+</ul>
+</div>
+<div id="data-wrangling-with-the-tidyverse" class="section level1">
+<h1>Data wrangling with the tidyverse</h1>
+<ul>
+<li>Once you have the fork of their repository on your local computer, open the project with RStudio. Run their R markdown file to make sure things work. You should be able to reproduce their initial analysis.</li>
+<li>Now, let’s add more content. The original exercise was done using base R code that didn’t require any additional packages. We only loaded the <code>dslabs</code> package to get the data. While one can do a lot with base R, it is at times tedious to write code. Especially for data analysis tasks, there are many packages available that make our coding lives easier. We’ll use some now.</li>
+<li>Write code to load the <code>tidyverse</code> collection of packages and the <code>skimr</code> package. If you don’t have them installed, do so. This will likely install a lot of packages and take a while.</li>
+<li>Use the <code>glimpse</code> function from <code>dplyr</code> and the <code>skim</code> function from the <code>skimr</code> package to look at the <code>gapminder</code> object.</li>
+<li>Use the <code>filter</code> and <code>select</code> functions from <code>dplyr</code> to extract only the African countries from the <code>gapminder</code> object and then keep only the variables <code>infant_mortality</code>, <code>life_expectancy</code>, <code>population</code> and <code>country</code>.</li>
+<li>Make 2 plots using <code>ggplot</code> for life expectancy as a function of infant mortality and population. Also, give each country a separate color in the plot.</li>
+<li>Write code that uses the gapminder object, pulls out data for Africa and year 2000 and creates a <code>ggplot</code> for <code>life_expectancy</code> as a function of <code>infant_mortality</code>, with a linear model fit added.</li>
+</ul>
+</div>
+<div id="sending-updates-to-github" class="section level1">
+<h1>Sending updates to Github</h1>
+<ul>
+<li>Once you are done with your exercise, under the <code>Run</code> menu (top left) select <code>Restart R and Run all Chunks</code>. Make sure no error messages show up.</li>
+<li>Under <code>Preview</code> do <code>knit to html</code>. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio.</li>
+<li>Go to GitKraken. You should see a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes, then <em>Push</em> them. If things work, your local folder and the online repository should be at the same level. Your project is now online.</li>
+</ul>
+</div>
+<div id="making-a-pull-request" class="section level1">
+<h1>Making a pull request</h1>
+<ul>
+<li>Now, let’s contribute your code to your classmate’s project. Go to the Github site for your repository. In the top left, you should see the <em>New Pull Request</em> button. (Underneath, it should say ’this branch is 1 commit ahead of <code>epid8060fall2019:master</code> - or, if you committed more than once, it could be N commits).</li>
+<li>Click the <em>New Pull Request</em> button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person <em>pull</em> your changes into their repository. Hopefully, you’ll see a green check-mark that says <em>able to merge</em>. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won’t be the case.</li>
+<li>In either case (merge conflict or not), you can click the green button and <em>Create a pull request</em>. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click <em>Create pull request</em>.</li>
+</ul>
+</div>
+<div id="checking-and-merging-pull-requests" class="section level1">
+<h1>Checking and merging pull requests</h1>
+<ul>
+<li>Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and in the repository, click on <em>Pull requests</em>, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn’t change things around while they did, so there shouldn’t be any conflicts. Click on the <em>Files changed</em> button, which will show you an overview of the code they changed. Removals are red, and the additions are green.</li>
+<li>On the main pull request site, you can do various things. If you don’t like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes, you can merge the pull request and close it. Their updates are now part of your repository.</li>
+<li>As a final check, open the repository on Gitkraken. You should see the <em>remote</em> ahead of your local copy. Do a <em>pull</em> to get the latest to your local computer. Then open the project in Rstudio and run the R markdown file to check that what they added works.</li>
+</ul>
+</div>
+<div id="a-few-further-notes-on-github" class="section level1">
+<h1>A few further notes on Github</h1>
+<ul>
+<li>At times, you will get merge conflicts. At that stage, it gets a bit tricky. Gitkraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn’t work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself.</li>
+<li>To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don’t want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.</li>
+<li>Some more information on <em>forks</em> and <em>pulls</em> and what to do if things don’t go right can be found in <a href="https://happygitwithr.com/">chapters 22, 26 (as of 8/14/19), of happygitwithR</a>. Note that a lot of the commands described as using on the command line (e.g. <code>stash</code>) can be applied graphically through Gitkraken.</li>
+<li>Github also has <em>branches</em>. Those are similar to forks but meant for internal use. For instance, if you have a project and want to implement something new, but it might not work, you can create a branch, work in that branch, and once everything is ok, you can merge the branch into the main/master. This is useful if you write software that others are using, and you don’t want to break the whole thing. It is also helpful if you work with collaborators on a project. To be able to use branches, you need to be an owner or member of a repository. In contrast, you can fork any public repository.</li>
+</ul>
+</div>
+<div id="another-fork-and-pull-exercise" class="section level1">
+<h1>Another <em>fork and pull</em> exercise</h1>
+<p><em>This part of the exercise is optional.</em></p>
+<ul>
+<li>Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).</li>
+<li>Go to the <a href="https://github.com/andreashandel/MADAcourse">Github repository for this course</a>.</li>
+<li>Follow the exact steps above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to Github, then initiate a pull request with the master.</li>
+<li>I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have again contributed to improving this course!</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

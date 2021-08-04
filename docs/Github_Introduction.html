@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Git/GitHub Introduction</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Logistics</a>
+        </li>
+        <li>
+          <a href="./Introduction_Topic.html">Topic Introduction</a>
+        </li>
+        <li>
+          <a href="./Introduction_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Tools_Assessment.html">Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./3a_RBasics.html">3a. R basics</a>
+        </li>
+        <li>
+          <a href="./3b_Assessment.html">3b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
+        </li>
+        <li>
+          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
+        </li>
+        <li>
+          <a href="./4c_Assessment.html">4c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./5a_Data_Types.html">5a. Data Types</a>
+        </li>
+        <li>
+          <a href="./5b_Getting_Data.html">5b. Getting Data</a>
+        </li>
+        <li>
+          <a href="./5c_Assessment.html">5c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data wrangling &amp; Tidyverse</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./6a_Data_Wrangling_Tidyverse.html">6a. Data wrangling &amp; Tidyverse</a>
+        </li>
+        <li>
+          <a href="./6b_Assessment.html">6b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+        </li>
+        <li>
+          <a href="./7c_Assessment.html">7c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Pre-processing Data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./8a_Preprocessing_Data.html">8a. Pre-processing data</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Model fitting overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./9a_Model_Fitting_Overview.html">9a. Model fitting overview</a>
+        </li>
+        <li>
+          <a href="./9b_Model_Fitting_Terminology.html">9b. Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./9c_Model_Fitting_Supervised.html">9c. Supervised Modeling</a>
+        </li>
+        <li>
+          <a href="./9d_Assessment.html">9d. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Model assessment</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./10a_Model_Assessment_Overview.html">10a. Model Assessment overview</a>
+        </li>
+        <li>
+          <a href="./10b_Model_Performance.html">10b. Model Performance</a>
+        </li>
+        <li>
+          <a href="./10c_Model_Diagnostics.html">10c. Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./10d_Model_Uncertainty.html">10d. Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./10e_Assessment.html">10e. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Basic models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./11a_Basic_Models.html">11a. Basic Models</a>
+        </li>
+        <li>
+          <a href="./11b_Assessment.html">11b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Subset selection and regularization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./12a_Subset_Selection_and_Regularization.html">12a. Subset selection and regularization</a>
+        </li>
+        <li>
+          <a href="./12b_Assessment.html">12b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. Tree-based models and tuning</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./13a_Parameter_Tuning.html">13a. Parameter tuning</a>
+        </li>
+        <li>
+          <a href="./13b_Tree_based_Models.html">13b. Tree based Models</a>
+        </li>
+        <li>
+          <a href="./13c_Assessment.html">13c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. More ML models and interpretation</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./14a_More_ML_Models.html">14a. More ML Models</a>
+        </li>
+        <li>
+          <a href="./14b_Model_Interpretation.html">14b. Model Interpretation</a>
+        </li>
+        <li>
+          <a href="./14c_Assessment.html">14c. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">15. Revisiting the complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./15a_Complete_data_analysis_workflow.html">15a. Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./15b_Assessment.html">15b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">16. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./16a_DL_AI_BigData.html">16a. Deep Learning, AI and Big Data</a>
+        </li>
+        <li>
+          <a href="./16b_Assessment.html">16b. Assessment</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Exercises
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+    </li>
+    <li>
+      <a href="./Exercise_Coding.html">R Coding</a>
+    </li>
+    <li>
+      <a href="./Exercise_Github_Issues.html">Github Issues</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidyverse.html">Tidyverse</a>
+    </li>
+    <li>
+      <a href="./Exercise_Visualization.html">Visualization</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
+    </li>
+    <li>
+      <a href="./Exercise_Dataanalysis.html">Data Analysis</a>
+    </li>
+    <li>
+      <a href="./Exercise_Variable_Selection.html">Variable Selection</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tree_Fitting.html">Tree Fitting</a>
+    </li>
+    <li>
+      <a href="./Exercise_Tidy_Tuesday_2.html">TidyTuesday 2</a>
+    </li>
+    <li>
+      <a href="./Exercise_Deep_Learning.html">Deep Learning</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Course_Communication.html">Communication</a>
+</li>
+<li>
+  <a href="./Course_Glossary.html">Glossary</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="./Shiny_Test.html">Test</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Git/GitHub Introduction</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-07-27 13:23:27</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This document gives a brief explanation of Git, GitHub and related tools, and describes why and how we will use them for this course.</p>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know what Git and GitHub are.</li>
+<li>Know why one might want to use them.</li>
+<li>Create and set up a GitHub account.</li>
+<li>Join the class organization on GitHub.</li>
+<li>Set up a Git/GitHub workflow using GitKraken or an equivalent setup.</li>
+</ul>
+</div>
+<div id="what-are-git-and-github" class="section level1">
+<h1>What are Git and GitHub</h1>
+<p><a href="https://git-scm.com/"><strong>Git</strong></a> is software that implements what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks, and records any changes made by anyone. <a href="https://github.com/"><strong>GitHub</strong></a> is distinct from Git. GitHub is in some sense on online interface/website, and Git the underlying engine (a bit like RStudio and R). Since we will only be using Git through GitHub, I tend to not distinguish between the two. Throughout the course, I will usually refer to all of it as just GitHub. Note that other interfaces/platforms for Git exist, e.g., <a href="https://about.gitlab.com/">GitLab</a> or <a href="https://bitbucket.org/product">Bitbucket</a>.</p>
+</div>
+<div id="why-use-gitgithub" class="section level1">
+<h1>Why use Git/GitHub</h1>
+<p>You want to use GitHub to avoid this:</p>
+<p><img src="media/phd_versioncontrol.gif" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>GitHub</em> gives you an organized way to track your projects. It is very well suited for collaborative work. Historically, version control was used for software development. It has since become broader and is now used for many types of projects, including data science projects. If you want to learn a bit more about Git/GitHub and why it is a great tool for data analysis, <a href="https://peerj.com/preprints/3159/">check out this article by Jenny Bryan</a>.</p>
+</div>
+<div id="what-to-not-use-gitgithub-for" class="section level1">
+<h1>What to (not) use Git/GitHub for</h1>
+<p>GitHub is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.</p>
+<p>GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
+</div>
+<div id="getting-gitgithub" class="section level1">
+<h1>Getting Git/GitHub</h1>
+<p>Git is a piece of software. It can be installed <a href="https://git-scm.com/">from here</a>. If you use GitKraken as described below, you don’t need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken.</p>
+<p>GitHub is an online platform. You don’t need to install anything, but if you don’t have a GitHub account yet, you need to create one <a href="https://github.com/">here</a>. Note that GitHub is widely used professionally, and you might want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional user name for your GitHub account. You can user your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities).</p>
+</div>
+<div id="how-to-use-gitgithub" class="section level1">
+<h1>How to use Git/GitHub</h1>
+<p>The most powerful and flexible way of using Git/GitHub is to open a command-line terminal (e.g., the one that comes with the Git install) and type a bunch of commands. This is often very confusing and we will not be using this approach.</p>
+<p>The approach recommended for this class, and the one I assume you will be using, is to interact with GitHub through a graphical interface. Specifically, for this class I recommend a software called <a href="https://www.gitkraken.com/">GitKraken</a>.</p>
+<p>If you are already an experienced GitHub user and have your own preferred setup (e.g. the command line or some other 3rd party software), or for some other reason you don’t want to use GitKraken, you can instead use another graphical client. <a href="https://desktop.github.com/">GitHub itself</a> provides a graphical interface with basic functionality. RStudio also has <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Git/GitHub integration</a>, for R projects. Other graphical interfaces exist. I assume if you decide to do it your way, you are experienced enough to translate my GitKraken-centric instructions to your setup. While my instructions throughout this course assume you use GitKraken, you can do everything without using it. But then you have to figure out on your own how to do it 😁.</p>
+</div>
+<div id="gitkraken" class="section level1">
+<h1>GitKraken</h1>
+<p>Download and install <a href="https://www.gitkraken.com/">GitKraken</a>. The free version can do pretty much everything we need. One important limitation is that the free version does not allow you to access private repositories. As student, you can (and should) upgrade to the Pro version for free, see the <strong>GitHub developer pack</strong> section below on how to do it. By using GitKraken for your GitHub workflow, you do not need to go through the command line (unless things get so bad that you can’t fix them inside GitKraken). You also do not need to install Git separately, you get it with GitKraken. For this course, I assume you will be using the Pro version of GitKraken.</p>
+<p>Once you have your GitHub account set up and GitKraken installed, make sure you <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect the two</a>.</p>
+</div>
+<div id="gitgithub-terminology" class="section level1">
+<h1>Git/GitHub terminology</h1>
+<p>Git/GitHub has a lot of specialized terminology that takes getting used to. The GitHub folks posted a <a href="https://docs.github.com/en/github/getting-started-with-github/github-glossary">handy page with short descriptions of some of the important terms</a>. Some of the terms you will encounter soon are <em>Repository</em> (also often called <em>repo</em>), <em>User</em>, <em>Organization</em>, <em>Branch</em>, <em>Fork</em>, <em>Push</em>, <em>Pull</em>, <em>Commit</em> and <em>Stage</em>. For some reason, the last term is not explained in the list linked to above. <em>Staging</em> is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the GitHub workflow.</p>
+</div>
+<div id="gitgithub-and-other-cloud-based-sync-options" class="section level1">
+<h1>Git/GitHub and other cloud based sync options</h1>
+<p>You should think of GitHub as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, Box, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox &amp; Co is that the syncing between your local computer and github.com is not automatic. So don’t forget to pull before you start work on a repository and push once you are done!</p>
+<p>Because GitHub works similar to Dropbox, it is a bad idea to locally store your GitHub repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the GitHub sync process can conflict, leading to a mess. <strong>For any GitHub repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)</strong></p>
+<p>I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don’t use GitHub, are run through Dropbox. Dropbox or a similar service are convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use GitHub. It seems to be using both the GitHub workflow and a Dropbox/OneDrive/etc. workflow, depending on the type of project, is best. I just would try to avoid mix and match within the same project, especially don’t have GitHub repositories inside folders that are auto-synced by some other software.</p>
+</div>
+<div id="github-developer-pack" class="section level1">
+<h1>GitHub developer pack</h1>
+<p><strong>I strongly recommend you get the <a href="https://education.github.com/pack">GitHub student developer pack</a>.</strong> This pack as a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:</p>
+<p><strong>GitHub Pro account:</strong> This will give you your own free private repositories. We have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class. Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use GitHub for a project involving data that you don’t want to be publicly accessible.</p>
+<p><strong>GitKraken Pro:</strong> Free GitKraken Pro access. While the free version of GitKraken might work ok for this course, you can’t access private repositories with it. Often, being able to use private repositories is useful.</p>
+<p><em>Note that there is a similar offering for teachers/educators, which you can <a href="https://education.github.com/toolbox">get here</a>.</em></p>
+</div>
+<div id="github-for-this-course" class="section level1">
+<h1>GitHub for this course</h1>
+<p>For this course, I created what GitHub calls an organization with the name <em>MADA2021</em>. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.</p>
+<p>Once you have created your GitHub account, post your GitHub user name into the <code>GitHub topics</code> discussion group. I will then invite you to the course organization. You will get an invitation email to the account you used for your GitHub registration. Then you should be all set to start the first exercise of the course, where you will be using GitHub.</p>
+</div>
+<div id="further-resources-and-help" class="section level1">
+<h1>Further Resources and help</h1>
+<p>GitHub can be confusing. Start slow. Using the graphical interface (GitKraken) makes getting started fairly easy. I’m also trying to give specific instructions whenever we do something new with GitHub. Both the <a href="https://docs.github.com/en">GitHub documentation</a> and <a href="https://support.gitkraken.com/">GitKraken support page</a> are good resources for information.</p>
+<p>If the quick install instructions above are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jenny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>.</p>
+<p>Another source worth looking at for GitHub information is <a href="https://rafalab.GitHub.io/dsbook/git.html">this chapter of IDS</a>. There is also a lot of good beginner material online.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
