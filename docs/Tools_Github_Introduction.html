@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>R and RStudio</title>
+<title>Git/GitHub Introduction</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -34,8 +34,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -48,100 +46,6 @@
     </style>
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  { color: #cccccc; background-color: #303030; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffcfaf; } /* Alert */
-code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #dca3a3; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #f0dfaf; } /* ControlFlow */
-code span.ch { color: #dca3a3; } /* Char */
-code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
-code span.co { color: #7f9f7f; } /* Comment */
-code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
-code span.do { color: #7f9f7f; } /* Documentation */
-code span.dt { color: #dfdfbf; } /* DataType */
-code span.dv { color: #dcdccc; } /* DecVal */
-code span.er { color: #c3bf9f; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #c0bed1; } /* Float */
-code span.fu { color: #efef8f; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
-code span.kw { color: #f0dfaf; } /* Keyword */
-code span.op { color: #f0efd0; } /* Operator */
-code span.ot { color: #efef8f; } /* Other */
-code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
-code span.sc { color: #dca3a3; } /* SpecialChar */
-code span.ss { color: #cc9393; } /* SpecialString */
-code span.st { color: #cc9393; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #cc9393; } /* VerbatimString */
-code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -398,7 +302,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -423,6 +327,9 @@ div.tocify {
     <li>
       <a href="./Course_Schedule.html">Schedule</a>
     </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -433,47 +340,36 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Course.html">Course Logistics</a>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
         <li>
           <a href="./Introduction_Topic.html">Topic Introduction</a>
         </li>
-        <li>
-          <a href="./Introduction_Assessment.html">Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./RandRStudio.html">R and Rstudio</a>
-        </li>
-        <li>
-          <a href="./Github_Introduction.html">GitHub Introduction</a>
-        </li>
-        <li>
-          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
-        </li>
-        <li>
-          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./Reference_Management.html">Reference Management</a>
-        </li>
-        <li>
-          <a href="./Tools_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./3a_RBasics.html">3a. R basics</a>
+          <a href="./RBasics.html">R basics</a>
         </li>
         <li>
           <a href="./3b_Assessment.html">3b. Assessment</a>
@@ -654,16 +550,16 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Exercises
+    Assessments
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Exercise_Coding.html">R Coding</a>
+      <a href="./Assessment_Rcoding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -712,12 +608,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="./Course_Communication.html">Communication</a>
-</li>
-<li>
-  <a href="./Course_Glossary.html">Glossary</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Resources
@@ -731,19 +621,14 @@ div.tocify {
     <li>
       <a href="./General_Resources.html">General Resources</a>
     </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="./Shiny_Test.html">Test</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/andreashandel/MADAcourse">
-    <span class="fab fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -753,77 +638,85 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">R and RStudio</h1>
+<h1 class="title toc-ignore">Git/GitHub Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-07-27 13:23:27</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This is a very quick introduction to R and RStudio, to get you set up and running. We’ll go deeper into R and coding later.</p>
+<p>This document gives a brief explanation of Git, GitHub and related tools, and describes why and how we will use them for this course.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Know some of the strengths and weaknesses of R.</li>
-<li>Have R and Rstudio up and running on your computer.</li>
-<li>Know how to install and load R packages.</li>
+<li>Know what Git and GitHub are.</li>
+<li>Know why one might want to use them.</li>
+<li>Create and set up a GitHub account.</li>
+<li>Join the class organization on GitHub.</li>
+<li>Set up a Git/GitHub workflow using GitKraken or an equivalent setup.</li>
 </ul>
 </div>
-<div id="about-r" class="section level1">
-<h1>About R</h1>
-<p>Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic, and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:</p>
-<ul>
-<li>R is Open Source, FREE and cross-platform.</li>
-<li>R is a “high-level” programming language, relatively easy to learn (compared to Fortran, C, etc.).</li>
-<li>R comes with many integrated functions.</li>
-<li>R is great for statistics, data analysis, and graphics.</li>
-<li>The R Community is very dynamic, helpful and welcoming.</li>
-<li>Through R packages, it is easy to get lots of state-of-the-art algorithms.</li>
-<li>Documentation and help files for R are generally good.</li>
-</ul>
-<p>While we use R in this course, it is not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g., Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitable for certain types of analyses as well (e.g., C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different, they all share general ways of thinking and structuring code. So once you understand a specific concept (e.g., variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one. And R is a good one to get started with.</p>
+<div id="what-are-git-and-github" class="section level1">
+<h1>What are Git and GitHub</h1>
+<p><a href="https://git-scm.com/"><strong>Git</strong></a> is software that implements what is called a <em>version control system</em>. The main idea is that as you (and your collaborators) work on a project, the software tracks, and records any changes made by anyone. <a href="https://github.com/"><strong>GitHub</strong></a> is distinct from Git. GitHub is in some sense on online interface/website, and Git the underlying engine (a bit like RStudio and R). Since we will only be using Git through GitHub, I tend to not distinguish between the two. Throughout the course, I will usually refer to all of it as just GitHub. Note that other interfaces/platforms for Git exist, e.g., <a href="https://about.gitlab.com/">GitLab</a> or <a href="https://bitbucket.org/product">Bitbucket</a>.</p>
 </div>
-<div id="installing-r-and-rstudio" class="section level1">
-<h1>Installing R and RStudio</h1>
-<ul>
-<li>If you haven’t already, <a href="https://www.r-project.org/">install R first</a>. You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 3.5 or newer. If yours is older, I suggest you update (install a new R version).</li>
-<li>Once you have R installed, install the free version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a>. Again, make sure it’s a recent version, it should be of the 1.2.X series.</li>
-</ul>
-<p>Installing R and RStudio should be fairly straightforward. If you want detailed instructions <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">go through chapter 1 of IDS</a>. If things don’t work, ask for help in the <em>R/Coding</em> discussion board.</p>
-<p>I personally only have experience with Windows, but everything should work on all the standard operating systems (Windows, Mac, and even Linux).</p>
+<div id="why-use-gitgithub" class="section level1">
+<h1>Why use Git/GitHub</h1>
+<p>You want to use GitHub to avoid this:</p>
+<p><img src="media/phd_versioncontrol.gif" width="60%" style="display: block; margin: auto;" /></p>
+<p><em>GitHub</em> gives you an organized way to track your projects. It is very well suited for collaborative work. Historically, version control was used for software development. It has since become broader and is now used for many types of projects, including data science projects. If you want to learn a bit more about Git/GitHub and why it is a great tool for data analysis, <a href="https://peerj.com/preprints/3159/">check out this article by Jenny Bryan</a>.</p>
 </div>
-<div id="installing-and-loading-r-packages" class="section level1">
-<h1>Installing and loading R packages</h1>
-<p>Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We’ll be using many different packages in this course. Of course, you are free to install and use any package you come across for any of the assignments.</p>
-<p>The “official” place for packages is the <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN website</a>. If you are interested in packages on a specific topic, the <a href="http://cran.r-project.org/web/views/">CRAN task views</a> provide curated descriptions of packages sorted by topic.</p>
-<p>To install a package from CRAN, go to the R prompt at the bottom left of your RStudio session and type <code>install.packages("PACKAGENAME")</code>. The figure shows an example where I installed a package called <code>learnr</code>. Often, a package needs other packages to work (called dependencies), and they are installed automatically. It usually doesn’t matter if you use a single or double quotation mark around the name of the package. Note that R cares about capitalization, so you need to get the upper and lower case exactly right. Otherwise, it won’t work.</p>
-<div class="figure" style="text-align: center">
-<img src="media/installpackagesscreenshot.png" alt="Installing an R package. Right-click on the image to enlarge it." width="100%" />
-<p class="caption">
-Installing an R package. Right-click on the image to enlarge it.
-</p>
+<div id="what-to-not-use-gitgithub-for" class="section level1">
+<h1>What to (not) use Git/GitHub for</h1>
+<p>GitHub is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.</p>
+<p>GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
 </div>
-<p>Try installing a package yourself. Open RStudio. Then go to the R prompt (the <code>&gt;</code> symbol) in the lower-left corner and type</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</span></code></pre></div>
-<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer. It will likely show up in the quiz.</strong> <em>It is unlikely, but it could be that you already have all packages required by DSAIDE installed. In that case, you won’t see any other packages installed. To see which of the packages above DSAIDE needs (and thus installs if it is not present), type <code>tools::package_dependencies("DSAIDE")</code> into the R console.</em></p>
-<p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
-<p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>remotes</code> package and then use the <code>install_github</code> function. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
-<p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;DSAIDE&#39;</span>)</span></code></pre></div>
-<p>You should see a short message on the screen. Some packages show messages when you load them, and others don’t. In this case, the package tells you that you can start using it by typing <code>dsaidemenu()</code> into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won’t use it in this class. I’m just using it as an example here since you can use the package without having to write code. Try it briefly, by typing the code below into the R console</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dsaidemenu</span>()</span></code></pre></div>
-<p>A menu should open in your browser, from which you can explore different models/apps.</p>
-<p><strong>Question: In the main menu of the DSAIDE package, what’s the title of the second group of apps?</strong></p>
-<p>Once you are done with DSAIDE, close it.</p>
-<p>This was a quick overview of R packages. We’ll use a lot of them, so you’ll get used to them rather quickly.</p>
-<p>Next, <a href="https://rafalab.github.io/dsbook/getting-started.html">go through chapter 2 of IDS</a> for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience. (Hint: I will ask about this chapter on the quiz).</p>
+<div id="getting-gitgithub" class="section level1">
+<h1>Getting Git/GitHub</h1>
+<p>Git is a piece of software. It can be installed <a href="https://git-scm.com/">from here</a>. If you use GitKraken as described below, you don’t need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken.</p>
+<p>GitHub is an online platform. You don’t need to install anything, but if you don’t have a GitHub account yet, you need to create one <a href="https://github.com/">here</a>. Note that GitHub is widely used professionally, and you might want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional user name for your GitHub account. You can user your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities).</p>
 </div>
-<div id="learning-r-studio" class="section level1">
-<h1>Learning R Studio</h1>
-<p>While one can use R and do pretty much every task, including all the ones we cover in this class, without using RStudio, RStudio is very useful, has lots of features that make your R coding life easier and has become pretty much the default integrated development environment (IDE) for R. Since RStudio has lots of features, it takes time to learn them. A good resource to learn more about RStudio are the <a href="https://resources.rstudio.com/">R Studio Essentials</a> collection of videos.</p>
+<div id="how-to-use-gitgithub" class="section level1">
+<h1>How to use Git/GitHub</h1>
+<p>The most powerful and flexible way of using Git/GitHub is to open a command-line terminal (e.g., the one that comes with the Git install) and type a bunch of commands. This is often very confusing and we will not be using this approach.</p>
+<p>The approach recommended for this class, and the one I assume you will be using, is to interact with GitHub through a graphical interface. Specifically, for this class I recommend a software called <a href="https://www.gitkraken.com/">GitKraken</a>.</p>
+<p>If you are already an experienced GitHub user and have your own preferred setup (e.g. the command line or some other 3rd party software), or for some other reason you don’t want to use GitKraken, you can instead use another graphical client. <a href="https://desktop.github.com/">GitHub itself</a> provides a graphical interface with basic functionality. RStudio also has <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">Git/GitHub integration</a>, for R projects. Other graphical interfaces exist. I assume if you decide to do it your way, you are experienced enough to translate my GitKraken-centric instructions to your setup. While my instructions throughout this course assume you use GitKraken, you can do everything without using it. But then you have to figure out on your own how to do it 😁.</p>
+</div>
+<div id="gitkraken" class="section level1">
+<h1>GitKraken</h1>
+<p>Download and install <a href="https://www.gitkraken.com/">GitKraken</a>. The free version can do pretty much everything we need. One important limitation is that the free version does not allow you to access private repositories. As student, you can (and should) upgrade to the Pro version for free, see the <strong>GitHub developer pack</strong> section below on how to do it. By using GitKraken for your GitHub workflow, you do not need to go through the command line (unless things get so bad that you can’t fix them inside GitKraken). You also do not need to install Git separately, you get it with GitKraken. For this course, I assume you will be using the Pro version of GitKraken.</p>
+<p>Once you have your GitHub account set up and GitKraken installed, make sure you <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect the two</a>.</p>
+</div>
+<div id="gitgithub-terminology" class="section level1">
+<h1>Git/GitHub terminology</h1>
+<p>Git/GitHub has a lot of specialized terminology that takes getting used to. The GitHub folks posted a <a href="https://docs.github.com/en/github/getting-started-with-github/github-glossary">handy page with short descriptions of some of the important terms</a>. Some of the terms you will encounter soon are <em>Repository</em> (also often called <em>repo</em>), <em>User</em>, <em>Organization</em>, <em>Branch</em>, <em>Fork</em>, <em>Push</em>, <em>Pull</em>, <em>Commit</em> and <em>Stage</em>. For some reason, the last term is not explained in the list linked to above. <em>Staging</em> is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the GitHub workflow.</p>
+</div>
+<div id="gitgithub-and-other-cloud-based-sync-options" class="section level1">
+<h1>Git/GitHub and other cloud based sync options</h1>
+<p>You should think of GitHub as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, Box, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox &amp; Co is that the syncing between your local computer and github.com is not automatic. So don’t forget to pull before you start work on a repository and push once you are done!</p>
+<p>Because GitHub works similar to Dropbox, it is a bad idea to locally store your GitHub repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the GitHub sync process can conflict, leading to a mess. <strong>For any GitHub repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)</strong></p>
+<p>I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don’t use GitHub, are run through Dropbox. Dropbox or a similar service are convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use GitHub. It seems to be using both the GitHub workflow and a Dropbox/OneDrive/etc. workflow, depending on the type of project, is best. I just would try to avoid mix and match within the same project, especially don’t have GitHub repositories inside folders that are auto-synced by some other software.</p>
+</div>
+<div id="github-developer-pack" class="section level1">
+<h1>GitHub developer pack</h1>
+<p><strong>I strongly recommend you get the <a href="https://education.github.com/pack">GitHub student developer pack</a>.</strong> This pack as a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:</p>
+<p><strong>GitHub Pro account:</strong> This will give you your own free private repositories. We have private repositories as part of the class organization, but that doesn’t apply to any projects you do outside the class. Normally, if you want private repositories, you have to pay. But with the student pack, you get them for free. Sometimes, having private repositories is a good idea, especially if you want to use GitHub for a project involving data that you don’t want to be publicly accessible.</p>
+<p><strong>GitKraken Pro:</strong> Free GitKraken Pro access. While the free version of GitKraken might work ok for this course, you can’t access private repositories with it. Often, being able to use private repositories is useful.</p>
+<p><em>Note that there is a similar offering for teachers/educators, which you can <a href="https://education.github.com/toolbox">get here</a>.</em></p>
+</div>
+<div id="github-for-this-course" class="section level1">
+<h1>GitHub for this course</h1>
+<p>For this course, I created what GitHub calls an organization with the name <em>MADA2021</em>. The advantage of this is that we can have repositories inside that organization that only members can see. Once you joined the group, you can create private repositories, i.e., can only be seen by members of the organization. There are several repositories in that organization that you will use at some point, and you will be asked to create our own at some point.</p>
+<p>Once you have created your GitHub account, post your GitHub user name into the <code>GitHub topics</code> discussion group. I will then invite you to the course organization. You will get an invitation email to the account you used for your GitHub registration. Then you should be all set to start the first exercise of the course, where you will be using GitHub.</p>
+</div>
+<div id="further-resources-and-help" class="section level1">
+<h1>Further Resources and help</h1>
+<p>GitHub can be confusing. Start slow. Using the graphical interface (GitKraken) makes getting started fairly easy. I’m also trying to give specific instructions whenever we do something new with GitHub. Both the <a href="https://docs.github.com/en">GitHub documentation</a> and <a href="https://support.gitkraken.com/">GitKraken support page</a> are good resources for information.</p>
+<p>If the quick install instructions above are not detailed enough, follow these in <a href="https://peerj.com/preprints/3159/">Jenny’s paper</a> or her great online book <a href="https://happygitwithr.com/">happygitwithr</a>.</p>
+<p>Another source worth looking at for GitHub information is <a href="https://rafalab.GitHub.io/dsbook/git.html">this chapter of IDS</a>. There is also a lot of good beginner material online.</p>
 </div>
 
 

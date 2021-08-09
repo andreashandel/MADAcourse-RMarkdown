@@ -20,6 +20,18 @@ This page lists resources that are used or mentioned in this course. For a more 
 
 All materials described below are (should be) freely available online. If you can't get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that's not quite right, please let me know.
 
+Abbreviations used are: 
+
+* [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) 
+* [R4DS = R for Data Science](https://r4ds.had.co.nz/) 
+* [RP = RStudio Primers](https://rstudio.cloud/learn/primers) 
+* [ADS = The Art of Data Science](https://leanpub.com/artofdatascience) 
+* [HGR = happygitwithR](https://happygitwithr.com/)
+* [ISL = Introduction to Statistical Learning](https://statlearning.com/) 
+* [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/)
+* [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/)
+
+
 # General help
 
 * The main place to get any course specific help are the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc. 

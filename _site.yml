@@ -1,5 +1,9 @@
 name: "MADA Course"
 output_dir: 'docs'
+exclude: ["auxiliary", "*.csv"]
+favicon: ./media/MADAlogo.png
+base_url: https://andreashandel.github.io/MADAcourse/
+repository_url: https://github.com/andreashandel/MADAcourse/
 output:
   html_document:
     theme: cerulean
@@ -11,3 +15,180 @@ output:
     includes:
       in_header: include_head.html
     css: MADAstyle.css
+navbar:
+  title: "MADA Course"
+  logo:
+    image: ./media/MADAlogo.png
+    href: https://andreashandel.github.io/MADAcourse/
+  left:
+    - text: "General Information"
+      menu:
+        - text: "Syllabus"
+          href: ./Course_Syllabus.html
+        - text: "Schedule"
+          href: ./Course_Schedule.html
+        - text: "Communication"
+          href: ./Course_Communication.html
+    - text: "Modules"
+      menu:
+        - text: "Course, Tools and Topic Introduction"
+          menu:
+            - text: "Course Introduction"
+              href: ./Introduction_Course.html
+            - text: "R and Rstudio"
+              href: ./Tools_RandRStudio.html
+            - text: "GitHub Introduction"
+              href: ./Tools_Github_Introduction.html
+            - text: "GitHub and R Workflow"
+              href: ./Tools_Github_R_Workflow.html
+            - text: "RMarkdown & Co"
+              href: ./Tools_Reproducibility.html
+            - text: "Reference Management"
+              href: ./Tools_Reference_Management.html
+            - text: "Topic Introduction"
+              href: ./Introduction_Topic.html
+        - text: "R basics"
+          menu:
+          - text: "R basics"
+            href: ./RBasics.html     
+          - text: "3b. Assessment"
+            href: ./3b_Assessment.html
+        - text: "4. Data analysis overview"
+          menu:
+            - text: "4a. Data analysis overview"
+              href: ./4a_Data_Analysis_Overview.html     
+            - text: "4b. Data analysis structure"
+              href: ./4b_Data_Analysis_Structure.html     
+            - text: "4c. Assessment"
+              href: ./4c_Assessment.html
+        - text: "5. Pondering and getting data"
+          menu:
+            - text: "5a. Data Types"
+              href: ./5a_Data_Types.html     
+            - text: "5b. Getting Data"
+              href: ./5b_Getting_Data.html     
+            - text: "5c. Assessment"
+              href: ./5c_Assessment.html
+        - text: "6. Data wrangling & Tidyverse"
+          menu:
+            - text: "6a. Data wrangling & Tidyverse"
+              href: ./6a_Data_Wrangling_Tidyverse.html     
+            - text: "6b. Assessment"
+              href: ./6b_Assessment.html
+        - text: "7. Visualization"
+          menu:
+            - text: "7a. Visualization Overview"
+              href: ./7a_Visualization_Overview.html     
+            - text: "7b. Visualization in R"
+              href: ./7b_Visualization_in_R.html     
+            - text: "7c. Assessment"
+              href: ./7c_Assessment.html
+        - text: "8. Pre-processing Data"
+          menu:
+            - text: "8a. Pre-processing data"
+              href: ./8a_Preprocessing_Data.html     
+        - text: "9. Model fitting overview"
+          menu:
+            - text: "9a. Model fitting overview"
+              href: ./9a_Model_Fitting_Overview.html     
+            - text: "9b. Model Fitting Terminology"
+              href: ./9b_Model_Fitting_Terminology.html     
+            - text: "9c. Supervised Modeling"
+              href: ./9c_Model_Fitting_Supervised.html     
+            - text: "9d. Assessment"
+              href: ./9d_Assessment.html
+        - text: "10. Model assessment"
+          menu:
+            - text: "10a. Model Assessment overview"
+              href: ./10a_Model_Assessment_Overview.html     
+            - text: "10b. Model Performance"
+              href: ./10b_Model_Performance.html     
+            - text: "10c. Model Diagostics"
+              href: ./10c_Model_Diagnostics.html     
+            - text: "10d. Model Uncertainty"
+              href: ./10d_Model_Uncertainty.html     
+            - text: "10e. Assessment"
+              href: ./10e_Assessment.html
+        - text: "11. Basic models"
+          menu:
+            - text: "11a. Basic Models"
+              href: ./11a_Basic_Models.html     
+            - text: "11b. Assessment"
+              href: ./11b_Assessment.html
+        - text: "12. Subset selection and regularization"
+          menu:
+            - text: "12a. Subset selection and regularization"
+              href: ./12a_Subset_Selection_and_Regularization.html     
+            - text: "12b. Assessment"
+              href: ./12b_Assessment.html
+        - text: "13. Tree-based models and tuning"
+          menu:
+            - text: "13a. Parameter tuning"
+              href: ./13a_Parameter_Tuning.html     
+            - text: "13b. Tree based Models"
+              href: ./13b_Tree_based_Models.html     
+            - text: "13c. Assessment"
+              href: ./13c_Assessment.html
+        - text: "14. More ML models and interpretation"
+          menu:
+            - text: "14a. More ML Models"
+              href: ./14a_More_ML_Models.html     
+            - text: "14b. Model Interpretation"
+              href: ./14b_Model_Interpretation.html     
+            - text: "14c. Assessment"
+              href: ./14c_Assessment.html
+        - text: "15. Revisiting the complete analysis workflow"
+          menu:
+            - text: "15a. Complete data analysis workflow"
+              href: ./15a_Complete_data_analysis_workflow.html     
+            - text: "15b. Assessment"
+              href: ./15b_Assessment.html
+        - text: "16. Deep learning, AI and Big data"
+          menu:
+            - text: "16a. Deep Learning, AI and Big Data"
+              href: ./16a_DL_AI_BigData.html     
+            - text: "16b. Assessment"
+              href: ./16b_Assessment.html
+    - text: "Assessments"
+      menu:
+         - text: "Introducing ourselves"
+           href: ./Assessment_Course_Tools_Topic_Introduction.html
+         - text: "R Coding"
+           href: ./Assessment_Rcoding.html
+         - text: "Github Issues"
+           href: ./Exercise_Github_Issues.html
+         - text: "Tidyverse"
+           href: ./Exercise_Tidyverse.html
+         - text: "Visualization"
+           href: ./Exercise_Visualization.html
+         - text: "TidyTuesday 1"
+           href: ./Exercise_Tidy_Tuesday_1.html
+         - text: "Data Analysis"
+           href: ./Exercise_Dataanalysis.html
+         - text: "Variable Selection"
+           href: ./Exercise_Variable_Selection.html
+         - text: "Tree Fitting"
+           href: ./Exercise_Tree_Fitting.html
+         - text: "TidyTuesday 2"
+           href: ./Exercise_Tidy_Tuesday_2.html
+         - text: "Deep Learning"
+           href: ./Exercise_Deep_Learning.html
+    - text: "Project"
+      menu:
+         - text: "Project information"
+           href: ./Project_Information.html
+         - text: "Project rubric"
+           href: ./Project_Rubric.html
+         - text: "Project review"
+           href: ./Project_Review.html
+    - text: "Resources"
+      menu:
+         - text: "Course Resources"
+           href: ./Course_Resources.html
+         - text: "General Resources"
+           href: ./General_Resources.html
+         - text: "Glossary"
+           href: ./Course_Glossary.html
+right:
+  - icon: fab fa-github 
+    href: https://github.com/andreashandel/MADAcourse

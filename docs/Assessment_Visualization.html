@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Reproducibility, Markdown and colleagues</title>
+<title>Visualization assessment</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -34,8 +34,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -304,7 +302,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -329,6 +327,9 @@ div.tocify {
     <li>
       <a href="./Course_Schedule.html">Schedule</a>
     </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -339,47 +340,36 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Course.html">Course Logistics</a>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
         <li>
           <a href="./Introduction_Topic.html">Topic Introduction</a>
         </li>
-        <li>
-          <a href="./Introduction_Assessment.html">Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./RandRStudio.html">R and Rstudio</a>
-        </li>
-        <li>
-          <a href="./Github_Introduction.html">GitHub Introduction</a>
-        </li>
-        <li>
-          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
-        </li>
-        <li>
-          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./Reference_Management.html">Reference Management</a>
-        </li>
-        <li>
-          <a href="./Tools_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./3a_RBasics.html">3a. R basics</a>
+          <a href="./RBasics.html">R basics</a>
         </li>
         <li>
           <a href="./3b_Assessment.html">3b. Assessment</a>
@@ -560,16 +550,16 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Exercises
+    Assessments
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Exercise_Coding.html">R Coding</a>
+      <a href="./Assessment_Rcoding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -618,12 +608,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="./Course_Communication.html">Communication</a>
-</li>
-<li>
-  <a href="./Course_Glossary.html">Glossary</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Resources
@@ -637,19 +621,14 @@ div.tocify {
     <li>
       <a href="./General_Resources.html">General Resources</a>
     </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="./Shiny_Test.html">Test</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/andreashandel/MADAcourse">
-    <span class="fab fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -659,75 +638,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reproducibility, Markdown and colleagues</h1>
+<h1 class="title toc-ignore">Visualization assessment</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-03-25 08:29:29</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>In this unit, you will learn the concept of reproducible research, why it is important and helpful to build your analyses in a reproducible manner, and what tools you can use to implement an automated, reproducible workflow.</p>
-<div class="figure" style="text-align: center">
-<img src="media/amiracleoccurs.gif" alt="Not a good example of reproducibility." width="70%" />
-<p class="caption">
-Not a good example of reproducibility.
-</p>
+<div id="module-assessments" class="section level1">
+<h1>Module Assessments</h1>
+<p>Make sure you’ve gone through all the content for this module.</p>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p>Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
 </div>
+<div id="exercise" class="section level2">
+<h2>Exercise</h2>
+<p>For this module, do the exercise called <em>Visualization</em>. In this exercise, you will be asked to reproduce as closely as possible a “professional” graph.</p>
 </div>
-<div id="learning-objectives" class="section level1">
-<h1>Learning Objectives</h1>
-<ul>
-<li>Know the concept and importance of reproducible research</li>
-<li>Know how to implement reproducible research with R</li>
-</ul>
-</div>
-<div id="reproducibility-in-science" class="section level1">
-<h1>Reproducibility in Science</h1>
-<p>A hallmark of proper scientific research is that findings can be replicated/reproduced. Unfortunately, it is often the case these days that results can’t be replicated/reproduced by independent investigators/labs. Sometimes, even the same labs can’t reproduce their previous findings. You have probably heard about the (supposed) <em>Reproducibility Crisis</em> in science. If not, do a quick online search, you’ll find lots of articles saying there is an increasing problem, while others saying that it’s not getting worse, we are just detecting more. While sometimes there is fraud, most often there are more benign reasons preventing reproducibility.</p>
-This video provides a short discussion of some of the current problems with reproducibility in science:
-<p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VcgO2v3JjCU" frameborder="0" allowfullscreen>
-</iframe>
-</p>
-</div>
-<div id="reproducibility-of-analyses" class="section level1">
-<h1>Reproducibility of Analyses</h1>
-<p>It’s hard and expensive to replicate/reproduce a full study, including all data collection, thus not routinely possible. It is easier to make sure the analysis part can be reproduced. Making the analysis easily reproducible doesn’t ensure the analysis is correct. However, it allows others to take a look at analyses, redo them, and thus more quickly spot and correct potential problems.</p>
-<p>To make a fully reproducible analysis, you have to provide all the data and code, and the generation of results (figures and tables) needs to be fully automated. The scientific community is moving toward more reproducibility and transparency (e.g., mandating public access to data, computer code, etc.). An increasing number of funding agencies and journals require access to data and code.</p>
-<p>While there is a strong movement toward <em>Open Access</em>, providing all the data is not always possible. However, the full automation of data processing, analysis, and result generation is always possible, and we will use this approach.</p>
-<p>In this video, <a href="http://www.biostat.jhsph.edu/~rpeng/">Roger Peng</a> goes into some more details of the concept of reproducible research:</p>
-<p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DfBSiOupI1I" frameborder="0" allowfullscreen>
-</iframe>
-</p>
-<p><strong>Note the concept of mixing text and code that Roger Peng talks about.</strong></p>
-<p>Roger Peng has additional videos related to reproducible research, <a href="https://www.youtube.com/playlist?list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf">a playlist of those videos can be found here.</a></p>
-</div>
-<div id="how-to-do-a-reproducible-analysis" class="section level1">
-<h1>How to do a reproducible analysis</h1>
-<p>Most importantly and fundamentally, <strong>document everything</strong>.</p>
-<p>Do all processing and analysis in a scripted and well-documented manner. That means no Excel, no manual copy &amp; paste, no manual figure, and table generation. All of these actions are not scripted or documented and as such, not reproducible.</p>
-<p>Some further things to pay attention are the use of open standards (open data standards, open-source software), recording of software versions used, time-stamping data, and setting a random number seed in your code.</p>
-<p>A reproducible analysis should also be <em>practically reproducible</em>, not just <em>theoretically</em>. By that I mean if you provide code, but the code only runs on some specific computer system you used, then it’s not reproducible for others. Providing all data and code is a good first step, but your goal should also be to make reproducibility easy. This is beneficial for both the original producer of the results and the persons trying to reproduce it.</p>
-</div>
-<div id="why-reproducibility-is-good-for-you" class="section level1">
-<h1>Why reproducibility is good for you</h1>
-<p>A reproducible analysis is automated. That can save you a lot of time. Initially, it seems that doing your analysis in a reproducible and automated manner takes more time and is more difficult because you have to learn some new tools. That is true. However, once you are used to it, you will be much more efficient. Consider the case where you had some data in Excel, moved it into SAS to do an analysis, and make some raw figures, opened them in Photoshop and spend a few hours making them look good. Then you or your collaborators realize that some of the data that should have been included in the analysis was not (or some data should not have been included). You need to re-create the raw figure and re-work it in Photoshop, likely spending a good bit of time. If you had an automated analysis, you could just press one (or a few) buttons and re-run everything. Also, automation makes it less likely that errors occur from copying data and intermediate results between programs. The case-study in the introductory unit is such an example, where everything was fully automated.</p>
-<p>Making an analysis reproducible also means you to document all your steps and what you do well. So it not only helps others, but <em>future you</em> will be very thankful. The importance of documenting the process increases, as analyses get more complex.</p>
-</div>
-<div id="markdown-and-r-markdown-for-reproducible-analysis" class="section level1">
-<h1>Markdown and R Markdown for reproducible analysis</h1>
-<p>Creating a reproducible and automated analysis used to be a good bit of extra work, but not anymore. R, Github, and related tools have made it fairly easy to set up a reproducible workflow. We discuss Github separately, see that document. Since it controls and tracks any changes you make, and works nicely with collaborators, it is an excellent tool for reproducible work.</p>
-<p>While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one stack of tools, namely (R)markdown &amp; Co.</p>
-<p>Markdown is a language/platform that allows you to write nice-looking documents easily. The idea is that you write plain text documents with simple formatting, and then turn them into a lot of different output formats, e.g., HTML, PDF, Word, or slides. You can apply layout and styling to those documents, which is done separately from the content. This means you can quickly switch between outputs. In our flow, the software in the background that turns our text documents into different formats is called <a href="https://pandoc.org/">Pandoc</a>. The good thing is, you don’t need to care, it all happens (almost always) behind the scenes. Markdown is rather easy to learn. If you have no experience with Markdown, I suggest you go through <a href="https://www.markdowntutorial.com/">this nice, short interactive tutorial.</a>. A good reference to look up formatting for Markdown until you have it memorized is this <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">online cheat sheet</a>.</p>
-<p>The folks from Rstudio developed <a href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allows you to combine R code with Markdown text. You can write a single Rmarkdown (Rmd) document which contains code and text. You then <code>knit</code> the document, which uses an R package called <code>knitr</code>, runs the code, produces results and turns everything into a markdown (md) document, then using the <code>rmarkdown</code> package and <code>pandoc</code> turns this into some output format of your choice, e.g. an html or pdf or Word or Powerpoint document. Again, most of the time, this happens without you needing to care about the details of this process. There are by now <a href="https://rmarkdown.rstudio.com/formats.html">a lot of different output formats</a> that R Markdown supports. As an example, this whole course is written in Rmarkdown and <a href="https://github.com/andreashandel/MADAcourse">lives on GitHub</a>. You can copy all the files and completely reproduce this course.</p>
-<p>Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It’s a free typesetting system that is a bit similar to Markdown, but more complicated and more powerful. I recommend <a href="https://miktex.org/">MiKTeX</a> for Windows and <a href="http://www.tug.org/mactex/">MacTeX</a> for Mac. We don’t absolutely need it for the class, but it’s good to have and free, so I suggest you go ahead and install it.</p>
-<p>One great thing about R Markdown is that it’s well documented. The <a href="https://rmarkdown.rstudio.com/">R Studio R Markdown site</a> and the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a> are great resources. Another good source targeted at scientists is the online book <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a>. RStudio also an R Markdown cheat sheet in their <a href="https://www.rstudio.com/resources/cheatsheets/">collection of very useful cheat sheets</a>.</p>
-<p>Since developing knitr and R Markdown, <a href="https://yihui.name/en/">Yihui Xie</a> and colleagues have developed several other versions of the tool. There is <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the <a href="https://bookdown.org/">bookdown website</a>) and <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> which lets you make webpages (see e.g. <a href="http://handelgroup.uga.edu/">my group webpage which is done that way</a>).</p>
-<p>The whole R Markdown/Markdown/pandoc system has become incredibly flexible and powerful, and we’ll use it in this class.</p>
-<p>Because R Markdown &amp; Co are very feature rich and you can do a ton, trying to read all about it does not make much sense. For now, to get some idea of what it is, skim through chapters 27, 29 and 30 in <a href="http://r4ds.had.co.nz/index.html">R for Data Science</a> and chapter 2 of the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a>. <a href="https://rafalab.github.io/dsbook/reproducible-projects-with-rstudio-and-r-markdown.html">Chapter 40 of IDS</a> is also worth a look. You don’t need to read these materials in much detail (and I won’t quiz you on it), but if you are new to R Markdown, try to get enough information so you understand what it’s all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. The exercise for this module will ask you to write some R Markdown, and you will be using it throughout this course, including for your class project.</p>
 </div>
 
 

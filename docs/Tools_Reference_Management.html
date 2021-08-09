@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Course Tools Assessment</title>
+<title>Reference management</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -34,8 +34,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -304,7 +302,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -329,6 +327,9 @@ div.tocify {
     <li>
       <a href="./Course_Schedule.html">Schedule</a>
     </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -339,47 +340,36 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Course.html">Course Logistics</a>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
         <li>
           <a href="./Introduction_Topic.html">Topic Introduction</a>
         </li>
-        <li>
-          <a href="./Introduction_Assessment.html">Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./RandRStudio.html">R and Rstudio</a>
-        </li>
-        <li>
-          <a href="./Github_Introduction.html">GitHub Introduction</a>
-        </li>
-        <li>
-          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
-        </li>
-        <li>
-          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./Reference_Management.html">Reference Management</a>
-        </li>
-        <li>
-          <a href="./Tools_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./3a_RBasics.html">3a. R basics</a>
+          <a href="./RBasics.html">R basics</a>
         </li>
         <li>
           <a href="./3b_Assessment.html">3b. Assessment</a>
@@ -560,16 +550,16 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Exercises
+    Assessments
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Exercise_Coding.html">R Coding</a>
+      <a href="./Assessment_Rcoding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -618,12 +608,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="./Course_Communication.html">Communication</a>
-</li>
-<li>
-  <a href="./Course_Glossary.html">Glossary</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Resources
@@ -637,19 +621,14 @@ div.tocify {
     <li>
       <a href="./General_Resources.html">General Resources</a>
     </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="./Shiny_Test.html">Test</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/andreashandel/MADAcourse">
-    <span class="fab fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -659,24 +638,30 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Course Tools Assessment</h1>
+<h1 class="title toc-ignore">Reference management</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-03-25 08:29:29</h4>
 
 </div>
 
 
-<div id="module-assessments" class="section level1">
-<h1>Module Assessments</h1>
-<p>Make sure you’ve gone through all the content for this module.</p>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
-<p>Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this short unit, you will learn how to manage your references within the R/Markdown stack of tools.</p>
 </div>
-<div id="exercise" class="section level2">
-<h2>Exercise</h2>
-<p>For this module, you are asked to do a project for which you’ll be using Github, R, RStudio, and Rmarkdown to post a short personal introduction of yourself. A detailed description and instructions are provided as <a href="./Exercise_Introducing_Ourselves.html">Introducing Ourselves</a> in the <em>Exercises</em> section.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know how to do reference management that plays nicely with R Markdown</li>
+</ul>
 </div>
+<div id="reference-management-with-markdown" class="section level1">
+<h1>Reference management with Markdown</h1>
+<p>For almost any data analysis, especially if it is meant for publication in the academic literature, you will have to cite other people’s work and include the references in your work. In this class, possibly for some of our exercises and definitely for the class project, you need to include references and cite other people’s work like in a regular research paper.</p>
+<p>I assume you are familiar with how citing references works, and hopefully, you are already using a reference manager. If not, let me know in the discussion boards.</p>
+<p>To have something that plays well with R Markdown, you need references in a format called <code>bibtex</code>. This is essentially a large file of structured plain text. You don’t ever want to edit the bibtex file yourself. Instead, you use a reference manager that is bibtex friendly. I mostly use <a href="http://www.jabref.org/">Jabref</a>, <a href="https://www.zotero.org/">Zotero</a> is another good one. Both are free. You could probably even use Endnote. I’ve never used it and don’t know much about it. It’s not free, so I avoid it. Whichever reference manager you use, the important part is that you need to be able to save or export your references as a <code>bibtex</code> file.</p>
+<p>To use references in your R Markdown file, specify the name and location of your <code>bibtex</code> file in the YAML header. You can also specify a CSL style file there. This is a file which controls how the references are formatted. Styles for almost any journal <a href="https://www.zotero.org/styles">are available for download here</a>. When you create your <code>bibtex</code> file, each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself. For instance, I use a format of lower-case first author last name followed by 2 digit year for each reference. If I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>handel10</code> or <code>handel10a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>. In your Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Handel et al. [@handel10]...</code>When you knit the markdown file, it looks for a reference with the specified tag in your <code>bibtex</code> file and places all references at the end of your document using the formatting you specified.</p>
+<p>Some more details on citations and references in Markdown <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">can be found here</a>. The template files for the project also contain an example which you can use as a starting point.</p>
 </div>
 
 

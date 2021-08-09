@@ -1,5 +1,5 @@
 ---
-title: Modern Applied Data Analysis – Fall 2021 – Syllabus
+title: MADA – Fall 2021 – Syllabus
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -71,13 +71,15 @@ _Develop skills to critically assess your own and others' analyses and conclusio
 * Learn to _look over your shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
 
 
+
+
 ## Grading
 
 The grade will be made up as follows:
 
 * 20% online quizzes
-* 20% homework/small projects
-* 20% participation/discussions
+* 30% homework/small projects
+* 10% participation/discussions
 * 40% a course long project, broken up into pieces. 
 
 The following grading scale will be used, final grades might be curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F < 60
@@ -90,9 +92,12 @@ This class is online. You are expected to submit all assignments by their due da
 
 ## Prerequisites
 
-This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are useful. Previous experience with writing computer programs in general and R in particular is also helpful, but not necessary. If you have no programming experience, expect to spend extra time getting yourself familiar with R. As long as you are willing to invest the time to learn the programming and you do not mind thinking quantitatively, you should be able to take the course, independent of your background.
+This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are needed. Knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are assumed. Some R coding skills (e.g., as obtained in our EPID 7500 class), are helpful. 
 
-_Formal requirement for the course is BIOS7010. Knowledge of material from BIOS7010 is assumed. If your lack of pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll._
+If you do not have any coding or statistics knowledge, you can still take the class, but you need to be prepared to spend extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the _little to none_ category, expect to spend extra time getting up to speed. I believe it's doable and worth the effort, but you need to be prepared for it. For instance, we'll spend one module on _R Basics_. For those with R knowledge, it might be a 2 hour refresher, for those with none that week might be a 20+ hour commitment. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.
+
+_Formal requirement for the course is BIOS 7010. Knowledge of material from BIOS 7010 is assumed. If your lack of pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll._
+
 
 ## Getting Help
 

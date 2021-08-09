@@ -11,6 +11,7 @@
 
 <meta name="author" content="Andreas Handel" />
 
+<meta name="date" content="2021-08-04" />
 
 <title>Course Communications</title>
 
@@ -31,8 +32,6 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -222,7 +221,7 @@ $(document).ready(function () {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -247,6 +246,9 @@ $(document).ready(function () {
     <li>
       <a href="./Course_Schedule.html">Schedule</a>
     </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -257,47 +259,36 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Course.html">Course Logistics</a>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
         <li>
           <a href="./Introduction_Topic.html">Topic Introduction</a>
         </li>
-        <li>
-          <a href="./Introduction_Assessment.html">Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./RandRStudio.html">R and Rstudio</a>
-        </li>
-        <li>
-          <a href="./Github_Introduction.html">GitHub Introduction</a>
-        </li>
-        <li>
-          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
-        </li>
-        <li>
-          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./Reference_Management.html">Reference Management</a>
-        </li>
-        <li>
-          <a href="./Tools_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./3a_RBasics.html">3a. R basics</a>
+          <a href="./RBasics.html">R basics</a>
         </li>
         <li>
           <a href="./3b_Assessment.html">3b. Assessment</a>
@@ -478,16 +469,16 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Exercises
+    Assessments
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Exercise_Coding.html">R Coding</a>
+      <a href="./Assessment_Rcoding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -536,12 +527,6 @@ $(document).ready(function () {
     </li>
   </ul>
 </li>
-<li>
-  <a href="./Course_Communication.html">Communication</a>
-</li>
-<li>
-  <a href="./Course_Glossary.html">Glossary</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Resources
@@ -555,19 +540,14 @@ $(document).ready(function () {
     <li>
       <a href="./General_Resources.html">General Resources</a>
     </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="./Shiny_Test.html">Test</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/andreashandel/MADAcourse">
-    <span class="fab fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -579,17 +559,69 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Course Communications</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-04</h4>
 
 </div>
 
 
-<p>The main mode of communication will be through the discussion boards on eLC. Use them widely to ask questions, to answer others’ questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use the discussion boards to build a <em>community of learners</em> where you help and support each other. So please don’t always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.</p>
-<p>I will use eLC to post announcements. Check regularly. They should show up when you log into the course and should also be in the announcements section.</p>
-<p>I prefer that you use the discussion boards instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering on the discussion boards, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to email me directly. <strong>Please do not email through eLC, because of the insane way it is configured, with usg email addresses, the emails often do not reach me.</strong> Send email directly to my <a href="mailto:ahandel@uga.edu" class="email">ahandel@uga.edu</a> address.</p>
-<p>If you get stuck badly enough that asynchronous discussion or email doesn’t help, or if there are other reasons you want to talk in real time, let me know and we can either set up a video conversation (skype or zoom) or you can come by my office if you are on campus.</p>
-<p>We will also use Github for some specific communications, detailed instructions on that will be provided.</p>
-<p>eLC is at times a bit clunky and not too user-friendly. I considered using alternatives (e.g. Slack or our Github organization), but decided that it would be just one more tool to learn and that additional learning might not outweigh potential benefits. <em>However</em> if you find the eLC discussions are just not working because of how tedious they are to navigate, let me know and we can set up some other form of group communication.</p>
+<div id="communication-tools" class="section level1">
+<h1>Communication tools</h1>
+<div id="slack" class="section level2">
+<h2>Slack</h2>
+<p>The main mode of communication will be through Slack. You should get an email invite to the Slack workspace for this class. It will go to your official UGA email and you need to use that email to sign up. If you haven’t received an email by August 20, or if you added the class late, let me know so I can send you an invite. We won’t use eLC, everything is going to happen on Slack or this website.</p>
+<p>If you are unfamiliar with Slack, it is essentially a chat/discussion tool. The main area for the class is called a <em>workspace</em> in Slack. Ours is called <strong>MADA-2021</strong>. If you use Slack for other purposes, you might have additional workspaces. Each of them is independent. Inside the workspace are <em>channels</em>. Each <em>channel</em> corresponds to a topic. The names and descriptions of the different channels should be self-explanatory.</p>
+<p>You need to be a member of a channel to see and participate in the channel discussion. If a channel is public, you can see it and join by clicking on the + symbol next to channels and go to ‘browse channels’. Sometimes channels are private, then only those invited can participate. When I create new channels, I try to remember to add everyone by default, but it might be useful to check occasionally if there are channels which you are not a member of but would like to be.</p>
+<p>If you have requests for specific channels to be created, let me know.</p>
+<p>Inside a channel, you can write messages. To respond to someone’s message, you can type your message just below the previous one. The good thing with this is that everyone sees it easily. The bad thing is that if there are a good number of messages being typed, it can be hard to figure out which ones go together. An alternative, and maybe better way is to reply in a thread.</p>
+<p>You can also use Slack to send one or more individuals direct messages. You can use that to communicate with me or each other.</p>
+<p>Overall, Slack is fairly intuitive, and hopefully much easier to use than the rather clunky discussion feature of eLC. But some features might need getting used to. If you have not previous Slack experience, I suggest you browse through <a href="https://slack.com/resources/slack-101">their starter tutorials</a> to pick up a few more tips and tricks.</p>
+<p><strong>I will use the <em>announcements</em> channel in Slack to post any important course related announcements. Check regularly.</strong></p>
+<p>Use Slack widely to ask questions, to answer others’ questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use Slack to build a <em>community of learners</em> where you help and support each other. So please don’t always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.</p>
+<p>I prefer that you use Slack instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering online, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to either send me a direct message on Slack or email me.</p>
+</div>
+<div id="github" class="section level2">
+<h2>GitHub</h2>
+<p>We will also use Github for some specific communications, related to exercises and projects. We have a separate GitHub</p>
+<p>. I will provide more detailed instructions on that will be provided.</p>
+</div>
+<div id="elc" class="section level2">
+<h2>eLC</h2>
+<p>We will not be using eLC. I might occasionally use the <em>email everyone</em> feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC much. I don’t plan on posting any materials to eLC, they will all be on this website, or for confidential information, in our group Slack workspace.</p>
+</div>
+<div id="zoom" class="section level2">
+<h2>Zoom</h2>
+<p>I will offer weekly synchronous meetings through Zoom. Those are <strong>completely optional.</strong> Once a week I will start a Zoom meeting. Whoever wants to join can do so, and we will use the meeting for discussions, answering questions, and whatever else you want to talk about. Think of those meetings a bit like virtual office hours or virtual in-class discussions. To ensure everyone will be able to join at least occasionally, I plan to alternate between two times each week.</p>
+<p>Tentative dates for Zoom meetings are listed in the <em>Schedule</em> document. Those are subject to change. If we need to move things around, I’ll let you know on Slack and also update the <em>Schedule</em> document. At the designated times, I will start the meeting. I’ll wait around for 15 minutes. If nobody connects, I’ll end the meeting. If people connect, we’ll talk until we covered everything, or until I or you need to move on to our next appointments. The information for the Zoom meeting login will be provided on Slack.</p>
+<p>And of course, if you have something you want to discuss outside of those scheduled times, send me a message and we can schedule a meeting.</p>
+</div>
+</div>
+<div id="discussion-guidelines" class="section level1">
+<h1>Discussion Guidelines</h1>
+<p>We can’t have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. You will be asked to participate continuously in discussions for the duration of the course, and discussion participation is part of the grade.</p>
+<p>I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.</p>
+<p>To make sure discussions work well for everyone, here are some general guidelines.</p>
+<ul>
+<li>You can and will be asked to both start new threads/posts or reply to others. If you start a new topic, make sure you are in the right channel. (If needed, you can also move posts to other channels later).</li>
+<li>You are encouraged to include links to additional material that you find online, including but not limited to research papers, sources like CDC or Wikipedia, and other useful resources. There are no rules on formatting other than that it should be readable.</li>
+<li>You don’t always have to provide references/links to resources, nor do you need to be sure that ‘you got it right’. It’s ok to post speculations/ruminations/thoughts occasionally.</li>
+<li>Make meaningful contributions. You are welcome to react to each others’ posts with 😃 or 👍, but that does not replace more substantial responses. Give reasons why you think something is one way or another.</li>
+<li>For the purpose of assessment, you need to participate in the discussions at the level specified in each module’s assessment document. I encourage you to engage in further discussions. Those further posts won’t be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.</li>
+<li>It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts.</li>
+</ul>
+</div>
+<div id="discussion-assessment" class="section level1">
+<h1>Discussion Assessment</h1>
+<p>For most modules, you’ll have to do the following (unless specifically directed otherwise):</p>
+<ul>
+<li>You need to write a post (of at least several hundred words) as an answer to the weekly question/task. Post it into the appropriate channel by <strong>Wednesday evening</strong>.</li>
+<li>You need to write <strong>at least</strong> 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by <strong>Friday evening</strong>.</li>
+<li>For each module (i.e. each week) you need to post a minimum of 4 posts (1 initial, 3 replies) with around 500 <em>meaningful</em> words total by the deadlines. I won’t count words (unless it looks really short), but I will count the number of posts and check if they have been posted before/by the deadline.</li>
+<li>Doing the required posts (quantity, quality, and timing) will give a 100 for this module’s discussion. Any shortcomings will lead to fewer points. If you don’t post anything or it’s all after the deadlines, it’s zero points. In the end, all scores are averaged and contribute to the discussion portion of the grade.</li>
+<li>Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.</li>
+<li>For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.</li>
+<li>Discussions will remain available for the whole course, and you can keep contributing at any time.</li>
+</ul>
+</div>
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Modern Applied Data Analysis – Fall 2021 – Syllabus
+title: MADA – Fall 2021 – Schedule
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -12,19 +12,15 @@ output:
 
 This is the current course schedule for the class. Things might change, so check regularly for updates.
 
-The _External Sources_ column only lists major external sources. The course readings provided on this website, as well as other smaller assignments embedded or linked in the course documents (e.g. videos, papers) are not listed. This is only meant as a quick reference, the course readings provide more detail and are the definite source in case of discrepancies.
-
-Abbreviations used are: [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/), [R4DS = R for Data Science](https://r4ds.had.co.nz/), [RP = RStudio Primers](https://rstudio.cloud/learn/primers), 
-[ADS = The Art of Data Science](https://leanpub.com/artofdatascience), [HGR = happygitwithR](https://happygitwithr.com/), [ISL = Introduction to Statistical Learning](https://statlearning.com/), [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/), [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/). Numbers behind abbreviations refer to the chapter.
 
 The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
 
-| **Module Topic**   | **Start and end dates** | **External Sources** | **Assessments** |
+| **Module Topic**   | **Start and end dates** | **Assessments** |
 | --- | --- | --- | --- |
-| Module 1 – Course and tools introduction | 8/18 – 8/20 | IDS:1,2,39,40, HGR, R4DS:27,29,30| quiz, introducing ourselves exercise |
-| Module 2 – Topic introduction | 8/23 – 8/27 | none | quiz, discussion|
-| Module 3 – R basics | 8/30 – 9/3 | RP:Basics, IDS:3,4 | quiz, exercise, discussion |
-| Module 4 – Data analysis overview | 9/6 – 9/10 | R4DS:1, ADS:1-4,9-11 | quiz, exercise **(part due Wed)**, discussion  |
+| Module 1 – Course, Tools and Topic introduction | 8/18 – 8/27 | quiz, exercise, discussion |
+| Module 2 – R coding basics | 8/30 – 9/3 | quiz, exercise, discussion |
+| Module 3 – Data analysis overview | 9/6 – 9/10 | quiz, exercise **(part due Wed)**, discussion  |
+
 
 
 _old schedule_

@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Reference management</title>
+<title>The GitHub and R Workflow</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -34,8 +34,6 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -304,7 +302,7 @@ div.tocify {
 
 
 
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -329,6 +327,9 @@ div.tocify {
     <li>
       <a href="./Course_Schedule.html">Schedule</a>
     </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -339,47 +340,36 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Course.html">Course Logistics</a>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
         <li>
           <a href="./Introduction_Topic.html">Topic Introduction</a>
         </li>
-        <li>
-          <a href="./Introduction_Assessment.html">Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./RandRStudio.html">R and Rstudio</a>
-        </li>
-        <li>
-          <a href="./Github_Introduction.html">GitHub Introduction</a>
-        </li>
-        <li>
-          <a href="./Github_R_Workflow.html">GitHub and R Workflow</a>
-        </li>
-        <li>
-          <a href="./ToolsforReproducibility.html">RMarkdown &amp; Co</a>
-        </li>
-        <li>
-          <a href="./Reference_Management.html">Reference Management</a>
-        </li>
-        <li>
-          <a href="./Tools_Assessment.html">Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./3a_RBasics.html">3a. R basics</a>
+          <a href="./RBasics.html">R basics</a>
         </li>
         <li>
           <a href="./3b_Assessment.html">3b. Assessment</a>
@@ -560,16 +550,16 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Exercises
+    Assessments
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Exercise_Introducing_Ourselves.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
     </li>
     <li>
-      <a href="./Exercise_Coding.html">R Coding</a>
+      <a href="./Assessment_Rcoding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -618,12 +608,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="./Course_Communication.html">Communication</a>
-</li>
-<li>
-  <a href="./Course_Glossary.html">Glossary</a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Resources
@@ -637,19 +621,14 @@ div.tocify {
     <li>
       <a href="./General_Resources.html">General Resources</a>
     </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="./Shiny_Test.html">Test</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/andreashandel/MADAcourse">
-    <span class="fab fa-github"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -659,30 +638,80 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reference management</h1>
+<h1 class="title toc-ignore">The GitHub and R Workflow</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-07-27 13:23:27</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this short unit, you will learn how to manage your references within the R/Markdown stack of tools.</p>
+<p>This document gives a brief discussion of working with R projects through GitHub. Several approaches are described, they should be equivalent in most instances.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Know how to do reference management that plays nicely with R Markdown</li>
+<li>Know how to get your R projects synced through GitHub.</li>
 </ul>
 </div>
-<div id="reference-management-with-markdown" class="section level1">
-<h1>Reference management with Markdown</h1>
-<p>For almost any data analysis, especially if it is meant for publication in the academic literature, you will have to cite other people’s work and include the references in your work. In this class, possibly for some of our exercises and definitely for the class project, you need to include references and cite other people’s work like in a regular research paper.</p>
-<p>I assume you are familiar with how citing references works, and hopefully, you are already using a reference manager. If not, let me know in the discussion boards.</p>
-<p>To have something that plays well with R Markdown, you need references in a format called <code>bibtex</code>. This is essentially a large file of structured plain text. You don’t ever want to edit the bibtex file yourself. Instead, you use a reference manager that is bibtex friendly. I mostly use <a href="http://www.jabref.org/">Jabref</a>, <a href="https://www.zotero.org/">Zotero</a> is another good one. Both are free. You could probably even use Endnote. I’ve never used it and don’t know much about it. It’s not free, so I avoid it. Whichever reference manager you use, the important part is that you need to be able to save or export your references as a <code>bibtex</code> file.</p>
-<p>To use references in your R Markdown file, specify the name and location of your <code>bibtex</code> file in the YAML header. You can also specify a CSL style file there. This is a file which controls how the references are formatted. Styles for almost any journal <a href="https://www.zotero.org/styles">are available for download here</a>. When you create your <code>bibtex</code> file, each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself. For instance, I use a format of lower-case first author last name followed by 2 digit year for each reference. If I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>handel10</code> or <code>handel10a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>. In your Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Handel et al. [@handel10]...</code>When you knit the markdown file, it looks for a reference with the specified tag in your <code>bibtex</code> file and places all references at the end of your document using the formatting you specified.</p>
-<p>Some more details on citations and references in Markdown <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">can be found here</a>. The template files for the project also contain an example which you can use as a starting point.</p>
+<div id="prerequisites" class="section level1">
+<h1>Prerequisites</h1>
+<p>I assume you read through the <a href="">Git/GitHub introduction</a>.</p>
+<p>I also assume that you are using the GitKraken client. If you don’t, you need to adjust things accordingly.</p>
+</div>
+<div id="approach-1---start-on-github" class="section level1">
+<h1>Approach 1 - start on GitHub</h1>
+<div id="github" class="section level2">
+<h2>GitHub</h2>
+<p>For this approach, you start by creating your repository on Github. If you are doing this as part of a class or organization, create your repository inside the organization. Otherwise, create it under your own name/account. (As an example, my Github user name is <code>andreashandel</code> and the name of my research group/organization is <code>ahgroup</code>. Depending on if I want a repository under my name or under the research group/organization, I’ll go to <code>https://github.com/andreashandel</code> or <code>https://github.com/ahgroup/</code>).</p>
+<p>Once you are in the location/account where you want the new repository, and see your list of repositories (which might initially be empty), create a new repository by (clicking the green <em>New</em> button). A page should show up where you can specify details for your new repository, something like this:</p>
+<p><img src="media/newrepo.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Specify the repository owner. Make sure it’s the one you want, e.g., yourself or an organization you are part of. Pick a good name for your repository. Set the repository as private or public. In general, you should consider doing it public, unless there is an important reason to have it private (e.g. confidential data). Note that if you set it to private, you might not be able to access it with the free version of GitKraken. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>. You can keep the license box unchecked, or choose a license for your page. Click “create repository”.</p>
+<p>Open Gitkraken, under <code>File</code> choose <code>Clone Repo</code> go to <code>Github.com</code>, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called <code>mynewrepo</code>, and you place it on your desktop under windows, you might choose <code>C:\Users\yourname\Desktop</code> as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it.</p>
+<p><strong>Remember to not place your repository in a location that is synced by other software such as DropBox or Onedrive. Also do not place GitHub repositories inside other GitHub repositories.</strong></p>
+</div>
+<div id="rstudio" class="section level2">
+<h2>RStudio</h2>
+<p>Open RStudio on your computer. Choose <code>File</code>, <code>New Project</code>, <code>Existing Directory</code> and find the directory/folder you just created on Github and copied to your local computer (e.g. <code>C:\Users\yourname\Desktop\mynewrepo</code>). If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a <code>README.md</code>.</p>
+<p>Click to open the <code>README.md</code> file. It will only contain the name of your repository with a <code>#</code> sign in front. At some point, it is useful to add meaningful information. For now, just to practice, you can add whatever you want.</p>
+<p>In the future, if you want to edit your project, click or double-click on the <code>.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</p>
+<p>Now create your content, place any files you create inside your project directory or its subfolders.</p>
+</div>
+<div id="syncing" class="section level2">
+<h2>Syncing</h2>
+<p>Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.</p>
+<p>If you use GitKraken, in the top right you should see a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>main</em> (sometimes also labeled <em>master</em>) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</p>
+<p>If your code cannot sync you will likely receive an option from GitKraken to perform a <strong>force push</strong>. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be <strong>overwritten</strong> by the force push since they are not on your local repo. Thus, use with care.</p>
+<p>Now that everything is established, the workflow is simple, you just need to remember to go through all the steps.</p>
+<ol style="list-style-type: decimal">
+<li>Before working on a repo/project, check GitKraken to make sure the local and remote are in sync. If not, then push or pull to get them to the same state.</li>
+<li>Open your project in RStudio (assuming it is an RStudio project). Make any changes you want to make. Once done for the day, go back to GitKraken and stage, then commit your changes, then push.</li>
+</ol>
+</div>
+</div>
+<div id="approach-2---start-with-an-r-project" class="section level1">
+<h1>Approach 2 - start with an R Project</h1>
+<p>Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse.</p>
+<div id="rstudio-1" class="section level2">
+<h2>RStudio</h2>
+<p>Open RStudio. Choose <code>File</code>, <code>New Project</code>, <code>New Directory</code> and (usually) you’ll choose <code>New Project</code>. Pick a project name and location. Check the <code>Create a git repository</code> box.</p>
+<p><img src="media/newproject.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Create content in the project folder.</p>
+</div>
+<div id="gitkraken" class="section level2">
+<h2>GitKraken</h2>
+<p>Once you finished working on your project for now, open GitKraken. Go to <code>File -&gt; Init Repo</code> and choose the folder where your project is in. You’ll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the <code>Push</code> button.</p>
+<p>At this point, if you didn’t properly connect GitKraken and GitHub previously, you’ll likely get an error message. Follow the error message and the <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect Gitkraken to your Github account</a> information to get it to work.</p>
+<p>You’ll see a message about no remote existing and if you want to add one. Say <code>yes</code>. A menu on the left should show up. Make sure the repository name is the same as your local repository/folder name. Then click the green button. If things worked, your local repository has been created on GitHub.com.</p>
+</div>
+<div id="syncing-1" class="section level2">
+<h2>Syncing</h2>
+<p>Once Github.com and your local repository are connected, the syncing process is exactly as described under <em>Approach 1</em>.</p>
+</div>
+</div>
+<div id="further-resources-and-help" class="section level1">
+<h1>Further Resources and help</h1>
 </div>
 
 
