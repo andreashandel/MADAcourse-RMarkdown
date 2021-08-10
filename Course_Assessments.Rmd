@@ -1,0 +1,96 @@
+---
+title: Assessment - Course, Tools and Topic Introduction 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Module Assessments
+
+Each module comes with an assessment. Those are things you need to do that will be graded.
+
+In general, expect that each module contains **a Quiz, an Exercise, and a Discussion**. Sometimes there are additional/alternative components, such as submission of project parts.
+
+
+
+## Quizzes
+
+The quizzes cover the basics and ensures you have gone through some of the material.
+
+Get the quiz sheet from the _Course Resources_ section. Fill it in, then submit to the online grading system before the deadline. 
+
+
+Quiz sheets to be filled out and submitted are on the [Course Resources](./Course_Resources.html) page.
+
+### Quiz sheets
+For each module, you are asked to fill out one or more than one sheets with questions related to the course material. Usually, there is one quiz covering the DSAIDE tasks and one quiz covering the other materials (reading, videos) for a given module (the latter I call _Theory Quiz_ below.)
+
+Each quiz sheet is an Excel file. Download them from the links below, fill in the "Answer" column, and submit [to this website](https://shiny.ovpr.uga.edu/MADA2021/).
+
+__Please do not make any other changes to the sheets apart from filling the "Answer" column. If you do make changes, submission might fail. If that happens and you get an error message, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.__
+
+
+* [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_quiz.xlsx)
+* [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_quiz.xlsx)
+* [Module 3 – R coding basics](./quizsheets/mada_coding_basics_quiz.xlsx)
+* [Module 4 – Contemplating and getting data](./quizsheets/mada_getting_data_quiz.xlsx)
+
+
+
+
+## Exercises
+
+ The exercises are usually quite in-depth, require you to apply some of the material, and are really the main means of learning the material. Each exercise has a different format. It should always be clear what you need to do. The discussions are meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights. 
+
+
+For this module, you are asked to do a project for which you'll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become the portfolio for this class. You'll write and post a short personal introduction of yourself. 
+
+_For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work._
+
+If you get stuck (quite possible), use the materials I list in the [Resources document](./Course_Resources.html). It is probably best to first post to the discussion board in the _Introducing Ourselves_ section, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
+
+
+
+
+## Discussions 
+
+
+
+### Discussion Guidelines
+
+We can't have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. You will be asked to participate continuously in discussions for the duration of the course, and discussion participation is part of the grade.
+
+I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.
+
+To make sure discussions work well for everyone, here are some general guidelines.
+
+* You can and will be asked to both start new threads/posts or reply to others. If you start a new topic, make sure you are in the right channel. (If needed, you can also move posts to other channels later). 
+* You are encouraged to include links to additional material that you find online, including but not limited to research papers, sources like CDC or Wikipedia, and other useful resources. There are no rules on formatting other than that it should be readable.
+* You don't always have to provide references/links to resources, nor do you need to be sure that 'you got it right'. It's ok to post speculations/ruminations/thoughts occasionally.
+* Make meaningful contributions. You are welcome to react to each others' posts with `r emo::ji("smiley")` or `r emo::ji("thumbs up")`, but that does not replace more substantial responses. Give reasons why you think something is one way or another.
+* For the purpose of assessment, you need to participate in the discussions at the level specified in each module's assessment document. I encourage you to engage in further discussions. Those further posts won't be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.
+* It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts. 
+
+
+### Discussion Assessment
+
+For most modules, you'll have to do the following (unless specifically directed otherwise):
+
+* You need to write a post (of at least several hundred words) as an answer to the weekly question/task. Post it into the appropriate channel by __Wednesday evening__. 
+* You need to write __at least__ 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by __Friday evening__. 
+* For each module (i.e. each week) you need to post a minimum of 4 posts (1 initial, 3 replies) with around 500 _meaningful_ words total by the deadlines. I won't count words (unless it looks really short), but I will count the number of posts and check if they have been posted before/by the deadline.
+* Doing the required posts (quantity, quality, and timing) will give a 100 for this module's discussion. Any shortcomings will lead to fewer points. If you don't post anything or it's all after the deadlines, it's zero points. In the end, all scores are averaged and contribute to the discussion portion of the grade.
+* Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.
+* For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.
+* Discussions will remain available for the whole course, and you can keep contributing at any time.  
+
+
+## Projects
+
+See the __Projects__ section on the website for more information.

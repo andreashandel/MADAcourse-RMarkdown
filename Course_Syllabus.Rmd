@@ -84,6 +84,7 @@ The grade will be made up as follows:
 
 The following grading scale will be used, final grades might be curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F < 60
 
+More detailed descriptions of the different assessments is provided on the [Assessments page](./Course_Assessments.html).
 
 ## Class Attendance, Make-up Policy
 

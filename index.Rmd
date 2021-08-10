@@ -37,7 +37,7 @@ The course is currently scheduled to be offered in fall 2021. While the course i
 
 # Website content
 
-The __General Information__ section provides a class __Syllabus__ and a __Schedule__. The latter will likely be updated throughout the course, so check it regularly. The __Communication__ page provides information on how course communications are planned to happen.
+The __General Information__ section provides a class __Syllabus__ and a __Schedule__. The latter will likely be updated throughout the course, so check it regularly. The __Communication__ page provides information on how course communications are planned to happen. The __Assessments__ explains how the different assignments and assessments for the course work.
 
 The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them based on the instructions in the __Schedule.__ Each module ends with a document listing the assessments that go with the module.
 

@@ -13,14 +13,30 @@ output:
 This is the current course schedule for the class. Things might change, so check regularly for updates.
 
 
-The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in detail in an assessments document for each module. __Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__
+The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in more detail in an [__Assessments__](./Course_Assessments.html) page and in the assessment document for each module. 
+
+__Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__ 
+
 
 | **Module Topic**   | **Start and end dates** | **Assessments** |
 | --- | --- | --- | --- |
-| Module 1 – Course, Tools and Topic introduction | 8/18 – 8/27 | quiz, exercise, discussion |
-| Module 2 – R coding basics | 8/30 – 9/3 | quiz, exercise, discussion |
-| Module 3 – Data analysis overview | 9/6 – 9/10 | quiz, exercise **(part due Wed)**, discussion  |
-
+| Module 1 – Course and tools introduction | 8/18 – 8/27 | quiz, exercise, discussion |
+| Module 2 – Data analysis introduction  | 8/30 – 9/3 | quiz, exercise, discussion |
+| Module 3 – R coding basics | 9/6 – 9/10 | quiz, exercise, discussion  |
+| Module 4 – Contemplating and getting data | 9/13 – 9/17 | quiz, exercise, discussion, project part 1|
+| Module 5 – Visualizing data | 9/20 – 9/24 | quiz, exercise, discussion  |
+| Module 6 – Wrangling and exploring data | 9/27 – 10/1 | quiz, exercise, discussion  |
+| Module 7 – Statistical analysis introduction  | 10/4 – 10/8 | quiz, exercise, discussion  |
+| Module 8 – Fitting basic models | 10/11 – 10/15 | quiz, exercise, discussion  |
+| Module 9 – Before and after the fitting | 10/18 – 10/22 | quiz, exercise, discussion  |
+| Module 10 – Subset selection and regularization | 10/25 – 10/29 | quiz, exercise, discussion  |
+| Module 11 – Parameter tuning & tree-based models | 11/1 – 11/5 | quiz, exercise, discussion  |
+| Module 12 – Machine learning introduction | 11/8 – 11/12 | quiz, exercise, discussion  |
+| Module 13 – Revisiting the complete data analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |
+| Finishing Project | 11/22 – 11/26 (fall break part of the week) | project part 4 due Monday 11/29, 9am | 
+| Project Reviews | 11/29 – 11/3 | project reviews | 
+| Final project submission  | 12/10 |  project part 5 |
+| Module 14 – AI & deep learning introduction | none | none  |
 
 
 <!-- _old schedule_ -->
@@ -46,4 +62,13 @@ The _Assessments_ column lists items that need to be submitted and that will be 
 <!-- | Finishing Project | 11/25 – 11/29 (fall break part of the week) | none | project part 4 | -->
 <!-- | Project Reviews | 12/2 – 12/6 | none | project reviews | -->
 <!-- | Final project submission  | 12/11 | none | project part 5 | -->
+
+
+## Synchronous Zoom meetings
+
+I will offer **completely optional** Zoom meetings. See the _Communication_ section for some more details. You can find the Zoom link on Slack. The current plan is to have **one Zoom meeting per module on Thursdays, alternating between 8am (odd modules) and 3pm (even modules).** (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)
+
+Hopefully, one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.
+
+**The first Zoom session will be on Thursday, 8/19 at 3pm ET.**
 

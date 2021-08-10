@@ -16,7 +16,7 @@ output:
 library(emo)
 ```
 
-This page lists resources that are used or mentioned in this course. For a more extensive list of data science resources, see the _General Resources_ page.
+This page lists resources that this course draws on at least occasionally, as well as some other general resources I recommend you to explore. For a more extensive list of data science resources, see the _General Resources_ page.
 
 All materials described below are (should be) freely available online. If you can't get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that's not quite right, please let me know.
 
@@ -25,7 +25,6 @@ Abbreviations used are:
 * [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) 
 * [R4DS = R for Data Science](https://r4ds.had.co.nz/) 
 * [RP = RStudio Primers](https://rstudio.cloud/learn/primers) 
-* [ADS = The Art of Data Science](https://leanpub.com/artofdatascience) 
 * [HGR = happygitwithR](https://happygitwithr.com/)
 * [ISL = Introduction to Statistical Learning](https://statlearning.com/) 
 * [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/)
@@ -34,9 +33,9 @@ Abbreviations used are:
 
 # General help
 
-* The main place to get any course specific help are the discussion boards on eLC. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc. 
+* The main place to get any course specific help are our course discussion boards. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc. 
 * Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day `r emo::ji('smiley')`.
-* When you search online for help, quite often you land on some _StackExchange_ site. These are a collection of widely-used online question and answer sites covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites.
+* When you search online for help, quite often you land on some [StackExchange](https://stackexchange.com/) site (often [Stack Overflow](https://stackoverflow.com/)). [These are a collection of widely-used online question and answer sites](https://stackexchange.com/sites) covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.
 * The [Rstudio community](https://community.rstudio.com/) is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven't used it much.
 * Another highly recommended resource is the [R for data science community](https://www.rfordatasci.com/). They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.
 * Here is another resource, [a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter](https://www.datahelpers.org/). 
@@ -46,7 +45,6 @@ Abbreviations used are:
 
 * A great resource to learn Git/Github with R is [happygitwitR (HGR)](https://happygitwithr.com/) by Jenny Bryant.
 * I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use [GitKraken](https://www.gitkraken.com/) which has a fully functional free version. As a student, you can also get a free 1 year subscription to the Pro version (see the GitHub course document for details). Other graphical Git/GitHub clients exist, see e.g. Jenny's book. 
-* For classwork, projects and other materials that we might not want to share publicly, we will use a GitHub organization specifically created for the class. Instructions on how to join the organization and use it are provided in the course documents.
 * If you have questions for a specific R package (or other project) which is developed on GitHub, you can ask questions in the GitHub _Issues_ section. We'll discuss/practice that as part of the course.
 
 
@@ -54,7 +52,6 @@ Abbreviations used are:
 
 * [Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book I'll refer to a good bit in the 1st part of the course. 
 * [R for Data Science (R4DS)](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be refering to it frequently. 
-* [The Art of Data Science (ADS)](https://leanpub.com/artofdatascience) has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
 * [An Introduction to Statistical Learning (ISL)](https://statlearning.com/) is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I'll refer to it frequently in the second part of the course.
 * [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/) covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.
 * [Feature Engineering and Selection (FES)](https://bookdown.org/max/FES/) focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.
@@ -63,18 +60,4 @@ Abbreviations used are:
 
 * [Online Tutorials (primers) by Rstudio (RP)](https://rstudio.cloud/learn/primers) are a great source for introductory, interactive tutorials covering basics of R coding and data analysis. We'll use several of those primers in the class.
 
-
-# Quiz sheets
-For each module, you are asked to fill out one or more than one sheets with questions related to the course material. Usually, there is one quiz covering the DSAIDE tasks and one quiz covering the other materials (reading, videos) for a given module (the latter I call _Theory Quiz_ below.)
-
-Each quiz sheet is an Excel file. Download them from the links below, fill in the "Answer" column, and submit [to this website](https://shiny.ovpr.uga.edu/gradingapp/).
-
-__Please do not make any other changes to the sheets apart from filling the "Answer" column. If you do make changes, submission might fail. If that happens and you get an error message, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.__
-
-
-## Module 1 - Course and Topic Introduction
-* [Basic SIR DSAIDE Quiz](./quizsheets/dsaide_basicsir.xlsx)
-
-## Module 2 - Course Tools
-* [ID Characteristics DSAIDE Quiz](./quizsheets/dsaide_idcharacteristics.xlsx)
 

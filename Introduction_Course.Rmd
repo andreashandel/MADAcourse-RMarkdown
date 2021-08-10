@@ -65,10 +65,11 @@ __Overall, I hope this course is going to be useful, interesting, challenging an
 
 
 # Course Setup
-* The course is split into modules, each with one or more units. Each module will usually be covered in a week. The _Schedule_ document gives an outline. The schedule is not fully finalized and will change, so check frequently.
-* Each module consists of one or several units/documents containing a mix of things I wrote, writings or videos by others, exercises, etc. They are listed in the order you should go through them.
+* The course is split into modules, each with one or more units. Each module will usually be covered in a week. The __Schedule__ document gives an outline. The schedule is not fully finalized and will change, so check frequently.
+* Each module consists of one or several units/documents containing a mix of things I wrote, and writings or videos by others. They are listed in the order you should go through them.
 * All material for the course can be accessed through this course website. Some material might not be available yet and will be unlocked as the course proceeds.
-* There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Otherwise, consider the materials to be resources you can visit _on demand_, e.g., when you are working on the exercises.
+* There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Otherwise, consider the materials to be resources you can visit on demand, e.g., when you are working on the exercises.
+* You will be placed in groups throughout the course. The hope is that this will create a support group of classmates where you can help each other. Assignments often require interaction among group members (like on a real-world team), and I hope you will interact with your group members outside the assignments as well. You are of course welcome and encouraged to interact with anyone else in the course.
 
 # Course Tools
 This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.
@@ -87,23 +88,23 @@ Every module will have an _Assessment_ component, which describes what work you 
 The following types of assessments are part of the course.
 
 ## Online quizzes
-The online quizzes cover basics of the material for each module. If you go through the material, you should have no problems answering the quizzes. 
+The online quizzes cover basics of the material for each module. If you go through the material, you should have no problems answering the quizzes. Quiz sheets for filling out, and instructios on where to submit, are on the [Course Resources page](./Course_Resources.html).
 
 ## Exercises
-The exercises are often fairly involved and an important part of learning the material. 
+The exercises are often **fairly challenging and an important part of learning the material.** 
 
 ## Class project
-The project is a semester-long data analysis project broken into pieces with several deadlines. The _Projects_ section provides more details.
+The project is a semester-long data analysis project broken into pieces with several deadlines. The __Projects__ section provides more details.
 
 ## Discussion and Participation
 At times, I will ask you to post specific assignments to the discussion boards and reply to other posts. I also encourage general, continued participation on the discussion boards. Participation can take any form, such as asking questions, answering questions, posting links to interesting content, providing feedback, etc. The more, the better `r emo::ji('smile')`. Both quality and quantity will affect your participation grade. 
 
 
 # Course Resources
-We'll be drawing on a lot of different resources. I compiled a list with the ones we'll use and others you might find helpful in the _Resources_ section of the class website. 
+We'll be drawing on a lot of different resources. I compiled a list with the ones we'll use and others you might find helpful in the __Resources__ section of the class website. 
 
 # Getting help
-I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. You can ask for help from your classmates or your instructor. Also, use the wider community online. For specific places to get help, see the _Resources_ page.
+I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. You can ask for help from your classmates or your instructor. Also, use the wider community online. For specific places to get help, see the __Resources__ pages.
 
 
 
