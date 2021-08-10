@@ -1,5 +1,5 @@
 ---
-title: Coding Introduction Assessments 
+title: Coding Exercise
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -9,20 +9,6 @@ output:
   html_document:
     toc_depth: 3
 ---
-
-# Module Assessments
-
-Make sure you've gone through all the content for this module.
-
-## Quiz
-
-Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
-
-
-## Exercise
-
-For this module, you are asked to do a coding project. Instructions are provided in the [R Coding](./Exercise_Coding.html) document in the _Exercises_ section.
-
 
 # Overview
 
@@ -87,6 +73,3 @@ Based on those plots, there seems to still be a negative correlation between inf
 
 # Getting help
 * Use any online sources you want. Also, feel free to push your project with the error message to Github, then post on the discussion board a description of your problem with a link to your file, so others can see what isn't working and can give you better help.
-
-
-

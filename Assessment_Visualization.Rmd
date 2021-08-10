@@ -23,3 +23,32 @@ Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy
 ## Exercise
 
 For this module, do the exercise called _Visualization_. In this exercise, you will be asked to reproduce as closely as possible a "professional" graph.
+
+
+# Overview
+For this exercise, you are asked to recreate a "professional-looking" graph that you find online.
+
+For some motivating examples, take a look at [this recent blog post by Rafael Irizarry](https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/) (the author of the IDS book we've been using). He shows how one can use R and ggplot to reproduce figures that look very similar to "professional" ones. You'll see that it usually doesn't require that many lines of code to get an outstanding looking figure!
+
+
+# Detailed Instructions
+
+* Create a new, public Github repository inside the class organization and call it `YOURNAME-visualization`. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the `Introducing ourselves` project if you forgot how to do that.
+
+* Find some graph from the news website [FiveThirtyEight](https://fivethirtyeight.com/). (I chose that site since they are known for regularly producing high-quality graphs). Good starting points might be these collections of best and weirdest graphs from [2015](https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/),  [2016](https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/), [2018](https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/). [This site](https://fivethirtyeight.com/tag/in-one-chart/) or [this one]() might be other options. But you don't need to restrict yourself to those. Any graph from their site is fine. 
+
+* If you absolutely can't find a graph on FiveThirtyEight that you like and would like to reproduce, you are also allowed to check out other "high quality" news outlets (NY Times, Wall Street Journal, The Guardian, etc.). The original graph must be freely available online, so not behind a paywall.
+
+* Once you got a graph you'd like to reproduce, either extract (read off) the data right from the graph or find the original data source (some FiveThirtyEight data might be found [here](https://data.fivethirtyeight.com/)). If neither is an option, move on to the next graph.
+
+* Once you have the data and the original graph, use R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code.
+
+* The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. 1-2 hours of writing code is plenty, after that time you should have something that looks at least somewhat similar to the original - which is good enough for this exercise.
+
+* Your final product should be an Rmd file that shows the original plot (and links to its source), shows the code for your graph, and your graph. Essentially like one of the examples in Rafa's post above. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you might provide some additional text describing things you tried that didn't work, or include links to sources from which you adapted your code, etc. 
+
+* Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the _Introducing ourselves_ project. 
+
+* Post the link to your project (both the html/website and the Rmd file) in the Visualization discussion board. If you are active on social media, you can post an announcement of your project there. 
+
+* For any help requests, post your questions to the discussion board for this project.

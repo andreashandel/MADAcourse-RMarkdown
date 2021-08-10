@@ -81,7 +81,8 @@ _I placed them into categories according to main topic, but there is a lot of ov
 
 
 # Videos
-To be filled
+* [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
+* [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 
 
 

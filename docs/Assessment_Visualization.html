@@ -360,6 +360,9 @@ div.tocify {
         <li>
           <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
+        <li>
+          <a href="./Assessment_Course_Tools_Introduction.html">Assessment: Course and Tools Introduction</a>
+        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -374,13 +377,19 @@ div.tocify {
         <li>
           <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
         </li>
+        <li>
+          <a href="./Assessment_Data_Analysis.html">Assessment: Data Analysis Introduction</a>
+        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./RBasics.html">R basics</a>
+        </li>
+        <li>
+          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
         </li>
       </ul>
     </li>
@@ -410,16 +419,16 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./7a_Visualization_Overview.html">7a. Visualization Overview</a>
+          <a href="./Visualization_Overview.html">Visualization Overview</a>
         </li>
         <li>
-          <a href="./7b_Visualization_in_R.html">7b. Visualization in R</a>
+          <a href="./Visualization_in_R.html">Visualization in R</a>
         </li>
         <li>
-          <a href="./7c_Assessment.html">7c. Assessment</a>
+          <a href="./Assessment_Visualization.html">Assessment: Visualization</a>
         </li>
       </ul>
     </li>
@@ -550,22 +559,10 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Assessment_Course_Tools_Introduction.html">Course and Tools Introduction</a>
-    </li>
-    <li>
-      <a href="./Assessment_Data_Analysis.html">Data Analysis Introduction</a>
-    </li>
-    <li>
-      <a href="./Assessment_Coding.html">R Coding</a>
-    </li>
-    <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
     </li>
     <li>
       <a href="./Exercise_Tidyverse.html">Tidyverse</a>
-    </li>
-    <li>
-      <a href="./Exercise_Visualization.html">Visualization</a>
     </li>
     <li>
       <a href="./Exercise_Tidy_Tuesday_1.html">TidyTuesday 1</a>
@@ -637,7 +634,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Visualization assessment</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-09 21:28:39</h4>
 
 </div>
 
@@ -653,6 +650,26 @@ div.tocify {
 <h2>Exercise</h2>
 <p>For this module, do the exercise called <em>Visualization</em>. In this exercise, you will be asked to reproduce as closely as possible a “professional” graph.</p>
 </div>
+</div>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>For this exercise, you are asked to recreate a “professional-looking” graph that you find online.</p>
+<p>For some motivating examples, take a look at <a href="https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/">this recent blog post by Rafael Irizarry</a> (the author of the IDS book we’ve been using). He shows how one can use R and ggplot to reproduce figures that look very similar to “professional” ones. You’ll see that it usually doesn’t require that many lines of code to get an outstanding looking figure!</p>
+</div>
+<div id="detailed-instructions" class="section level1">
+<h1>Detailed Instructions</h1>
+<ul>
+<li><p>Create a new, public Github repository inside the class organization and call it <code>YOURNAME-visualization</code>. The repository should be viewable as webpage later, so you need to turn on Github pages. See the directions from the <code>Introducing ourselves</code> project if you forgot how to do that.</p></li>
+<li><p>Find some graph from the news website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. (I chose that site since they are known for regularly producing high-quality graphs). Good starting points might be these collections of best and weirdest graphs from <a href="https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/">2015</a>, <a href="https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/">2016</a>, <a href="https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/">2018</a>. <a href="https://fivethirtyeight.com/tag/in-one-chart/">This site</a> or <a href="">this one</a> might be other options. But you don’t need to restrict yourself to those. Any graph from their site is fine.</p></li>
+<li><p>If you absolutely can’t find a graph on FiveThirtyEight that you like and would like to reproduce, you are also allowed to check out other “high quality” news outlets (NY Times, Wall Street Journal, The Guardian, etc.). The original graph must be freely available online, so not behind a paywall.</p></li>
+<li><p>Once you got a graph you’d like to reproduce, either extract (read off) the data right from the graph or find the original data source (some FiveThirtyEight data might be found <a href="https://data.fivethirtyeight.com/">here</a>). If neither is an option, move on to the next graph.</p></li>
+<li><p>Once you have the data and the original graph, use R code to try and get as close as possible to the original graph. You will likely use ggplot2 &amp; friends, but if you want to use base R, lattice or another plotting approach that’s ok too, as long as everything happens with R code.</p></li>
+<li><p>The goal is to put in some effort to get close, but don’t spend an insane amount of time trying to make a perfect copy. 1-2 hours of writing code is plenty, after that time you should have something that looks at least somewhat similar to the original - which is good enough for this exercise.</p></li>
+<li><p>Your final product should be an Rmd file that shows the original plot (and links to its source), shows the code for your graph, and your graph. Essentially like one of the examples in Rafa’s post above. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you might provide some additional text describing things you tried that didn’t work, or include links to sources from which you adapted your code, etc.</p></li>
+<li><p>Once done, knit your Rmd file into an html file. By/before the deadline, post your project to your github repository. Your file should display as a website, exactly like we did for the <em>Introducing ourselves</em> project.</p></li>
+<li><p>Post the link to your project (both the html/website and the Rmd file) in the Visualization discussion board. If you are active on social media, you can post an announcement of your project there.</p></li>
+<li><p>For any help requests, post your questions to the discussion board for this project.</p></li>
+</ul>
 </div>
 
 

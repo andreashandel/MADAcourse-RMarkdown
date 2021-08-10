@@ -39,9 +39,7 @@ The course is currently scheduled to be offered in fall 2021. While the course i
 
 The __General Information__ section provides a class __Syllabus__ and a __Schedule__. The latter will likely be updated throughout the course, so check it regularly. The __Communication__ page provides information on how course communications are planned to happen.
 
-The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them based on the instructions in the __Schedule.__
-
-The __Assessments__ section contains the assessments that go with each Module.
+The majority of the content is listed under the __Modules__ heading. Each module has several units in a drop-down/pop-out menu. Go through them based on the instructions in the __Schedule.__ Each module ends with a document listing the assessments that go with the module.
 
 The __Project__ section provides instructions and detailed information for the semester-long data analysis project which is part of the course. 
 
@@ -52,8 +50,7 @@ Note that by default, all links open in the current tab. You'll likely want exte
 
 # Getting started
 
-I suggest you start by looking over the __Syllabus__ and __Schedule__ documents, then __Communication__ and __Resources__. After that, start with the __Module 1__ content in the given order. You can read through the _Project_ section early or wait until you have gone through at least modules 1 and 2.
-
+Start by looking over the documents in the __General Information__ section, then the __Resources__ section. After that, start with the first __Module__ content in the given order. You can read through the __Project__ section early or wait until you have gone through the first few modules.
 
 
 ## Acknowledgements

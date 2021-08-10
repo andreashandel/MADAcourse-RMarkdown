@@ -45,6 +45,8 @@ navbar:
               href: ./Tools_Reproducibility.html
             - text: "Reference Management"
               href: ./Tools_Reference_Management.html
+            - text: "Assessment: Course and Tools Introduction"
+              href: ./Assessment_Course_Tools_Introduction.html
         - text: "Data Analysis Introduction"
           menu:
             - text: "Motivating Examples"
@@ -53,10 +55,14 @@ navbar:
               href: ./Data_Analysis_Overview.html     
             - text: "Data Analysis Structure"
               href: ./Data_Analysis_Structure.html     
-        - text: "R basics"
+            - text: "Assessment: Data Analysis Introduction"
+              href: ./Assessment_Data_Analysis.html
+        - text: "R Coding Basics"
           menu:
-          - text: "R basics"
-            href: ./RBasics.html     
+            - text: "R basics"
+              href: ./RBasics.html     
+            - text: "Assessment: R Coding Basics"
+              href: ./Assessment_Coding.html
         - text: "Pondering and getting data"
           menu:
             - text: "5a. Data Types"
@@ -71,14 +77,14 @@ navbar:
               href: ./6a_Data_Wrangling_Tidyverse.html     
             - text: "6b. Assessment"
               href: ./6b_Assessment.html
-        - text: "7. Visualization"
+        - text: "Visualization"
           menu:
-            - text: "7a. Visualization Overview"
-              href: ./7a_Visualization_Overview.html     
-            - text: "7b. Visualization in R"
-              href: ./7b_Visualization_in_R.html     
-            - text: "7c. Assessment"
-              href: ./7c_Assessment.html
+            - text: "Visualization Overview"
+              href: ./Visualization_Overview.html     
+            - text: "Visualization in R"
+              href: ./Visualization_in_R.html     
+            - text: "Assessment: Visualization"
+              href: ./Assessment_Visualization.html
         - text: "8. Pre-processing Data"
           menu:
             - text: "8a. Pre-processing data"
@@ -147,18 +153,10 @@ navbar:
               href: ./16b_Assessment.html
     - text: "Assessments"
       menu:
-         - text: "Course and Tools Introduction"
-           href: ./Assessment_Course_Tools_Introduction.html
-         - text: "Data Analysis Introduction"
-           href: ./Assessment_Data_Analysis.html
-         - text: "R Coding"
-           href: ./Assessment_Coding.html
          - text: "Github Issues"
            href: ./Exercise_Github_Issues.html
          - text: "Tidyverse"
            href: ./Exercise_Tidyverse.html
-         - text: "Visualization"
-           href: ./Exercise_Visualization.html
          - text: "TidyTuesday 1"
            href: ./Exercise_Tidy_Tuesday_1.html
          - text: "Data Analysis"
