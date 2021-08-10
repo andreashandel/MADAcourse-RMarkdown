@@ -47,7 +47,7 @@ I prefer that you use Slack instead of email to ask questions. The reason is tha
 
 ## Zoom
 
-I will offer weekly synchronous meetings through Zoom. Those are **completely optional.** Once a week I will start a Zoom meeting. Whoever wants to join can do so, and we will use the meeting for discussions, answering questions, and whatever else you want to talk about. Think of those meetings a bit like virtual office hours or virtual in-class discussions. To ensure everyone will be able to join at least occasionally, I plan to alternate between two times each week. 
+I will offer weekly synchronous meetings through Zoom. Those are **completely optional.**  Whoever wants to join can do so, and we will use the meeting for discussions, answering questions, and whatever else you want to talk about. Think of those meetings a bit like virtual office hours or virtual in-class discussions. To ensure everyone will be able to join at least occasionally, I plan to alternate between two times each week. 
 
 Tentative dates for Zoom meetings are listed in the _Schedule_ document. Those are subject to change. If we need to move things around, I'll let you know on Slack and also update the _Schedule_ document. At the designated times, I will start the meeting. I'll wait around for 15 minutes. If nobody connects, I'll end the meeting. If people connect, we'll talk until we covered everything, or until I or you need to move on to our next appointments. The information for the Zoom meeting login will be provided on Slack.
 
@@ -58,7 +58,7 @@ And of course, if you have something you want to discuss outside of those schedu
 
 ## GitHub
 
-We will also use Github for some specific communications, related to exercises and projects. More detailed instructions on that will be provided.
+We will also use Github for some specific communications, related to exercises and projects. More detailed instructions on that are provided at the time you are asked to use GitHub.
 
 
 

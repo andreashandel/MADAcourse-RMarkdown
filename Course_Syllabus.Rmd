@@ -72,6 +72,15 @@ _Develop skills to critically assess your own and others' analyses and conclusio
 
 
 
+## Prerequisites
+
+This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are needed. Knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are assumed. Some R coding skills (e.g., as obtained in our EPID 7500 class), are helpful. 
+
+If you do not have any coding or statistics knowledge, you can still take the class, but you need to be prepared to spend extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the _little to none_ category, expect to spend extra time getting up to speed. I believe it's doable and worth the effort, but you need to be prepared for it. For instance, we'll spend one module on _R Basics_. For those with R knowledge, it might be a 2 hour refresher, for those with none that week might be a 20+ hour commitment. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.
+
+_Formal requirement for the course is BIOS 7010. Knowledge of material from BIOS 7010 is assumed. If your lack of pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll._
+
+
 
 ## Grading
 
@@ -89,15 +98,6 @@ More detailed descriptions of the different assessments is provided on the [Asse
 ## Class Attendance, Make-up Policy
 
 This class is online. You are expected to submit all assignments by their due dates. Excused misses of due dates are only provided by prior agreement with the instructor or for special reasons (medical, etc.).
-
-
-## Prerequisites
-
-This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are needed. Knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are assumed. Some R coding skills (e.g., as obtained in our EPID 7500 class), are helpful. 
-
-If you do not have any coding or statistics knowledge, you can still take the class, but you need to be prepared to spend extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the _little to none_ category, expect to spend extra time getting up to speed. I believe it's doable and worth the effort, but you need to be prepared for it. For instance, we'll spend one module on _R Basics_. For those with R knowledge, it might be a 2 hour refresher, for those with none that week might be a 20+ hour commitment. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.
-
-_Formal requirement for the course is BIOS 7010. Knowledge of material from BIOS 7010 is assumed. If your lack of pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll._
 
 
 ## Getting Help

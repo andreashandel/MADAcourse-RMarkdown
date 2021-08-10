@@ -11,24 +11,24 @@ output:
 ---
 
 # Overview
-This document gives a brief discussion of working with R projects through GitHub. Several approaches are described, they should be equivalent in most instances.
+This document gives a brief discussion of working with R projects through GitHub. There is more than one way to do this, they should be equivalent in most instances.
 
 # Learning Objectives
 * Know how to get your R projects synced through GitHub.
 
 
 # Prerequisites
-I assume you read through the [Git/GitHub introduction]().
+I assume you read through the [Git/GitHub introduction](./Tools_Github_Introduction.html) and have created a GitHub account.
 
 I also assume that you are using the GitKraken client. If you don't, you need to adjust things accordingly.
 
 
 # Approach 1 - start on GitHub
 
-## GitHub
-For this approach, you start by creating your repository on Github. If you are doing this as part of a class or organization, create your repository inside the organization. Otherwise, create it under your own name/account. (As an example, my Github user name is `andreashandel` and the name of my research group/organization is `ahgroup`. Depending on if I want a repository under my name or under the research group/organization, I'll go to `https://github.com/andreashandel` or `https://github.com/ahgroup/`).
+### GitHub
+For this approach, you start by creating your repository on GitHub. The most common place to create a repository is under your own user name/account. Note that it is also possible to create repositories inside an organization (if you are part of an organization). As an example, my Github user name is `andreashandel` and the name of my research group/organization is `ahgroup`. Depending on if I want a repository under my name or under the research group/organization, I'll go to `https://github.com/andreashandel` or `https://github.com/ahgroup/`).
 
-Once you are in the location/account  where you want the new repository, and see your list of repositories (which might initially be empty), create a new repository  by (clicking the green _New_ button). A page should show up where you can specify details for your new repository, something like this:
+Once you are in the location/account where you want the new repository, click on `Repositories` to see your list of repositories (which might initially be empty). Now create a new repository  by clicking the green _New_ button. A page should show up where you can specify details for your new repository, something like this:
 
 ```{r ,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/newrepo.png")
@@ -37,13 +37,15 @@ knitr::include_graphics("./media/newrepo.png")
 
 Specify the repository owner. Make sure it's the one you want, e.g., yourself or an organization you are part of. Pick a good name for your repository. Set the repository as private or public. In general, you should consider doing it public, unless there is an important reason to have it private (e.g. confidential data). Note that if you set it to private, you might not be able to access it with the free version of GitKraken. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`. You can keep the license box unchecked, or choose a license for your page. Click "create repository".  
 
-Open Gitkraken, under `File` choose `Clone Repo` go to `Github.com`, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called `mynewrepo`, and you place it on your desktop under windows, you might choose `C:\Users\yourname\Desktop` as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it.
+
+### GitKraken
+Open Gitkraken, under `File` choose `Clone Repo` go to `Github.com`, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called `mynewrepo`, and you place it on your desktop under windows, you might choose `C:\Users\yourname\Desktop` as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it (e.g. place all your repositories for this course into a folder called `MADA`, such as  `C:\Data\GitHub\MADA\`.)
 
 **Remember to not place your repository in a location that is synced by other software such as DropBox or Onedrive. Also do not place GitHub repositories inside other GitHub repositories.**
 
 
 
-## RStudio
+### RStudio
 
 Open RStudio on your computer. Choose `File`, `New Project`, `Existing Directory` and find the directory/folder you just created on Github and copied to your local computer (e.g. `C:\Users\yourname\Desktop\mynewrepo`). If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with `.Rproj` ending and a `README.md`. 
 
@@ -51,16 +53,15 @@ Click to open the `README.md` file. It will only contain the name of your reposi
 
 In the future, if you want to edit your project, click or double-click on the `.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an `.Rproj` file is not strictly required I recommend you do it that way.
 
-Now create your content, place any files you create inside your project directory or its subfolders. 
+Now create your content, place any files you create inside your project directory or its sub-folders. 
 
 
 
-
-## Syncing
+### Syncing
 
 Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.
 
-If you use GitKraken, in the top right you should see  a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _main_ (sometimes also labeled _master_) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
+If you use GitKraken, in the top right you should see a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _main_ (sometimes also labeled _master_) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
 
 If your code cannot sync you will likely receive an option from GitKraken to perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **overwritten** by the force push since they are not on your local repo. Thus, use with care.
 

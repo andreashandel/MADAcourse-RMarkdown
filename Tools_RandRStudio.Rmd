@@ -34,10 +34,10 @@ While we use R in this course, it is not the only option to analyze data. Maybe 
 
   
 # Installing R and RStudio 
-* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 3.5 or newer. If yours is older, I suggest you update (install a new R version).
-* Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Again, make sure it's a recent version, it should be of the 1.2.X series.
+* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 4.0 or newer. If yours is older, I suggest you update (install a new R version).
+* Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Again, make sure it's a recent version, it should be of the 1.4.X series.
 
-Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through chapter 1 of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help in the _R/Coding_ discussion board.
+Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through this chapter of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help on the discussion boards.
 
 I personally only have experience with Windows, but everything should work on all the standard operating systems (Windows, Mac, and even Linux).
 
@@ -61,10 +61,13 @@ Try installing a package yourself. Open RStudio. Then go to the R prompt (the `>
 install.packages('DSAIDE')
 ```
 
-__Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer. It will likely show up in the quiz.__ 
-*It is unlikely, but it could be that you already have all packages required by DSAIDE installed. In that case, you won't see any other packages installed. To see which of the packages above DSAIDE needs (and thus installs if it is not present), type `tools::package_dependencies("DSAIDE")` into the R console.*
+This installs a package that gives you access to various infectious disease simulation models. We won't do anything with that package in this course, we just install it for practice. If you want to learn more about DSAIDE, [take a look at the package website](https://ahgroup.github.io/DSAIDE/).
 
-In RStudio, you can also install (and update/remove) packages by clicking on the 'Packages' tab in the bottom right window. 
+If this is the first time you are installing packages, you'll see that a lot of other packages are installed, too. You might get a message about _Installing from source packages that need compilation_. I generally recommend to say _No_ to this, though usually both approaches work.
+
+To see which packages are needed by a specific package, e.g. `DSAIDE`, and thus are being installed if not present, type `tools::package_dependencies("DSAIDE")` into the R console. Of course it can be that those packages depend on other packages, so you end up installing even more. At some point, you'll have the most common packages all installed and installing new packages will lead to less overall installing. The package install process generally works well.
+
+In RStudio, you can also install (and update/remove) packages by clicking on the `Packages` tab in the bottom right window. 
 
 It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it's good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the `remotes` package and then use the `install_github` function. We won't do that now, but it's quite likely that at one point later in this course we will.
 
@@ -81,18 +84,16 @@ You should see a short message on the screen. Some packages show messages when y
 dsaidemenu()
 ```
 
-A menu should open in your browser, from which you can explore different models/apps.
-
-__Question: In the main menu of the DSAIDE package, what's the title of the second group of apps?__ 
-
-Once you are done with DSAIDE, close it.
+A menu should open in your browser, from which you can explore different models/apps. Once you are done with DSAIDE, close it.
 
 This was a quick overview of R packages. We'll use a lot of them, so you'll get used to them rather quickly. 
 
-Next, [go through chapter 2 of IDS](https://rafalab.github.io/dsbook/getting-started.html) for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience. (Hint: I will ask about this chapter on the quiz).
+If you are new to R and RStudio and want to learn a bit more, I suggest you skim through [this chapter of IDS](https://rafalab.github.io/dsbook/getting-started.html).
+
 
 
 # Learning R Studio
+
 While one can use R and do pretty much every task, including all the ones we cover in this class, without using RStudio, RStudio is very useful, has lots of features that make your R coding life easier and has become pretty much the default integrated development environment (IDE) for R. Since RStudio has lots of features, it takes time to learn them. A good resource to learn more about RStudio are the [R Studio Essentials](https://resources.rstudio.com/) collection of videos. 
 
 
