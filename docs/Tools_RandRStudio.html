@@ -542,7 +542,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R and RStudio</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-10 14:50:40</h4>
 
 </div>
 
@@ -576,10 +576,10 @@ div.tocify {
 <div id="installing-r-and-rstudio" class="section level1">
 <h1>Installing R and RStudio</h1>
 <ul>
-<li>If you haven’t already, <a href="https://www.r-project.org/">install R first</a>. You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 3.5 or newer. If yours is older, I suggest you update (install a new R version).</li>
-<li>Once you have R installed, install the free version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a>. Again, make sure it’s a recent version, it should be of the 1.2.X series.</li>
+<li>If you haven’t already, <a href="https://www.r-project.org/">install R first</a>. You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 4.0 or newer. If yours is older, I suggest you update (install a new R version).</li>
+<li>Once you have R installed, install the free version of <a href="https://www.rstudio.com/products/rstudio/download/">RStudio Desktop</a>. Again, make sure it’s a recent version, it should be of the 1.4.X series.</li>
 </ul>
-<p>Installing R and RStudio should be fairly straightforward. If you want detailed instructions <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">go through chapter 1 of IDS</a>. If things don’t work, ask for help in the <em>R/Coding</em> discussion board.</p>
+<p>Installing R and RStudio should be fairly straightforward. If you want detailed instructions <a href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">go through this chapter of IDS</a>. If things don’t work, ask for help on the discussion boards.</p>
 <p>I personally only have experience with Windows, but everything should work on all the standard operating systems (Windows, Mac, and even Linux).</p>
 </div>
 <div id="installing-and-loading-r-packages" class="section level1">
@@ -595,18 +595,18 @@ Installing an R package. Right-click on the image to enlarge it.
 </div>
 <p>Try installing a package yourself. Open RStudio. Then go to the R prompt (the <code>&gt;</code> symbol) in the lower-left corner and type</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;DSAIDE&#39;</span>)</span></code></pre></div>
-<p><strong>Question: As you installed the DSAIDE package, which of these packages was also installed: GillespieSSA, adaptivetau, gpDDE, irace? Record the answer. It will likely show up in the quiz.</strong> <em>It is unlikely, but it could be that you already have all packages required by DSAIDE installed. In that case, you won’t see any other packages installed. To see which of the packages above DSAIDE needs (and thus installs if it is not present), type <code>tools::package_dependencies("DSAIDE")</code> into the R console.</em></p>
-<p>In RStudio, you can also install (and update/remove) packages by clicking on the ‘Packages’ tab in the bottom right window.</p>
+<p>This installs a package that gives you access to various infectious disease simulation models. We won’t do anything with that package in this course, we just install it for practice. If you want to learn more about DSAIDE, <a href="https://ahgroup.github.io/DSAIDE/">take a look at the package website</a>.</p>
+<p>If this is the first time you are installing packages, you’ll see that a lot of other packages are installed, too. You might get a message about <em>Installing from source packages that need compilation</em>. I generally recommend to say <em>No</em> to this, though usually both approaches work.</p>
+<p>To see which packages are needed by a specific package, e.g. <code>DSAIDE</code>, and thus are being installed if not present, type <code>tools::package_dependencies("DSAIDE")</code> into the R console. Of course it can be that those packages depend on other packages, so you end up installing even more. At some point, you’ll have the most common packages all installed and installing new packages will lead to less overall installing. The package install process generally works well.</p>
+<p>In RStudio, you can also install (and update/remove) packages by clicking on the <code>Packages</code> tab in the bottom right window.</p>
 <p>It is very common these days for packages to be developed on GitHub. It is possible to install packages from Github directly. Those usually contain the latest version of the package, with features that might not be available yet on the CRAN website. Sometimes, in early development stages, a package is only on Github until the developer(s) feel it’s good enough for CRAN submission. So installing from Github gives you the latest. The downside is that packages under development can often be buggy and not working right. To install packages from Github, you need to install the <code>remotes</code> package and then use the <code>install_github</code> function. We won’t do that now, but it’s quite likely that at one point later in this course we will.</p>
 <p>You only need to install a package once, unless you upgrade/re-install R. Once installed, you still need to load the package before you can use it. That has to happen every time you start a new R session. You do that using the <code>library()</code> command (an alternative is <code>require()</code> but I recommend <code>library()</code>). For instance to load the <code>DSAIDE</code> package, type</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;DSAIDE&#39;</span>)</span></code></pre></div>
 <p>You should see a short message on the screen. Some packages show messages when you load them, and others don’t. In this case, the package tells you that you can start using it by typing <code>dsaidemenu()</code> into the R console. DSAIDE is a package I wrote that allows you to explore infectious disease models. We won’t use it in this class. I’m just using it as an example here since you can use the package without having to write code. Try it briefly, by typing the code below into the R console</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dsaidemenu</span>()</span></code></pre></div>
-<p>A menu should open in your browser, from which you can explore different models/apps.</p>
-<p><strong>Question: In the main menu of the DSAIDE package, what’s the title of the second group of apps?</strong></p>
-<p>Once you are done with DSAIDE, close it.</p>
+<p>A menu should open in your browser, from which you can explore different models/apps. Once you are done with DSAIDE, close it.</p>
 <p>This was a quick overview of R packages. We’ll use a lot of them, so you’ll get used to them rather quickly.</p>
-<p>Next, <a href="https://rafalab.github.io/dsbook/getting-started.html">go through chapter 2 of IDS</a> for some further information on setting up and getting started with R, RStudio, and R packages. This chapter gives some tips and ideas that might be of interest even to those of you who already have R/RStudio experience. (Hint: I will ask about this chapter on the quiz).</p>
+<p>If you are new to R and RStudio and want to learn a bit more, I suggest you skim through <a href="https://rafalab.github.io/dsbook/getting-started.html">this chapter of IDS</a>.</p>
 </div>
 <div id="learning-r-studio" class="section level1">
 <h1>Learning R Studio</h1>

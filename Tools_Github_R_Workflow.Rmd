@@ -61,16 +61,14 @@ Now create your content, place any files you create inside your project director
 
 Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.
 
-If you use GitKraken, in the top right you should see a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _main_ (sometimes also labeled _master_) with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
+If you use GitKraken, in the top right you should see a notification about changed files. Click _view changes_, then __Stage all Changes__. Write a commit message, the __Commit__ the changes. In the main area of GitKraken, you should see that the repository -- usually _main_ or _master_, unless you work on a branch -- shows the computer icon above the one with some random logo (or your picture). That means your local repository is ahead of the one on GitHub.com. To get them in sync, you click the __Push__ button. If things work, the two symbols should now be in the same line.
 
 If your code cannot sync you will likely receive an option from GitKraken to perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **overwritten** by the force push since they are not on your local repo. Thus, use with care.
 
 Now that everything is established, the workflow is simple, you just need to remember to go through all the steps.
 
-1. Before working on a repo/project, check GitKraken to make sure the local and remote are in sync. If not, then push or pull to get them to the same state.
+1. Before working on a repo/project, open GitKraken to make sure the local and remote are in sync. If the remote is ahead (e.g. because someone else worked on it, or you did on a different computer), do a __Pull__. If the local one is ahead, you don't need to push (but you should have right after you finished your last local session).
 2. Open your project in RStudio (assuming it is an RStudio project). Make any changes you want to make. Once done for the day, go back to GitKraken and stage, then commit your changes, then push. 
-
-
 
 
 
@@ -78,17 +76,17 @@ Now that everything is established, the workflow is simple, you just need to rem
 
 Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse.
 
-## RStudio
+### RStudio
 Open RStudio. Choose `File`, `New Project`, `New Directory` and (usually) you'll choose `New Project`. Pick a project name and location. Check the `Create a git repository` box. 
 
 ```{r ,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/newproject.png")
 ```
 
-Create content in the project folder.
+Create your content in the project folder.
 
 
-## GitKraken
+### GitKraken
 
 Once you finished working on your project for now, open GitKraken. Go to `File -> Init Repo` and choose the folder where your project is in. You'll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the `Push` button.
 
@@ -97,10 +95,12 @@ At this point, if you didn't properly connect GitKraken and GitHub previously, y
 You'll see a message about no remote existing and if you want to add one. Say `yes`. A menu on the left should show up. Make sure the repository name is the same as your local repository/folder name. Then click the green button. If things worked, your local repository has been created on GitHub.com.
 
 
-## Syncing
+### Syncing
 
-Once Github.com and your local repository are connected, the syncing process is exactly as described under _Approach 1_.
+Once your repository exists both locally and on Github.com, the syncing process is exactly as described under _Approach 1_.
 
 
 
-# Further Resources and help
+# Merge conflicts
+
+
