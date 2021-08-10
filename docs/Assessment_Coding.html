@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Visualization in R</title>
+<title>Coding Introduction Assessments</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -340,7 +340,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -360,8 +360,19 @@ div.tocify {
         <li>
           <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Topic.html">Topic Introduction</a>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
         </li>
       </ul>
     </li>
@@ -371,27 +382,10 @@ div.tocify {
         <li>
           <a href="./RBasics.html">R basics</a>
         </li>
-        <li>
-          <a href="./3b_Assessment.html">3b. Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">4c. Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pondering and getting data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./5a_Data_Types.html">5a. Data Types</a>
@@ -556,10 +550,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Introduction.html">Course and Tools Introduction</a>
     </li>
     <li>
-      <a href="./Assessment_Rcoding.html">R Coding</a>
+      <a href="./Assessment_Data_Analysis.html">Data Analysis Introduction</a>
+    </li>
+    <li>
+      <a href="./Assessment_Coding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -638,40 +635,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Visualization in R</h1>
+<h1 class="title toc-ignore">Coding Introduction Assessments</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-03-25 08:29:29</h4>
 
 </div>
 
 
-<div id="visualization-and-graphics-in-r" class="section level1">
-<h1>Visualization and graphics in R</h1>
-<p>Visualization and graphics is a strength of R. There are currently three main - and unfortunately not compatible - ways of doing graphs in R.</p>
-<p>The first approach is the use the base R commands, with the <code>plot</code> function as the main workhorse, and related functions for more specialized plots (e.g. <code>boxplot</code>). You can make a lot of very good graphs using base R, but it often takes many lines of code and a good bit of fiddling.</p>
-<p>The second approach is using the <a href="http://lattice.r-forge.r-project.org/"><code>lattice</code> package</a>, and extensions that build on this package. <code>lattice</code> seems to have largely “lost” against option number 3 and I don’t see it used much anymore these days.</p>
-<p>The third, and currently most popular approach is to make graphs using the <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code> package</a> and <a href="http://www.ggplot2-exts.org/gallery/">various extensions to it</a>. This has by now become more or less the standard for good graphics in R. Note that while the package is called ggplot2, people interchangeably refer to it as ggplot or ggplot2.</p>
-<p>My recommendation for learning to make plots in R is to learn ggplot mainly. For almost any graph you want for a publication, ggplot is best, it - and many add-on packages to it - produce very good quality graphs with not too much code writing required. While you could use ggplot2 exclusively for any figures you make, it is also useful to know a little bit about how to make plots using base R, since they are often very good for quick and dirty plots, especially during the data exploration stage.</p>
+<div id="module-assessments" class="section level1">
+<h1>Module Assessments</h1>
+<p>Make sure you’ve gone through all the content for this module.</p>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p>Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
 </div>
-<div id="practicing-ggplot2" class="section level1">
-<h1>Practicing ggplot2</h1>
-<p>If you are new to ggplot2, a good and gentle introduction is the <a href="https://rstudio.cloud/learn/primers/3"><em>Visualize Data</em> RStudio primer</a>. Similar material, though a little bit more advanced, is covered in a non-interactive form in <a href="http://r4ds.had.co.nz/">chapters 3 and 7 and 28 of R4DS</a>. I won’t check/quiz you on those two sources, but they are worth going through if you haven’t used ggplot (much).</p>
-<p>I do want you to work through the <a href="https://rafalab.github.io/dsbook/">Data visualization section of IDS (chapters 7-11, skim 12)</a>. Optionally, also do some of the exercises. <strong>I’ll ask questions about that reading on the quiz.</strong></p>
+<div id="exercise" class="section level2">
+<h2>Exercise</h2>
+<p>For this module, you are asked to do a coding project. Instructions are provided in the <a href="./Exercise_Coding.html">R Coding</a> document in the <em>Exercises</em> section.</p>
 </div>
-<div id="further-r-graphics-resources" class="section level1">
-<h1>Further R graphics resources</h1>
-<p>There are lots of resources online to learn ggplot. The best approach - at least the one I use most - is to google “how do I do X in ggplot”, and something comes up pretty much always. Another good source is the <a href="https://r-graphics.org/">R graphics cookbook</a>, which is meant to give you quick recipes for common questions and plots. <a href="http://www.sthda.com/english/wiki/ggplot2-essentials">This website</a> also has some great information describing how to do specific plots and specific tasks in ggplot2 (and many other R and data analysis related topics).</p>
-<p>ggplot is based on what is called “grammar of graphics”. Learning a bit more about those ideas behind ggplot and what is possible with it is a good idea. Hadley wrote a book on ggplot2, and there is <a href="https://www.springer.com/gp/book/9780387981413">a print edition</a> which you can get for free through many universities (including UGA) that have SpringerLink access. Hadley is also working on a new edition of the book, that draft of the new book <a href="https://ggplot2-book.org/">is freely available online</a>.</p>
-<p>The book <a href="https://socviz.co/">Data Visualization - A practical introduction</a> is another great source. The book provides a general introduction to making good graphs, and the R code for the figures is shown.</p>
-<p>For inspiration and ideas, there is also the <a href="https://www.r-graph-gallery.com/">R graphics gallery</a> where you can see all kinds of plots made in R, and you can also see the code. They are nicely organized into categories. It’s definitely worth browsing around.</p>
-<p>An interesting R package that is worth checking out is <a href="https://dreamrs.github.io/esquisse/">esquisse</a>. This package allows you to load a data frame and interactively make a ggplot. It can’t do a lot of different plots, but it is a good start. The great feature is that at the end you can download the code for your plot, so you see how it works and you can use that code and further edit to include features that are beyond what the package allows you to do.</p>
-</div>
-<div id="beyond-static-graphs" class="section level1">
-<h1>Beyond static graphs</h1>
-<p>While you will likely always need regular figures for papers, reports, presentation slides, etc., it is becoming increasingly common to have interactive and dynamic visualizations. R has pretty good facilities for that, some in rapid development. The <a href="https://ggvis.rstudio.com/"><code>ggvis</code> package</a> is meant to be similar to <code>ggplot2</code> but allow for interactive and dynamic visualizations. The <a href="https://plot.ly/r/"><code>plotly</code> package</a> also works well with R and allows interactive graphs.</p>
-<p>For even richer, interactive graphical visualizations, you can use the <a href="https://shiny.rstudio.com/"><code>shiny</code> package</a> and extensions to it. The <a href="https://shiny.rstudio.com/gallery/">shiny gallery</a> has examples of apps. The R packages I wrote and which you briefly played with early in the course, <a href="https://ahgroup.github.io/DSAIDE/">DSAIDE</a> and <a href="https://ahgroup.github.io/DSAIRM/">DSAIRM</a> are also both using Shiny for the interactive graphical interface.</p>
-<p>Often, getting professional-looking interactive figures, dashboards, and other widgets in R is not that difficult. However, since those are all specialized products, they usually require commands and concepts that are somewhat different from basic or tidyverse R, which generally takes some time to learn.</p>
-<p>Interactive graphs and apps are beyond what we’ll cover in this class, but it is something that might be worth learning, and you are certainly welcome to make use of some of these packages and tools for your class project 😃.</p>
 </div>
 
 

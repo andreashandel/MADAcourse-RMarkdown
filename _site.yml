@@ -31,7 +31,7 @@ navbar:
           href: ./Course_Communication.html
     - text: "Modules"
       menu:
-        - text: "Course, Tools and Topic Introduction"
+        - text: "Course and Tools Introduction"
           menu:
             - text: "Course Introduction"
               href: ./Introduction_Course.html
@@ -45,23 +45,19 @@ navbar:
               href: ./Tools_Reproducibility.html
             - text: "Reference Management"
               href: ./Tools_Reference_Management.html
-            - text: "Topic Introduction"
-              href: ./Introduction_Topic.html
+        - text: "Data Analysis Introduction"
+          menu:
+            - text: "Motivating Examples"
+              href: ./Data_Analysis_Motivation.html
+            - text: "Data Analysis Overview"
+              href: ./Data_Analysis_Overview.html     
+            - text: "Data Analysis Structure"
+              href: ./Data_Analysis_Structure.html     
         - text: "R basics"
           menu:
           - text: "R basics"
             href: ./RBasics.html     
-          - text: "3b. Assessment"
-            href: ./3b_Assessment.html
-        - text: "4. Data analysis overview"
-          menu:
-            - text: "4a. Data analysis overview"
-              href: ./4a_Data_Analysis_Overview.html     
-            - text: "4b. Data analysis structure"
-              href: ./4b_Data_Analysis_Structure.html     
-            - text: "4c. Assessment"
-              href: ./4c_Assessment.html
-        - text: "5. Pondering and getting data"
+        - text: "Pondering and getting data"
           menu:
             - text: "5a. Data Types"
               href: ./5a_Data_Types.html     
@@ -151,10 +147,12 @@ navbar:
               href: ./16b_Assessment.html
     - text: "Assessments"
       menu:
-         - text: "Introducing ourselves"
-           href: ./Assessment_Course_Tools_Topic_Introduction.html
+         - text: "Course and Tools Introduction"
+           href: ./Assessment_Course_Tools_Introduction.html
+         - text: "Data Analysis Introduction"
+           href: ./Assessment_Data_Analysis.html
          - text: "R Coding"
-           href: ./Assessment_Rcoding.html
+           href: ./Assessment_Coding.html
          - text: "Github Issues"
            href: ./Exercise_Github_Issues.html
          - text: "Tidyverse"

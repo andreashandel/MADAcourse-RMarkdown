@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Assessment - Course, Tools and Topic Introduction</title>
+<title>Data Analysis Structure Assessment</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -340,7 +340,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -360,8 +360,19 @@ div.tocify {
         <li>
           <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Topic.html">Topic Introduction</a>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
         </li>
       </ul>
     </li>
@@ -371,27 +382,10 @@ div.tocify {
         <li>
           <a href="./RBasics.html">R basics</a>
         </li>
-        <li>
-          <a href="./3b_Assessment.html">3b. Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">4c. Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pondering and getting data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./5a_Data_Types.html">5a. Data Types</a>
@@ -556,10 +550,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Introduction.html">Course and Tools Introduction</a>
     </li>
     <li>
-      <a href="./Assessment_Rcoding.html">R Coding</a>
+      <a href="./Assessment_Data_Analysis.html">Data Analysis Introduction</a>
+    </li>
+    <li>
+      <a href="./Assessment_Coding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -638,108 +635,24 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Course, Tools and Topic Introduction</h1>
+<h1 class="title toc-ignore">Data Analysis Structure Assessment</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-09 17:20:33</h4>
+<h4 class="date">2021-03-25 08:29:29</h4>
 
 </div>
 
 
 <div id="module-assessments" class="section level1">
 <h1>Module Assessments</h1>
-<p>Each module comes with an assessment. Those are things you need to do that will be graded.</p>
-<p>In general, expect that each module contains <strong>a Quiz, an Exercise, and a Discussion</strong>. Sometimes there are additional/alternative components, such as submission of project parts.</p>
-<p>The idea is that the quiz covers the basics and ensures you have gone through some of the material. The exercise requires you to apply some of the material. In general, the exercise will be the most time-consuming. Each exercise has a different format. It should always be clear what you need to do. The discussion is meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights.</p>
+<p>Make sure you’ve gone through all the content for this module.</p>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
-<p>Get the quiz sheet from the <em>Course Resources</em> section. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.</p>
 </div>
 <div id="exercise" class="section level2">
 <h2>Exercise</h2>
-<p>For this module, you are asked to do a project for which you’ll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become the portfolio for this class. You’ll write and post a short personal introduction of yourself.</p>
-<p><em>For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It’s partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I’m confident with a bit of trial and error you’ll get it to work.</em></p>
-<p>If you get stuck (quite possible), use the materials I list in the <a href="./Course_Resources.html">Resources document</a>. It is probably best to first post to the discussion board in the <em>Introducing Ourselves</em> section, I’ll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We’ll use all the bits you are learning here repeatedly during this course.</p>
-</div>
-<div id="pre-requisites" class="section level2">
-<h2>Pre-requisites</h2>
-<p>You should have set up with all the tools we need, namely R, RStudio and Github.</p>
-</div>
-</div>
-<div id="github-setup" class="section level1">
-<h1>Github setup</h1>
-<ul>
-<li>Make sure you followed the setup steps described in the <em>Github</em> document, i.e. create a Github account, have a Github client up and running, and have joined the class organization.</li>
-<li>Once you are part of the organization, go to <a href="https://github.com/epid8060fall2019">the website</a> and create a new repository (press the green <em>New</em> button) named <em>YOURNAME-introduction</em>. You can see mine in there, which is called <em>andreashandel-introduction</em>. You can leave the description empty. Set the repository to be public (if you set it to private, you might not be able to access it with the free version of Gitkraken). Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>, and you can leave the license at <em>none</em>. Click “create repository”.<br />
-</li>
-<li>Your new repository should have opened. If not go to <a href="https://github.com/epid8060fall2019">the website</a> for the github class organization and click on it.</li>
-<li>We want set things that your repository can at the same time become a public website. Github allows you to do that with its <a href="https://pages.github.com/"><em>Github Pages</em></a> feature. By default, this is turned off. You can turn it on and then place (at the minimum) an <code>index.html</code> file either into the main repository folder (the master branch) or in a sub-folder called <code>docs</code> inside the master branch. You can add many more html files to build a full website.</li>
-<li>To turn on the <em>Github Pages</em> feature, go to <em>Settings</em> of your repository in the top right. Under the <em>Options</em> tab in settings, scroll down to <em>Github Pages</em>. Set it to <em>master branch</em>. Don’t choose a theme.</li>
-<li><em>Clone</em> the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called <em>epid8060fall2019</em> and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).</li>
-</ul>
-</div>
-<div id="rstudio-project-setup" class="section level1">
-<h1>RStudio project setup</h1>
-<ul>
-<li>Open RStudio on your computer. Choose <em>File</em>, <em>New Project</em>, <em>Existing Directory</em> and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e., the folder/repository called <em>YOURNAME-introduction</em>. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a README.md.</li>
-<li>In the future, if you want to edit your just created project, click or double-click on the <code>YOURNAME-introduction.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</li>
-</ul>
-</div>
-<div id="update-your-repository-readme-file" class="section level1">
-<h1>Update your repository Readme file</h1>
-<ul>
-<li>Click to open the README.md file. It will only contain the name of your repository with a <code>#</code> sign in front. As you have learned or will in this project, the <code>#</code> represents a level 1 heading in Markdown. Change the headline and call it “Introducing myself” (or something like that). Underneath write something like “This website contains a short introduction of <em>Your Name</em>.”</li>
-<li>Go back to this repository on Github.com. Go back into <em>Settings</em>, scroll back down to <em>GitHub Pages</em>. You should see a message saying ‘This repository is published at SOME-URL’. If it doesn’t show, you might have to refresh your browser.</li>
-<li>Copy that URL and add a sentence to your Readme.md file that says <code>You can see the website [here](SOME-URL).</code> The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that someone can click on. You can see how this looks on <a href="https://andreashandel.github.io/andreashandel-introduction/">my introduction site</a>.</li>
-</ul>
-</div>
-<div id="rmarkdown-content-creation" class="section level1">
-<h1>RMarkdown content creation</h1>
-<p><strong>For this part of the task, the book <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> and the <a href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown website</a> will likely be useful.</strong></p>
-<ul>
-<li>Choose <em>File</em>, <em>New File</em>, <em>R Markdown</em>. Give it a title like <em>YOUR NAME Introduction</em>, keep output format as HTML. A new file with some template content should show up.</li>
-<li>Read through the provided example, then knit it by pressing the <code>knit</code> button. You will be asked to first save the file. Save the file as <strong>index.Rmd</strong> into the repository folder. You need to give it this name; otherwise, the Github website display won’t work. Then <code>knit</code> the file, you should see an <code>index.html</code> file show up in the file list (bottom left) and the RStudio viewer will show you the result of the knitted file.</li>
-<li>Once you looked at the result and understood what’s going on, it’s time to write your own. Delete everything apart from the YAML header (the information in the block starting/ending with —).</li>
-<li>Update the YAML header. Specifically, choose a layout theme. To figure out how to do that, check the section titled <em>Appearance and style</em> (3.1.4 as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).</li>
-<li>Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I’d also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.</li>
-<li>Give your text a nice structure with headings, subheadings, etc.</li>
-<li>Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.</li>
-<li>Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
-<li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.</li>
-</ul>
-</div>
-<div id="sending-updates-to-github" class="section level1">
-<h1>Sending updates to Github</h1>
-<ul>
-<li>Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio.</li>
-<li>Go to the program you use for Github (I will assume that it’s GitKraken. If you use something else the details might vary). In the top right of Gitkraken, there should be a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>master</em> with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</li>
-<li>If your code cannot sync you will likely receive an option from GitKraken to perform a <strong>force push</strong>. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be <strong>destroyed</strong> by the force push since they are not on your local repo. For this assignment, you are the only person working on your introduction so it is unlikely you will encounter any issues with force push, but it is good to be aware of the function of the action.</li>
-<li>Go back to github.com and to your repository website. Click the link that you added to your Readme file, which should bring you to your new introductory website. <a href="https://andreashandel.github.io/andreashandel-introduction/">Here is mine as an example</a>.</li>
-</ul>
-</div>
-<div id="sharing-your-website" class="section level1">
-<h1>Sharing your website</h1>
-<ul>
-<li>Go to eLC to the discussion forum called <em>Introducing Ourselves</em> and write a short post with a link to your website/repository you created.</li>
-<li>Also, if you don’t already, upload a picture of yourself to eLC. It’s nice to see faces during the online discussions there.</li>
-<li>As you read your classmates’ introductions, feel free to comment/reply using the eLC discussion board.</li>
-</ul>
-<p><em>You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!</em></p>
-</div>
-<div id="general-github-workflow" class="section level1">
-<h1>General Github workflow</h1>
-<p>If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a <em>pull</em>. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. <strong>You will be using this workflow a lot</strong>.</p>
-</div>
-<div id="github-pages" class="section level1">
-<h1>Github pages</h1>
-<p>You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a <code>/docs</code> subfolder. For instance, the Github repository for one of my R packages is <a href="https://github.com/ahgroup/DSAIDE">https://github.com/ahgroup/DSAIDE</a>. All the files for the webpage describing the package are in the <code>docs</code> folder. For some reason, if you go into that folder and click on <code>index.html</code> you see raw HTML. But if you go to <a href="https://ahgroup.github.io/DSAIDE/">https://ahgroup.github.io/DSAIDE/</a> you see this file (and others in the <code>docs</code> folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at <a href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a> and all the files that make up the webpage are at <a href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.</p>
-</div>
-<div id="further-information" class="section level1">
-<h1>Further information</h1>
-<p>If you like how fast you were able to create your own small website and want to learn more, two good resources are <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">the Rmarkdown website chapter</a> in the Rmarkdown book and <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a>. The former setup creates fairly simple sites, it’s the one I’m using for this course. The blogdown approach is more powerful and can create fancier webpages. I use that approach for <a href="http://handelgroup.uga.edu/">my group website</a>, which employs blogdown/hugo and a theme called Academic. You can look at all the files that make up the website <a href="https://github.com/ahgroup/ahgroupwebsite">here</a>. (In this case, the actual website is not hosted on Github but instead on UGA’s server). You can get started with either a blogdown website or a simple Rmarkdown website through <em>File</em>, <em>New Project</em>, <em>New Directory</em> and then choosing the option you want.</p>
-<div id="discussion" class="section level2">
-<h2>Discussion</h2>
-<p>Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian’s project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience reproducing it in the <em>Reproducible Project Examples</em> channel. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.). Post your finding.</p>
-<p>As I was looking for examples for this course, I found it surprisingly difficult to find research projects that were <em>fully and fairly easily</em> reproducible. I didn’t find a single one “out there” that seemed both complete and easy enough to point to it. Often the projects only provided data or code to reproduce some parts, and usually, the setup and effort required were significant. I’m curious to see if you can find some projects that are easy to reproduce and that provide the required information to reproduce the majority of results.</p>
+<p>While the exercise for this module does not directly deal with data analysis workflow and structure, it introduces you to some more Github functionality, a tool that you have probably figured out by now is a great component of any good a reproducible project. Specifically, we will be looking at the concept of <em>Issues</em>. The exercise is called <a href="./Exercise_Github_Issues.html">Github Issues</a>.</p>
+<p><strong>Note that part of this exercise is due by Wednesday evening.</strong></p>
 </div>
 </div>
 

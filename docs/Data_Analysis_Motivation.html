@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Fall 2019 - Structure of a Data Analysis</title>
+<title>MADA Fall 2019 - Topic Introduction</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -46,6 +46,100 @@
     </style>
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -340,7 +434,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course, Tools and Topic Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -360,8 +454,19 @@ div.tocify {
         <li>
           <a href="./Tools_Reference_Management.html">Reference Management</a>
         </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Introduction_Topic.html">Topic Introduction</a>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
         </li>
       </ul>
     </li>
@@ -371,27 +476,10 @@ div.tocify {
         <li>
           <a href="./RBasics.html">R basics</a>
         </li>
-        <li>
-          <a href="./3b_Assessment.html">3b. Assessment</a>
-        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Data analysis overview</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./4a_Data_Analysis_Overview.html">4a. Data analysis overview</a>
-        </li>
-        <li>
-          <a href="./4b_Data_Analysis_Structure.html">4b. Data analysis structure</a>
-        </li>
-        <li>
-          <a href="./4c_Assessment.html">4c. Assessment</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Pondering and getting data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pondering and getting data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./5a_Data_Types.html">5a. Data Types</a>
@@ -556,10 +644,13 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="./Assessment_Course_Tools_Topic_Introduction.html">Introducing ourselves</a>
+      <a href="./Assessment_Course_Tools_Introduction.html">Course and Tools Introduction</a>
     </li>
     <li>
-      <a href="./Assessment_Rcoding.html">R Coding</a>
+      <a href="./Assessment_Data_Analysis.html">Data Analysis Introduction</a>
+    </li>
+    <li>
+      <a href="./Assessment_Coding.html">R Coding</a>
     </li>
     <li>
       <a href="./Exercise_Github_Issues.html">Github Issues</a>
@@ -638,7 +729,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Fall 2019 - Structure of a Data Analysis</h1>
+<h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-03-25 08:29:29</h4>
 
@@ -647,43 +738,86 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we’ll discuss how to structure a data analysis to make it as efficient as possible.</p>
+<p>This module provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course. We’ll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You’ll be doing similar projects yourself soon! In fact, you will be fully reproducing several analyses below.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Be able to set up a structure for an efficient and reproducible analysis.</li>
+<li>Get motivated toward learning and doing data science.</li>
+<li>See what’s possible with R and what you’ll be able to do yourself soon.</li>
 </ul>
 </div>
-<div id="overall-project-structure" class="section level1">
-<h1>Overall project structure</h1>
-<p>You want to set up your analysis in such a way that it makes sense to you and others and allows for a good and efficient workflow. The main components of your analysis will be data, code, results (tables, figures, etc.) and products (reports, interactive apps, slides, etc.). It is a good idea to have separate folders for each of those elements inside your main project folder. Your project folder could be a Github repository (a good idea) or not. Since you might not want to share your analysis publicly, using a private repository is often a good idea. Starting your project as an R project is also a good idea.</p>
-<p>Inside your folders, you can have subfolders, e.g., separate folders for figures and tables. Or you could have subfolders for different types of analyses. There is no one correct way to set up things, but you should think of a logical and consistent structure before you start your project.</p>
+<div id="motivating-videos" class="section level1">
+<h1>Motivating Videos</h1>
+<p>There are lots of good videos online discussing different aspects of the vast topic of data analysis. <a href="https://www.ted.com/">TED</a> is an especially good source for such videos.</p>
+<div id="ted-talk-1" class="section level2">
+<h2>TED talk 1</h2>
+<p>Arguably one of the best communicators of public health data was the late <a href="https://en.wikipedia.org/wiki/Hans_Rosling">Hans Rosling</a>. He has several great entertaining and enlightening TED talks. Here is one of them - a statistics talk with &gt;13 million views!</p>
+<p>
+<div style="max-width:854px">
+<div style="position:relative;height:0;padding-bottom:56.25%">
+<iframe src="https://embed.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen>
+</iframe>
 </div>
-<div id="how-to-structure-your-analysis" class="section level1">
-<h1>How to structure your analysis</h1>
-<p>You will want different R scripts for the cleaning/wrangling/exploring part and the analysis part. The number of scripts depends on your project and your preference. In general, keeping things modular is useful. If you had one file that did the analysis and created a report, that would be ok for a small project. But then if you wanted to make a set of slides based on your results, you’ll have to find a way to include the code in those slides. It would be easier to have code produce and save results such as figures, which can then be included in both a report/manuscript and slides.</p>
-<p>Another consideration is computational time. For simple projects, your code will likely run fast. Once your analysis or data become large, parts of your code might run very long. You will then want to structure your scripts such that the computationally-intensive part is only run when absolutely needed. You definitely want to avoid a scenario where you have to wait minutes or hours as you play around with a figure to make it look the way you want.</p>
-<p>As an example, and hopefully useful guide for your class project, I created <a href="https://github.com/andreashandel/dataanalysis-template">a public Github repository called dataanalyis-template</a> which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various <code>readme</code> files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. This is, of course, only one way to structure things. You are welcome to figure out your own setup and structure. Overall, figure out what setup works best for you, while keeping in mind that it should be easily understandable/reproducible for a reader (or your colleague, PI,…).</p>
 </div>
-<div id="setting-paths" class="section level1">
-<h1>Setting paths</h1>
-<p>One problem that I encounter <strong>every time</strong> I teach a course like this is the use of paths that are specific only to the user’s computer and do not work on someone else’s machine. Do not set paths or load files from paths that only exist on your machine! Instead, you should only use <em>relative</em> paths. A <em>relative</em> path is a file path that is relative to some directory. So what should <strong>not</strong> be part of your code is the command <code>setwd()</code> (because your working directory is likely different from everyone else’s) or anything that involves a full path name (e.g. <code>C:/myusername/mydesktop/myfolder/</code>) since nobody you share the code with will have that folder.</p>
-<p>For a short video tutorial, on relative paths, see this <a href="https://www.youtube.com/watch?v=fe6GA200dks">video</a>. Note that the video is several years old and he doesn’t use R Projects. <strong>I stronlgy recommend using R Projects.</strong> By having any project you work on as an R project, relative paths will always be relative to the main directory in which your <code>.Rproj</code> file is located. As long as someone loads the project by clicking on the <code>.Rproj</code> file, and you only use relative paths, things should work well on any computer. While Rprojects solve most of the problem, some issues remain, e.g. differences of how relative paths are treated in Rmd versus R files.</p>
-<p>To solve those issues, you should use the <a href="https://github.com/r-lib/here"><code>here</code> package</a>, together with Rprojects. It helps solve issues with relative paths being dealt with differently in an Rmd file versus an R file versus the console. <a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">This blog post</a> is a great, short explanation of why one should use the <code>here</code> package and how to do it.</p>
-<p>However you do things, make sure that for your exercises and especially final project, someone else can clone your repository (or otherwise copy your project if it’s not on Github) to their computer and run everything, without having to have exactly your setup of folders.</p>
+</p>
+<p>You can watch <a href="https://www.ted.com/speakers/hans_rosling">more TED talks by Hans Rosling here</a>. The software he uses to illustrate data is called Gapminder and <a href="https://www.gapminder.org/tools/#$chart-type=bubbles">available online</a> on the <a href="https://www.gapminder.org/">Gapminder website</a>.</p>
 </div>
-<div id="further-resources" class="section level1">
-<h1>Further Resources</h1>
-<p>Several efforts to develop further tools to help improve reproducible research within the R system exist. The few I know about are listed below. I have not tried to use any of them, but feel free to try/use them as part of this class.</p>
-<ul>
-<li>For some more useful information on structuring your project such that it has a good, reproducible workflow, see <a href="https://whattheyforgot.org/">this collection of (incomplete) notes</a> by Jenny Bryan and Jim Hester.</li>
-<li><a href="https://github.com/nikkrieger/projects">The <code>projects</code> R package</a> - meant to provide a framework for rather sophisticated projects.</li>
-<li><a href="https://ropensci.org/commcalls/2019-07-30/">R Open Science Reproducibility Discussion</a> - website with links to various resources related to reproducibility in R.</li>
-<li><a href="https://jdblischak.github.io/workflowr/">The <code>workflowr</code> R package</a> - meant to provide a structure for reproducible data analysis projects.</li>
-</ul>
-<div class="note">
-<p>While there is no substitute for clear thinking and being careful in your analysis, things such as having a clear structure can help with this. The importance of good structure to help you achieve optimal results is well appreciated in many contexts. For a short discussion of this, see <a href="https://seths.blog/2018/11/quality-and-effort/">this article by Seth Godin</a>. For a more in-depth discussion of this idea, <a href="https://www.amazon.com/Checklist-Manifesto-How-Things-Right/dp/0312430000">the Checklist Manifesto by Atul Gawande</a> is a great read.</p>
+<div id="ted-talk-2" class="section level2">
+<h2>TED talk 2</h2>
+<p>In this entertaining and empowering talk, <a href="https://www.ted.com/speakers/talithia_williams">Talithia Williams</a> argues for the utility of careful assessment of data in your personal life.</p>
+<p>
+<div style="max-width:854px">
+<div style="position:relative;height:0;padding-bottom:56.25%">
+<iframe src="https://embed.ted.com/talks/talithia_williams_own_your_body_s_data" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen>
+</iframe>
+</div>
+</div>
+</p>
+</div>
+<div id="ted-talk-3" class="section level2">
+<h2>TED talk 3</h2>
+<p>In this talk, <a href="https://www.ted.com/speakers/sebastian_wernicke">Sebastian Wernicke</a> gives some cautionary suggestions about trusting data too much and argues for critical assessment as an important part of any data analysis and decision process.</p>
+<p>
+<iframe src="https://embed.ted.com/talks/sebastian_wernicke_how_to_use_data_to_make_a_hit_tv_show" width="640" height="360" frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+</iframe>
+</p>
+</div>
+<div id="more-ted-talks" class="section level2">
+<h2>More TED talks</h2>
+<p>The TED website has <a href="https://www.ted.com/topics/data">a large number of data related talks</a>. Feel free to explore as much as you like. If you find especially good ones, post them on the class discussion board.</p>
+</div>
+</div>
+<div id="case-studies" class="section level1">
+<h1>Case studies</h1>
+<p>It is by now very common that individuals post data analyses online in a reproducible manner, i.e., providing all the code and data to recreate it.</p>
+<div id="tidytuesday" class="section level2">
+<h2>TidyTuesday</h2>
+<p>An interesting initiative is <a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays</a>, where every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a> and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself.</p>
+Individuals who participate in TidyTuesday often post their projects online <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">and link to it on social media</a>. We will look at a nice example by <a href="http://varianceexplained.org/">David Robinson</a> analyzing a wine rating dataset. He does a live recording of him digging into the data.
+<p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AQzZNIyjyWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</p>
+<p>You don’t need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching 😄. It should be interesting even if you don’t care about wine. If you have no R experience, you won’t understand the details, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, <a href="https://www.youtube.com/user/safe4democracy/videos">he has a bunch more of those screencasts</a>.</p>
+<p>Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, <a href="https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd">here is the link to download the code for his analysis</a>. Just save the file after it opens in your browser. It should be named <code>wine-ratings.Rmd</code>. Click on it, and it should open in RStudio (if you don’t have R/RStudio installed yet, go through module 2, then come back).</p>
+<p>Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don’t get that auto-suggestion, you need to install the packages by hand. Every package that is called with the <code>library()</code> command needs to be installed first. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doMC)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoMC</span>(<span class="at">cores =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>and add a <code>#</code> in front of them to turn them into comments and therefore disable them (you could also delete these lines, but then they are gone for good, so disabling with <code>#</code> is often better).</p>
+<p>Once you have done that and installed all other packages, hit the <code>Knit</code> button. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video!</p>
+<p>Again, most or all of the R code might not make sense to you just yet. That’s ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce it with just a few clicks.</p>
+<p><strong>Note the name of the last wine reviewer in the final figure of the knitted report.</strong></p>
+</div>
+<div id="a-simple-kaggle-analysis" class="section level2">
+<h2>A simple Kaggle analysis</h2>
+<p>This is a very simplified example of a “full” analysis I wrote. It is only for illustrative purposes, the whole analysis is rather incomplete and poor quality 😄, but hopefully still a bit helpful in getting an overall feel how such analyses look.</p>
+<p>The analysis is based on and inspired by the <a href="https://www.kaggle.com/c/titanic">Kaggle Titanic challenge.</a> The RMarkdown file gives some more details. <a href="https://github.com/epid8060fall2019/titanic-analysis">This is the link to the Github repository which contains all files you need to look at and run the analysis yourself.</a> In the repository, you will find one <code>Rmd</code> file and 1 <code>csv</code> files. Download them (right-click and <code>save as</code>). The double-click the <code>Rmd</code> file, which should open in RStudio. You will need to install a few R packages first. Also make sure you are in the correct folder by doing <code>Session -&gt; Set Working Directory -&gt; To Source File Location</code>. Then <code>knit</code> the document, which should run the complete analysis, produce a report which should open in the viewer, and save a file to the folder which you could upload to Kaggle.</p>
+<p><strong>Take a close look or save the decision tree.</strong></p>
+</div>
+<div id="research-project" class="section level2">
+<h2>Research Project</h2>
+<p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay, aa former grad student in my group. <a href="https://doi.org/10.5061/dryad.51c59zw4v">Here are all the materials to reproduce a full analysis and manuscript files</a>, with the main product being a peer-reviewed journal article, <a href="http://handelgroup.uga.edu/publication/2020-mckay-prsb/">which has since been published</a>. As you will see, it is more complex and complete compared to the examples above. You can also see how easy it is to “write a whole paper” with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
 </div>
 </div>
 
