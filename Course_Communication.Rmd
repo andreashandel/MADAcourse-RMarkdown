@@ -44,17 +44,6 @@ Use Slack widely to ask questions, to answer others' questions, to notify me and
 I prefer that you use Slack instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering online, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to either send me a direct message on Slack or email me. 
 
 
-## GitHub
-
-We will also use Github for some specific communications, related to exercises and projects. We have a separate GitHub 
-
-. I will provide more detailed instructions on that will be provided.
-
-
-## eLC
-
-We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC much. I don't plan on posting any materials to eLC, they will all be on this website, or for confidential information, in our group Slack workspace.
-
 
 ## Zoom
 
@@ -66,33 +55,15 @@ And of course, if you have something you want to discuss outside of those schedu
 
 
 
-# Discussion Guidelines
 
-We can't have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. You will be asked to participate continuously in discussions for the duration of the course, and discussion participation is part of the grade.
+## GitHub
 
-I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.
-
-To make sure discussions work well for everyone, here are some general guidelines.
-
-* You can and will be asked to both start new threads/posts or reply to others. If you start a new topic, make sure you are in the right channel. (If needed, you can also move posts to other channels later). 
-* You are encouraged to include links to additional material that you find online, including but not limited to research papers, sources like CDC or Wikipedia, and other useful resources. There are no rules on formatting other than that it should be readable.
-* You don't always have to provide references/links to resources, nor do you need to be sure that 'you got it right'. It's ok to post speculations/ruminations/thoughts occasionally.
-* Make meaningful contributions. You are welcome to react to each others' posts with `r emo::ji("smiley")` or `r emo::ji("thumbs up")`, but that does not replace more substantial responses. Give reasons why you think something is one way or another.
-* For the purpose of assessment, you need to participate in the discussions at the level specified in each module's assessment document. I encourage you to engage in further discussions. Those further posts won't be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.
-* It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts. 
+We will also use Github for some specific communications, related to exercises and projects. More detailed instructions on that will be provided.
 
 
-# Discussion Assessment
 
-For most modules, you'll have to do the following (unless specifically directed otherwise):
+## eLC
 
-* You need to write a post (of at least several hundred words) as an answer to the weekly question/task. Post it into the appropriate channel by __Wednesday evening__. 
-* You need to write __at least__ 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by __Friday evening__. 
-* For each module (i.e. each week) you need to post a minimum of 4 posts (1 initial, 3 replies) with around 500 _meaningful_ words total by the deadlines. I won't count words (unless it looks really short), but I will count the number of posts and check if they have been posted before/by the deadline.
-* Doing the required posts (quantity, quality, and timing) will give a 100 for this module's discussion. Any shortcomings will lead to fewer points. If you don't post anything or it's all after the deadlines, it's zero points. In the end, all scores are averaged and contribute to the discussion portion of the grade.
-* Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.
-* For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.
-* Discussions will remain available for the whole course, and you can keep contributing at any time.  
-
+We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC much. I don't plan on posting any materials to eLC, they will all be on this website, or for confidential information, in our group Slack workspace.
 
 
