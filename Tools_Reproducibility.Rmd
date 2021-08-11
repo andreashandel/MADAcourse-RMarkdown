@@ -1,5 +1,5 @@
 ---
-title: Reproducibility, Markdown and colleagues
+title: Reproducibility, (R)Markdown & Co
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -20,8 +20,9 @@ knitr::include_graphics("./media/amiracleoccurs.gif")
 
 
 # Learning Objectives
-*    Know the concept and importance of reproducible research
-*    Know how to implement reproducible research with R
+* Know the concept and importance of reproducible research
+* Know how to implement reproducible research with R
+* Be familiar with (R)Markdown and start using it
 
 # Reproducibility in Science
 
@@ -47,8 +48,6 @@ In this video, [Roger Peng](http://www.biostat.jhsph.edu/~rpeng/) goes into some
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DfBSiOupI1I" frameborder="0" allowfullscreen></iframe>
 </p>
 
-**Note the concept of mixing text and code that Roger Peng talks about.**
-
 Roger Peng has additional videos related to reproducible research, [a playlist of those videos can be found here.](https://www.youtube.com/playlist?list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf)
 
 
@@ -64,7 +63,12 @@ A reproducible analysis should also be _practically reproducible_, not just _the
 
 
 # Why reproducibility is good for you
-A reproducible analysis is automated. That can save you a lot of time. Initially, it seems that doing your analysis in a reproducible and automated manner takes more time and is more difficult because you have to learn some new tools. That is true. However, once you are used to it, you will be much more efficient. Consider the case where you had some data in Excel, moved it into SAS to do an analysis, and make some raw figures, opened them in Photoshop and spend a few hours making them look good. Then you or your collaborators realize that some of the data that should have been included in the analysis was not (or some data should not have been included). You need to re-create the raw figure and re-work it in Photoshop, likely spending a good bit of time. If you had an automated analysis, you could just press one (or a few) buttons and re-run everything. Also, automation makes it less likely that errors occur from copying data and intermediate results between programs. The case-study in the introductory unit is such an example, where everything was fully automated.
+
+A reproducible analysis is generally automated. That can save you a lot of time. Initially, it seems that doing your analysis in a reproducible and automated manner takes more time and is more difficult because you have to learn some new tools. That is true. However, once you are used to it, you will be much more efficient. 
+
+Consider the case where you had some data in Excel, moved it into SAS to do an analysis, and make some raw figures, opened them in Photoshop and spend a few hours making them look good. Then you or your collaborators realize that some of the data that should have been included in the analysis was not (or some data should not have been included). You need to re-create the raw figure and re-work it in Photoshop, likely spending a good bit of time. 
+
+If you had an automated analysis, you could just press one (or a few) buttons and re-run everything. Also, automation makes it less likely that errors occur from copying data and intermediate results between programs. The case-study in the introductory unit is such an example, where everything was fully automated.
 
 Making an analysis reproducible also means you to document all your steps and what you do well. So it not only helps others, but _future you_ will be very thankful. The importance of documenting the process increases, as analyses get more complex.
 
@@ -79,17 +83,15 @@ Markdown is a language/platform that allows you to write nice-looking documents 
 
 The folks from Rstudio developed [R Markdown](http://rmarkdown.rstudio.com/). This allows you to combine R code with Markdown text. You can write a single Rmarkdown (Rmd) document which contains code and text. You then `knit` the document, which uses an R package called `knitr`, runs the code, produces results and turns everything into a markdown (md) document, then using the `rmarkdown` package and `pandoc` turns this into some output format of your choice, e.g. an html or pdf or Word or Powerpoint document. Again, most of the time, this happens without you needing to care about the details of this process. There are by now [a lot of different output formats](https://rmarkdown.rstudio.com/formats.html) that R Markdown supports. As an example, this whole course is written in Rmarkdown and [lives on GitHub](https://github.com/andreashandel/MADAcourse). You can copy all the files and completely reproduce this course.
 
-Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It's a free typesetting system that is a bit similar to Markdown, but more complicated and more powerful. I recommend [MiKTeX](https://miktex.org/) for Windows and [MacTeX ](http://www.tug.org/mactex/) for Mac. We don't absolutely need it for the class, but it's good to have and free, so I suggest you go ahead and install it.
+Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It's a free typesetting system that is a bit similar to Markdown, but more complicated and more powerful. The [currently recommended LaTeX system is TinyTeX](https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html). Others are [MiKTeX](https://miktex.org/) for Windows (which I generally use) and [MacTeX ](http://www.tug.org/mactex/) for Mac. We don't absolutely need LaTeX it for the class, but it's good to have if you ever want to create pdf output, and it is and free, so I suggest you go ahead and install it.
 
 One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/). RStudio also an R Markdown cheat sheet in their [collection of very useful cheat sheets](https://www.rstudio.com/resources/cheatsheets/).
 
 Since developing knitr and R Markdown, [Yihui Xie](https://yihui.name/en/) and colleagues have developed several other versions of the tool. There is [bookdown](https://bookdown.org/yihui/bookdown/) which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the [bookdown website](https://bookdown.org/)) and [blogdown](https://bookdown.org/yihui/blogdown/) which lets you make webpages (see e.g. [my group webpage which is done that way](http://handelgroup.uga.edu/)). 
 
+The whole R Markdown/Markdown/pandoc system has become incredibly flexible and powerful, and we'll use it in this class. Because R Markdown & Co are very feature rich and you can do a ton, trying to read all about it does not make much sense. The best is a _learn it as you need it_ approach. Some good sources that you might want to glimpse at are the chapters in the _Communicate_ section of the [R for Data Science book](http://r4ds.had.co.nz/index.html) and the beginning chapters of the [R Markdown book](https://bookdown.org/yihui/rmarkdown/). There's also the newer [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/), which is a good _how do I do X_ resource.
 
-
-The whole R Markdown/Markdown/pandoc system has become incredibly flexible and powerful, and we'll use it in this class. 
-
-Because R Markdown & Co are very feature rich and you can do a ton, trying to read all about it does not make much sense. For now, to get some idea of what it is, skim through chapters 27, 29 and 30 in [R for Data Science](http://r4ds.had.co.nz/index.html) and chapter 2 of the [R Markdown book](https://bookdown.org/yihui/rmarkdown/). [Chapter 40 of IDS](https://rafalab.github.io/dsbook/reproducible-projects-with-rstudio-and-r-markdown.html) is also worth a look. You don't need to read these materials in much detail (and I won't quiz you on it), but if you are new to R Markdown, try to get enough information so you understand what it's all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. The exercise for this module will ask you to write some R Markdown, and you will be using it throughout this course, including for your class project.
+Again, you don't need to read these materials in much detail, but if you are new to R Markdown, try to get enough information so you understand what it's all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. You'll get plenty of practice throughout this course. project.
 
 
 

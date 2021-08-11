@@ -103,4 +103,13 @@ Once your repository exists both locally and on Github.com, the syncing process 
 
 # Merge conflicts
 
+Sooner or later, you will encounter a merge conflict. That happens if the same file(s) changed both locally and on GitHub.com. That can happen if multiple people work on the same files, or if you work on multiple computers and forget to always push/pull before and after you work on a project. 
+GitKraken can help you resolve conflicts. Sometimes you have to do it manually. Moving the offending files out of your local repository, then doing the merge and after that adding the updates again can help. If you know that one source is the definite one, you can force a push or pull. A more advanced approach is to use branches.
+
+More information on merge conflicts and how to deal with them using GitKraken can be found [here](https://www.gitkraken.com/blog/merge-conflict-tool) and [here](https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git).
+
+
+
+
+
 
