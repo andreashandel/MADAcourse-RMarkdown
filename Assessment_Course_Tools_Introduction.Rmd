@@ -1,5 +1,5 @@
 ---
-title: Assessment - Course, Tools and Topic Introduction 
+title: Assessment - Course and Tools Introduction 
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -13,21 +13,17 @@ output:
 
 # Module Assessments
 
-Each module comes with an assessment. Those are things you need to do that will be graded.
-
-In general, expect that each module contains **a Quiz, an Exercise, and a Discussion**. Sometimes there are additional/alternative components, such as submission of project parts.
-
-The idea is that the quiz covers the basics and ensures you have gone through some of the material. The exercise requires you to apply some of the material. In general, the exercise will be the most time-consuming. Each exercise has a different format. It should always be clear what you need to do. The discussion is meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights. 
-
+Each module comes with an assessment. Those are things you need to do that will be graded. Each module has a document, like this one, which describes what the assessments are. Often, there is a good bit of information for the exercises.
 
 ## Quiz
 
-Get the quiz sheet from the _Course Resources_ section. Fill it in, then submit to the online grading system before the deadline. 
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
 
 
 ## Exercise
 
-For this module, you are asked to do a project for which you'll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become the portfolio for this class. You'll write and post a short personal introduction of yourself. 
+For this module, you are asked to do a project for which you'll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become your portfolio for this class. You'll write and post a short personal introduction of yourself. 
 
 _For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work._
 
@@ -36,11 +32,13 @@ If you get stuck (quite possible), use the materials I list in the [Resources do
 
 ## Pre-requisites
 
-You should have set up with all the tools we need, namely R, RStudio and Github. 
+You should have set up with all the tools we need, namely R, RStudio, GitHub and GitKraken (or your preferred Git client). 
 
 
-# Github setup
-* Make sure you followed the setup steps described in the _Github_ document, i.e. create a Github account, have a Github client up and running, and have joined the class organization. 
+
+### Github setup
+* 
+
 * Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Set the repository to be public (if you set it to private, you might not be able to access it with the free version of Gitkraken). Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_. Click "create repository".  
 * Your new repository should have opened. If not go to [the website](https://github.com/epid8060fall2019) for the github class organization and click on it. 
 * We want set things that your repository can at the same time become a public website. Github allows you to do that with its [_Github Pages_](https://pages.github.com/) feature. By default, this is turned off. You can turn it on and then place (at the minimum) an `index.html` file either into the main repository folder (the master branch) or in a sub-folder called `docs` inside the master branch. You can add many more html files to build a full website.
