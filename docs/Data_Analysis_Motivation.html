@@ -46,100 +46,6 @@
     </style>
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    background-color: #2a211c;
-    color: #bdae9d;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
-div.sourceCode
-  { color: #bdae9d; background-color: #2a211c; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffff00; } /* Alert */
-code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #44aa43; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #049b0a; } /* Char */
-code span.cn { } /* Constant */
-code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
-code span.do { color: #0066ff; font-style: italic; } /* Documentation */
-code span.dt { text-decoration: underline; } /* DataType */
-code span.dv { color: #44aa43; } /* DecVal */
-code span.er { color: #ffff00; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #44aa43; } /* Float */
-code span.fu { color: #ff9358; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
-code span.op { } /* Operator */
-code span.pp { font-weight: bold; } /* Preprocessor */
-code span.sc { color: #049b0a; } /* SpecialChar */
-code span.ss { color: #049b0a; } /* SpecialString */
-code span.st { color: #049b0a; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #049b0a; } /* VerbatimString */
-code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -542,14 +448,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-11 13:36:16</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This module provides a few motivating examples of real world data analyses that I hope you will be able to do once you complete the course. We’ll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You’ll be doing similar projects yourself soon! In fact, you will be fully reproducing several analyses below.</p>
+<p>We’ll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You’ll be doing similar projects yourself soon! In fact, you will be fully reproducing several analyses below.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -563,7 +469,7 @@ div.tocify {
 <p>There are lots of good videos online discussing different aspects of the vast topic of data analysis. <a href="https://www.ted.com/">TED</a> is an especially good source for such videos.</p>
 <div id="ted-talk-1" class="section level2">
 <h2>TED talk 1</h2>
-<p>Arguably one of the best communicators of public health data was the late <a href="https://en.wikipedia.org/wiki/Hans_Rosling">Hans Rosling</a>. He has several great entertaining and enlightening TED talks. Here is one of them - a statistics talk with &gt;13 million views!</p>
+<p>Arguably one of the best communicators of public health data was the late <a href="https://en.wikipedia.org/wiki/Hans_Rosling">Hans Rosling</a>. He has several great entertaining and enlightening TED talks. Here is one of them: A statistics talk that has been viewed millions of times!</p>
 <p>
 <div style="max-width:854px">
 <div style="position:relative;height:0;padding-bottom:56.25%">
@@ -601,34 +507,29 @@ div.tocify {
 </div>
 <div id="case-studies" class="section level1">
 <h1>Case studies</h1>
-<p>It is by now very common that individuals post data analyses online in a reproducible manner, i.e., providing all the code and data to recreate it.</p>
+<p>It is by now very common that individuals post data analyses online in a reproducible manner by providing all the code and data to recreate it.</p>
 <div id="tidytuesday" class="section level2">
 <h2>TidyTuesday</h2>
 <p>An interesting initiative is <a href="https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/">TidyTuesdays</a>, where every Tuesday <a href="https://github.com/rfordatascience/tidytuesday">a new dataset is released here</a> and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself.</p>
-Individuals who participate in TidyTuesday often post their projects online <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">and link to it on social media</a>. We will look at a nice example by <a href="http://varianceexplained.org/">David Robinson</a> analyzing a wine rating dataset. He does a live recording of him digging into the data.
+<p>Individuals who participate in TidyTuesday often post their projects online <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">and link to it on social media</a>. We will look at an example by <a href="http://varianceexplained.org/">David Robinson</a>. David does screencast recordings showing him analyze the data. Here is a recent example:</p>
 <p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AQzZNIyjyWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2HpRXIpU4jI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </p>
-<p>You don’t need to watch the whole 85 minutes, but do watch at least the first 15 minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching 😄. It should be interesting even if you don’t care about wine. If you have no R experience, you won’t understand the details, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, <a href="https://www.youtube.com/user/safe4democracy/videos">he has a bunch more of those screencasts</a>.</p>
-<p>Dave also does his work reproducibly and shares all the code. See the links provided in the video description. For convenience, <a href="https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/wine-ratings.Rmd">here is the link to download the code for his analysis</a>. Just save the file after it opens in your browser. It should be named <code>wine-ratings.Rmd</code>. Click on it, and it should open in RStudio (if you don’t have R/RStudio installed yet, go through module 2, then come back).</p>
-<p>Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don’t get that auto-suggestion, you need to install the packages by hand. Every package that is called with the <code>library()</code> command needs to be installed first. There is one package that is only available for Linux (and maybe Mac?) computers. So we need to alter the code a bit to make things work for everyone. Find these lines of code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doMC)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">registerDoMC</span>(<span class="at">cores =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p>and add a <code>#</code> in front of them to turn them into comments and therefore disable them (you could also delete these lines, but then they are gone for good, so disabling with <code>#</code> is often better).</p>
-<p>Once you have done that and installed all other packages, hit the <code>Knit</code> button. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video!</p>
-<p>Again, most or all of the R code might not make sense to you just yet. That’s ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce it with just a few clicks.</p>
-<p><strong>Note the name of the last wine reviewer in the final figure of the knitted report.</strong></p>
-</div>
-<div id="a-simple-kaggle-analysis" class="section level2">
-<h2>A simple Kaggle analysis</h2>
-<p>This is a very simplified example of a “full” analysis I wrote. It is only for illustrative purposes, the whole analysis is rather incomplete and poor quality 😄, but hopefully still a bit helpful in getting an overall feel how such analyses look.</p>
-<p>The analysis is based on and inspired by the <a href="https://www.kaggle.com/c/titanic">Kaggle Titanic challenge.</a> The RMarkdown file gives some more details. <a href="https://github.com/epid8060fall2019/titanic-analysis">This is the link to the Github repository which contains all files you need to look at and run the analysis yourself.</a> In the repository, you will find one <code>Rmd</code> file and 1 <code>csv</code> files. Download them (right-click and <code>save as</code>). The double-click the <code>Rmd</code> file, which should open in RStudio. You will need to install a few R packages first. Also make sure you are in the correct folder by doing <code>Session -&gt; Set Working Directory -&gt; To Source File Location</code>. Then <code>knit</code> the document, which should run the complete analysis, produce a report which should open in the viewer, and save a file to the folder which you could upload to Kaggle.</p>
-<p><strong>Take a close look or save the decision tree.</strong></p>
+<p>You don’t need to watch all of the almost 2 hour long recording 😄, but do watch the first few minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching. You might not be familiar with some or most of the R coding, but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, <a href="https://www.youtube.com/user/safe4democracy/videos">he has a bunch more of those screencasts</a>.</p>
+<p>There are also others who do live-streaming of data analysis, including competitions, on platforms such as Twitch. Check out <a href="https://www.twitch.tv/kierisi">Jesse Mostipak, aka Kiersi</a> or <a href="https://www.twitch.tv/nickwan_datasci">Nick Wan</a> if interested.</p>
+<p>Dave does his work reproducibly <a href="https://github.com/dgrtwo/data-screencasts">and shares the code</a> as RMarkdown files. For specific files, see the links provided in the video description. For convenience, <a href="https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/2021_05_18_salary_survey.Rmd">here is the link to download the code for his analysis</a>. Just save the file after it opens in your browser. It should be named <code>2021_05_18_salary_survey.Rmd</code>. Click on it, and it should open in RStudio.</p>
+<p>Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don’t get that auto-suggestion, you need to install the packages by hand. Every package that is called with the <code>library()</code> command needs to be installed first.</p>
+<p>This is a good example of an <em>almost works</em> reproducible example. It’s quite rare that things work completely without adjustments on different machines, and how to do that best is a huge topic in data analysis (e.g., for drug companies that need full reproducibility for licensing). In this example, I had to make the following adjustments: * Change <code>output: html_output</code> to <code>output: html_document</code> in the YAML section. * Install the <code>ranger</code> package, which is not listed under the <code>library</code> statements but is needed.</p>
+<p>With those changes, I was able to run the whole script by hitting the <code>Knit</code> button in RStudio. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! If things don’t work out, post your error message to Slack so someone can help troubleshoot.</p>
+<p>Again, most or all of the R code might not make sense to you just yet. That’s ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce with just a few clicks. As part of this class, you will be producing those kinds of reproducible RMarkdown files.</p>
 </div>
 <div id="research-project" class="section level2">
 <h2>Research Project</h2>
-<p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay, aa former grad student in my group. <a href="https://doi.org/10.5061/dryad.51c59zw4v">Here are all the materials to reproduce a full analysis and manuscript files</a>, with the main product being a peer-reviewed journal article, <a href="http://handelgroup.uga.edu/publication/2020-mckay-prsb/">which has since been published</a>. As you will see, it is more complex and complete compared to the examples above. You can also see how easy it is to “write a whole paper” with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
+<p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay, a former grad student in my group. You can find the published paper <a href="https://doi.org/10.1098/rspb.2020.0496">here</a>. All materials to reproduce the full project and all results are available as supplementary material <a href="https://doi.org/10.5061/dryad.51c59zw4v">here</a>. Take a look at the <code>Usage Notes</code> section on the website.</p>
+<p>Next, click on <code>Download Dataset</code>, unzip the file. You should end up with a folder called <code>ProcSocB Supplemental Material</code>. In that folder, find and click on <code>Virulence_Trade-off.Rproj</code>. This should open in RStudio. To reproduce the manuscript, go into the <code>Manuscript</code> folder, open <code>Manuscript.Rmd</code> and knit it. There might be error messages related to missing packages. If that happens, install those packages.</p>
+<p>, with the main product being a peer-reviewed journal article, <a href="http://handelgroup.uga.edu/publication/2020-mckay-prsb/">which has since been published</a>.</p>
+<p>As you will see, it is more complex and complete compared to the examples above. You can also see how easy it is to “write a whole paper” with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
 </div>
 </div>
 
