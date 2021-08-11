@@ -20,16 +20,16 @@ __Unless otherwise specified, submission deadline is the module end date (Friday
 
 | **Module Topic**   | **Start and end dates** | **Assessments** |
 | --- | --- | --- | --- |
-| Module 1 – Course and tools introduction | 8/18 – 8/27 | quiz, exercise, discussion |
+| Module 1 – Course and tools introduction | 8/18 – 8/27 | quiz, exercise (due Wed), discussion |
 | Module 2 – Data analysis introduction  | 8/30 – 9/3 | quiz, exercise, discussion |
 | Module 3 – R coding basics | 9/6 – 9/10 | quiz, exercise, discussion  |
 | Module 4 – Contemplating and getting data | 9/13 – 9/17 | quiz, exercise, discussion, project part 1|
 | Module 5 – Visualizing data | 9/20 – 9/24 | quiz, exercise, discussion  |
 | Module 6 – Wrangling and exploring data | 9/27 – 10/1 | quiz, exercise, discussion  |
-| Module 7 – Statistical analysis introduction  | 10/4 – 10/8 | quiz, exercise, discussion  |
+| Module 7 – Statistical analysis introduction  | 10/4 – 10/8 | quiz, exercise, discussion, project part 2  |
 | Module 8 – Fitting basic models | 10/11 – 10/15 | quiz, exercise, discussion  |
 | Module 9 – Before and after the fitting | 10/18 – 10/22 | quiz, exercise, discussion  |
-| Module 10 – Subset selection and regularization | 10/25 – 10/29 | quiz, exercise, discussion  |
+| Module 10 – Subset selection and regularization | 10/25 – 10/29 | quiz, exercise, discussion, project part 3 |
 | Module 11 – Parameter tuning & tree-based models | 11/1 – 11/5 | quiz, exercise, discussion  |
 | Module 12 – Machine learning introduction | 11/8 – 11/12 | quiz, exercise, discussion  |
 | Module 13 – Revisiting the complete data analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |

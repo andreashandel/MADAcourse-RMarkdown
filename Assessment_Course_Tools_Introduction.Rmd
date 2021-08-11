@@ -25,110 +25,89 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 For this module, you are asked to do a project for which you'll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become your portfolio for this class. You'll write and post a short personal introduction of yourself. 
 
-_For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this might be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work._
+__For those of you who are new to Github/R/Rmarkdown, this project makes you do a lot of things that you might not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.__
 
-If you get stuck (quite possible), use the materials I list in the [Resources document](./Course_Resources.html). It is probably best to first post to the discussion board in the _Introducing Ourselves_ section, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
+If you get stuck (quite possible), use the materials I list in the [Resources document](./Course_Resources.html). It is probably best to first post to the discussion boards, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
 
 
-## Pre-requisites
+### Pre-requisites
 
 You should have set up with all the tools we need, namely R, RStudio, GitHub and GitKraken (or your preferred Git client). 
 
 
-
 ### Github setup
-* 
+* I made a template for you to get started. Go to [this page](https://github.com/andreashandel/online_portfolio_template). Make sure you are logged into GitHub, then click on `Use this template`. Create a new repository, call it `YOURNAME-MADA-portfolio` (YOURNAME should include both your first and last name.). Choose public repository, then create it.
+* You should have been sent to the website for your new repository. If not, go to your main GitHub account website and find the repository in your list of repositories. We want to set things such that your repository can at the same time become a public website. Github allows you to do that with its [_Github Pages_](https://pages.github.com/) feature. To turn on the _Github Pages_ feature, go to `Settings` for your repository in the top right. Find the `Pages` section. Switch `none` to `main` and folder as `/docs`. Click `Save`. You should see a message `Your site is ready to be published at URL`. If you click on it, nothing will show since we haven't created the content yet. Copy/remember the URL, we'll need it later. 
+* _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called _MADA2021_) and place  all class-related repositories (of which this is the first one) as sub-folders into this folder. Remember that these folders should not be synced with some other software (e.g., Dropbox).
 
-* Once you are part of the organization, go to [the website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-introduction_. You can see mine in there, which is called _andreashandel-introduction_. You can leave the description empty. Set the repository to be public (if you set it to private, you might not be able to access it with the free version of Gitkraken). Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_. Click "create repository".  
-* Your new repository should have opened. If not go to [the website](https://github.com/epid8060fall2019) for the github class organization and click on it. 
-* We want set things that your repository can at the same time become a public website. Github allows you to do that with its [_Github Pages_](https://pages.github.com/) feature. By default, this is turned off. You can turn it on and then place (at the minimum) an `index.html` file either into the main repository folder (the master branch) or in a sub-folder called `docs` inside the master branch. You can add many more html files to build a full website.
-* To turn on the _Github Pages_ feature, go to _Settings_ of your repository in the top right. Under the _Options_ tab in settings, scroll down to _Github Pages_. Set it to _master branch_. Don't choose a theme. 
-* _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer called _epid8060fall2019_ and have all class-related repositories (of which this is the first one) as sub-folders. Remember that these folders should not be synced with some other software (e.g., Dropbox).
+### Quick website check
+Once your repository is on your local computer, go into the folder and click on `online_portfolio.Rproj`, which should open RStudio.
+In the bottom right, you'll see several files that are part of your repository/project. We'll edit a bunch of them shortly. In the top right panel in RStudio, you should see a `Build` tab. Click on it. It should show a `Build website` button, click it. You might get complaints about missing packages, if that's the case, install them. If everything works well, a preview of your soon-to-be new website will pop up. 
 
-# RStudio project setup
-* Open RStudio on your computer. Choose _File_, _New Project_, _Existing Directory_ and then choose as directory the location on your computer where you cloned your repository in the previous step, i.e., the folder/repository called _YOURNAME-introduction_. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with `.Rproj` ending and a README.md. 
-* In the future, if you want to edit your just created project, click or double-click on the `YOURNAME-introduction.Rproj` file. You can try it. Close RStudio, click the `.Rproj` file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an `.Rproj` file is not strictly required I recommend you do it that way.
+If you got that far, let's create some content. 
 
 
-# Update your repository Readme file
+### RMarkdown content creation
 
-* Click to open the README.md file. It will only contain the name of your repository with a `#` sign in front. As you have learned or will in this project, the `#` represents a level 1 heading in Markdown. Change the headline and call it "Introducing myself" (or something like that). Underneath write something like "This website contains a short introduction of _Your Name_."
-* Go back to this repository on Github.com. Go back into _Settings_, scroll back down to _GitHub Pages_. You should see a message saying 'This repository is published at SOME-URL'. If it doesn't show, you might have to refresh your browser. 
-* Copy that URL and add a sentence to your Readme.md file that says `You can see the website [here](SOME-URL).` The bit at the end is markdown syntax for including a link in your document. It will later turn into an html website with a link that someone can click on. You can see how this looks on [my introduction site](https://andreashandel.github.io/andreashandel-introduction/).
-
-# RMarkdown content creation
 **For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) will likely be useful.**
 
-* Choose _File_, _New File_, _R Markdown_. Give it a title like _YOUR NAME Introduction_, keep output format as HTML. A new file with some template content should show up. 
-* Read through the provided example, then knit it by pressing the `knit` button. You will be asked to first save the file. Save the file as **index.Rmd** into the repository folder. You need to give it this name; otherwise, the Github website display won't work. Then `knit` the file, you should see an `index.html` file show up in the file list (bottom left) and the RStudio viewer will show you the result of the knitted file.
-* Once you looked at the result and understood what's going on, it's time to write your own. Delete everything apart from the YAML header (the information in the block starting/ending with ---).
-* Update the YAML header. Specifically, choose a layout theme. To figure out how to do that, check the section titled _Appearance and style_ (3.1.4 as of this writing) of the R Markdown book referenced above. You are welcome to add further information to the YAML header (e.g., date, author name, etc.).
-* Write a short post using R Markdown in which you introduce yourself. Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
+Open `index.Rmd`. This is the main landing page for your website. Change the text however you want to. What you are writing here is R Markdown, so now would be a good time to check out some of the R Markdown resources and play with them. 
+
+Next, open `aboutme.Rmd` and write some text introducing yourself, as follows:
+
+* Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
 * Give your text a nice structure with headings, subheadings, etc.
 * Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
 * Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.
 * If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
 
-# Sending updates to Github
-* Make sure the 2 files (README.md and especially index.Rmd/index.html) look the way you want. Make changes until everything works. Once you are happy with things, close RStudio. 
-* Go to the program you use for Github (I will assume that it's GitKraken. If you use something else the details might vary). In the top right of Gitkraken, there should be a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _master_ with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
+_Every time you make changes and want to see how they look, you just re-build the website and take a look._
+
+
+### Styling
+
+You can style your website if you like. Full styling will require knowledge of CSS and HTML. We won't get into this. But if you want to play a bit with the look, open the `_site.yml` file. This file defines the menu structure, and some styling. To change the look, you can replace `theme` with a different one. These are available: "cerulean", "journal", "flatly", "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti". Try some, see how things change. If you want to go further, check out [these instructions](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), which also explain how you could use your own CSS.
+
+
+### Update your repository Readme file
+
+Click to open the README.md file. It only contains a single sentence I placed there. This file will not be part of your website, but it is what people see if they land at your github repository (i.e. the behind-the-scenes location). Edit it as you like.
+
+
+### Sending updates to Github
+Once you are happy with your updates, or if you want to take a break, make sure to push your updates to GitHub. First close RStudio. Then go to the program you use for Github (I will assume that it's GitKraken. If you use something else the details might vary). In the top right of Gitkraken, there should be a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes. You should see the _master_ with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the _push_ button. If things work, the two symbols should now be in the same line.
 * If your code cannot sync you will likely receive an option from GitKraken to perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **destroyed** by the force push since they are not on your local repo. For this assignment, you are the only person working on your introduction so it is unlikely you will encounter any issues with force push, but it is good to be aware of the function of the action.
-* Go back to github.com and to your repository website. Click the link that you added to your Readme file, which should bring you to your new introductory website. [Here is mine as an example](https://andreashandel.github.io/andreashandel-introduction/).
+* Once you pushed to GitHub, go to the URL of your website (if you forgot it, find it in the _Pages_ section of your repository). You should now see your new portfolio website with the content you just created online. 
+* Make any furhter changes you want on your local computer, push them to GitHub. Repeat until happy with the result.
 
-# Sharing your website
-* Go to eLC to the discussion forum called _Introducing Ourselves_ and write a short post with a link to your website/repository you created.
-* Also, if you don't already, upload a picture of yourself to eLC. It's nice to see faces during the online discussions there.
-* As you read your classmates' introductions, feel free to comment/reply using the eLC discussion board.
 
-_You need to have your introductory website created and the link posted by the final date of the module (see syllabus). I encourage you to do it sooner, so we can get to know each other quickly!_
+### General Github workflow
+In the future, if you work on repositories like this one (or any others), your workflow should be as follows:
+* Open GitKraken or your preferred Git client and make sure the local copy of your repository is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. 
+* Once your local repo is up-to-date, open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. 
 
-# General Github workflow
-If you want to keep making changes to your introduction, the workflow is to first open the repository in Gitkraken and making sure your local copy is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a _pull_. Once both are at the same stage, you can open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Then make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server. __You will be using this workflow a lot__.
+__You will be using this workflow a lot__.
 
-# Github pages
-You might have noticed that your github repository website lives on the domain github.com and when you go there you see a bunch of files and your readme text. On the other hand, your nice-looking website lives at the domain github.io and shows a website, no files. This is how Github pages works, it can take some files from your repository and turn them into a website with a distinct URL. Those files can either be in the main repository folder (like we did here) or often in a `/docs` subfolder. 
-For instance, the Github repository for one of my R packages is [https://github.com/ahgroup/DSAIDE](https://github.com/ahgroup/DSAIDE). All the files for the webpage describing the package are in the `docs` folder. For some reason, if you go into that folder and click on `index.html` you see raw HTML. But if you go to [https://ahgroup.github.io/DSAIDE/](https://ahgroup.github.io/DSAIDE/) you see this file (and others in the `docs` folder) displayed as a nice webpage explaining the package. You will find this setup very commonly for many projects that are hosted on Github. As another example, this course website is displayed at [https://andreashandel.github.io/MADAcourse/](https://andreashandel.github.io/MADAcourse/) and all the files that make up the webpage are at [(https://github.com/andreashandel/MADAcourse)](https://github.com/andreashandel/MADAcourse).
 
-# Further information
-If you like how fast you were able to create your own small website and want to learn more, two good resources are [the Rmarkdown website chapter](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html) in the Rmarkdown book and [the blogdown book](https://bookdown.org/yihui/blogdown/). The former setup creates fairly simple sites, it's the one I'm using for this course. The blogdown approach is more powerful and can create fancier webpages. I use that approach for [my group website](http://handelgroup.uga.edu/), which employs blogdown/hugo and a theme called Academic. You can look at all the files that make up the website [here](https://github.com/ahgroup/ahgroupwebsite). (In this case, the actual website is not hosted on Github but instead on UGA's server). You can get started with either a blogdown website or a simple Rmarkdown website through _File_, _New Project_, _New Directory_ and then choosing the option you want.
+### Github pages
+
+You might have noticed that the files for your new website live on the domain `github.com`, while your nice-looking website lives at the domain `github.io`. This is how Github Pages work. It take files from your repository and turns them into a website with a distinct URL. Those files can either be in the main repository folder or in a `/docs` subfolder (our setup). 
+
+As an example, this course website is displayed at [https://andreashandel.github.io/MADAcourse/](https://andreashandel.github.io/MADAcourse/) and all the files that make up the webpage are at [(https://github.com/andreashandel/MADAcourse)](https://github.com/andreashandel/MADAcourse). Note the text at the bottom of the repository view. That text comes from the `Readme.md` file.
+
+
+### Further information
+
+The approach you used here to create a website is fairly easy to use and somewhat flexible. I host all my course websites in this way. However, it is not as flexible as other approaches. For instance having a layout like [this page on my group website](http://handelgroup.uga.edu/people/) would be very hard to do. If you are interested in making websites using R Markdown & co that are more flexible, you can use the `blogdown` package. To learn more about it, check out [the blogdown book](https://bookdown.org/yihui/blogdown/). I also have [a few blog posts](https://www.andreashandel.com/posts/) on my website describing [how to start a blogdown website](https://www.andreashandel.com/posts/blogdown-website-1/) as well as some other ways of doing websites with R Markdown, including the approach we use here.
 
 
 
 
 ## Discussion 
 
-Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience reproducing it in the _Reproducible Project Examples_ channel. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.). Post your finding.
+The discussion for this module is all about your introductions. For your original post, simply post the URL to your newly created website into the `introductions` slack channel. **Do so by Wednesday.**
 
-As I was looking for examples for this course, I found it surprisingly difficult to find research projects that were _fully and fairly easily_ reproducible. I didn't find a single one "out there" that seemed both complete and easy enough to point to it. Often the projects only provided data or code to reproduce some parts, and usually, the setup and effort required were significant. I'm curious to see if you can find some projects that are easy to reproduce and that provide the required information to reproduce the majority of results.
+For your replies, visit some of your classmates websites and leave feedback as a reply to their initial Slack post. 
 
-
-
-# Discussion Guidelines
-
-We can't have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. You will be asked to participate continuously in discussions for the duration of the course, and discussion participation is part of the grade.
-
-I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.
-
-To make sure discussions work well for everyone, here are some general guidelines.
-
-* You can and will be asked to both start new threads/posts or reply to others. If you start a new topic, make sure you are in the right channel. (If needed, you can also move posts to other channels later). 
-* You are encouraged to include links to additional material that you find online, including but not limited to research papers, sources like CDC or Wikipedia, and other useful resources. There are no rules on formatting other than that it should be readable.
-* You don't always have to provide references/links to resources, nor do you need to be sure that 'you got it right'. It's ok to post speculations/ruminations/thoughts occasionally.
-* Make meaningful contributions. You are welcome to react to each others' posts with `r emo::ji("smiley")` or `r emo::ji("thumbs up")`, but that does not replace more substantial responses. Give reasons why you think something is one way or another.
-* For the purpose of assessment, you need to participate in the discussions at the level specified in each module's assessment document. I encourage you to engage in further discussions. Those further posts won't be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.
-* It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts. 
-
-
-# Discussion Assessment
-
-For most modules, you'll have to do the following (unless specifically directed otherwise):
-
-* You need to write a post (of at least several hundred words) as an answer to the weekly question/task. Post it into the appropriate channel by __Wednesday evening__. 
-* You need to write __at least__ 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by __Friday evening__. 
-* For each module (i.e. each week) you need to post a minimum of 4 posts (1 initial, 3 replies) with around 500 _meaningful_ words total by the deadlines. I won't count words (unless it looks really short), but I will count the number of posts and check if they have been posted before/by the deadline.
-* Doing the required posts (quantity, quality, and timing) will give a 100 for this module's discussion. Any shortcomings will lead to fewer points. If you don't post anything or it's all after the deadlines, it's zero points. In the end, all scores are averaged and contribute to the discussion portion of the grade.
-* Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.
-* For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.
-* Discussions will remain available for the whole course, and you can keep contributing at any time.  
-
+I hope this will allow you to start getting to know each other, even if only virtually.
 
