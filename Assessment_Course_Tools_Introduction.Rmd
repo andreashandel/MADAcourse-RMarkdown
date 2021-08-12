@@ -49,7 +49,7 @@ If you got that far, let's create some content.
 
 ### RMarkdown content creation
 
-**For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) will likely be useful.**
+**For this part of the task, the book [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/), the [R Markdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) and the [RStudio RMarkdown website](https://rmarkdown.rstudio.com/index.html) will likely be useful.**
 
 Open `index.Rmd`. This is the main landing page for your website. Change the text however you want to. What you are writing here is R Markdown, so now would be a good time to check out some of the R Markdown resources and play with them. 
 

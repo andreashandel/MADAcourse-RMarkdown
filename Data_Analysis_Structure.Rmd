@@ -1,5 +1,5 @@
 ---
-title: MADA Fall 2019 - Structure of a Data Analysis
+title: MADA - Structure of a Data Analysis
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -21,7 +21,7 @@ In this unit, we'll discuss how to structure a data analysis to make it as effic
 
 
 # Learning Objectives
-*    Be able to set up a structure for an efficient and reproducible analysis.
+* Be able to set up a structure for an efficient and reproducible analysis.
 
  
 # Overall project structure

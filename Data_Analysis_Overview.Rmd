@@ -1,5 +1,5 @@
 ---
-title: MADA Fall 2019 - Data Analysis Overview
+title: MADA - Data Analysis Overview
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
