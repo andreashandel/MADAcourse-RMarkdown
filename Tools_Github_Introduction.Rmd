@@ -47,8 +47,6 @@ Git is a piece of software. It can be installed [from here](https://git-scm.com/
 
 GitHub is an online platform. You don't need to install anything, but if you don't have a GitHub account yet, you need to create one [here](https://github.com/). **Note that GitHub is widely used professionally. You might use it beyond this class and for your future career. You might also want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional sounding user name for your GitHub account.** You can user your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities). 
 
-Once you have created your GitHub account, post your GitHub user name into the `GitHub topics` discussion group. Then you should be all set to start the first exercise of the course, where you will be using GitHub.
-
 
 # How to use Git/GitHub
 The most powerful and flexible way of using Git/GitHub is to open a command-line terminal (e.g., the one that comes with the Git install) and type a bunch of commands. This is often very confusing and we will not be using this approach.  
