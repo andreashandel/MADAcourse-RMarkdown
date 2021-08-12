@@ -19,8 +19,6 @@ library(emo)
 
 
 
-# Communication tools
-
 ## Slack
 
 The main mode of communication will be through Slack. You should get an email invite to the Slack workspace for this class. It will go to your official UGA email and you need to use that email to sign up. If you haven't received an email by August 20, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Slack or this website. 
