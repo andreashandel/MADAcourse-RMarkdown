@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Fall 2019 - Topic Introduction</title>
+<title>MADA - Motivating Data Analysis Examples</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -34,6 +34,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -385,17 +387,6 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./RBasics.html">R basics</a>
-        </li>
-        <li>
-          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
-        </li>
-      </ul>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -436,7 +427,12 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -446,9 +442,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Fall 2019 - Topic Introduction</h1>
+<h1 class="title toc-ignore">MADA - Motivating Data Analysis Examples</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-11 13:36:16</h4>
+<h4 class="date">2021-08-12 20:30:42</h4>
 
 </div>
 
@@ -527,9 +523,11 @@ div.tocify {
 <div id="research-project" class="section level2">
 <h2>Research Project</h2>
 <p>Fully open and reproducible analyses are also becoming common in academic research, with authors publishing everything needed to reproduce their paper and results. In my research group, we try to adhere to this approach as much as possible. As an example, I’m sharing a recent project/paper by Brian McKay, a former grad student in my group. You can find the published paper <a href="https://doi.org/10.1098/rspb.2020.0496">here</a>. All materials to reproduce the full project and all results are available as supplementary material <a href="https://doi.org/10.5061/dryad.51c59zw4v">here</a>. Take a look at the <code>Usage Notes</code> section on the website.</p>
-<p>Next, click on <code>Download Dataset</code>, unzip the file. You should end up with a folder called <code>ProcSocB Supplemental Material</code>. In that folder, find and click on <code>Virulence_Trade-off.Rproj</code>. This should open in RStudio. To reproduce the manuscript, go into the <code>Manuscript</code> folder, open <code>Manuscript.Rmd</code> and knit it. There might be error messages related to missing packages. If that happens, install those packages.</p>
-<p>, with the main product being a peer-reviewed journal article, <a href="http://handelgroup.uga.edu/publication/2020-mckay-prsb/">which has since been published</a>.</p>
-<p>As you will see, it is more complex and complete compared to the examples above. You can also see how easy it is to “write a whole paper” with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class.</p>
+<p>Next, click on <code>Download Dataset</code>, unzip the file. You should end up with a folder called <code>ProcSocB Supplemental Material</code>.</p>
+<p>Inside that folder you can see subfolders containing all the data and code to fully reproduce Brian’s analysis and manuscript. Find and click on <code>Virulence_Trade-off.Rproj</code>. This should open in RStudio. To reproduce the manuscript, go into the <code>Manuscript</code> folder, open <code>Manuscript.Rmd</code>. You’ll see some code at the top which loads various datasets containing results. Further down, you’ll find the text of the manuscript, combined with simple R commands that dynamically place numbers and figures into the text. Re-create the manuscript by clicking on the <code>knit</code> button. There might be error messages related to missing packages. If that happens, install those packages (e.g. ‘bookdown’). If you get stuck, post your problem to the discussion boards.</p>
+<p>Feel free to explore further by opening various R scripts and running them. The <code>Usage Notes</code> section on the website where you downloaded the zip file, or the <em>Supplementary-Material.docx</em> document explain what the different pieces do and how to use them.</p>
+<p>As you can tell, this is more complex and complete compared to the singe Rmarkdown file example above. Depending on the project you work on, a single file might work fine. For any more detailed data analysis, a structure like the one used in Brian’s project is a good idea. You will use a setup like this for the course project.</p>
+<p>This example hopefully gives you an idea how nice and easy it is to <em>write a whole paper</em> with just a few clicks of a button. It is a combination of R scripts and Rmarkdown files (in this case a version called bookdown), which allow a fully automated generation of a complete data analysis and manuscript, including all figures, tables, references, etc. This is an incredibly efficient workflow and one you’ll learn and use in this class. For instance if there was a mistake somewhere in the data, instead of going through the manuscript and manually changing numbers, Brian could just re-run the whole code, and it will produce new results based on the updated data in a fully automated manner. It’s a bit more work upfront until you get the hang of it, but once you have it set up, it can save an enormous amount of time and avoid potential copy &amp; paste mistakes.</p>
 </div>
 </div>
 
