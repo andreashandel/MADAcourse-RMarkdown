@@ -24,6 +24,7 @@ Abbreviations used are:
 
 * [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) 
 * [R4DS = R for Data Science](https://r4ds.had.co.nz/) 
+* [ADS =  The Art of Data Science](https://leanpub.com/artofdatascience)
 * [RP = RStudio Primers](https://rstudio.cloud/learn/primers) 
 * [HGR = happygitwithR](https://happygitwithr.com/)
 * [ISL = Introduction to Statistical Learning](https://statlearning.com/) 
@@ -52,9 +53,11 @@ Abbreviations used are:
 
 * [Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book I'll refer to a good bit in the 1st part of the course. 
 * [R for Data Science (R4DS)](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be refering to it frequently. 
+* [The Art of Data Science (ADS)](https://leanpub.com/artofdatascience) has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
 * [An Introduction to Statistical Learning (ISL)](https://statlearning.com/) is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I'll refer to it frequently in the second part of the course.
 * [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/) covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.
 * [Feature Engineering and Selection (FES)](https://bookdown.org/max/FES/) focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.
+
 
 # Hands-on/interactive resources
 

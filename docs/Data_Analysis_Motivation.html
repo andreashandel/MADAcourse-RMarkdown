@@ -444,7 +444,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA - Motivating Data Analysis Examples</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-12 20:30:42</h4>
+<h4 class="date">2021-08-13 07:55:21</h4>
 
 </div>
 
@@ -517,7 +517,7 @@ div.tocify {
 <p>Dave does his work reproducibly <a href="https://github.com/dgrtwo/data-screencasts">and shares the code</a> as RMarkdown files. For specific files, see the links provided in the video description. For convenience, <a href="https://raw.githubusercontent.com/dgrtwo/data-screencasts/master/2021_05_18_salary_survey.Rmd">here is the link to download the code for his analysis</a>. Just save the file after it opens in your browser. It should be named <code>2021_05_18_salary_survey.Rmd</code>. Click on it, and it should open in RStudio.</p>
 <p>Once the file is open in RStudio, you might see at the top of the file a message suggesting that you need to install several packages to run the file. Do so. If you don’t get that auto-suggestion, you need to install the packages by hand. Every package that is called with the <code>library()</code> command needs to be installed first.</p>
 <p>This is a good example of an <em>almost works</em> reproducible example. It’s quite rare that things work completely without adjustments on different machines, and how to do that best is a huge topic in data analysis (e.g., for drug companies that need full reproducibility for licensing). In this example, I had to make the following adjustments: * Change <code>output: html_output</code> to <code>output: html_document</code> in the YAML section. * Install the <code>ranger</code> package, which is not listed under the <code>library</code> statements but is needed.</p>
-<p>With those changes, I was able to run the whole script by hitting the <code>Knit</code> button in RStudio. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! If things don’t work out, post your error message to Slack so someone can help troubleshoot.</p>
+<p>With those changes, I was able to run the whole script by hitting the <code>Knit</code> button in RStudio. If you are still missing a package, you will get an error message. If things work out, the whole script will run a while (depending on the speed of your computer), and you should get a document/report which reproduces the complete analysis he did in the video! If things don’t work out, post your error message to Slack so someone can help troubleshoot. One potential problem could arise from the fact that David uses parallel computing to make things run faster. If you get an error message, you can try commenting out the line of code that says <code>doParallel::registerDoParallel(cores = 4)</code> and see if it works without it. It was ok with it on my windows machine, but might not work always. (If on Windows, you might be asked about firewall network permissions. that’s a quirk of how parallel computing works on a single machine. Just say “yes” to both public and private networks.)</p>
 <p>Again, most or all of the R code might not make sense to you just yet. That’s ok. The main point is to show you a nice example of a data analysis done in a way that others (you) can reproduce with just a few clicks. As part of this class, you will be producing those kinds of reproducible RMarkdown files.</p>
 </div>
 <div id="research-project" class="section level2">

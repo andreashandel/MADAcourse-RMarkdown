@@ -73,6 +73,8 @@ By fiddling with the data or adjusting data and question, you are using what is 
 
 [This website provides a nice example](https://projects.fivethirtyeight.com/p-hacking/) of a setting where you can adjust your question and data __in a very reasonable way__ and "show" _in a statistically significant way_ whatever you want to show.
 
+**That doesn't mean you can't do and publish interesting work based on such a secondary data analysis approach!** But it does mean that whatever you find should be considered hypothesis generating and preliminary, not hypothesis testing. In some sense, statistical measures such as p-values are meaningless in this context. Unfortunately, to get published, you often need to include those. It's a sad state of affairs that a lot of published work comes with junk statistics. It will take a good bit of time (if it ever happens), before things become more reasonable (and we will get rid of p-values).
+
 For some more thoughts on this topic, read chapters 1-3 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). It is a _pay what you want_ book with a minimum price of _zero_, which means you can get it for free (note that the book + video bundle has a non-zero minimum price). Chapter 2 has a figure similar to the one above. 
 
 :::note
@@ -95,19 +97,14 @@ Once you have the data loaded into your analysis software, such as R, you want t
 
 Data exploration can and should be done both graphically and by looking at text output of various summaries describing your data, e.g., summary tables for all variables. We will get into that in more detail later. As you explore, you will likely find that your data is _dirty_, i.e., there are things wrong with it. The amount of data cleaning (also called _tidying_ or _wrangling_) you need to do depends very much on your data. 
 
-A general rule is that you should never directly edit your raw data. If you can, load the raw data into R and do all cleaning inside R with code, so everything is automatically reproducible and documented. Sometimes, you need to edit the files in the format you got before you are even able to load them into R. In those cases, you might have to make modifications in a software other than R. If you can't directly read the data into R and need to make some changes before, make copies of your raw data AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made. 
+A general rule is that you should never directly edit your raw data. If you can, load the raw data into R and do all cleaning inside R with code, so everything is automatically reproducible and documented. Sometimes, you need to edit the files in the format you got before you are even able to load them into R. In those cases, you might have to make modifications in a software other than R. If you can't directly read the data into R and need to make some changes before, make copies of your raw data and **ONLY EDIT THOSE COPIES.** Also, write down somewhere the edits you made. 
 
 There are certain cleaning actions you will need to do with almost any dataset. You will have to find and deal with data entry errors. If the mistake is obvious, you can fix it. If you know the value is wrong but don't know what it should be, you might need to discard that data. Sometimes you get data that seems way outside the range of all other values, but it is not obviously wrong. For instance, if you had a group of individuals and their weights, a person with a weight of 8000 pounds is obviously not possible. Someone with an 800 pound weight seems wrong, but [it's not impossible](https://en.wikipedia.org/wiki/Jon_Brower_Minnoch). You will have to decide how to deal with such outliers, either during the cleaning or the analysis stage.
 
-In almost any datasets, some values are missing. First, you need to figure out how missing values are coded and what _missing_ means. Sometimes an empty entry means it was not recorded. At other times, it could be that it is not applicable. For instance on a survey that asks if someone ever smokes, and the next question is for how long, if they say they never smoked, the "how long" question is moot and might be empty. For your analysis, you might want to code it as a duration of 0. We'll discuss in more detail how to deal with missing values later in the course.
+In almost any datasets, some values are missing. First, you need to figure out how missing values are coded and what _missing_ means. Sometimes an empty entry means it was not recorded. At other times, it could be that it is not applicable. For instance on a survey that asks if someone ever smokes, and the next question is for how long, if they say they never smoked, the "how long" question is moot and might be empty. For your analysis, you might want to code it as a duration of 0. We'll talk more about missing values later in the course.
 
 As you do all the cleaning, you need to get your data into a shape that is ready for analysis. If you apply more than one analytic method, you might need different clean versions of your dataset.
 
-To start practicing a bit of data cleaning, read and work through chapter 4 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). Get the data they analyze. Note that the link provided in the book does not work anymore; the data [is now here](https://aqs.epa.gov/aqsweb/airdata/download_files.html). Search for the right data. Take a careful look at the number of entries/rows reported on the website and those reported in the book.
-
-Start a new R script, copy the code from the book and follow along by replicating their code on your computer.  _Loading the data will take a while!_  You will notice differences between what they report in the book (on an older version of the dataset) and what you will find. Also note that there are errors/typos in the book, e.g., what the code does and what the text says are not the same when looking at time (page 41). The code in the book uses packages from the `tidyverse`. We will talk more about those packages later, for now, go ahead and use them by copying and executing their code. Also, note that the `+` signs in the book are useful when you wrap code across lines. You can write everything into a single line and delete all `+` signs.
-
-__Make a special note of the differences between what they find for their dataset regarding odd reporting times, and what you find. Also, closely compare the list of states in their dataset and what you find.__
 
 
 # Pause and ponder
@@ -138,12 +135,6 @@ Once you have your results, and before you decide on how (or if) to report them,
 
 Unfortunately, the scientific literature is full of examples where the interpretation of the results are likely not right. [This is a good and amusing example, published in a very prestigious journal.](./media/messerli12nejm.pdf) While there is no arguing with the data, the interpretation that _"...it seems most likely that in a dose-dependent way, chocolate intake provides the abundant fertile ground needed for the sprouting of Nobel laureates..."_ is if course [nonsense](https://epianalysis.wordpress.com/2012/11/19/chocolate/), see also [here](https://academic.oup.com/jn/article/143/6/931/4571741). You can find more rebuttals online. Unfortunately, since the original study was in a prestigious journal, the nonsense [was widely reported in the media](https://www.google.com/search?q=Chocolate+Consumption+Nobel+Laureates). You can see Forbes, BusinessInsider, Time Magazine, and some other news outlets reporting the finding fairly uncritically. To this day, I do not know if this NEJM paper was [meant as a satire or for real.](https://www.reuters.com/article/us-eat-chocolate-win-the-nobel-prize/eat-chocolate-win-the-nobel-prize-idUSBRE8991MS20121010) 
 
-__Note: In the articles linked to above, pay close attention to the _luxury car_ figure.__
-
-To close this section, read chapter 9 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience), in which the authors discuss some more aspects of result interpretation and walk through a nice example. 
-
-__Note: I'll ask a question about this chapter, which should be easy to answer once you read through it.__
-
 
 # Reporting and communicating your results
 Unless you do an analysis just for yourself, you will want to communicate your findings to others. In academia, this is usually done with peer-reviewed publications, as well as presentations at conferences in the form of talks (for which most people use slides) and posters. In those settings, the readers or listeners are usually your peers.
@@ -156,9 +147,22 @@ You want to make as much of your reporting automated as possible. For that, all 
 
 You want automation for both efficiency and reproducibility purposes. Especially if you design an analysis that might be repeated often (maybe not so common in academia, but very common in other settings), you want to be able to automatically re-run and regenerate as much of the whole process as possible.
 
-For some more thoughts on communicating results, read chapters 10 and 11 of [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience). 
 
-__Note: I'll ask a question about this chapter, which should be easy to answer once you read through it.__
+# Further reading
+
+Above, I gave you my thoughts related to the various steps of the data analysis workflow. It's good to hear it from multiple sources. To that end, go back to [_The Art of Data Science (ADS)_](https://leanpub.com/artofdatascience) and read through chapters 4 and 9-11.
 
 
+
+# Some practice
+
+There is code shown in chapter 4 of ADS. If you want, you can try to work along and reproduce what they are showing. This is optional. If you want to try and work along, note that the link provided in the book to download the data does not work anymore (not easily reproducible!). [I did find the data](https://aqs.epa.gov/aqsweb/airdata/download_files.html) and placed it [here](./media/hourly_44201_2014.zip). Download and unzip and you should be good to work along.
+
+If you code along, I suggest you start a new R script and place their code into that script (instead of copying it into the console). We'll talk about that more soon. You will need to slightly adjust the code shown in the book to make it work. E.g., if you don't place the data into a `data` folder, you will need to change the path in the `read_csv` command. Also, for that command and some others, the book has a formatting with `+` signs across multiple lines of code, that might not work if you just copy and paste their code, and you might need to remove them and move everything into a single line of code. You can write everything into a single line and delete all `+` signs.
+
+You will also notice that the data is different than what they report. Their book was published on 2018-06-22, on the website where the data comes from, a time stamp of 2019-05-07 is listed. Thus the data got updated after the book was published, again making things not quite reproducible. (Changes to data are common, which is a reason why an automated and reproducible workflow is so important!)
+
+Finally, there are minor errors/typos in the book, e.g., what the code does and what the text says are not the same when looking at time (page 41). 
+
+Overall, while you should be able to reproduce most of what they show, it will be slightly different since the data has changed, and you will need to make adjustments to code. If you have no R coding experience, trying to get it to work might be too tedious, then skip for now and consider revisiting later once you learned some R coding. 
 

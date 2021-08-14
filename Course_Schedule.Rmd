@@ -15,7 +15,7 @@ This is the current course schedule for the class. Things might change, so check
 
 The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in more detail in an [__Assessments__](./Course_Assessments.html) page and in the assessment document for each module. 
 
-__Unless otherwise specified, submission deadline is the module end date (Friday) 5pm.__ 
+__Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies, the quizzes and exercises are due by  Friday 5pm.__ 
 
 
 | **Module Topic**   | **Start and end dates** | **Assessments** |
