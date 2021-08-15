@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>R Basics - Reading</title>
+<title>R Coding Basics</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -387,6 +387,17 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Rcoding_Basics.html">R Coding Basics</a>
+        </li>
+        <li>
+          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -442,9 +453,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">R Basics - Reading</h1>
+<h1 class="title toc-ignore">R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-13 07:55:21</h4>
+<h4 class="date">2021-08-14 20:33:36</h4>
 
 </div>
 
@@ -452,12 +463,11 @@ div.tocify {
 <p><strong>If you are new to R/coding, this module could take a good amount of time. I estimate &gt;20 hours to work through things properly. So budget your time accordingly and plan ahead!</strong></p>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this module, we will (re)-visit some of the basics of R (and RStudio). This is likely the one unit which will have the greatest diversity in pre-existing knowledge. Some of you might already have enough R knowledge that this will just be a quick refresher. For those among you who have not used R before, this unit (and everything else related to R in this course) will take a lot of time. Be prepared to put in a good bit of time and effort. If you do, I’m fairly certain you find it worth it. If you don’t, you’ll likely not get much out of the course.</p>
+<p>In this module, we will talk a bit about writing code in R. This is likely the one unit which will have the greatest diversity in pre-existing knowledge. Some of you might already have enough R knowledge that this will just be a quick refresher. For those among you who have not used R or any other programming language before, this unit (and everything else related to R in this course) will take a lot of time. Be prepared to put in a good bit of time and effort. If you do, I’m fairly certain you will find it worth it. If you are not able or willing to allot the time needed to learn enough R to make things work, this course might not be ideal for you.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Basic knowledge working with R and RStudio</li>
 <li>Starting knowledge of R coding</li>
 <li>Be familiar with the <code>tidyverse</code></li>
 <li>Be familiar with resources that help you learn R</li>
@@ -466,27 +476,29 @@ div.tocify {
 <div id="learning-to-code" class="section level1">
 <h1>Learning to code</h1>
 <p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not be focusing on ‘learning R’. You will learn by doing as we go through the course. As with anything, the more you practice, the better you will get. You should approach learning to code with an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week), and you will eventually figure it out. Make use of the great resources that are out there. They are all listed below and in the <em>Resources</em> section.</p>
-<p>This figure is <a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">from a good article</a> discussing the journey of learning to write code:</p>
-<p><img src="https://s3.amazonaws.com/viking_education/web_development/blog/coding_is_hard_confidence_competence.png" /></p>
-<p><a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">Read the article</a> from which this figure comes. Or read at least the first part and look at the first two figures.</p>
+<p>This figure illustrates the journey of learning to write code:</p>
+<div class="figure" style="text-align: center">
+<img src="media/LearningToCode.jpg" alt="The journey of learning to code. [From this Source.]https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/" width="100%" />
+<p class="caption">
+The journey of learning to code. [From this Source.]<a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/" class="uri">https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/</a>
+</p>
+</div>
+<p>It is <a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">from this good article</a>. Read the article, or read at least the beginning.</p>
 <p>My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em>, and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>. In fact, at times I’m providing you less detailed instructions than I could to get you quickly to the stage where you have to figure out bits yourself. I guess one could say that instead of hand-holding, I let you stumble and fall some, and then will help you to get back up 😃. It might feel a bit more frustrating at least initially, but it’s a much better way to learn.</p>
-<p>And of course, it goes without saying that this is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
+<p>It goes without saying that learning to code (or learning anything else) is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
 </div>
 <div id="learning-the-basics-of-r" class="section level1">
 <h1>Learning the basics of R</h1>
 <p>Going through the resources below and practicing the material will likely take a good bit of time for those new to programming. I estimate 20+ hours! You will also likely have to come back and revisit R coding throughout the course. Be prepared to spend a good bit of time learning some coding. I think it’s a skill that’s worth the effort 😃.</p>
-<p><em>Note: If you already know a god bit of R, most of these exercises will be refreshers. Go through them anyway, since I will ask some quiz questions about them.</em></p>
-<p>RStudio is starting to develop <a href="https://rstudio.cloud/learn/primers">a nice set of online tutorials they call Primers</a>. We’ll be doing several of those in this class. For now, we’ll start with the one called <a href="https://rstudio.cloud/learn/primers/1.2">programming basics</a>. Work through this tutorial. Note that some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes, and you always get a ‘that’s right’ kind of message. The R package that is used to write this tutorial is in the early stages of development and is not full-featured yet. I’m sure it will get better over time. The whole tutorial should still work.</p>
+<p><em>Note: If you already know some R, most of these exercises will be refreshers. You can decide which ones are useful and which ones are not.</em></p>
+<p>RStudio is starting to develop <a href="https://rstudio.cloud/learn/primers">a nice set of online tutorials they call Primers</a>. (It’s free, but you might need to create an account/log in). I am recommending the primers highly. If you are new to R, start with the <code>The Basics</code> section, work through the tutorials.</p>
+<p><em>Note: Some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes, and you always get a ‘that’s right’ kind of message. The R package that is used to write this tutorial is in the early stages of development and is not full-featured yet. I’m sure it will get better over time. The whole tutorial should still work.</em></p>
 <p><em>Note: There are two ways of assigning something to an object in R, one can write <code>x &lt;- 2</code> or <code>x = 2</code> and almost always that is the same. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. <code>x &lt;- 2</code>. The problem is that most other programming languages do it the second way, so if you learned to code in another language first (like I did), it’s more natural to write <code>x = 2</code>. It’s your choice. Just be aware that both notations exist and do the same thing. When I write code, I do a mix (without any logic to it).</em></p>
-<p><strong>As you work through the primer programming tutorial, write down the solutions to the questions. Some will show up on the quiz.</strong></p>
-<p>Once you’ve gone through the RStudio tutorial, read and work through <a href="https://rafalab.github.io/dsbook/r-basics.html">chapter 3 of IDS</a>. There will be some overlap between the RStudio tutorial and this chapter. That’s ok. Repetition doesn’t hurt. The IDS chapter goes beyond the RStudio tutorial. Try to code along, by entering the code you see in the book into your R console. Also, do the exercises at the end of some of the sections. <strong>This will likely take a good bit of time.</strong></p>
-<p><strong>As you do the exercises in IDS chapter 3, write down the solutions. Or write down the code in an R script so you can quickly access and re-run things. I will ask for some of the answers on the quiz.</strong></p>
+<p>If you want to practice some basic coding further, I suggest you go through <a href="https://rafalab.github.io/dsbook/">chapters 2 and 3 of IDS</a>. Continuing on to chapter 4 is a good idea. Alternatively, pick any other source you like, e.g. those listed in the resources section of this course, or anything else you find.</p>
 </div>
 <div id="more-r-coding" class="section level1">
 <h1>More R coding</h1>
-<p>We only cover R coding in a single module. That is obviously not enough to become proficient at it. For the rest of the course, I expect you to learn <em>on the side</em> the coding bits you need to get things done. I understand this will be a challenge. Don’t hesistate to seek help.</p>
-<p>I strongly recommend that you read and work through <a href="https://rafalab.github.io/dsbook/programming-basics.html">chapter 4 of IDS</a> (including doing the exercises) and go through the <a href="https://rstudio.cloud/learn/primers/6">RStudio <em>Functions</em> tutorial</a>. Those two sources cover some overlapping material with important topics for R (and really, any programming language), such as functions, flow control and branching. Try to read and work through the materials and understand as much as possible. If you are new to coding, it is likely you won’t fully understand everything on the first read. That’s ok. The important part is that you hear about these concepts and are aware of them. Once you start to need them for your analysis (and for any serious analysis, you will), you can then revisit the topics and dig in more deeply to get to the level where you can understand and apply them to your problems.</p>
-<p><strong>I will not ask any quiz questions on this material, and it is ok if you don’t manage to go through this material before the module deadline. But make sure you go through it soon. I assume going forward that you will have worked your way through it and will know what is covered.</strong></p>
+<p>We only focus explicitly on R coding in this module. That is obviously not enough to become proficient at it. For the rest of the course, I expect you to learn <em>on the side</em> the coding bits you need to get things done. I understand this will be a challenge. Don’t hesitate to seek help. The <a href="https://rstudio.cloud/learn/primers/">R Studio Primers</a> cover many of the coding related topics we will use in this course, therefore go through any and all you find useful whenever you are able (or when you need to know).</p>
 </div>
 <div id="getting-help" class="section level1">
 <h1>Getting help</h1>

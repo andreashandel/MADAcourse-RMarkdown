@@ -26,6 +26,8 @@ The quizzes cover the basics and ensures you have gone through some of the mater
 
 **Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the __Announcements Slack Channel__ for the link.**
 
+**Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Friday 5pm), otherwise the sytem will not take your submission.**
+
 
 ### Quiz sheets
 
@@ -49,6 +51,8 @@ The exercises are usually quite in-depth, require you to apply some of the mater
 
 If you get stuck during the exercises (quite possible), do feel free to get help. Use the various course materials, the course discussion board as well as outside resources. But do try to do as much as possible yourself (of course with the help of Google). 
 
+__Unless otherwise specified, exercises are due by Friday 5pm.__ 
+
 
 ### Exercise grading
 
@@ -66,6 +70,8 @@ Don't interpret these scores as grades, I just use them to differentiate, then I
 We can't have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.
 
 You will be asked to participate in discussions throughout the course, and discussion participation is part of the grade. The discussions are meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights. 
+
+__Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies are due by Friday 5pm. Post to the discussion channel for the applicable module (e.g. module2_discussion, module3_discussion).__ 
 
 
 ### Discussion guidelines

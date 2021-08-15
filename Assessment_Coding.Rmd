@@ -1,5 +1,5 @@
 ---
-title: Coding Introduction Assessments 
+title: Assessment - R Coding Basics  
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -10,18 +10,15 @@ output:
     toc_depth: 3
 ---
 
-# Module Assessments
-
-Make sure you've gone through all the content for this module.
 
 ## Quiz
 
-Do the quiz for this module on eLC. The quiz consists of around 5-10 fairly easy questions. It is timed, so you need to have gone through the material and either remember some of the main items or at least remember where you saw it so you can look it up quickly.
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
 
 
 ## Exercise
 
-For this module, you are asked to do a coding project. Instructions are provided in the [R Coding](./Exercise_Coding.html) document in the _Exercises_ section.
+For this module, you are asked to do a coding project. This also involves group work, and of course GitHub. 
 
 
 # Overview
@@ -33,11 +30,11 @@ For now, we'll be using base R syntax. At some later point, we'll do analyses us
 ** Even if you are already familiar with various R packages, I want you to do this exercise without their help. The only package you are allowed to load and use is the `dslabs` package to get the data.**
 
 
+TODO - COLLECT R CODING LEVEL INFO ON GOOGLE FORMS
+
+
 # Project setup
-* Go to the class organization [Github website](https://github.com/epid8060fall2019) and create a new repository (press the green _New_ button) named _YOURNAME-coding_. You can leave the description empty. Set the repository to be public. Check the box _Initialize this repository with a README_. Set the _.gitignore_ option to `R`, and you can leave the license at _none_. We won't make this exercise into a website, so we can skip all the things about _Github pages_ we did in the _Introducing Ourselves_ exercise.
-* Clone the repository to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend placing the repository inside the folder you made for the class. **Make sure you do not stick Github repositories inside other repositories, that can cause Github to break**. And remember that repository folders should not be synced with some other software (e.g., Dropbox).
-* Open RStudio on your computer. Choose _File_, _New Project_, _Existing Directory_ and then choose as directory the location on your computer where you cloned your repository in the previous step. If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with `.Rproj` ending and a README.md. 
-* Just to practice, let's update the Readme file. Click to open the README.md file. Replace the text with something else, e.g., "YOURNAME first R coding exercise" or something similar. It doesn't matter what you write exactly. We are just practicing editing the Readme file.
+* Open your portfolio website project in RStudio. 
 
 
 # R content creation
@@ -83,10 +80,16 @@ Based on those plots, there seems to still be a negative correlation between inf
 * Under `Preview` do `knit to html`. You can also try a different output (pdf or word). Those files should now be in your project directory. Once you are happy with things, close RStudio. 
 * Go to GitKraken. You should see a notification about changed files. Click _view changes_, then _Stage_. Write a commit message, commit the changes, then _Push_ them. If things work, your local folder and the online repository should be at the same level. Your project is now online.
 
-**I will check everyone's repository after the submission deadline.**
+
 
 # Getting help
 * Use any online sources you want. Also, feel free to push your project with the error message to Github, then post on the discussion board a description of your problem with a link to your file, so others can see what isn't working and can give you better help.
 
 
+
+# Discussion
+
+Describe one thing you learned in this module about R that you find rather annoying or confusing or dumb, and one thing about R that you find interesting or cool or awesome.
+
+Then comment/reply to your classmates posts.
 

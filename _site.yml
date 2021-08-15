@@ -59,12 +59,12 @@ navbar:
               href: ./Data_Analysis_Structure.html     
             - text: "Assessment: Data Analysis Introduction"
               href: ./Assessment_Data_Analysis.html
-        # - text: "R Coding Basics"
-        #   menu:
-        #     - text: "R basics"
-        #       href: ./RBasics.html     
-        #     - text: "Assessment: R Coding Basics"
-        #       href: ./Assessment_Coding.html
+        - text: "R Coding Basics"
+          menu:
+            - text: "R Coding Basics"
+              href: ./Rcoding_Basics.html     
+            - text: "Assessment: R Coding Basics"
+              href: ./Assessment_Coding.html
     #     - text: "Pondering and getting data"
     #       menu:
     #         - text: "5a. Data Types"

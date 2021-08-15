@@ -19,14 +19,14 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 ## Exercise
 
-For this exercise, we'll work a bit more using GitHub, you are exploring a data analysis (at least a template), and we'll start doing group work.
+For this exercise, you will practice with GitHub some more, you are exploring a data analysis (at least a template), and you will start doing group work.
 
 
 ### Preliminaries
 
 Start by going to the Github repository called [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template) I created. It is meant as a template for doing a data analysis project. It is also recommended for your class project. Read the information in the `README` file (at the bottom of the website).
 
-Next, use the template to start your own repository, like you did previously with the portfolio template. You can give it any name, this is just for playing around. For instance you could name it `YOURNAME-MADA-analysis1`. Clone it to your local machine, open the project in RStudio.
+Next, use the template to start your own repository. Follow the same steps you used previously with the portfolio template. You can give it any name, this is just for playing around. For instance you could name it `YOURNAME-MADA-analysis1`. Clone it to your local machine, open the project in RStudio.
 
 Take a look at the different folders, files, `readme` comments. Feel free to run the various R and R Markdown scripts. The idea is that you get some familiarity with the whole setup to prepare you for the next steps.
 
@@ -34,27 +34,25 @@ Take a look at the different folders, files, `readme` comments. Feel free to run
 ### Group setup
 
 If you haven't already, get in touch with your group members. You can find their names in the pinned post in the `announcements` channel. 
-Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributor 1, 2, 3, .... depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to give each other your GitHub user name.
+Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributor 1, 2, ...  depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.
 
 
 ### Pretend data-analysis
 
-The person your group designated as __project owner__ should go ahead and start another repository using the template. The name should be
-`GROUPN-MADA-analysis1` (with N of course your group number). Next, find the repository on their GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
+The person your group designated as __project owner__ should do the following: Go ahead and start another repository using the template. Name it `GROUPN-MADA-analysis1` (with N of course your group number). Next, find the repository on your GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
 
-Once everyone is added all invitations are accepted, all group members can go ahead and clone the repository to their local computer using GitKraken (or your preferred client). Make sure when you clone, you choose `Github.com` as source, and then you should be able to see the repository in the `Repository to clone` list. 
+Once everyone is added and all invitations are accepted, all group members can go ahead and clone the repository to their local computer using GitKraken (or your preferred client). Make sure when you clone, you choose `Github.com` as source, and then you should be able to see the repository in the `Repository to clone` list. 
 
-Once cloned to the local computer, __Contributor__ 1 goes ahead and opens the `exampledata.xlsx` file (with Excel or a similar program) and adds 2 more columns to the data. One column should be something numeric, the other can be something consisting of (a few) different categories. As a (boring) example, you could add sex and waist circumference. But feel free to come up with more creative attributes/variables to add. Once done, save the new data as **`exampledata2.xlsx`, then commit your changes (write a meaningful commit message) and push them to GitHub.com. 
+Once cloned to the local computer, __contributor 1__ goes ahead and opens the `exampledata.xlsx` file (with Excel or a similar program) and adds 2 more columns to the data. One column should be something numeric, the other can be something consisting of (a few) different categories. As a (boring) example, you could add sex and waist size. Feel free to come up with more creative attributes/variables to add. Once done, save the new data as **`exampledata2.xlsx`**, then commit your changes (write a meaningful commit message) and push them to GitHub.com. 
 
-Once contributor 1 is done, __contributor 2__ pulls the repository with the updated changes (i.e. the added data). Adjust the `processingscript.R` file such that it now loads the new data file called `exampledata2.xlsx`. Take a look at the new data. If necessary (depending on what contributor 1 added), add a few lines of code to clean the new data as needed. (If this is needed, you either need to know at least a little bit of R coding, otherwise Google your way to a solution. Once everything works with the script and it creates a new clean dataset that can be saved as `processeddata.rds`, your job is done. Commit your changes and push to GitHub.
-
-Now __contributor 3__ pulls the latest version of the repository, then opens `analysisscript.R`. Edit the code such that it creates a boxplot with the new categorical variable (whatever it is) on the x-axis, and height on the y-axis. Also create another scatterplot with weight on the x-axis and the new numerical variable on the y-axis. Save both figures to files. Once done, commit and push.
+Once contributor 1 is done, __contributor 2__ pulls the repository with the updated changes (i.e., the added data). Adjust the `processingscript.R` file such that it now loads the new data file called `exampledata2.xlsx`. Take a look at the new data. If necessary (depending on what contributor 1 added), add a few lines of code to clean the new data as needed. If this is needed, you either need to know at least a little bit of R coding, otherwise Google your way to a solution. Once everything works and the script creates a new clean dataset that can be saved as `processeddata.rds`, your job is done. Commit your changes and push to GitHub.
 
 __If your team does not have 4 persons, then contributor 2 will also need to do the part of contributor 3.__
 
-Finally, it's back to the __project owner__. This person should pull the latest version of the repository. Then open `Manuscript.Rmd`. Add code to show the two new figures your team produced in the manuscript. Then knit it to a word doc. Make sure it looks ok. Commit and push your changes.
+Now __contributor 3__ pulls the latest version of the repository, then opens `analysisscript.R`. Edit the code such that it creates a boxplot with the new categorical variable (whatever it is) on the x-axis, and height on the y-axis. Also create another scatterplot with weight on the x-axis and the new numerical variable on the y-axis. Save both figures to files. Once done, commit and push.
 
-**Finally, post the link to your repository into the `module2_exercise` Slack channel by the deadline.**
+
+Finally, it's back to the __project owner__. Pull the latest version of the repository. Then open `Manuscript.Rmd`. Add code to display the two new figures for the new data your other group members produced. Then knit it to a word doc. Make sure it looks ok. Commit and push your changes. **Finally, post the link to your repository with the updated manuscript into the `module2_exercise` Slack channel by the deadline.**
 
 
 
