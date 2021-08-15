@@ -76,6 +76,8 @@ _Every time you make changes and want to see how they look, you just re-build th
 
 You can style your website if you like. Full styling will require knowledge of CSS and HTML. We won't get into this. But if you want to play a bit with the look, open the `_site.yml` file. This file defines the menu structure, and some styling. To change the look, you can replace `theme` with a different one. These are available: "cerulean", "journal", "flatly", "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti". Try some, see how things change. If you want to go further, check out [these instructions](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), which also explain how you could use your own CSS.
 
+You might also want to replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text with the actual Github URL of the repository you just created. (This should point to the `github.com` location of the files, not the `github.io` location for the website.)
+
 
 ### Update your repository Readme file
 

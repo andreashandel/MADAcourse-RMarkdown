@@ -27,7 +27,7 @@ I have several goals for this project review:
 * By the deadline specified in the [Schedule](./Course_Schedule.html), everyone has to push their finished project to their project repository. 
 * Go to the class list document and find the 2 persons listed below you. If you are the last or 2nd to last person, you start again at the top (i.e. you review the last and first, or first and second person).
 * For reviewing, we'll use the _fork and pull_ workflow. Fork the project repositories of your classmates into your personal GitHub account, then clone them to your local computer. 
-* Follow their provided instructions to reproduce everything. Review the whole project using [this review template](./Rcode/Project_Review_Template.Rmd).
+* Follow their provided instructions to reproduce everything. Review the whole project using [this review template](./rfiles/Project_Review_Template.Rmd).
 * Write up a detailed review using and filling out the template Markdown file. Once you are done, send a pull request for each project you review, containing your completed review document.
 
 
