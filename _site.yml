@@ -63,6 +63,8 @@ navbar:
           menu:
             - text: "R Coding Basics"
               href: ./Rcoding_Basics.html     
+            - text: "Tidyverse and Friends"
+              href: ./Rcoding_Tidyverse.html     
             - text: "Assessment: R Coding Basics"
               href: ./Assessment_Coding.html
     #     - text: "Pondering and getting data"

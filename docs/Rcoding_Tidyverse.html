@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA Course - Model Uncertainty</title>
+<title>Tidyverse and Friends</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -394,6 +394,9 @@ div.tocify {
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
         </li>
         <li>
+          <a href="./Rcoding_Tidyverse.html">Tidyverse and Friends</a>
+        </li>
+        <li>
           <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
         </li>
       </ul>
@@ -453,45 +456,44 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA Course - Model Uncertainty</h1>
+<h1 class="title toc-ignore">Tidyverse and Friends</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-15 13:47:44</h4>
 
 </div>
 
 
-<div class="figure">
-<img src="media/smbc-sample-size.png" alt="" />
-<p class="caption">A study with n=1 has large uncertainty. <a href="http://www.smbc-comics.com">Source: SMBC</a>.</p>
-</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>Quantifying uncertainty is an important part of model evaluation. During model building and selection, we often like to know how the distribution of model performance measures (e.g., RMSE or Accuracy as measured by CV) differs between models.</p>
-<p>For our “final” model, we are most often interested in the uncertainty associated with predictions of outcomes. At times, we might also be interested in the values of model parameters and thus might want to know uncertainty associated with those estimates.</p>
+<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. R itself comes with some functionality. This is often referred to as <code>base R</code>. Even with just this basic functionality, there are often many ways to accomplish a task. But the real power of R comes from its many packages. Packages (in other programming languages also often called libraries) contain additional functions and functionality that lets you fairly easily do things that would require a ton of coding effort if you tried to do it yourself. Someone basically wrote the functionality for you, and you can use it.</p>
+<p>While there are tons of packages available, some are very commonly used. For data analysis tasks, the folks from R Studio have developed many packages that are very useful. One such set of packages, the most widely used one, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable, and more powerful. We will use the <code>tidyverse</code> packages and their functionality a lot. That said, knowing some base R is very useful. In general, you can fairly easily mix and match.</p>
 </div>
-<div id="model-performance-uncertainty" class="section level1">
-<h1>Model performance uncertainty</h1>
-<p>If we perform cross-validation, (often repeated), we get multiple estimates for model performance based on the test set performance. For instance, in 10-fold CV 10 times repeated, we get 100 values for the model performance (e.g., RMSE). We can look at the distribution of those RMSE. While the standard approach is to pick a model with lower mean RMSE (or other performance measures), that doesn’t have to be the case. We might prefer one with a somewhat higher mean but less variance. To that end, looking at distributions of model performance is useful.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Know what the <code>tidyverse</code> is</li>
+<li>Be able to apply <code>tidyverse</code> code to data wrangling problems</li>
+<li>Be able to use R packages for specific needs</li>
+</ul>
 </div>
-<div id="model-parameter-uncertainty" class="section level1">
-<h1>Model parameter uncertainty</h1>
-<p>At times, we might be interested in knowing the uncertainty of the model parameters. This will also give us the uncertainty in the predicted <em>expected</em> values of the model. Both of those quantities, uncertainty in parameters and model expectations can be quantified with <strong>confidence intervals.</strong> (Or the bayesian equivalent of <strong>credible intervals</strong>).</p>
-<p>Some functions in R, e.g. <code>lm</code> have a built-in command to compute confidence intervals. For more complex models or approaches, such built-in functions might not exist. A general approach to produce confidence or prediction intervals is with a sampling method that is very similar in spirit to cross-validation, namely by performing <strong>bootstrapping.</strong></p>
-<div id="bootstrapping" class="section level2">
-<h2>Bootstrapping</h2>
-<p>The idea for bootstrapping is fairly straightforward. Bootstrapping tries to imitate a scenario in which you repeated your study and collected new data. Instead of having actual new data, the idea is that the existing data is sampled to form a new “dataset”, which is then fit. Sampling is performed <em>with replacement</em> to obtain a sample the size of the original dataset. Some observations now show up more than once, and some do not show up. For each such sample, you fit your model and estimate parameters. You will thus get a distribution of parameter estimates. From those distributions, you can compute confidence intervals, e.g., the usual 95% interval. For each fit, you can also predict outcomes and thus obtain a distribution of prediction outcomes (see next).</p>
-<p>Like cross-validation, the bootstrap method is very general and can be applied to pretty much any problem. If your data has a specific structure, you can adjust the sampling approach (e.g., if you have observations from different locations, you might want to sample with replacement for each location.) Limitations for the bootstrap are that you need a decent amount of data for it to work well, and since you are repeating this sampling procedure many times</p>
-<p>For more on bootstrapping, see <a href="https://statlearning.com/">section 5.2 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">section 30.5 of IDS</a>. Those readings are optional.</p>
+<div id="tidy-data" class="section level1">
+<h1>Tidy data</h1>
+<p>The concept of the tidyverse can be traced back to the concept of <em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a> introduced in <a href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>. Give the article a quick read to get the overall idea. You will see it a lot, so it’s good to be familiar with it.</p>
 </div>
+<div id="tidyverse-philosophy" class="section level1">
+<h1>Tidyverse philosophy</h1>
+<p>The R packages developed by Hadley and others were eventually grouped together and now goes by the name of tidyverse. If you want to learn more about the principles of those packages, <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">you can read this short manifesto</a> written by Hadley. Some of what he writes might not be fully understandable to you (e.g., functional programming), but you’ll get the overall idea. For our purpose, the important aspects to remember is that the <code>tidyverse</code> is a collection of R packages that are all structured similarly (from a user perspective), that play nice with each other, and that help you in your various analysis tasks as you go from messy data to data that is tidied up and ready for formal analysis.</p>
+<p>Note that there are many more R packages that are not part of the core tidyverse, but that still follow the same principles and nicely work with other tidyverse packages.</p>
 </div>
-<div id="model-prediction-uncertainty" class="section level1">
-<h1>Model prediction uncertainty</h1>
-<p>If we are interested in model predictions, we generally also want to know how much uncertainty is associated with those predictions. For continuous outcomes, computing prediction intervals gives an idea of the uncertainty in our predictions. As for parameter uncertainty, some <code>R</code> functions have built-in methods to compute prediction intervals, or you can use the bootstrap approach.</p>
-<p>Note that prediction intervals are not the same as confidence intervals. The latter quantifies the uncertainty in model parameters, e.g., the <em>b<sub>i</sub></em> in a regression model. Since those <em>b<sub>i</sub></em> have uncertainty, the model predictions for the <em>expected</em> observation has uncertainty. However, each real observation has additional scatter around the expected value. This additional uncertainty needs to be factored in when trying to make predictions for individual outcomes. As such, prediction intervals are wider than confidence intervals.</p>
+<div id="learning-the-tidyverse" class="section level1">
+<h1>Learning the Tidyverse</h1>
+<p>To learn more and practice some of the tidyverse functionality, I suggest you go through the <em>Work with Data</em> and <em>Tidy your Data</em> sections of the <a href="https://rstudio.cloud/learn/primers/">R Studio primers</a>. More or less the same content, presented a bit differently and non-interactively, can be found in the <a href="https://r4ds.had.co.nz/tidy-data.html"><em>Tidy data</em> chapter in R4DS</a>. This might be a good reference to look up things. If you want to practice and learn more, read the <em>tidyverse</em>, <em>Introduction to data wrangling</em>, <em>Reshaping data</em> and <em>Joining tables</em> chapters of IDS](<a href="https://rafalab.github.io/dsbook/" class="uri">https://rafalab.github.io/dsbook/</a>). If you want some more data tyding practice, check out <a href="http://garrettgman.github.io/tidying/">this tutorial by Garrett Grolemund</a> or <a href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/">this short blog post by Joachim Goedhart</a>.</p>
+<p>These are a lot of resources, and I don’t expect you to work in detail through all of them. I do suggest you take a quick look at all of them, and then work through some of them based on your knowledge level. As we progress through the course and you’ll be asked to do a lot of these tasks, you will likely want to re-visit these materials. And as always, Google is your friend.</p>
 </div>
-<div id="p-values" class="section level1">
-<h1>P-values</h1>
-<p>So what about the <strong>p-value?</strong>. This quantity doesn’t measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, not too useful and can most often be skipped (though sometimes one needs them just to make reviewers happy). I’m thus not talking about them further.</p>
+<div id="beyond-the-tidyverse" class="section level1">
+<h1>Beyond the Tidyverse</h1>
+<p>There are lots of other useful R packages that make your coding life easier. We’ll make liberal use of them throughout this course. It is highly likely that for some of the course exercises or the course project, you will be using other packages that you find helpful. Being able to find packages that do what you need is important.</p>
+<p>The quality of packages varies. In general, if they are on <code>CRAN</code> or <code>bioconductor</code>, they are reasonably stable. Any packages that involve RStudio, or are otherwise widely used and have many developers, suggests that things are tested fairly well. Other packages might be more experimental, and while they might work well, there might also be bugs. So always carefully inspect the results you get to make sure things are reliable.</p>
 </div>
 
 

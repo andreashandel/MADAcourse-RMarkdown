@@ -35,7 +35,7 @@ As part of this exercise, you are asked to create a public website, which at the
 
 For those of you who are new to Github/R/Rmarkdown, this first project will make you do a lot of things that you are not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.
 
-If you get stuck (quite possible), use the materials I list in the [Resources document](./Course_Resources.html). It is probably best to first post to the discussion boards, I'll be checking it frequently. You can also use other ways to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
+If you get stuck (quite possible), check the materials listed in the __Resources__ section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course. 
 
 
 ### Pre-requisites

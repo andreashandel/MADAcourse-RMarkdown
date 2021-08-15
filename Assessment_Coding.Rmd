@@ -30,8 +30,6 @@ For now, we'll be using base R syntax. At some later point, we'll do analyses us
 ** Even if you are already familiar with various R packages, I want you to do this exercise without their help. The only package you are allowed to load and use is the `dslabs` package to get the data.**
 
 
-TODO - COLLECT R CODING LEVEL INFO ON GOOGLE FORMS
-
 
 # Project setup
 * Open your portfolio website project in RStudio. 

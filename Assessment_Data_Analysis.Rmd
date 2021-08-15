@@ -54,7 +54,7 @@ Now __contributor 3__ pulls the latest version of the repository, then opens `an
 
 Finally, it's back to the __project owner__. Pull the latest version of the repository. Then open `Manuscript.Rmd`. Add code to display the two new figures for the new data your other group members produced. Then knit it to a word doc. Make sure it looks ok. Commit and push your changes. **Finally, post the link to your repository with the updated manuscript into the `module2_exercise` Slack channel by the deadline.**
 
-
+_After the deadline, I'll check/grade the repository of each group. The grade will be a single one and the same for every group member._
 
 
 

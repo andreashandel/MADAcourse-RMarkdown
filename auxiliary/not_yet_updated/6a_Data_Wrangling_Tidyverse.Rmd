@@ -80,41 +80,6 @@ It is not uncommon that your raw data comes in more than one file. It could be m
 
 
 
-# The tidyverse
-
-## Overview
-
-One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. In the _R Coding_ exercise, I asked you only to use commands and functions that are built right into R, which is sometimes referred to as `base R`. In the various bits of code that you have seen and worked along so far, you have encountered a mix of base R approaches and approaches that require specific packages. A lot of the power in R comes from its packages. Over the last few years, a group of individuals have developed (many) packages that make data analysis easier. One such set of packages, the most widely used one, is called the [`tidyverse`](https://www.tidyverse.org/). By using those packages, a lot of coding applied to data analysis becomes easier, more readable, and more powerful. We have, and will continue to use the `tidyverse` packages and their functionality a lot. That said, knowing some base R is very useful, which is why I asked you to use it previously. Fortunately, they can easily be combined, so you can choose which style of coding to use based on what is easiest.
-
-
-## Tidy data
-
-The concept of the tidyverse can be traced back to the concept of _tidy data_, which [Hadley Wickham](http://hadley.nz/) introduced in [this article](https://www.jstatsoft.org/article/view/v059i10/). Read this article. __I'll ask you questions about it.__ When reading Hadley Wickham's article on tidy data, pay special attention to part 3 where the author explains how to tidy a messy data set. You will be asked to do similar exercises in the R primers. 
-
-
-## Tidyverse philosophy 
-
-The R packages developed by Hadley and others were eventually grouped together and now goes by the name of tidyverse. If you want to learn more about the principles of those packages, [you can read this short manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html) written by Hadley. Some of what he writes might not be fully understandable to you (e.g., functional programming), but you'll get the overall idea. For our purpose, the important aspects to remember is that the `tidyverse` is a collection of R packages that are all structured similarly (from a user perspective), that _play nice_ with each other, and that help you in your various analysis tasks as you go from messy data to data that is tidied up and ready for formal analysis.
-
-Note that there are many more R packages that are not part of the core tidyverse, but that still follow the same principles and nicely work with other tidyverse packages.
-
-
-## Tidyverse and wrangling practice
-
-To learn more and practice some of the tidyverse functionality and apply it to data wrangling, work through all 3 lessons in the [_Work with data_](https://rstudio.cloud/learn/primers/2) module from the RStudio tutorials. After that, work through all 3 lessons of the [_Tidy your data_](https://rstudio.cloud/learn/primers/4) module. __I'll ask you questions about those tutorials.__
-
-:::fyi
-More or less the same content, presented a bit differently and non-interactively, can be found in the [_Tidy data_ chapter (12) in R4DS](https://r4ds.had.co.nz/tidy-data.html). This might be a good reference to look up things.
-:::
-
-Next, read [the  _tidyverse_, _Data Wrangling_, _Reshaping data_ and _Joining tables_ chapters (5,21,22,23) of IDS](https://rafalab.github.io/dsbook/tidyverse.html). A lot of the information in those chapters overlaps with the Rstudio tutorials you just did, and I will not quiz you on that. But it's worth going through the chapters since there are a few additional topics and tricks explained that are not covered in the Rstudio tutorials. You can also see some more worked examples and exercises that you can try out to get more practice.
-
-If you want some more data tyding practice, check out [this tutorial by Garrett Grolemund](http://garrettgman.github.io/tidying/) or [this short blog post by Joachim Goedhart](https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/). 
-
-
-As you do your data wrangling, a lot of code writing will be _ad hoc_. You have a specific task you need to accomplish with your data, and then you go out and look for instructions online on how to do it. The materials you just worked through are useful resources. And as always, google is your friend.
-
-
 
 # Data cleaning and exploratory analysis
 

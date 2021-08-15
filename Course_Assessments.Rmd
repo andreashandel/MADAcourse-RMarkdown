@@ -33,11 +33,12 @@ The quizzes cover the basics and ensures you have gone through some of the mater
 
 For each module, you are asked to fill out an Excel sheet with questions related to the course material. Download the quiz files from the links below, fill in the "Answer" column, and submit [to this website](https://shiny.ovpr.uga.edu/MADA2021/) by the deadline specified in the __Schedule__ document.
 
-__Please do not make any other changes to the sheets apart from filling the "Answer" column. If you do make changes, submission might fail. If that happens and you get an error message, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.__
+**You can expand and resize the columns/rows of the Excel file so you can make sure to see all content. Other than that, please only fill in the _Answer_ column and don't make other changes (e.g. don't rename or delete rows/columns). If you do make changes, submission might fail. If that happens and you get an error message during submission, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.** 
 
-* [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_quiz.xlsx)
-* [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_quiz.xlsx)
-* [Module 3 – R coding basics](./quizsheets/mada_coding_basics_quiz.xlsx)
+
+* [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_student.xlsx)
+* [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_student.xlsx)
+* [Module 3 – R coding basics](./quizsheets/mada_coding_basics_student.xlsx)
 
 
 ### Quiz grading
