@@ -22,7 +22,7 @@ The assessments are meant as a help for you, consider them gentle prods to ensur
 
 ## Quizzes
 
-The quizzes cover the basics and ensures you have gone through some of the material. Each quiz consists of around 10-20 short questions.
+The quizzes cover the basics and ensures you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.
 
 **Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the __Announcements Slack Channel__ for the link.**
 

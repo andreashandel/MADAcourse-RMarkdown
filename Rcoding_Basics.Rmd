@@ -35,7 +35,7 @@ R (or any other programming language) is best learned by "doing it". You will le
 
 This figure illustrates the journey of learning to write code:
 
-```{r datacartoon,  echo=FALSE, fig.cap="The journey of learning to code. [From this Source.]https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/", out.width = '100%', fig.align='center'}
+```{r datacartoon,  echo=FALSE, fig.cap="The journey of learning to code. [From this Source.](https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/)", out.width = '100%', fig.align='center'}
 knitr::include_graphics("./media/LearningToCode.jpg")
 ```
 
