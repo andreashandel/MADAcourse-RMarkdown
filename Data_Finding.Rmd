@@ -1,5 +1,5 @@
 ---
-title: Getting Data
+title: Finding and Getting Data
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -48,7 +48,8 @@ Wherever you get data from, document it as much as possible. When did you get it
 
 Treat the raw data as you would a very fragile object. Ideally, do not touch it. Do not edit it. You want to only __read__ the data into R, even if it is in a bad format, and then apply fixes/cleaning in R. If this is not possible, and you need to make edits to the data in whatever format you got it (e.g., Excel, SAS), __make a copy of the data files and place those copies in a separate folder, AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made.__
 
-A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could be potentially very time-saving for you. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper [Data Organization in Spreadsheets](./media/broman18amstat.pdf) by Browman and Woo.
+A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could be potentially very time-saving for you. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper [Data Organization in Spreadsheets](./media/broman18amstat.pdf) by Broman and Woo.
+
 
 # Data import in R
 
@@ -65,7 +66,7 @@ Here are some of the most prominent ones:
 The packages I listed above are all from the `tidyverse`. There are many more packages with additional functionality, and many base R commands.
 
 
-For some more information, read the [_Importing Data_ chapter in IDS](https://rafalab.github.io/dsbook/importing-data.html). __Do the exercises in 6.3.__ The [_Web scraping_ chapter (24) in IDS](https://rafalab.github.io/dsbook/web-scraping.html) provides additional information on how to pull online data into R. 
+To learn some more, you can check out the [_Importing Data_ chapter in IDS](https://rafalab.github.io/dsbook/importing-data.html). The [_Web scraping_ chapter in IDS](https://rafalab.github.io/dsbook/web-scraping.html) provides additional information on how to pull online data into R. 
 
 
 
@@ -82,8 +83,9 @@ If the data loads, it might do so with or without error or warning messages. In 
 
 
 
-# Examples of data loading
-If you want to see a few examples of live-coding that shows how to read data into R, watch these videos by Jeff Leek. They are optional.
+# Examples of data import
+
+If you want to see a few examples of live-coding which show how to read data into R, you can check out these videos by Jeff Leek. 
 
 <p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z7pOxe6dDG0" frameborder="0" allowfullscreen></iframe>

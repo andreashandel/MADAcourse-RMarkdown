@@ -1,5 +1,5 @@
 ---
-title: Data Wrangling and the Tidyverse 
+title: Wrangling Data  
 subtitle: ""
 author: Andreas Handel
 contributors: Megan Beaudry
@@ -20,7 +20,7 @@ library(emo)
 
 # Overview
 
-In this unit, we will discuss what data wrangling is and why it's a very important part of any analysis. We will then discuss and use a set of packages in R commonly referred to as the [tidyverse](https://www.tidyverse.org/). 
+In this unit, we will discuss what data wrangling is and why it's a very important part of any analysis. 
 
 ```{r cartoon,  echo=FALSE, fig.cap='How data used to be cleaned before the tidyverse.', out.width = '80%', fig.align='center'}
 knitr::include_graphics("./media/cartoonscrubdata.jpg")
@@ -30,22 +30,20 @@ knitr::include_graphics("./media/cartoonscrubdata.jpg")
 
 * Learn what data wrangling is 
 * Know about specific important wrangling tasks
-* Know what the `tidyverse` is
-* Be able to apply `tidyverse` code to data wrangling problems
 
 
 # Data wrangling overview
 
-Once you have the data loaded into your analysis software, such as R, you almost always need to clean your data and reshape it for formal statistical analysis. The term often applied to this messing around with the data is called _wrangling_ or _tidying_. _Cleaning_, _munging_ or _processing_ are other terms that generally mean the same thing. To figure out how to get your data into the right shape and what cleaning steps you need to take, you also need to explore the data. R provides a lot of functionality for data wrangling and exploring. We focus on a specific approach which makes use of R packages collectively known as the `tidyverse`, which we'll cover next. We will then use them to practice some data wrangling. 
+Once you have the data loaded into your analysis software, such as R, you almost always need to process it to get it into a format that suitable for statistical analysis. The terms often applied to this messing around with the data is called _wrangling_ or _tidying_. _Cleaning_, _munging_ or _processing_ are other terms that generally mean the same thing. To figure out how to get your data into the right shape and what cleaning steps you need to take, you also need to explore the data. R provides a lot of functionality for data wrangling and exploring. We focus on a specific approach which makes use of R packages collectively known as the `tidyverse`, which we'll cover next. We will then use them to practice some data wrangling. 
 
-Throughout this course, you have already done a good bit of wrangling, and you have read about and used `tidyverse` packages previously, I just haven't officially introduced them yet.
+You have already done some data wrangling as part of previous exercises, here we talk about it in some more detail.
 
 **As with any part of the data analysis process, wrangling should be done automated, reproducible and documented. No "fixing by hand"!**
 
 
 # Specific wrangling tasks
 
-There are some types of problems that you encounter often. Here I briefly discuss a few important ones.
+There are some types of problems that you encounter often.  I briefly discuss a few important ones.
 
 ## Missing data
 In almost any dataset, there are some missing entries. Data can be missing for different reasons. It could have not been asked/recorded, the person refused to provide it, the variable is not applicable (e.g. for a non-smoker, the variable "number of cigarettes per day" might be left blank.) It is important to understand why data are missing and form an action plan based on that. Many analysis approaches do not allow for missing data. In this case, you need to reduce your dataset such that nothing is missing. 
@@ -79,12 +77,9 @@ It is not uncommon that your raw data comes in more than one file. It could be m
 
 
 
-
-
 # Data cleaning and exploratory analysis
 
-As you do your data cleaning/wrangling, you need to explore your data to figure out what needs fixing. As such, certain aspects of exploratory analysis and cleaning go together. 
-You need to explore your data to figure out how to clean it, and you need to clean it to allow further exploration. So remember that even though in a course like this we have to cover one topic at a time, in reality, a lot of these activities occur at the same time.
+As you do your data cleaning/wrangling, you need to explore your data to figure out what needs fixing. As such, certain aspects of exploratory analysis and cleaning go together. You need to explore your data to figure out how to clean it, and you need to clean it to allow further exploration. So remember that even though in a course like this we have to cover one topic at a time, in reality, a lot of these activities occur at the same time.
 
 We will cover exploratory analysis in a separate, later module, and we will consider exploratory _statistical_ analysis as part of the exploration process. There is no clear definition for exploratory analysis. Some people consider exploratory analysis only the parts up to and including a _descriptive_ analysis. I consider very simple bi-variate statistical approaches also part of the exploration. To me, the exploratory part is anything that comes before you apply multi-variable models to most of the data with the goal of producing "final" results. Just don't get too hung up on the terminology. In practice, there is no clear division, e.g., people often plot exploratory figures and add a simple linear regression or another simple statistical model to the figure as part of the exploration process. 
 

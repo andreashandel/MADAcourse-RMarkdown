@@ -60,7 +60,7 @@ __Exposure (variable):__ A name for a __predictor__ variable of particular inter
 
 __Feature (variable):__ An alternative name for __Predictor__ often used in the machine learning literature. 
 
-__Independent (variable):__ An alternative name for _predictor_, most often used in the statistical literature.
+__Independent variable:__ An alternative name for _predictor_, most often used in the statistical literature.
 
 __Labeled data:__ If we have data for which there is a specific outcome of interest and we know it, it is called labeled data. For instance, if we had a lot of pictures of tissue samples, and someone had gone through them and labeled them as cancerous or not cancerous, it is labeled data. Labeled data (the most common type) is usually analyzed using __Supervised Learning/Analysis__ approaches.
 
@@ -70,7 +70,7 @@ __Mechanistic Modeling:__ Building and using models that explicitly incorporate 
 
 __Observation:__ An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different _variables_ should be available. In R, it is most common that each observation is stored as a row in a data frame.
 
-__Ordinal (variable):__ A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it's unclear if the difference between 5 and 6 is the same as 6 and 7. 
+__Ordinal variable:__ A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it's unclear if the difference between 5 and 6 is the same as 6 and 7. 
 
 __Outcome (variable):__ The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not. Also called __response (variable)__ or __dependent (variable)__.
 
@@ -91,6 +91,8 @@ __Statistical Learning:__ A term that seems to become more widely used in recent
 __Supervised Learning/Analysis:__ Fitting __Labeled data__. The two types of supervised learning are __Regression__ and __Classification__.
 
 __Unlabeled data:__ If we have data for which there is either no specific outcome variable of interest or we do not know it, it is called unlabelled data. For instance, if we had a lot of pictures of tissue samples, and we knew that some showed cancerous tissue and others not, but we didn't know which are which, it is unlabeled data. Similarly, if we had pictures of different tissue samples (or say a number of gene sequences) and all we wanted to know is if some samples are more related to each other than others, but there is no main outcome, it is considered unlabeled data. Unlabeled data is usually analyzed using _unsupervised_ analysis approaches.
+
+__Variable:__ Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable. 
 
 __Variable:__ Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable. 
 

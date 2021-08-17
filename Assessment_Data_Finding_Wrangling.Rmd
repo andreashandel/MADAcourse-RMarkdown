@@ -1,0 +1,42 @@
+---
+title: Assessment - Data Finding and Wrangling  
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emo)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+# Exercise
+
+This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub. 
+
+
+
+**The first part of the project is due by Wednesday, so your classmate can do their part before the Friday deadline.**
+
+
+
+
+# Discussion
+
+No discussion assignment this week. Instead, submit project part 1.
+
+
+# Project
+
+Submission of part 1 is due. Submit a link with a URL to your repository to the _project_topics_ Slack channel. 
