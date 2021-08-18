@@ -77,14 +77,14 @@ navbar:
               href: ./Data_Wrangling.html     
             - text: "Assessment: Data Finding and Wrangling"
               href: ./Assessment_Data_Finding_Wrangling.html
-    #     - text: "Visualization"
-    #       menu:
-    #         - text: "Visualization Overview"
-    #           href: ./Visualization_Overview.html     
-    #         - text: "Visualization in R"
-    #           href: ./Visualization_in_R.html     
-    #         - text: "Assessment: Visualization"
-    #           href: ./Assessment_Visualization.html
+        - text: "Visualization"
+          menu:
+           - text: "Visualization Overview"
+             href: ./Visualization_Overview.html     
+           - text: "Visualization in R"
+             href: ./Visualization_in_R.html     
+           - text: "Assessment: Visualization"
+             href: ./Assessment_Visualization.html
     #     - text: "8. Pre-processing Data"
     #       menu:
     #         - text: "8a. Pre-processing data"

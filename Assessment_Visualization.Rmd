@@ -1,0 +1,66 @@
+---
+title: Assessment - Visualization
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emo)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+# Exercise
+
+For this exercise, you are asked to recreate a _professional-looking_ graph that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.
+
+For motivation take a quick look at [this blog post by Rafael Irizarry](https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/) (the author of the IDS book we've been using). He shows how one can use R and ggplot to reproduce figures that look very similar to professional ones. You'll see that it usually doesn't require that many lines of code to get an outstanding looking figure!
+
+We'll try to do that ourselves.
+
+## Getting started
+Open your portfolio website project in RStudio. Then open the `visualization_exercise.Rmd` file. We'll use that file for this exercise.
+
+
+## Find a graph to reproduce
+
+Find some interesting graph from a news website. My main suggestion is to look at graphs from [FiveThirtyEight](https://fivethirtyeight.com/). They are known to often produces high-quality graphs, and for some of their stories and figures, they also [provide the original data source](https://data.fivethirtyeight.com/).
+
+Good starting points for a chart from FiveThirtyEight might be their annual summaries of weirdest charts, which you can find here for [2020](https://fivethirtyeight.com/features/the-40-weirdest-and-best-charts-we-made-in-2020/), [2019](https://fivethirtyeight.com/features/the-56-best-and-weirdest-charts-we-made-in-2019/), [2018](https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/), [2016](https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/), and [2015](https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/). (No, I don't know why there's no 2017.) 
+
+If you can't find a graph on FiveThirtyEight that you like and would like to reproduce, you are also allowed to check out other major news outlets (USA Today, NY Times, Wall Street Journal, The Guardian, etc.). 
+
+The only requirements are that the original graph must be interesting and good looking (a basic scatterplot is not enough) and freely available online, not behind a paywall.
+
+## Get the data
+
+Once you got a graph you'd like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.
+
+Make a new folder in your repository, call it `data`. Place the data file you found or created inside that folder. If you found it, it will be in whatever format you got. If you made it yourself by extracting it from the original graph, I recommend a CSV file. 
+
+## Re-create the original graph
+
+Once you have the data and the original graph, you'll first need to add few lines of code to your `visualization_exercise.Rmd` file to load the data, and if needed, do some cleaning. 
+
+Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. If it still looks a bit different in the end, that's ok. 
+
+Your final product should be code and explanatory text inside your Rmd file that shows the first shows the original plot and links to its source, then shows your code that re-creates the graph, finally it should show your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
+
+Once done, re-build your website and make sure that your data visualization exercise shows up nicely. 
+
+# Discussion
+
+Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.
+
+And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I'll be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
+
+

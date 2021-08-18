@@ -1,10 +1,7 @@
 ---
 title: Visualization Overview
-subtitle: ""
 author: Andreas Handel
-institute: "University of Georgia"
 date: "`r file.mtime(knitr::current_input())`"
-#bibliography: ../media/references.bib
 output: 
   html_document:
     toc_depth: 3
@@ -44,26 +41,22 @@ In the second video [Chris Jordan](https://monachalabi.com/) discusses how one c
 <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/chris_jordan_pictures_some_shocking_stats" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
 <br>
 
-**I'll ask you a few questions about those videos.**
-
 If you are interested, you can find more interesting talks on visualization in this [_TED topics_ site](https://www.ted.com/topics/visualizations) and this [_TED Studies_ collection](http://www.ted.com/read/ted-studies/statistics).
 
 
-
 # Visualization uses 
+
 Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, what cleaning you might need to do, and what analysis approaches might be useful. Use them once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are - in my opinion - overused in science. Good figures are, most of the time easier to understand and more effective way to look at data. 
 
 
 # Types of graphs
-I'm sure you are familiar with different graphs. Some are commonly used and widely overused (e.g., bar plots or pie charts), others are less frequently used (e.g., violin plots or hex bins). Instead of me providing summaries of different plots, read chapter 5 of the excellent [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) by Claus Wilke. That chapter provides a quick overview of many common and useful plots. Further chapters in his book describe specific types of plots in more detail, and also provide general best practices for making plots. You should definitely read through those sections describing plots that interest you the most. Also, note that all the graphs in his book are made with ggplot2 and friends. He doesn't show any code in the book, but if you dig through the Github repository for the book, you'll likely be able to find code for specific figures.  
+
+I am sure you are familiar with different graphs. Some are commonly used and widely overused (e.g., bar plots or pie charts), others are less frequently used (e.g., violin plots or hex bins). Instead of me providing summaries of different plots, read the _Directory of Visualizations_ chapter of the excellent [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book by [Claus Wilke](https://clauswilke.com/). That chapter provides a quick overview of many common and useful plots. Further chapters in his book describe specific types of plots in more detail, and also provide general best practices for making plots. You should definitely read through those sections describing plots that interest you the most. Also, note that all the graphs in his book are made with ggplot2 and friends. He doesn't show any code in the book, but if you dig through the Github repository for the book, you'll likely be able to find code for specific figures.  
 
 
-# Further general graphics resources
+# Further visualization resources
 
-A great free book which discusses the principles of good data visualization is [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). The book is not R specific (and doesn't show R code, but all figures are made in R). 
-
-And of course, there are always the books and resources by [Edward Tufte](https://www.edwardtufte.com/tufte/), one of the most influential people in the field of visualization (as far as I'm aware, his books are not freely available, you'll have to pay or get them from the library).
-
+See the [general resources page](./General_Resources.html) for some additional sources.
 
 
 

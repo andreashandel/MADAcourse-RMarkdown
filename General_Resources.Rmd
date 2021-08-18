@@ -19,44 +19,15 @@ library(emo)
 
 The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed here is related to the course, i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. For even more materials, see the links to various lists by others at the end of this document.
 
-All materials described below are (should be) freely available online. For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If any link does not work and you can't access the materials for some reason, let me know so I can update this document.
+Most materials described below are (should be) freely available online. For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If any link does not work and you can't access the materials for some reason, let me know so I can update this document.
+
+I placed them into categories according to main topic, but there is a lot of overlap. Many R coding resources focus on data analysis, and almost all data science resources I list focus on R.
+
+I am familiar with some, but not all of these resources. Sometimes I just took a quick glimpse to decide if it was worth including them here. If you find particular resources especially helpful or unhelpful (both listed and not listed), I'd love to receive feedback.
 
 
-# Books
-* A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science.[^1] Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok.
-* [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
-* [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
-* [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
-* [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
-* [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
-* [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
+# General Data Science
 
-
-By now, there are hundreds of books on R and Data Science available online. Of course, the quality is mixed. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
-
-[^1]: As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
-
-# Journal articles
-* The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
-
-
-
-# Online courses and interactive resources
-
-_I placed them into categories according to main topic, but there is a lot of overlap. Many R coding resources focus on data analysis, and almost all data science resources I list focus on R._
-
-## R coding
-* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
-* [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
-* [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
-* [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
-* [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
-
-## Data Visualization
-* [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
-
-
-## General Data Science
 * [Cloud Based Data Science](https://leanpub.com/universities/set/jhu/chromebook-data-science) - a nice online course covering many of the topics we cover at a somewhat more basic level. You can decide what to pay for it, including getting it for free. That course used to be called [Chromebook Data Science](https://jhudatascience.org/chromebookdatascience/index.html) and seems to be now updated and rebranded as [Cloud Based Data Science](https://www.clouddatascience.org/). It is done by [Jeff Leek](http://jtleek.com/) and his team. You'll run into Jeff multiple times throught this course.
 * ["Data Science Specialization" on Coursera](https://www.coursera.org/specialization/jhudatascience/1). One of the first comprehensive online offerings. Coursera has gotten more restrictive over the years, but I think you can still get each course for free. 
 * [Stat 545](https://stat545.com/index.html) is the name of Jenny Bryan's previous course on Data Wrangling and exploratory analysis. She has since turned this into a stand-alone website/book/course/resource. Covers a bit similar topics to the R4DS book, but with a different emphasis and from a more comprehensive and advanced perspective.
@@ -66,28 +37,49 @@ _I placed them into categories according to main topic, but there is a lot of ov
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 * [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
-* I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). [Here is the latest write-up on this I could find.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0). They also became  much less academic-friendly, their student discount is way less nice than it used to be, and apparently recently sued R Studio (a company I think highly of). Overall, it seems that currently greed is the main driver of the company and they seem to not have improved much as of this writing. I therefore currently do not use or recommend them anymore. Here is a good resource that shows [possible alternatives to Datacamp's courses.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0)
+* I used to recommend and use [Datacamp](https://www.datacamp.com/), an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company recently dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). [Here is the latest write-up on this I could find.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0). They also became  much less academic-friendly, their student discount is much less nice than it used to be, and apparently they recently sued R Studio (a company I think highly of). Because of these happenings, I currently do not use or recommend them anymore. Here is a good resource that shows [possible alternatives to Datacamp's courses.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0)
 * [Exploratory Data Analysis](https://eda.seas.gwu.edu/) - materials for an online course teaching exploratory data analysis using R, taught by [John Paul Helveston](https://www.jhelvy.com/).
-
-
-
-## Git/Github
-* The [Software Carpentry](https://software-carpentry.org/) has a great introductory course that walks you through the basics of Git (and Github) step-by-step. This is useful if you want to know what exactly is going on, even if you mainly use a graphical interface (e.g. [GitKraken](https://www.gitkraken.com/)) for your Git/Github work. The whole course materials [are online](http://swcarpentry.github.io/git-novice/).
-
-
-
-# Podcasts
+* The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
 * Roger Peng and Hillary Parker have a Stats and Data Science related podcast called [Not so standard deviations](http://nssdeviations.com/).
-
-
-# Videos
+* A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science. Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok. As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
+* [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
+* [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
 * [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
 * [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
 
 
+
+# R coding
+
+* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
+* [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
+* [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
+* [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
+* [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
+* [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
+* [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
+* [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
+* [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
+
+
+# Git/GitHub
+
+* The [Software Carpentry](https://software-carpentry.org/) has a great introductory course that walks you through the basics of Git (and GitHub) step-by-step. This is useful if you want to know what exactly is going on, even if you mainly use a graphical interface for your Git/GitHub work. The whole course materials [are online](http://swcarpentry.github.io/git-novice/).
+
+
+# Data Visualization
+
+* [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
+* A great free book which discusses the principles of good data visualization is [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). The book is not R specific (and doesn't show R code, but all figures are made in R). 
+* The books and resources by [Edward Tufte](https://www.edwardtufte.com/tufte/), are classics. He is one of the most influential people in the field of visualization. Unfortunately, as far as I'm aware, his books are not freely available.
+* [Data Visualization - A practical introduction](https://socviz.co/) is a fairly complete free online draft of a book by the same name. It provides a general introduction to making good graphs, and the R code for the figures is shown.
+* [Flowing Data](https://flowingdata.com/) is a website with a lot of cool information on how to make great data visualizations. Some content is free, other parts are not. 
+
+
 # Lists and other sources
 
+* By now, there are hundreds of books on R and Data Science available online. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 * I created lists related to R and Data Analysis (as well as other topics). [You can find all resource lists here](https://andreashandel.github.io/research-and-teaching-resources/). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
 * Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
@@ -95,5 +87,3 @@ _I placed them into categories according to main topic, but there is a lot of ov
 * [Data Sci Guide](http://www.datasciguide.com/) is a website that is trying to collect and curate a lot of data science sources.
 * RStudio has a [collection of materials for data science](https://resources.rstudio.com/the-essentials-of-data-science).
 
-
-_Obviously, there is no way my list is exhaustive. Let me know if you find other relevant and good sources._

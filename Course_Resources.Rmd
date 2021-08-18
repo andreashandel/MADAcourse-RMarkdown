@@ -16,20 +16,28 @@ output:
 library(emo)
 ```
 
-This page lists resources that this course draws on at least occasionally, as well as some other general resources I recommend you to explore. For a more extensive list of data science resources, see the _General Resources_ page.
+This page lists resources that this course draws on frequently or at least occasionally. For a more extensive list of data science resources, see the _General Resources_ page.
 
 All materials described below are (should be) freely available online. If you can't get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that's not quite right, please let me know.
 
-Abbreviations used are: 
 
-* [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) 
-* [R4DS = R for Data Science](https://r4ds.had.co.nz/) 
-* [ADS =  The Art of Data Science](https://leanpub.com/artofdatascience)
-* [RP = RStudio Primers](https://rstudio.cloud/learn/primers) 
-* [HGR = happygitwithR](https://happygitwithr.com/)
-* [ISL = Introduction to Statistical Learning](https://statlearning.com/) 
-* [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/)
-* [HMLR = Hands-on Machine Learning in R](https://bradleyboehmke.github.io/HOML/)
+# Books and online tutorials
+
+* [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) is the book I'll refer to a good bit in the 1st part of the course. 
+* [R4DS = R for Data Science](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be refering to it frequently. 
+* [ADS = The Art of Data Science](https://leanpub.com/artofdatascience) has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
+* [ISL = An Introduction to Statistical Learning](https://statlearning.com/) is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I'll refer to it frequently in the second part of the course.
+* [HMLR = Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/) covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.
+* [FES = Feature Engineering and Selection](https://bookdown.org/max/FES/) focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.
+* [HGR = happygitwitR](https://happygitwithr.com/) is a good resource to learn some of the basics of Git/Github with R.
+* [RP = R Studio Primers](https://rstudio.cloud/learn/primers) are a great source for introductory, interactive tutorials covering basics of R coding and data analysis. 
+
+
+# Tools
+
+* We'll be using [R](https://www.r-project.org/) and [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/). The [R and R Studio document](./Tools_RanRStudio.html) has details. 
+* We will also be using [Git](https://git-scm.com/) and [GitHub](https://github.com/). You need to get that software and a GitHub user account. I also recommend/assume you are using the [GitKraken](https://www.gitkraken.com/) client (but you don't have to). See the [GitHub introduction document](./Tools_Github_Introduction.html) for details.
+
 
 
 # General help
@@ -42,25 +50,8 @@ Abbreviations used are:
 * Here is another resource, [a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter](https://www.datahelpers.org/). 
 
 
-# Github Resources
+# More resources
 
-* A great resource to learn Git/Github with R is [happygitwitR (HGR)](https://happygitwithr.com/) by Jenny Bryant.
-* I recommend using a graphical client to do (almost) all your Github work (push, pull, etc.). I use [GitKraken](https://www.gitkraken.com/) which has a fully functional free version. As a student, you can also get a free 1 year subscription to the Pro version (see the GitHub course document for details). Other graphical Git/GitHub clients exist, see e.g. Jenny's book. 
-* If you have questions for a specific R package (or other project) which is developed on GitHub, you can ask questions in the GitHub _Issues_ section. We'll discuss/practice that as part of the course.
-
-
-# Books
-
-* [Introduction to Data Science (IDS)](https://rafalab.github.io/dsbook/) is the book I'll refer to a good bit in the 1st part of the course. 
-* [R for Data Science (R4DS)](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be refering to it frequently. 
-* [The Art of Data Science (ADS)](https://leanpub.com/artofdatascience) has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
-* [An Introduction to Statistical Learning (ISL)](https://statlearning.com/) is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I'll refer to it frequently in the second part of the course.
-* [Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/) covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.
-* [Feature Engineering and Selection (FES)](https://bookdown.org/max/FES/) focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.
-
-
-# Hands-on/interactive resources
-
-* [Online Tutorials (primers) by Rstudio (RP)](https://rstudio.cloud/learn/primers) are a great source for introductory, interactive tutorials covering basics of R coding and data analysis. We'll use several of those primers in the class.
+The [general resources](./General_Resources.html) page has a more extensive list of relevant resources.
 
 
