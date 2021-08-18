@@ -35,6 +35,8 @@ You can also use Slack to send one or more individuals direct messages. You can 
 
 Overall, Slack is fairly intuitive, and hopefully much easier to use than the rather clunky discussion feature of eLC. But some features might need getting used to. If you have not previous Slack experience, I suggest you browse through [their starter tutorials](https://slack.com/resources/slack-101) to pick up a few more tips and tricks.
 
+One useful thing to know is that people will get a specific notification if you either send them a direct message or use their Slack handle in our message, e.g. by writing _@personname can you take a look at the figure below..._. Specifically, if you want to get my attention, you need to do it that way. I have too many slack workspaces going on to be able to monitor all activity. While I try to stay on top of the messages in our class workspace, I likely won't. To ensure I don't miss something directed at me, use the @ notation (or DM).
+
 **I will use the _announcements_ channel in Slack to post any important course related announcements. Check regularly.**
 
 Use Slack widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use Slack  to build a _community of learners_ where you help and support each other. So please don't always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.

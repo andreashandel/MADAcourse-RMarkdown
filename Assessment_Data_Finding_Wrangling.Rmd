@@ -25,9 +25,44 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub. 
 
+## Setup
+
+While this is going to be a small and incomplete data analysis, we'll practice using the full setup. To that end, grab another copy of the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-analysis2`) and clone it to your local computer. Then use the structure of this repository to do the project as described below.
+
+We'll also use the same group setup as last week. Assign each member in your group an (arbitrary) number (I'm calling them M1, M2, ...). The order should be different than last week so you get to interact with a different group member. Everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2's repository, M2 will work on M3, etc. The last person (M3 or M4), will work on M1's repository. This way, everyone will work on their own and one group member's repository. 
 
 
-**The first part of the project is due by Wednesday, so your classmate can do their part before the Friday deadline.**
+
+## Finding Data
+
+Go to the CDC's data website at [https://data.cdc.gov/](https://data.cdc.gov/). Browse through the site and identify a dataset of interest. Your choice.
+
+
+## Loading data
+
+Get the dataset into R. You can do that by downloading the file to your computer first and placing it into the `raw_data` folder. Then modify the `processingscript.R` file to read in your data file. You can delete or comment out anything that's already in that R script. 
+
+If no file is available for download, or if it is too large to download and place in the repo (GitHub doesn't like really large files, one of its limitations), you can instead write code to pull it directly from the source through the API (Google is your friend to figure out what commands you need to write).
+
+Once the data is loaded, you'll likely need to do some processing. Comprehensive and full cleaning of the data is not necessary. Instead, decide on a few variables of interest and clean those. Think of one variable as the main outcome of interest (in a plot, that would generally be shown on the y-axis) and some other variable(s) as the predictors of interest. Similar to the height/weight example code. Or it could be some quantity changing over time. It's your choice.
+
+Once you written code that processes the bits of the data you are interested in, save them as RDS file, similar to what you see in the example code.
+
+**Add enough commentary into your R script such that your classmate who will take over next knows what you are doing and what variables they should work with!**
+
+When all the cleaning parts work, commit and push your changes to GitHub. Then let the group member who will take over (see above) know where to find your repository.
+
+
+## Wrangling and exploring data
+
+Fork and clone your fellow group member's repository as you did previously. Once you have it on your local computer, open the `analysisscript.R` file and replace the existing code with new code that loads the data cleaned by your colleague and produces a few quick plots and/or tables. Then update the `Manuscript.Rmd` file by removing the old results and showing your new results.
+
+Once all done, commit, push to your repo on Github (the fork of the original), then initiate a pull request (PR) to the original repository. 
+
+
+## Posting the "final" product
+
+The original repository owner should check the PR they received from their colleague, request changes if needed, approve if all looks ok, then merge and update their own local repo. Then post the link to the repository into the `module4_exercise` channel. I'll take a look/grade the project after the deadline.
 
 
 

@@ -319,6 +319,23 @@ $(document).ready(function () {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Types.html">Data Types</a>
+        </li>
+        <li>
+          <a href="./Data_Finding.html">Finding Data</a>
+        </li>
+        <li>
+          <a href="./Data_Wrangling.html">Data wrangling</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Finding_Wrangling.html">Assessment: Data Finding and Wrangling</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -376,7 +393,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Course Glossary</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-03-25 08:29:29</h4>
+<h4 class="date">2021-08-17 18:18:36</h4>
 
 </div>
 
@@ -401,12 +418,12 @@ $(document).ready(function () {
 <p><strong>Exploratory Data Analysis:</strong> Looking for patterns in data, without a hypothesis specified before data collection (or at least before looking at the data). Very useful, but any result needs to be tested on independent data.</p>
 <p><strong>Exposure (variable):</strong> A name for a <strong>predictor</strong> variable of particular interest. For instance, if we wanted to study if the daily duration of exercise had an impact on BMI. We would consider BMI our outcome, exercise duration our exposure (our main predictor of interest), and any other variable we record (e.g., a person’s age and gender) as other predictors (sometimes called covariates). The term exposure is common in the biomedical and related disciplines, not so much in other areas.</p>
 <p><strong>Feature (variable):</strong> An alternative name for <strong>Predictor</strong> often used in the machine learning literature.</p>
-<p><strong>Independent (variable):</strong> An alternative name for <em>predictor</em>, most often used in the statistical literature.</p>
+<p><strong>Independent variable:</strong> An alternative name for <em>predictor</em>, most often used in the statistical literature.</p>
 <p><strong>Labeled data:</strong> If we have data for which there is a specific outcome of interest and we know it, it is called labeled data. For instance, if we had a lot of pictures of tissue samples, and someone had gone through them and labeled them as cancerous or not cancerous, it is labeled data. Labeled data (the most common type) is usually analyzed using <strong>Supervised Learning/Analysis</strong> approaches.</p>
 <p><strong>Machine Learning:</strong> An approach to data analysis that tends to use more complex models. The goal is mainly to obtain a model that is good at prediction. Understanding how different inputs lead to different outcomes is of secondary importance. Data is often abundant, so more complex models can be used. Often this term and <strong>Statistics/Statistical Learning</strong> are used interchangably (though some people try to distinguish them, see e.g. <a href="https://www.fharrell.com/post/stat-ml/">this blog post</a>).</p>
 <p><strong>Mechanistic Modeling:</strong> Building and using models that explicitly incorporate mechanisms and processes of the system under study to understand <em>how</em> things interact and lead to specific outcomes. Many models in the hard sciences are of this type. A common way to formulate such models is with differential equations.</p>
 <p><strong>Observation:</strong> An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different <em>variables</em> should be available. In R, it is most common that each observation is stored as a row in a data frame.</p>
-<p><strong>Ordinal (variable):</strong> A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7.</p>
+<p><strong>Ordinal variable:</strong> A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7.</p>
 <p><strong>Outcome (variable):</strong> The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not. Also called <strong>response (variable)</strong> or <strong>dependent (variable)</strong>.</p>
 <p><strong>Predictive Modeling:</strong> Using models with the main goal of predicting future outcomes, given a collection of predictors.</p>
 <p><strong>Predictor (variable):</strong> All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.</p>
@@ -417,6 +434,7 @@ $(document).ready(function () {
 <p><strong>Statistical Learning:</strong> A term that seems to become more widely used in recent years. While some people distinguish this term from <strong>Statistics</strong> and consider it a sub-field (see e.g. Chapter 1 of <a href="https://statlearning.com/"><em>Introduction to Statistical Learning</em></a>), the two terms are often used interchangably.</p>
 <p><strong>Supervised Learning/Analysis:</strong> Fitting <strong>Labeled data</strong>. The two types of supervised learning are <strong>Regression</strong> and <strong>Classification</strong>.</p>
 <p><strong>Unlabeled data:</strong> If we have data for which there is either no specific outcome variable of interest or we do not know it, it is called unlabelled data. For instance, if we had a lot of pictures of tissue samples, and we knew that some showed cancerous tissue and others not, but we didn’t know which are which, it is unlabeled data. Similarly, if we had pictures of different tissue samples (or say a number of gene sequences) and all we wanted to know is if some samples are more related to each other than others, but there is no main outcome, it is considered unlabeled data. Unlabeled data is usually analyzed using <em>unsupervised</em> analysis approaches.</p>
+<p><strong>Variable:</strong> Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable.</p>
 <p><strong>Variable:</strong> Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable.</p>
 
 

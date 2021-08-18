@@ -22,10 +22,10 @@ library(emo)
 </script>
 
 
-Last update/recompile: `r Sys.time()`
+Last updated: `r Sys.time()`
 
 
-_**This site is currently undergoing revisions in preparation for the upcoming fall 2021 offering of the course. As long as you see this message, assume Some things are not correct.**_
+_**The website will be continuously updated throughout the semester with new material released on an ongoing basis, as well as adjustments/fixes as needed. Visit/check regularly, especially the Schedule. Note the last update time above.**_
 
 
 Welcome to the **Modern Applied Data Analysis (MADA)** course website.

@@ -67,16 +67,16 @@ navbar:
               href: ./Rcoding_Tidyverse.html     
             - text: "Assessment: R Coding Basics"
               href: ./Assessment_Coding.html
-         - text: "Contemplating, finding and wrangling data"
-           menu:
-             - text: "Data Types"
-               href: ./Data_Types.html     
-             - text: "Finding Data"
-               href: ./Data_Finding.html     
-             - text: "Data wrangling"
-               href: ./Data_Wrangling.html     
-    #         - text: "Assessment: Data Finding and Wrangling"
-    #           href: ./Assessment_Data_Finding_Wrangling.html
+        - text: "Contemplating, finding and wrangling data"
+          menu:
+            - text: "Data Types"
+              href: ./Data_Types.html     
+            - text: "Finding Data"
+              href: ./Data_Finding.html     
+            - text: "Data wrangling"
+              href: ./Data_Wrangling.html     
+            - text: "Assessment: Data Finding and Wrangling"
+              href: ./Assessment_Data_Finding_Wrangling.html
     #     - text: "Visualization"
     #       menu:
     #         - text: "Visualization Overview"

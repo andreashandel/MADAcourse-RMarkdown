@@ -495,6 +495,23 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Types.html">Data Types</a>
+        </li>
+        <li>
+          <a href="./Data_Finding.html">Finding Data</a>
+        </li>
+        <li>
+          <a href="./Data_Wrangling.html">Data wrangling</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Finding_Wrangling.html">Assessment: Data Finding and Wrangling</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -552,7 +569,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-15 18:16:44</h4>
+<h4 class="date">2021-08-18 09:26:50</h4>
 
 </div>
 
@@ -646,6 +663,7 @@ div.tocify {
 <p>Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and in the repository, click on <em>Pull requests</em>, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn’t change things around while they did, so there shouldn’t be any conflicts. Click on the <em>Files changed</em> button, which will show you an overview of the code they changed. Removals are red, and the additions are green.</p>
 <p>On the main pull request site, you can do various things. If you don’t like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes (hopefully, this is the case yere), you can merge the pull request and close it. Their updates are now part of your repository.</p>
 <p>To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.</p>
+<p><strong>Since this will be part of your portfolio site, and you already posted a link to that previously, you don’t need to post anything, I know where to find it.</strong></p>
 <div class="note">
 <p>I mentioned this before, but it doesn’t hurt repeating. At times, you will get merge conflicts. At that stage, it gets a bit tricky. Gitkraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn’t work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself. To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don’t want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.</p>
 </div>

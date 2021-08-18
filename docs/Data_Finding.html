@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Reproducibility, (R)Markdown &amp; Co</title>
+<title>Finding and Getting Data</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -473,77 +473,69 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reproducibility, (R)Markdown &amp; Co</h1>
+<h1 class="title toc-ignore">Finding and Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-13 07:55:21</h4>
+<h4 class="date">2021-08-17 18:21:42</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, you will learn the concept of reproducible research, why it is important and helpful to build your analyses in a reproducible manner, and what tools you can use to implement an automated, reproducible workflow.</p>
-<div class="figure" style="text-align: center">
-<img src="media/amiracleoccurs.gif" alt="Not a good example of reproducibility." width="70%" />
-<p class="caption">
-Not a good example of reproducibility.
-</p>
+<p>For this unit, we will discuss where to find data and how to get different types of data into R.</p>
 </div>
-</div>
-<div id="learning-objectives" class="section level1">
-<h1>Learning Objectives</h1>
+<div id="objectives" class="section level1">
+<h1>Objectives</h1>
 <ul>
-<li>Know the concept and importance of reproducible research</li>
-<li>Know how to implement reproducible research with R</li>
-<li>Be familiar with (R)Markdown and start using it</li>
+<li>Know ways of acquiring data</li>
+<li>Be familiar with some important online sources for data</li>
+<li>Know how to get data into R</li>
 </ul>
 </div>
-<div id="reproducibility-in-science" class="section level1">
-<h1>Reproducibility in Science</h1>
-<p>A hallmark of proper scientific research is that findings can be replicated/reproduced. Unfortunately, it is often the case these days that results can’t be replicated/reproduced by independent investigators/labs. Sometimes, even the same labs can’t reproduce their previous findings. You have probably heard about the (supposed) <em>Reproducibility Crisis</em> in science. If not, do a quick online search, you’ll find lots of articles saying there is an increasing problem, while others saying that it’s not getting worse, we are just detecting more. While sometimes there is fraud, most often there are more benign reasons preventing reproducibility.</p>
-This video provides a short discussion of some of the current problems with reproducibility in science:
+<div id="data-sources" class="section level1">
+<h1>Data Sources</h1>
+<p>An obvious way to get data to answer whatever question you have is to collect it yourself. This can lead to high-quality data tailored to the question you have. It is also likely expensive and time-consuming to acquire. If you do decide to collect data, it is a good idea to sketch out planned analyses as carefully as possible. It would be annoying if you forgot to obtain a piece of information that you later decided was crucial. The gold standard of data collection in human research are clinical trials that want FDA approval. These trials have to pre-register the question(s), the analysis plan, and the data collection plan. This approach means everything is run at a high level of rigor and quality. Even if you do not try to get FDA approval with your study, precisely specifying the analyses you plan to run is the best practice and will minimize p-hacking and other sources of bias. Unfortunately, this is still very uncommon in most areas of research.</p>
+<p>If you cannot or do not want to collect data yourself, you could instead team up with someone who does. The advantage of working directly with a data collector is that you have a subject matter expert as a collaborator, and you can ask them questions.</p>
+<p>Data that is publicly available, or that you can get after requesting it and being approved by the data owner, constitutes the largest pool of data these days. Going this route gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification. Also, the quality of such data varies. As more and more data is collected on almost every aspect of our world, these sources of data keep increasing. It is hard to keep track of places to get (good) data. I have been trying to collect a few sources of data on <a href="https://andreashandel.github.io/research-and-teaching-resources/">this website I maintain with various links to resources</a>, among them is a list with links to various data sources. There are likely tons of other good data sources. The tricky bit is sometimes getting the data and understanding enough about what the data is and how it was collected to allow for reasonable analysis.</p>
+</div>
+<div id="data-to-dos" class="section level1">
+<h1>Data to-dos</h1>
+<p>No matter the source, you should try to get the data <em>as raw</em> as possible so that you can be in control of as many cleaning and processing steps as possible. That is (a bit) more work for you, but it gives you more flexibility to decide what to do with the data as you process it. If for instance, you get data with age in years, you can leave it as is, or decide to categorize it as young/old. Categorizing is generally a bad idea, we’ll talk about that later. If you get data in an already processed form and someone already did this categorization for you, you cannot choose.</p>
+<p>Wherever you get data from, document it as much as possible. When did you get it? Where and how? Did it come with other meta-information, e.g., a codebook? Where is it? Are there other things about the data that one should know about? Write down everything in some document.</p>
+<p>Treat the raw data as you would a very fragile object. Ideally, do not touch it. Do not edit it. You want to only <strong>read</strong> the data into R, even if it is in a bad format, and then apply fixes/cleaning in R. If this is not possible, and you need to make edits to the data in whatever format you got it (e.g., Excel, SAS), <strong>make a copy of the data files and place those copies in a separate folder, AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made.</strong></p>
+<p>A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could be potentially very time-saving for you. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper <a href="./media/broman18amstat.pdf">Data Organization in Spreadsheets</a> by Broman and Woo.</p>
+</div>
+<div id="data-import-in-r" class="section level1">
+<h1>Data import in R</h1>
+<p>Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend 😄.</p>
+<p>Here are some of the most prominent ones:</p>
+<ul>
+<li>The <a href="https://readr.tidyverse.org/index.html"><code>readr</code> package</a> is good for importing CSV and similar spreadsheet type data. For some more introductory material on the <code>readr</code> package, see <a href="https://r4ds.had.co.nz/data-import.html">chapter 11 of R4DS</a>.</li>
+<li><code>readr</code> is not suitable for data in Excel format, for that use the <a href="https://readxl.tidyverse.org/"><code>readxl</code> package</a>. ]</li>
+<li>The <a href="https://haven.tidyverse.org/"><code>haven</code> package</a> is good for dealing with SPSS, SAS and Stata data.</li>
+<li>For reading in various online data forms, e.g., XML and JSON, see the <a href="https://www.tidyverse.org/packages/">Import section</a> on the <code>tidyverse</code> packages site.</li>
+</ul>
+<p>The packages I listed above are all from the <code>tidyverse</code>. There are many more packages with additional functionality, and many base R commands.</p>
+<p>To learn some more, you can check out the <a href="https://rafalab.github.io/dsbook/importing-data.html"><em>Importing Data</em> chapter in IDS</a>. The <a href="https://rafalab.github.io/dsbook/web-scraping.html"><em>Web scraping</em> chapter in IDS</a> provides additional information on how to pull online data into R.</p>
+</div>
+<div id="checking-the-data" class="section level1">
+<h1>Checking the data</h1>
+<p>If you are lucky, your data reads in properly on the 1st try. Often, that is not the case. Getting data into R in such a form that you can start using it often requires a few tries.</p>
+<p>Sometimes, the data might not load at all. You will get an error message and then have to figure out what to do to get the data into R. In some cases, you might not be able to get the data into R without editing it in its native format. For instance, reading proprietary data (e.g., SAS or Excel) doesn’t always work too well. In those instances, it is sometimes better to export the data from those programs as a comma-separated or tab-separated values file (CSV/TSV) and then read it into R.</p>
+<p>Another example is if you get an Excel spreadsheet where the person used color to code some information. You might need to fix that and recode the color in the spreadsheet before reading it in. If you need to, make edits on the <strong>copies of</strong> the raw data until it is in a form that you can load into R.</p>
+<p>If the data loads, it might do so with or without error or warning messages. In either case, you will want to look at the data to make sure what you expected to be there is there. Check if the data has the right number of rows and columns. Do other quick checks to ensure things look good enough to start working with the data. The <code>str</code> command in R is handy for that. As long as everything is there, no matter how messy, you are ok and can now use R to clean up and explore the data, which we will cover next.</p>
+</div>
+<div id="examples-of-data-import" class="section level1">
+<h1>Examples of data import</h1>
+<p>If you want to see a few examples of live-coding which show how to read data into R, you can check out these videos by Jeff Leek.</p>
 <p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VcgO2v3JjCU" frameborder="0" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z7pOxe6dDG0" frameborder="0" allowfullscreen>
 </iframe>
 </p>
-</div>
-<div id="reproducibility-of-analyses" class="section level1">
-<h1>Reproducibility of Analyses</h1>
-<p>It’s hard and expensive to replicate/reproduce a full study, including all data collection, thus not routinely possible. It is easier to make sure the analysis part can be reproduced. Making the analysis easily reproducible doesn’t ensure the analysis is correct. However, it allows others to take a look at analyses, redo them, and thus more quickly spot and correct potential problems.</p>
-<p>To make a fully reproducible analysis, you have to provide all the data and code, and the generation of results (figures and tables) needs to be fully automated. The scientific community is moving toward more reproducibility and transparency (e.g., mandating public access to data, computer code, etc.). An increasing number of funding agencies and journals require access to data and code.</p>
-<p>While there is a strong movement toward <em>Open Access</em>, providing all the data is not always possible. However, the full automation of data processing, analysis, and result generation is always possible, and we will use this approach.</p>
-<p>In this video, <a href="http://www.biostat.jhsph.edu/~rpeng/">Roger Peng</a> goes into some more details of the concept of reproducible research:</p>
 <p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DfBSiOupI1I" frameborder="0" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7lE7lzwC_NY" frameborder="0" allowfullscreen>
 </iframe>
 </p>
-<p>Roger Peng has additional videos related to reproducible research, <a href="https://www.youtube.com/playlist?list=PLjTlxb-wKvXOU4WW4p3qc4VKWTI4gLNUf">a playlist of those videos can be found here.</a></p>
-</div>
-<div id="how-to-do-a-reproducible-analysis" class="section level1">
-<h1>How to do a reproducible analysis</h1>
-<p>Most importantly and fundamentally, <strong>document everything</strong>.</p>
-<p>Do all processing and analysis in a scripted and well-documented manner. That means no Excel, no manual copy &amp; paste, no manual figure, and table generation. All of these actions are not scripted or documented and as such, not reproducible.</p>
-<p>Some further things to pay attention are the use of open standards (open data standards, open-source software), recording of software versions used, time-stamping data, and setting a random number seed in your code.</p>
-<p>A reproducible analysis should also be <em>practically reproducible</em>, not just <em>theoretically</em>. By that I mean if you provide code, but the code only runs on some specific computer system you used, then it’s not reproducible for others. Providing all data and code is a good first step, but your goal should also be to make reproducibility easy. This is beneficial for both the original producer of the results and the persons trying to reproduce it.</p>
-</div>
-<div id="why-reproducibility-is-good-for-you" class="section level1">
-<h1>Why reproducibility is good for you</h1>
-<p>A reproducible analysis is generally automated. That can save you a lot of time. Initially, it seems that doing your analysis in a reproducible and automated manner takes more time and is more difficult because you have to learn some new tools. That is true. However, once you are used to it, you will be much more efficient.</p>
-<p>Consider the case where you had some data in Excel, moved it into SAS to do an analysis, and make some raw figures, opened them in Photoshop and spend a few hours making them look good. Then you or your collaborators realize that some of the data that should have been included in the analysis was not (or some data should not have been included). You need to re-create the raw figure and re-work it in Photoshop, likely spending a good bit of time.</p>
-<p>If you had an automated analysis, you could just press one (or a few) buttons and re-run everything. Also, automation makes it less likely that errors occur from copying data and intermediate results between programs. The case-study in the introductory unit is such an example, where everything was fully automated.</p>
-<p>Making an analysis reproducible also means you to document all your steps and what you do well. So it not only helps others, but <em>future you</em> will be very thankful. The importance of documenting the process increases, as analyses get more complex.</p>
-</div>
-<div id="markdown-and-r-markdown-for-reproducible-analysis" class="section level1">
-<h1>Markdown and R Markdown for reproducible analysis</h1>
-<p>Creating a reproducible and automated analysis used to be a good bit of extra work, but not anymore. R, Github, and related tools have made it fairly easy to set up a reproducible workflow. We discuss Github separately, see that document. Since it controls and tracks any changes you make, and works nicely with collaborators, it is an excellent tool for reproducible work.</p>
-<p>While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one stack of tools, namely (R)markdown &amp; Co.</p>
-<p>Markdown is a language/platform that allows you to write nice-looking documents easily. The idea is that you write plain text documents with simple formatting, and then turn them into a lot of different output formats, e.g., HTML, PDF, Word, or slides. You can apply layout and styling to those documents, which is done separately from the content. This means you can quickly switch between outputs. In our flow, the software in the background that turns our text documents into different formats is called <a href="https://pandoc.org/">Pandoc</a>. The good thing is, you don’t need to care, it all happens (almost always) behind the scenes. Markdown is rather easy to learn. If you have no experience with Markdown, I suggest you go through <a href="https://www.markdowntutorial.com/">this nice, short interactive tutorial.</a>. A good reference to look up formatting for Markdown until you have it memorized is this <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">online cheat sheet</a>.</p>
-<p>The folks from Rstudio developed <a href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allows you to combine R code with Markdown text. You can write a single Rmarkdown (Rmd) document which contains code and text. You then <code>knit</code> the document, which uses an R package called <code>knitr</code>, runs the code, produces results and turns everything into a markdown (md) document, then using the <code>rmarkdown</code> package and <code>pandoc</code> turns this into some output format of your choice, e.g. an html or pdf or Word or Powerpoint document. Again, most of the time, this happens without you needing to care about the details of this process. There are by now <a href="https://rmarkdown.rstudio.com/formats.html">a lot of different output formats</a> that R Markdown supports. As an example, this whole course is written in Rmarkdown and <a href="https://github.com/andreashandel/MADAcourse">lives on GitHub</a>. You can copy all the files and completely reproduce this course.</p>
-<p>Note that if you want to produce pdf output, you need to have a (La)TeX system installed. It’s a free typesetting system that is a bit similar to Markdown, but more complicated and more powerful. The <a href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">currently recommended LaTeX system is TinyTeX</a>. Others are <a href="https://miktex.org/">MiKTeX</a> for Windows (which I generally use) and <a href="http://www.tug.org/mactex/">MacTeX</a> for Mac. We don’t absolutely need LaTeX it for the class, but it’s good to have if you ever want to create pdf output, and it is and free, so I suggest you go ahead and install it.</p>
-<p>One great thing about R Markdown is that it’s well documented. The <a href="https://rmarkdown.rstudio.com/">R Studio R Markdown site</a> and the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a> are great resources. Another good source targeted at scientists is the online book <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a>. RStudio also an R Markdown cheat sheet in their <a href="https://www.rstudio.com/resources/cheatsheets/">collection of very useful cheat sheets</a>.</p>
-<p>Since developing knitr and R Markdown, <a href="https://yihui.name/en/">Yihui Xie</a> and colleagues have developed several other versions of the tool. There is <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the <a href="https://bookdown.org/">bookdown website</a>) and <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> which lets you make webpages (see e.g. <a href="http://handelgroup.uga.edu/">my group webpage which is done that way</a>).</p>
-<p>The whole R Markdown/Markdown/pandoc system has become incredibly flexible and powerful, and we’ll use it in this class. Because R Markdown &amp; Co are very feature rich and you can do a ton, trying to read all about it does not make much sense. The best is a <em>learn it as you need it</em> approach. Some good sources that you might want to glimpse at are the chapters in the <em>Communicate</em> section of the <a href="http://r4ds.had.co.nz/index.html">R for Data Science book</a> and the beginning chapters of the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a>. There’s also the newer <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a>, which is a good <em>how do I do X</em> resource.</p>
-<p>Again, you don’t need to read these materials in much detail, but if you are new to R Markdown, try to get enough information so you understand what it’s all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. You’ll get plenty of practice throughout this course. project.</p>
 </div>
 
 

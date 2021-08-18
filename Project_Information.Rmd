@@ -24,6 +24,8 @@ A semester long data analysis project will be a major method of assessment for t
 * Reporting/communicating your findings
 * Doing everything reproducibly
 
+**You can do the class project either on your own or in a team of two.** 
+
 # Timeline
 There are several deadlines throughout the course at which time you need to submit parts of your project
 

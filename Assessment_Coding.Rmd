@@ -138,6 +138,8 @@ On the main pull request site, you can do various things. If you don't like the 
 
 To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.
 
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it.**
+
 
 :::note
 I mentioned this before, but it doesn't hurt repeating. At times, you will get merge conflicts. At that stage, it gets a bit tricky. Gitkraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn't work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself. To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don't want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.
