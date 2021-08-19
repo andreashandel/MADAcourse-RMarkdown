@@ -22,7 +22,7 @@ This is a very quick introduction to R and RStudio, to get you set up and runnin
 # About R
 Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic, and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:
 
-* R is Open Source, FREE and cross-platform.
+* R is Open Source, FREE, and cross-platform.
 * R is a "high-level" programming language, relatively easy to learn (compared to Fortran, C, etc.).
 * R comes with many integrated functions.
 * R is great for statistics, data analysis, and graphics.
