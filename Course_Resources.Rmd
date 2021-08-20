@@ -35,7 +35,7 @@ All materials described below are (should be) freely available online. If you ca
 
 # Tools
 
-* We'll be using [R](https://www.r-project.org/) and [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/). The [R and R Studio document](./Tools_RanRStudio.html) has details. 
+* We'll be using [R](https://www.r-project.org/) and [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/). The [R and R Studio document](./Tools_RandRStudio.html) has details. 
 * We will also be using [Git](https://git-scm.com/) and [GitHub](https://github.com/). You need to get that software and a GitHub user account. I also recommend/assume you are using the [GitKraken](https://www.gitkraken.com/) client (but you don't have to). See the [GitHub introduction document](./Tools_Github_Introduction.html) for details.
 
 

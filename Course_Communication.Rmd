@@ -43,6 +43,7 @@ Use Slack widely to ask questions, to answer others' questions, to notify me and
 
 I prefer that you use Slack instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering online, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to either send me a direct message on Slack or email me. 
 
+To make things more personal, I suggest you update your Slack workspace profile by setting your name (and if you want, preferred pronouns) and uploading an image. It will help make things a bit more social, even if it's not quite the same as in-person.
 
 
 ## Zoom

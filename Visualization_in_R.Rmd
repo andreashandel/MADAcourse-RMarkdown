@@ -21,9 +21,11 @@ The first approach is the use the base R commands, with the `plot` function as t
 
 The second approach is using the [`lattice` package](http://lattice.r-forge.r-project.org/), and extensions that build on this package. `lattice` seems to have largely "lost" against option number 3 and I don't see it used much anymore these days.
 
-The third, and currently most popular approach is to make graphs using the [`ggplot2` package](https://ggplot2.tidyverse.org/) and [various extensions to it](http://www.ggplot2-exts.org/gallery/). `ggplot2` is one of the **many** R packages written by [Hadley Wickham](http://hadley.nz/). `ggplot2` and its extensions has by now become more or less the standard for good graphics in R. Note that while the package is called `ggplot2`, people interchangeably refer to it as `ggplot` or `ggplot2`. I'll do the same.
+The third, and currently most popular approach is to make graphs using the [`ggplot2` package](https://ggplot2.tidyverse.org/) and [various extensions to it](https://exts.ggplot2.tidyverse.org/). `ggplot2` is one of the **many** R packages written by [Hadley Wickham](http://hadley.nz/). `ggplot2` and its extensions has by now become more or less the standard for good graphics in R. Note that while the package is called `ggplot2`, people interchangeably refer to it as `ggplot` or `ggplot2`. I'll do the same.
 
 My recommendation for learning to make plots in `R` is to focus on `ggplot2` and related packages. For almost any graph you want for a publication, ggplot is best, it - and many add-on packages to it - produce very good quality graphs with not too much code writing required. While you could use ggplot2 exclusively for any figures you make, it is also useful to know a little bit about how to make plots using base R, since they are often very good for quick and dirty plots, especially during the data exploration stage. 
+
+
 
 
 # Practicing ggplot2
