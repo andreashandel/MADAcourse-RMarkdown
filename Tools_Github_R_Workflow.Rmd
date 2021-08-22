@@ -74,10 +74,10 @@ Now that everything is established, the workflow is simple, you just need to rem
 
 # Approach 2 - start with an R Project
 
-Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse.
+Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse. **If you want to start a Git repo this way, you need to install Git standalone, and it must be configured to work with third-party applications. You can read [chapter 6 of `happygitwithr`](https://happygitwithr.com/install-git.html) for more detailed instructions.**
 
 ### RStudio
-Open RStudio. Choose `File`, `New Project`, `New Directory` and (usually) you'll choose `New Project`. Pick a project name and location. Check the `Create a git repository` box. 
+Open RStudio. Choose `File`, `New Project`, `New Directory` and (usually) you'll choose `New Project`. Pick a project name and location. Check the `Create a git repository` box. *This button might not appear if you only installed Gitkraken and not Git.*
 
 ```{r ,  echo=FALSE, fig.cap='', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/newproject.png")
