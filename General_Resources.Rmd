@@ -44,6 +44,8 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science. Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok. As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
 * [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
 * [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
+* [Reproducible Medical Research with R](https://bookdown.org/pdr_higgins/rmrwr/) - free online book showing how to use R to do basic analysis.
+* [Data Science for the Biomedical Sciences](https://ds4biomed.tech/) - another free online textbook. Part of a workshop, but can also be used for self-learning.
 * [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
 * [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
@@ -61,6 +63,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
 * [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
 * [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
+* [The `Introverse` R package](https://spielmanlab.github.io/introverse/index.html) is providing more novice-friendly help files for important `tidyverse` functions. If you struggle with the default help file for a function, check out this package.
 
 
 # Git/GitHub
