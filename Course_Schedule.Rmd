@@ -42,7 +42,7 @@ __Unless otherwise specified, the first posting of the discussion is due by Wedn
 
 ## Synchronous Zoom meetings
 
-I will offer **completely optional** Zoom meetings. See the _Communication_ section for some more details. You can find the Zoom link on Slack. The current plan is to have **one Zoom meeting per module on Thursdays, alternating between 8am (odd modules) and 3pm (even modules).** (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)
+I will offer **completely optional** Zoom meetings. See the _Communication_ section for some more details. You can find the Zoom link on Slack. The current plan is to have **one Zoom meeting per module on Thursdays, alternating between 3pm (odd modules) and 8am (even modules).** (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)
 
 Hopefully, one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.
 

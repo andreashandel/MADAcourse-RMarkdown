@@ -489,7 +489,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">MADA - Structure of a Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-13 09:13:00</h4>
+<h4 class="date">2021-08-19 21:03:18</h4>
 
 </div>
 
@@ -518,8 +518,8 @@ div.tocify {
 <div id="setting-paths" class="section level1">
 <h1>Setting paths</h1>
 <p>One problem that I encounter <strong>every time</strong> I teach a course like this is the use of paths that are specific only to the user’s computer and do not work on someone else’s machine. Do not set paths or load files from paths that only exist on your machine! Instead, you should only use <em>relative</em> paths. A <em>relative</em> path is a file path that is relative to some directory. So what should <strong>not</strong> be part of your code is the command <code>setwd()</code> (because your working directory is likely different from everyone else) or anything that involves a full path name (e.g. <code>C:/myusername/mydesktop/myfolder/</code>) since nobody you share the code with will have that folder.</p>
-<p>For a short video tutorial, on relative paths, see this <a href="https://www.youtube.com/watch?v=fe6GA200dks">video</a>. Note that the video is several years old and he doesn’t use R Projects. <strong>I stronlgy recommend using R Projects.</strong> By having any project you work on as an R project, relative paths will always be relative to the main directory in which your <code>.Rproj</code> file is located. As long as someone loads the project by clicking on the <code>.Rproj</code> file, and you only use relative paths, things should work well on any computer. While Rprojects solve most of the problem, some issues remain, e.g. differences of how relative paths are treated in Rmd versus R files.</p>
-<p>To solve those issues, you should use the <a href="https://github.com/r-lib/here"><code>here</code> package</a>, together with Rprojects. It helps solve issues with relative paths being dealt with differently in an Rmd file versus an R file versus the console. <a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">This blog post</a> is a great, short explanation of why one should use the <code>here</code> package and how to do it.</p>
+<p>For a short video tutorial, on relative paths, see this <a href="https://www.youtube.com/watch?v=fe6GA200dks">video</a>. Note that the video is several years old and he doesn’t use R Projects. <strong>I strongly recommend using R Projects.</strong> By having any project you work on as an R project, relative paths will always be relative to the main directory in which your <code>.Rproj</code> file is located. As long as someone loads the project by clicking on the <code>.Rproj</code> file, and you only use relative paths, things should work well on any computer. While R projects solve most of the problem, some issues remain, e.g. differences of how relative paths are treated in Rmd versus R files.</p>
+<p>To solve those issues, you should use the <a href="https://github.com/r-lib/here"><code>here</code> package</a>, together with R Projects. It helps solve issues with relative paths being dealt with differently in an Rmd file versus an R file versus the console. <a href="https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/">This blog post</a> is a great, short explanation of why one should use the <code>here</code> package and how to do it.</p>
 <p>However you do things, make sure that for your exercises and especially final project, someone else can clone your repository (or otherwise copy your project if it’s not on Github) to their computer and run everything, without having to have exactly your setup of folders.</p>
 </div>
 <div id="further-resources" class="section level1">
