@@ -70,6 +70,7 @@ __Unless otherwise specified, exercises are due by Friday 5pm. Quite often, some
 ### Exercise grading
 
 I generally grade the exercises based on 4 categories: 
+
 * 100 points = complete or only minor omissions/mistakes.
 * 75 points = some noticeable bits are missing or wrong.
 * 50 points = some parts are present, but overall very incomplete.
