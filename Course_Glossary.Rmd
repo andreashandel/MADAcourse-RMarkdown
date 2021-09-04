@@ -62,11 +62,15 @@ __Feature (variable):__ An alternative name for __Predictor__ often used in the 
 
 __Independent variable:__ An alternative name for _predictor_, most often used in the statistical literature.
 
+__Interval scale variable:__ A numerical (quantitative) variable for which taking differences makes sense. Unlike ratio scale variables, the zero point for interval data may be arbitrary. Addition and subtraction are meaningful for interval data, but in general, taking ratios is less meaningful. For example, temperatures in Celsius are on the interval scale. If the temperature was 70 degrees yesterday and 65 degrees today, it makes perfect sense to say "it is 5 degrees cooler than it was yesterday." But a day that is 70 degrees is not exactly twice as warm than a day that is 35 degrees, so division does not make sense here. There are also temperatures lower than 0 degrees, so the zero point is arbitrary.
+
 __Labeled data:__ If we have data for which there is a specific outcome of interest and we know it, it is called labeled data. For instance, if we had a lot of pictures of tissue samples, and someone had gone through them and labeled them as cancerous or not cancerous, it is labeled data. Labeled data (the most common type) is usually analyzed using __Supervised Learning/Analysis__ approaches.
 
 __Machine Learning:__ An approach to data analysis that tends to use more complex models. The goal is mainly to obtain a model that is good at prediction. Understanding how different inputs lead to different outcomes is of secondary importance. Data is often abundant, so more complex models can be used. Often this term and __Statistics/Statistical Learning__ are used interchangably (though some people try to distinguish them, see e.g. [this blog post](https://www.fharrell.com/post/stat-ml/)).
 
 __Mechanistic Modeling:__ Building and using models that explicitly incorporate mechanisms and processes of the system under study to understand _how_ things interact and lead to specific outcomes. Many models in the hard sciences are of this type. A common way to formulate such models is with differential equations.
+
+__Nominal variable:__ A qualitative measurement that can take on distinct categories, but there is no natural order to these categories. For example, apples can be red, yellow, or green, but there is no inherent way to order these colors, even if the data is useful.
 
 __Observation:__ An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different _variables_ should be available. In R, it is most common that each observation is stored as a row in a data frame.
 
@@ -77,6 +81,8 @@ __Outcome (variable):__ The variable of main interest for our analysis. This can
 __Predictive Modeling:__ Using models with the main goal of predicting future outcomes, given a collection of predictors.
 
 __Predictor (variable):__ All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.
+
+__Ratio scale variable:__ Ratio data are a type of quantitative data that are continuous, have consistent differences, and have a true zero. Addition/subtraction and multiplication/division are all meaningful for ratio data. For example, distance is ratio scale because the difference between two distances is meaningful, and a distance of 0 is truly the lowest possible distance value. Ratios are meaningful for distance: a distance of 4 miles is exactly twice as long as a distance of 2 miles.
 
 __Regression:__ A type of supervised learning/modeling, where the outcome of interest is quantitative (or can be treated as such).
 

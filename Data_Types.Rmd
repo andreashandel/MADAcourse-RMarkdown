@@ -21,7 +21,7 @@ library(emo)
 For this unit, we will discuss different types of data and how data type influences the analysis approach.
 
 
-```{r cartoon-data,  echo=FALSE, fig.cap='You might not want to get yourself that kind of data. Source: dilbert.com.', out.width = '80%', fig.align='center'}
+```{r cartoon-data,  echo=FALSE, fig.cap='You might not want to get yourself that kind of data. Source: dilbert.com.', out.width = '80%', fig.align='center', fig.alt='A Dilbert comic strip in three panels. In the first panel, Dilbert's boss says to use the CRS database to size the market, and Dilbert replies "That data is wrong". In the second panel, the boss says "Then use the SIBS database," to which Dilbert replies, "That data is also wrong." In the third and last panel, the boss says "Can you average them?" and Dilbert replies "Sure. I can multiply them too."'}
 knitr::include_graphics("./media/dilbert_wrongdata.gif")
 ```
 
@@ -55,17 +55,18 @@ If you want to hear someone else's definition and explanation of what data is, y
 
 We usually refer to pieces of data/information (e.g., gender and age) as variables. Different types of variables exist, and depending on the type, the analysis will be different. The main categories are:
 
-__Quantitative:__ This data type, also called _interval_ data, generally allows on to do certain mathematical operations, e.g., subtraction or addition. Different subcategories exist:
+__Quantitative:__ This data type, also called _interval_ data, generally allows one to do certain mathematical operations, e.g., subtraction or addition. Different subcategories exist:
 
-  * Continuous: Can in principle be any number. Examples are height, weight, age, etc.
-  * Discrete: Can only take discrete values, e.g., the number of siblings a person has. 
-  * Fraction/Proportion: Continuous but between 0-1.
+  * Continuous: Can, in principle, be any number. Examples are height, weight, age, etc.
+  * Discrete: Can only take discrete (integer) values, e.g., the number of siblings a person has. 
+  * Fraction/Proportion: Continuous, but between 0-1.
   * Sometimes other special forms (e.g., only positive, only in some range).
+  * A special case of quantitative data is _ratio_ data. Data measured on a ratio scale have all the properties of interval data, and in addition, the zero value is a "true zero". That is, a value of zero represents an actual minimum possible variable. For example, mass and distance are ratio data. Multiplying and dividing ratio scale data makes sense (e.g. a 2 kilogram pumpkin has twice the mass of a 1 kilogram pumpkin).
 
-__Qualitative:__ Broadly speaking, qualitative data are those that do not allow one to perform any mathematical operations such as subtraction or addition. Types of such data are:
+__Qualitative:__ Broadly speaking, qualitative data are those that do not allow one to perform any mathematical operations such as subtraction or addition. Qualitative data which has no intrinsic order is also caled *nominal* (scale) data. Types of such data are:
 
-* Descriptive, e.g., free text data from participant interviews.
-* Categorical, e.g., hair color, ethnicity. No ordering is possible. A special and common case of categorical is data with 2 categories, e.g., yes/no, dead/alive, diseased/healthy.
+* Descriptive: e.g., free text data from participant interviews.
+* Categorical: e.g., hair color, ethnicity. No ordering is possible. A special and common case of categorical is data with 2 categories, e.g., yes/no, dead/alive, diseased/healthy.
   
 __Ordinal:__ This is usually considered a type of categorical variable, but it is worth thinking about it as something on its own. Ordinal data fall in between being strictly quantitative or strictly qualitative. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it's unclear if the difference between 5 and 6 is the same as 6 and 7. Thus it is not clear if one can do operations like subtraction (to get a difference of 1 in each case). Another example is level of education, which a survey might collect in categories of 'no high school', 'high school', 'some college', 'college degree', 'graduate degree'. We could code that with numbers 1-5, and in some sense these items are ordered, but it's unclear if one is justified in considering the difference between 'high school (2)' and 'some college (3)' the same as 'some college (3)' and 'college degree (4)'. 
 
@@ -97,7 +98,7 @@ The following is a summary of the most important data types in R. I'm also listi
 __Characters/strings:__ A string is a collection of characters. You will often hear the labels "character" and "string" used interchangeably to describe a variable. Strings are the most flexible variable type. Everything can be a character string. Unfortunately, you cannot do a lot of analysis with them. For instance, if you have the numbers 2 and 3, you can add and subtract. But if you code those numbers as characters "2" and "3", you can't do much with them. Thus, transforming characters into other, more useful categories (if applicable) is a common task. It is common that you read in some data and there is a variable which should be numeric, but some entries are not (e.g., the original spreadsheet shows something like "<10"). In this case, R reads all of these variables as characters. You then have to go in, clean the "<10" value, and convert the rest to numeric. Sometimes you do want to work with strings directly. 
 There are many tools and packages in R that are helpful, including base R command. The [`stringr` package](https://stringr.tidyverse.org/) is particularly useful. 
 
-It is quite likely that you will need to work with strings at some point during a data analysis, even if it is only to find specific values, clean up variable names, etc. Thus, learning more about this topic is a good idea. A very powerful, and also very confusing way to deal with strings is to use what are called _regular expressions_. This concept applies to any programming language, not just R. Being at least somewhat familiar with the concept of regular expressions is useful.
+It is quite likely that you will need to work with strings at some point during a data analysis, even if it is only to find specific values, clean up variable names, etc. Thus, learning more about this topic is a good idea. A very powerful, and also very confusing way to deal with strings is to use what are called _regular expressions_ (or regex for short). This concept applies to any programming language, not just R. Being at least somewhat familiar with the concept of [regular expressions](https://github.com/rstudio/cheatsheets/blob/master/regex.pdf) is useful.
 
 If you have no experience manipulating strings, I suggest you work through [the _Strings_ chapter (14) of R4DS](https://r4ds.had.co.nz/strings.html), and do the exercises. [The _string processing_ chapter (25) of IDS](https://rafalab.github.io/dsbook/string-processing.html) contains further good material that is worth working through. Another good source is [the _Character Vectors_ chapter in the STAT 545 book](https://stat545.com/character-vectors.html) by [Jenny Bryan](https://jennybryan.org/). Take a look at those various sources, decide which one is right for your level and go through some of them. And/or consult them as needed.
 
@@ -106,11 +107,11 @@ __Factors:__ That's what R calls categorical variables. They can be ordered/ordi
 
 To learn some more about factors, you might want to go through the [_Factors_ chapter of R4DS](https://r4ds.had.co.nz/factors.html), and do the exercises. 
 
-__Logical:__ You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R 0 is interpreted as FALSE and 1 as TRUE. You will use those logical values often when checking your data, e.g., if you want to see if your variable `x` is greater than 5, then the R command `x>5` will return either TRUE or FALSE, based on the value of `x`. 
+__Logical:__ You can think of a logical variable as a type of categorical variable with 2 categories, TRUE and FALSE. Alternatively, in R, 0 is interpreted as FALSE and 1 as TRUE (and vice versa). You will use those logical values often when checking your data, e.g., if you want to see if your variable `x` is greater than 5, then the R command `x > 5` will return either TRUE or FALSE, based on the value of `x`. 
 
-__Numeric (double/integer:__ Numeric values that are either integers or any other numeric value (double). You generally do not need to care too much how exactly your numeric values are coded. Often, you can treat integers as general numeric (which in R is `double`). You might rarely come across a case where some analytic method or other bits of code requires integers to be specified as such. In R, you can use the `as.integer()` function to convert general numeric values to integers. You don't really need any other special packages in R to deal with numeric values.
+__Numeric (double/integer):__ Numeric values that are either integers or any other numeric value (double). You generally do not need to care too much how exactly your numeric values are coded. Often, you can treat integers as general numeric value. (In R, a general numeric variable is called `double`.) You might rarely come across a case where some analytic method or other bits of code requires integers to be specified as such. In R, you can use the `as.integer()` function to convert general numeric values to integers. You don't really need any other special packages in R to deal with numeric values. Note that when you type an integer value, e.g. `2`, into R, this is considered numeric by default.
 
-__Date/time:__ While dates are a type of continuous numeric variable, you should assign the date class explicitly in R, which allows you to do more with them. The [`lubridate` package](https://lubridate.tidyverse.org/) is a good one to work with dates. Others exist. 
+__Date/time:__ While dates are a type of continuous numeric variable, you should assign the date class explicitly in R, which allows you to do more with them. Dates are quite difficult to work with in base R (which usually calls them `POSIX` variables). The [`lubridate` package](https://lubridate.tidyverse.org/) is a good package to work with dates, and is more user friendly. Others exist. 
 
 To learn some more about dates and times in R, check out the [_Dates and times_ chapter of R4DS](https://r4ds.had.co.nz/dates-and-times.html) as well as the [_Parsing Dates and Times_ chapter of IDS](https://rafalab.github.io/dsbook/parsing-dates-and-times.html). 
 
@@ -130,7 +131,7 @@ __A list:__ Lists are the most flexible data types in R. You can combine differe
 Other types of data structures exist; they are often introduced by specific R packages. An important one to know is the `tibble` which is a type of data frame used in the `tidyverse`. It is similar, but not exactly like a data frame. You can read more about `tibbles` [on its package website](https://tibble.tidyverse.org/) and in [R4DS chapter 10](https://r4ds.had.co.nz/tibbles.html).
 
 
-For some more information, you can check out this video by [Jeff Leek](http://jtleek.com/) where he talks about the types of data and structures I described above. He als shows some R/coding examples and discusses the important concept of missing values and `NA`.
+For some more information, you can check out this video by [Jeff Leek](http://jtleek.com/) where he talks about the types of data and structures I described above. He also shows some R/coding examples and discusses the important concept of missing values and `NA`.
 
 <p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T9n7j8180GQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -149,7 +150,7 @@ __Omics:__ The [bioconductor](https://www.bioconductor.org/) website is your sou
 
 __Text:__  Working with and analyzing larger sections of text is different from the simple string manipulation discussed above. These days, analysis of text often goes by the term _natural language processing_. Such text analysis will continue to increase in importance, given the increasing data streams of that type. If you are interested in doing full analyses of text data, the [`tidytext` R package](https://juliasilge.github.io/tidytext/) and the [Text mining with R book](https://www.tidytextmining.com/) are great resources. A short introduction to this topic is [The _text mining_ chapter (27) of IDS.](https://rafalab.github.io/dsbook/text-mining.html) 
 
-__Images:__ Images are generally converted into multiple matrices of values for different pixels of an image. For instance, one could divide an image into a 100x100 grid of pixels, and assign each pixel a RGB values and intensity. That means one would have 4 matrices of numeric values, each of size 100x100. One would then perform operations on those values. We won't do anything with images here, but using specialized software, incuding some R packages, allows for analysis of such data.
+__Images:__ Images are generally converted into multiple matrices of values for different pixels of an image. For instance, one could divide an image into a 100x100 grid of pixels, and assign each pixel a RGB values and intensity. That means one would have 4 matrices of numeric values, each of size 100x100. One would then perform operations on those values. We won't do anything with images here, but using specialized software, including some R packages, allows for analysis of such data.
 
 __Videos:__ Are basically just a time-series of images. Of course, analysis of videos is even harder than analysis of images.
 
