@@ -489,7 +489,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-16 07:39:31</h4>
+<h4 class="date">2021-08-23 14:14:37</h4>
 
 </div>
 
@@ -502,14 +502,14 @@ div.tocify {
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Starting knowledge of R coding</li>
-<li>Be familiar with the <code>tidyverse</code></li>
-<li>Be familiar with resources that help you learn R</li>
+<li>Gain starting knowledge of R coding</li>
+<li>Become familiar with the <code>tidyverse</code></li>
+<li>Become familiar with resources that help you learn R</li>
 </ul>
 </div>
 <div id="learning-to-code" class="section level1">
 <h1>Learning to code</h1>
-<p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not be focusing on ‘learning R’. You will learn by doing as we go through the course. As with anything, the more you practice, the better you will get. You should approach learning to code with an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week), and you will eventually figure it out. Make use of the great resources that are out there. They are all listed below and in the <em>Resources</em> section.</p>
+<p>R (or any other programming language) is best learned by “doing it”. You will learn more R as we go along, but the focus of the class is on data analysis, so while I will provide you with resources to figure out the R bits, outside of this module we will not focus on ‘learning R’. You will learn by doing as we go through the course. As with anything, the more you practice, the better you will get. You should approach learning to code with an attitude of <em>fearless curiosity</em>. You will get stuck, you will get frustrated with some weird error message in your code (still happens to me at least once a week), and you will eventually figure it out. Make use of the great resources that are out there. They are all listed below and in the <em>Resources</em> section.</p>
 <p>This figure illustrates the journey of learning to write code:</p>
 <div class="figure" style="text-align: center">
 <img src="media/LearningToCode.jpg" alt="The journey of learning to code. [From this Source.](https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/)" width="100%" />
@@ -519,7 +519,7 @@ The journey of learning to code. <a href="https://www.thinkful.com/blog/why-lear
 </div>
 <p>It is <a href="https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/">from this good article</a>. Read the article, or read at least the beginning.</p>
 <p>My goal is that during this course, you will reach the beginning of the <em>upswing of awesome</em>, at least when it comes to being able to use R to perform data analyses. But to get there, you’ll have to go over the <em>cliff of confusion</em> and through the <em>desert of despair</em>, and I’m confident that you’ll get there and won’t be stuck in the <em>hand-holding honeymoon</em>. In fact, at times I’m providing you less detailed instructions than I could to get you quickly to the stage where you have to figure out bits yourself. I guess one could say that instead of hand-holding, I let you stumble and fall some, and then will help you to get back up 😃. It might feel a bit more frustrating at least initially, but it’s a much better way to learn.</p>
-<p>It goes without saying that learning to code (or learning anything else) is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new I haven’t done before and invariably get stuck.</p>
+<p>It goes without saying that learning to code (or learning anything else) is not a linear process. Even after many years of coding and using R, I regularly encounter the <em>cliff of confusion</em> and the <em>desert of despair</em> if I’m trying to do something new that I haven’t done before and invariably get stuck.</p>
 </div>
 <div id="learning-the-basics-of-r" class="section level1">
 <h1>Learning the basics of R</h1>
@@ -527,16 +527,16 @@ The journey of learning to code. <a href="https://www.thinkful.com/blog/why-lear
 <p><em>Note: If you already know some R, most of these exercises will be refreshers. You can decide which ones are useful and which ones are not.</em></p>
 <p>RStudio is starting to develop <a href="https://rstudio.cloud/learn/primers">a nice set of online tutorials they call Primers</a>. (It’s free, but you might need to create an account/log in). I am recommending the primers highly. If you are new to R, start with the <code>The Basics</code> section, work through the tutorials.</p>
 <p><em>Note: Some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes, and you always get a ‘that’s right’ kind of message. The R package that is used to write this tutorial is in the early stages of development and is not full-featured yet. I’m sure it will get better over time. The whole tutorial should still work.</em></p>
-<p><em>Note: There are two ways of assigning something to an object in R, one can write <code>x &lt;- 2</code> or <code>x = 2</code> and almost always that is the same. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. <code>x &lt;- 2</code>. The problem is that most other programming languages do it the second way, so if you learned to code in another language first (like I did), it’s more natural to write <code>x = 2</code>. It’s your choice. Just be aware that both notations exist and do the same thing. When I write code, I do a mix (without any logic to it).</em></p>
-<p>If you want to practice some basic coding further, I suggest you go through <a href="https://rafalab.github.io/dsbook/">chapters 2 and 3 of IDS</a>. Continuing on to chapter 4 is a good idea. Alternatively, pick any other source you like, e.g. those listed in the resources section of this course, or anything else you find.</p>
+<p><em>Note: There are two ways of assigning something to an object in R, one can write <code>x &lt;- 2</code> or <code>x = 2</code> and almost always that is the same. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. <code>x &lt;- 2</code>. The problem is that most other programming languages do it the second way, so if you learned to code in another language first (like I did), it’s more natural to write <code>x = 2</code>. It’s your choice. Just be aware that both notations exist and do the same thing. When I write code, I do a mix (without any logic to it). In R, you can also write this in the opposite direction, i.e. <code>2 -&gt; x</code>. If you are new to programming this isn’t generally recommended, but some online R personalities will assign variables this way.</em></p>
+<p>If you want to practice some basic coding further, I suggest you go through <a href="https://rafalab.github.io/dsbook/">chapters 2 and 3 of IDS</a>. Continuing on to chapter 4 is a good idea. Alternatively, pick any other source you like, e.g. those listed in the resources section of this course, or anything else you find. (If you find something not listed that is really useful, feel free to share!)</p>
 </div>
 <div id="more-r-coding" class="section level1">
 <h1>More R coding</h1>
-<p>We only focus explicitly on R coding in this module. That is obviously not enough to become proficient at it. For the rest of the course, I expect you to learn <em>on the side</em> the coding bits you need to get things done. I understand this will be a challenge. Don’t hesitate to seek help. The <a href="https://rstudio.cloud/learn/primers/">R Studio Primers</a> cover many of the coding related topics we will use in this course, therefore go through any and all you find useful whenever you are able (or when you need to know).</p>
+<p>We only focus explicitly on R coding in this module. That is obviously not enough to become proficient at it. For the rest of the course, I expect you to learn the coding bits you need to get things done <em>on the side</em>. I understand this will be a challenge. Don’t hesitate to seek help. The <a href="https://rstudio.cloud/learn/primers/">R Studio Primers</a> cover many of the coding related topics we will use in this course, so go through any and all resources you find useful whenever you are able (or when you need to know).</p>
 </div>
 <div id="getting-help" class="section level1">
 <h1>Getting help</h1>
-<p>Maybe the most important skill for learning any programming language is figuring out how to find and get help with any problem. Google, Stackoverflow, and the Internet are your friend. If you have a problem with your code, it’s likely someone else had the same/similar problem before you and asked a question (and probably got an answer). So search the web, you’ll find something useful most of the time.</p>
+<p>Maybe the most important skill for learning any programming language is figuring out how to find and get help with any problem. Google, StackOverflow, and the Internet are your friend. If you have a problem with your code, it’s likely someone else had the same/similar problem before you and asked a question (and probably got an answer). So search the web, and you’ll find something useful most of the time.</p>
 <div class="figure" style="text-align: center">
 <img src="media/xkcd_wisdom_of_the_ancients.png" alt="Fortunately rare for R. Source: xkcd.com." width="60%" />
 <p class="caption">
@@ -552,7 +552,7 @@ Fortunately rare for R. Source: xkcd.com.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZFaWxxzouCY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </p>
-<p>As you continue on your coding journey, keep in mind: <strong>The great thing about programming is that you can’t really “break” things too much. Worst case you get an error message. So experiment and try out anything you like!</strong></p>
+<p>As you continue on your coding journey, keep in mind: <strong>The great thing about programming is that you can’t really “break” things too much. In the worst case you get an error message. So experiment and try out anything you like!</strong></p>
 </div>
 
 

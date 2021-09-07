@@ -45,8 +45,11 @@ You should have set up with all the tools we need, namely R, RStudio, GitHub and
 
 ### Github setup
 * I made a template for you to get started. Go to [this page](https://github.com/andreashandel/online-portfolio-template). Make sure you are logged into GitHub, then click on `Use this template`. Create a new repository, call it `YOURNAME-MADA-portfolio` (YOURNAME should include both your first and last name.). Choose public repository, then create it.
-* You should have been sent to the website for your new repository. If not, go to your main GitHub account website and find the repository in your list of repositories. We want to set things such that your repository can at the same time become a public website. Github allows you to do that with its [_Github Pages_](https://pages.github.com/) feature. To turn on the _Github Pages_ feature, go to `Settings` for your repository in the top right. Find the `Pages` section. Switch `none` to `main` and folder as `/docs`. Click `Save`. You should see a message `Your site is ready to be published at URL`. If you click on it, nothing will show since we haven't created the content yet. Copy/remember the URL, we'll need it later. 
-* _Clone_ the repository from Github to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called _MADA2021_) and place  all class-related repositories (of which this is the first one) as sub-folders into this folder. Remember that these folders should not be synced with some other software (e.g., Dropbox).
+* You should have been sent to the website for your new repository. If not, go to your main GitHub account website and find the repository in your list of repositories. We want to set things such that your repository can at the same time become a public website. Github allows you to do that with its [_Github Pages_](https://pages.github.com/) feature. To turn on the _Github Pages_ feature, go to `Settings` for your repository in the top right. Find the `Pages` section. Switch `none` to `main` and folder as `/docs`. Click `Save`. You should see a message `Your site is ready to be published at URL`. If you click on it, nothing will show since we haven't created the content yet. Copy/remember the URL, we'll need it later. Note that this is NOT the URL for your repository, instead it is the URL for your website. See the **Github pages** section below for more.  
+* _Clone_ the repository (which will be something like `https://github.com/USERNAME/REPOSITORYNAME/`) from Github.com to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called _MADA2021_) and place all class-related repositories (of which this is the first one) into this folder. Remember that these repositories/folders should not be synced with some other software (e.g., Dropbox).
+
+
+
 
 ### Quick website check
 Once your repository is on your local computer, go into the folder and click on `online_portfolio.Rproj`, which should open RStudio.
@@ -104,7 +107,7 @@ __You will be using this workflow a lot__.
 
 ### Github pages
 
-You might have noticed that the files for your new website live on the domain `github.com`, while your nice-looking website lives at the domain `github.io`. This is how Github Pages work. It take files from your repository and turns them into a website with a distinct URL. Those files can either be in the main repository folder or in a `/docs` subfolder (our setup). 
+You might have noticed that the files for your new website live on the domain `github.com`, while your nice-looking website lives at the domain `github.io`. This is how Github Pages work. It take files from your repository and turns them into a website with a distinct URL. Those files can either be in the main repository folder or in a `/docs` subfolder (our setup). Your website URL and your repository URL are distinct. All github actions, like pushing, pulling, cloning, etc. are done with the repository on the `github.com` domain. The `github.io` domain is only there to display websites.
 
 As an example, this course website is displayed at [https://andreashandel.github.io/MADAcourse/](https://andreashandel.github.io/MADAcourse/) and all the files that make up the webpage are at [(https://github.com/andreashandel/MADAcourse)](https://github.com/andreashandel/MADAcourse). Note the text at the bottom of the repository view. That text comes from the `Readme.md` file.
 

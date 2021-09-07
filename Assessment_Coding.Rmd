@@ -33,7 +33,7 @@ Assign each member in your group an (arbitrary) number (I'm calling them M1, M2,
 
 
 ## Getting started
-Open your portfolio website project in RStudio. Then open the `rcoding.Rmd` file. We'll edit that file for this exercise.
+Open your portfolio website project in RStudio. Then open the Rmd file for the coding exercise. The name of this file might be `rcoding.Rmd` or `coding_exercise.Rmd`, depending on when you forked the `online-portfolio-template` (I kept making changes to the template). You'll edit that file for this exercise.
 
 :::note
 Documenting well is very important! Add lots of comments into your code/file. I suggest that your code should be more than half comments. For every block of code, you have a few lines of comments at the beginning explaining what the code block does, and then each line of code gets its separate line of comment with more details. Comment on both the how and why of your code. This much commentary might seem overkill initially. But as your code gets more complex, it will be very useful. Both your collaborators, and your future self looking at the code you wrote several weeks ago will be incredibly thankful for your comments!
@@ -55,7 +55,7 @@ We'll look at and play with some data from the [`dslabs` package](https://simply
 
 We'll look at the `gapminder` dataset from `dslabs`. Write a code chunk using the `help()` function that pulls up the help page for the data to see what it contains. Then use the `str()` and `summary()` functions to take a look at the data. Use the `class()` function to check what type of object `gapminder` is.
 
-To illustrate how that should look, you should have these lines of code in your `coding_exercise.Rmd` file.
+To illustrate how that should look, you should have these lines of code in the R Markdown file you opened for this exercise.
 
 ```{r, eval = FALSE}
 #load dslabs package
@@ -105,7 +105,7 @@ Use the `lm` function and fit life expectancy as the outcome, and infant mortali
 
 ## Sending updates to Github
 
-Once you are done with your exercise, re-build your website (use the `Build Website` button under the `Build` tab in the upper right panel of R Studio). Make sure no error messages show up. A preview should show up, check that the page for this exercise looks as you want it to. Once you are happy with how everything looks, close RStudio. Go to GitKraken, commit your changes, and push to the remote repository. Check on the website of your portfolio that things look ok.
+Once you are done with your exercise, re-build your website (use the `Build Website` button under the `Build` tab in the upper right panel of R Studio). Make sure no error messages show up. A preview should show up, check that the page for this exercise looks as you want it to. Once you are happy with how everything looks, close RStudio. Go to GitKraken, commit your changes, and push to the remote repository. Check your portfolio website online to make sure you can now see the newly created R exercise document (in addition to your previously created `About` page). Of course at any point, feel free to make further enhancements to your portfolio website.
 
 
 ## Improving each other's work
@@ -118,21 +118,23 @@ The basic idea is as follows. First, you make a copy of someone's GitHub reposit
 
 Then you implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main repository. This last part is called issuing a __pull request__. You are requesting that the other person _pull_ your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as _merge_ requests or _sync_ requests, i.e. you are requesting that they merge or sync your changes into their repository. You'll find the terminology _merge request_ is used at times. If the person who controls the main repository likes your changes, they will _merge_ your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this _fork and pull_ flow now.
 
-Find the repository of the team member you will contribute to and `Fork` their repository. Then clone it to your local machine. Open their `coding_exercise.Rmd` file. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
+Find the repository of the team member you will contribute to and `Fork` their repository. Then clone it to your local machine, as you have done previously with your own repositories. In fact, this fork is now your own repository, you have it forever, even if the person who owns the original repository deletes theirs. 
+
+Open the Rmd file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
 
 Start a new section below the part your classmate did.
 
 Write some more code to do some more analysis of the dataset. This is fairly open-ended. I want you to create a few more plots of the data, and fit another model to some parts of data and display the fitting results in a table. You can e.g. use the `broom` package to convert output from `lm` into a data frame you can show as a table. What exactly you explore, plot and fit is up to you. 
 
-Once you wrote your code and confirmed that it runs, commit and push your changes to the remote. Note that this pushes to __your fork__ (i.e. copy) of the repository. Now it's time to offer your contribution to your classmate to integrate into their repository.
+Once you wrote your code, confirm that it runs without problems and errors, and produces the expected results. Once everything is good, commit and push your changes to the remote. Note that this pushes to __your fork__ (i.e. copy) of the repository. Now it's time to offer your contribution to your classmate to integrate into their repository.
 
 
 ## Making a pull request
-Now, let's contribute your code to your classmate's project. Go to the GitHub site for your repository. In the top left, you should see the _New Pull Request_ button. (Underneath, it should say something like `this branch is N commits ahead of NNN`). Click the _New Pull Request_ button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person _pull_ your changes into their repository. Hopefully, you'll see a green check-mark that says _able to merge_. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won't be the case. In either case (merge conflict or not), you can click the green button and _Create a pull request_. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click _Create pull request_.
+Now, let's contribute your code to your classmate's project. Go to the GitHub.com website for your repository. In the top left, you should see the _New Pull Request_ button. (Underneath, it should say something like `this branch is N commits ahead of NNN`). Click the _New Pull Request_ button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person _pull_ your changes into their repository. Hopefully, you'll see a green check-mark that says _able to merge_. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won't be the case. In either case (merge conflict or not), you can click the green button and _Create a pull request_. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click _Create pull request_.
 
 
 ## Checking and merging pull requests
-Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and in the repository, click on _Pull requests_, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn't change things around while they did, so there shouldn't be any conflicts. Click on the _Files changed_ button, which will show you an overview of the code they changed. Removals are red, and additions are green.
+Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and to your online portfolio repository. Click on _Pull requests_, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn't change things around while they did, so there shouldn't be any conflicts. Click on the _Files changed_ button, which will show you an overview of the code they changed. Removals are red, and additions are green.
 
 On the main pull request site, you can do various things. If you don't like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes (hopefully, this is the case here), you can merge the pull request and close it. Their updates are now part of your repository.
 
@@ -157,7 +159,7 @@ Github also has _branches_. Those are similar to forks but meant for internal us
 
 **This is optional. You can do it at any time during this course (and more than once) `r emo::ji('grin')`.**
 
-Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).  Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse). Follow the steps outlined above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to GitHub, then initiate a pull request. I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have again contributed to improving this course! (And of course, you will be listed in the _Acknowledgments_ section of the main course page.)
+Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).  Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse). Follow the steps outlined above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to GitHub, then initiate a pull request. I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have contributed to improving this course! (And of course, you will be listed in the _Acknowledgments_ section of the main course page.)
 
 
 
