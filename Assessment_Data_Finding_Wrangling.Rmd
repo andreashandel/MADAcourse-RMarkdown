@@ -35,12 +35,16 @@ We'll also use the same group setup as last week. Assign each member in your gro
 
 ## Finding Data
 
-Go to the CDC's data website at [https://data.cdc.gov/](https://data.cdc.gov/). Browse through the site and identify a dataset of interest. Your choice.
+Go to the CDC's data website at [https://data.cdc.gov/](https://data.cdc.gov/). Browse through the site and identify a dataset of interest. 
+
+Which dataset you choose is up to you. To make a future exercise easier on you, I suggest you pick a dataset that has at least 5 different variables, and a mix of continuous and categorical ones. Often, 5 variables means 5 columns. That would be the case in properly formatted data. However, some of the data provided by the CDC is rather poorly formatted. For instance [this dataset](https://data.cdc.gov/Traumatic-Brain-Injury-/Rates-of-TBI-related-Deaths-by-Age-Group-United-St/nq6q-szvs) has the same variable (age) in separate columns, and it is also discretized. As we'll discuss, these are two really bad things you can do to your data, so I recommend staying away from such datasets. There are plenty on that website, so I'm sure you'll find one that is suitable and interesting to you.
+
+If you absolutely can't find a good dataset on the CDC website, you can get one somewhere else. It needs to be _real world_ data (so no training/teaching data repositories), decently documented, and readily available.
 
 
 ## Loading data
 
-Get the dataset into R. You can do that by downloading the file to your computer first and placing it into the `raw_data` folder. Then modify the `processingscript.R` file to read in your data file. You can delete or comment out anything that's already in that R script. 
+Get the dataset you selected into R. You can do that by downloading the file to your computer first and placing it into the `raw_data` folder. Then modify the `processingscript.R` file to read in your data file. You can delete or comment out anything that's already in that R script. 
 
 If no file is available for download, or if it is too large to download and place in the repo (GitHub doesn't like really large files, one of its limitations), you can instead write code to pull it directly from the source through the API (Google is your friend to figure out what commands you need to write).
 

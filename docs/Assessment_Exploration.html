@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Reference management</title>
+<title>Assessment - Exploration</title>
 
 <script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -48,6 +48,100 @@
     </style>
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -439,9 +533,6 @@ div.tocify {
           <a href="./Data_exploration.html">Exploring data</a>
         </li>
         <li>
-          <a href="./Data_processing.html">Processing data</a>
-        </li>
-        <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
         </li>
       </ul>
@@ -501,31 +592,57 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reference management</h1>
+<h1 class="title toc-ignore">Assessment - Exploration</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-13 07:55:21</h4>
+<h4 class="date">2021-09-07 18:55:43</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>In this short unit, you will learn how to manage your references within the R/Markdown stack of tools.</p>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
+<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
 </div>
-<div id="learning-objectives" class="section level1">
-<h1>Learning Objectives</h1>
-<ul>
-<li>Know how to do reference management that plays nicely with R Markdown</li>
-</ul>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>We’ll again add a group exercise component, using the - by now familiar - M1, M2, … setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository.</p>
+<p>For this exercise, we’ll revisit and extend the project you started in the <em>wrangling</em> module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync.</p>
+<p>Open the project in RStudio. Create a new R Markdown file called <code>exploration.Rmd</code> somewhere inside the <code>code</code> folder. You can give it its own sub-folder or not.</p>
+<p>The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that’s not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data (like we did in an earlier exercise) or you switch to a different dataset.</p>
 </div>
-<div id="reference-management-with-markdown" class="section level1">
-<h1>Reference management with Markdown</h1>
-<p>For almost any data analysis, especially if it is meant for publication in the academic literature, you will have to cite other people’s work and include the references in your work. In this class, possibly for some of our exercises and definitely for the class project, you need to include references and cite other people’s work like in a regular research paper.</p>
-<p>I assume you are familiar with how citing references works, and hopefully, you are already using a reference manager. You might be using EndNote or Mendeley or PaperPile or…</p>
-<p>To have something that plays well with R Markdown, you need references in a format called <code>bibtex</code>. This is essentially a large file of structured plain text. You don’t ever want to edit the bibtex file yourself. Instead, you use a reference manager that is bibtex friendly. I mostly use <a href="https://www.zotero.org/">Zotero</a>, which is free. If you use Zotero, you should use the <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a> extension, which allows you to keep your bib file in sync as you update references in Zotero.</p>
-<p>You could probably use others. I don’t have much experience with any others. Whichever reference manager you use, the important part is that you need to be able to save or export your references as a <code>bibtex</code> file.</p>
-<p>To use references in your R Markdown file, specify the name and location of your <code>bibtex</code> file in the YAML header. You can also specify a CSL style file there. This is a file which controls how the references are formatted. Styles for almost any journal <a href="https://www.zotero.org/styles">are available for download here</a>. When you create your <code>bibtex</code> file, each reference gets a key, which is a shorthand that is generated by the reference manager or you can create yourself. For instance, I use a format of lower-case first author last name followed by 2 digit year for each reference. If I cite a paper by the same first author that was published in the same year, then a lower case letter is added to the end. For instance, for a paper that I wrote as 1st author in 2010, my bibtex key might be <code>handel10</code> or <code>handel10a</code>. You can decide what scheme to use, just pick one and use it <em>forever</em>. In your Markdown document, you can then cite the reference by adding the key, such as <code>...in the paper by Handel et al. [@handel10]...</code>When you knit the markdown file, it looks for a reference with the specified tag in your <code>bibtex</code> file and places all references at the end of your document using the formatting you specified. Some more details on citations and references in RMarkdown/bookdown can be found <a href="https://bookdown.org/yihui/rmarkdown-cookbook/bibliography.html">here</a> and <a href="https://bookdown.org/yihui/bookdown/citations.html">here</a>.</p>
-<p>You will see a few examples of bibtex use together with RMarkdown in the course, so when it’s time for you to use it (e.g. for the class project), you should know how to go about doing it.</p>
+<div id="cleaning" class="section level2">
+<h2>Cleaning</h2>
+<p>Depending on how thoroughly you did this previously, you might not need to do too much here. But some adjustments are likely needed.</p>
+<p>Open your <code>processingscript.R</code>. Update the code such that it cleans and retains all or most variables. Write comments into your R script explaining each cleaning decision. For instance if you have a variable with a lot of missing data, explain that you are dropping this variable (and why), then write the code that drops the variable. Or alternatively you might remove observations (rows) that contain any missing data.</p>
+<p>If you have categorical variables, check the categories and decide if maybe some should be combined. You might already be aware of outliers or mistakes in the data. This usually doesn’t happen until after exploration, but you did already explore the data in a previous exercise. So if you know anything of that type is in the data and needs cleaning, you can do it here.</p>
+<div class="note">
+<p>With the tidyverse and the pipe operator, a lot of these steps could be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>() <span class="sc">%&gt;%</span> <span class="fu">select</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_lump</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>() <span class="sc">%&gt;%</span> ...</span></code></pre></div>
+<p>I suggest instead to write code like this</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat_small1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat_small2 <span class="ot">&lt;-</span> dat_small1 <span class="sc">%&gt;%</span> <span class="fu">select</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dat_small3 <span class="ot">&lt;-</span> dat_small2 <span class="sc">%&gt;%</span> <span class="fu">fct_lump</span>()</span></code></pre></div>
+<p>That style of coding defeats a bit the purpose of the pipe operator, but I think it helps initially to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it’s much harder to follow along and find bugs.</p>
+</div>
+<p>Once all your cleaning/processing steps are updated, you should end up with at least 5 variables, a mix of continuous and categorical. You might have many more variables, that is ok. Your updated script should save the newly cleaned data to an <code>Rds</code> file, as before.</p>
+</div>
+<div id="exploration" class="section level2">
+<h2>Exploration</h2>
+<p>Write code, combined with text/comments that describe what you do, into your <code>exploration.Rmd</code> file. The code should do the following: * Load the data you just created an saved. * For each variable, produce and print some numerical output (e.g. a table or some summary statistics numbers) * For each continuous variable, create a histogram or density plot. * Create scatterplots or boxplots or similar such plots for the variable you decided is your main outcome of interest and the most important (or all depending on number of variables) independent variables/predictors.</p>
+<p>Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Needs further checking to see if those are wrong entries or not.</em></p>
+<p>By the end of this section/script, you should have a good understanding of what your data looks like, and what analysis approaches might be most appropriate. As you explore, you’ll likely find additional things that need cleaning. Add commands to do that cleaning to your cleaning script. All that should be documented. For instance, continuing the example I just gave, you might have looked at age and weight and decided that based on those, a height of 20in is not reasonable. Unfortunately, you don’t know how to fix this. Since you plan to use height in your models, You decide that the best approach is to remove those individuals. Therefore, you add a few lines of code to your cleaning/processing script that remove those individuals, with some comments explaining what you are doing and why.</p>
+<p><strong>Note how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened? Always be reproducible and explicit!</strong></p>
+</div>
+<div id="processing" class="section level2">
+<h2>Processing</h2>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.</p>
+<p>And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I’ll be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 
 

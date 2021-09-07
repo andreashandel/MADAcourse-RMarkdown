@@ -85,12 +85,16 @@ navbar:
              href: ./Visualization_in_R.html     
            - text: "Assessment: Visualization"
              href: ./Assessment_Visualization.html
-    #     - text: "8. Pre-processing Data"
-    #       menu:
-    #         - text: "8a. Pre-processing data"
-    #           href: ./8a_Preprocessing_Data.html     
+        - text: "Data Exploration"
+          menu:
+           - text: "Exploring data"
+             href: ./Data_exploration.html     
+           - text: "Assessment: Exploration"
+             href: ./Assessment_Exploration.html
     #     - text: "9. Model fitting overview"
     #       menu:
+    #       - text: "Processing data"
+    #         href: ./Data_processing.html     
     #         - text: "9a. Model fitting overview"
     #           href: ./9a_Model_Fitting_Overview.html     
     #         - text: "9b. Model Fitting Terminology"

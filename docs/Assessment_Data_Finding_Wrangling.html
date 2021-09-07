@@ -432,6 +432,20 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration and Processing</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_exploration.html">Exploring data</a>
+        </li>
+        <li>
+          <a href="./Data_processing.html">Processing data</a>
+        </li>
+        <li>
+          <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -489,7 +503,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Data Finding and Wrangling</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-18 11:06:08</h4>
+<h4 class="date">2021-09-07 17:53:39</h4>
 
 </div>
 
@@ -508,11 +522,13 @@ div.tocify {
 </div>
 <div id="finding-data" class="section level2">
 <h2>Finding Data</h2>
-<p>Go to the CDC’s data website at <a href="https://data.cdc.gov/">https://data.cdc.gov/</a>. Browse through the site and identify a dataset of interest. Your choice.</p>
+<p>Go to the CDC’s data website at <a href="https://data.cdc.gov/">https://data.cdc.gov/</a>. Browse through the site and identify a dataset of interest.</p>
+<p>Which dataset you choose is up to you. To make a future exercise easier on you, I suggest you pick a dataset that has at least 5 different variables, and a mix of continuous and categorical ones. Often, 5 variables means 5 columns. That would be the case in properly formatted data. However, some of the data provided by the CDC is rather poorly formatted. For instance <a href="https://data.cdc.gov/Traumatic-Brain-Injury-/Rates-of-TBI-related-Deaths-by-Age-Group-United-St/nq6q-szvs">this dataset</a> has the same variable (age) in separate columns, and it is also discretized. As we’ll discuss, these are two really bad things you can do to your data, so I recommend staying away from such datasets. There are plenty on that website, so I’m sure you’ll find one that is suitable and interesting to you.</p>
+<p>If you absolutely can’t find a good dataset on the CDC website, you can get one somewhere else. It needs to be <em>real world</em> data (so no training/teaching data repositories), decently documented, and readily available.</p>
 </div>
 <div id="loading-data" class="section level2">
 <h2>Loading data</h2>
-<p>Get the dataset into R. You can do that by downloading the file to your computer first and placing it into the <code>raw_data</code> folder. Then modify the <code>processingscript.R</code> file to read in your data file. You can delete or comment out anything that’s already in that R script.</p>
+<p>Get the dataset you selected into R. You can do that by downloading the file to your computer first and placing it into the <code>raw_data</code> folder. Then modify the <code>processingscript.R</code> file to read in your data file. You can delete or comment out anything that’s already in that R script.</p>
 <p>If no file is available for download, or if it is too large to download and place in the repo (GitHub doesn’t like really large files, one of its limitations), you can instead write code to pull it directly from the source through the API (Google is your friend to figure out what commands you need to write).</p>
 <p>Once the data is loaded, you’ll likely need to do some processing. Comprehensive and full cleaning of the data is not necessary. Instead, decide on a few variables of interest and clean those. Think of one variable as the main outcome of interest (in a plot, that would generally be shown on the y-axis) and some other variable(s) as the predictors of interest. Similar to the height/weight example code. Or it could be some quantity changing over time. It’s your choice.</p>
 <p>Once you written code that processes the bits of the data you are interested in, save them as RDS file, similar to what you see in the example code.</p>

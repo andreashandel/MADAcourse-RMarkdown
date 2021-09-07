@@ -55,7 +55,7 @@ Then write R code to try and get as close as possible to the original graph. You
 
 Your final product should be code and explanatory text inside your Rmd file that shows the first shows the original plot and links to its source, then shows your code that re-creates the graph, finally it should show your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
 
-Once done, re-build your website and make sure that your data visualization exercise shows up nicely. 
+Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).
 
 # Discussion
 
