@@ -22,7 +22,7 @@ library(emo)
 
 In this unit, we will discuss what data wrangling is and why it's a very important part of any analysis. 
 
-```{r cartoon,  echo=FALSE, fig.cap='How data used to be cleaned before the tidyverse.', out.width = '80%', fig.align='center', fig.alt='A cartoon showing two men with cleaning supplies standing in front of a woman, who is sitting at a desk. The caption on the cartoon reads "We're ready to scrube the data. #betterdata".'}
+```{r cartoon,  echo=FALSE, fig.cap='How data used to be cleaned before the tidyverse.', out.width = '80%', fig.align='center', fig.alt='A cartoon showing two men with cleaning supplies standing in front of a woman, who is sitting at a desk. The caption on the cartoon reads "We\'re ready to scrube the data. #betterdata".'}
 knitr::include_graphics("./media/cartoonscrubdata.jpg")
 ```
 

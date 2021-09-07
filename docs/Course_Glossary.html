@@ -14,7 +14,7 @@
 
 <title>Course Glossary</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -407,7 +407,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Course Glossary</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-17 18:18:36</h4>
+<h4 class="date">2021-09-03 15:45:06</h4>
 
 </div>
 
@@ -433,14 +433,17 @@ $(document).ready(function () {
 <p><strong>Exposure (variable):</strong> A name for a <strong>predictor</strong> variable of particular interest. For instance, if we wanted to study if the daily duration of exercise had an impact on BMI. We would consider BMI our outcome, exercise duration our exposure (our main predictor of interest), and any other variable we record (e.g., a person’s age and gender) as other predictors (sometimes called covariates). The term exposure is common in the biomedical and related disciplines, not so much in other areas.</p>
 <p><strong>Feature (variable):</strong> An alternative name for <strong>Predictor</strong> often used in the machine learning literature.</p>
 <p><strong>Independent variable:</strong> An alternative name for <em>predictor</em>, most often used in the statistical literature.</p>
+<p><strong>Interval scale variable:</strong> A numerical (quantitative) variable for which taking differences makes sense. Unlike ratio scale variables, the zero point for interval data may be arbitrary. Addition and subtraction are meaningful for interval data, but in general, taking ratios is less meaningful. For example, temperatures in Celsius are on the interval scale. If the temperature was 70 degrees yesterday and 65 degrees today, it makes perfect sense to say “it is 5 degrees cooler than it was yesterday.” But a day that is 70 degrees is not exactly twice as warm than a day that is 35 degrees, so division does not make sense here. There are also temperatures lower than 0 degrees, so the zero point is arbitrary.</p>
 <p><strong>Labeled data:</strong> If we have data for which there is a specific outcome of interest and we know it, it is called labeled data. For instance, if we had a lot of pictures of tissue samples, and someone had gone through them and labeled them as cancerous or not cancerous, it is labeled data. Labeled data (the most common type) is usually analyzed using <strong>Supervised Learning/Analysis</strong> approaches.</p>
 <p><strong>Machine Learning:</strong> An approach to data analysis that tends to use more complex models. The goal is mainly to obtain a model that is good at prediction. Understanding how different inputs lead to different outcomes is of secondary importance. Data is often abundant, so more complex models can be used. Often this term and <strong>Statistics/Statistical Learning</strong> are used interchangably (though some people try to distinguish them, see e.g. <a href="https://www.fharrell.com/post/stat-ml/">this blog post</a>).</p>
 <p><strong>Mechanistic Modeling:</strong> Building and using models that explicitly incorporate mechanisms and processes of the system under study to understand <em>how</em> things interact and lead to specific outcomes. Many models in the hard sciences are of this type. A common way to formulate such models is with differential equations.</p>
+<p><strong>Nominal variable:</strong> A qualitative measurement that can take on distinct categories, but there is no natural order to these categories. For example, apples can be red, yellow, or green, but there is no inherent way to order these colors, even if the data is useful.</p>
 <p><strong>Observation:</strong> An observation is a recording of the different variables for a single unit of analysis. Usually an individual, e.g., a single human or animal, but it could also be a picture or video, a county, a city, or whatever our level of observation is. For each observation, values for the different <em>variables</em> should be available. In R, it is most common that each observation is stored as a row in a data frame.</p>
 <p><strong>Ordinal variable:</strong> A variable that can take on distinct categories which can be ordered, but the difference between levels might not allow for mathematical operations. For instance, if a question asks a person to rank their level of a pain on a scale from 1-10, a 7 is clearly higher than a 6, and a 6 higher than a 5. But it’s unclear if the difference between 5 and 6 is the same as 6 and 7.</p>
 <p><strong>Outcome (variable):</strong> The variable of main interest for our analysis. This can be a single outcome (most common) or multiple. For instance, the main outcome might be if an individual survives or dies. Or it could be their BMI, or it could be if a given picture contains a cat or not. Also called <strong>response (variable)</strong> or <strong>dependent (variable)</strong>.</p>
 <p><strong>Predictive Modeling:</strong> Using models with the main goal of predicting future outcomes, given a collection of predictors.</p>
 <p><strong>Predictor (variable):</strong> All variables that are not the outcome, which we use to see if we can predict the outcome. For instance, if we wanted to predict the price of houses, we could use the square footage of each house and the school district as the predictors.</p>
+<p><strong>Ratio scale variable:</strong> Ratio data are a type of quantitative data that are continuous, have consistent differences, and have a true zero. Addition/subtraction and multiplication/division are all meaningful for ratio data. For example, distance is ratio scale because the difference between two distances is meaningful, and a distance of 0 is truly the lowest possible distance value. Ratios are meaningful for distance: a distance of 4 miles is exactly twice as long as a distance of 2 miles.</p>
 <p><strong>Regression:</strong> A type of supervised learning/modeling, where the outcome of interest is quantitative (or can be treated as such).</p>
 <p><strong>Response (variable):</strong> See <strong>Outcome (variable).</strong></p>
 <p><strong>Secondary Data Analysis:</strong> Analysis of a dataset that was not specifically collected for the purpose of answering the question one wants to answer. With an increasing abundance and rountine collection of data, such secondary analyses are becoming very common. If a clear hypothesis is formulated before one looks at the data, one might consider any results <em>confirmatory</em>, otherwise it is an <strong>Exploratory Analysis</strong>. Even just looking at the data a little bit during the cleaning process should move such a secondary analysis into the exploratory category.</p>

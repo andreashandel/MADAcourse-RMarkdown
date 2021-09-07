@@ -21,7 +21,7 @@ library(emo)
 For this unit, we will discuss different types of data and how data type influences the analysis approach.
 
 
-```{r cartoon-data,  echo=FALSE, fig.cap='You might not want to get yourself that kind of data. Source: dilbert.com.', out.width = '80%', fig.align='center', fig.alt='A Dilbert comic strip in three panels. In the first panel, Dilbert's boss says to use the CRS database to size the market, and Dilbert replies "That data is wrong". In the second panel, the boss says "Then use the SIBS database," to which Dilbert replies, "That data is also wrong." In the third and last panel, the boss says "Can you average them?" and Dilbert replies "Sure. I can multiply them too."'}
+```{r cartoon-data,  echo=FALSE, fig.cap='You might not want to get yourself that kind of data. Source: dilbert.com.', out.width = '80%', fig.align='center', fig.alt="A Dilbert comic strip in three panels. In the first panel, Dilbert's boss says to use the CRS database to size the market, and Dilbert replies 'That data is wrong'. In the second panel, the boss says 'Then use the SIBS database,' to which Dilbert replies, 'That data is also wrong.' In the third and last panel, the boss says 'Can you average them?' and Dilbert replies 'Sure. I can multiply them too.'"}
 knitr::include_graphics("./media/dilbert_wrongdata.gif")
 ```
 
