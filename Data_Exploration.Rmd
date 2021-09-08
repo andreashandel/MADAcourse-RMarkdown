@@ -24,7 +24,7 @@ In this unit, we will continue the topic of dealing with data prior to the actua
 
 While there were separate modules for _finding and wrangling_ and _visualizing_ data, I want to remind you of this diagram:
 
-```{r workflow,  echo=FALSE, fig.cap='Data analysis workflow', out.width = '60%', fig.align='center'}
+```{r workflow,  echo=FALSE, fig.cap='Data analysis workflow', out.width = '50%', fig.align='center'}
 knitr::include_graphics("./media/analysis-workflow.png")
 ```
 
@@ -59,10 +59,14 @@ You could also explore your data by running simple bi-variate statistical models
 
 **A note of caution: It is ok (in my opinion) to use standard statistical tests and readouts (e.g., p-values) to guide main model choices and as suitable, to report them in a final product. It is however _only_ ok to interpret p-values in the hypothesis testing sense if you predefined the hypothesis and the full data generation and analysis protocol. Outside a clinical trial, that's almost never done, thus pretty much any reported p-value you see in the literature is improperly used/interpreted.** Everyone does it, and pretty much everyone does it wrong. The state of affairs when it comes to statistical literacy, even among PhD holders, is still sad...
 
-# Further resources
 
-The whole [R4DS book](https://r4ds.had.co.nz/) focuses on the early stages of data analysis, including exploration. There is even a chapter called _Exploratory Data Analysis (EDA)_. I like this sentence from the beginning of their chapter _EDA is not a formal process with a strict set of rules. More than anything, EDA is a state of mind._ That's a very good way to put it. Do browse through that chapter of R4DS, but of course the rest of the book also provides lots of useful information on that topic. The [Visualize Data R Studio Primer](https://rstudio.cloud/learn/primers/3) also has one short lesson on EDA, which is worth giving a brief check.
+# Further reading
 
+(Re)read the _Exploratory Data Analysis_ and _Using Models to Explore Your Data_ chapters (4 and 5) in _The Art of Data science (ADS) book._ We looked at that book previously. You don't need to work/code along. But if you want to, see the notes at the bottom of the [Data Analysis Overview](./Data_Analysis_Overview.html) page for some details on how to do it.
+
+Also go through the rather short EDA tutorial which is part of the [Visualize Data R Studio Primer](https://rstudio.cloud/learn/primers/3).
+
+The whole [R4DS book](https://r4ds.had.co.nz/) focuses on the early stages of data analysis, including exploration. There is even a chapter called _Exploratory Data Analysis (EDA)_. I like this sentence from the beginning of their chapter _EDA is not a formal process with a strict set of rules. More than anything, EDA is a state of mind._ That's a very good way to put it. Skim through that chapter of R4DS (it's very similar to the R Studio EDA Primer). And of course the rest of the book also provides lots of useful information on that topic. 
 
 
 
