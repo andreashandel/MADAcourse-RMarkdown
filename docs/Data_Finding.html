@@ -14,7 +14,7 @@
 
 <title>Finding and Getting Data</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -500,7 +500,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Finding and Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-17 18:21:42</h4>
+<h4 class="date">2021-09-07 09:30:58</h4>
 
 </div>
 
@@ -514,29 +514,33 @@ div.tocify {
 <ul>
 <li>Know ways of acquiring data</li>
 <li>Be familiar with some important online sources for data</li>
-<li>Know how to get data into R</li>
+<li>Understand how to get data into R</li>
 </ul>
 </div>
 <div id="data-sources" class="section level1">
 <h1>Data Sources</h1>
-<p>An obvious way to get data to answer whatever question you have is to collect it yourself. This can lead to high-quality data tailored to the question you have. It is also likely expensive and time-consuming to acquire. If you do decide to collect data, it is a good idea to sketch out planned analyses as carefully as possible. It would be annoying if you forgot to obtain a piece of information that you later decided was crucial. The gold standard of data collection in human research are clinical trials that want FDA approval. These trials have to pre-register the question(s), the analysis plan, and the data collection plan. This approach means everything is run at a high level of rigor and quality. Even if you do not try to get FDA approval with your study, precisely specifying the analyses you plan to run is the best practice and will minimize p-hacking and other sources of bias. Unfortunately, this is still very uncommon in most areas of research.</p>
+<p>An obvious way to get data to answer whatever question you have is to collect it yourself. This can lead to high-quality data tailored to the question you have. It is also likely expensive and time-consuming to acquire. If you do decide to collect data, it is a good idea to sketch out planned analyses as carefully as possible. It would be annoying if you forgot to obtain a piece of information that you later decided was crucial. The gold standard of data collection in human research are clinical trials that want FDA approval. These trials have to pre-register the question(s), the analysis plan, and the data collection plan. This approach means everything is run at a high level of rigor and quality. Even if you do not try to get FDA approval with your study, precisely specifying the analyses you plan to run is the best practice and will minimize <em>p</em>-hacking and other sources of bias. Unfortunately, this is still very uncommon in most areas of research.</p>
 <p>If you cannot or do not want to collect data yourself, you could instead team up with someone who does. The advantage of working directly with a data collector is that you have a subject matter expert as a collaborator, and you can ask them questions.</p>
 <p>Data that is publicly available, or that you can get after requesting it and being approved by the data owner, constitutes the largest pool of data these days. Going this route gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification. Also, the quality of such data varies. As more and more data is collected on almost every aspect of our world, these sources of data keep increasing. It is hard to keep track of places to get (good) data. I have been trying to collect a few sources of data on <a href="https://andreashandel.github.io/research-and-teaching-resources/">this website I maintain with various links to resources</a>, among them is a list with links to various data sources. There are likely tons of other good data sources. The tricky bit is sometimes getting the data and understanding enough about what the data is and how it was collected to allow for reasonable analysis.</p>
 </div>
 <div id="data-to-dos" class="section level1">
 <h1>Data to-dos</h1>
-<p>No matter the source, you should try to get the data <em>as raw</em> as possible so that you can be in control of as many cleaning and processing steps as possible. That is (a bit) more work for you, but it gives you more flexibility to decide what to do with the data as you process it. If for instance, you get data with age in years, you can leave it as is, or decide to categorize it as young/old. Categorizing is generally a bad idea, we’ll talk about that later. If you get data in an already processed form and someone already did this categorization for you, you cannot choose.</p>
+<p>No matter the source, you should try to get the data <em>as raw</em> as possible so that you can be in control of as many cleaning and processing steps as possible. That is (a bit) more work for you, but it gives you more flexibility to decide what to do with the data as you process it. If for instance, you get data with age in years, you can leave it as is, or decide to categorize it as young/old. Categorizing is generally a bad idea, but we’ll talk about that later. If you get data in an already processed form and someone already did this categorization for you, you cannot choose.</p>
 <p>Wherever you get data from, document it as much as possible. When did you get it? Where and how? Did it come with other meta-information, e.g., a codebook? Where is it? Are there other things about the data that one should know about? Write down everything in some document.</p>
-<p>Treat the raw data as you would a very fragile object. Ideally, do not touch it. Do not edit it. You want to only <strong>read</strong> the data into R, even if it is in a bad format, and then apply fixes/cleaning in R. If this is not possible, and you need to make edits to the data in whatever format you got it (e.g., Excel, SAS), <strong>make a copy of the data files and place those copies in a separate folder, AND ONLY EDIT THOSE COPIES. Also, write down somewhere the edits you made.</strong></p>
-<p>A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could be potentially very time-saving for you. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper <a href="./media/broman18amstat.pdf">Data Organization in Spreadsheets</a> by Broman and Woo.</p>
+<p>Treat the raw data as you would a very fragile object. Ideally, do not touch it. Do not edit it. You want to only <strong>read</strong> the data into R, even if it is in a bad format, and then apply fixes/cleaning in R. If this is not possible, and you need to make edits to the data in whatever format you got it (e.g., Excel, SAS), <strong>make a copy of the data files and place those copies in a separate folder, AND ONLY EDIT THOSE COPIES. Also, write down the edits you made.</strong></p>
+<p>A large portion of data is entered and stored in spreadsheets, such as Excel. If you collaborate with others who produce and enter the data, especially if it is a frequent collaboration, having a discussion with them about best practices for data entry and storage could potentially save you a lot of time. If this is a situation you find yourself in, I recommend you read, and then ask your collaborators to read and implement the excellent paper <a href="./media/broman18amstat.pdf">Data Organization in Spreadsheets</a> by Broman and Woo.</p>
 </div>
 <div id="data-import-in-r" class="section level1">
 <h1>Data import in R</h1>
-<p>Several functions in base R can be used for data import. Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend 😄.</p>
+<p>Several functions in base R can be used for data import. (For example, <code>read.table()</code> or its variants is enough for many projects.) Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend 😄.</p>
 <p>Here are some of the most prominent ones:</p>
 <ul>
+<li>RStudio has a lot of good ways to import so-called “tabular data” (i.e. data that is stored in a spreadsheet). The <a href="https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf">data import cheat sheet</a> is a good first place to look if you have some type of spreadsheet.
+<ul>
 <li>The <a href="https://readr.tidyverse.org/index.html"><code>readr</code> package</a> is good for importing CSV and similar spreadsheet type data. For some more introductory material on the <code>readr</code> package, see <a href="https://r4ds.had.co.nz/data-import.html">chapter 11 of R4DS</a>.</li>
-<li><code>readr</code> is not suitable for data in Excel format, for that use the <a href="https://readxl.tidyverse.org/"><code>readxl</code> package</a>. ]</li>
+<li><code>readr</code> is not suitable for data in Excel format, for that use the <a href="https://readxl.tidyverse.org/"><code>readxl</code> package</a>.</li>
+<li>For dealing with Google sheets, the <a href="https://googlesheets4.tidyverse.org/"><code>googlesheets4</code> package</a> can be used.</li>
+</ul></li>
 <li>The <a href="https://haven.tidyverse.org/"><code>haven</code> package</a> is good for dealing with SPSS, SAS and Stata data.</li>
 <li>For reading in various online data forms, e.g., XML and JSON, see the <a href="https://www.tidyverse.org/packages/">Import section</a> on the <code>tidyverse</code> packages site.</li>
 </ul>
@@ -548,7 +552,7 @@ div.tocify {
 <p>If you are lucky, your data reads in properly on the 1st try. Often, that is not the case. Getting data into R in such a form that you can start using it often requires a few tries.</p>
 <p>Sometimes, the data might not load at all. You will get an error message and then have to figure out what to do to get the data into R. In some cases, you might not be able to get the data into R without editing it in its native format. For instance, reading proprietary data (e.g., SAS or Excel) doesn’t always work too well. In those instances, it is sometimes better to export the data from those programs as a comma-separated or tab-separated values file (CSV/TSV) and then read it into R.</p>
 <p>Another example is if you get an Excel spreadsheet where the person used color to code some information. You might need to fix that and recode the color in the spreadsheet before reading it in. If you need to, make edits on the <strong>copies of</strong> the raw data until it is in a form that you can load into R.</p>
-<p>If the data loads, it might do so with or without error or warning messages. In either case, you will want to look at the data to make sure what you expected to be there is there. Check if the data has the right number of rows and columns. Do other quick checks to ensure things look good enough to start working with the data. The <code>str</code> command in R is handy for that. As long as everything is there, no matter how messy, you are ok and can now use R to clean up and explore the data, which we will cover next.</p>
+<p>If the data loads, it might do so with or without error or warning messages. In either case, you will want to look at the data to make sure what you expected to be there is there. Check if the data has the right number of rows and columns. Do other quick checks to ensure things look good enough to start working with the data. The <code>str</code> command is handy for that, as is <code>glimpse</code> from the <code>dplyr</code> package. As long as everything is there, no matter how messy, you are ok and can now use R to clean up and explore the data, which we will cover next.</p>
 </div>
 <div id="examples-of-data-import" class="section level1">
 <h1>Examples of data import</h1>

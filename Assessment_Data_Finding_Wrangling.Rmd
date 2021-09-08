@@ -23,11 +23,11 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub. 
+This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub `r emo::ji("grin")`. 
 
 ## Setup
 
-While this is going to be a small and incomplete data analysis, we'll practice using the full setup. To that end, grab another copy of the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-analysis2`) and clone it to your local computer. Then use the structure of this repository to do the project as described below.
+While this is going to be a small and incomplete data analysis, we'll practice using the full setup. To that end, grab another copy of the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-analysis2`), and clone it to your local computer. Then use the structure of this repository to do the project as described below.
 
 We'll also use the same group setup as last week. Assign each member in your group an (arbitrary) number (I'm calling them M1, M2, ...). The order should be different than last week so you get to interact with a different group member. Everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2's repository, M2 will work on M3, etc. The last person (M3 or M4), will work on M1's repository. This way, everyone will work on their own and one group member's repository. 
 
@@ -50,7 +50,7 @@ If no file is available for download, or if it is too large to download and plac
 
 Once the data is loaded, you'll likely need to do some processing. Comprehensive and full cleaning of the data is not necessary. Instead, decide on a few variables of interest and clean those. Think of one variable as the main outcome of interest (in a plot, that would generally be shown on the y-axis) and some other variable(s) as the predictors of interest. Similar to the height/weight example code. Or it could be some quantity changing over time. It's your choice.
 
-Once you written code that processes the bits of the data you are interested in, save them as RDS file, similar to what you see in the example code.
+Once you written code that processes the bits of the data you are interested in, save them as an RDS file, similar to what you see in the example code.
 
 **Add enough commentary into your R script such that your classmate who will take over next knows what you are doing and what variables they should work with!**
 
@@ -66,7 +66,7 @@ Once all done, commit, push to your repo on Github (the fork of the original), t
 
 ## Posting the "final" product
 
-The original repository owner should check the PR they received from their colleague, request changes if needed, approve if all looks ok, then merge and update their own local repo. Then post the link to the repository into the `module4_exercise` channel. I'll take a look/grade the project after the deadline.
+The original repository owner should check the PR they received from their colleague, request changes if needed, approve if all looks okay, then merge and update their own local repo. Then post the link to the repository into the `module4_exercise` channel. I'll take a look/grade the project after the deadline.
 
 
 
