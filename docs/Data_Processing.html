@@ -433,13 +433,10 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration and Processing</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Data_exploration.html">Exploring data</a>
-        </li>
-        <li>
-          <a href="./Data_processing.html">Processing data</a>
+          <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
@@ -503,14 +500,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">Some common data processing tasks</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-07 17:18:13</h4>
+<h4 class="date">2021-09-07 18:50:36</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This unit provides a quick description of some additional common data processing tasks that one often needs to do before starting the actual fitting part. Some tasks, e.g. dealing with missing values, were mentioned in the <em>wrangling</em> unit. The ones described below didn’t show up there, but are still worth discussing briefly.</p>
+<p>This unit provides a quick description of some additional common data processing tasks that one often needs to do before starting the actual fitting part. Some tasks were mentioned in the <em>wrangling</em> unit. The ones described below didn’t show up there. Those are usually done “closer” to the analysis portion of the project, but there is no real hard differentiation. Best to always keep all of those possible tasks in mind and use them as needed.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -538,11 +535,6 @@ div.tocify {
 <p>Another example we already disused are variables with missing values. In this case, you might want to remove the variable, or the observations, or a mix of them.</p>
 <p>In R, removing variables or observations is easily done with the <code>select</code> and <code>filter</code> functions from <code>dplyr</code>. There are a variety of good packages for dealing with missing/NA values. <a href="https://cran.r-project.org/web/packages/naniar/index.html"><code>naniar</code></a> is one of them.</p>
 <p><strong>All of these inclusion/exclusion decisions are based on expert (that’s you!) judgment. There is no magic recipe you can follow. Some statistical methods can help (see below), but they are only so useful. If someone on the internet tries to sell a magical way of knowing how to process your data before fitting, run away!</strong></p>
-</div>
-<div id="combining-categories" class="section level2">
-<h2>Combining categories</h2>
-<p>At times, you might have categorical variables with many categories, and a lot of them have only a few observations. This can make the modeling process problematic. In that case, you might want to consider combining certain categories into larger ones. For instance, if you have a variable for jobs which has many different values, it might make sense to group the jobs into categories (e.g., manual labor, clerical,..). You need to report what you did so readers can decide if this is a reasonable approach. Sometimes you might also want to group all minor categories into an “other” category. For instance if you have a dataset of nicotine users, your main categories might be cigarettes, cigars, chewing, vaping and everything else (whatever that might be, I don’t know) could be “other”. Note that maybe the way I’m grouping things here is really dumb. That shows that I’m not an expert on smoking. You can let the data decide the grouping by looking at numbers in each category, but there is no substitute for some level of expert topical knowledge.</p>
-<p>For tasks like combining categories, and other operations that have to do with categorical (factor) variables, the <a href="https://forcats.tidyverse.org/"><code>forcats</code> R package</a> is a great tool.</p>
 </div>
 <div id="variable-transformation" class="section level2">
 <h2>Variable transformation</h2>

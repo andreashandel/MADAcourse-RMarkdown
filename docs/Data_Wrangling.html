@@ -433,13 +433,10 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration and Processing</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Data_exploration.html">Exploring data</a>
-        </li>
-        <li>
-          <a href="./Data_processing.html">Processing data</a>
+          <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
@@ -503,7 +500,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Wrangling Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-17 18:25:41</h4>
+<h4 class="date">2021-09-07 18:18:16</h4>
 
 </div>
 
@@ -553,6 +550,11 @@ How data used to be cleaned before the tidyverse.
 <div id="censored-data" class="section level2">
 <h2>Censored data</h2>
 <p>Sometimes data are censored, i.e., you know that the value is “X or greater/less” but not the exact value. This is common in longitudinal (survival or similar) data. It is also common in experimental data, where you might have a measurement procedure with lower or upper limits of detection. The way to deal with censored data depends on what kind of censored data you have, and what you want to do with it. In R, packages that are used to analyse survival data, e.g. <a href="https://github.com/therneau/survival">the <code>survival</code> package</a>, can deal with some censored data. Otherwise, you will likely need to google around to figure out how you should deal with the censored data scenario you have and how to do it in R.</p>
+</div>
+<div id="combining-categories" class="section level2">
+<h2>Combining categories</h2>
+<p>At times, you might have categorical variables with many categories, and a lot of them have only a few observations. This can make the modeling process problematic. In that case, you might want to consider combining certain categories into larger ones. For instance, if you have a variable for jobs which has many different values, it might make sense to group the jobs into categories (e.g., manual labor, clerical,..). You need to report what you did so readers can decide if this is a reasonable approach. Sometimes you might also want to group all minor categories into an “other” category. For instance if you have a dataset of nicotine users, your main categories might be cigarettes, cigars, chewing, vaping and everything else (whatever that might be, I don’t know) could be “other”. Note that maybe the way I’m grouping things here is really dumb. That shows that I’m not an expert on smoking. You can let the data decide the grouping by looking at numbers in each category, but there is no substitute for some level of expert topical knowledge.</p>
+<p>For tasks like combining categories, and other operations that have to do with categorical (factor) variables, the <a href="https://forcats.tidyverse.org/"><code>forcats</code> R package</a> is a great tool.</p>
 </div>
 <div id="merging-data" class="section level2">
 <h2>Merging data</h2>

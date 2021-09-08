@@ -433,13 +433,10 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration and Processing</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Data_exploration.html">Exploring data</a>
-        </li>
-        <li>
-          <a href="./Data_processing.html">Processing data</a>
+          <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
@@ -503,7 +500,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Exploring Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-07 15:41:10</h4>
+<h4 class="date">2021-09-07 21:23:14</h4>
 
 </div>
 
@@ -518,7 +515,7 @@ div.tocify {
 Data analysis workflow
 </p>
 </div>
-<p>Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you <em>mess</em> with your data (that’s a technical term 😁 to get ready for the main formal analysis (and often, as you start that formal analysis, you’ll have to go back and do some more cleaning/exploration).</p>
+<p>Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you <em>mess</em> with your data (that’s a technical term 😁) to get ready for the main formal analysis. And often, as you start that formal analysis, you’ll have to go back and do some more cleaning/exploration.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -538,7 +535,11 @@ Data analysis workflow
 <h1>Preliminary/exploratory statistical analysis</h1>
 <p>Sometimes, it is useful to start running some simple models on your data. Sometimes, such models will become part of the main analysis, but often they are just used to help explore the data. For instance if you have two continuous variables and make a scatterplot, adding a linear regression line through the data might be helpful to see if there is a pattern. That is easily done if you make your figure with <code>ggplot</code>, you can just add a stats geom to it.</p>
 <p>You could also explore your data by running simple bi-variate statistical models, e.g. by fitting each predictor individually to the outcome of interest. We won’t talk much about standard regression approaches in this class, but I’m sure you are familiar with standard statistical tests that can be applied to two variables, depending on the types of variables (linear regression, t-test, etc.).</p>
-<p><strong>A note of caution: It is ok (in my opinion) to use standard statistical tests and readouts (e.g., p-values) to guide main model choices and as suitable, to report them in a final product. It is however <em>only</em> ok to interpret p-values in the hypothesis testing sense if you predefined the hypothesis and the full data generation and analysis protocol. Outside a clinical trial, that’s almost never done, thus pretty much any reported p-value you see in the literature is improperly used/interpreted.</strong> Everyone does it, and pretty much everyone does it wrong. The state of afairs when it comes to statistics in the sciences is still abysmal…</p>
+<p><strong>A note of caution: It is ok (in my opinion) to use standard statistical tests and readouts (e.g., p-values) to guide main model choices and as suitable, to report them in a final product. It is however <em>only</em> ok to interpret p-values in the hypothesis testing sense if you predefined the hypothesis and the full data generation and analysis protocol. Outside a clinical trial, that’s almost never done, thus pretty much any reported p-value you see in the literature is improperly used/interpreted.</strong> Everyone does it, and pretty much everyone does it wrong. The state of affairs when it comes to statistical literacy, even among PhD holders, is still sad…</p>
+</div>
+<div id="further-resources" class="section level1">
+<h1>Further resources</h1>
+<p>The whole <a href="https://r4ds.had.co.nz/">R4DS book</a> focuses on the early stages of data analysis, including exploration. There is even a chapter called <em>Exploratory Data Analysis (EDA)</em>. I like this sentence from the beginning of their chapter <em>EDA is not a formal process with a strict set of rules. More than anything, EDA is a state of mind.</em> That’s a very good way to put it. Do browse through that chapter of R4DS, but of course the rest of the book also provides lots of useful information on that topic. The <a href="https://rstudio.cloud/learn/primers/3">Visualize Data R Studio Primer</a> also has one short lesson on EDA, which is worth giving a brief check.</p>
 </div>
 
 

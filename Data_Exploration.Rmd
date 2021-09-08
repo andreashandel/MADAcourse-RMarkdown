@@ -28,7 +28,7 @@ While there were separate modules for _finding and wrangling_ and _visualizing_ 
 knitr::include_graphics("./media/analysis-workflow.png")
 ```
 
-Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you _mess_ with your data (that's a technical term `r emo::ji('grin')` to get ready for the main formal analysis (and often, as you start that formal analysis, you'll have to go back and do some more cleaning/exploration).
+Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you _mess_ with your data (that's a technical term `r emo::ji('grin')`) to get ready for the main formal analysis. And often, as you start that formal analysis, you'll have to go back and do some more cleaning/exploration.
 
 
 
@@ -57,7 +57,11 @@ Sometimes, it is useful to start running some simple models on your data. Someti
 
 You could also explore your data by running simple bi-variate statistical models, e.g. by fitting each predictor individually to the outcome of interest. We won't talk much about standard regression approaches in this class, but I'm sure you are familiar with standard statistical tests that can be applied to two variables, depending on the types of variables (linear regression, t-test, etc.).
 
-**A note of caution: It is ok (in my opinion) to use standard statistical tests and readouts (e.g., p-values) to guide main model choices and as suitable, to report them in a final product. It is however _only_ ok to interpret p-values in the hypothesis testing sense if you predefined the hypothesis and the full data generation and analysis protocol. Outside a clinical trial, that's almost never done, thus pretty much any reported p-value you see in the literature is improperly used/interpreted.** Everyone does it, and pretty much everyone does it wrong. The state of afairs when it comes to statistics in the sciences is still abysmal...
+**A note of caution: It is ok (in my opinion) to use standard statistical tests and readouts (e.g., p-values) to guide main model choices and as suitable, to report them in a final product. It is however _only_ ok to interpret p-values in the hypothesis testing sense if you predefined the hypothesis and the full data generation and analysis protocol. Outside a clinical trial, that's almost never done, thus pretty much any reported p-value you see in the literature is improperly used/interpreted.** Everyone does it, and pretty much everyone does it wrong. The state of affairs when it comes to statistical literacy, even among PhD holders, is still sad...
+
+# Further resources
+
+The whole [R4DS book](https://r4ds.had.co.nz/) focuses on the early stages of data analysis, including exploration. There is even a chapter called _Exploratory Data Analysis (EDA)_. I like this sentence from the beginning of their chapter _EDA is not a formal process with a strict set of rules. More than anything, EDA is a state of mind._ That's a very good way to put it. Do browse through that chapter of R4DS, but of course the rest of the book also provides lots of useful information on that topic. The [Visualize Data R Studio Primer](https://rstudio.cloud/learn/primers/3) also has one short lesson on EDA, which is worth giving a brief check.
 
 
 

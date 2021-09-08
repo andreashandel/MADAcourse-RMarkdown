@@ -88,7 +88,7 @@ navbar:
         - text: "Data Exploration"
           menu:
            - text: "Exploring data"
-             href: ./Data_exploration.html     
+             href: ./Data_Exploration.html     
            - text: "Assessment: Exploration"
              href: ./Assessment_Exploration.html
     #     - text: "9. Model fitting overview"
