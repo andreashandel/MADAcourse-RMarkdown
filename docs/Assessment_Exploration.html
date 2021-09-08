@@ -48,100 +48,6 @@
     </style>
 
 
-<style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
-</style>
-<style type="text/css" data-origin="pandoc">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    background-color: #2a211c;
-    color: #bdae9d;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
-div.sourceCode
-  { color: #bdae9d; background-color: #2a211c; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ffff00; } /* Alert */
-code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { } /* Attribute */
-code span.bn { color: #44aa43; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #049b0a; } /* Char */
-code span.cn { } /* Constant */
-code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
-code span.do { color: #0066ff; font-style: italic; } /* Documentation */
-code span.dt { text-decoration: underline; } /* DataType */
-code span.dv { color: #44aa43; } /* DecVal */
-code span.er { color: #ffff00; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #44aa43; } /* Float */
-code span.fu { color: #ff9358; font-weight: bold; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
-code span.op { } /* Operator */
-code span.pp { font-weight: bold; } /* Preprocessor */
-code span.sc { color: #049b0a; } /* SpecialChar */
-code span.ss { color: #049b0a; } /* SpecialString */
-code span.st { color: #049b0a; } /* String */
-code span.va { } /* Variable */
-code span.vs { color: #049b0a; } /* VerbatimString */
-code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -594,7 +500,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Exploration</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-07 19:32:36</h4>
+<h4 class="date">2021-09-08 11:42:38</h4>
 
 </div>
 
@@ -605,68 +511,26 @@ div.tocify {
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<div id="setup" class="section level2">
-<h2>Setup</h2>
-<p>We’ll again add a group exercise component, using the - by now familiar - M1, M2, … setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository.</p>
-<p>For this exercise, we’ll revisit and extend the project you started in the <em>wrangling</em> module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio.</p>
-<p>The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that’s not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data (like we did in an earlier exercise) or you switch to a different dataset. If you have to create artificial data, do that with R commands, either at the beginning or end (or both) of your cleaning script. <strong>No editing of raw data files by hand!</strong> (We only did that once in the beginning exercise for convenience, but we won’t do that again.)</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>For this exercise, we will join the R data science community and participate <strong>Tidy Tuesday</strong>, a weekly exercise that allows you to practice some parts of data analysis. The focus for Tidy Tuesday is on getting, cleaning (i.e., tidying) and exploring a data set, though people sometimes do statistical analyses as well.</p>
 </div>
-<div id="cleaning" class="section level2">
-<h2>Cleaning</h2>
-<p>Cleaning can and has to happen before and after exploration. It is iterative. Without exploring your data, you don’t know how to clean it. Without at least some cleaning, exploration often doesn’t work (e.g. if you have missing values, some R summary functions don’t work properly.) So for this exercise, it’s going to be a back and forth between the cleaning part and the exploration part. You already explored the data a bit in a previous exercise. So if you know anything of that type is in the data and needs cleaning, you can do it here.</p>
-<p>For now, update your <code>processingscript.R</code> code such that it cleans and retains all or most variables. You can check variables and take some cleaning steps already here, or do the exploration first, then come back.</p>
-<p><strong>No matter how you do it, write comments into your R script explaining each cleaning decision. State briefly why you are making a decision, and then if the code is not obvious, explain the how.</strong></p>
-<p>As examples, of things you might need to clean (either now or after exploration):</p>
-<ul>
-<li>If you have categorical variables, check the categories and decide if maybe some should be combined.</li>
-<li>You might already be aware of outliers or mistakes in the data.</li>
-<li>If you know you have a variable with a lot of missing data, explain that you are dropping this variable (and why), then write the code that drops the variable. Or alternatively you might remove observations (rows) that contain any missing data.</li>
-</ul>
+<div id="what-is-tidy-tuesday" class="section level2">
+<h2>What is Tidy Tuesday</h2>
+<p>You briefly encountered Tidy Tuesday before in the <a href="./Data_Analysis_Motivation.html">Data Analysis Motivation unit</a>. If you can’t remember, revisit that unit and re-read that section. Also read the information at the provided links.</p>
+<p>If you want to see another Tidy Tuesday example, <a href="https://www.andreashandel.com/posts/tidytuesday-analysis/">here is one I did</a>, as part of a previous version of MADA. I did it at the same time the students did theirs. I plan to do my own Tidy Tuesday again this time. For even more examples of previous analyses, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a> which scans twitter for posts mentioning <code>#tidytuesday</code>.</p>
 <div class="note">
-<p>With the tidyverse and the pipe operator, a lot of these steps could be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">select</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">fct_lump</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mutate</span>() <span class="sc">%&gt;%</span> ...</span></code></pre></div>
-<p>I suggest instead to write code like this</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat_small1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat_small2 <span class="ot">&lt;-</span> dat_small1 <span class="sc">%&gt;%</span> <span class="fu">select</span>()</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dat_small3 <span class="ot">&lt;-</span> dat_small2 <span class="sc">%&gt;%</span> <span class="fu">fct_lump</span>()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
-<p>That style of coding defeats a bit the purpose of the pipe operator, but I think it helps initially to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it’s much harder to follow along and find bugs.</p>
+<p>Apparently, there is now also a <a href="https://www.tidytuesday.com/">Tidy Tuesday podcast</a>. I’m not familiar with it, so I’m not sure what it’s all about and if it is worth checking out. It probably is worth giving it a try, since it’s (almost) always good to check out new things 😁 and those are very short recordings, so I think they just introduce the data of the week. If you end up listening to some, let me know what you think (post somewhere on Slack).</p>
 </div>
-<p>Make sure your cleaning/processing script is updated enough that you end up with at least 5 variables, a mix of continuous and categorical. You might have many more variables, that is ok. Some of these variables might not be cleaned, that is ok too. Your updated script should save the new dataset to an <code>Rds</code> file, as before.</p>
 </div>
-<div id="exploration" class="section level2">
-<h2>Exploration</h2>
-<p>Create a new R Markdown file called <code>exploration.Rmd</code> somewhere inside the <code>code</code> folder. You can give it its own sub-folder or not. Then write code, combined with text/comments that describe what you do, into your <code>exploration.Rmd</code> file. The code should do the following:</p>
-<ul>
-<li>Load the data you just created and saved.</li>
-<li>For each variable, produce and print some numerical output (e.g. a table or some summary statistics numbers).</li>
-<li>For each continuous variable, create a histogram or density plot.</li>
-<li>Create scatterplots or boxplots or similar such plots for the variable you decided is your main outcome of interest and the most important (or all depending on number of variables) independent variables/predictors.</li>
-<li>If applicable to your data, make some pairwise correlation plots.</li>
-<li>If needed for your data, explore the pattern of missing values.</li>
-<li>Any other exploration steps that might be useful.</li>
-</ul>
-<p>Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Needs further checking to see if those are wrong entries or not.</em></p>
-<p>By the end of this section/script, you should have a good understanding of what your data looks like, and what analysis approaches might be most appropriate. As you explore, you’ll likely find additional things that need cleaning, like the example I just gave. Add comments in your Rmd file such that it is clear what needs further investigation (your classmate/team member will take care of that).</p>
-<p>Once you have explored the data as just described, knit your R Markdown file, make sure everything looks ok. Then commit your changes and push to Github. <strong>Do this by Wednesday.</strong> Inform your partner that they can take over.</p>
-</div>
-<div id="more-exploration-and-cleaning" class="section level2">
-<h2>More exploration and cleaning</h2>
-<p>Fork and clone your partner’s repository. (Alternatively, you can also add each other as collaborator and then each of you can directly push/pull the main repository. That’s up to you.) Once you have the repository on your local computer, open the project in R Studio.</p>
-<p>Read through their comments. Add code to do that cleaning script that does any further cleaning they identified as needed. All additional code and decisions should be documented. For instance, continuing the example I gave above, you or your partner might have looked at age and weight and decided that based on those, a height of 20in is not reasonable. Unfortunately, you don’t know how to fix this. Since you plan to use height in your models, You decide that the best approach is to remove those individuals. Therefore, you add a few lines of code to your cleaning/processing script that remove those individuals, with some comments explaining what you are doing and why.</p>
-<p><strong>Note how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened? Always be reproducible and explicit!</strong></p>
-<p>Once you are done with the additional cleaning, and any updates to the exploration part, make sure everything runs well, then move to the next part.</p>
-</div>
-<div id="preliminary-statistical-analyses" class="section level2">
-<h2>Preliminary statistical analyses</h2>
-<p>Open the <code>analysisscript.R</code> file. Remove most or all of the content. (We are now doing all the exploring in <code>exploration.Rmd</code> anyway.) Add some code that performs some basic preliminary statistical analyses. That could be adding a linear regression line to a ggplot scatterplot, applying some bivariate analysis to the main outcome and some predictors of interest, or any other fairly simple stats operations you are familiar with. The idea here is not to draw any firm conclusions, but to continue the theme of exploration you started above, now with the help of some quick and simple statistical approaches.</p>
-<p>Once completed, make sure the analysis script runs. You can make it write results to files (e.g. figure files or Rds files for tables). Or just print on the screen and add comments to the text. Or if you are a big fan of R Markdown files, you can convert the script to an Rmd file and then knit it to html.</p>
-<p>There is no need for this exercise to update the manuscript file. We’ll do that in a future exercise. But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.</p>
-<p>Once your part is done, commit and push. If you used a fork, send a pull request to your partner. If you are working on the same repository as collaborators, you should be able to just push directly. In either case, you might want to let your partner know that you finished and that they can do a final check and any further cleanups they want to do.</p>
-<p>Since this is the same repository as the one you used previously, and previously posted the link to the slack channel, you don’t need to re-post. I know where to find the repository and will take a look and review/grade after the deadline.</p>
+<div id="your-tidy-tuesday-exercise" class="section level2">
+<h2>Your Tidy Tuesday Exercise</h2>
+<p>Your assignment is to participate in Tidy Tuesday by analyzing this week’s dataset. You can start as soon as the dataset is posted, which is Mondays. <a href="https://github.com/rfordatascience/tidytuesday">The datasets are released on GitHub</a>. As I’m writing this, I have no idea what the data will be the week this exercise happens. That’s part of the fun of it 😄.</p>
+<p>Here are some more detailed instructions:</p>
+<p>Use your portfolio website. Make sure it’s up to date and fully synced. Open it in R Studio. Then open the <code>tidytuesday_exercise.Rmd</code> file. That’s where you’ll write your Tidy Tuesday analysis.</p>
+<p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called <code>data</code>).</p>
+<p>Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don’t need to implement any statistical models. If you want, you can use some simple ones (e.g. adding a linear fit line to a scatterplot, or doing some simple stats tests). This is a fairly open-ended task. I trust that you get the right balance between spending too little and too much time/effort on this. Depending on your coding skills, I think around 1-34 hours (actually working, not having Facebook open at the same time 😁) might be a good time commitment.</p>
+<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
