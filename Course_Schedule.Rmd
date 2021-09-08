@@ -15,7 +15,7 @@ This is the current course schedule for the class. Things might change, so check
 
 The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in more detail in an [__Assessments__](./Course_Assessments.html) page and in the assessment document for each module. 
 
-__Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies, the quizzes and exercises are due by  Friday 5pm.__ 
+__Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.__ 
 
 
 | **Module Topic**   | **Start and end dates** | **Assessments** |
@@ -25,7 +25,7 @@ __Unless otherwise specified, the first posting of the discussion is due by Wedn
 | Module 3 – R coding basics | 9/6 – 9/10 | quiz, exercise (first part due Wed), discussion  |
 | Module 4 – Contemplating, finding and wrangling data | 9/13 – 9/17 | quiz, exercise (first part due Wed), project part 1|
 | Module 5 – Visualizing data | 9/20 – 9/24 | quiz, exercise, discussion  |
-| Module 6 – Exploring data | 9/27 – 10/1 | quiz, exercise, discussion  |
+| Module 6 – Exploring data | 9/27 – 10/1 | quiz, exercise (first part due Wed), discussion  |
 | Module 7 – Statistical analysis introduction  | 10/4 – 10/8 | quiz, exercise, discussion, project part 2  |
 | Module 8 – Fitting basic models | 10/11 – 10/15 | quiz, exercise, discussion  |
 | Module 9 – Before and after the fitting | 10/18 – 10/22 | quiz, exercise, discussion  |
