@@ -17,26 +17,26 @@ library(emo)
 
 In this unit, we will discuss visualization (a.k.a. making figures), what they are good for, and how to do them in R.
 
-```{r cartoon-graph,  echo=FALSE, fig.cap='Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.com.', out.width = '60%', fig.align='center'}
+```{r cartoon-graph,  echo=FALSE, fig.cap='Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.com.', out.width = '60%', fig.align='center', fig.alt='A comic from the website XKCD. It shows an extremely confusing and illogical flowchart which includes a line chart, a battery charging circuit, a resistance diagram, a golden spiral, and an arrow that leads out of the containing box, among other things.'}
 knitr::include_graphics("./media/xkcd-flowcharts.png")
 ```
 
 
 # Objectives
 * Understand when and how to use graphs. 
-* Be familiar with major types of graphs and when to use them.
-* Know how to implement high-quality graphs in R.
+* Become familiar with major types of graphs and when to use them.
+* Learn how to implement high-quality graphs in R.
 
 
 # Motivating Examples
-The topic of visualization is enormous and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course `r emo::ji('smiley')`). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.
+The topic of visualization is enormous, and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course `r emo::ji('smiley')`). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.
 
 In the first video [Mona Chalabi](https://monachalabi.com/) talks about good ways to present data and statistics and how good graphs can help in understanding.
 
 <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
 <br>
 
-In the second video [Chris Jordan](https://monachalabi.com/) discusses how one can take abstract facts and make them much more tangible through visualization.
+In the second video [Chris Jordan](http://www.chrisjordan.com/gallery/epu/#e-pluribus-unum) discusses how one can take abstract facts and make them much more tangible through visualization.
 
 <div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/chris_jordan_pictures_some_shocking_stats" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
 <br>
@@ -46,7 +46,7 @@ If you are interested, you can find more interesting talks on visualization in t
 
 # Visualization uses 
 
-Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, what cleaning you might need to do, and what analysis approaches might be useful. Use them once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are - in my opinion - overused in science. Good figures are, most of the time easier to understand and more effective way to look at data. 
+Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, to figure out what cleaning you might need to do, and to check what analysis approaches might be useful. Use visualizations once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are -- in my opinion -- overused in science. Good figures are, most of the time, easier to understand and a more effective way to look at data. 
 
 
 # Types of graphs
