@@ -33,7 +33,7 @@ Open your portfolio website project in RStudio. Then open the `visualization_exe
 
 ## Find a graph to reproduce
 
-Find some interesting graph from a news website. My main suggestion is to look at graphs from [FiveThirtyEight](https://fivethirtyeight.com/). They are known to often produces high-quality graphs, and for some of their stories and figures, they also [provide the original data source](https://data.fivethirtyeight.com/).
+Find some interesting graph from a news website. My main suggestion is to look at graphs from [FiveThirtyEight](https://fivethirtyeight.com/). They are known to produce high-quality graphs, and for some of their stories and figures, they also [provide the original data source](https://data.fivethirtyeight.com/).
 
 Good starting points for a chart from FiveThirtyEight might be their annual summaries of weirdest charts, which you can find here for [2020](https://fivethirtyeight.com/features/the-40-weirdest-and-best-charts-we-made-in-2020/), [2019](https://fivethirtyeight.com/features/the-56-best-and-weirdest-charts-we-made-in-2019/), [2018](https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/), [2016](https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/), and [2015](https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/). (No, I don't know why there's no 2017.) 
 
@@ -43,17 +43,17 @@ The only requirements are that the original graph must be interesting and good l
 
 ## Get the data
 
-Once you got a graph you'd like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.
+Once you have a graph you'd like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.
 
 Make a new folder in your repository, call it `data`. Place the data file you found or created inside that folder. If you found it, it will be in whatever format you got. If you made it yourself by extracting it from the original graph, I recommend a CSV file. 
 
 ## Re-create the original graph
 
-Once you have the data and the original graph, you'll first need to add few lines of code to your `visualization_exercise.Rmd` file to load the data, and if needed, do some cleaning. 
+Once you have the data and the original graph, you'll first need to add a few lines of code to your `visualization_exercise.Rmd` file to load the data, and if needed, do some cleaning. 
 
 Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. If it still looks a bit different in the end, that's ok. 
 
-Your final product should be code and explanatory text inside your Rmd file that shows the first shows the original plot and links to its source, then shows your code that re-creates the graph, finally it should show your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
+Your final product should be code and explanatory text inside your Rmd file that shows the original plot and links to its source, then shows your code that re-creates the graph, and finally shows your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
 
 Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).
 
