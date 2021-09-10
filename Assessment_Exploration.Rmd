@@ -58,7 +58,7 @@ Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make s
 
 Write a post in this week's discussion channel that answers this question:
 
-_What is (so far) your favorite R package or command or plot type or... for data cleaning or exploration? What data cleaning or exploration operation do you find tricky to do and wish you knew a better way of tackling that (with R)?_
+_What is (so far) your favorite R package or command or plot type or... for data cleaning or exploration? And what data cleaning or exploration operations do you find tricky to do and wish you knew a better way of tackling that (with R)?_
 
 Then comment on each others posts. Especially if someone is looking for better ways of doing certain cleaning/exploration operations in R, if you know of a good way, tell them.
 

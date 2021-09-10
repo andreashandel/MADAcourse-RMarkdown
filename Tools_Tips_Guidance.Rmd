@@ -1,0 +1,73 @@
+---
+title: Some Guidance and Tips for R/RStudio/GitHub 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Overview
+This document is a collection of guides and tips related to getting started and using R, R Studio and GitHub, based on stumbling blocks that I have noticed students encounter somewhat regularly.
+
+
+# R packages
+
+* Sometimes when you install or update a package, you might get the message `Do you want to install from sources the packages which need compilation`. What that means is that there is an R package available that has just been updated and exists as _source_ but not yet turned into what's called a _binary_ format that's pre-compiled for whatever operating system you use. There is almost never a reason to get the very latest _source_ version. And if you want to install from source, you might need [Rtools](https://cran.r-project.org/bin/windows/Rtools/) to do so. **Therefore, I suggest that when you get this question/message, you check `No`.**
+
+* Sometimes during install or updating of a package, you might get a `package is loaded/in use` message. You are usually offered to restart R. Agree to that. It might fix things, but not always. The best way to install new packages if you run into those problems is to completely shut down RStudio, then restart. Next, immediately go to the console (bottom left) and install the needed packages with `install.packages('PACKAGENAME')` without doing anything else. That should minimize any potential conflicts.
+
+* Sometimes when you try to install a package you get the message `package ‘PACKAGENAME’ is not available for this version of R.` This is a bit confusing, it sounds like you need to upgrade your R version. What really happens most of the time is that you mis-typed the package name, and that package just doesn't exist (for no version of R). So first make sure you are spelling the package name correctly, including all capitalization being correct. That fixes things almost always. It is rare that there is a package that you want, but not for your version of R (unless you haven't updated R in years.)
+
+
+# General Coding
+
+These are some guides for good coding practices in any language, not just R. Of course, it also applies to R.
+
+**Write modular code.** The idea is that you break things into logical components, and structure your code that way. For instance R Markdown chunks are little modules. Each chunk should do some action that makes sense to be grouped together. For instance one or a few data cleaning steps can be in a code chunk. Then for the next action (e.g. making a plot), you start a new chunk. You should also add comments explaining not only each line of code, but also what those modules do. Structuring your codes into sections/modules that do specific things makes it easier to follow what is going on.
+
+**Write DRY code.** DRY stands for [Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). The idea is that if you have code that does the same thing more than once (or maybe more than a few times), you should rewrite your code in such a way that you write a single bit (module) of code that you call repeatedly. The most natural way this is done is with writing a function.
+
+**Write functions.** Pretty much everything you use in R (or other languages) is a function. A function is a bit of code that you give some _inputs_ (also called _arguments_), the function does something with those inputs, and usually returns something back to you (not always, sometimes the function might write a file to your computer). For instance if you define some object/variable `x` and send it to the function `sum()`, then `sum(x)` returns the sum of the elements in `x`. It likely also does a few other things, such as checking that everything contained in `x` is a number that can be summed. While writing your own functions is a bit more advanced, at some point you should do it. Functions are automatically modular and allow for DRY coding. They are therefore important components of most code. It takes a bit of practice, but once you understand how functions work, you should be able to write your own as part of your code. Functions can either live in separate files, or in the same file (usually at the top) from which you call it. We generally call code that just runs, without being passed in things and returning stuff, a _script_ to differentiate it from a _function_. The R Studio Primers might be a good starting point if you are completely new to functions.
+
+**Have consistent style.** There are often many ways to implement a certain operation with code. There are also many ways how you style your code (e.g., give variables names, use indentation). 
+It's important to write code that looks consistent and is written in a way that's easy to read and comprehend by others and your future self. For R, the tidyverse has [a style guide](https://style.tidyverse.org/) which is a good one to use. But you don't have to follow it, you can have your own style. 
+
+
+
+# R Coding
+
+**Vectorize.** In R, most things you do can be vectorized. What that means is that if you have multiple elements in an object, e.g., multiple entries in a vector, or many rows and columns in a data frame, you can use functions that process each entry at once. For instance if you use the `filter` function from `dplyr` like this: `filter(mydata, age > 50)`, the function looks at the age for **each row in the column called age** and keeps those that are larger then 50. If you wanted to do the same in another programming language, like C/C++, you would need to write code that explicitly runs through each row of `mydata` and looks at `age` for each row and decides to keep it or not. That would be multiple lines of code. There are other languages that are vectorized like R, so it's not just R. But it's an important feature of R and whenever possible, you should try to apply your operations on all elements at the same time instead of writing `for loops`. (Though sometimes, loops are easier to read and code, so don't feel like you can't ever use them again).  
+
+
+**Don't mix and match too much.** You have already or will likely figure out soon that there are often many ways to do something in R, especially once you start using R packages, such as the `tidyverse` set of packages. While it is perfectly ok to write some code that uses just the basic R commands, and other code that makes use of packages, you do need to be careful to not mix and match too much. MORE HERE
+
+
+
+
+
+
+# GitHub
+
+**It sometimes happens that your repository ends up in a mess.** For instance you might have made changes to your local repository that you didn't mean to. Or someone else (or you on a different computer) added changes to the Github.com repository and things don't merge with your local repo. If you have some local updates that you want to keep, here is a method that often works.
+1. Copy the files you changed locally and that you want to keep to some "safe" location (outside of your repository).
+
+2a. If you are using GitKraken and you haven't committed your local changes, there is a red trash button symbol in the top left. If you click on it, you can discard your changes. once you have done that, you can sync with the remote. Your local and remote should be in sync again, and you should be able to move to step 3.
+
+2b. If you already committed your changes, you can right-click in GitKraken on the latest version on the remote commit (those symbols with comments in the main window). Then pick `reset main/master to this commit` and then choose a `hard`. This overwrites anything you've done locally with the remote version on Github.com, so make sure any local changes you want to keep have been copied to a safe place (step 1). Your local and remote should be in sync again, and you should be able to move to step 3.
+
+3. Once all is ok again and your local repository and the remote one are in sync, you can copy the files (or the content from those files) you placed in a safe location in step 1 back into your repository. Then continue with the usual work flow.
+
+
+
+
+
+
+
+
+
+
