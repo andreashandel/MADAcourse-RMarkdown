@@ -23,7 +23,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 ## Overview
 
-For this exercise, we will join the R data science community and participate **Tidy Tuesday**, a weekly exercise that allows you to practice some parts of data analysis. The focus for Tidy Tuesday is on getting, cleaning (i.e., tidying) and exploring a data set, though people sometimes do statistical analyses as well. 
+For this exercise, we will join the R data science community and participate in **Tidy Tuesday**, a weekly exercise that allows you to practice some parts of data analysis. The focus for Tidy Tuesday is on getting, cleaning (i.e., tidying) and exploring a data set, though people sometimes do statistical analyses as well. 
 
 
 ## What is Tidy Tuesday 
@@ -47,9 +47,9 @@ Here are some more detailed instructions:
 
 Use your portfolio website. Make sure it's up to date and fully synced. Open it in R Studio. Then open the `tidytuesday_exercise.Rmd` file. That's where you'll write your Tidy Tuesday analysis.
 
-Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset for this week, read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called `data`).
+Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called `data`).
 
-Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don't need to implement any statistical models. If you want, you can use some simple ones (e.g. adding a linear fit line to a scatterplot, or doing some simple stats tests). This is a fairly open-ended task. I trust that you get the right balance between spending too little and too much time/effort on this. Depending on your coding skills, I think around 1-34 hours (actually working, not having Facebook open at the same time `r emo::ji('grin')`) might be a good time commitment.
+Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don't need to implement any statistical models. If you want, you can use some simple ones (e.g. adding a linear fit line to a scatterplot, or doing some simple stats tests). This is a fairly open-ended task. I trust that you get the right balance between spending too little and too much time/effort on this. Depending on your coding skills, I think around 1-4 hours (actually working, not having Facebook open at the same time `r emo::ji('grin')`) might be a good time commitment.
 
 Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.
 
