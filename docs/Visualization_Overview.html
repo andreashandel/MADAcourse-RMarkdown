@@ -14,7 +14,7 @@
 
 <title>Visualization Overview</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -345,7 +345,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -371,7 +371,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
@@ -388,7 +388,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
@@ -402,7 +402,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Types.html">Data Types</a>
@@ -419,7 +419,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
@@ -433,13 +433,27 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
         </li>
       </ul>
     </li>
@@ -500,7 +514,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Visualization Overview</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-18 12:49:52</h4>
+<h4 class="date">2021-09-13 08:31:47</h4>
 
 </div>
 
@@ -509,7 +523,7 @@ div.tocify {
 <h1>Overview</h1>
 <p>In this unit, we will discuss visualization (a.k.a. making figures), what they are good for, and how to do them in R.</p>
 <div class="figure" style="text-align: center">
-<img src="media/xkcd-flowcharts.png" alt="Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.com." width="60%" />
+<img src="media/xkcd-flowcharts.png" alt="A comic from the website XKCD. It shows an extremely confusing and illogical flowchart which includes a line chart, a battery charging circuit, a resistance diagram, a golden spiral, and an arrow that leads out of the containing box, among other things." width="60%" />
 <p class="caption">
 Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.com.
 </p>
@@ -519,13 +533,13 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 <h1>Objectives</h1>
 <ul>
 <li>Understand when and how to use graphs.</li>
-<li>Be familiar with major types of graphs and when to use them.</li>
-<li>Know how to implement high-quality graphs in R.</li>
+<li>Become familiar with major types of graphs and when to use them.</li>
+<li>Learn how to implement high-quality graphs in R.</li>
 </ul>
 </div>
 <div id="motivating-examples" class="section level1">
 <h1>Motivating Examples</h1>
-<p>The topic of visualization is enormous and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course 😃). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.</p>
+<p>The topic of visualization is enormous, and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course 😃). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.</p>
 <p>In the first video <a href="https://monachalabi.com/">Mona Chalabi</a> talks about good ways to present data and statistics and how good graphs can help in understanding.</p>
 <div style="max-width:854px">
 <div style="position:relative;height:0;padding-bottom:56.25%">
@@ -534,7 +548,7 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 </div>
 </div>
 <p><br></p>
-<p>In the second video <a href="https://monachalabi.com/">Chris Jordan</a> discusses how one can take abstract facts and make them much more tangible through visualization.</p>
+<p>In the second video <a href="http://www.chrisjordan.com/gallery/epu/#e-pluribus-unum">Chris Jordan</a> discusses how one can take abstract facts and make them much more tangible through visualization.</p>
 <div style="max-width:854px">
 <div style="position:relative;height:0;padding-bottom:56.25%">
 <iframe src="https://embed.ted.com/talks/lang/en/chris_jordan_pictures_some_shocking_stats" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen>
@@ -546,7 +560,7 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 </div>
 <div id="visualization-uses" class="section level1">
 <h1>Visualization uses</h1>
-<p>Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, what cleaning you might need to do, and what analysis approaches might be useful. Use them once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are - in my opinion - overused in science. Good figures are, most of the time easier to understand and more effective way to look at data.</p>
+<p>Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, to figure out what cleaning you might need to do, and to check what analysis approaches might be useful. Use visualizations once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are – in my opinion – overused in science. Good figures are, most of the time, easier to understand and a more effective way to look at data.</p>
 </div>
 <div id="types-of-graphs" class="section level1">
 <h1>Types of graphs</h1>

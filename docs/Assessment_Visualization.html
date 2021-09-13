@@ -14,7 +14,7 @@
 
 <title>Assessment - Visualization</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -345,7 +345,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -371,7 +371,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
@@ -388,7 +388,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
@@ -402,7 +402,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Types.html">Data Types</a>
@@ -419,7 +419,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
@@ -433,13 +433,27 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
         </li>
       </ul>
     </li>
@@ -500,7 +514,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Visualization</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-07 17:21:40</h4>
+<h4 class="date">2021-09-13 10:46:03</h4>
 
 </div>
 
@@ -511,7 +525,7 @@ div.tocify {
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>For this exercise, you are asked to recreate a <em>professional-looking</em> graph that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.</p>
+<p>For this exercise, you are asked to <strong>re-create a professional-looking_graph</strong> that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.</p>
 <p>For motivation take a quick look at <a href="https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/">this blog post by Rafael Irizarry</a> (the author of the IDS book we’ve been using). He shows how one can use R and ggplot to reproduce figures that look very similar to professional ones. You’ll see that it usually doesn’t require that many lines of code to get an outstanding looking figure!</p>
 <p>We’ll try to do that ourselves.</p>
 <div id="getting-started" class="section level2">
@@ -520,28 +534,28 @@ div.tocify {
 </div>
 <div id="find-a-graph-to-reproduce" class="section level2">
 <h2>Find a graph to reproduce</h2>
-<p>Find some interesting graph from a news website. My main suggestion is to look at graphs from <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. They are known to often produces high-quality graphs, and for some of their stories and figures, they also <a href="https://data.fivethirtyeight.com/">provide the original data source</a>.</p>
+<p>Find some interesting graph from a news website. My main suggestion is to look at graphs from <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. They are known to produce high-quality graphs, and for some of their stories and figures, they also <a href="https://data.fivethirtyeight.com/">provide the original data source</a>.</p>
 <p>Good starting points for a chart from FiveThirtyEight might be their annual summaries of weirdest charts, which you can find here for <a href="https://fivethirtyeight.com/features/the-40-weirdest-and-best-charts-we-made-in-2020/">2020</a>, <a href="https://fivethirtyeight.com/features/the-56-best-and-weirdest-charts-we-made-in-2019/">2019</a>, <a href="https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/">2018</a>, <a href="https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/">2016</a>, and <a href="https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/">2015</a>. (No, I don’t know why there’s no 2017.)</p>
 <p>If you can’t find a graph on FiveThirtyEight that you like and would like to reproduce, you are also allowed to check out other major news outlets (USA Today, NY Times, Wall Street Journal, The Guardian, etc.).</p>
 <p>The only requirements are that the original graph must be interesting and good looking (a basic scatterplot is not enough) and freely available online, not behind a paywall.</p>
 </div>
 <div id="get-the-data" class="section level2">
 <h2>Get the data</h2>
-<p>Once you got a graph you’d like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.</p>
+<p>Once you have a graph you’d like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.</p>
 <p>Make a new folder in your repository, call it <code>data</code>. Place the data file you found or created inside that folder. If you found it, it will be in whatever format you got. If you made it yourself by extracting it from the original graph, I recommend a CSV file.</p>
 </div>
 <div id="re-create-the-original-graph" class="section level2">
 <h2>Re-create the original graph</h2>
-<p>Once you have the data and the original graph, you’ll first need to add few lines of code to your <code>visualization_exercise.Rmd</code> file to load the data, and if needed, do some cleaning.</p>
+<p>Once you have the data and the original graph, you’ll first need to add a few lines of code to your <code>visualization_exercise.Rmd</code> file to load the data, and if needed, do some cleaning.</p>
 <p>Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 &amp; friends, but if you want to use base R, lattice or another plotting approach that’s ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don’t spend an insane amount of time trying to make a perfect copy. If it still looks a bit different in the end, that’s ok.</p>
-<p>Your final product should be code and explanatory text inside your Rmd file that shows the first shows the original plot and links to its source, then shows your code that re-creates the graph, finally it should show your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn’t work, or include links to sources from which you took inspiration, adapted your code, etc.</p>
+<p>Your final product should be code and explanatory text inside your Rmd file that shows the original plot and links to its source, then shows your code that re-creates the graph, and finally shows your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn’t work, or include links to sources from which you took inspiration, adapted your code, etc.</p>
 <p>Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).</p>
+<p>And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I’ll be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <p>Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.</p>
-<p>And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I’ll be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 
 

@@ -21,7 +21,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-For this exercise, you are asked to recreate a _professional-looking_ graph that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.
+For this exercise, you are asked to **re-create a professional-looking_graph** that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.
 
 For motivation take a quick look at [this blog post by Rafael Irizarry](https://simplystatistics.org/2019/08/28/you-can-replicate-almost-any-plot-with-ggplot2/) (the author of the IDS book we've been using). He shows how one can use R and ggplot to reproduce figures that look very similar to professional ones. You'll see that it usually doesn't require that many lines of code to get an outstanding looking figure!
 
@@ -57,10 +57,11 @@ Your final product should be code and explanatory text inside your Rmd file that
 
 Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).
 
+And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I'll be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
+
 # Discussion
 
 Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.
 
-And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I'll be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
 
 

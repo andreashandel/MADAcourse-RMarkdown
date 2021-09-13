@@ -25,6 +25,8 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 For this exercise, we will join the R data science community and participate in **Tidy Tuesday**, a weekly exercise that allows you to practice some parts of data analysis. The focus for Tidy Tuesday is on getting, cleaning (i.e., tidying) and exploring a data set, though people sometimes do statistical analyses as well. 
 
+This is another solo exercise, so no group work this week, but of course more GitHub. This exercise will go into your portfolio.
+
 
 ## What is Tidy Tuesday 
 
@@ -52,6 +54,8 @@ Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tid
 Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don't need to implement any statistical models. If you want, you can use some simple ones (e.g. adding a linear fit line to a scatterplot, or doing some simple stats tests). This is a fairly open-ended task. I trust that you get the right balance between spending too little and too much time/effort on this. Depending on your coding skills, I think around 1-4 hours (actually working, not having Facebook open at the same time `r emo::ji('grin')`) might be a good time commitment.
 
 Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.
+
+And you are again free to broadcast your effort on social media, e.g., using the `#tidytuesday` hash tag on Twitter. And I'll again be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
 
 
 # Discussion

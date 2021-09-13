@@ -14,7 +14,7 @@
 
 <title>Finding and Getting Data</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -345,7 +345,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -371,7 +371,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
@@ -388,7 +388,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
@@ -402,7 +402,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Types.html">Data Types</a>
@@ -419,7 +419,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
@@ -433,13 +433,27 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
         </li>
       </ul>
     </li>
@@ -500,7 +514,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Finding and Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-08 11:17:26</h4>
+<h4 class="date">2021-09-13 08:43:01</h4>
 
 </div>
 
@@ -522,6 +536,7 @@ div.tocify {
 <p>An obvious way to get data to answer whatever question you have is to collect it yourself. This can lead to high-quality data tailored to the question you have. It is also likely expensive and time-consuming to acquire. If you do decide to collect data, it is a good idea to sketch out planned analyses as carefully as possible. It would be annoying if you forgot to obtain a piece of information that you later decided was crucial. The gold standard of data collection in human research are clinical trials that want FDA approval. These trials have to pre-register the question(s), the analysis plan, and the data collection plan. This approach means everything is run at a high level of rigor and quality. Even if you do not try to get FDA approval with your study, precisely specifying the analyses you plan to run is the best practice and will minimize <em>p</em>-hacking and other sources of bias. Unfortunately, this is still very uncommon in most areas of research.</p>
 <p>If you cannot or do not want to collect data yourself, you could instead team up with someone who does. The advantage of working directly with a data collector is that you have a subject matter expert as a collaborator, and you can ask them questions.</p>
 <p>Data that is publicly available, or that you can get after requesting it and being approved by the data owner, constitutes the largest pool of data these days. Going this route gives you access to a lot of different datasets. The drawback is that the data was not collected to answer your specific question, and there is usually nobody you can ask for clarification. Also, the quality of such data varies. As more and more data is collected on almost every aspect of our world, these sources of data keep increasing. It is hard to keep track of places to get (good) data. I have been trying to collect a few sources of data on <a href="https://andreashandel.github.io/research-and-teaching-resources/">this website I maintain with various links to resources</a>, among them is a list with links to various data sources. There are likely tons of other good data sources. The tricky bit is sometimes getting the data and understanding enough about what the data is and how it was collected to allow for reasonable analysis.</p>
+<p>You might have already, or will soon notice that there are datasets that come with R, and even more with R packages. For instance, <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">this page lists what is likely only a small fraction</a>. There is even a <a href="https://www.reddit.com/r/datasets/">Reddit group dedicated to R datasets</a>. The good and the bad about datasets that come with R packages is that they are often fairly clean/tidy. That’s unfortunately not how most “real world” datasets look like. Getting dirty and messy datasets and wrangling them into a form that is suitable for statistical analysis is part of most workflows and often takes a lot of time. If you are lucky, you might get or find a dataset that is already fairly clean and use it to answer an actual question of interest. Most of the time however, this does not happen and you need to spend a good bit of time getting your data into the right shape.</p>
 </div>
 <div id="data-to-dos" class="section level1">
 <h1>Data to-dos</h1>

@@ -14,7 +14,7 @@
 
 <title>Assessment - R Coding Basics</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -439,7 +439,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Course and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -465,7 +465,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Analysis Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
@@ -482,7 +482,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">R Coding Basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
@@ -496,7 +496,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Contemplating, finding and wrangling data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Types.html">Data Types</a>
@@ -513,7 +513,7 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
@@ -527,13 +527,27 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data Exploration</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Exploration.html">Exploring data</a>
         </li>
         <li>
           <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
         </li>
       </ul>
     </li>
@@ -594,7 +608,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-31 21:20:35</h4>
+<h4 class="date">2021-09-13 09:05:17</h4>
 
 </div>
 
@@ -676,7 +690,7 @@ div.tocify {
 <p>Then you implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main repository. This last part is called issuing a <strong>pull request</strong>. You are requesting that the other person <em>pull</em> your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as <em>merge</em> requests or <em>sync</em> requests, i.e. you are requesting that they merge or sync your changes into their repository. You’ll find the terminology <em>merge request</em> is used at times. If the person who controls the main repository likes your changes, they will <em>merge</em> your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this <em>fork and pull</em> flow now.</p>
 <p>Find the repository of the team member you will contribute to and <code>Fork</code> their repository. Then clone it to your local machine, as you have done previously with your own repositories. In fact, this fork is now your own repository, you have it forever, even if the person who owns the original repository deletes theirs.</p>
 <p>Open the Rmd file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.</p>
-<p>Start a new section below the part your classmate did.</p>
+<p>Start a new section below the part your classmate did. <strong>Add a sentence to indicate where your section starts and also add your name.</strong> E.g., you can write something like “this section added by YOURNAME”.</p>
 <p>Write some more code to do some more analysis of the dataset. This is fairly open-ended. I want you to create a few more plots of the data, and fit another model to some parts of data and display the fitting results in a table. You can e.g. use the <code>broom</code> package to convert output from <code>lm</code> into a data frame you can show as a table. What exactly you explore, plot and fit is up to you.</p>
 <p>Once you wrote your code, confirm that it runs without problems and errors, and produces the expected results. Once everything is good, commit and push your changes to the remote. Note that this pushes to <strong>your fork</strong> (i.e. copy) of the repository. Now it’s time to offer your contribution to your classmate to integrate into their repository.</p>
 </div>
@@ -688,7 +702,7 @@ div.tocify {
 <h2>Checking and merging pull requests</h2>
 <p>Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and to your online portfolio repository. Click on <em>Pull requests</em>, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn’t change things around while they did, so there shouldn’t be any conflicts. Click on the <em>Files changed</em> button, which will show you an overview of the code they changed. Removals are red, and additions are green.</p>
 <p>On the main pull request site, you can do various things. If you don’t like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes (hopefully, this is the case here), you can merge the pull request and close it. Their updates are now part of your repository.</p>
-<p>To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.</p>
+<p><strong>Important:</strong> To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt on your local machine likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.</p>
 <p><strong>Since this will be part of your portfolio site, and you already posted a link to that previously, you don’t need to post anything, I know where to find it.</strong></p>
 <div class="note">
 <p>I mentioned this before, but it doesn’t hurt repeating. At times, you will get merge conflicts. At that stage, it gets a bit tricky. GitKraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn’t work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself. To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don’t want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.</p>

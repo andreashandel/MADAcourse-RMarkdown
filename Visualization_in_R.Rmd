@@ -15,6 +15,7 @@ library(emo)
 
 
 # Visualization and graphics in R 
+
 Visualization and graphics are strengths of R. There are currently three main -- and unfortunately incompatible -- ways of making graphs in R. 
 
 The first approach is to use the base R commands, with the `plot` function as the main workhorse, and related functions for more specialized plots (e.g. `boxplot`). You can make a lot of very good graphs using base R, but it often takes many lines of code and a good bit of fiddling. 

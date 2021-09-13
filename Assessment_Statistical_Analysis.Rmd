@@ -1,0 +1,41 @@
+---
+title: Assessment - Statistical Analysis Overview
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emo)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+# Exercise
+
+There is no exercise this week. Focus on part 2 of the project.
+
+
+# Project
+
+Finish (and make sure to push) part 2 of the project. There is no need to submit a link. Unless you renamed your repository, I know where to find it based on your part 1 submissin.
+
+
+# Discussion
+
+Find some paper online that does a data analysis. Explain what types of analyses the authors did (based on the categories described in this module). Also discuss what the (stated or not stated) objective of the paper/study was, if the authors used the right analysis, and if they interpreted/presented their results properly. If you think they didn't do or present their results correctly, make suggestions for what they should have done. 
+
+You don't need to go into modeling details, a big picture description is enough. For instance if the authors clearly did a secondary analysis collected for a different purpose, but present their findings as if they showed causal relations, point out this mis-representation (there's no darth of studies like that).
+
+Post your findings and commentary by Wednesday. Then read through, look at and comment on some of the studies your classmates posted.
+
+
+

@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA – Fall 2021 – Schedule</title>
+<title>Assessment - Statistical Analysis Overview</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -30,6 +30,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -211,6 +214,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -218,6 +290,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -430,146 +512,36 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">MADA – Fall 2021 – Schedule</h1>
+<h1 class="title toc-ignore">Assessment - Statistical Analysis Overview</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-13 15:31:52</h4>
+<h4 class="date">2021-09-13 15:38:45</h4>
 
 </div>
 
 
-<p>This is the current course schedule for the class. Things might change, so check regularly for updates.</p>
-<p>The <em>Assessments</em> column lists items that need to be submitted and that will be graded. Those are described in more detail in an <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page and in the assessment document for each module.</p>
-<p><strong>Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.</strong></p>
-<table>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Module Topic</strong></th>
-<th><strong>Start and end dates</strong></th>
-<th><strong>Assessments</strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Module 1 – Course and tools introduction</td>
-<td>8/18 – 8/27</td>
-<td>quiz, exercise (due Wed), discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 2 – Data analysis introduction</td>
-<td>8/30 – 9/3</td>
-<td>quiz, exercise (staggered completion dates), discussion</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 3 – R coding basics</td>
-<td>9/6 – 9/10</td>
-<td>quiz, exercise (first part due Wed), discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 4 – Contemplating, finding and wrangling data</td>
-<td>9/13 – 9/17</td>
-<td>quiz, exercise (first part due Wed), project part 1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 5 – Visualizing data</td>
-<td>9/20 – 9/24</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 6 – Exploring data</td>
-<td>9/27 – 10/1</td>
-<td>quiz, exercise (first part due Wed), discussion</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 7 – Statistical analysis overview</td>
-<td>10/4 – 10/8</td>
-<td>quiz, project part 2, discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 8 – Fitting basic models</td>
-<td>10/11 – 10/15</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 9 – Before and after the fitting</td>
-<td>10/18 – 10/22</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 10 – Subset selection and regularization</td>
-<td>10/25 – 10/29</td>
-<td>quiz, exercise, discussion, project part 3</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 11 – Parameter tuning &amp; tree-based models</td>
-<td>11/1 – 11/5</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Module 12 – Machine learning introduction</td>
-<td>11/8 – 11/12</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 13 – Revisiting the complete data analysis workflow</td>
-<td>11/15 – 11/19</td>
-<td>quiz, exercise, discussion</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Finishing Project</td>
-<td>11/22 – 11/26 (fall break part of the week)</td>
-<td>project part 4 due Monday 11/29, 9am</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Project Reviews</td>
-<td>11/29 – 11/3</td>
-<td>project reviews</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Final project submission</td>
-<td>12/10</td>
-<td>project part 5</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Module 14 – AI &amp; deep learning introduction</td>
-<td>none</td>
-<td>none - this module is optional material</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><em>Note: Withdrawal deadline is Monday 10/25.</em></p>
-<div id="synchronous-zoom-meetings" class="section level2">
-<h2>Synchronous Zoom meetings</h2>
-<p>I will offer <strong>completely optional</strong> Zoom meetings. See the <em>Communication</em> section for some more details. You can find the Zoom link on Slack. The current plan is to have <strong>one Zoom meeting per module on Thursdays, alternating between 3pm (odd modules) and 8am (even modules).</strong> (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)</p>
-<p>Hopefully, one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.</p>
-<p><strong>The first Zoom session will be on Thursday, 8/19 at 3pm ET.</strong></p>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
+<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+</div>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<p>There is no exercise this week. Focus on part 2 of the project.</p>
+</div>
+<div id="project" class="section level1">
+<h1>Project</h1>
+<p>Finish (and make sure to push) part 2 of the project. There is no need to submit a link. Unless you renamed your repository, I know where to find it based on your part 1 submissin.</p>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>Find some paper online that does a data analysis. Explain what types of analyses the authors did (based on the categories described in this module). Also discuss what the (stated or not stated) objective of the paper/study was, if the authors used the right analysis, and if they interpreted/presented their results properly. If you think they didn’t do or present their results correctly, make suggestions for what they should have done.</p>
+<p>You don’t need to go into modeling details, a big picture description is enough. For instance if the authors clearly did a secondary analysis collected for a different purpose, but present their findings as if they showed causal relations, point out this mis-representation (there’s no darth of studies like that).</p>
+<p>Post your findings and commentary by Wednesday. Then read through, look at and comment on some of the studies your classmates posted.</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -602,6 +574,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

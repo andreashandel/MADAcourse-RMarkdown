@@ -122,7 +122,7 @@ Find the repository of the team member you will contribute to and `Fork` their r
 
 Open the Rmd file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
 
-Start a new section below the part your classmate did.
+Start a new section below the part your classmate did. **Add a sentence to indicate where your section starts and also add your name.** E.g., you can write something like "this section added by YOURNAME".
 
 Write some more code to do some more analysis of the dataset. This is fairly open-ended. I want you to create a few more plots of the data, and fit another model to some parts of data and display the fitting results in a table. You can e.g. use the `broom` package to convert output from `lm` into a data frame you can show as a table. What exactly you explore, plot and fit is up to you. 
 
@@ -138,7 +138,7 @@ Once your classmate who has worked on your repository creates a pull request, yo
 
 On the main pull request site, you can do various things. If you don't like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes (hopefully, this is the case here), you can merge the pull request and close it. Their updates are now part of your repository.
 
-To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.
+**Important:** To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt on your local machine likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.
 
 **Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it.**
 

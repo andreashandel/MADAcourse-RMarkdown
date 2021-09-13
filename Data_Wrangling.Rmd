@@ -92,6 +92,12 @@ As you do your data cleaning/wrangling, you need to explore your data to figure 
 We will cover exploratory analysis in a separate, later module, and we will consider exploratory _statistical_ analysis as part of the exploration process. There is no clear definition for exploratory analysis. Some people consider exploratory analysis only the parts up to and including a _descriptive_ analysis. I consider very simple bi-variate statistical approaches also part of the exploration. To me, the exploratory part is anything that comes before you apply your full (usually multivariable) models to the data with the goal of producing "final" results. Just don't get too hung up on the terminology. In practice, there is no clear division, e.g., people often plot exploratory figures and add a simple linear regression or another simple statistical model to the figure as part of the exploration process. 
 
 
+# Further reading
+
+[The whole _Wrangle_ section of R4DS](http://r4ds.had.co.nz/index.html) shows a lot of the topics discussed here in action. For a more interactive (but less comprehensive) source of information, check out the _Work with Data_ and _Tidy your Data_ sections of the [R Studio Primers](https://rstudio.cloud/learn/primers/). 
+
+
+
 
 
 
