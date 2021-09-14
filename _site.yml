@@ -99,7 +99,15 @@ navbar:
              href: ./Statistical_Terminology.html     
            - text: "Assessment: Statistical Analysis Overview"
              href: ./Assessment_Statistical_Analysis.html
-    #     - text: "10. Model assessment"
+        - text: "8. Fitting basic statistical models"
+          menu:
+           - text: "Overview of basic model fitting"
+             href: ./Basic_Model_Fitting_Overview.html
+           - text: "Fitting statistical models in R"
+             href: ./Model_Fitting_R.html
+           - text: "Assessment: Fitting Basic Models"
+             href: ./Assessment_Basic_Models.html
+    #     - text: "9. Evaluating your model fits"
     #       menu:
     #         - text: "10a. Model Assessment overview"
     #           href: ./10a_Model_Assessment_Overview.html     
@@ -111,14 +119,10 @@ navbar:
     #           href: ./10d_Model_Uncertainty.html     
     #         - text: "10e. Assessment"
     #           href: ./10e_Assessment.html
-    #     - text: "11. Basic models"
+    #     - text: "10. Improving your model fits"
     #       menu:
-    #         - text: "11a. Basic Models"
-    #           href: ./11a_Basic_Models.html     
-    #         - text: "11b. Assessment"
-    #           href: ./11b_Assessment.html
-    #     - text: "12. Subset selection and regularization"
-    #       menu:
+#           - text: "Pre-processing data"
+#             href: ./Data_Processing.html
     #         - text: "12a. Subset selection and regularization"
     #           href: ./12a_Subset_Selection_and_Regularization.html     
     #         - text: "12b. Assessment"

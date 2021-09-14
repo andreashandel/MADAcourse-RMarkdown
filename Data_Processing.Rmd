@@ -17,7 +17,7 @@ knitr::opts_chunk$set(out.width = '70%')
 
 # Overview
 
-This unit provides a quick description of some additional common data processing tasks that one often needs to do before starting the actual fitting part. Some tasks were mentioned in the _wrangling_ unit. The ones described below didn't show up there. Those are usually done "closer" to the analysis portion of the project, but there is no real hard differentiation. Best to always keep all of those possible tasks in mind and use them as needed.
+This unit provides a quick description of some additional common data processing tasks that one often needs to do before starting the actual fitting part. Some tasks were mentioned in the _wrangling_ unit. The ones described below didn't show up there. Those are usually done "closer" to the analysis portion of the project, but there is no real hard differentiation. It is best to always keep all of those possible tasks in mind and use them as needed.
 
 
 # Learning Objectives

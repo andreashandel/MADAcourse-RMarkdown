@@ -1,0 +1,74 @@
+---
+title: Fitting simple models
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will discuss a few basic models, and explore how to apply them to data in R. This will set the stage for later, more in-depths explorations of statistical model concepts.
+
+# Learning Objectives
+* Know about several types of models for continuous and categorical outcomes
+* Be able to apply different model fitting concepts
+
+# Introduction
+
+There are lots of models out there, too many to cover in much detail. In this module, we will briefly discuss some of the most common and basic ones. With these and further modules focusing on modeling, there is no need to understand any single model in a lot of detail. The goal is to learn enough to know roughly how the model works, what they do, and what they are good for. If you happen to work on a problem where you think a certain kind of model might be useful, you will then want to revisit that model and learn some more, so you can ensure you are using the right model and are using it properly.
+
+
+
+# Simple models for continuous outcomes
+
+
+
+Linear models are sometimes not flexible enough to capture the patterns seen in the data. Several extensions build on linear models, which provide more flexibility. One type of extended model is called multivariate adaptive regression splines. You can read about them in the [Multivariate Adaptive Regression Splines chapter of HMLR](https://bradleyboehmke.github.io/HOML/mars.html). Those models are also covered in the [Moving Beyond Linearity chapter of ISLR](https://statlearning.com/). That latter chapter also covers another useful extension to linear models called generalized additive models (GAM). Go through both of those chapters. You do not need to understand these model types in much detail at this point. The goal is to understand the main ideas of how they work, what they do, and what they are good for. If you happen to work on a problem where you think these kinds of models might be beneficial, you should read more thoroughly.
+
+
+
+# Simple models for categorical outcomes
+
+For categorical outcomes, at least those that come in 2 categories, logistic regression is the most common approach. To learn about logistic regression, or refresh your knowledge if you have previously been exposed to those models, read through the [logistic regression chapter in HMLR](https://bradleyboehmke.github.io/HOML/logistic-regression.html). Logistic models are also covered in the [classification chapter in ISLR](https://statlearning.com/). That chapter also discusses linear and quadratic discriminant analysis models, which are useful if you have categorical outcomes with more than two categories. Read through those two chapters at the level of detail you want. You should understand these models enough to know roughly how they work, what they do, and what they are good for. If you happen to work on a problem where you think these kinds of models might be beneficial, you should read more thoroughly.
+
+
+# Simple models for no outcomes
+
+As we discussed previously, if you have an outcome variable, your data is called **labeled data** and the methods you use are called **supervised** methods/models. Data with one (or several) outcome variable(s) are most common. But as previously discussed, sometimes you might have data without clear outcomes (**unlabeled data**) and you still want to determine if there is some pattern in your data. This calls for **unsupervised** methods. 
+
+
+
+# A few more simple models 
+
+Another model that you might have already encountered (e.g., in the ISLR reading) is one called K-nearest neighbors (KNN). The idea is very simple: For any new observation, you compare the values of the predictor variables with those in your data. You then predict the outcome of the new observation to be the average of the outcomes of the K observations whose predictors most closely resemble the predictors of the new observation. KNN is a somewhat strange model since _the data is the model_. Which means you need to always have the data to predict new outcomes, which makes it often not too useful in practice. You also don't learn too much in terms of inferential insight. Still, it is a useful model to know about, and it works for both continuous and categorical outcomes. It is also commonly used for imputation of missing values. In that situation, you treat the predictor you want to impute as the outcome and use the remaining predictors as the data. KNN is described in the [K-nearest neighbors chapter in HMLR](https://bradleyboehmke.github.io/HOML/knn.html) and also briefly described in [chapter 2.2. of ISLR](https://statlearning.com/) and [chapter 30.1 of IDS](https://rafalab.github.io/dsbook/cross-validation.html). Take a look at any of those resources if you want to learn a bit more about KNN.
+
+
+Both linear and logistic models belong to a class of models called [generalized linear models (GLM)](https://en.wikipedia.org/wiki/Generalized_linear_model). Those types of models allow you to fit outcomes of specific types, for instance, if you have outcomes that are counts (integers), you can use Poisson regression, or if you have continuous outcomes that are all positive, you could use a Gamma regression. In R, GLMs are run using the `glm` function. 
+
+For another source that discusses almost all the models just mentioned, each one very briefly, see the [_examples of algorithms_ chapter in IDS](https://rafalab.github.io/dsbook/examples-of-algorithms.html).
+
+
+# The zoo of statistical tests
+
+In some of your (bio)statistics classes, you likely came across a variety of statistical tests, e.g., t-test, 
+
+
+# Further reading
+
+[This article](https://towardsdatascience.com/a-comprehensive-machine-learning-workflow-with-multiple-modelling-using-caret-and-caretensemble-in-fcbf6d80b5f2
+) gives a nice worked example of a complete data analysis of a continuous outcome. The author hits on a lot of the points we have covered so far (data exploration, cleaning, processing, etc.), and also mentions a few topics we haven't discussed. Note that section 5 covers some modeling topics we haven't discussed yet. We'll get to them. It's still worth reading through the article, and seeing a worked example is likely helpful. 
+
+The most common model type applied to continuous outcomes is a linear regression model. This model is so well described in other places that there is no point in me repeating things. Both the [linear regression chapter in HMLR](https://bradleyboehmke.github.io/HOML/linear-regression.html) and the [linear regression chapter in ISLR](https://statlearning.com/) provide good introductions. I suggest you start with the first source, then move on to the second. You don't need to go through either source in great detail, especially if you are already familiar with linear models. But you should still read through them and focus on the parts that are new or important to you. You will likely learn something new, even if you already know linear models. A somewhat different but still useful way of discussing linear models can be found in [the _linear models_ chapter of IDS](https://rafalab.github.io/dsbook/linear-models.html).

@@ -1,0 +1,55 @@
+---
+title: Fitting (simple) statistical models in R
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will discuss common approaches and packages that are useful for fitting statistical models in R.
+
+# Learning Objectives
+* Know about different packages in R that allow model fitting
+
+# Introduction
+
+R has a few statistical model fitting routines built in, e.g., the `lm` and `glm` functions. Those are well-tested and reliable, but often do not allow for fitting more advanced models. To fit more advanced models, there are **many** different R packages that provide additional functionality. The variety can be bewildering. Often it is hard to decide which package to use. Also, many packages do things slightly differently, which can be confusing. At some point in your analysis career, you'll likely have to interact with packages specific to your data and questions and have to learn their syntax. Initially, to make things easier, several groups have undertaken efforts to create packages that allow a unified approach to fitting a lot of different models. We will focus on those packages here.
+
+
+# The `tidymodels` set of packages
+
+
+
+# Other comprehensive packages
+
+While the whole data exploring/cleaning/wrangling part in R is dominated by the various `tidyverse` packages, there are a variety of approaches when it comes to the model fitting part. 
+
+A few packages in R have tried to provide a more unified interface that allows you to run multiple different models, and perform other modeling tasks, all within one package using a single set of commands. The two packages I'm most familiar with and that seem to be the most widely used are [Machine Learning in R (mlr)](https://mlr.mlr-org.com/) and [caret](http://topepo.github.io/caret/index.html). 
+
+[Machine Learning in R (mlr)](https://mlr.mlr-org.com/) does take a bit getting used to, at least in my opinion. The documentation provided on their website is good, but sometimes the way they do things needs a bit of trial and error. We'll therefore not use the package in this course, but it is worth checking out if you embark on more data analyses in the future. 
+
+The [caret](http://topepo.github.io/caret/index.html) package is a bit easier to get used to. Also, the author, Max Kuhn, recently joined RStudio. He is now working on [tidymodels](https://github.com/tidymodels/tidymodels), which has the goal of becoming for modeling what `tidyverse` is for data wrangling[^1]. Unfortunately for us, this is still an early effort, so the different `tidymodels` packages can't quite replace `caret` yet. We will, therefore, use `caret` to do most of our modeling. The `caret` webpage provides useful information about the package and its use. [The _caret_ chapter in IDS](https://rafalab.github.io/dsbook/caret.html) is also a helpful resource. 
+
+[^1]: What they are doing is essentially building many smaller packages that each have some functionality of `caret` and can go beyond the original package. Keep an eye out on the `tidymodels`, as those will likely be where most of the future development is happening. Currently, the documentation for the `tidymodels` suite of packages is much less extensive than that for the `tidyverse` packages - an excellent introductory article [can be found here](https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/).
+
+
+# Further reading
+
+[This article](https://towardsdatascience.com/a-comprehensive-machine-learning-workflow-with-multiple-modelling-using-caret-and-caretensemble-in-fcbf6d80b5f2
+) gives a nice worked example of a complete data analysis of a continuous outcome. The author hits on a lot of the points we have covered so far (data exploration, cleaning, processing, etc.), and also mentions a few topics we haven't discussed. Note that section 5 covers some modeling topics we haven't discussed yet. We'll get to them. It's still worth reading through the article, and seeing a worked example is likely helpful. 
+
+The most common model type applied to continuous outcomes is a linear regression model. This model is so well described in other places that there is no point in me repeating things. Both the [linear regression chapter in HMLR](https://bradleyboehmke.github.io/HOML/linear-regression.html) and the [linear regression chapter in ISLR](https://statlearning.com/) provide good introductions. I suggest you start with the first source, then move on to the second. You don't need to go through either source in great detail, especially if you are already familiar with linear models. But you should still read through them and focus on the parts that are new or important to you. You will likely learn something new, even if you already know linear models. A somewhat different but still useful way of discussing linear models can be found in [the _linear models_ chapter of IDS](https://rafalab.github.io/dsbook/linear-models.html).
