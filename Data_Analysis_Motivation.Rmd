@@ -65,7 +65,7 @@ It is by now very common that individuals post data analyses online in a reprodu
 
 
 ## TidyTuesday
-An interesting initiative is [TidyTuesdays](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/), where every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday) and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself.
+An interesting initiative started by [Thomas Mock](https://themockup.blog/) is [TidyTuesday](https://thomasmock.netlify.com/post/tidytuesday-a-weekly-social-data-project-in-r/), where every Tuesday [a new dataset is released here](https://github.com/rfordatascience/tidytuesday) and individuals are encouraged to analyze it. Later in this course, you will be participating in some TidyTuesdays yourself. Tidy Tuesday has been running [for more than 3 years](https://themockup.blog/posts/2021-04-01-three-years-of-tidytuesday/).
 
 Individuals who participate in TidyTuesday often post their projects online [and link to it on social media](https://nsgrantham.shinyapps.io/tidytuesdayrocks/). We will look at an example by [David Robinson](http://varianceexplained.org/).
 David does screencast recordings showing him analyze the data. Here is a recent example:
