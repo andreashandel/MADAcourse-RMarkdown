@@ -99,14 +99,14 @@ navbar:
              href: ./Statistical_Terminology.html     
            - text: "Assessment: Statistical Analysis Overview"
              href: ./Assessment_Statistical_Analysis.html
-        - text: "8. Fitting basic statistical models"
-          menu:
-           - text: "Overview of basic model fitting"
-             href: ./Basic_Model_Fitting_Overview.html
-           - text: "Fitting statistical models in R"
-             href: ./Model_Fitting_R.html
-           - text: "Assessment: Fitting Basic Models"
-             href: ./Assessment_Basic_Models.html
+        # - text: "8. Fitting basic statistical models"
+        #   menu:
+        #    - text: "Overview of basic model fitting"
+        #      href: ./Basic_Model_Fitting_Overview.html
+        #    - text: "Fitting statistical models in R"
+        #      href: ./Model_Fitting_R.html
+        #    - text: "Assessment: Fitting Basic Models"
+        #      href: ./Assessment_Basic_Models.html
     #     - text: "9. Evaluating your model fits"
     #       menu:
     #         - text: "10a. Model Assessment overview"
