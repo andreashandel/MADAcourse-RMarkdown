@@ -14,22 +14,13 @@
 
 <title>Visualization in R</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -50,6 +41,32 @@
 
 
 
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 
 <link rel="stylesheet" href="MADAstyle.css" type="text/css" />
@@ -61,6 +78,10 @@
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -77,13 +98,40 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
 <style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
 .dropdown-submenu {
   position: relative;
 }
@@ -111,7 +159,7 @@ pre code {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
+  border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -123,7 +171,7 @@ pre code {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -134,23 +182,10 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.tab('show');
+  menuAnchor.parent().addClass('active');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
 });
 </script>
 
@@ -162,6 +197,7 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -293,7 +329,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
+<div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -457,20 +493,6 @@ div.tocify {
         </li>
       </ul>
     </li>
-    <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Fitting basic statistical models</a>
-      <ul class="dropdown-menu" role="menu">
-        <li>
-          <a href="./Basic_Model_Fitting_Overview.html">Overview of basic model fitting</a>
-        </li>
-        <li>
-          <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
-        </li>
-        <li>
-          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
-        </li>
-      </ul>
-    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -522,13 +544,13 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
 <h1 class="title toc-ignore">Visualization in R</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-13 15:40:34</h4>
+<h4 class="date">2021-09-14 18:35:00</h4>
 
 </div>
 
@@ -545,13 +567,14 @@ div.tocify {
 <h1>Practicing ggplot2</h1>
 <p>If you are new to ggplot2, a good and gentle introduction is the set of tutorials in the <a href="https://rstudio.cloud/learn/primers/3"><em>Visualize Data</em> RStudio Primer section</a>. Similar material, though a little bit more advanced, is covered in a non-interactive form in the <em>Data Visualization</em>, <em>Exploratory Data Analysis</em> and <em>Graphics for Communication</em> chapters <a href="http://r4ds.had.co.nz/">of R4DS</a>. A nice step-by-step tutorial can be found <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">in this blog post</a>. Another good source are the chapters in the <em>Data Visualization</em> section <a href="https://rafalab.github.io/dsbook/">of IDS</a>. Especially the <em>Data visualization principles</em> chapter is worth a read.</p>
 <p>If you want to learn a bit more about <code>ggplot2</code> in general, the ideas behind it, and also how to use it, you can check out Hadley’s free online <a href="https://ggplot2-book.org/">ggplot2 book</a>. I suggest you go through some of those materials and focus on the ones you find most useful.</p>
-<p>For coding/R in general, and making plots in particular, it is generally a <em>learning by doing</em> approach. The most common approach - and one I still use a lot - is to search online for “how do I do X in ggplot”, and usually you find an example and code that is close enough to what you want so you can adjust it. The tricky bit is knowing what to search for. If you don’t know the type of plot you want, it is useful to learn a bit about different plots and what they are good for (something that was discussed in the previous unit). A good reference source for <em>how do I do X with ggplot2</em> is the <a href="https://r-graphics.org/">R graphics cookbook</a>, which is meant to give you quick recipes for common questions and plots. <!--[This website](http://www.sthda.com/english/wiki/ggplot2-essentials) also has some great information describing how to do specific plots and specific tasks in ggplot2 (and many other R and data analysis related topics).--></p>
+<p>For coding/R in general, and making plots in particular, it is generally a <em>learning by doing</em> approach. The most common approach - and one I still use a lot - is to search online for “how do I do X in ggplot”, and usually you find an example and code that is close enough to what you want so you can adjust it. The tricky bit is knowing what to search for. If you don’t know the type of plot you want, it is useful to learn a bit about different plots and what they are good for (something that was discussed in the previous unit). A good reference source for <em>how do I do X with ggplot2</em> is the <a href="https://r-graphics.org/">R graphics cookbook</a>, which is meant to give you quick recipes for common questions and plots.</p>
 <p>For inspiration and ideas, there is also the <a href="https://www.r-graph-gallery.com/">R graphics gallery</a> where you can see all kinds of plots made in R, and you can also see the code. They are nicely organized into categories. It’s definitely worth browsing around.</p>
 </div>
 <div id="beyond-static-graphs" class="section level1">
 <h1>Beyond static graphs</h1>
 <p>While you will likely always need regular figures for papers, reports, presentation slides, etc., it is becoming increasingly common to have interactive and dynamic visualizations. R has pretty good facilities for that, some in rapid development. The <a href="https://ggvis.rstudio.com/"><code>ggvis</code> package</a> is meant to be similar to <code>ggplot2</code> but allow for interactive and dynamic visualizations. The <a href="https://plot.ly/r/"><code>plotly</code> package</a> also works well with R and allows interactive graphs.</p>
-<p>For even richer, interactive graphical visualizations, you can use the <a href="https://shiny.rstudio.com/"><code>shiny</code> package</a> and extensions to it. The <a href="https://shiny.rstudio.com/gallery/">shiny gallery</a> has examples of apps. Some of my R packages, e.g. <a href="https://ahgroup.github.io/DSAIDE/">DSAIDE</a> and <a href="https://ahgroup.github.io/DSAIRM/">DSAIRM</a> use Shiny for the interactive graphical interface (and either ggplot or plotly to show graphs for different models).</p>
+<p>Another great, and related set of tools is the <a href="http://www.htmlwidgets.org/">htmlwidgets package</a> which allows you to make a lot of very nice, interactive web-based graphs using R and various R packages.</p>
+<p>For even richer, interactive graphical operations and visualizations, including writing full graphical user interfaces, you can use the <a href="https://shiny.rstudio.com/"><code>shiny</code> package</a> and extensions to it. The <a href="https://shiny.rstudio.com/gallery/">shiny gallery</a> has examples of apps. Some of my R packages, e.g. <a href="https://ahgroup.github.io/DSAIDE/">DSAIDE</a> and <a href="https://ahgroup.github.io/DSAIRM/">DSAIRM</a> use Shiny for the interactive graphical interface (and either <code>ggplot2</code> or <code>plotly</code> to show graphs for different models).</p>
 <p>Often, getting professional-looking interactive figures, dashboards, and other widgets in R is not that difficult. However, since those are all specialized products, they usually require commands and concepts that are somewhat different from basic or tidyverse R, which generally takes some time to learn.</p>
 <p>Interactive graphs and apps are beyond what we’ll cover in this class, but it is something that might be worth learning, and you are certainly welcome to make use of some of these packages and tools for your class project 😃.</p>
 </div>
@@ -589,7 +612,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>
@@ -598,9 +621,6 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
