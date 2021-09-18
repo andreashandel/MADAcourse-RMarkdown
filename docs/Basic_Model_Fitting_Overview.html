@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA - Course Introduction</title>
+<title>Fitting simple models</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -526,87 +526,54 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA - Course Introduction</h1>
+<h1 class="title toc-ignore">Fitting simple models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-19 12:40:31</h4>
+<h4 class="date">2021-09-14 09:26:39</h4>
 
 </div>
 
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn’t matter if you are enrolled under the EPID or BIOS label. I will generally refer to the course as MADA.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will discuss a few basic models, and explore how to apply them to data in R. This will set the stage for later, more in-depths explorations of statistical model concepts.</p>
 </div>
-<div id="module-overview" class="section level2">
-<h2>Module Overview</h2>
-<p>The course is divided into modules. Each module is usually covered over 1-2 weeks. This first module provides a brief introduction to the course, the tools we will be using, and the topic.</p>
-</div>
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
-<p>The specific learning objectives for this unit are:</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
-<li>Know what this course is all about.</li>
-<li>Know how this course is set up and what you are expected to do.</li>
+<li>Know about several types of models for continuous and categorical outcomes</li>
+<li>Be able to apply different model fitting concepts</li>
 </ul>
 </div>
-<div id="course-goals" class="section level2">
-<h2>Course Goals</h2>
-<p>The main goal for this course is for you to learn the whole process of performing a data analysis project. The focus is on applied analysis of real world, messy data.</p>
-<p>A second goal is to introduce you to some modern analysis approaches commonly referred to as <strong>Machine Learning</strong>.</p>
-<p>A related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.</p>
-<p>For more detailed learning objectives, see the course syllabus.</p>
-<div class="figure" style="text-align: center">
-<img src="media/phd_dataisorare.gif" alt="In this course, we randomly switch back and forth. Source: phdcomics.com." width="100%" />
-<p class="caption">
-In this course, we randomly switch back and forth. Source: phdcomics.com.
-</p>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>There are lots of models out there, too many to cover in much detail. In this module, we will briefly discuss some of the most common and basic ones. With these and further modules focusing on modeling, there is no need to understand any single model in a lot of detail. The goal is to learn enough to know roughly how the model works, what they do, and what they are good for. If you happen to work on a problem where you think a certain kind of model might be useful, you will then want to revisit that model and learn some more, so you can ensure you are using the right model and are using it properly.</p>
 </div>
+<div id="simple-models-for-continuous-outcomes" class="section level1">
+<h1>Simple models for continuous outcomes</h1>
+<p>Linear models are sometimes not flexible enough to capture the patterns seen in the data. Several extensions build on linear models, which provide more flexibility. One type of extended model is called multivariate adaptive regression splines. You can read about them in the <a href="https://bradleyboehmke.github.io/HOML/mars.html">Multivariate Adaptive Regression Splines chapter of HMLR</a>. Those models are also covered in the <a href="https://statlearning.com/">Moving Beyond Linearity chapter of ISLR</a>. That latter chapter also covers another useful extension to linear models called generalized additive models (GAM). Go through both of those chapters. You do not need to understand these model types in much detail at this point. The goal is to understand the main ideas of how they work, what they do, and what they are good for. If you happen to work on a problem where you think these kinds of models might be beneficial, you should read more thoroughly.</p>
 </div>
-<div id="course-philosophy" class="section level2">
-<h2>Course Philosophy</h2>
-<p>Here are my goals, promises, and expectations for this course.</p>
-<ul>
-<li><p>I expect you to be self-motivated and committed to learning the material by putting in the effort needed to succeed.</p></li>
-<li><p>I will try to maximize the rewards you get by hopefully teaching methods that are useful to you, and I will try to provide as much help as needed to maximize your learning.</p></li>
-<li><p>This class strives to be challenging but non-threatening. As such, I’ll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don’t grade hard - unless you fail to keep up your end of the agreement and don’t put in the work.</p></li>
-<li><p>This class is <em>open everything</em>. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning.</p></li>
-<li><p>I will not perform any policing to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to <em>help you stay on track.</em> If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning.</p></li>
-</ul>
-<p><strong>Overall, I hope this course is going to be useful, interesting, challenging and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you’ll get out of it.</strong></p>
+<div id="simple-models-for-categorical-outcomes" class="section level1">
+<h1>Simple models for categorical outcomes</h1>
+<p>For categorical outcomes, at least those that come in 2 categories, logistic regression is the most common approach. To learn about logistic regression, or refresh your knowledge if you have previously been exposed to those models, read through the <a href="https://bradleyboehmke.github.io/HOML/logistic-regression.html">logistic regression chapter in HMLR</a>. Logistic models are also covered in the <a href="https://statlearning.com/">classification chapter in ISLR</a>. That chapter also discusses linear and quadratic discriminant analysis models, which are useful if you have categorical outcomes with more than two categories. Read through those two chapters at the level of detail you want. You should understand these models enough to know roughly how they work, what they do, and what they are good for. If you happen to work on a problem where you think these kinds of models might be beneficial, you should read more thoroughly.</p>
 </div>
-<div id="course-setup" class="section level2">
-<h2>Course Setup</h2>
-<ul>
-<li>The course is split into modules, each with one or more units. Each module will usually be covered in a week. The <strong>Schedule</strong> document gives an outline. The schedule is not fully finalized and will change, so check frequently.</li>
-<li>Each module consists of one or several units/documents containing a mix of things I wrote, and writings or videos by others. They are listed in the order you should go through them.</li>
-<li>All material for the course can be accessed through this course website. Some material might not be available yet and will be unlocked as the course proceeds.</li>
-<li>There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Otherwise, consider the materials to be resources you can visit on demand, e.g., when you are working on the exercises.</li>
-<li>You will be placed in groups throughout the course. The hope is that this will create a support group of classmates where you can help each other. Assignments often require interaction among group members (like in a real-world team), and I hope you will interact with your group members outside the assignments as well. You are welcome and encouraged to interact with anyone else in the course.</li>
-</ul>
+<div id="simple-models-for-no-outcomes" class="section level1">
+<h1>Simple models for no outcomes</h1>
+<p>As we discussed previously, if you have an outcome variable, your data is called <strong>labeled data</strong> and the methods you use are called <strong>supervised</strong> methods/models. Data with one (or several) outcome variable(s) are most common. But as previously discussed, sometimes you might have data without clear outcomes (<strong>unlabeled data</strong>) and you still want to determine if there is some pattern in your data. This calls for <strong>unsupervised</strong> methods.</p>
 </div>
-<div id="course-tools" class="section level2">
-<h2>Course Tools</h2>
-<p>This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.</p>
-<ul>
-<li>We will use the R software in this course.</li>
-<li>We will also use RStudio (a graphical frontend to R).</li>
-<li>We will use a lot of tools available within R/RStudio, such as R Markdown and related features.</li>
-<li>We will use Git/GitHub for exercises and the project.</li>
-<li>We will use Slack for discussions and help.</li>
-<li>We will use an online system for quizzes.</li>
-</ul>
+<div id="a-few-more-simple-models" class="section level1">
+<h1>A few more simple models</h1>
+<p>Another model that you might have already encountered (e.g., in the ISLR reading) is one called K-nearest neighbors (KNN). The idea is very simple: For any new observation, you compare the values of the predictor variables with those in your data. You then predict the outcome of the new observation to be the average of the outcomes of the K observations whose predictors most closely resemble the predictors of the new observation. KNN is a somewhat strange model since <em>the data is the model</em>. Which means you need to always have the data to predict new outcomes, which makes it often not too useful in practice. You also don’t learn too much in terms of inferential insight. Still, it is a useful model to know about, and it works for both continuous and categorical outcomes. It is also commonly used for imputation of missing values. In that situation, you treat the predictor you want to impute as the outcome and use the remaining predictors as the data. KNN is described in the <a href="https://bradleyboehmke.github.io/HOML/knn.html">K-nearest neighbors chapter in HMLR</a> and also briefly described in <a href="https://statlearning.com/">chapter 2.2. of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">chapter 30.1 of IDS</a>. Take a look at any of those resources if you want to learn a bit more about KNN.</p>
+<p>Both linear and logistic models belong to a class of models called <a href="https://en.wikipedia.org/wiki/Generalized_linear_model">generalized linear models (GLM)</a>. Those types of models allow you to fit outcomes of specific types, for instance, if you have outcomes that are counts (integers), you can use Poisson regression, or if you have continuous outcomes that are all positive, you could use a Gamma regression. In R, GLMs are run using the <code>glm</code> function.</p>
+<p>For another source that discusses almost all the models just mentioned, each one very briefly, see the <a href="https://rafalab.github.io/dsbook/examples-of-algorithms.html"><em>examples of algorithms</em> chapter in IDS</a>.</p>
 </div>
-<div id="assessments" class="section level2">
-<h2>Assessments</h2>
-<p>For details on assessments, see the <a href="./Course_Assessments.html">Assessments page</a>.</p>
+<div id="the-zoo-of-statistical-tests" class="section level1">
+<h1>The zoo of statistical tests</h1>
+<p>In some of your (bio)statistics classes, you likely came across a variety of statistical tests, e.g., t-test,</p>
 </div>
-<div id="course-resources" class="section level2">
-<h2>Course Resources</h2>
-<p>We’ll be drawing on a lot of different resources. I compiled a list with the ones we’ll use and others you might find helpful in the <strong>Resources</strong> section of the class website.</p>
-</div>
-<div id="getting-help" class="section level2">
-<h2>Getting help</h2>
-<p>I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. You can ask for help from your classmates or your instructor. Also, use the wider community online. For specific places to get help, see the <strong>Resources</strong> pages.</p>
+<div id="further-reading" class="section level1">
+<h1>Further reading</h1>
+<p><a href="https://towardsdatascience.com/a-comprehensive-machine-learning-workflow-with-multiple-modelling-using-caret-and-caretensemble-in-fcbf6d80b5f2">This article</a> gives a nice worked example of a complete data analysis of a continuous outcome. The author hits on a lot of the points we have covered so far (data exploration, cleaning, processing, etc.), and also mentions a few topics we haven’t discussed. Note that section 5 covers some modeling topics we haven’t discussed yet. We’ll get to them. It’s still worth reading through the article, and seeing a worked example is likely helpful.</p>
+<p>The most common model type applied to continuous outcomes is a linear regression model. This model is so well described in other places that there is no point in me repeating things. Both the <a href="https://bradleyboehmke.github.io/HOML/linear-regression.html">linear regression chapter in HMLR</a> and the <a href="https://statlearning.com/">linear regression chapter in ISLR</a> provide good introductions. I suggest you start with the first source, then move on to the second. You don’t need to go through either source in great detail, especially if you are already familiar with linear models. But you should still read through them and focus on the parts that are new or important to you. You will likely learn something new, even if you already know linear models. A somewhat different but still useful way of discussing linear models can be found in <a href="https://rafalab.github.io/dsbook/linear-models.html">the <em>linear models</em> chapter of IDS</a>.</p>
 </div>
 
 

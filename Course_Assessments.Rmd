@@ -43,9 +43,8 @@ Unless otherwise noted, you have one submission attempt. For the first module, s
 * [Module 3 – R coding basics](./quizsheets/mada_coding_basics_student.xlsx)
 * [Module 4 – Contemplating, finding and wrangling data](./quizsheets/mada_data_finding_wrangling_student.xlsx)
 * [Module 5 – Visualization](./quizsheets/mada_visualization_student.xlsx)
-
-
-**Quiz submission will be possible starting next week, provided password has been submitted.**
+* [Module 6 – Exploration](./quizsheets/mada_data_exploration_student.xlsx)
+* [Module 7 – Statistical Analysis Overview](./quizsheets/mada_statistical_analysis_overview_student.xlsx)
 
 
 

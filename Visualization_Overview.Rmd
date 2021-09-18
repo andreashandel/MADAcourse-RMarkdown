@@ -51,7 +51,10 @@ Figures and graphs are useful at any stage of your analysis. Use them early to e
 
 # Types of graphs
 
-I am sure you are familiar with different graphs. Some are commonly used and widely overused (e.g., bar plots or pie charts), others are less frequently used (e.g., violin plots or hex bins). Instead of me providing summaries of different plots, read the _Directory of Visualizations_ chapter of the excellent [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book by [Claus Wilke](https://clauswilke.com/). That chapter provides a quick overview of many common and useful plots. Further chapters in his book describe specific types of plots in more detail, and also provide general best practices for making plots. You should definitely read through those sections describing plots that interest you the most. Also, note that all the graphs in his book are made with ggplot2 and friends. He doesn't show any code in the book, but if you dig through the Github repository for the book, you'll likely be able to find code for specific figures.  
+I am sure you are familiar with different graphs. Some are commonly used and widely overused (e.g., bar plots or pie charts). A nice discussion of bar graphs, why not to use them, and what to use instead [can be found in this presentation](https://osf.io/bsa46/), with [this accompanying document](https://osf.io/h2q7w/) showing how to do it in R.
+
+others types of graphs are less frequently used (e.g., violin plots or hex bins). Instead of me providing summaries of different plots, read the _Directory of Visualizations_ chapter of the excellent [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book by [Claus Wilke](https://clauswilke.com/). That chapter provides a quick overview of many common and useful plots. Further chapters in his book describe specific types of plots in more detail, and also provide general best practices for making plots. You should definitely read through those sections describing plots that interest you the most. Also, note that all the graphs in his book are made with ggplot2 and friends. He doesn't show any code in the book, but if you dig through the Github repository for the book, you'll likely be able to find code for specific figures.  
+
 
 
 # Further visualization resources

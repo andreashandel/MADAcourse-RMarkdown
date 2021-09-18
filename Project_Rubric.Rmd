@@ -47,8 +47,9 @@ To that end, provide the following pieces of information:
 
 * Everything from part 1. That doesn't mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).
 * A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details. 
+* Removal or replacement of any left-over files and leftover text and code from the templates. Update all readme files, delete any files and folders that are not part of your project. Remove any comments and bits of code that are not relevant. At this stage, only information, code and files relevant to your project should be present, with appropriate documentation.
 * The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).
-* It is up to you how you structure things. The combination of R or Rmd scripts and if you add comments into the code or use the text+code approach of Rmd files is your choice. Look for instance at Brian's project for ideas.
+* It is up to you how you structure things. You can use a combination of R or Rmd scripts. As long as things are well documented, reproducible and logical, the exact setup is your choice.
 * Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
 * Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.
 * I recommend that at this stage you start including references using the bibtex reference approach. The bib file should be provided too.
