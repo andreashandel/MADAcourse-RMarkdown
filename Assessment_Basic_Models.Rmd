@@ -116,7 +116,6 @@ Add code that does the following operations:
 2. Fits a linear model with to continuous outcome and the main predictor of interest.
 3. Fits another linear model to the continuous outcome with all important predictors of interest.
 4. Compares the model results for the model with just the main predictor and all predictors.
-
 5. Fits a logistic model to the categorical outcome and the main predictor of interest.
 6. Fits another logistic model to the categorical outcome with all important predictors of interest.
 7. Compares the model results for the model with just the main predictor and all predictors.
@@ -126,6 +125,9 @@ For all of these operations, you should use the the `tidymodels` framework. Mayb
 For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the `glance()` function. You can also play around a bit with the `predict()` function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like. 
 
 The main point of this is to get you started fitting models with `tidymodels`. You'll likely see lots of information on the `tidymodels` website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we'll get to it soon enough.
+
+If you are extra ambitious or just enjoy playing around with `tidymodels`, add a K-nearest neighbors model fit to the continuous and/or categorical outcome. You do that by choosing `nearest_neighbor()` as the model type (instead of `linear_reg()` or `logistic_reg()`). It seems that `nearest_neighbor()` currently only supports a single engine (underlying implementation/model) called `kknn`, so you don't even have to set an engine, it will use that one as default. The rest should work as before. The fact that we can easily switch models and don't have to write much new code is the beauty of the `tidymodels` framework and will become even clearer soon.
+
 
 :::note
 I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.

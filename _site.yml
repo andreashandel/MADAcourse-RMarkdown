@@ -109,8 +109,8 @@ navbar:
              href: ./Assessment_Basic_Models.html
     #     - text: "9. Evaluating your model fits"
     #       menu:
-    #         - text: "10a. Model Assessment overview"
-    #           href: ./10a_Model_Assessment_Overview.html     
+    #         - text: "Model evaluation overview"
+    #           href: ./Model_Evaluation_Overview.html     
     #         - text: "10b. Model Performance"
     #           href: ./10b_Model_Performance.html     
     #         - text: "10c. Model Diagostics"

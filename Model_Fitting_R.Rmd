@@ -12,7 +12,7 @@ output:
 ```{r, include=FALSE}
 #just so I can use emoticons
 #devtools::install_github("hadley/emo")
-library(emo)
+library(emoji)
 #set some figure options
 knitr::opts_chunk$set(out.width = '70%')
 ```
@@ -49,7 +49,7 @@ Another great set of packages for model fitting is [Machine Learning in R (mlr3)
 
 The main reason why we focus on `tidymodels` in this course is that the coding style is very similar to the `tidyverse` coding style, e.g., heavy use of pipes. It is in my opinion thus easier to learn. `mlr3` has its own syntax. It is of course still R, but things look and operate quite a bit differently, which means one needs more time to get used to the code. Thus, to keep things as simple as possible on the coding side, we are not looking at `mlr3` in this course. If, however, you ever end up trying to do a fitting/machine learning operation that you can't do with the `tidymodels` set of packages, checking out `mlr3` is certainly a good option.
 
-Note that similar to `tidymodels` and `caret`, `mlr3` had a predecessor called [`mlr`](https://mlr.mlr-org.com/) (I don't know if there ever was `mlr2` `r emo::ji('shrug')`). `mlr` still exists, but all new development occurs in `mlr3`.
+Note that similar to `tidymodels` and `caret`, `mlr3` had a predecessor called [`mlr`](https://mlr.mlr-org.com/) (I don't know if there ever was `mlr2` `r emoji::emoji('shrug')`). `mlr` still exists, but all new development occurs in `mlr3`.
 
 
 # Direct interaction with statistical fitting packages

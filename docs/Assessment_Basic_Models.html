@@ -655,7 +655,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-20 08:49:48</h4>
+<h4 class="date">2021-09-20 13:46:39</h4>
 
 </div>
 
@@ -726,17 +726,18 @@ div.tocify {
 <p>Start with a clean analysis script. You can either use an Rmd file, e.g., the existing <code>analysisscript.Rmd</code> and deleting everything that’s there. Or you can do an R script.</p>
 <p>Add code that does the following operations:</p>
 <ol style="list-style-type: decimal">
-<li><p>Loads cleaned data.</p></li>
-<li><p>Fits a linear model with to continuous outcome and the main predictor of interest.</p></li>
-<li><p>Fits another linear model to the continuous outcome with all important predictors of interest.</p></li>
-<li><p>Compares the model results for the model with just the main predictor and all predictors.</p></li>
-<li><p>Fits a logistic model to the categorical outcome and the main predictor of interest.</p></li>
-<li><p>Fits another logistic model to the categorical outcome with all important predictors of interest.</p></li>
-<li><p>Compares the model results for the model with just the main predictor and all predictors.</p></li>
+<li>Loads cleaned data.</li>
+<li>Fits a linear model with to continuous outcome and the main predictor of interest.</li>
+<li>Fits another linear model to the continuous outcome with all important predictors of interest.</li>
+<li>Compares the model results for the model with just the main predictor and all predictors.</li>
+<li>Fits a logistic model to the categorical outcome and the main predictor of interest.</li>
+<li>Fits another logistic model to the categorical outcome with all important predictors of interest.</li>
+<li>Compares the model results for the model with just the main predictor and all predictors.</li>
 </ol>
 <p>For all of these operations, you should use the the <code>tidymodels</code> framework. Maybe the best idea is to go to the <a href="https://www.tidymodels.org/start/models/">build a model tutorial</a> in the <em>Get Started</em> section on the <code>tidymodels</code> website. There, you’ll see an example of fitting some data with a linear model, followed by a Bayesian model. We won’t do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You’ll need to use the <code>linear_reg()</code> and <code>set_engine("lm")</code> commands. For the logistic model, you will need to use <code>logistic_reg()</code> and <code>set_engine("glm")</code>.</p>
 <p>For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the <code>glance()</code> function. You can also play around a bit with the <code>predict()</code> function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like.</p>
 <p>The main point of this is to get you started fitting models with <code>tidymodels</code>. You’ll likely see lots of information on the <code>tidymodels</code> website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we’ll get to it soon enough.</p>
+<p>If you are extra ambitious or just enjoy playing around with <code>tidymodels</code>, add a K-nearest neighbors model fit to the continuous and/or categorical outcome. You do that by choosing <code>nearest_neighbor()</code> as the model type (instead of <code>linear_reg()</code> or <code>logistic_reg()</code>). It seems that <code>nearest_neighbor()</code> currently only supports a single engine (underlying implementation/model) called <code>kknn</code>, so you don’t even have to set an engine, it will use that one as default. The rest should work as before. The fact that we can easily switch models and don’t have to write much new code is the beauty of the <code>tidymodels</code> framework and will become even clearer soon.</p>
 <div class="note">
 <p>I’m a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the <a href="https://mc-stan.org/">Stan software</a>, an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it’s beyond what we can cover in this course.</p>
 </div>
