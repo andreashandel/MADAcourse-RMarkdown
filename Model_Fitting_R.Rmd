@@ -23,33 +23,45 @@ knitr::opts_chunk$set(out.width = '70%')
 In this unit, we will discuss common approaches and packages that are useful for fitting statistical models in R.
 
 # Learning Objectives
-* Know about different packages in R that allow model fitting
+* Know about different packages in R that allow model fitting.
+
 
 # Introduction
 
-R has a few statistical model fitting routines built in, e.g., the `lm` and `glm` functions. Those are well-tested and reliable, but often do not allow for fitting more advanced models. To fit more advanced models, there are **many** different R packages that provide additional functionality. The variety can be bewildering. Often it is hard to decide which package to use. Also, many packages do things slightly differently, which can be confusing. At some point in your analysis career, you'll likely have to interact with packages specific to your data and questions and have to learn their syntax. Initially, to make things easier, several groups have undertaken efforts to create packages that allow a unified approach to fitting a lot of different models. We will focus on those packages here.
+R has a few statistical model fitting routines built in, e.g., the `lm` and `glm` functions. Those are well-tested and reliable, but often do not allow for fitting more advanced models. To fit more advanced models, there are **many** (100+) different R packages that provide additional functionality. The variety can be bewildering. Often it is hard to decide which package to use. Also, many packages do things slightly differently, which can be confusing and can make coding tedious. At some point in your analysis career, you'll likely have to interact with packages specific to your data and questions and have to learn their syntax. Initially, to make things easier, several groups have undertaken efforts to create packages that allow a unified approach to fitting a lot of different models. We will focus on those packages here.
 
 
 # The `tidymodels` set of packages
+
+You've learned about the `tidyverse` already. A more recent effort by the folks from RStudio - and many other contributors - is a set of packages called [tidymodels](https://www.tidymodels.org/). The idea is that similar to various packages in the `tidyverse` you can use for data wrangling, `tidymodels` provides a set of packages that help you with the code related to fitting models. For this course, we will focus on the `tidymodels` set of packages.
+
+You can use `tidymodels` for pretty much any part of the modeling workflow, most of those steps (e.g., pre-processing, model evaluation, tuning) we have not yet covered but will do so shortly. The goal for this unit is to start exploring the `tidymodels` workflow, while ignoring for now a lot of the additional features we'll include shortly. 
+
+`tidymodels` is a relatively recent addition to the R universe. One of the main persons behind `tidymodels`, [Max Kuhn](https://www.rstudio.com/speakers/max-kuhn/) previously wrote the package [caret](http://topepo.github.io/caret/index.html). This was - and still is - a nice and comprehensive package. I used it in previous versions of this course. However, at this point, all effort by Max and his team is put into `tidymodels`. Thus, for this iteration of the course, we will focus on those newer packages. If you ever end up working with the `caret` package, you might want to check out  [the _caret_ chapter in IDS](https://rafalab.github.io/dsbook/caret.html). 
 
 
 
 # Other comprehensive packages
 
-While the whole data exploring/cleaning/wrangling part in R is dominated by the various `tidyverse` packages, there are a variety of approaches when it comes to the model fitting part. 
+While the whole data exploring/cleaning/wrangling part in R is strongly dominated by the various `tidyverse` packages, `tidymodel` packages do not (yet) dominate the fitting part as much. And it is always good to have options. 
 
-A few packages in R have tried to provide a more unified interface that allows you to run multiple different models, and perform other modeling tasks, all within one package using a single set of commands. The two packages I'm most familiar with and that seem to be the most widely used are [Machine Learning in R (mlr)](https://mlr.mlr-org.com/) and [caret](http://topepo.github.io/caret/index.html). 
+Another great set of packages for model fitting is [Machine Learning in R (mlr3)](https://mlr3.mlr-org.com/). The goal of the various packages which are part of `mlr3` is similar to those of `tidymodels`. While there is overlap, each set of tools can do certain things the other cannot do. For instance, in my experience, `mlr3` has more options for parameter tuning, though `tidymodels` is catching up. 
 
-[Machine Learning in R (mlr)](https://mlr.mlr-org.com/) does take a bit getting used to, at least in my opinion. The documentation provided on their website is good, but sometimes the way they do things needs a bit of trial and error. We'll therefore not use the package in this course, but it is worth checking out if you embark on more data analyses in the future. 
+The main reason why we focus on `tidymodels` in this course is that the coding style is very similar to the `tidyverse` coding style, e.g., heavy use of pipes. It is in my opinion thus easier to learn. `mlr3` has its own syntax. It is of course still R, but things look and operate quite a bit differently, which means one needs more time to get used to the code. Thus, to keep things as simple as possible on the coding side, we are not looking at `mlr3` in this course. If, however, you ever end up trying to do a fitting/machine learning operation that you can't do with the `tidymodels` set of packages, checking out `mlr3` is certainly a good option.
 
-The [caret](http://topepo.github.io/caret/index.html) package is a bit easier to get used to. Also, the author, Max Kuhn, recently joined RStudio. He is now working on [tidymodels](https://github.com/tidymodels/tidymodels), which has the goal of becoming for modeling what `tidyverse` is for data wrangling[^1]. Unfortunately for us, this is still an early effort, so the different `tidymodels` packages can't quite replace `caret` yet. We will, therefore, use `caret` to do most of our modeling. The `caret` webpage provides useful information about the package and its use. [The _caret_ chapter in IDS](https://rafalab.github.io/dsbook/caret.html) is also a helpful resource. 
+Note that similar to `tidymodels` and `caret`, `mlr3` had a predecessor called [`mlr`](https://mlr.mlr-org.com/) (I don't know if there ever was `mlr2` `r emo::ji('shrug')`). `mlr` still exists, but all new development occurs in `mlr3`.
 
-[^1]: What they are doing is essentially building many smaller packages that each have some functionality of `caret` and can go beyond the original package. Keep an eye out on the `tidymodels`, as those will likely be where most of the future development is happening. Currently, the documentation for the `tidymodels` suite of packages is much less extensive than that for the `tidyverse` packages - an excellent introductory article [can be found here](https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/).
+
+# Direct interaction with statistical fitting packages
+
+The idea behind `tidymodels` and `mlr3` is that you write code that allows you to easily switch between the underlying model and algorithm you want to apply to your data, without having to write separate code each time. That often works rather well. Occasionally, you might need direct access to and interaction with a package. Say you want to fit some mixed-effects/multilevel/hierarchical models using a package hat is not yet supported by `tidymodels` or `mlr3`. In that case, you will have to write code using the syntax your specific package needs. You might still be able to use say `tidymodels` to do a lot of the processing before and after fitting. It is generally good to try and start with a framework that tries to make your life easier, such as `tidymodels`. Once you realize you can't get what you need through those packages, you can add custom code.
 
 
 # Further reading
 
-[This article](https://towardsdatascience.com/a-comprehensive-machine-learning-workflow-with-multiple-modelling-using-caret-and-caretensemble-in-fcbf6d80b5f2
-) gives a nice worked example of a complete data analysis of a continuous outcome. The author hits on a lot of the points we have covered so far (data exploration, cleaning, processing, etc.), and also mentions a few topics we haven't discussed. Note that section 5 covers some modeling topics we haven't discussed yet. We'll get to them. It's still worth reading through the article, and seeing a worked example is likely helpful. 
+One nice feature about `tidymodels` is that the developers are placing a lot of emphasis not only on implementing new features, but also on providing good documentation. The [tidymodels website](https://www.tidymodels.org/) is your best starting point. It has several sections that contain documentation and help resources. I recommend you visit and browse through regularly.
 
-The most common model type applied to continuous outcomes is a linear regression model. This model is so well described in other places that there is no point in me repeating things. Both the [linear regression chapter in HMLR](https://bradleyboehmke.github.io/HOML/linear-regression.html) and the [linear regression chapter in ISLR](https://statlearning.com/) provide good introductions. I suggest you start with the first source, then move on to the second. You don't need to go through either source in great detail, especially if you are already familiar with linear models. But you should still read through them and focus on the parts that are new or important to you. You will likely learn something new, even if you already know linear models. A somewhat different but still useful way of discussing linear models can be found in [the _linear models_ chapter of IDS](https://rafalab.github.io/dsbook/linear-models.html).
+Max Kuhn and `tidymodels` co-maintainer [Julia Silge](https://juliasilge.com/) also have [on online book called _Tidy Modeling with R_](https://www.tmwr.org/) which discusses both the general concepts and the specific details of some of the `tidymodels` packages.
+
+There are lots of good tutorials and walk-throughs both on the `tidymodels` website and other places. I'll give you some more links soon. But since most of those discuss the full workflow, and whe haven't gotten there quite yet, we'll save most of those for later.
+

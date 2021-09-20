@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Assessment - Exploration</title>
+<title>Assessment - Fitting Basic Statistical Models</title>
 
 <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -584,6 +584,18 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Fitting basic statistical models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Basic_Statistical_Models.Rmd.html">Basic statistical models</a>
+        </li>
+        <li>
+          <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
+        </li>
+        <li class="dropdown-header">Assessment: Fitting Basic Models</li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -639,9 +651,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Exploration</h1>
+<h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-16 08:11:29</h4>
+<h4 class="date">2021-09-19 20:15:01</h4>
 
 </div>
 
@@ -652,25 +664,29 @@ div.tocify {
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
+<p>We’ll practice a bit of model fitting using the <code>tidymodels</code> framework and continuing with an exercise you started previously, namely the exercise where you obtained and wrangled some CDC data. We’ll now add some fitting.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>We’ll again add a group exercise component, using the - by now familiar - M1, M2, … setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository.</p>
+<p>We’ll again add a group exercise component, using the - by now familiar - M1, M2, … setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository. If you are in a group of 4, you can do pairs. That of course doesn’t work in a group of 3, so you need to use the ‘circular’ setup there.</p>
 <p>For this exercise, we’ll revisit and extend the project you started in the <em>wrangling</em> module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio.</p>
-<p>The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that’s not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data (like we did in an earlier exercise) or you switch to a different dataset. If you have to create artificial data, do that with R commands, either at the beginning or end (or both) of your cleaning script. <strong>No editing of raw data files by hand!</strong> (We only did that once in the beginning exercise for convenience, but we won’t do that again.)</p>
+<p>The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that’s not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data or you switch to a different dataset.</p>
+<p>If you have to create artificial data, do that with R commands, either at the beginning or end (or both) of your cleaning script. <strong>No editing of raw data files by hand!</strong> (We only did that once in the beginning exercise for convenience, but we won’t do that again.)</p>
 </div>
-<div id="cleaning" class="section level2">
-<h2>Cleaning</h2>
-<p>Cleaning can and has to happen before and after exploration. It is iterative. Without exploring your data, you don’t know how to clean it. Without at least some cleaning, exploration often doesn’t work (e.g. if you have missing values, some R summary functions don’t work properly.) So for this exercise, it’s going to be a back and forth between the cleaning part and the exploration part. You already explored the data a bit in a previous exercise. So if you know anything of that type is in the data and needs cleaning, you can do it here.</p>
-<p>For now, update your <code>processingscript.R</code> code such that it cleans and retains all or most variables. You can check variables and take some cleaning steps already here, or do the exploration first, then come back.</p>
-<p><strong>No matter how you do it, write comments into your R script explaining each cleaning decision. State briefly why you are making a decision, and then if the code is not obvious, explain the how.</strong></p>
-<p>As examples, of things you might need to clean (either now or after exploration):</p>
+<div id="wrangling-and-eda-revisited" class="section level2">
+<h2>Wrangling and EDA revisited</h2>
+<p>We already spent time on the important steps of data wrangling/cleaning and exploring/visualizing. But practice makes perfect 😁 so we’ll talk a bit more and do a bit more if it here.</p>
+<p>By now you will have figured out that the whole wrangling/exporing process is iterative. Without exploring your data, you don’t know how to clean/wrangle it. Without at least some cleaning, exploration often doesn’t work (e.g. if you have missing values, some R summary functions don’t work properly.)</p>
+<p>For this exercise, you’ll likely have to do some more cleaning and exploring, depending on how much you did last time.</p>
+<p>As part of this exercise, continue to update your <code>processingscript.R</code> code such that it does a full cleaning of all or most variables.</p>
+<p><strong>No matter how you do it, write comments into your R script explaining each cleaning decision. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).</strong></p>
+<p>As examples, of things you might need to clean:</p>
 <ul>
 <li>If you have categorical variables, check the categories and decide if maybe some should be combined.</li>
-<li>You might already be aware of outliers or mistakes in the data.</li>
+<li>You might already be aware of outliers or mistakes in the data. Decide what to do with them, clean accordingly.</li>
 <li>If you know you have a variable with a lot of missing data, explain that you are dropping this variable (and why), then write the code that drops the variable. Or alternatively you might remove observations (rows) that contain any missing data.</li>
 </ul>
 <div class="note">
-<p>With the tidyverse and the pipe operator, a lot of these steps could be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:</p>
+<p>With the tidyverse and the pipe operator, a lot of these steps can be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">select</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">fct_lump</span>() <span class="sc">%&gt;%</span></span>
@@ -682,43 +698,49 @@ div.tocify {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
 <p>That style of coding defeats a bit the purpose of the pipe operator, but I think it helps initially to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it’s much harder to follow along and find bugs.</p>
 </div>
-<p>Make sure your cleaning/processing script is updated enough that you end up with at least 5 variables, a mix of continuous and categorical. You might have many more variables, that is ok. Some of these variables might not be cleaned, that is ok too. Your updated script should save the new dataset to an <code>Rds</code> file, as before.</p>
-</div>
-<div id="exploration" class="section level2">
-<h2>Exploration</h2>
-<p>Create a new R Markdown file called <code>exploration.Rmd</code> somewhere inside the <code>code</code> folder. You can give it its own sub-folder or not. Then write code, combined with text/comments that describe what you do, into your <code>exploration.Rmd</code> file. The code should do the following:</p>
+<p>At the end of your cleaning process, you need to end up with at least 5 variables, a mix of continuous and categorical. You might have many more variables, that is ok. At the end of your cleaning script, you should save the new dataset to an <code>Rds</code> file, as before.</p>
+<p>As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore your data. You can either have exploration code as part of your processing script, such that this script does both, clean data and produce some EDA outcomes (tables, figures, etc.). Or you could do a separate R/Rmd file, e.g. one called <code>exploration.Rmd</code>. That’s your choice.</p>
+<p>At minimum, your exploration code (either in a separate file or part of the cleaning script) should do the following:</p>
 <ul>
-<li>Load the data you just created and saved.</li>
-<li>For each variable, produce and print some numerical output (e.g. a table or some summary statistics numbers).</li>
-<li>For each continuous variable, create a histogram or density plot.</li>
+<li>For each (important) variable, produce and print some numerical output (e.g. a table or some summary statistics numbers).</li>
+<li>For each (important) continuous variable, create a histogram or density plot.</li>
 <li>Create scatterplots or boxplots or similar such plots for the variable you decided is your main outcome of interest and the most important (or all depending on number of variables) independent variables/predictors.</li>
 <li>If applicable to your data, make some pairwise correlation plots.</li>
 <li>If needed for your data, explore the pattern of missing values.</li>
 <li>Any other exploration steps that might be useful.</li>
 </ul>
-<p>Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Needs further checking to see if those are wrong entries or not.</em></p>
-<p>By the end of this section/script, you should have a good understanding of what your data looks like, and what analysis approaches might be most appropriate. As you explore, you’ll likely find additional things that need cleaning, like the example I just gave. Add comments in your Rmd file such that it is clear what needs further investigation (your classmate/team member will take care of that).</p>
-<p>Once you have explored the data as just described, knit your R Markdown file, make sure everything looks ok. Then commit your changes and push to Github. <strong>Do this by Wednesday.</strong> Inform your partner that they can take over.</p>
+<p>If you only have a limited number of variables, e.g., less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest.</p>
+<p>Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations.</em></p>
+<p><strong>Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, text in and Rmd file, notes in a readme (or all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Also decide on a predictor variable that is of main interest. And state which other predictor/input variables are worth considering. For the predictors, you can say “all” if you don’t have too many. If you have a lot of variables, specify whiche ones are of main importance.</strong></p>
+<p>::note For any good data collection and analysis, the data needs to be documented with meta-data to describe what it contains, what units things are, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines. ::</p>
+<p>You need to finish this part by Wednesday. Make sure everything works, then push to GitHub and let your teammate know that they can take over.</p>
 </div>
-<div id="more-exploration-and-cleaning" class="section level2">
-<h2>More exploration and cleaning</h2>
+</div>
+<div id="model-fitting" class="section level1">
+<h1>Model fitting</h1>
 <p>Fork and clone your partner’s repository. (Alternatively, you can also add each other as collaborator and then each of you can directly push/pull the main repository. That’s up to you.) Once you have the repository on your local computer, open the project in R Studio.</p>
-<p>Read through their comments. Add code to do that cleaning script that does any further cleaning they identified as needed. All additional code and decisions should be documented. For instance, continuing the example I gave above, you or your partner might have looked at age and weight and decided that based on those, a height of 20in is not reasonable. Unfortunately, you don’t know how to fix this. Since you plan to use height in your models, You decide that the best approach is to remove those individuals. Therefore, you add a few lines of code to your cleaning/processing script that remove those individuals, with some comments explaining what you are doing and why.</p>
-<p><strong>Note how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened? Always be reproducible and explicit!</strong></p>
-<p>Once you are done with the additional cleaning, and any updates to the exploration part, make sure everything runs well, then move to the next part.</p>
-</div>
-<div id="preliminary-statistical-analyses" class="section level2">
-<h2>Preliminary statistical analyses</h2>
-<p>Open the <code>analysisscript.R</code> file. Remove most or all of the content. (We are now doing all the exploring in <code>exploration.Rmd</code> anyway.) Add some code that performs some basic preliminary statistical analyses. That could be adding a linear regression line to a ggplot scatterplot, applying some bivariate analysis to the main outcome and some predictors of interest, or any other fairly simple stats operations you are familiar with. The idea here is not to draw any firm conclusions, but to continue the theme of exploration you started above, now with the help of some quick and simple statistical approaches.</p>
+<p>Read through their code so you understand what the two outcomes of interest are, the main predictors, and what the rest of the data contain.</p>
+<p><strong>Hopefully their code is nicely documented. If it is, you should see how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened. Always be reproducible and explicit!</strong></p>
+<p>Start with a clean analysis script. You can either use an Rmd file, e.g., the existing <code>analysisscript.Rmd</code> and deleting everything that’s there. Or you can do an R script.</p>
+<p>Add code that does the following operations:</p>
+<ul>
+<li>Loads cleaned data.</li>
+<li>Fits a linear model with to continuous outcome and the main predictor of interest.</li>
+<li>Fits another linear model to the continuous outcome with all important predictors of interest.</li>
+<li>Fits a logistic model to the categorcial outcome and the main predictor of interest.</li>
+<li>Fits another logistic model to the categorical outcome with all important predictors of interest.</li>
+</ul>
+<p>MORE HERE</p>
 <p>Once completed, make sure the analysis script runs. You can make it write results to files (e.g. figure files or Rds files for tables). Or just print on the screen and add comments to the text. Or if you are a big fan of R Markdown files, you can convert the script to an Rmd file and then knit it to html.</p>
 <p>There is no need for this exercise to update the manuscript file. We’ll do that in a future exercise. But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.</p>
 <p>Once your part is done, commit and push. If you used a fork, send a pull request to your partner. If you are working on the same repository as collaborators, you should be able to just push directly. In either case, you might want to let your partner know that you finished and that they can do a final check and any further cleanups they want to do.</p>
 <p>Since this is the same repository as the one you used previously, and previously posted the link to the slack channel, you don’t need to re-post. I know where to find the repository and will take a look and review/grade after the deadline.</p>
 </div>
-</div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
 <p>Write a post in this week’s discussion channel that answers this question:</p>
+<p>Which major new insight did you gain from this week’s topic (or any topic related to model fitting you got exposed to over the last few weeks) and how will that maybe affect your analyses in the future. And what is or are points that you find rather confusing about the model fitting material we covered so far?</p>
+<p>Post by Wednesday, then reply to each other by Friday. See if you can help each other reduce any existing confusion. I’ll be participating too of course.</p>
 </div>
 
 

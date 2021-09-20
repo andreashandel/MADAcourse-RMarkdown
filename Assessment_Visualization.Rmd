@@ -51,7 +51,7 @@ Make a new folder in your repository, call it `data`. Place the data file you fo
 
 Once you have the data and the original graph, you'll first need to add a few lines of code to your `visualization_exercise.Rmd` file to load the data, and if needed, do some cleaning. 
 
-Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. If it still looks a bit different in the end, that's ok. 
+Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. A few (maybe 1-4) hours of working on this should suffice. If it still looks a bit different in the end, that's ok. 
 
 Your final product should be code and explanatory text inside your Rmd file that shows the original plot and links to its source, then shows your code that re-creates the graph, and finally shows your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
 
@@ -62,6 +62,8 @@ And of course, for this and any other products you create, if you are active on 
 # Discussion
 
 Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.
+
+Since the exercise is due Friday, you can either look at and comment on those posts from classmates that finished the exercise early, or continue the discussion after Friday. I won't check/assess until beginning of the following week.
 
 
 
