@@ -106,7 +106,7 @@ navbar:
            - text: "Fitting statistical models in R"
              href: ./Model_Fitting_R.html
            - text: "Assessment: Fitting Basic Models"
-    #         href: ./Assessment_Basic_Models.html
+             href: ./Assessment_Basic_Models.html
     #     - text: "9. Evaluating your model fits"
     #       menu:
     #         - text: "10a. Model Assessment overview"

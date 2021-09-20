@@ -110,26 +110,33 @@ Read through their code so you understand what the two outcomes of interest are,
 
 Start with a clean analysis script. You can either use an Rmd file, e.g., the existing `analysisscript.Rmd` and deleting everything that's there. Or you can do an R script.
 
-
 Add code that does the following operations:
 
-* Loads cleaned data.
-* Fits a linear model with to continuous outcome and the main predictor of interest.
-* Fits another linear model to the continuous outcome with all important predictors of interest.
-* Fits a logistic model to the categorcial outcome and the main predictor of interest.
-* Fits another logistic model to the categorical outcome with all important predictors of interest.
+1. Loads cleaned data.
+2. Fits a linear model with to continuous outcome and the main predictor of interest.
+3. Fits another linear model to the continuous outcome with all important predictors of interest.
+4. Compares the model results for the model with just the main predictor and all predictors.
+
+5. Fits a logistic model to the categorical outcome and the main predictor of interest.
+6. Fits another logistic model to the categorical outcome with all important predictors of interest.
+7. Compares the model results for the model with just the main predictor and all predictors.
+
+For all of these operations, you should use the the `tidymodels` framework. Maybe the best idea is to go to the [build a model tutorial](https://www.tidymodels.org/start/models/) in the _Get Started_ section on the `tidymodels` website. There, you'll see an example of fitting some data with a linear model, followed by a Bayesian model. We won't do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You'll need to use the `linear_reg()` and `set_engine("lm")` commands. For the logistic model, you will need to use `logistic_reg()` and `set_engine("glm")`.
+
+For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the `glance()` function. You can also play around a bit with the `predict()` function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like. 
+
+The main point of this is to get you started fitting models with `tidymodels`. You'll likely see lots of information on the `tidymodels` website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we'll get to it soon enough.
+
+:::note
+I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
+:::
 
 
-MORE HERE
-
-
-Once completed, make sure the analysis script runs. You can make it write results to files (e.g. figure files or Rds files for tables). Or just print on the screen and add comments to the text. Or if you are a big fan of R Markdown files, you can convert the script to an Rmd file and then knit it to html.
-
-There is no need for this exercise to update the manuscript file. We'll do that in a future exercise. But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.
+Once you completed your `tidymodels` exploration, make sure everything runs. There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.**
 
 Once your part is done, commit and push. If you used a fork, send a pull request to your partner. If you are working on the same repository as collaborators, you should be able to just push directly. In either case, you might want to let your partner know that you finished and that they can do a final check and any further cleanups they want to do.
 
-Since this is the same repository as the one you used previously, and previously posted the link to the slack channel, you don't need to re-post. I know where to find the repository and will take a look and review/grade after the deadline.
+The original owner should merge the updates, make sure everything looks good and runs, then update everything on Github. Since this is the same repository as the one you used previously, and previously posted the link to the slack channel, you don't need to re-post. I know where to find the repository and will take a look and review/grade after the deadline.
 
 
 # Discussion
