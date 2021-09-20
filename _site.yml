@@ -102,7 +102,7 @@ navbar:
         - text: "8. Fitting basic statistical models"
           menu:
            - text: "Basic statistical models"
-             href: ./Basic_Statistical_Models.Rmd.html
+             href: ./Basic_Statistical_Models.html
            - text: "Fitting statistical models in R"
              href: ./Model_Fitting_R.html
            - text: "Assessment: Fitting Basic Models"
