@@ -1,0 +1,65 @@
+---
+title: Assessment - Evaluating models
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emoji)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+# Exercise
+
+We'll practice the topics covered in this unit by continuing with the exercise from last week.
+
+
+## Setup
+
+For this week's exercise, you'll be working on it on your own. We'll again revisit and extend the project you started in the _wrangling_ module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio. 
+
+At this stage, I assume all the data wrangling and EDA code, as well as the model fitting code you worked on is present and fully functional. If there are still some issues that need to be resolved, go ahead and do so.
+
+
+
+
+## Data splitting
+
+
+Start with a clean analysis script. You can either use an Rmd file, e.g., the existing `analysisscript.Rmd` and deleting everything that's there. Or you can do an R script.
+
+
+## Model evaluation
+
+We'
+
+
+
+
+
+## Cleanup and submit
+
+At this point, perform some cleanup in your repository. We'll eventually add this exercise to your portfolio website, so it's a good idea to clean up a bit. Update readme files, remove files and folders that are not used, etc. At this point, you should have only materials in there that are relevant to the various exercise parts you (and your classmate contributors) did for this. Any leftover stuff from the original template should go or be updated.
+
+Make sure everything looks good and runs, then update everything on Github. Since this is the same repository as the one you used previously, and you previously posted the link to the slack channel, you don't need to re-post (unless for some reason the repo changed). I know where to find the repository and will take a look and review/grade after the deadline.
+
+
+
+# Discussion
+
+Write a post in this week's discussion channel that answers this question:
+
+Which of the concept(s) we covered in this module is/are the most interesting/surprising to you, and why? And which concept(s) or topic(s) from this module's materials do you find the most confusing, and why/how so? 
+
+Post by Wednesday, then reply to each other by Friday. See if you can help each other reduce any existing confusion. I'll be participating too of course.
+

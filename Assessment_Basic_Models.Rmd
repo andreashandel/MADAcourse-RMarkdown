@@ -91,18 +91,18 @@ If you only have a limited number of variables, e.g., less than 10, you can expl
 Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like _Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations._
 
 
-**Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, text in and Rmd file, notes in a readme (or all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Also decide on a predictor variable that is of main interest. And state which other predictor/input variables are worth considering. For the predictors, you can say "all" if you don't have too many. If you have a lot of variables, specify whiche ones are of main importance.**
+**Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a readme file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Also decide on a predictor variable that is of main interest. And state which other predictor/input variables are worth considering. For the predictors, you can say "all" if you don't have too many. If you have a lot of variables, specify which ones are of main importance.**
 
-::note
-For any good data collection and analysis, the data needs to be documented with meta-data to describe what it contains, what units things are, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines.
-::
+:::note
+For any good data collection and analysis, the data needs to be documented with meta-data to describe what it contains, what units things are in, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines.
+:::
 
 You need to finish this part by Wednesday. Make sure everything works, then push to GitHub and let your teammate know that they can take over.
 
 
 # Model fitting
 
-Fork and clone your partner's repository. (Alternatively, you can also add each other as collaborator and then each of you can directly push/pull the main repository. That's up to you.) Once you have the repository on your local computer, open the project in R Studio.
+Fork and clone your partner's repository. (Alternatively, the first person can add the other as collaborator and then each of you can directly push/pull the main repository. That's up to you.) Once you have the repository on your local computer, open the project in R Studio.
 
 Read through their code so you understand what the two outcomes of interest are, the main predictors, and what the rest of the data contain. 
 
@@ -130,15 +130,17 @@ If you are extra ambitious or just enjoy playing around with `tidymodels`, add a
 
 
 :::note
-I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
+I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian modeling, along the lines of the example in the `tidymodels` tutorial, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
 :::
 
 
-Once you completed your `tidymodels` exploration, make sure everything runs. There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.**
+Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.**
 
 Once your part is done, commit and push. If you used a fork, send a pull request to your partner. If you are working on the same repository as collaborators, you should be able to just push directly. In either case, you might want to let your partner know that you finished and that they can do a final check and any further cleanups they want to do.
 
-The original owner should merge the updates, make sure everything looks good and runs, then update everything on Github. Since this is the same repository as the one you used previously, and previously posted the link to the slack channel, you don't need to re-post. I know where to find the repository and will take a look and review/grade after the deadline.
+## Finish and submit
+
+The project owner should merge the updates, make sure everything looks good and runs, then update everything on Github. Since this is the same repository as the one you used previously, and you previously posted the link to the slack channel, you don't need to re-post (unless for some reason the repo changed). I know where to find the repository and will take a look and review/grade after the deadline.
 
 
 # Discussion

@@ -1,5 +1,5 @@
 ---
-title: A testbed for Shiny
+title: Interactive tutorial to explore model performance
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -11,6 +11,7 @@ output:
 ---
 
 
+
 This page currently only exists so I can test embedding of Shiny apps and other interactive content.
 
 # LearnR
@@ -18,8 +19,6 @@ This page currently only exists so I can test embedding of Shiny apps and other 
 This embeds a learnR bit of code. Content not related to this course, just a test.
 
 ```{r echo=FALSE,  scrolling="no", width="100%"}
-set.seed(12)
-heights_island1 <- rnorm(50,10,2)
-knitr::include_url("https://tinystats.shinyapps.io/06-standardError-ex5/")
+knitr::include_url("https://shiny.ovpr.uga.edu/modelperformance/")
 ```
 

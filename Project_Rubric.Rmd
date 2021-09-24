@@ -52,7 +52,7 @@ To that end, provide the following pieces of information:
 * It is up to you how you structure things. You can use a combination of R or Rmd scripts. As long as things are well documented, reproducible and logical, the exact setup is your choice.
 * Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
 * Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.
-* I recommend that at this stage you start including references using the bibtex reference approach. The bib file should be provided too.
+* If you start including references, you should use a reference manager and a bibtex file from which you cite references in your manuscript. I recommend managing the bibtex file with the free Zotero reference manager, but if you have another reference manager that can handle bibtex files, you can use that too. Your bib file should be part of the project repository (for instance in the same folder as the manuscript). Feel free to pick any citation style you like (you can get CSL files from e.g. [this style repository](https://www.zotero.org/styles)).
 
 Grading for this part will follow the following rubric: 
 

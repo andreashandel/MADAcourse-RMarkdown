@@ -107,18 +107,20 @@ navbar:
              href: ./Model_Fitting_R.html
            - text: "Assessment: Fitting Basic Models"
              href: ./Assessment_Basic_Models.html
-    #     - text: "9. Evaluating your model fits"
-    #       menu:
-    #         - text: "Model evaluation overview"
-    #           href: ./Model_Evaluation_Overview.html     
-    #         - text: "10b. Model Performance"
-    #           href: ./10b_Model_Performance.html     
-    #         - text: "10c. Model Diagostics"
-    #           href: ./10c_Model_Diagnostics.html     
-    #         - text: "10d. Model Uncertainty"
-    #           href: ./10d_Model_Uncertainty.html     
-    #         - text: "10e. Assessment"
-    #           href: ./10e_Assessment.html
+        - text: "9. Evaluating your model fits"
+          menu:
+           - text: "Model evaluation overview"
+             href: ./Model_Evaluation_Overview.html     
+           - text: "Model performance evaluation"
+             href: ./Model_Evaluation_Performance.html     
+           - text: "Model performance & overfitting"
+             href: ./Model_Evaluation_Overfitting.html     
+           - text: "Model Diagostics"
+             href: ./Model_Evaluation_Diagnostics.html     
+           - text: "Model Uncertainty"
+             href: ./Model_Evaluation_Uncertainty.html     
+       #    - text: "Assessment: Model evaluation"
+      #       href: ./Assessment_Model_Evaluation.html
     #     - text: "10. Improving your model fits"
     #       menu:
 #           - text: "Pre-processing data"
@@ -127,7 +129,7 @@ navbar:
     #           href: ./12a_Subset_Selection_and_Regularization.html     
     #         - text: "12b. Assessment"
     #           href: ./12b_Assessment.html
-    #     - text: "13. Tree-based models and tuning"
+    #     - text: "11. Tree-based models and tuning"
     #       menu:
     #         - text: "13a. Parameter tuning"
     #           href: ./13a_Parameter_Tuning.html     
@@ -135,7 +137,7 @@ navbar:
     #           href: ./13b_Tree_based_Models.html     
     #         - text: "13c. Assessment"
     #           href: ./13c_Assessment.html
-    #     - text: "14. More ML models and interpretation"
+    #     - text: "12. More ML models and interpretation"
     #       menu:
     #         - text: "14a. More ML Models"
     #           href: ./14a_More_ML_Models.html     
@@ -143,36 +145,18 @@ navbar:
     #           href: ./14b_Model_Interpretation.html     
     #         - text: "14c. Assessment"
     #           href: ./14c_Assessment.html
-    #     - text: "15. Revisiting the complete analysis workflow"
+    #     - text: "13. Revisiting the complete analysis workflow"
     #       menu:
     #         - text: "15a. Complete data analysis workflow"
     #           href: ./15a_Complete_data_analysis_workflow.html     
     #         - text: "15b. Assessment"
     #           href: ./15b_Assessment.html
-    #     - text: "16. Deep learning, AI and Big data"
+    #     - text: "14. Deep learning, AI and Big data"
     #       menu:
     #         - text: "16a. Deep Learning, AI and Big Data"
     #           href: ./16a_DL_AI_BigData.html     
     #         - text: "16b. Assessment"
     #           href: ./16b_Assessment.html
-    # - text: "Assessments"
-    #   menu:
-    #      - text: "Github Issues"
-    #        href: ./Exercise_Github_Issues.html
-    #      - text: "Tidyverse"
-    #        href: ./Exercise_Tidyverse.html
-    #      - text: "TidyTuesday 1"
-    #        href: ./Exercise_Tidy_Tuesday_1.html
-    #      - text: "Data Analysis"
-    #        href: ./Exercise_Dataanalysis.html
-    #      - text: "Variable Selection"
-    #        href: ./Exercise_Variable_Selection.html
-    #      - text: "Tree Fitting"
-    #        href: ./Exercise_Tree_Fitting.html
-    #      - text: "TidyTuesday 2"
-    #        href: ./Exercise_Tidy_Tuesday_2.html
-    #      - text: "Deep Learning"
-    #        href: ./Exercise_Deep_Learning.html
     - text: "Project"
       menu:
          - text: "Project information"

@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Course Resources</title>
+<title>Evaluating Model Uncertainty</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -546,50 +546,48 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Course Resources</h1>
+<h1 class="title toc-ignore">Evaluating Model Uncertainty</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 13:56:12</h4>
+<h4 class="date">2021-09-24 15:47:03</h4>
 
 </div>
 
 
-<p>This page lists resources that this course draws on frequently or at least occasionally. For a more extensive list of data science resources, see the <em>General Resources</em> page.</p>
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that’s not quite right, please let me know.</p>
-<div id="books-and-online-tutorials" class="section level1">
-<h1>Books and online tutorials</h1>
-<ul>
-<li><a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a> is the book I’ll refer to a good bit in the 1st part of the course.</li>
-<li><a href="http://r4ds.had.co.nz/index.html">R4DS = R for Data Science</a> is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I’ll be refering to it frequently.</li>
-<li><a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a> has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a <em>pay what you want</em> book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).<br />
-</li>
-<li><a href="https://statlearning.com/">ISL(R) = An Introduction to Statistical Learning (in R)</a> is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I’ll refer to it frequently in the second part of the course. While we won’t work through the exercises/labs that are part of ISL, if you are interested in trying out some of those, <a href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">here is a website</a> that does the labs using the tidymodels set of packages, which we will also be using in this course.</li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on Machine Learning with R</a> covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.</li>
-<li><a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a> focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.</li>
-<li><a href="https://happygitwithr.com/">HGR = happygitwitR</a> is a good resource to learn some of the basics of Git/Github with R.</li>
-<li><a href="https://rstudio.cloud/learn/primers">RP = R Studio Primers</a> are a great source for introductory, interactive tutorials covering basics of R coding and data analysis.</li>
-</ul>
+<div class="figure">
+<img src="media/smbc-sample-size.png" alt="" />
+<p class="caption">A study with n=1 has large uncertainty. <a href="http://www.smbc-comics.com">Source: SMBC</a>.</p>
 </div>
-<div id="tools" class="section level1">
-<h1>Tools</h1>
-<ul>
-<li>We’ll be using <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">R Studio Desktop</a>. The <a href="./Tools_RandRStudio.html">R and R Studio document</a> has details.</li>
-<li>We will also be using <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>. You need to get that software and a GitHub user account. I also recommend/assume you are using the <a href="https://www.gitkraken.com/">GitKraken</a> client (but you don’t have to). See the <a href="./Tools_Github_Introduction.html">GitHub introduction document</a> for details.</li>
-</ul>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>Quantifying uncertainty is an important part of model evaluation. During model building and selection, we are not only interested in some point estimate of model performance (e.g., average RMSE), but would often also like to know how that performance measure is distributed and how it differs between models. For instance, we might have 2 classification models, one with an average accuracy (obtained through CV) of 70%, the other has 80%. It looks like we should go with model 2, right? But what if we also knew that the range of accuracy values (for different repeats of the CV) is 65% - 75% for model 1, and it is 45% - 95% for model 2. Which model do we prefer? We might still prefer model 2, but there is also an argument that we might want to go with model 1, which has better performance at the lower bound. Without knowing the distribution of performance measures, we can only make limited decisions.</p>
+<p>For our “final” model, we are most often interested in the uncertainty associated with predictions of outcomes. At times, we might also be interested in the values of model parameters and thus might want to know uncertainty associated with those estimates.</p>
 </div>
-<div id="general-help" class="section level1">
-<h1>General help</h1>
-<ul>
-<li>The main place to get any course specific help are our course discussion boards. Use them widely to ask questions, to answer others’ questions, to post links to interesting resources, etc.</li>
-<li>Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day 😃.</li>
-<li>When you search online for help, quite often you land on some <a href="https://stackexchange.com/">StackExchange</a> site (often <a href="https://stackoverflow.com/">Stack Overflow</a>). <a href="https://stackexchange.com/sites">These are a collection of widely-used online question and answer sites</a> covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.</li>
-<li>The <a href="https://community.rstudio.com/">Rstudio community</a> is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven’t used it much.</li>
-<li>Another highly recommended resource is the <a href="https://www.rfordatasci.com/">R for data science community</a>. They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.</li>
-<li>Here is another resource, <a href="https://www.datahelpers.org/">a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter</a>.</li>
-</ul>
+<div id="model-performance-uncertainty" class="section level1">
+<h1>Model performance uncertainty</h1>
+<p>If we perform cross-validation, (often repeated), we get multiple estimates for model performance based on the test set performance. For instance, in 10-fold CV 10 times repeated, we get 100 values for the model performance (e.g., RMSE). We can look at the distribution of those RMSE. While the standard approach is to pick a model with lower mean RMSE (or other performance measures), that doesn’t have to be the case. We might prefer one with a somewhat higher mean but less variance, as in the example above. To that end, looking at distributions of model performance is useful.</p>
 </div>
-<div id="more-resources" class="section level1">
-<h1>More resources</h1>
-<p>The <a href="./General_Resources.html">general resources</a> page has a more extensive list of relevant resources.</p>
+<div id="model-parameter-uncertainty" class="section level1">
+<h1>Model parameter uncertainty</h1>
+<p>At times, we might be interested in knowing the uncertainty of the model parameters. This will also give us the uncertainty in the predicted <em>expected</em> values of the model. Both of those quantities, uncertainty in parameters and model expectations can be quantified with <strong>confidence intervals.</strong> (Or the Bayesian equivalent of <strong>credible intervals</strong>).</p>
+<p>Some functions in R, e.g. <code>lm</code> have a built-in command to compute confidence intervals. For more complex models or approaches, such built-in functions might not exist. A general approach to produce confidence or prediction intervals is with a sampling method that is very similar in spirit to cross-validation, namely by performing <strong>bootstrapping.</strong></p>
+<div id="bootstrapping" class="section level2">
+<h2>Bootstrapping</h2>
+<p>The idea for bootstrapping is fairly straightforward. Bootstrapping tries to imitate a scenario in which you repeated your study and collected new data. Instead of having actual new data, the idea is that the existing data is sampled to form a new “dataset”, which is then fit. Sampling is performed <em>with replacement</em> to obtain a sample the size of the original dataset. Some observations now show up more than once, and some do not show up. For each such sample, you fit your model and estimate parameters. You will thus get a distribution of parameter estimates. From those distributions, you can compute confidence intervals, e.g., the usual 95% interval. For each fit, you can also predict outcomes and thus obtain a distribution of prediction outcomes (see next).</p>
+<p>Like cross-validation, the bootstrap method is very general and can be applied to pretty much any problem. If your data has a specific structure, you can adjust the sampling approach (e.g., if you have observations from different locations, you might want to sample with replacement for each location.) Limitations for the bootstrap are that you need a decent amount of data for it to work well, and since you are repeating this sampling procedure many times</p>
+</div>
+</div>
+<div id="model-prediction-uncertainty" class="section level1">
+<h1>Model prediction uncertainty</h1>
+<p>If we are interested in model predictions, we generally also want to know how much uncertainty is associated with those predictions. For continuous outcomes, computing prediction intervals gives an idea of the uncertainty in our predictions. As for parameter uncertainty, some <code>R</code> functions have built-in methods to compute prediction intervals, or you can use the bootstrap approach.</p>
+<p>Note that prediction intervals are not the same as confidence intervals. The latter quantifies the uncertainty in model parameters, e.g., the <em>b<sub>i</sub></em> in a regression model. Since those <em>b<sub>i</sub></em> have uncertainty, the model predictions for the <em>expected</em> observation has uncertainty. However, each real observation has additional scatter around the expected value. This additional uncertainty needs to be factored in when trying to make predictions for individual outcomes. As such, prediction intervals are wider than confidence intervals.</p>
+</div>
+<div id="p-values" class="section level1">
+<h1>P-values</h1>
+<p>So what about the <strong>p-value?</strong>. This quantity doesn’t measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, not too useful and can most often be skipped (though sometimes one needs them just to make reviewers happy). I’m thus not talking about them further.</p>
+</div>
+<div id="further-learning" class="section level1">
+<h1>Further learning</h1>
+<p>Bootstrapping is discussed in <a href="https://statlearning.com/">the <em>Resampling Methods</em> chapter of ISLR</a> and <a href="https://rafalab.github.io/dsbook/cross-validation.html">the <em>Cross Validation</em> chapter of IDS</a>. The other topics are covered in various places in the different course materials we’ve been using, but again not in any full chapters/sections. So if you have suggestions for good resources, let me knwo.</p>
 </div>
 
 

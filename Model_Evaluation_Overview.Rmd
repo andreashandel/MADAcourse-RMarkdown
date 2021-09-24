@@ -1,5 +1,5 @@
 ---
-title: MADA Course - Model Assessment Overview
+title: Model Evaluation Overview
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -42,7 +42,7 @@ knitr::include_graphics("./media/assessment-cartoon.jpg")
 
 # Introduction
 
-If we fit any kind of model to data, we need to determine the quality of a fit somehow. How do we know one model is _better_ than another? How do we know any given model is _good_? These questions, i.e., what model is _better_ among a group of models, and if a model is _good_ (even the best among a group of awful models can be a bad model!) have multiple parts to them, some of which can be answered by statistics and others are judgment calls. 
+If we fit any kind of statistical model to data, we need to determine the quality of a fit somehow. How do we know one model is _better_ than another? How do we know any given model is _good_? These questions, i.e., what model is _better_ among a group of models, and if a model is _good_ (even the best among a group of awful models can be a bad model!) have multiple parts to them, some of which can be answered by statistics and others are judgment calls. 
 
 There is no single way to define quality. Instead, multiple factors should be considered. Here are some important aspects to think about:
 

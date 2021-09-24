@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Course Resources</title>
+<title>Diagnosing Model Fit</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -546,50 +546,57 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Course Resources</h1>
+<h1 class="title toc-ignore">Diagnosing Model Fit</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 13:56:12</h4>
+<h4 class="date">2021-09-24 15:07:53</h4>
 
 </div>
 
 
-<p>This page lists resources that this course draws on frequently or at least occasionally. For a more extensive list of data science resources, see the <em>General Resources</em> page.</p>
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that’s not quite right, please let me know.</p>
-<div id="books-and-online-tutorials" class="section level1">
-<h1>Books and online tutorials</h1>
-<ul>
-<li><a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a> is the book I’ll refer to a good bit in the 1st part of the course.</li>
-<li><a href="http://r4ds.had.co.nz/index.html">R4DS = R for Data Science</a> is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I’ll be refering to it frequently.</li>
-<li><a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a> has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a <em>pay what you want</em> book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).<br />
-</li>
-<li><a href="https://statlearning.com/">ISL(R) = An Introduction to Statistical Learning (in R)</a> is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I’ll refer to it frequently in the second part of the course. While we won’t work through the exercises/labs that are part of ISL, if you are interested in trying out some of those, <a href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">here is a website</a> that does the labs using the tidymodels set of packages, which we will also be using in this course.</li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on Machine Learning with R</a> covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.</li>
-<li><a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a> focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.</li>
-<li><a href="https://happygitwithr.com/">HGR = happygitwitR</a> is a good resource to learn some of the basics of Git/Github with R.</li>
-<li><a href="https://rstudio.cloud/learn/primers">RP = R Studio Primers</a> are a great source for introductory, interactive tutorials covering basics of R coding and data analysis.</li>
-</ul>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>In the previous units, we discussed a way to evaluate model quality by looking at <strong>performance</strong> based on some cost function/metric we defined. While this is an important component of the model building and choosing process, one needs to go further.</p>
+<p>The absolute value of a model’s performance is not always very meaningful. Is an RMSE of 3.2 good? Is 90% accuracy a good model? We can’t say without knowing something about the system and looking more closely.</p>
+<p>Performing a detailed model diagnosis often increases our understanding of the data/model/analysis, and can help us figure out how to fix or improve the model. The following sections briefly describe some checks you can do to evaluate the quality of your model further.</p>
 </div>
-<div id="tools" class="section level1">
-<h1>Tools</h1>
-<ul>
-<li>We’ll be using <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">R Studio Desktop</a>. The <a href="./Tools_RandRStudio.html">R and R Studio document</a> has details.</li>
-<li>We will also be using <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>. You need to get that software and a GitHub user account. I also recommend/assume you are using the <a href="https://www.gitkraken.com/">GitKraken</a> client (but you don’t have to). See the <a href="./Tools_Github_Introduction.html">GitHub introduction document</a> for details.</li>
-</ul>
+<div id="null-model-comparisons" class="section level1">
+<h1>Null model comparisons</h1>
+<p>You should always compare your models to a “dumb” null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can’t beat such a null model (based on the performance metric you chose), you need to question what your model is good for.</p>
 </div>
-<div id="general-help" class="section level1">
-<h1>General help</h1>
-<ul>
-<li>The main place to get any course specific help are our course discussion boards. Use them widely to ask questions, to answer others’ questions, to post links to interesting resources, etc.</li>
-<li>Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day 😃.</li>
-<li>When you search online for help, quite often you land on some <a href="https://stackexchange.com/">StackExchange</a> site (often <a href="https://stackoverflow.com/">Stack Overflow</a>). <a href="https://stackexchange.com/sites">These are a collection of widely-used online question and answer sites</a> covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.</li>
-<li>The <a href="https://community.rstudio.com/">Rstudio community</a> is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven’t used it much.</li>
-<li>Another highly recommended resource is the <a href="https://www.rfordatasci.com/">R for data science community</a>. They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.</li>
-<li>Here is another resource, <a href="https://www.datahelpers.org/">a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter</a>.</li>
-</ul>
+<div id="single-predictor-comparisons" class="section level1">
+<h1>Single predictor comparisons</h1>
+<p>Before building and fitting a big model, it is useful to look at the different predictors individually. (Or if you have too many, at least at some you think are important.)</p>
+<p>To that end, you can perform bi-variable analyses, fitting models that each only contain a single predictor and evaluate the model performance (ideally using cross-validation) of such single-predictor models. You should definitely do that for the predictor(s) that are of main interest.</p>
+<p>Once you start fitting your larger models, you can compare those to your single predictor models. Conceptually, if you only look at the performance on the data used to build the model, your multi-predictor model always performs better or at least as good as your single predictor models, which in turn should perform at least as well as your null model. If that is not the case, it means something went wrong in the analysis. Of course, now that you are aware of overfitting, you know that if you evaluate your models through cross-validation, the bigger multi-variable model does not always perform better.</p>
+<p>As an example, if you want to predict mortality and you have a model (say a logistic model with outcome of 5-year mortality yes/no) that includes as predictors diet, exercise, BMI, gender and age, and such a model performs as well as a model with only age, it means that including those additional variables does not add to model performance.</p>
 </div>
-<div id="more-resources" class="section level1">
-<h1>More resources</h1>
-<p>The <a href="./General_Resources.html">general resources</a> page has a more extensive list of relevant resources.</p>
+<div id="observed-versus-predicted-values" class="section level1">
+<h1>Observed versus predicted values</h1>
+<p>Once you have a model with good performance, you want to inspect their actual predictions. For continuous outcomes, you can plot observed (data) versus predicted (model) outcomes. For a (hypothetical) perfect model, all points are along the 45-degree line. You don’t actually want them all on the line since this suggests overfitting. Some scatter along the line is expected and “healthy”. However, you want to look for systematic deviations from this line, as it suggests potential problems, i.e., it likely means your model is <em>biased</em> and is not flexible enough to capture important patterns still found in the data (i.e., your model is underfitting). In that case, you will want to try different models. Similarly, for categorical outcomes, you can look at the confusion matrix to see if there are lots of FN or FP, which might suggest the model gets certain categories systematically wrong.</p>
+</div>
+<div id="residuals" class="section level1">
+<h1>Residuals</h1>
+<p>Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference, which is called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn’t capture.</p>
+</div>
+<div id="data-simulation" class="section level1">
+<h1>Data simulation</h1>
+<p>One of the best general approaches toward testing models is to simulate data and fit the model to the simulated data. You know what you used to generate the fake data, so you know what the model should return. For instance if you simulate data for the linear model <span class="math display">\[Y=b_0 + b_1X_1 + b_2X_2\]</span> (and add a bit of noise on top), and you chose <em>b<sub>0</sub></em>=<em>b<sub>1</sub></em>=<em>b<sub>2</sub></em>=2, then when you fit such a linear model to this simulated data, those are the values for the coefficients you expect to get back (not quite, since you added a bit of noise, but they shouldn’t be far off). If you can’t get out what you stuck in, you have a problem. Most likely, it means you are over-fitting, and more than one combination of parameter values is giving almost the same performance measure, and the model can’t differentiate. You should then either get more data or make your model simpler.</p>
+<p>This approach of simulating data is a very useful general approach. You should always consider if it is an option for your specific data and question and use it if possible. The more complex your model becomes, the more useful this type of diagnosis is. It can however at times be difficult if you use a model for which it is not clear how the mapping of inputs to outcomes works (e.g. a complex machine learning model). Even then, if you make some data where say one predictor is strongly correlated with the outcome, and another one is only noise, then your model should properly predict that this is the case.</p>
+</div>
+<div id="sensitivity-analysis" class="section level1">
+<h1>Sensitivity analysis</h1>
+<p>Sometimes you have observations that might have a strong impact on the model, i.e., without those observations, the best fitting model would look quite different. If you decided that those points are <em>real</em> (i.e., not data entry or other mistakes), you might want to run the model both with those data points present and absent to investigate how results might change. Similarly, you might make decisions along the data cleaning path (e.g., to remove all observations with missing values, or instead remove some variables with lots of missing) which could affect results. Performing analyses in multiple ways to see how these decisions affect outcomes is useful. If you find that the overall results stay the same, it instills confidence in the robustness of your findings. If in contrast, different decisions lead to different answers, it might point to something worth investigating further.</p>
+<p>Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.</p>
+</div>
+<div id="other-checks" class="section level1">
+<h1>Other checks</h1>
+<p>Many fitting functions return useful information as output (which you can read with the <code>summary</code> or similar commands). Take a close look. If you thought you had 200 data points but your fitting function result states that N=180, it means the function might have dropped observations with missing values without warning you (<code>R</code> unfortunately does things like that at times). By carefully reading/plotting model returns, you can diagnose your model and catch problems.</p>
+<p>If you get <em>strange</em> results (either unexpectedly bad or unexpectedly good), look carefully. As you know, most often things that are too good to be true are in fact not true. Bugs (either of the coding or thinking type) in any step of your analysis can lead to strange results.</p>
+<p>If at any time during your analysis, you get warning messages, you need to investigate them carefully. Sometimes it is ok to ignore warning messages in R <strong>but only after you know precisely what they mean and why they happen!</strong>. Frequently, warning messages indicate you are doing something you shouldn’t be doing and can lead to wrong results.</p>
+</div>
+<div id="further-learning" class="section level1">
+<h1>Further learning</h1>
+<p>All the main sources we are using in this course mention some of these topics in various places. Unfortunately, those topics are just mentioned here and there, no full chapters discuss them. If you find any good resources that provide nice discussions of the topics here, please let me know so I can add them.</p>
 </div>
 
 
