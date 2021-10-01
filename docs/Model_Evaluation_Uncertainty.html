@@ -14,8 +14,8 @@
 
 <title>Evaluating Model Uncertainty</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -489,6 +489,32 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -548,14 +574,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">Evaluating Model Uncertainty</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 15:47:03</h4>
+<h4 class="date">2021-09-30 11:13:40</h4>
 
 </div>
 
 
 <div class="figure">
 <img src="media/smbc-sample-size.png" alt="" />
-<p class="caption">A study with n=1 has large uncertainty. <a href="http://www.smbc-comics.com">Source: SMBC</a>.</p>
+<p class="caption">A study with n=1 has large uncertainty. <a href="https://www.smbc-comics.com/comic/2014-09-17/">Source: SMBC</a>.</p>
 </div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
@@ -583,7 +609,7 @@ div.tocify {
 </div>
 <div id="p-values" class="section level1">
 <h1>P-values</h1>
-<p>So what about the <strong>p-value?</strong>. This quantity doesn’t measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, not too useful and can most often be skipped (though sometimes one needs them just to make reviewers happy). I’m thus not talking about them further.</p>
+<p>So what about the <strong>p-value?</strong> This quantity doesn’t measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, generally not too meaningful, and can most often be skipped (though sometimes one needs them just to make reviewers happy). I’m thus not talking about them further.</p>
 </div>
 <div id="further-learning" class="section level1">
 <h1>Further learning</h1>

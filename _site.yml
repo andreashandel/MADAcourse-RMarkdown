@@ -119,20 +119,24 @@ navbar:
              href: ./Model_Evaluation_Diagnostics.html     
            - text: "Model Uncertainty"
              href: ./Model_Evaluation_Uncertainty.html     
-       #    - text: "Assessment: Model evaluation"
-      #       href: ./Assessment_Model_Evaluation.html
-    #     - text: "10. Improving your model fits"
+           - text: "Assessment: Model evaluation"
+             href: ./Assessment_Model_Evaluation.html
+        - text: "10. Improving your model fits"
+          menu:
+           - text: "Improving model fits overview"
+             href: ./Model_Improvement_Overview.html     
+           - text: "Pre-processing data"
+             href: ./Model_Improvement_Data_Processing.html
+           - text: "Subset selection"
+             href: ./Model_Improvement_Subset_Selection.html     
+           - text: "Regularization"
+             href: ./Model_Improvement_Regularization.html     
+           - text: "Model tuning"
+             href: ./Model_Improvement_Tuning.html     
+           - text: "Assessment: Model Improvement"
+             href: ./Assessment_Model_Improvement.html
+    #     - text: "11. Machine Learning Models I"
     #       menu:
-#           - text: "Pre-processing data"
-#             href: ./Data_Processing.html
-    #         - text: "12a. Subset selection and regularization"
-    #           href: ./12a_Subset_Selection_and_Regularization.html     
-    #         - text: "12b. Assessment"
-    #           href: ./12b_Assessment.html
-    #     - text: "11. Tree-based models and tuning"
-    #       menu:
-    #         - text: "13a. Parameter tuning"
-    #           href: ./13a_Parameter_Tuning.html     
     #         - text: "13b. Tree based Models"
     #           href: ./13b_Tree_based_Models.html     
     #         - text: "13c. Assessment"

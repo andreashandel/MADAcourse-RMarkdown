@@ -14,8 +14,8 @@
 
 <title>Assessment - Fitting Basic Statistical Models</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -583,6 +583,32 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -642,7 +668,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 11:04:14</h4>
+<h4 class="date">2021-09-30 13:19:34</h4>
 
 </div>
 
@@ -702,6 +728,9 @@ div.tocify {
 <p>Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations.</em></p>
 <p><strong>Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a readme file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Also decide on a predictor variable that is of main interest. And state which other predictor/input variables are worth considering. For the predictors, you can say “all” if you don’t have too many. If you have a lot of variables, specify which ones are of main importance.</strong></p>
 <div class="note">
+<p>For this exercise, it isn’t so important that the outcomes and predictors you pick are of actual scientific interest. Say if you had <code>age</code> and <code>sex</code> and some other variables related to the location a person lives, you can declare your continuous outcome of interest to be <code>age</code> and your categorical to be <code>sex</code>, even if there is no scientific reason to assume they are associated with the location variables. Of course for a real study, you would try to look at outcome-predictor combinations that make scientific sense, but this is just an exercise, so some potential nonsensical assumptions are allowed 😁.</p>
+</div>
+<div class="note">
 <p>For any good data collection and analysis, the data needs to be documented with meta-data to describe what it contains, what units things are in, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines.</p>
 </div>
 <p>You need to finish this part by Wednesday. Make sure everything works, then push to GitHub and let your teammate know that they can take over.</p>
@@ -711,19 +740,19 @@ div.tocify {
 <h1>Model fitting</h1>
 <p>Fork and clone your partner’s repository. (Alternatively, the first person can add the other as collaborator and then each of you can directly push/pull the main repository. That’s up to you.) Once you have the repository on your local computer, open the project in R Studio.</p>
 <p>Read through their code so you understand what the two outcomes of interest are, the main predictors, and what the rest of the data contain.</p>
-<p><strong>Hopefully their code is nicely documented. If it is, you should see how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened. Always be reproducible and explicit!</strong></p>
-<p>Start with a clean analysis script. You can either use an Rmd file, e.g., the existing <code>analysisscript.Rmd</code> and deleting everything that’s there. Or you can do an R script.</p>
+<p><strong>Hopefully their code is nicely documented. If it is, you should see how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened. if it isn’t well documented, feel free to bug them to improve their meta-data/documentation to a level where you can understand what’s going on. (That’s a common task that analysts need to do with their data-generating collaborators 😁.)</strong></p>
+<p>Start with a clean analysis script. You can either use an Rmd file, or you can do an R script. In either case, document/comment well.</p>
 <p>Add code that does the following operations:</p>
 <ol style="list-style-type: decimal">
 <li>Loads cleaned data.</li>
-<li>Fits a linear model with to continuous outcome and the main predictor of interest.</li>
-<li>Fits another linear model to the continuous outcome with all important predictors of interest.</li>
+<li>Fits a linear model to continuous outcome using only the main predictor of interest.</li>
+<li>Fits another linear model to the continuous outcome using all (important) predictors of interest.</li>
 <li>Compares the model results for the model with just the main predictor and all predictors.</li>
-<li>Fits a logistic model to the categorical outcome and the main predictor of interest.</li>
-<li>Fits another logistic model to the categorical outcome with all important predictors of interest.</li>
-<li>Compares the model results for the model with just the main predictor and all predictors.</li>
+<li>Fits a logistic model to the categorical outcome using only the main predictor of interest.</li>
+<li>Fits another logistic model to the categorical outcome using all (important) predictors of interest.</li>
+<li>Compares the model results for the categorical model with just the main predictor and all predictors.</li>
 </ol>
-<p>For all of these operations, you should use the the <code>tidymodels</code> framework. Maybe the best idea is to go to the <a href="https://www.tidymodels.org/start/models/">build a model tutorial</a> in the <em>Get Started</em> section on the <code>tidymodels</code> website. There, you’ll see an example of fitting some data with a linear model, followed by a Bayesian model. We won’t do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You’ll need to use the <code>linear_reg()</code> and <code>set_engine("lm")</code> commands. For the logistic model, you will need to use <code>logistic_reg()</code> and <code>set_engine("glm")</code>.</p>
+<p>For all of these operations, you should use the the <code>tidymodels</code> framework. To do so, I suggest to go to the <a href="https://www.tidymodels.org/start/models/">build a model tutorial</a> in the <em>Get Started</em> section on the <code>tidymodels</code> website. There, you’ll see an example of fitting some data with a linear model, followed by a Bayesian model. We won’t do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You’ll need to use the <code>linear_reg()</code> and <code>set_engine("lm")</code> commands. For the logistic model, you will need to use <code>logistic_reg()</code> and <code>set_engine("glm")</code>.</p>
 <p>For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the <code>glance()</code> function. You can also play around a bit with the <code>predict()</code> function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like.</p>
 <p>The main point of this is to get you started fitting models with <code>tidymodels</code>. You’ll likely see lots of information on the <code>tidymodels</code> website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we’ll get to it soon enough.</p>
 <p>If you are extra ambitious or just enjoy playing around with <code>tidymodels</code>, add a K-nearest neighbors model fit to the continuous and/or categorical outcome. You do that by choosing <code>nearest_neighbor()</code> as the model type (instead of <code>linear_reg()</code> or <code>logistic_reg()</code>). It seems that <code>nearest_neighbor()</code> currently only supports a single engine (underlying implementation/model) called <code>kknn</code>, so you don’t even have to set an engine, it will use that one as default. The rest should work as before. The fact that we can easily switch models and don’t have to write much new code is the beauty of the <code>tidymodels</code> framework and will become even clearer soon.</p>

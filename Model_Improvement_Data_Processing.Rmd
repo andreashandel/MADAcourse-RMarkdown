@@ -1,0 +1,112 @@
+---
+title: Some common data processing tasks
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+library(emo)
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+
+This unit provides a quick description of some additional common data processing tasks that one often needs to do before starting the actual fitting part. 
+
+# Learning Objectives
+* Be familiar with and able to apply common data processing tasks
+* understand the advantages and disadvantages of specific processing tasks
+
+
+# Introductory comments
+
+We already discussed tasks that one needs to do to get the data in shape for fitting. We called this generally data _wrangling_ or _cleaning_. The ones described below didn't show up so far. The tasks I describe here are usually mentioned in the various sources we have been using, but not presented in one place like I do here. Also, the terminology is not quite settled. I call this (pre-)processing data. This is arguably fuzzy since there is a lot of that going on in other stages of the cleaning/wrangling process. In R4DS, they use the term _Transforming_ but it doesn't quite cover all the topics I'm covering here. Some of these tasks are also discussed and part of the `tidymodels` framework. Those tasks are usually done closer to the analysis portion of the project, but there is no real hard differentiation. It is best to always keep all of those possible tasks in mind and use them as needed.
+
+
+# Motivation
+
+Beyond general data cleaning, which is always needed, performing specific processing tasks on the data can help for certain types of statistical models. For instance, some methods perform poorly if the data contains predictors that are essentially "noise", i.e., that do not correlate with the outcome. Predictors that are too correlated with each other can also be a problem for some methods. Often, it is useful to have predictors on the same scales or transform outcomes and predictors such that they follow a distribution more suitable for modeling (often a normal distribution). The amount and type of processing needed depends not only on the data itself but also on the statistical method and algorithm you plan to use. 
+
+
+# Common processing tasks
+
+
+## Variable/Predictor Removal
+
+It is often the case that we have more data than we need to answer a scientific question. For almost any analysis one, therefore, needs to remove some variables before starting the statistical model fitting process. A simple (and somewhat stupid) example is an identifier (ID) variable for subjects. This contains no meaningful information for the modeling process and should thus be removed before fitting. Other examples are instances where the data was collected for some purpose other than our analysis. In this case, it is likely that there are variables in the data which are irrelevant for our analysis. 
+
+Such removal of variables is done on scientific grounds, based on expert opinion. Ideally, you should report in enough detail which parts of the data you included and excluded in that way to allow the reader to make an informed decision if they agree with what you did. And of course, you should  - as much as possible - also provide the raw data and the R scripts which do and document removal of specific variables - such that someone who doesn't agree with your choice could re-run the analysis with different inclusion/exclusion criteria.
+
+Sometimes, you might have variables that could, in principle, be useful, but the reported values show little diversity and thus contain little information. For instance, if you had a sample of several hundred individuals and only 3 of them were smokers, then it might not be useful to include the smoking variable for the analysis of this dataset, even if in general it might be worth considering. Such variables that do not contain much information are called "near-zero variance" variables. Some models perform better if those variables are removed. Other modeling approaches do not care since they have built-in mechanisms to remove variables that are not useful in predicting the outcome.
+
+Another instance where removing variables might be useful is if predictors are strongly collinear/correlated. A trivial example is if you have height reported as both inches and centimeters in your data. Obviously, one of them should be removed. Other variables might not be so obviously containing the same information, but might be related enough (collinear) that including both makes the model performance worse. An example might be age and height among children. 
+
+Another example we already disused are variables with missing values. In this case, you might want to remove the variable, or the observations, or a mix of them.
+
+In R, removing variables or observations is easily done with the `select` and `filter` functions from `dplyr`. There are a variety of good packages for dealing with missing/NA values. [`naniar`](https://cran.r-project.org/web/packages/naniar/index.html) is one of them.
+
+**All of these inclusion/exclusion decisions are based on expert (that's you!) judgment. There is no magic recipe you can follow. Some statistical methods can help (see below), but they are only so useful. If someone on the internet tries to sell a magical way of knowing how to process your data before fitting, run away!**
+
+
+
+## Variable transformation
+
+It is often a good idea to transform variables. For instance if you have a model with continuous and categorical predictors, and you want to compare the coefficients returned from some model, you need to have the predictors on the same scales, which you can accomplish by **standardizing** predictors through **centering** (subtracting the mean from all values) and **scaling** (dividing by the standard deviation). The drawback of such a transformation is that the model results might be harder to interpret and might have to be 'back-transformed' to have biological meaning. 
+
+Other common used transformations are converting to log units, since often the log scale is the biologically relevant one. It also reduced the impact of very high and very low values. 
+
+It is also often the case that some numerical methods your statistical model uses work better when you transform variables. It is always good to check the manual for any statistical model (and its numerical implementation) to see what is described and recommended there.
+
+Whenever you do some kind of normalization or transformation, check the result of such a transformation to ensure nothing went wrong (e.g., you didn't accidentally divide by 0 or take the log of a negative number).
+
+There are many ways to do variable transformation in R. In this course we will focus for our model fitting approaches on the [tidymodels](https://www.tidymodels.org/) set of packages. Within that set of packages, the [recipes package](https://recipes.tidymodels.org/) is used for variable transformation.
+
+
+## Variable creation (feature engineering)
+
+The term _feature engineering_ is often used in machine learning. It basically means creating new variables from the existing ones. The hope is that the new variables are better at describing/predicting/correlating with the outcome. (**Feature** is another word used for **predictor** or **independent** variable. The term **feature** is especially common in the machine learning literature). For instance, if we want to assess the impact of weight on diabetes, using weight itself might not be the best option since it is confounded by height. A 200lb person who's 5 feet tall is likely at greater risk than someone who is 6 feet tall. We can instead use weight and height and compute BMI and then include that variable/feature in our model instead. In the ML terminology, we just _engineered the feature of BMI from the features weight and height_. Or in more everyday wording _we created a new variable BMI from the two existing variables weight and height_. 
+
+Creating the right features that are most meaningful for a model needs to be guided by expert knowledge, and often differentiates the models with good predictive performance from those that are not so good. There are whole books focused on feature engineering (e.g. [Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/) ). The [recipes package](https://recipes.tidymodels.org/) mentioned above helps with some feature engineering tasks. We won't use it too much in the course exercises, but keep in mind that it is always an option to create new variables from your existing ones. (One could think of variable transformation described in the previous section as a very simple form of feature engineering, i.e., we create a new variable/feature which is basically just the old one but somehow transformed.)
+
+
+
+## Feature Reduction (variable reduction)
+
+This could be considered one type of feature engineering. In some areas of science, this is a step that's almost always required. For instance, **-omics** type data (proteomics, transcriptomics, metabolomics, etc.), it is not uncommon to measure 1000s of variables (e.g., gene expression levels) for one individual person. Thus those datasets often have many more predictors than observations (individuals/samples in the study). This means some models might not work at all (e.g. a standard linear or logistic model) and other models might work but take way too long to run.
+
+It is therefore often necessary to reduce the number of predictors. Manual removal of predictors based on biological/expert knowledge, as described above, is one option. But with 1000s of predictors, and often no clear a-priori idea of which ones are biologically meaningful, this quickly becomes unfeasible. Another option is to use a statistical approach with the goal to find a set of new predictors of size $m$, made up of combinations of the $p$ old ones, such that $m\ll p$. An approach called Principal Component Analysis (PCA) can be used to find such a smaller set of new predictors that capture most of the information contained in the larger set. One drawback of PCA is that it ignores the relationship between predictors and outcome. To keep predictors most associated with outcome, one can use a method called Partial Least Squares (PLS). Other approaches exist. The overall problem is that the new set of predictors is harder to interpret, and thus insights gained from the model are somewhat reduced.
+
+
+
+# Processing one should avoid
+
+There are certain very common ways data gets processed that should, in fact, be avoided. Here are some things **you should not do!**
+
+**Discretizing/binning continuous variables.** Doing so leads to loss of power and the binning is almost always arbitrary. E.g., there is no reason to stick people into age categories - keep age continuous (no matter how many Epi papers you see where they do that kind of stuff.) Unfortunately, binning/categorizing of continuous variables is very commonly done, but almost never is there a good reason to do so, other than custom and people not being familiar with other approaches (exceedingly bad reasons for doing things). In the statistical literature, this unhealthy urge to dichotomize/discretize has been labeled **Dichotomania**. [This reference and links therein](https://www.fharrell.com/post/errmed/#catg) discusses dichotomania related to chopping up of variables. Another dichotomania elated to misinterpretation of statistical results and especially the "magical" 0.05 p-value threshold [are discussed here](https://academic.oup.com/aje/article/186/6/639/3886035). For some further reading, see e.g., [this review](https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.2331).
+
+Sometimes, the reason given for binning is that there might not be a linear relation between predictor and outcome, e.g., between age and risk of some disease. That is certainly possible. But the right approach for this is almost always to change the model and use a more flexible statistical model that allows a relation between predictor and outcome that is not linear.
+
+There are occasions when discretizing is warranted. For instance at the end of an analysis, one might need to have a decision rule that determines further action (e.g., treat or don't treat with statin drugs) based on some continuous quantity (e.g., cholesterol level). However, the analysis should still be done with continuous variables and any binning only done at the end.
+
+**Variable transformation** is - as I mentioned above - sometimes a good idea. However, it should not be used without a reason, and sometimes there are better alternatives. For instance if your outcome is not normally distributed, then maybe use a model that more closely mimics your data. For instance, if your data come from a process that likely produces Poisson distributed data, you can use a generalized linear model with a Poisson distribution assumption. Similarly, you do not always need to transform predictors, and at times they make interpretability harder and it might be better to not transform.
+
+
+
+# General suggestions
+
+Once you have an idea of the kinds of models you want to apply, figure out if they require or could benefit from some of the data pre-processing steps just described. If yes, implement those processing steps. If a specific algorithm allows it, you can always try to fit the data with and without processing. The differences (or lack of differences) might tell you something useful. At times, this might be a trial-and-error process, where you first do not pre-process, realize the model doesn't work, then figure out what further processing is needed, then try again. 
+
+
+# Further Resources
+
+For some more reading see [Chapter 3 of HMLR](https://bradleyboehmke.github.io/HOML/process.html). The above mentioned book [Feature Engineering and Selection: A Practical Approach for Predictive Models](http://www.feat.engineering/) is also a good resource. The [tidymodels website](https://www.tidymodels.org/) also has articles and tutorials that cover some of these topics.
+
+
+
+

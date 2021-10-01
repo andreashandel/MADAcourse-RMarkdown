@@ -1,0 +1,103 @@
+---
+title: Regularization 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will cover the related ideas of regularization. We'll also briefly mention a few related approaches.
+
+
+# Learning Objectives
+* Know what regularization is and when to use it.
+* Be able to implement regularization in R.
+
+
+
+# Introduction
+
+The standard subset selection approach you just learned about considers a specific variable to be either in the model or not. 
+There are newer approaches that go by the name of regularization that take an in-between stance. A variable might be included, but it might be given less weight than other variables by reducing (regularizing) the coefficient in front of it. That's the idea of regularization.
+
+
+# Regularization
+
+Regularization tries to solve the same problem as subset selection, namely preventing overfitting (and also underfitting). Instead of solving this by completely removing predictors (and those model flexibility, which might lead to overfitting), it penalizes variables by giving them less influence on the outcome, thus _regularizing_ model behavior (or, in technical language: making things less "wiggly"). 
+
+It might be easiest to explain regularization with a specific example, so let's consider a linear model. Note, however, that the regularization concept and approach is general and applies to many models beyond linear ones.
+
+Our model is given by 
+
+$$Y = b_0 + b_1 X_1 + b_2 X_2 + ....$$. 
+
+We might decide to minimize the SSR, i.e., we are minimizing a cost function 
+
+$$C = SSR=\sum_i (Y_m^i - Y_d^i)^2$$. 
+
+Now, if we use regularization, we are going to instead minimize
+
+$$C = SSR + f(b_j) $$
+where the function _f_ is some function of the model parameters. There are 3 main ways to choose that function _f_, described next.
+
+
+## Ridge regression
+
+One way to choose the function that penalizes the predictors is to weigh each predictor by the predictor's coefficient squared. Choosing the penalty term as the square of the coefficient is called _L2 regularization_ or _ridge regression_. This leads to the cost function:
+
+$$C = SSR + \lambda \sum_j^p b_j^2 $$
+
+The parameter $\lambda$ decides the balance between the goodness of fit (low SSR) and the penalty for having large coefficients. Instead of trying different subsets as above and picking the best based on lowest CV performance, we now try different values of $\lambda$ and pick the model with the lowest (cross-validated) value for _C_. The parameter $\lambda$ is often referred to as the _tuning parameter_. 
+
+## LASSO
+An alternative is to penalize the coefficients by their absolute value, namely using this cost function:
+
+$$C = SSR + \lambda \sum_j^p |b_j| $$
+
+This method is called _L1 regularization_ or _Least Absolute Shrinkage and Selection Operator (LASSO)._ One nice feature of LASSO (which ridge regression does not have) is that coefficients may go to 0. That means the predictor has been dropped from the model, similar to the subset selection approach described previously. One can think of the LASSO as an efficient approach for performing subset selection. It is not quite equivalent though, since, in the LASSO, the predictors that remain might have been shrunk in their impact due to the regularization penalty.
+
+
+## Elastic net
+
+One can also combine ridge regression and LASSO into an approach called _elastic net_, which has a cost function that is the combination of the previous two, namely:
+
+$$ C = SSR + \lambda ( (1-\alpha) \sum_j^p b_j^2 + \alpha \sum_j^p |b_j|)$$
+
+Now one needs to try different values for $\lambda$ and $\alpha$ to determine the model with the best (cross-validated) performance. $\lambda$ determines the overall weight given to the penalty factor, while $\alpha$ determines how the penalty should be distributed between the 2 alternative terms.
+
+
+## Tuning a regularization model
+
+Depending on the kind of regularization model you fit, you have to determine 1 or 2 extra parameters ($\lambda$ and $\alpha$). These parameters are called **tuning parameters** and it is the first time we see a model that has them. Most complex machine learning models have such tuning parameters, and determining good values for those is part of the model fitting/training process. We'll talk about that in the next unit.
+
+
+
+## Further comments
+
+If you are familiar with AIC, BIC or similar information criteria, you might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.
+
+If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. [See section 6.2. of ISLR](https://statlearning.com/) for more.
+
+There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](https://statlearning.com/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I won't quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
+
+
+
+# Other methods
+
+Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled _feature reduction methods_, can be used. Some of those are _Partial Least Squares_, _Principal Component Analysis (PCA)_, _Generalized Low Rank Models (GLRM)_, _Autoencoders_. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in [chapters 17-19 of HMLR](https://bradleyboehmke.github.io/HOML/) and [section 6.3. of ISLR](https://statlearning.com/). We won't cover those, but if you are interested, take a look.
+
+

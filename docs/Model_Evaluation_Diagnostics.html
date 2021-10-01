@@ -14,8 +14,8 @@
 
 <title>Diagnosing Model Fit</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -489,6 +489,32 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -548,7 +574,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Diagnosing Model Fit</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 15:07:53</h4>
+<h4 class="date">2021-09-30 11:43:48</h4>
 
 </div>
 
@@ -587,6 +613,7 @@ div.tocify {
 <h1>Sensitivity analysis</h1>
 <p>Sometimes you have observations that might have a strong impact on the model, i.e., without those observations, the best fitting model would look quite different. If you decided that those points are <em>real</em> (i.e., not data entry or other mistakes), you might want to run the model both with those data points present and absent to investigate how results might change. Similarly, you might make decisions along the data cleaning path (e.g., to remove all observations with missing values, or instead remove some variables with lots of missing) which could affect results. Performing analyses in multiple ways to see how these decisions affect outcomes is useful. If you find that the overall results stay the same, it instills confidence in the robustness of your findings. If in contrast, different decisions lead to different answers, it might point to something worth investigating further.</p>
 <p>Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.</p>
+<p>Note that sometimes the term <a href="https://en.wikipedia.org/wiki/Sensitivity_analysis">sensitivity analysis</a> is used to imply in a more limited approach, namely just the exploration of the impact of model parameters on the outcomes. However, in the more broader sense of the word, it is the exploration how changes in the analysis pipeline (different subsets of data, different modeling assumptions, etc.) might or might not impact the results.</p>
 </div>
 <div id="other-checks" class="section level1">
 <h1>Other checks</h1>

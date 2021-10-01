@@ -90,7 +90,7 @@ which is called the root mean squared error (RMSE). The advantage of taking the 
 
 ## Coefficient of determination
 
-An equivalent alternative to SSR is to use a quantity called [Coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination), or more commonly $R^2$. This quantity is defined as $$1-RSS/TSS$$, where RSS is the residual sum of square introduced above and TSS is the [total sum of squares](https://en.wikipedia.org/wiki/Total_sum_of_squares). The latter is defined as
+An equivalent alternative to SSR is to use a quantity called [Coefficient of determination](https://en.wikipedia.org/wiki/Coefficient_of_determination), or more commonly $R^2$ (R-squared). This quantity is defined as $$1-RSS/TSS$$, where RSS is the residual sum of square introduced above and TSS is the [total sum of squares](https://en.wikipedia.org/wiki/Total_sum_of_squares). The latter is defined as
 
 $$TSS =  \sum_i (Y_{av} - Y_d^i)^2$$
 
@@ -169,9 +169,9 @@ Unfortunately, it is generally more complicated and often requires more custom-w
 
 # Further materials
 
-If you want to get some more intuition with fitting a continuous outcome, [go through this interactive tutorial](https://shiny.ovpr.uga.edu/modelperformance/). If it looks like the RStudio Primer tutorials you've seen, that is no accident. It uses the (fairly new) [learnr package](https://rstudio.github.io/learnr/). The difference is that I wrote this tutorial, the other ones were written by RStudio (and are therefore more polished and less buggy). 
+If you want to get some more intuition with fitting a continuous outcome, [go through this interactive tutorial](https://shiny.ovpr.uga.edu/modelperformance/). If it looks like the RStudio Primer tutorials you've seen, that is no accident. Both use the [learnr package](https://rstudio.github.io/learnr/). The difference is that I wrote this tutorial, the other ones were written by RStudio and are therefore more polished and less buggy `r emoji::emoji('smile')`.
 
-The [model evaluation section of HMLR](https://bradleyboehmke.github.io/HOML/process.html#model-eval) lists and describes various performance metrics.
+The [model evaluation section of HMLR](https://bradleyboehmke.github.io/HOML/process.html#model-eval) lists and describes various performance metrics. [This chapter of the Tidy Modeling with R book](https://www.tmwr.org/performance.html) also discusses different performance metrics.
 
 [Chapter 2 of ISRL](https://www.statlearning.com/), which you already looked at previously, also discusses the topic of performance, and several other issues we are discussing in this module. Now, or once you are finished with the other readings of this module, might be good time to revisit that chapter. 
 

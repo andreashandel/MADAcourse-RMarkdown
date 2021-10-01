@@ -18,7 +18,7 @@ knitr::opts_chunk$set(out.width = '70%')
 ```
 
 
-![A study with n=1 has large uncertainty. [Source: SMBC](http://www.smbc-comics.com).](./media/smbc-sample-size.png)
+![A study with n=1 has large uncertainty. [Source: SMBC](https://www.smbc-comics.com/comic/2014-09-17/).](./media/smbc-sample-size.png)
 
 
 # Overview
@@ -51,7 +51,7 @@ If we are interested in model predictions, we generally also want to know how mu
 Note that prediction intervals are not the same as confidence intervals.  The latter quantifies the uncertainty in model parameters, e.g., the _b~i~_ in a regression model. Since those _b~i~_ have uncertainty, the model predictions for the _expected_ observation has uncertainty. However, each real observation has additional scatter around the expected value. This additional uncertainty needs to be factored in when trying to make predictions for individual outcomes. As such, prediction intervals are wider than confidence intervals.
 
 # P-values
-So what about the **p-value?**. This quantity doesn't measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, not too useful and can most often be skipped (though sometimes one needs them just to make reviewers happy). I'm thus not talking about them further.
+So what about the **p-value?** This quantity doesn't measure uncertainty directly, though it is in some way related to it. p-values are sometimes useful for hypothesis testing. But in my opinion, p-values are overused, generally not too meaningful, and can most often be skipped (though sometimes one needs them just to make reviewers happy). I'm thus not talking about them further.
 
 
 

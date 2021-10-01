@@ -112,6 +112,8 @@ Note that there is, unfortunately [no one method that is universally best for al
 For some additional (as well as overlapping) information to what I wrote, read [Chapters 1 and 2.1. _An Introduction to Statistical Learning_ (ILS)](https://statlearning.com/). You don't need to work through it in detail and can skip over the math bits if you want to. But do try to get an overall idea of the concepts these chapters are trying to convey.
 [Chapter 1 of HMLR](https://bradleyboehmke.github.io/HOML/) is another good source that you should skim through. Again, try to get the main points (which will of course overlap with the text above and the other readings). 
 
+This recent paper [A practical guide to selecting models for exploration, inference, and prediction in ecology](./media/tredennick21ecology.pdf) provides a nice discussion of different modeling goals and what approaches one should use. Some of these approaches we have not discussed yet, but will soon. You could skim through the paper now, then revisit later once we covered more of the topics discussed in there.
+
 
 
 

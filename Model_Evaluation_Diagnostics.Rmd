@@ -69,6 +69,8 @@ Sometimes you have observations that might have a strong impact on the model, i.
 
 Since you are learning to set up your analysis in a fully automated way, doing such additional analyses is fairly painless. Often it just requires a small adjustment in code and waiting for the additional analysis to run.
 
+Note that sometimes the term [sensitivity analysis](https://en.wikipedia.org/wiki/Sensitivity_analysis) is used to imply in a more limited approach, namely just the exploration of the impact of model parameters on the outcomes. However, in the more broader sense of the word, it is the exploration how changes in the analysis pipeline (different subsets of data, different modeling assumptions, etc.) might or might not impact the results.
+
 
 
 # Other checks

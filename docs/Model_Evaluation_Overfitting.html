@@ -14,8 +14,8 @@
 
 <title>Model Performance and Overfitting</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -489,6 +489,32 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -548,7 +574,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Model Performance and Overfitting</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-24 14:40:31</h4>
+<h4 class="date">2021-09-30 20:58:08</h4>
 
 </div>
 
@@ -626,6 +652,12 @@ Bias-variance tradeoff. Source: ISLR.
 <li>Think carefully about your cost function/metric! A model that is great at predicting the wrong outcome is useless! (See e.g., the mass-shooting example.)</li>
 <li>No matter what approach you use, choosing a model based on performance alone is not enough. Perform additional evaluations (see next units).</li>
 </ul>
+</div>
+<div id="further-comments" class="section level1">
+<h1>Further comments</h1>
+<p>Don’t forget: Performance is not everything. Even if you have a model that performs best on the independent/cross-validated data, you might want to opt for a “worse” model that is easier to interpret and potentially use. Having smaller and simpler models can sometimes be of little importance and other times of great importance.</p>
+<p>For instance, if you want to build a model that allows doctors to predict the chance that a patient has a certain disease, you might want to have a model that only uses the fewest (or easiest/cheapest to measure) variables to obtain good performance. So if you collect a lot of data, some based on checking patient symptoms and some on lab results, you might not want to use all those variables in your model. Let’s say that you had data on 10 predictors, 5 for easy to measure symptom variables (e.g., body temperature and similar), and 5 variables that come from different lab tests. You’ll evalute models with different predictors (performing e.g., subset selection or LASSO, which we’ll discuss soon) and find that the best performing model retains 3 symptom variables and 2 lab tests. Let’s say its performance is 95% (I’m purposefully fuzzy about what that performance exactly is since it doesn’t matter. It could be accuracy, or F1 score, or AUC, or…). But you also find that another model that contains 4 symptom variables and no lab tests has 85% performance. Which do you choose? That comes back to our discussion about assessing model quality: Performance is an important measure, but it’s not the only one. In this case, since you could get data on the 4 symptoms very quickly and cheaply, you might want to recommend that model for most doctors offices, and only use the better, but more time-consuming and expensive model with the 2 lab tests in settings such as high-risk populations in the hospital.</p>
+<p>In contrast, if you are a bank that tries to predict fraud by having complicated models that constantly analyze various data streams, you might not care how complicated and big your model is, only that the performance in flagging fraudulent transactions is as good as possible.</p>
 </div>
 <div id="further-learning" class="section level1">
 <h1>Further learning</h1>

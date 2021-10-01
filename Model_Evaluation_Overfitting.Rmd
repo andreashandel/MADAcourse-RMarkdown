@@ -123,6 +123,16 @@ To repeat (again): **We generally want to know how well a model performs in gene
 * No matter what approach you use, choosing a model based on performance alone is not enough. Perform additional evaluations (see next units).
 
 
+# Further comments
+
+Don't forget: Performance is not everything. Even if you have a model that performs best on the independent/cross-validated data, you might want to opt for a "worse" model that is easier to interpret and potentially use. Having smaller and simpler models can sometimes be of little importance and other times of great importance. 
+
+For instance, if you want to build a model that allows doctors to predict the chance that a patient has a certain disease, you might want to have a model that only uses the fewest (or easiest/cheapest to measure) variables to obtain good performance. So if you collect a lot of data, some based on checking patient symptoms and some on lab results, you might not want to use all those variables in your model. Let's say that you had data on 10 predictors, 5 for easy to measure symptom variables (e.g., body temperature and similar), and 5 variables that come from different lab tests. You'll evalute models with different predictors (performing e.g., subset selection or LASSO, which we'll discuss soon) and find that the best performing model retains 3 symptom variables and 2 lab tests. Let's say its performance is 95% (I'm purposefully fuzzy about what that performance exactly is since it doesn't matter. It could be accuracy, or F1 score, or AUC, or...). But you also find that another model that contains 4 symptom variables and no lab tests has 85% performance. Which do you choose? That comes back to our discussion about assessing model quality: Performance is an important measure, but it's not the only one. In this case, since you could get data on the 4 symptoms very quickly and cheaply, you might want to recommend that model for most doctors offices, and only use the better, but more time-consuming and expensive model with the 2 lab tests in settings such as high-risk populations in the hospital.
+
+In contrast, if you are a bank that tries to predict fraud by having complicated models that constantly analyze various data streams, you might not care how complicated and big your model is, only that the performance in flagging fraudulent transactions is as good as possible.
+
+
+
 # Further learning
 
 [This blog post](https://www.mlnar.com/generalization-mindsets.html) provides a nice further discussion of the idea of **generalization** and how different areas of data science (statistics, machine learning, causal modeling) think about this problem. I think the most important paragraph is actually the short last one. I want to add to this that while different areas might think about the question of generalization differently, all of them more or less agree, that in the end, what is important is the general conclusions you can draw from your statistical modeling analysis and **it doesn't matter (by itself) how well your model performs on the data that you used to build your model!** What matters is what it means more generally.

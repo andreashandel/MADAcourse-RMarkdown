@@ -1,0 +1,100 @@
+---
+title: Model tuning 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will cover the concept of parameter/model tuning and training.
+
+
+# Learning Objectives
+* Know what parameter tuning/model training are.
+* Be able to implement training/tuning in R.
+
+
+# Introduction
+
+We discussed at length that one goal (but not the only) of model fitting is to find a model that has **good performance when applied to new/different data.** 
+
+For linear, logistic, and similar models (generalized linear models), we discussed the idea of subset/feature selection that can help determine a good model. For different sub-models, we fitted the model to some of the data and evaluated model performance on another part of the data using cross-validation. The model with the best cross-validated performance across all sub-models is then designated as the best (at least with regard to our chosen performance metric).
+
+We then discussed regularization, which tries to solve a problem similar to subset selection, namely preventing a model that is too complex and thus **overfits**. In the regularization approach, one does not compare sub-models with different predictor variables. Instead, all predictors are present, and one (or two) parameters (the regularization or penalty parameters, We called them $\lambda$ and $\alpha$) are varied to influence model complexity. For each value of that parameter, the model is evaluated through cross-validation, and the $\lambda$ which produces the model with the best performance is chosen (or sometimes one picks a somewhat larger $\lambda$ to further prevent potential overfitting).
+
+This approach of taking a model parameter and evaluating models for different parameter values is called **model/parameter tuning**. These model-specific tuning parameters are often also referred to as **hyperparameters**. Simple models, like linear or logistic regression, do not have any parameters that can be tuned. However, more complicated models, which we will discuss soon, generally have one or more tuning parameters. Very flexible models, such as neural nets used in artificial intelligence tasks, can have 1000s or more parameters that need tuning. For any models with tuning parameters, it is essential to **tune the parameters/train the model.** Without it, the model will likely not perform very well.
+
+
+
+# Model training/parameter tuning recipe
+
+Training the model by tuning its parameters follows a general approach that is conceptually the same for all models. You need to go through these steps:
+
+1. Select some values for your tuning parameters. 
+2. Using cross-validation, fit model to a part of the data (the _analysis_ portion), evaluate model performance on the remainder of data (the _assessment_ portion).
+3. Select new values for your tuning parameters, and repeat step 2.
+4. Keep going until you hit some stopping criterion, e.g., you tried all parameter combinations you wanted to try, you hit the maximum number of tries, or you hit the maximum amount of time you allocated for this parameter tuning. (Or you found the absolute best tuning parameter values, but that's only likely for simple models with few tuning parameters).
+5. Pick your best model as the one with the parameter values that produced the overall best model performance.
+
+Your final model consists of both the type of model and the values of the parameters. 
+
+
+
+
+:::note
+You might (or might not) have wondered if this procedure of repeatedly refitting the model for different values of the **tuning parameters (hyperparameters)** and re-fitting the model for different values of the **model parameters** (e.g., for the coefficients $b_i$ for a linear or generalized linear model) isn't more or less the same. Both conceptually and in practice, those approaches are quite similar. For GLM, there are differences in how things happen, namely the $b_i$ can be determined in a single step, without the need for trial and error. But for other models, such as some of the ML models we'll explore, tuning parameters and internal parameters associated with the model might both need to be determined by iterative procedures. Thus, while one can try to distinguish between model and tuning parameters (see e.g., [this blog post](https://machinelearningmastery.com/difference-between-a-parameter-and-a-hyperparameter/) discusses that point a bit more), this is often fuzzy. And the usual caveat applies: The terminology is not consistent, and what some people might call a model parameter might be called a tuning parameter by others. The good news is that in practice it doesn't matter much what you call a specific parameter. Some can be tuned and you can chose to do so (or not and fix it), others cannot be tuned and are determined internally. 
+:::
+
+
+
+# Searching the tuning parameter space
+
+The problem of trying a lot of different tuning parameter values to find the ones that lead to the best performance is very similar to the problem of trying to test a lot of different sub-models during subset selection to find the best model. Not surprisingly then, the procedures to perform the search over parameter space are similar to the ones one can use to search over subset/sub-model space. The most basic one for subset selection was to try every possible model (exhaustive search). This works in principle for tuning parameters as well, but only if the tuning parameters are discrete. For continuous tuning parameters (e.g., $\lambda$ in regularization), it is impossible to try _all_ values. One instead chooses discrete values for the parameter between some lower and upper limits and then searches that grid of parameters. This is called **grid search**. The advantage of a grid search is that you know you tried every combination of parameters in your grid. 
+
+For instance, if you have 2 continuous tuning parameters and 1 categorical tuning parameter with 3 categories, if you chose 10 discrete values for the 2 continuous parameters each, your grid would be 10x10x3. In this case, you would need to evaluate the model for 300 different tuning parameter values. That's not too bad. But you can see that one problem with this approach is that as the number of tuning parameters increases, or if you want to try many different discrete values (e.g., 100 instead of 10 for each continuous parameter), the number of times you need to run the model increases rapidly. That's the same problem as the exhaustive search for subset selection.
+
+To efficiently search for the best tuning parameters, methods similar to those mentioned for subset selection can be applied, e.g., one can use Genetic Algorithms, Simulated Annealing, or many other optimizer routines for tuning. While it is, in principle, possible to write your own code that implements the tuning procedure with whatever method you want to use, for most instances, it is easier to use pre-existing methods. 
+
+
+# Tuning with R
+
+`tidymodels`, and its package [`tune`](https://tune.tidymodels.org/) currently have a few different algorithms for searching the tuning parameter space implemented. Grid search is tha main one, as of this writing two other methods, namely _Simulated annealing_ and  _Iterative Bayesian optimization_ are implemented. To learn more about those, see [chapters 12-14 in Tidy Modeling With R](https://www.tmwr.org/).
+
+
+The `mlr3/mlr` package I keep mentioning also has algorithms to tune parameters, including some that are not available (yet) in `tidymodels`. For tuning in `mlr` see e.g. [here](https://mlr.mlr-org.com/articles/tutorial/tune.html
+) and [here](https://mlr.mlr-org.com/articles/tutorial/advanced_tune.html). For this course, we'll focus on what's available in `tidymodels`, but if you ever need to do some major parameter tuning/model optimization, checking out `mlr` might be worth it (or implementing your own with `tidymodels`, which is possible.)
+
+
+
+# Further comments
+
+Only if your model has very few tuning parameters and your data is manageable in size can you find the absolute best parameter values in a reasonable amount of time. More likely, you'll find parameter values that give you a close-to-optimal model.
+
+At times, cross-validation might take too much time, and you might have to use a computationally faster method, such as AIC or similar, to try to estimate model performance on future data. That's not ideal, you might want to consider other approaches first (fewer parameter evaluations, faster computer, running things in parallel...)
+
+Any process that adjusts the model repeatedly based on prior fits to data has the danger of **overfitting.** Even if you try to guard against this using approaches such as CV. Thus, sometimes less tuning might actually give you a more robust/generalizable model.
+
+The more tuning parameters in your model, the more data you need to be able to train the model properly. If you have a mismatch between the amount of data and model complexity, you are likely going to overfit. This is why complex models such as neural nets need vast amounts of data (millions or billions of observations). 
+
+
+
+# Further information
+
+Most relevant and maybe good to visit next are [chapters 12-14 in Tidy Modeling With R](https://www.tmwr.org/), which discuss the general tuning process, and then explain how to do grid search and iterative search using `tidymodels`.
+
+[Section 2.5.3 of HMLR](https://bradleyboehmke.github.io/HOML/process.html#tune-overfit) provides a very short section on tuning. [ISLR](https://www.statlearning.com/) mentions tuning in various places but doesn't describe it in a dedicated section. [IDS](https://rafalab.github.io/dsbook/) mentions it in the _Machine Learning_ chapters but also does not have a dedicated section on the topic. 
+
