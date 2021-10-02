@@ -574,7 +574,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Regularization</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-30 20:58:50</h4>
+<h4 class="date">2021-10-02 10:28:31</h4>
 
 </div>
 
@@ -626,16 +626,21 @@ div.tocify {
 <h2>Tuning a regularization model</h2>
 <p>Depending on the kind of regularization model you fit, you have to determine 1 or 2 extra parameters (<span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\alpha\)</span>). These parameters are called <strong>tuning parameters</strong> and it is the first time we see a model that has them. Most complex machine learning models have such tuning parameters, and determining good values for those is part of the model fitting/training process. We’ll talk about that in the next unit.</p>
 </div>
-<div id="further-comments" class="section level2">
-<h2>Further comments</h2>
+</div>
+<div id="further-comments" class="section level1">
+<h1>Further comments</h1>
 <p>If you are familiar with AIC, BIC or similar information criteria, you might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.</p>
 <p>If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. <a href="https://statlearning.com/">See section 6.2. of ISLR</a> for more.</p>
 <p>There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization <a href="https://statlearning.com/">see section 6.2. of ISLR</a>, <a href="https://bradleyboehmke.github.io/HOML/regularized-regression.html">chapter 6 of HMLR</a> and <a href="https://rafalab.github.io/dsbook/">section 34.9 of IDS</a>. I won’t quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques.</p>
 </div>
+<div id="more-regularization" class="section level1">
+<h1>More regularization</h1>
+<p>The term <em>regularization</em> is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework, the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book <a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a> by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.</p>
+<p>The main point is that if you see the word <em>regularization</em> in the literature, it might refer to the specific approaches discussed above, but it might also refer to other approaches related to <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">the general concept</a>.</p>
 </div>
-<div id="other-methods" class="section level1">
-<h1>Other methods</h1>
-<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Some of those are <em>Partial Least Squares</em>, <em>Principal Component Analysis (PCA)</em>, <em>Generalized Low Rank Models (GLRM)</em>, <em>Autoencoders</em>. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="https://statlearning.com/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
+<div id="methods-related-to-subset-selection-and-regularization" class="section level1">
+<h1>Methods related to subset selection and regularization</h1>
+<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Examples are <a href="https://en.wikipedia.org/wiki/Partial_least_squares_regression"><em>Partial Least Squares (PLS)</em></a>, <a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><em>Principal Component Analysis (PCA)</em></a>, <a href="https://en.wikipedia.org/wiki/Least-angle_regression">Least Angle Regression (LARS)</a>. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="https://statlearning.com/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
 </div>
 
 

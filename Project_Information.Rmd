@@ -32,8 +32,9 @@ There are several deadlines throughout the course at which time you need to subm
 * Part 1: Have a question/hypothesis & suitable data. 
 * Part 2: Part 1 + exploratory analysis. 
 * Part 3: Part 2 + start of statistical analysis.
-* Part 4: Complete project (part 3 + full analysis).
-* Part 5: Complete project, updated based on reviewer feedback.
+* Part 4: Part 3 + most of statistical analysis.
+* Part 5: Complete project, ready for peer review.
+* Part 6: Complete final project, updated based on reviewer feedback.
 
 The deadlines are listed in the __Schedule__ document (it's unlikely, but they might change, so keep checking that document).
 

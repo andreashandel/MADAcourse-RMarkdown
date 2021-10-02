@@ -86,7 +86,7 @@ Depending on the kind of regularization model you fit, you have to determine 1 o
 
 
 
-## Further comments
+# Further comments
 
 If you are familiar with AIC, BIC or similar information criteria, you might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.
 
@@ -95,9 +95,17 @@ If LASSO has the nice feature of potentially removing variables and thus making 
 There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](https://statlearning.com/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I won't quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
 
 
+# More regularization
 
-# Other methods
+The term _regularization_ is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework, the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.
 
-Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled _feature reduction methods_, can be used. Some of those are _Partial Least Squares_, _Principal Component Analysis (PCA)_, _Generalized Low Rank Models (GLRM)_, _Autoencoders_. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in [chapters 17-19 of HMLR](https://bradleyboehmke.github.io/HOML/) and [section 6.3. of ISLR](https://statlearning.com/). We won't cover those, but if you are interested, take a look.
+The main point is that if you see the word _regularization_ in the literature, it might refer to the specific approaches discussed above, but it might also refer to other approaches related to [the general concept](https://en.wikipedia.org/wiki/Regularization_(mathematics)).
+
+
+
+# Methods related to subset selection and regularization
+
+Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled _feature reduction methods_, can be used. Examples are [_Partial Least Squares (PLS)_](https://en.wikipedia.org/wiki/Partial_least_squares_regression), [_Principal Component Analysis (PCA)_](https://en.wikipedia.org/wiki/Principal_component_analysis), [Least Angle Regression (LARS)](https://en.wikipedia.org/wiki/Least-angle_regression). We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in [chapters 17-19 of HMLR](https://bradleyboehmke.github.io/HOML/) and [section 6.3. of ISLR](https://statlearning.com/). We won't cover those, but if you are interested, take a look.
+
 
 

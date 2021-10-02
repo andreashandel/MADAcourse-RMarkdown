@@ -69,17 +69,10 @@ a.thumbnail:hover {
   }
   
   
-div.puzzle {
-  background-image: url("./media/yourturn.png");
-}
-
 div.fyi {
  background-image: url("./media/fyi.png");
 }
 
-div.demo {
-  background-image: url("./media/livecode.png");
-}
 
 div.note {
   background-image: url("./media/lightbulb.png");

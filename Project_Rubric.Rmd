@@ -72,9 +72,32 @@ Grading for this part will follow the following rubric:
 To that end, provide the following pieces of information:
 
 * All relevant files and documents needed to reproduce everything.
-* Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everyting.
-* A main article/manuscript file which contains the most pertinent findings. You should include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable, so don't produce page-long raw R output or similar things. Further figures and tables con go into supplementary document(s). The way you split content between main manuscript file and supplement is up to you.
-* Files with code that are well documented, and that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individal predictors of interest. Those will likely take the form of scatterplots or boxplots or 2x2 tables, with accompanying statistical model analysis.
+* Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everything.
+* Files with well-documented code (either R scripts or Rmd files) that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individual predictors of interest. I suggest as much as possible you use the `tidymodels` framework. You can also try a few multivariable GLM. Results from those explorations should be saved in whatever form you consider most appropriate (figures or tables).
+* A main article/manuscript file which contains the most pertinent results and findings from everything you have done so far. You can include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable and somewhat focused, so don't produce page-long raw R output or a ton of exploratory figures or similar things. The main results of your analysis should be in this manuscript. Any further explorations and results (figures and tables) should go into a separate Rmarkdown file that comprises the supplementary material. For some idea on how this can be structured, you can for instance revisit Brian's project we looked at [in this unit](./Data_Analysis_Motivation.html).
+
+Grading for this part will follow this rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Sufficient | Submission is complete or fairly complete | 100 |
+| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 75 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Absent | Everything or majority of submission is missing | 0 |
+
+
+# Part 4
+
+**The objective is to have mostly completed implementation of analyses following the approaches covered in the course.**
+
+To that end, provide the following pieces of information:
+
+* All relevant files and documents needed to reproduce everything.
+* Documentation for everything you are doing. Any files/documentation not related to your project should be removed, only relevant information should be present.
+* Code that performs statistical analyses of your data using the approaches we cover in class, such as: train/test split, cross-validation, trying different models, exploring model quality (performance, uncertainty, diagnostics, etc.). Depending on your data and question, not all approaches will make sense for your data. Choose the ones that make sense. E.g., if you happen to do an analysis of text or high-dimensional data, use methods/models appropriate for that data. The main point is that you should show you understand the main concepts regarding analysis and model evaluation and can apply them to your data with the tools we covered.
+* Update your manuscript and supplementary files with the new results (figures/tables) from your analysis.
+* At this point, make sure you are also far along with your background section, including referencing (using a reference manager and bibtex, file, **no manual references**) and everything starts looking like a full analysis similar to what one could submit to a journal for publication. 
+
 
 Grading for this part will follow this rubric: 
 
@@ -87,9 +110,9 @@ Grading for this part will follow this rubric:
 
 
 
-# Part 4
+# Part 5
 
-**The main objective for part 4 is to have a fully completed project, ready for peer review.** 
+**The objective for part 5 is to have a fully completed project, ready for peer review.** 
 
 To that end, provide the following pieces of information:
 
@@ -98,21 +121,22 @@ To that end, provide the following pieces of information:
 * A complete, nicely readable and well formatted report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
 * Well documented supplementary material/text, Rmd/R scripts, data, etc. as needed.
 * bibtex file.
-* Everything well documented.
+* Everything very well documented and polished as much as possible.
 
-I will not grade this part but it will be assessed by your peers, as described in the _Project Review_ document.
+I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
 
 _An excellent project would look similar to the Brian McKay's paper example you checked out in the [Motivating Examples document](./Data_Analysis_Motivation.html)_ 
 
 
-# Part 5
+# Part 6
 
-**The main objective for part 5 is to have a finished project, ready for final grading.** 
+**The main objective for part 6 is to have a finished project, ready for final grading.** 
 
 To that end, provide the following pieces of information:
 
-* Everything from part 4, with improvements based on peer review feedback.
+* Everything from part 5, with improvements based on peer review feedback.
+* You are allowed to make as little or as many improvements based on feedback from your classmates as you like. I will only look at this final product and grade it.
 
-Grading for this part will follow the rubric provided in the _Project Review_ document. 
+Grading for this part will follow the same rubric used for peer-assessment, provided in the _Project Review_ document. 
 
 
