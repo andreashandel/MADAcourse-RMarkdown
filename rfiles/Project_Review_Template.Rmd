@@ -1,6 +1,5 @@
 ---
 title: Project Review Template 
-author: YOURNAME
 date: "`r file.mtime(knitr::current_input())`"
 #bibliography: ../media/references.bib
 output: 
@@ -13,7 +12,7 @@ output:
 
 Title of project:
 
-Name of project author:
+Name of project author(s):
 
 Name of project reviewer:
 
@@ -24,7 +23,9 @@ Write your comments and feedback below for each section/component of the project
 
 For each component, pick one summary statement by deleting the ones that do not apply and keeping only the one that you think most closely summarizes a given component. 
 
-Delete any sections/text of this template that are not part of your final review document.
+Make sure your final document compiles/knits into a readable, well-formatted html document.
+
+Delete any sections/text of this template that are not part of your final review document. (Including these instructions.)
 
 
 # Specific project content evaluation
@@ -38,7 +39,7 @@ How well is the context of the project described? Is a comprehensive background,
 
 WRITE YOUR FEEDBACK HERE
 
-### Summary assessment
+### Summary assessment (PICK ONE, DELETE THE OTHERS)
 * very poor contextualization and motivation
 * some contextualization and motivation
 * strong contextualization and motivation
@@ -161,7 +162,7 @@ WRITE YOUR FEEDBACK HERE
 
 
 ## Reproducibility
-Are all results fully reproducible? Is documentation provided which clearly explains how to reproduce things, and does it work without the need for any manual intervention?
+Are all results fully reproducible? Is documentation provided which clearly explains how to reproduce things, and does it work without the need for any manual intervention? Are you able to re-run the whole analysis without having to do manual interventions/edits?
 
 ### Feedback and Comments
 

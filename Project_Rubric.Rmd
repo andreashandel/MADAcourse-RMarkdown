@@ -16,6 +16,9 @@ This documents provides more detailed instructions and grading rubrics for each 
 
 Note that you should not consider the scores below as corresponding to a letter grade. Instead, I use those to differentiate between different aspects of the project. Only at the end while I make actual grade-like scores, which will likely involve curving (up, never down).
 
+At my discretion, I might consider assignments even if they are submitted after the deadline. In that case, I might take off a point for lateness.
+
+
 # Part 1
 
 **The main objective for part 1 is to describe data and question in enough detail that I can assess if the planned project is feasible.** 
@@ -33,9 +36,9 @@ Grading for this part will follow the following rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 100 |
-| Somewhat insufficient | Most components are present, but noticeable gaps exist | 75 |
-| Not sufficient | Submission is rather incomplete, has major missing parts which does not allow assessment of feasibility of proposed project | 50 
+| Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 3 |
+| Somewhat insufficient | Most components are present, but noticeable gaps exist | 2 |
+| Not sufficient | Submission is rather incomplete, has major missing parts which does not allow assessment of feasibility of proposed project | 1 
 | Absent | Everything or majority of submission is missing | 0 |
 
 
@@ -58,9 +61,9 @@ Grading for this part will follow the following rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 100 |
-| Somewhat insufficient | Submission is somewhat incomplete, parts missing or not reproducible| 75 |
-| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Sufficient | Submission is complete or fairly complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
 | Absent | Everything or majority of submission is missing | 0 |
 
 
@@ -80,9 +83,9 @@ Grading for this part will follow this rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 100 |
-| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 75 |
-| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Sufficient | Submission is complete or fairly complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
 | Absent | Everything or majority of submission is missing | 0 |
 
 
@@ -103,9 +106,9 @@ Grading for this part will follow this rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 100 |
-| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 75 |
-| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 50 |
+| Sufficient | Submission is complete or fairly complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
 | Absent | Everything or majority of submission is missing | 0 |
 
 
@@ -116,17 +119,17 @@ Grading for this part will follow this rubric:
 
 To that end, provide the following pieces of information:
 
-* Every file needed to reproduce your complete analysis and report in your project repository.
+* Every file needed to reproduce your complete analysis and report in your project repository (that includes files such as readme, bibtex, style files, etc).
 * Detailed instructions (e.g. as a `readme.md` file) explaining how to reproduce all your results.
 * A complete, nicely readable and well formatted report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
-* Well documented supplementary material/text, Rmd/R scripts, data, etc. as needed.
-* bibtex file.
+* Well documented supplementary material 
+* Well-documented code as Rmd or R scripts that explain cleary all steps in your analysis (including the wrangling/exploring parts).
+* Meta-data explaining your data as needed.
 * Everything very well documented and polished as much as possible.
 
-I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
+Check the [Project Review Template file](./rfiles/Project_Review_Template.Rmd) to see how this submission will be assessed by your peers. I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
 
 _An excellent project would look similar to the Brian McKay's paper example you checked out in the [Motivating Examples document](./Data_Analysis_Motivation.html)_ 
-
 
 # Part 6
 
@@ -137,6 +140,6 @@ To that end, provide the following pieces of information:
 * Everything from part 5, with improvements based on peer review feedback.
 * You are allowed to make as little or as many improvements based on feedback from your classmates as you like. I will only look at this final product and grade it.
 
-Grading for this part will follow the same rubric used for peer-assessment, provided in the _Project Review_ document. 
+I will grade the final project using the same criteria your classmates used for peer-assessment. This will be graded on a 100 points scale and combined with the other project scores for a final overall project score.
 
 

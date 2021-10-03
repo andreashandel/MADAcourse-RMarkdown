@@ -37,9 +37,9 @@ Ok, now it gets maybe a bit complicated. I will review and assess the quality of
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Reviews are complete or fairly complete | 100 |
-| Somewhat insufficient | Reviews are somewhat incomplete, lack useful/detailed feedback | 75 |
-| Insufficient | Only one review was submitted, or submissions were very incomplete | 50 |
+| Sufficient | Reviews are complete or fairly complete | 3 |
+| Somewhat insufficient | Reviews are somewhat incomplete, lack useful/detailed feedback | 2 |
+| Insufficient | Only one review was submitted, or submissions were very incomplete | 1 |
 | Absent | No reviews were submitted | 0 |
 
 

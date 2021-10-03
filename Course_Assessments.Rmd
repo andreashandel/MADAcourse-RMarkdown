@@ -26,7 +26,7 @@ The quizzes cover the basics and ensures you have gone through some of the mater
 
 **Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the __Announcements Slack Channel__ for the link.**
 
-**Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Friday 5pm), otherwise the sytem will not take your submission.**
+**Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Fridays), otherwise the system will not take your submission.**
 
 
 ### Quiz sheets
@@ -63,17 +63,19 @@ The exercises are usually quite in-depth, require you to apply some of the mater
 
 If you get stuck during the exercises (quite possible), do feel free to get help. Use the various course materials, the course discussion board as well as outside resources. But do try to do as much as possible yourself (of course with the help of Google). 
 
-__Unless otherwise specified, exercises are due by Friday 5pm. Quite often, some part of the exercise needs to be done before that deadline to allow for group work.__ 
+__Unless otherwise specified, exercises are due by Friday. Quite often, some part of the exercise needs to be done before that deadline to allow for group work.__ 
 
 
 ### Exercise grading
 
-I generally grade the exercises based on 4 categories: 
+I grade the exercises based on 4 categories: 
 
-* 100 points = complete or only minor omissions/mistakes.
-* 75 points = some noticeable bits are missing or wrong.
-* 50 points = some parts are present, but overall very incomplete.
+* 3 points = complete or only minor omissions/mistakes.
+* 2 points = some noticeable bits are missing or wrong.
+* 1 points = some parts are present, but overall very incomplete.
 * 0 points = completely or almost completely missing.
+
+At my discretion, I might consider assignments even if they are submitted after the deadline. In that case, I might take off a point for lateness.
 
 Don't interpret these scores as grades, I just use them to differentiate, then I'll adjust at the end when I compute the overall project score.
 
@@ -84,7 +86,7 @@ We can't have in-class discussions in an online course, but hopefully we can sti
 
 You will be asked to participate in discussions throughout the course, and discussion participation is part of the grade. The discussions are meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights. 
 
-__Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies are due by Friday 5pm. Post to the discussion channel for the applicable module (e.g. module2_discussion, module3_discussion).__ 
+__Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies are due by Friday. Post to the discussion channel for the applicable module (e.g. module2_discussion, module3_discussion).__ 
 
 
 ### Discussion guidelines
@@ -97,6 +99,7 @@ To make sure discussions work well for everyone, here are some general guideline
 * Make meaningful contributions. You are welcome to react to each others' posts with `r emo::ji("smiley")` or `r emo::ji("thumbs up")`, but that does not replace more substantial responses. Give reasons why you think something is one way or another.
 * For the purpose of assessment, you need to participate in the discussions at the level specified in each module's assessment document. I encourage you to engage in further discussions. Those further posts won't be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.
 * It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts. 
+* Discussions will remain available for the whole course, and you can keep contributing at any time.  
 
 
 
@@ -106,11 +109,10 @@ For most modules, you'll have to do the following (unless specifically directed 
 
 * You need to write a post (generally a few hundred words) as instructed. Post it to the appropriate channel by __Wednesday evening__. 
 * You need to write __at least__ 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by __Friday evening__. 
-* For each module (i.e. each week) you need to post a minimum of 4 posts (1 initial, 3 replies) with around 500 _meaningful_ words total by the deadlines. I won't count words (unless it looks really short), but I will count the number of posts and check if they have been posted before/by the deadline.
-* Doing the required posts (quantity, quality, and timing) will give a 100 for this module's discussion. Any shortcomings will lead to fewer points. If you don't post anything or it's all after the deadlines, it's zero points. In the end, all scores are averaged and contribute to the discussion portion of the grade.
+* For each module (i.e. each week) you need to post a **minimum** of 4 posts (1 initial, 3 replies) with around 500 _meaningful_ words total by the deadlines. I won't count words (unless it looks really short), and probably also won't count the number of posts, unless both seem well below the minimum.
+* I will use the same 0-3 point score for each discussion as for the quizzes.
 * Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.
 * For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.
-* Discussions will remain available for the whole course, and you can keep contributing at any time.  
 
 
 ## Projects
