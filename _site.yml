@@ -135,8 +135,8 @@ navbar:
              href: ./Model_Improvement_Tuning.html     
            - text: "Assessment: Model Improvement"
              href: ./Assessment_Model_Improvement.html
-    #     - text: "11. Machine Learning Models I"
-    #       menu:
+        - text: "11. Machine Learning Models I"
+          menu:
     #         - text: "13b. Tree based Models"
     #           href: ./13b_Tree_based_Models.html     
     #         - text: "13c. Assessment"
