@@ -1,0 +1,82 @@
+---
+title: Many-tree based models 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will cover an extension of CART models, namely models that combine multiple trees for improved performance (but reduced interpretability).
+
+# Learning Objectives
+* Be familiar with several tree-based methods
+* Understand the advantages and disadvantages of single trees versus tree ensembles
+
+
+# Many trees 
+
+As discussed in the last units, trees have many good properties, such as being interpretable, able to work for both regression and classification, deal with missing values, and auto-select predictors.
+
+The main disadvantage of tree models is that their performance is often not that great. It is, however, possible to build models which are combinations of many single trees, and which often have very good performance (but are less interpretable). The idea behind more sophisticated tree-based methods is to take multiple individual trees and add/average them together in a smart way to end up with an ensemble of trees that often performs much better than a single tree. Some of the most common approaches are **Bagging (Bootstrap aggregation)**, **Random Forests**, and **Boosting**. We'll cover each one very briefly. 
+
+
+# Bagging
+
+The main goal of bagging is to reduce variance, which is the main factor that generally negatively affects the performance of a single tree (even if one uses pruning/cross-validation). Remember that if we have _N_ independent observations, each with the same variance/standard deviation, _SD_, the total variance is _SD_/_N_. If we had _M_ datasets for the same process, each with _N_ observations, and we built a model for each dataset, we could average over the models and thereby reduce the variance by 1/M. We don't have _M_ different datasets, but we can re-sample our existing data (using **bootstrapping**), and build a model for each sample. We can then, in the end, average over the different models to reduce variance. Here, each model is a tree, but we could also apply this approach to other models. The final model is the average of all the trees/individual models. Since the bagging procedure reduces the variance, individual trees are not pruned. Bagging leads to models with less variance and thus generally better model performance/predictive power. What is lost now is the ease of interpretation, since our final model is now the sum of a (possibly large) number of individual trees.
+
+
+# Random forest
+
+The random forest model/algorithm is similar to bagging. The difference is that as we split each tree, instead of considering all possible predictors, we pick a random subset of predictors and only split on the best among those. Since we are artificially limiting ourselves, we obtain many trees that don't perform too well on their own. However, this random choosing of subsets of predictors leads to more "diversity" in the tree structure (i.e., it avoids the greedy nature of the standard tree building algorithm). This helps in de-correlating the trees when we sum across them in the final model. Often this further improves model performance. The _cost_ is the same as for bagging, namely the final model is a sum of trees which is hard to understand and interpret.
+
+
+# Boosting
+
+Boosting takes a somewhat different approach than the other two. In this case, instead of averaging over _full_ trees, we build many small trees. The procedure starts by building a tree with a specified, often small number of splits (this number is a tuning parameter). This small tree is added to the model, the change in performance is computed (e.g., reduction in RMSE/misclassification error) and a new tree is built that tries to reduce the leftover (residual) errors. In this form, many small trees are added, each one trying to _take care_ of the under-performance produced by previous trees. In the end, one ends up with a sum of many small trees as the final model. This tree ensemble is expected to perform much better than each of the individual trees. Again, the final model is somewhat hard to interpret.
+
+
+
+# Advantages and disadvantages of many-tree models  
+
+All the advantages mentioned for a single tree model apply to many-tree models. The main additional advantage is that these models often have (much) improved performance compared to a single tree. It is often possible to use an algorithm that implements one of these many-tree models and with little adjustment and tuning, obtain a model with excellent performance. It is, however, still important to tune/train the model.
+
+I already mentioned the main disadvantage: These models are hard to interpret. If the goal is to have a user-friendly model that could be used by humans, trees are best. If the user is ok with typing values into a computer (or smartphone) and letting some algorithms run in the background and produce answers, then more complex models might be ok.
+
+Another possible disadvantage of many-tree models is that they generally take longer to train, so if speed is important, one might not be able to use all of these model variants to their full extent.
+
+
+# Additional comments
+
+As mentioned, bagging and boosting are approaches that can be applied to methods other than trees. For instance, one can bag/boost linear models, GAM, etc.
+
+The many-tree methods described above are examples of what is often called **ensemble methods.**  Boosting is an example of using an ensemble of weak learners, i.e., a combination of models that individually don't perform that well, but when combined, they often have outstanding performance. The combination of different individual models/learners (weak or not) is often called **model averaging/stacking**, and such methods lead to some of the best-performing models in machine learning. For more on this, see e.g., the [_Stacked Models_ chapter of HMLR](https://bradleyboehmke.github.io/HOML/stacking.html). We will not further cover these models, but if you have a situation where you need the best model performance available, such models might be worth looking at. 
+
+
+
+# Implementing tree models in R
+
+The `tidymodels` framework allows access to many different types of packages/algorithms that implement tree-based models. You can see the [full list here](https://www.tidymodels.org/find/parsnip/). 
+
+Many of these methods and packages are similar and differ in the details of the model implementation, the speed at which they run, if one can parallelize them, etc. Some common ones that people use are `rpart` for individual trees, `ranger` for random forests, `xgboost` for boosting. Many others are available too. Often it doesn't matter much which package you use. Sometimes you might need specific features that only a certain package can give you, then you need to go with that one. 
+
+Since `tidymodels` is still under development, there are many other packages for tree-based and related model fitting that can't yet be accessed through it. If you absolutely need one that's not yet supported, you can either try to implement it through `tidymodels` or just write code that uses the model directly.
+
+
+# Further information
+
+For more details on the many-tree methods described here, see [chapter 8 of ISLR](https://statlearning.com/) and [chapters 10-12 of HMLR](https://bradleyboehmke.github.io/HOML/DT.html).
+

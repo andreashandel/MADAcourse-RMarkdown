@@ -560,9 +560,7 @@ div.tocify {
         <li>
           <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
         </li>
-        <li>
-          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
-        </li>
+        <li class="dropdown-header">Assessment: Fitting Basic Models</li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -583,9 +581,7 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
-        <li>
-          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
-        </li>
+        <li class="dropdown-header">Assessment: Model evaluation</li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -606,8 +602,20 @@ div.tocify {
         <li>
           <a href="./Model_Improvement_Tuning.html">Model tuning</a>
         </li>
+        <li class="dropdown-header">Assessment: Model Improvement</li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
+      <ul class="dropdown-menu" role="menu">
         <li>
-          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+          <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
+        </li>
+        <li>
+          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+        </li>
+        <li>
+          <a href="./Many_Tree_Models.html">Many-tree models</a>
         </li>
       </ul>
     </li>
@@ -668,7 +676,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-09-30 13:19:34</h4>
+<h4 class="date">2021-10-05 20:53:25</h4>
 
 </div>
 
@@ -679,13 +687,10 @@ div.tocify {
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>We’ll practice a bit of model fitting using the <code>tidymodels</code> framework and continuing with an exercise you started previously, namely the exercise where you obtained and wrangled some CDC data. We’ll now add some fitting.</p>
+<p>We’ll practice a bit of model fitting using the <code>tidymodels</code> framework. Of course, some wrangling tasks are likely part as well. This is another solo exercise. We’ll get a back to group work, I promise.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>We’ll again add a group exercise component, using the - by now familiar - M1, M2, … setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository. If you are in a group of 4, you can do pairs. That of course doesn’t work in a group of 3, so you need to use the ‘circular’ setup there.</p>
-<p>For this exercise, we’ll revisit and extend the project you started in the <em>wrangling</em> module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio.</p>
-<p>The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that’s not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data or you switch to a different dataset.</p>
-<p>If you have to create artificial data, do that with R commands, either at the beginning or end (or both) of your cleaning script. <strong>No editing of raw data files by hand!</strong> (We only did that once in the beginning exercise for convenience, but we won’t do that again.)</p>
+<p>We are going to use <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v">the data from Brian McKay’s paper</a> you saw at the beginning of the course. Download all his files, unzip.</p>
 </div>
 <div id="wrangling-and-eda-revisited" class="section level2">
 <h2>Wrangling and EDA revisited</h2>

@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Assessment - Improving models</title>
+<title>Polynomial and Spline Models</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -580,25 +580,77 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Improving models</h1>
+<h1 class="title toc-ignore">Polynomial and Spline Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-04 21:33:38</h4>
+<h4 class="date">2021-10-05 11:46:52</h4>
 
 </div>
 
 
-<div id="quiz" class="section level1">
-<h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will very briefly cover some statistical models that provide more flexible extensions to generalized linear models.</p>
 </div>
-<div id="exercise" class="section level1">
-<h1>Exercise</h1>
-<p>We definitely need to practice some of the topics we covered in this (and previous modules). But since at the end of the week there is another project deadline, I want you to focus on that. Thus no exercise this week, we’ll practice the topics we covered in upcoming exercises.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Be familiar with polynomial and spline models.</li>
+<li>Understand advantages and disadvantages of these models.</li>
+<li>Know when to use them and how to minimize overfitting.</li>
+</ul>
 </div>
-<div id="discussion" class="section level1">
-<h1>Discussion</h1>
-<p>Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).</p>
-<p>Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.</p>
+<div id="glm-review" class="section level1">
+<h1>GLM review</h1>
+<p>So far, we focused on generalized linear models (GLM), and mainly on the two workhorses of statistical analysis, linear models for regression modeling of continuous outcomes, and logistic models for classification modeling of categorical (binary) outcomes.</p>
+<p>As mentioned, what GLM have in common is that the predictor variables show up as a linear combination, which is then mapped to the outcome with some function. In general, one can write a GLM like this</p>
+<p><span class="math display">\[f(Y)=b_0 + b_1X_1 + b_2X_2 + ...\]</span> where the choice of the function <span class="math inline">\(f\)</span> (called link function) determines the specific model. For a standard linear model, it’s simply <span class="math inline">\(f=1\)</span> and the model is <span class="math display">\[\textrm{linear model:} \qquad Y=b_0 + b_1X_1 + b_2X_2 + ...\]</span> For a logistic model, it is <span class="math inline">\(f=\log \left( \frac{Y}{1-Y} \right)\)</span> and the whole model becomes <span class="math display">\[\textrm{logistic model:} \qquad \log \left( \frac{Y}{1-Y} \right) = b_0 + b_1X_1 + b_2 X_2 + ...\]</span> You can re-write this such that there is just <span class="math inline">\(Y\)</span> on the left and exponentiated terms of the <span class="math inline">\(X\)</span> on the right, you might have seen either notation for the model before in one of your statistics classes.</p>
+<p>If, instead, your outcome was poisson distributed, you would use <span class="math inline">\(f = log(Y)\)</span> and the model would be</p>
+<p><span class="math display">\[\textrm{poisson model:} \qquad \log \left( Y \right) = b_0 + b_1X_1 + b_2 X_2 + ...\]</span></p>
+<p>Similar GLM for outcomes that are distributed in other ways are possible, see e.g. <a href="https://en.wikipedia.org/wiki/Generalized_linear_model">the list on Wikipedia</a>. In <code>R</code>, if you use the <code>glm</code> function, you can set the link function by specifying the <code>family</code> argument. If you use <code>tidymodels</code>, there are similar ways to set the link function, depending on the underlying fitting function you use.</p>
+<p>This model structure is easy to understand, one can test the impact of individual predictor variables by taking them in and out of the model (subset selection) or alternative approaches (e.g. regularization), and one can see in the final model which predictor variables survive, and what their impact is, as given by the coefficients in front of the variables.</p>
+<div class="note">
+<p>If you have a model that has a mix of categorical and continuous input variables, and you want to compare their impact by looking at the values of their coefficients, you need to standardize your continuous variables so they are on a similar scale as your categorical variables.</p>
+</div>
+<p>The main disadvantage is that GLM do not allow you to capture more intricate patterns in the data. For instance if you had a scenario where you measured the activity/movement of some animal and how that might be impacted by temperature, it is quite feasible to expect a curved relation. At low temperatures, the animals try to stay warm and don’t move much. At high temperature, the animals also don’t move much and instead try to stay cool. At some intermediate temperature, their movement is largest. So if you had data for animal movement as outcome, and temperature as your predictor variable, a linear model would not be good. You wanted a model that allows the pattern to curve. If you start with a linear model and look at the plot of your residuals, or an outcome-prediction plot, you would see systematic deviations, telling you that your model is not missing important patterns in the data and you are therefore <strong>underfitting.</strong></p>
+<p>If that’s the case, you might want to move on to more flexible models.</p>
+<p>::note Even if you suspect (or know) that the true relation between input and output is not linear - and in most cases, that is true, it is still often good to start with a linear model. Often, things are approximately linear, and if you don’t have a lot of data, have a good bit of noise, and are trying to capture the relation between multiple input variables and the outcome, it is quite possible that the data doesn’t allow you to go beyond checking for linear relations. So it’s generally good to start with a linear model, then explore the model results (e.g., residual plots) and if you see indications for underfitting, start extending your model. ::</p>
+</div>
+<div id="polynomial-models" class="section level1">
+<h1>Polynomial models</h1>
+<p>A natural extension of GLM is to include higher-order terms for the predictors, either with itself or with other predictor variables (the latter case is called an interaction term). For instance for a simple linear model, this includes second-order terms for <span class="math inline">\(x_1\)</span> and <span class="math inline">\(X_2\)</span> and also an interaction term between the two variables</p>
+<p><span class="math display">\[Y=b_0 + b_1X_1 + b_2X_2 + b_3 X_1^2 + b_4 X_2^2 + b_5 X_1X_2 + ...\]</span></p>
+<p>Such models with higher order terms (<span class="math inline">\(X^2\)</span>, <span class="math inline">\(X^3\)</span>, …) are often called polynomial models. Note that statisticians still call this a linear model, since the <strong>coefficients show up in linear combinations</strong>, even though the variables do not. It took me years to figure out that terminology, since a physicists/engineer would call this a non-linear model!</p>
+<p>The advantage of polynomial models is that they can more flexibly capture patterns in the data. A major shortcoming of polynomial models is that as the predictor values get very large or small, the predicted outcomes go “through the roof” (a technical statistical term 😁). Let’s say you had data for the animal movement-temperature example that had temperature up to 30 degrees Celcius and showed a marked decline in movement going from 20C to 30C. A 2nd order polynomial that curved down as temperature went up did a good job at modeling the data. It is quite likely that if you try to predict higher temperatures, say 35C or 40C, movement might turn negative! That of course can’t happen, an animal can’t move less than not at all. These are general problems with polynomial functions, they impose an overall structure on the data and generally therefore behave poorly for values outside the range of the data. Thus, while easy to use, those models are generally not the best choice, the ones we discuss next are generally better.</p>
+</div>
+<div id="spline-models" class="section level1">
+<h1>Spline models</h1>
+<p>Spline models are similar to polynomial models, inasmuch as they allow higher order terms of the predictor variables to show up in the model, and thus can capture patterns that go beyond linear relations. They try to deal with the potential problem of imposing a global structure done by polynomial models by applying polynomial combinations of predictors only to parts of the data, with connection points (knots) between those parts. The end result is a smooth function that allows for capturing of potentially non-linear patterns without the need to impose a global structure. This often improves the quality of the fits. Though even for these kinds of functions, extrapolation outside the range of observed/measured predictor values can be tricky and often lead to wrong results (in fact, a general problem for models).</p>
+</div>
+<div id="local-regression" class="section level1">
+<h1>Local regression</h1>
+<p>When using <code>ggplot2</code>, you likely came across a local regression curve. That default smoothing for small data if you use <code>geom_smooth</code> is a LOESS model, which is a type of <a href="https://en.wikipedia.org/wiki/Local_regression">local regression</a>. You can think of it conceptually very similar to spline models, though the details of how it’s implemented differ. It is perfectly fine to use smoothing functions without making any adjustments during data exploration. But if you want to use any of these for actual statistical fitting, you have to tweak/tune them as discussed below.</p>
+</div>
+<div id="step-functions" class="section level1">
+<h1>Step functions</h1>
+<p>A version of the models just discussed are those that allow non-smooth jumps in the outcome as a predictor varies. As a simple example, say you want to model current time as function of geographical location. Since humans divided the world arbitrarily into time zones, as you move from one zone to another, there is an abrupt change in the outcome (time) with a small change in the predictor (longitude). A bad way of modeling that is to discretize your predictors, since most often you don’t know where the cut-offs are. Maybe the example I just gave is a bad one, since this is a rare situation where we do know the cut-offs, because they are human made 😄. But say we assume some outcome changes somewhat abruptly with age. We unlikely now at what age(s) exactly we should set the cut-off. By using a model, we can let the computer decide where to set the cut-off (see below). Other model types that are good at handling rapid changes in outcome for a change in a predictor are tree-based models, which you’ll be learning about shortly.</p>
+</div>
+<div id="generalized-additive-models-gam" class="section level1">
+<h1>Generalized additive models (GAM)</h1>
+<p>GAM are in some sense (though not completely, see below) a general form of the different models just discussed. The preserve the feature that each predictor enters the model additive. But now, each predictor can be related to the outcome with a - potentially complicated - function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAM allow for more flexible relations between predictors and outcome than GLM, and are still fairly easy to fit and interpret, but not quite as easily. Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that’s not the case, one often uses spline function, and let the data determine the exact shape of the splines. One restriction of GAM is that having each predictor enter separately, interactions might be missed.</p>
+</div>
+<div id="fitting-polynomialspline-models" class="section level1">
+<h1>Fitting polynomial/spline models</h1>
+<p>The models just discussed are more flexible and allow capturing more intricate patterns in the data. Of course, the downside of this is that they might not only capture patterns that are due to real signals in the data, but might also try to capture spurious patterns that are entirely due to noise/randomness in the data. In other words, these more flexible models are easily prone to overfitting.</p>
+<p>By now, you have learned what you can do to try and minimize overfitting. Most importantly, you can build your models and decide how complex to make them by cross-validation. You can think of model parameters that determine if you should have a 2nd/3rd/4th/etc. order spline functions as a tuning parameter, and you let the cross-validation procedure decide if a 2nd order or 3rd order model is better - based on model performance during the cross-validation process. As you will see, using the <code>tidymodels</code> framework allows you to easily do this model training/tuning.</p>
+</div>
+<div id="model-fitting-in-r" class="section level1">
+<h1>Model fitting in R</h1>
+<p>A lot of separate packages exist to fit the models discussed here. Not all, but several of the most important ones, <a href="https://www.tidymodels.org/find/parsnip/">can be accessed through the <code>tidymodels</code> framework</a>. We will explore some of them in the exercises so you get a general idea of how this works. You can then explore more models as interested or as needed for your specific research questions.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p>This short summary closely followed the information in the <a href="https://statlearning.com/"><em>Moving beyond linearity</em> chapter of ISL</a>. Check out that chapter for further information on the models covered here, as well as a few additional variations. HMLR also discusses several models of this type. See for instance the <a href="https://bradleyboehmke.github.io/HOML/mars.html"><em>Multivariate Adaptive Regression Splines</em> chapter</a>. The <a href="https://rafalab.github.io/dsbook/smoothing.html"><em>Smoothing</em> chapter of IDS</a> also covers the topic discussed here. For specific ways of using some of these models through <code>tidymodels</code>, check out some of the tutorials in the <a href="https://www.tidymodels.org/learn/">tidymodels “learn” section</a>.</p>
+<p>The references above for each class of models provide further reading. Those 3 sources, namely <a href="https://statlearning.com/">ISL</a>, <a href="https://rafalab.github.io/dsbook/">IDS</a> and <a href="https://bradleyboehmke.github.io/HOML/">HMLR</a> are very good starting points for learning more about different machine learning methods. The <em>Resources</em> section of the course provides some further pointers to additional material, and of course there is a lot of other, often free, information available online. You should be able to find more details on any of these methods with just a few online searches.</p>
 </div>
 
 

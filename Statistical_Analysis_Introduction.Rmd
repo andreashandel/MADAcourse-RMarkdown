@@ -1,5 +1,5 @@
 ---
-title: statistical Analysis Overview
+title: Statistical Analysis Overview
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"

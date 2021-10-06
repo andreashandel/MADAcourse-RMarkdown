@@ -1,0 +1,47 @@
+---
+title: Assessment - Machine Learning Models 1
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emoji)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+
+# Exercise
+
+For this exercise, we will both implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We'll basically try to do a full analysis. So let's get started!
+
+
+
+# Setup
+
+We'll resume on the 
+
+
+
+
+# 
+
+
+
+
+
+# Discussion
+
+Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).
+
+Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.
+

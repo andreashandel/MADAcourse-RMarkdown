@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Assessment - Improving models</title>
+<title>Classification and Regression tree (CART) models</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -580,25 +580,67 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Improving models</h1>
+<h1 class="title toc-ignore">Classification and Regression tree (CART) models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-04 21:33:38</h4>
+<h4 class="date">2021-10-05 13:00:24</h4>
 
 </div>
 
 
-<div id="quiz" class="section level1">
-<h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will cover a class of models called classification and regression trees.</p>
+<div class="figure" style="text-align: center">
+<img src="media/xkcd_watson_medical_algorithm.png" alt="An interesting classification tree. Source: xkcd." width="80%" />
+<p class="caption">
+An interesting classification tree. Source: xkcd.
+</p>
 </div>
-<div id="exercise" class="section level1">
-<h1>Exercise</h1>
-<p>We definitely need to practice some of the topics we covered in this (and previous modules). But since at the end of the week there is another project deadline, I want you to focus on that. Thus no exercise this week, we’ll practice the topics we covered in upcoming exercises.</p>
 </div>
-<div id="discussion" class="section level1">
-<h1>Discussion</h1>
-<p>Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).</p>
-<p>Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.</p>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Understand what tree-based methods are and how to use them</li>
+<li>Know when it might be good to use a tree-based method</li>
+<li>Understand the advantages and disadvantages of single tree model</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>GLM have the main limitation of only capturing linear relations between inputs and outcomes. The polynomial/spline models we discussed allow for more flexible patterns, at the cost of more potential overfitting and also reduced interpretability. Another class of models that allow non-linear relation between inputs and outcomes are based on <a href="https://en.wikipedia.org/wiki/Decision_tree_learning"><strong>Classification and regression trees (CART)</strong></a>. Outside of data science/statistics, those trees are often also known as <a href="https://en.wikipedia.org/wiki/Decision_tree"><strong>decision trees</strong></a>.</p>
+<p>Such tree models (as they are usually called) have the advantage of being fairly easy to understand and use, even by non-statisticians. As the name suggests, CART can be used both for regression and classification, and in the latter case, can easily deal with multiple categories. They can also deal with missing values in the predictors.</p>
+</div>
+<div id="tree-examples" class="section level1">
+<h1>Tree Examples</h1>
+<p>The following shows a tree from <a href="https://doi.org/10.1093/fampra/cms020">Afonso et al. 2012</a>, which is a study led by one of my colleagues <a href="https://publichealth.uga.edu/faculty-member/mark-h-ebell/">Mark Ebell</a> to determine if there are simple decision rules that can determine if a person has an influenza infection or not.</p>
+<p><img src="media/afonso12.png" width="400px" style="display: block; margin: auto;" /></p>
+<p>As you can see, this is a very simple model that is very intuitive and could be easily understood by physicians and other laypeople. The tree is used here for classification, with an outcome that binary (presence/absence of flu).</p>
+<p>The next example is a tree used for a regression problem to predict/model a continuous outcome.</p>
+</div>
+<div id="building-trees" class="section level1">
+<h1>Building trees</h1>
+<p>The way one computes a tree is a little bit similar in concept to forward selection in a linear model. We start by looking at each predictor. We take the tree, which, when the outcome is split at some value of that predictor, leads to the best (cross-validated) performance increase in the model (e.g., lowest SSR/RMSE or highest Accuracy/F1 score). Let’s say we want to predict BMI, and our performance measure is RMSE of predicted value from the true outcome. The null model using no predictors gives us some value for the RMSE. We then try each predictor (let’s say we have exercise, calories, age, gender) and find that if we use exercise and assign everyone who exercises more than 23min per day one BMI value, and everyone who exercises less than 23min another BMI value, we get the best reduction in RMSE we could get (across all predictors and possible cut-off values). This is our first split using the <code>exercise</code> predictor at 23min. We now have a tree with one root and 2 nodes (in this case, they are leaves, which is the name for the terminal nodes).</p>
+<p>We now take each leaf and run through all predictors again <strong>including the one we just used</strong> and see which predictor split at some value will further improve model performance. Let’s say we find that for those exercising more than 23min, we can split by gender and get 2 new BMI values, one for males exercising &gt;23min and one for females exercising &gt;23min, which gives the maximum reduction in RMSE. Similarly, we find that for the &lt;23min exercise people, splitting at 1500 calories a day is best. We now have a tree with a root, 2 internal nodes, and 4 terminal nodes.</p>
+<p>We keep building the tree in this way until some criterion is met (e.g., not more than n observations in a given leaf, no further increase in performance). Note that in this procedure, some predictors may never enter the model. In that way, a tree performs an automatic subset selection, i.e., the algorithm might decide <strong>to not use/include predictor variables</strong> it doesn’t find useful. Also, any predictor might be used more than once.</p>
+<p>Algorithms that implement the tree building routine differ in their details, which is why you will see many different options in both <code>mlr</code> and <code>caret</code>. In general, if you have a good signal in your data, any algorithm should pick up on it.</p>
+<p>Since trees have a tendency to <strong>overfit</strong>, it is common to <strong>regularize</strong> them by including a penalty for tree size. For instance, if we were to minimize SSR/RMSE, we would add a penalty to the cost function, <em>C</em>, to get</p>
+<p><span class="math display">\[C = SSR + \lambda T, \]</span></p>
+<p>where <em>T</em> is the number of leaves of the tree. More leaves means a larger tree, which is being penalized. <span class="math inline">\(\lambda\)</span> is a tuning parameter that needs to be determined using parameter tuning/model training.</p>
+</div>
+<div id="fast-and-frugal-trees" class="section level1">
+<h1>Fast and frugal trees</h1>
+<p>While trees are fairly simple to understand, sometimes, especially if there are many branching points, a complex decision tree might still not be suitable in practice. Further, even with regularization, trees might overfit. There is a type of tree, called <em>fast and frugal tree (FFT)</em>, which can potentially help with both aspects. The difference between a regular tree and a FFT is that for the FFT, at each split/decision point, at least one of the splits needs to end in a terminal node. Check e.g. the <a href="https://en.wikipedia.org/wiki/Fast-and-frugal_trees">example diagrams shown in the FFT Wikipedia article</a> to see what this means. This constraint makes the trees often simpler and thus easier to implement in practice (e.g. by a doctor) and they might also be more robust, i.e. their performance on future data might be better than a larger tree. Disadvantages of FFT are that sometimes they might be too simple and thus not performing as well as a full tree, and they only work for binary outcomes.</p>
+<p>A very nice R package called <code>FFTrees</code> implements FFT (and automatically compares their performance to regular trees and some of the tree based methods discussed below). You can find <a href="https://ndphillips.github.io/FFTrees.html">more about this R package here</a>.</p>
+</div>
+<div id="advantages-and-disadvantages-of-tree-models" class="section level1">
+<h1>Advantages and disadvantages of tree models</h1>
+<p>A great feature of trees is that they are relatively quick and easy to build and especially easy to understand. They can easily be communicated to and used by non-experts (e.g., doctors, other decision-makers). As such, trees (sometimes called decision diagrams or other names) are common in many fields. As mentioned, trees are also able to handle missing data in predictors, and they are often reasonably robust in the presence of collinear or near-zero-variance predictors since trees tend to use one of the variables and ignore the others. Often trees also don’t need normalization of predictors.</p>
+<p>The main disadvantage of trees is that they usually have reduced performance compared to other models. Thus, if a simple, interpretable model is the primary goal, trees are ideal. If instead, a high-performance predictive model is the goal, trees are rarely the best choice.</p>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p><a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">This excellent interactive tutorial</a> gives a very nice, visual introduction to machine learning in general and trees in particular. It covers and nicely illustrates some of the topics discussed here, as well as topics discussed in previous units. In <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-2/">part 2 of the tutorial</a> the authors discuss overfitting. I strongly recommend you check it out, even if you just skim through it. It is fun and informative!</p>
+<p>For more on tree models, see the first part <a href="https://statlearning.com/"><em>Tree-based Methods</em> chapter of ISLR</a>, the <a href="https://bradleyboehmke.github.io/HOML/DT.html"><em>Decision Trees</em> chapter of HMLR</a>.</p>
 </div>
 
 

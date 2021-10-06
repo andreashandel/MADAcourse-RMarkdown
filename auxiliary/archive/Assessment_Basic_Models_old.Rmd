@@ -21,13 +21,18 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-We'll practice a bit of model fitting using the `tidymodels` framework. Of course, some wrangling tasks are likely part as well. This is another solo exercise. We'll get a back to group work, I promise.
+We'll practice a bit of model fitting using the `tidymodels` framework and continuing with an exercise you started previously, namely the exercise where you obtained and wrangled some CDC data. We'll now add some fitting.
 
 
 ## Setup
 
-We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files, unzip. 
+We'll again add a group exercise component, using the - by now familiar - M1, M2, ... setup. Assign each other a number, as much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person's repository. If you are in a group of 4, you can do pairs. That of course doesn't work in a group of 3, so you need to use the 'circular' setup there.
 
+For this exercise, we'll revisit and extend the project you started in the _wrangling_ module. Make sure you have the latest version of the repository on your local machine (it might not be, since last time your classmate contributed to your repository). As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio. 
+
+The dataset you previously got from the CDC should have at least 5 variables, with a mix of continuous and categorical. If for some reason that's not the case for your dataset, you have two options. Either, you create some new variables and fill them with artificial data or you switch to a different dataset. 
+
+If you have to create artificial data, do that with R commands, either at the beginning or end (or both) of your cleaning script. **No editing of raw data files by hand!** (We only did that once in the beginning exercise for convenience, but we won't do that again.)
 
 
 
