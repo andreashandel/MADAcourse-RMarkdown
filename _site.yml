@@ -106,7 +106,7 @@ navbar:
            - text: "Fitting statistical models in R"
              href: ./Model_Fitting_R.html
            - text: "Assessment: Fitting Basic Models"
-             # href: ./Assessment_Basic_Models.html
+             href: ./Assessment_Basic_Models.html
         - text: "9. Evaluating your model fits"
           menu:
            - text: "Model evaluation overview"
@@ -120,7 +120,7 @@ navbar:
            - text: "Model Uncertainty"
              href: ./Model_Evaluation_Uncertainty.html     
            - text: "Assessment: Model evaluation"
-            # href: ./Assessment_Model_Evaluation.html
+             href: ./Assessment_Model_Evaluation.html
         - text: "10. Improving your model fits"
           menu:
            - text: "Improving model fits overview"
@@ -134,7 +134,7 @@ navbar:
            - text: "Model tuning"
              href: ./Model_Improvement_Tuning.html     
            - text: "Assessment: Model Improvement"
-             # href: ./Assessment_Model_Improvement.html
+             href: ./Assessment_Model_Improvement.html
         - text: "11. Machine Learning Models I"
           menu:
            - text: "Polynomial and Spline Models"
@@ -143,16 +143,15 @@ navbar:
              href: ./CART_Models.html     
            - text: "Many-tree models"
              href: ./Many_Tree_Models.html     
-    #         - text: "13c. Assessment"
-    #           href: ./13c_Assessment.html
-    #     - text: "12. More ML models and interpretation"
+           - text: "Assessment: ML models 1"
+    #        href: ./Assessment_ML_Models_1.html
+    #     - text: "12. Machine Learning Models II"
     #       menu:
-    #         - text: "14a. More ML Models"
-    #           href: ./14a_More_ML_Models.html     
+    #         - text: "SVM"
     #         - text: "14b. Model Interpretation"
     #           href: ./14b_Model_Interpretation.html     
-    #         - text: "14c. Assessment"
-    #           href: ./14c_Assessment.html
+    #       - text: "Assessment: ML models 1"
+    #        href: ./Assessment_ML_Models_1.html
     #     - text: "13. Revisiting the complete analysis workflow"
     #       menu:
     #         - text: "15a. Complete data analysis workflow"

@@ -45,7 +45,7 @@ Such tree models (as they are usually called) have the advantage of being fairly
 
 The following shows a tree from [Afonso et al. 2012](https://doi.org/10.1093/fampra/cms020), which is a study led by one of my colleagues [Mark Ebell](https://publichealth.uga.edu/faculty-member/mark-h-ebell/) to determine if there are simple decision rules that can determine if a person has an influenza infection or not.
 
-```{r treeexample1,  fig.show='hold', fig.cap='', out.width='400px', echo=FALSE, fig.align='center'}
+```{r treeexample1,  fig.show='hold', fig.cap='[From this paper](https://doi.org/10.1093/fampra/cms020)', out.width='400px', echo=FALSE, fig.align='center'}
 knitr::include_graphics("./media/afonso12.png")
 ```
 
@@ -53,6 +53,12 @@ As you can see, this is a very simple model that is very intuitive and could be 
 
 
 The next example is a tree used for a regression problem to predict/model a continuous outcome.
+
+```{r treeexample2,  fig.show='hold', fig.cap='[From this paper](https://clincancerres.aacrjournals.org/content/5/11/3403)', echo=FALSE, fig.align='center'}
+knitr::include_graphics("./media/regressiontree.jpg")
+```
+
+In this study, the authors tried to determine the survival time of patients who had cancers with certain characteristics. The tree was used to group individuals, and for each group the tree/model predicts median survival. 
 
 
 

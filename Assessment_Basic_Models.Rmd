@@ -26,29 +26,23 @@ We'll practice a bit of model fitting using the `tidymodels` framework. Of cours
 
 ## Setup
 
-We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files, unzip. 
+We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files, unzip. Find the `SympAct_Any_Pos.Rda` file, which is the one we'll work with. 
+
+Start a new repository using the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-analysis3`), and clone it to your local computer. 
+
+Place Brian's data file into the `raw_data` folder. (I know, he already processed it some, but we use it as our start, so for us that is the raw material.)
 
 
 
+## Wrangling revisited
 
-## Wrangling and EDA revisited
+We already spent time on the important steps of data wrangling/cleaning and exploring/visualizing. But practice makes perfect `r emoji::emoji('smile')` so we'll talk a bit more and do a bit more if it here.
 
-We already spent time on the important steps of data wrangling/cleaning and exploring/visualizing. But practice makes perfect `r emo::ji('grin')` so we'll talk a bit more and do a bit more if it here.
+By now you will have figured out that the whole wrangling/exploring process is iterative. Without exploring your data, you don't know how to clean/wrangle it. Without at least some cleaning, exploration often doesn't work (e.g. if you have missing values, some R summary functions don't work properly.) 
 
-By now you will have figured out that the whole wrangling/exporing process is iterative. Without exploring your data, you don't know how to clean/wrangle it. Without at least some cleaning, exploration often doesn't work (e.g. if you have missing values, some R summary functions don't work properly.) 
+For this exercise, write some code in the `processingscript.R` file that further processes and cleans the data as follows:
 
-For this exercise, you'll likely have to do some more cleaning and exploring, depending on how much you did last time.
-
-As part of this exercise, continue to update your `processingscript.R` code such that it does a full cleaning of all or most variables. 
-
-**No matter how you do it, write comments into your R script explaining each cleaning decision. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).**
-
-As examples, of things you might need to clean:
-
-* If you have categorical variables, check the categories and decide if maybe some should be combined. 
-* You might already be aware of outliers or mistakes in the data. Decide what to do with them, clean accordingly.
-* If you know you have a variable with a lot of missing data, explain that you are dropping this variable (and why), then write the code that drops the variable. Or alternatively you might remove observations (rows) that contain any missing data.
-
+Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name. Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories. Remove any NA observations, there aren't many. 
 
 :::note
 With the tidyverse and the pipe operator, a lot of these steps can be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:
@@ -68,57 +62,61 @@ dat_small3 <- dat_small2 %>% fct_lump()
 That style of coding defeats a bit the purpose of the pipe operator, but I think it helps initially to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it's much harder to follow along and find bugs.
 :::
 
-At the end of your cleaning process, you need to end up with at least 5 variables, a mix of continuous and categorical. You might have many more variables, that is ok. At the end of your cleaning script, you should save the new dataset to an `Rds` file, as before.
+**No matter how you do it, write comments into your R script explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).**
 
-As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore your data. You can either have exploration code as part of your processing script, such that this script does both, clean data and produce some EDA outcomes (tables, figures, etc.). Or you could do a separate R/Rmd file, e.g. one called `exploration.Rmd`. That's your choice.
 
-At minimum, your exploration code (either in a separate file or part of the cleaning script) should do the following:
+At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an `Rds` file, as before.   
+
+For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) is that our main continuous outcome of interest is Body temperature, and our main categorical outcome is Nausea. We want to see if the other symptoms are correlated with (predict) those outcomes.
+
+
+## EDA revisited
+
+As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R or Rmd file (call it `exploration.R`/`exploration.Rmd`) that does a bit of exploration, produces a few figures and tables. 
+
+At minimum, your exploration code should do the following:
 
 * For each (important) variable, produce and print some numerical output (e.g. a table or some summary statistics numbers).
 * For each (important) continuous variable, create a histogram or density plot. 
-* Create scatterplots or boxplots or similar such plots for the variable you decided is your main outcome of interest and the most important (or all depending on number of variables) independent variables/predictors.
-* If applicable to your data, make some pairwise correlation plots.
-* If needed for your data, explore the pattern of missing values.
+* Create scatterplots or boxplots or similar such plots for the variable you decided is your main outcome of interest and the most important (or all depending on number of variables) independent variables/predictors. For this dataset, you can pick and choose a few predictor variables.
+* If applicable to your data, make some pairwise correlation plots. (Not applicable here)
+* If needed for your data, explore the pattern of missing values. (Not applicable here)
 * Any other exploration steps that might be useful.
 
-If you only have a limited number of variables, e.g., less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest.
+If you only have a limited number of variables, e.g., less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest. You can decide on the predictors to explore, the outcomes I chose for you as stated above.
+
 
 Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like _Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations._
 
-
-**Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a readme file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Also decide on a predictor variable that is of main interest. And state which other predictor/input variables are worth considering. For the predictors, you can say "all" if you don't have too many. If you have a lot of variables, specify which ones are of main importance.**
-
-:::note
-For this exercise, it isn't so important that the outcomes and predictors you pick are of actual scientific interest. Say if you had `age` and `sex` and some other variables related to the location a person lives, you can declare your continuous outcome of interest to be `age` and your categorical to be `sex`, even if there is no scientific reason to assume they are associated with the location variables. Of course for a real study, you would try to look at outcome-predictor combinations that make scientific sense, but this is just an exercise, so some potential nonsensical assumptions are allowed `r emoji::emoji('grin')`.
-:::
-
+Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an Rds file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a readme file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, 1 categorical) you decide are the main outcomes of interest. Some of that I specified for you already, but its always good to have as much information in the code as possible.
 
 :::note
-For any good data collection and analysis, the data needs to be documented with meta-data to describe what it contains, what units things are in, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines.
+For this exercise, it isn't so important that the outcomes and predictors are of actual scientific interest. We won't do exciting science here, just explore the analysis workflow. However, I want to remind you that having good/interesting question to answer (and data you can use to answer it) is the **most important** part of any research project. Rather a great question and basic stats than really fancy stats answering a question nobody cares about!
 :::
 
-You need to finish this part by Wednesday. Make sure everything works, then push to GitHub and let your teammate know that they can take over.
+:::note
+Any good data collection and analysis requires that data is documented with meta-data to describe what it contains, what units things are in, what variables are allowed, etc. Without good meta-data, analyses often go wrong. There are famous examples in the literature where the coding 0/1 was assumed to mean the opposite of what it was, so all conclusions were wrong. To guard against this, careful documentation is crucial. Also, giving variables easy to understand names and values is best. E.g. instead of coding sex as 0/1/99, code it as Male/Female/Other, or something along those lines.
+:::
 
 
 # Model fitting
 
-Fork and clone your partner's repository. (Alternatively, the first person can add the other as collaborator and then each of you can directly push/pull the main repository. That's up to you.) Once you have the repository on your local computer, open the project in R Studio.
-
-Read through their code so you understand what the two outcomes of interest are, the main predictors, and what the rest of the data contain. 
-
-**Hopefully their code is nicely documented. If it is, you should see how this is much better than going into some Excel file, manually deleting stuff, and nobody ever knows what happened. if it isn't well documented, feel free to bug them to improve their meta-data/documentation to a level where you can understand what's going on. (That's a common task that analysts need to do with their data-generating collaborators `r emoji::emoji('grin')`.)**
-
-Start with a clean analysis script. You can either use an Rmd file, or you can do an R script. In either case, document/comment well.
+Finally, we'll do some model fitting. Start with a clean analysis script. You can either use an Rmd file, or you can do an R script. In either case, document/comment well.
 
 Add code that does the following operations:
 
 1. Loads cleaned data.
-2. Fits a linear model to continuous outcome using only the main predictor of interest.
+2. Fits a linear model to the continuous outcome using only the main predictor of interest.
 3. Fits another linear model to the continuous outcome using all (important) predictors of interest.
 4. Compares the model results for the model with just the main predictor and all predictors.
 5. Fits a logistic model to the categorical outcome using only the main predictor of interest.
 6. Fits another logistic model to the categorical outcome using all (important) predictors of interest.
 7. Compares the model results for the categorical model with just the main predictor and all predictors.
+
+**Here, we decide that `RunnyNose` is our main predictor of interest, and we also care about all others. So you should fit models with each of the 2 outcomes and `RunnyNose` and models with each of the 2 outcomes and all predictors. Consider whichever outcome you are currently NOT fitting as a predictor of interest.** 
+
+You might have noticed that we are including some predictors twice, e.g. we have _Weakness_ as 4 categories and also as yes/no. That's likely not ideal. We'll address that soon, for now let's just "throw it all in".
+
 
 For all of these operations, you should use the the `tidymodels` framework. To do so, I suggest to go to the [build a model tutorial](https://www.tidymodels.org/start/models/) in the _Get Started_ section on the `tidymodels` website. There, you'll see an example of fitting some data with a linear model, followed by a Bayesian model. We won't do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You'll need to use the `linear_reg()` and `set_engine("lm")` commands. For the logistic model, you will need to use `logistic_reg()` and `set_engine("glm")`.
 
@@ -133,14 +131,10 @@ If you are extra ambitious or just enjoy playing around with `tidymodels`, add a
 I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It is at times tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian modeling, along the lines of the example in the `tidymodels` tutorial, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
 :::
 
+Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so others can understand what is going on.**
 
-Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so your partner (and any future project collaborators) can understand what is going on.**
+Once done, commit and push. Then publish a link to your repository into the exercise channel for this module.
 
-Once your part is done, commit and push. If you used a fork, send a pull request to your partner. If you are working on the same repository as collaborators, you should be able to just push directly. In either case, you might want to let your partner know that you finished and that they can do a final check and any further cleanups they want to do.
-
-## Finish and submit
-
-The project owner should merge the updates, make sure everything looks good and runs, then update everything on Github. Since this is the same repository as the one you used previously, and you previously posted the link to the slack channel, you don't need to re-post (unless for some reason the repo changed). I know where to find the repository and will take a look and review/grade after the deadline.
 
 
 # Discussion
@@ -148,6 +142,5 @@ The project owner should merge the updates, make sure everything looks good and 
 Write a post in this week's discussion channel that answers this question:
 
 Which major new insight did you gain from this week's topic (or any topic related to model fitting you got exposed to over the last few weeks) and how will that maybe affect your analyses in the future. And what is or are points that you find rather confusing about the model fitting material we covered so far? 
-
 Post by Wednesday, then reply to each other by Friday. See if you can help each other reduce any existing confusion. I'll be participating too of course.
 

@@ -466,7 +466,9 @@ div.tocify {
         <li>
           <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
         </li>
-        <li class="dropdown-header">Assessment: Fitting Basic Models</li>
+        <li>
+          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
+        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -487,7 +489,9 @@ div.tocify {
         <li>
           <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
         </li>
-        <li class="dropdown-header">Assessment: Model evaluation</li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -508,7 +512,9 @@ div.tocify {
         <li>
           <a href="./Model_Improvement_Tuning.html">Model tuning</a>
         </li>
-        <li class="dropdown-header">Assessment: Model Improvement</li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
       </ul>
     </li>
     <li class="dropdown-submenu">
@@ -523,6 +529,7 @@ div.tocify {
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
         </li>
+        <li class="dropdown-header">Assessment: ML models 1</li>
       </ul>
     </li>
   </ul>
@@ -582,7 +589,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Classification and Regression tree (CART) models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-05 13:00:24</h4>
+<h4 class="date">2021-10-06 20:01:45</h4>
 
 </div>
 
@@ -613,9 +620,21 @@ An interesting classification tree. Source: xkcd.
 <div id="tree-examples" class="section level1">
 <h1>Tree Examples</h1>
 <p>The following shows a tree from <a href="https://doi.org/10.1093/fampra/cms020">Afonso et al. 2012</a>, which is a study led by one of my colleagues <a href="https://publichealth.uga.edu/faculty-member/mark-h-ebell/">Mark Ebell</a> to determine if there are simple decision rules that can determine if a person has an influenza infection or not.</p>
-<p><img src="media/afonso12.png" width="400px" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center">
+<img src="media/afonso12.png" alt="[From this paper](https://doi.org/10.1093/fampra/cms020)" width="400px" />
+<p class="caption">
+<a href="https://doi.org/10.1093/fampra/cms020">From this paper</a>
+</p>
+</div>
 <p>As you can see, this is a very simple model that is very intuitive and could be easily understood by physicians and other laypeople. The tree is used here for classification, with an outcome that binary (presence/absence of flu).</p>
 <p>The next example is a tree used for a regression problem to predict/model a continuous outcome.</p>
+<div class="figure" style="text-align: center">
+<img src="media/regressiontree.jpg" alt="[From this paper](https://clincancerres.aacrjournals.org/content/5/11/3403)" width="70%" />
+<p class="caption">
+<a href="https://clincancerres.aacrjournals.org/content/5/11/3403">From this paper</a>
+</p>
+</div>
+<p>In this study, the authors tried to determine the survival time of patients who had cancers with certain characteristics. The tree was used to group individuals, and for each group the tree/model predicts median survival.</p>
 </div>
 <div id="building-trees" class="section level1">
 <h1>Building trees</h1>
