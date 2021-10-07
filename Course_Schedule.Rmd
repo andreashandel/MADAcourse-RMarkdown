@@ -30,9 +30,9 @@ __Unless otherwise specified, the first posting of the discussion is due by end 
 | Module 8 – Fitting basic statistical models | 10/11 – 10/15 | quiz, exercise, discussion  |
 | Module 9 – Evaluating your model fits | 10/18 – 10/22 | quiz, exercise (first part due Wed), discussion  |
 | Module 10 – Improving your model fits | 10/25 – 10/29 | quiz,  project part 3, discussion|
-| Module 11 – Exploring some machine learning models I | 11/1 – 11/5 | quiz, exercise, discussion  |
-| Module 12 – Exploring some machine learning models II | 11/8 – 11/12 | quiz, project part 4, discussion  |
-| Module 13 – Revisiting the complete data analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |
+| Module 11 – Machine learning models I | 11/1 – 11/5 | quiz, exercise, discussion  |
+| Module 12 – Machine learning models II | 11/8 – 11/12 | quiz, project part 4, discussion  |
+| Module 13 – The complete analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |
 | Finishing Project | 11/22 – 11/26 (fall break part of the week) | project part 5 due Monday 11/29, 9am | 
 | Project Reviews | 11/29 – 11/3 | project reviews | 
 | Final project submission  | 12/10 |  project part 6 |

@@ -152,7 +152,7 @@ navbar:
     #           href: ./14b_Model_Interpretation.html     
     #       - text: "Assessment: ML models 1"
     #        href: ./Assessment_ML_Models_1.html
-    #     - text: "13. Revisiting the complete analysis workflow"
+    #     - text: "13. The complete analysis workflow"
     #       menu:
     #         - text: "15a. Complete data analysis workflow"
     #           href: ./15a_Complete_data_analysis_workflow.html     
