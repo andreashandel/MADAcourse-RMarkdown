@@ -1,0 +1,85 @@
+---
+title: Assessment - Machine Learning Models 2
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emoji)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+
+# Exercise
+
+Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there are some cleanup things for your portfolio I'd like you to do. Some of you might have already done that, then you are good to go.
+
+## Setup
+
+Make sure your portfolio repository is fully up-to-date and synced. Open the project in RStudio.
+
+
+## Connecting website and file repository
+
+First, let's make sure it's easy for people to go from your portfolio website (the `github.io` location) to your file repository (the `github.com` location) and back. To that end, open the `_site.yml` file. At the bottom, it says `URL-TO-THIS-REPOSITORY-HERE`. Replace that with the URL to your Github repository. As an example, for the MADA course, the URL one would put in there is `https://github.com/andreashandel/MADAcourse` (while the website lives at `https://andreashandel.github.io/MADAcourse/`). 
+
+Once you done that, when people now are on your website, they can click on the `Github` icon in the top right corner and be taken to your file repository. Try to make sure it works by rebuilding your website and pushing to Github. It might take a minute or so and you might need to hit refresh before it shows up on the website.
+
+Now, let's connect the two in revers. Open `Readme.md` and update the text. This is what people see when they come to your github repository for your portfolio (as opposed to the website). I recommend adding a little bit of text and a link pointing users to the actual website. [You can look at the Readme.md for this course as example](https://github.com/andreashandel/MADAcourse). Edit yours as you want. 
+
+You might also want to point to your website on Github.com. If you go to your repository on GitHub, you should see an `About` section in the top right. If you click on the gear symbol, there is a field in which you can enter the URL for your website (the `github.io` location). It might already show as pre-populated, but you have to actually manually enter it before it will show. You can again see how that looks on my website repository.
+
+With this, it is easy for anyone (including yourself) to quickly switch between the website and the file repository.
+
+
+## Creating new content
+
+In preparation for next week, make a copy of the `tidytuesday_exercise.Rmd` file, name it `tidytuesday_exercise2.Rmd`. Open it, delete everything apart from the YAML header (the stuff between the `---`). Add a sentence that says "To be filled" or something like that. We'll fill it next week.
+
+To see the new file and access it from the website, we also have to include it in the website navigation bar. To that end, go back to the `_site.yml` file. Under `menu`, you'll see multiple lines of code starting with `text` and `href`. Those are the menu entries. Copy and insert the last 2 entries for Tidy Tuesday just below those entries, then replace the text with "Tidy Tuesday 2 Exercise" and the link with `./tidytuesday_exercise2.html`.
+
+Make sure your website rebuilds ok. You should now see another menu entry for Tidy Tuesday 2 and when you click on it, the essentially empty file we created should show up.
+
+:::warning
+YAML (which is the format of this file) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change the YAML file and you get a weird error message when trying to rebuild your website, it's likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind.
+:::
+
+
+## Adding more content
+
+
+## Styling
+
+
+
+##
+
+
+
+# Discussion
+
+No discussion assignment this week. Instead, submit project part 4.
+
+
+# Project
+
+Submission of part 4 is due. Make sure your updated project is on Github.
+
+
+
+# Discussion
+
+Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).
+
+Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.
+

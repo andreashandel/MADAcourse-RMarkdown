@@ -1,0 +1,75 @@
+---
+title: Assessment - Complete Workflow
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emo)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+# Exercise
+
+## Overview
+
+For this exercise, we will participate in one more **Tidy Tuesday** exercise. This time, we'll apply a full analysis workflow to the data. 
+
+This is another solo exercise, so no group work this week, but of course more GitHub. This exercise will go into your portfolio.
+
+
+
+## Setup 
+
+Use your portfolio website. Make sure it's up to date and fully synced. Open it in R Studio. From last week's exercise, you should have an empty Rmd file called `tidytuesday_exercise2.Rmd`. Open it, that's where you'll write your Tidy Tuesday analysis.
+
+Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called `data`).
+
+## What to do
+
+Write code and text to perform the following steps:
+
+* Load the data.
+* Clean/wrangle the data.
+* Explore the data. Show some figures/tables as appropriate.
+* Pre-process the data.
+* Decide on your outcome(s) of interest and, if applicable, main predictor(s) of interest.
+* Split your data into train/test.
+* Fit at least 3 different models to the data using the `tidymodels` framework we practiced. Use the CV approach for model training/fitting.
+* Explore the quality of each model by looking at performance, residuals, uncertainty, etc. 
+* Pick (at least) one model as your final model (explain why). Evaluate its quality on the test data.
+
+## General pointers
+
+* You don't need to do those steps in that specific order, for instance pre-processing might happen during general cleaning.
+
+* Add ample of information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then `r emoji::emoji('grin')`).
+
+
+## Finish up
+
+Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.
+
+And you are again free to broadcast your effort on social media, e.g., using the `#tidytuesday` hash tag on Twitter. And I'll again be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
+
+
+# Discussion
+
+Write a post in this week's discussion channel that addresses this topic:
+
+_Now that we essentially reached the end of the course and did the whole data-analysis pipeline, which specific topics in the data-analysis workflow do you still find unclear/confusing? Which ones do you wish we had covered more? Are you looking for further resources on a specific topic and haven't found anything good?_
+
+Post by Wednesday, then comment on each others posts. I hope this discussion will allow us to point each other to further possibly helpful resources and maybe help clarify some still open questions.
+
+
+
