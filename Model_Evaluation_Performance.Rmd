@@ -19,39 +19,39 @@ knitr::opts_chunk$set(out.width = '80%')
 
 
 :::note
-Up to now, I have not shown much math/equations. Below, you will encounter some. The equations are fairly simple and I'm sure you'll be able to follow once you spend a few minutes to think through them. Most often, there are functions in R that compute all those quantities for you. But sometimes, you will have to compute a few of them yourself. It is therefore good to know their definitions. Once you do, you realize that you can simply compute them yourself with just a few lines of R code. Again, most often you won't need to do that, but sometimes it is useful to have that ability and know how to do it.
+Up to now, I have not shown much math or equations. Below, you will encounter some. The equations are fairly simple and I'm sure you'll be able to follow once you spend a few minutes to think through them. Most often, there are functions in R that compute all those quantities for you. But sometimes, you will have to compute a few of them yourself. It is therefore good to know their definitions. Once you do, you realize that you can simply compute them yourself with just a few lines of R code. Again, most often you won't need to do that, but sometimes it is useful to have that ability and know how to do it.
 :::
 
 
 # Introduction
 
-When you fit a model, e.g., a linear modeling using `lm` in R (either directly, or calling it through some other package, such as `parsnip/tidymodels`), what exactly happens? What does it mean when we ask the computer to _fit a model_? Think about what's going on for a minute.
+When you fit a model, e.g., a linear model using `lm()` in R (either directly, or calling it through some other package, such as `parsnip ` or `tidymodels`), what exactly happens? What does it mean when we ask the computer to _fit a model_? Think about what's going on for a minute.
 
 
-What `lm` or similar functions do is to vary the parameters of a model to get the model predicted outcomes as close as possible to the outcomes seen in the data. 
-Let's say you want to fit a multivariable linear model like this one, where you want to fit some outcome $Y$ given some predictor variables $X_i$ (e.g. fitting/predicting weight of a person, given their height and age)
+What `lm()` or similar functions do is vary the parameters of a model until the model predicted outcomes are as close as possible to the actual observed outcomes in the data. 
+Let's say you want to fit a multivariable linear model like this one, where you want to fit some outcome $Y$ given some predictor variables $X_i$ (e.g. fitting/predicting weight of a person, given their height and age). The model equation will look like this:
 
-$$Y_m=b_0 + b_1X_1 + b_2X_2 + ...$$
+$$Y_m=b_0 + b_1X_1 + b_2X_2 + \ldots + b_n X_n.$$
 
-it means the computer starts with some values of the coefficients _b~i~_ and then varies them (in a smart way) until the predicted _Y_ from the model are as close as possible to the data _Y~d~_. 
+When you ask the computer to fit this model, it will guess some values of the coefficients _b~i~_ and then vary them (in a smart way) until the predicted _Y~m~_ (AKA $\hat{y}$) from the model are as close as possible to the actual data values _Y~d~_ (usually just called $y$). 
 
-This procedure is very general and applies to any kind of model and both continuous and categorical outcomes. What changes between problems and approaches is how exactly the fitting routine goes about varying the parameters (something we won't discuss in this course), and how we define _closeness_ between data and model outcomes. The latter is a scientific choice, and you need to specify it when you fit models.
+This procedure for fitting models is very general and applies to any kind of model, as well as both continuous and categorical outcomes. What changes between problems and approaches is how exactly the fitting routine goes about varying the parameters (something we won't discuss in this course), and how we define _closeness_ between data and model outcomes. The latter is a scientific choice, and you need to specify it when you fit models.
 
 
 # The cost/loss/objective function
 
-For the computer to perform the routine of _vary model parameters to get the model as close to the data as possible_, we have to quantify this closeness (or difference) between model and data. To do so, we define some function of both model predictions (_Y~m~_) and measured/data (_Y~d~_) outcomes. This function goes by different names, the terms most commonly used are **cost function** or *[*loss function**](https://en.wikipedia.org/wiki/Loss_function) or more generally **objective function.** Other names are common in different areas of science, see e.g., those listed in the linked Wikipedia article. Another term that is used by `tidymodels` is simply **metric**. The `yardstick` package from `tidymodels` is all about such metrics. I will interchangably use cost/lost/objective function, just be aware that it all means the same.
+For the computer to perform the routine of _vary model parameters to get the model as close to the data as possible_, we have to quantify this closeness (or difference) between model and data. To do so, we define some function of both model predictions (_Y~m~_) and measured/data (_Y~d~_) outcomes. This function goes by different names, but the terms most commonly used are **cost function** or [**loss function**](https://en.wikipedia.org/wiki/Loss_function). In more general math or stats context, this is also called an **objective function.** Other names are common in different areas of science, see e.g., those listed in the linked Wikipedia article. Another term that is used by `tidymodels` is simply **metric**; this term is somewhat more common in machine learning situations. The `yardstick` package from `tidymodels` is all about such metrics. I will interchangably use cost, lost, and objective function, as well as metric, so just be aware that they all mean the same thing: a function that is used to measure how close the model predictions are to the data.
 
-The convention is to set up the problem such that larger discrepancies between model and data lead to a larger numerical value of this function. Then our goal is to minimize the objective function, which means minimizing the difference between the data and the model predictions. (Occasionally, problems are set up to maximize this function, one can always switch from one to the other by taking the inverse.) 
+The convention is to set up the problem such that larger discrepancies between model and data lead to a larger numerical value of this function. Then our goal is to minimize the objective function, which means minimizing the difference between the data and the model predictions. (Occasionally, problems are set up to maximize this function--however, note that this is the same as minimizing the additive inverse of that function, i.e. you can just add a negative sign around the whole function.) 
 
-In equation form, we have in the general case. 
-$$C = f(Y_m,Y_d)$$
+In equation form, we have in the general case: 
+$$C = f(Y_m,Y_d).$$
 
-The $Y_m$ are all the predictions made by the model for the outcome, and the $Y_d$ are the actual outcomes from the data. If you have $N$ observations, you will have $N$ pairs of $Y_m$ and $Y_d$ and then you need to specify some equation, _f_, that uses all those values to compute a single value that measures your performance. The different types of functions, _f_, depend on the type of data and other considerations. Once you defined _f_, this is the performance metric which quantifies how well a given model fits the data. 
+The $Y_m$ are all the predictions made by the model for the outcome, and the $Y_d$ are the actual outcomes from the data. If you have $N$ observations, you will have $N$ pairs of $Y_m$ and $Y_d$ and then you need to specify some function, _f_, that uses all those values to compute a single value to measure your performance. The different types of functions, _f_, depend on the type of data and other considerations. Once you define _f_, this is the performance metric which quantifies how well a given model fits the data. 
 
-When you do a single model fit, e.g., using `lm`, the computer calculates _f_ for different values of the parameters, _b~i~_, until it finds the ones that produce the best (i.e., lowest) value for _C_.[^1] 
+When you do a single model fit, e.g., using `lm()`, the computer calculates _f_ for different values of the parameters, _b~i~_, until it finds the ones that produce the best (i.e., minimum) value of _C_.[^1] 
 
-[^1]: Technically, for `lm` it is possible to find the best parameter values other than by 'trial and error', but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of _C_) is part of the large field of [optimization](https://en.wikipedia.org/wiki/Mathematical_optimization). Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimum is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the `nloptr` package - but we won't need it in this course.
+[^1]: Technically, for `lm()` and some other simple models, it is possible to find the best parameter values other than by 'trial and error', but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of _C_) is part of the large field of [optimization](https://en.wikipedia.org/wiki/Mathematical_optimization). Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimal value is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the `nloptr` package - but we won't need it in this course.
 
 Similarly, if you fit two different models (e.g., a linear model with 3 predictor variables, and another one with 5), you can use the value of _C_ to compare model performance (with some important caveats, which we will discuss shortly).
 
