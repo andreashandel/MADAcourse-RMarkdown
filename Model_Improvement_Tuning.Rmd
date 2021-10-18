@@ -24,19 +24,19 @@ In this unit, we will cover the concept of parameter/model tuning and training.
 
 
 # Learning Objectives
-* Know what parameter tuning/model training are.
+* Learn what parameter tuning/model training are.
 * Be able to implement training/tuning in R.
 
 
 # Introduction
 
-We discussed at length that one goal (but not the only) of model fitting is to find a model that has **good performance when applied to new/different data.** 
+We discussed at length that one (but not the only) goal of model fitting is to find a model that has **good performance when applied to new/different data.** 
 
 For linear, logistic, and similar models (generalized linear models), we discussed the idea of subset/feature selection that can help determine a good model. For different sub-models, we fitted the model to some of the data and evaluated model performance on another part of the data using cross-validation. The model with the best cross-validated performance across all sub-models is then designated as the best (at least with regard to our chosen performance metric).
 
 We then discussed regularization, which tries to solve a problem similar to subset selection, namely preventing a model that is too complex and thus **overfits**. In the regularization approach, one does not compare sub-models with different predictor variables. Instead, all predictors are present, and one (or two) parameters (the regularization or penalty parameters, We called them $\lambda$ and $\alpha$) are varied to influence model complexity. For each value of that parameter, the model is evaluated through cross-validation, and the $\lambda$ which produces the model with the best performance is chosen (or sometimes one picks a somewhat larger $\lambda$ to further prevent potential overfitting).
 
-This approach of taking a model parameter and evaluating models for different parameter values is called **model/parameter tuning**. These model-specific tuning parameters are often also referred to as **hyperparameters**. Simple models, like linear or logistic regression, do not have any parameters that can be tuned. However, more complicated models, which we will discuss soon, generally have one or more tuning parameters. Very flexible models, such as neural nets used in artificial intelligence tasks, can have 1000s or more parameters that need tuning. For any models with tuning parameters, it is essential to **tune the parameters/train the model.** Without it, the model will likely not perform very well.
+This approach of taking a model parameter and evaluating models for different parameter values is called **model/parameter tuning**. These model-specific tuning parameters are often also referred to as **hyperparameters**. Simple models, like linear or logistic regression, do not have any parameters that can be tuned. However, more complicated models, which we will discuss soon, generally have one or more tuning parameters. Very flexible models, such as neural nets used in artificial intelligence tasks, can have thousands or even more parameters that need tuning. For any models with tuning parameters, it is essential to **tune the parameters/train the model.** Without it, the model will likely not perform very well.
 
 
 
@@ -67,12 +67,14 @@ The problem of trying a lot of different tuning parameter values to find the one
 
 For instance, if you have 2 continuous tuning parameters and 1 categorical tuning parameter with 3 categories, if you chose 10 discrete values for the 2 continuous parameters each, your grid would be 10x10x3. In this case, you would need to evaluate the model for 300 different tuning parameter values. That's not too bad. But you can see that one problem with this approach is that as the number of tuning parameters increases, or if you want to try many different discrete values (e.g., 100 instead of 10 for each continuous parameter), the number of times you need to run the model increases rapidly. That's the same problem as the exhaustive search for subset selection.
 
-To efficiently search for the best tuning parameters, methods similar to those mentioned for subset selection can be applied, e.g., one can use Genetic Algorithms, Simulated Annealing, or many other optimizer routines for tuning. While it is, in principle, possible to write your own code that implements the tuning procedure with whatever method you want to use, for most instances, it is easier to use pre-existing methods. 
+To solve this problem, there are a few major methods:
+* One can efficiently choose parameter values to estimate -- instead of searching the entire grid, you can use a sampling method to find a smaller grid that covers the same space in the most efficient way. The most well-known algorithm for this is probably _Latin hypercube sampling_.
+* methods similar to those mentioned for subset selection can be applied, e.g., one can use Genetic Algorithms, Simulated Annealing, Racing Methods, or many other optimizer routines for tuning. While it is, in principle, possible to write your own code that implements the tuning procedure with whatever method you want to use, for most instances, it is easier to use pre-existing methods. 
 
 
 # Tuning with R
 
-`tidymodels`, and its package [`tune`](https://tune.tidymodels.org/) currently have a few different algorithms for searching the tuning parameter space implemented. Grid search is tha main one, as of this writing two other methods, namely _Simulated annealing_ and  _Iterative Bayesian optimization_ are implemented. To learn more about those, see [chapters 12-14 in Tidy Modeling With R](https://www.tmwr.org/).
+`tidymodels`, and its package [`tune`](https://tune.tidymodels.org/) currently have a few different algorithms for searching the tuning parameter space implemented. Grid search is the main one, but the package also implements  _Iterative Bayesian optimization_. The [`finetune`](https://github.com/tidymodels/finetune) which is not yet on CRAN implements _Simulated Annealing_ and _Racing Methods_. To learn more about those, see [chapters 12-14 in Tidy Modeling With R](https://www.tmwr.org/).
 
 
 The `mlr3/mlr` package I keep mentioning also has algorithms to tune parameters, including some that are not available (yet) in `tidymodels`. For tuning in `mlr` see e.g. [here](https://mlr.mlr-org.com/articles/tutorial/tune.html
@@ -84,9 +86,9 @@ The `mlr3/mlr` package I keep mentioning also has algorithms to tune parameters,
 
 Only if your model has very few tuning parameters and your data is manageable in size can you find the absolute best parameter values in a reasonable amount of time. More likely, you'll find parameter values that give you a close-to-optimal model.
 
-At times, cross-validation might take too much time, and you might have to use a computationally faster method, such as AIC or similar, to try to estimate model performance on future data. That's not ideal, you might want to consider other approaches first (fewer parameter evaluations, faster computer, running things in parallel...)
+At times, cross-validation might take too much time, and you might have to use a computationally faster method, such as AIC or similar, to try to estimate model performance on future data. That's not ideal, you might want to consider other approaches first (fewer parameter evaluations, faster computer, running things in parallel...).
 
-Any process that adjusts the model repeatedly based on prior fits to data has the danger of **overfitting.** Even if you try to guard against this using approaches such as CV. Thus, sometimes less tuning might actually give you a more robust/generalizable model.
+Any process that adjusts the model repeatedly based on prior fits to data has the danger of **overfitting**, even if you try to guard against this using approaches such as CV. Thus, sometimes less tuning might actually give you a more robust/generalizable model.
 
 The more tuning parameters in your model, the more data you need to be able to train the model properly. If you have a mismatch between the amount of data and model complexity, you are likely going to overfit. This is why complex models such as neural nets need vast amounts of data (millions or billions of observations). 
 
