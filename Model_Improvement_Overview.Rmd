@@ -24,23 +24,23 @@ knitr::opts_chunk$set(out.width = '70%')
 In this module, we will discuss ways one can try to improve model performance.
 
 
-```{r trainfit,  fig.show='hold', fig.cap='', echo=FALSE, fig.align='center'}
+```{r trainfit,  fig.show='hold', fig.cap='', echo=FALSE, fig.align='center', fig.alt = 'An XKCD comic strip with one panel. One person is on the left, and the other is on the right, holding a shovel, and standing on top of a pile of matrices and math symbols. The left person says "This is your machine learning system?", then the right person says "Yup! You pour the data into this big pile of linear algebra, then collect the answers on the other side." The left person responds "What if the answers are wrong?" and the right person replies with "Just stir the pile until they start looking right."'}
 knitr::include_graphics("./media/xkcd-machine_learning.png")
 ```
 
 
 
 # Learning Objectives
-* Know how to process your data to improve model performance.
-* Be familiar with subset selection and regularization approaches.
-* Know about model tuning.
+* Learn how to process your data to improve model performance.
+* Become familiar with subset selection and regularization approaches.
+* Learn about model tuning.
 
 
 # Introduction
 
-While, as we discussed, having a great performing model is not the only important goal, it is often one of the most important ones. We generally want a model with good performance. To get such a model, there are several things we can do to either the data or the model to help and improve performance.
+While, as we discussed, having a model that performs great is not the only important goal, it is often one of the most important ones. We generally want a model with good performance. To get such a model, there are several things we can do to either the data or the model to help improve performance.
 
-Trying different models is of course always an option, and possibly a good one. But even if we don't use lots of different models, there are often things we can do to improve the performance of the model (or type of model) we are using.
+Trying different models is, of course, always an option, and possibly a good one. But even if we don't use lots of different models, there are often things we can do to improve the performance of the model (or type of model) we are using.
 
 We are covering several important approaches to model performance improvement here. But as we go through these topics (and the rest of the course) always keep these things in mind: 
 
