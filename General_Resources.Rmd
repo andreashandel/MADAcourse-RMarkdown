@@ -62,6 +62,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
 * [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 * [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
+* [R for Epidemiology](https://www.r4epi.com/) - an introduction to R with a focus on tasks that are often used in Epidemiology/Public Health. 
 * [Tidy Modeling with R](https://www.tmwr.org/) are the beginnings of a hopefully great and comprehensive book that describes analysis/modeling using the `tidyverse` set of packages.
 * [Learning statistics with R](https://learningstatisticswithr.com/) - I've not read/used it, but heard from others who like it.
 * [What They Forgot to Teach You About R](https://rstats.wtf/) is the beginning of an online book which covers some topics rarely found elsewhere. As of this writing, the book is fairly incomplete, but still worth checking out. Especially the first several chapters and the  _debugging R code_ sections are worth learning/reading.
