@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Model Evaluation Overview</title>
+<title>Assessment - Complete Workflow</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -587,39 +587,62 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Model Evaluation Overview</h1>
+<h1 class="title toc-ignore">Assessment - Complete Workflow</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-18 09:25:25</h4>
+<h4 class="date">2021-10-08 08:17:48</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>In this module, we will discuss how one can assess the quality of different models, and what aspects of model quality one needs to consider.</p>
-<p><img src="media/assessment-cartoon.jpg" width="70%" style="display: block; margin: auto;" /></p>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
+<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
 </div>
-<div id="learning-objectives" class="section level1">
-<h1>Learning Objectives</h1>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>For this exercise, we will participate in one more <strong>Tidy Tuesday</strong> exercise. This time, we’ll apply a full analysis workflow to the data.</p>
+<p>This is another solo exercise, so no group work this week, but of course more GitHub. This exercise will go into your portfolio.</p>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Use your portfolio website. Make sure it’s up to date and fully synced. Open it in R Studio. From last week’s exercise, you should have an empty Rmd file called <code>tidytuesday_exercise2.Rmd</code>. Open it, that’s where you’ll write your Tidy Tuesday analysis.</p>
+<p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called <code>data</code>).</p>
+</div>
+<div id="what-to-do" class="section level2">
+<h2>What to do</h2>
+<p>Write code and text to perform the following steps:</p>
 <ul>
-<li>Learn how to determine different aspects of model quality</li>
-<li>Become familiar with different types of model performance metrics</li>
-<li>Become able to choose the right assessment metric for your problem</li>
-<li>Learn what model uncertainty is and how to compute it</li>
-<li>Become familiar with model diagnostics</li>
+<li>Load the data.</li>
+<li>Clean/wrangle the data.</li>
+<li>Explore the data. Show some figures/tables as appropriate.</li>
+<li>Pre-process the data.</li>
+<li>Decide on your outcome(s) of interest and, if applicable, main predictor(s) of interest.</li>
+<li>Split your data into train/test.</li>
+<li>Fit at least 3 different models to the data using the <code>tidymodels</code> framework we practiced. Use the CV approach for model training/fitting.</li>
+<li>Explore the quality of each model by looking at performance, residuals, uncertainty, etc.</li>
+<li>Pick (at least) one model as your final model (explain why). Evaluate its quality on the test data.</li>
 </ul>
 </div>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>If we fit any kind of statistical model to data, we need to determine the quality of a fit somehow. How do we know one model is <em>better</em> than another? How do we know any given model is <em>good</em>? These questions, i.e., what model is <em>better</em> among a group of models, and if a model is <em>good</em> (even the best among a group of awful models can be a bad model!) have multiple parts to them, only some of which can be answered by statistics. Others are judgment calls.</p>
-<p>There is no single way to define quality. Instead, multiple factors should be considered. Here are some important aspects to think about:</p>
+<div id="general-pointers" class="section level2">
+<h2>General pointers</h2>
 <ul>
-<li>Model performance: How well do the predictions from the model compare to the actual data?</li>
-<li>Model complexity: How easy or hard is it to understand the model? How fast does it run? How robust is it to violations of the assumptions you made?</li>
-<li>Model uncertainty: How much uncertainty is associated with the predictions made by the model?</li>
-<li>Model misspecification: How much systematic deviation is there between model predictions and actual data?</li>
+<li><p>You don’t need to do those steps in that specific order, for instance pre-processing might happen during general cleaning.</p></li>
+<li><p>Add ample of information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then 😁).</p></li>
 </ul>
-<p>We will discuss these different ways one can assess model quality in this module.</p>
+</div>
+<div id="finish-up" class="section level2">
+<h2>Finish up</h2>
+<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.</p>
+<p>And you are again free to broadcast your effort on social media, e.g., using the <code>#tidytuesday</code> hash tag on Twitter. And I’ll again be looking out for #MADA2021 tagged tweets 😁.</p>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>Write a post in this week’s discussion channel that addresses this topic:</p>
+<p><em>Now that we essentially reached the end of the course and did the whole data-analysis pipeline, which specific topics in the data-analysis workflow do you still find unclear/confusing? Which ones do you wish we had covered more? Are you looking for further resources on a specific topic and haven’t found anything good?</em></p>
+<p>Post by Wednesday, then comment on each others posts. I hope this discussion will allow us to point each other to further possibly helpful resources and maybe help clarify some still open questions.</p>
 </div>
 
 

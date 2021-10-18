@@ -23,7 +23,7 @@ knitr::opts_chunk$set(out.width = '70%')
 In this Unit, we will take another look at the whole data analysis process. Here, we focus on the actual (statistical) analysis (which I also call model fitting) component of the data analysis process. A general conceptual understanding is useful before we jump into looking at and applying specific modeling/statistical approaches.
 
 
-```{r workflow,  echo=FALSE, fig.cap='Maybe Dogbert did not do the analysis quite right. Source: dilbert.com.', out.width = '60%', fig.align='center', fig.alt='A three panel Dilbert comic. In the first panel, Dilbert\'s boss says "Our consultant has been mining data all day" and Dogbert responses "The results are quite shocking." In the middle panel, Dilbert\'s boss says "According to the data, sales are always highest when I do this...", and in the final panel, Dilbert\'s boss makes a funny face."}
+```{r workflow,  echo=FALSE, fig.cap='Maybe Dogbert did not do the analysis quite right. Source: dilbert.com.', out.width = '60%', fig.align='center', fig.alt='A three panel Dilbert comic. In the first panel, Dilberts boss says "Our consultant has been mining data all day" and Dogbert responses "The results are quite shocking." In the middle panel, Dilberts boss says "According to the data, sales are always highest when I do this...", and in the final panel, Dilberts boss makes a funny face.'}
 knitr::include_graphics("./media/dilbert_datamining.gif")
 ```
 

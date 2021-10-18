@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Model Evaluation Overview</title>
+<title>Assessment - Machine Learning Models 2</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -587,39 +587,63 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Model Evaluation Overview</h1>
+<h1 class="title toc-ignore">Assessment - Machine Learning Models 2</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-18 09:25:25</h4>
+<h4 class="date">2021-10-08 11:40:11</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>In this module, we will discuss how one can assess the quality of different models, and what aspects of model quality one needs to consider.</p>
-<p><img src="media/assessment-cartoon.jpg" width="70%" style="display: block; margin: auto;" /></p>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
+<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
 </div>
-<div id="learning-objectives" class="section level1">
-<h1>Learning Objectives</h1>
-<ul>
-<li>Learn how to determine different aspects of model quality</li>
-<li>Become familiar with different types of model performance metrics</li>
-<li>Become able to choose the right assessment metric for your problem</li>
-<li>Learn what model uncertainty is and how to compute it</li>
-<li>Become familiar with model diagnostics</li>
-</ul>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<p>Since this week is another week with a project submission deadline, I’m keeping the exercise short, but there are some cleanup things for your portfolio I’d like you to do. Some of you might have already done that, then you are good to go.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Make sure your portfolio repository is fully up-to-date and synced. Open the project in RStudio.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>If we fit any kind of statistical model to data, we need to determine the quality of a fit somehow. How do we know one model is <em>better</em> than another? How do we know any given model is <em>good</em>? These questions, i.e., what model is <em>better</em> among a group of models, and if a model is <em>good</em> (even the best among a group of awful models can be a bad model!) have multiple parts to them, only some of which can be answered by statistics. Others are judgment calls.</p>
-<p>There is no single way to define quality. Instead, multiple factors should be considered. Here are some important aspects to think about:</p>
-<ul>
-<li>Model performance: How well do the predictions from the model compare to the actual data?</li>
-<li>Model complexity: How easy or hard is it to understand the model? How fast does it run? How robust is it to violations of the assumptions you made?</li>
-<li>Model uncertainty: How much uncertainty is associated with the predictions made by the model?</li>
-<li>Model misspecification: How much systematic deviation is there between model predictions and actual data?</li>
-</ul>
-<p>We will discuss these different ways one can assess model quality in this module.</p>
+<div id="connecting-website-and-file-repository" class="section level2">
+<h2>Connecting website and file repository</h2>
+<p>First, let’s make sure it’s easy for people to go from your portfolio website (the <code>github.io</code> location) to your file repository (the <code>github.com</code> location) and back. To that end, open the <code>_site.yml</code> file. At the bottom, it says <code>URL-TO-THIS-REPOSITORY-HERE</code>. Replace that with the URL to your Github repository. As an example, for the MADA course, the URL one would put in there is <code>https://github.com/andreashandel/MADAcourse</code> (while the website lives at <code>https://andreashandel.github.io/MADAcourse/</code>).</p>
+<p>Once you done that, when people now are on your website, they can click on the <code>Github</code> icon in the top right corner and be taken to your file repository. Try to make sure it works by rebuilding your website and pushing to Github. It might take a minute or so and you might need to hit refresh before it shows up on the website.</p>
+<p>Now, let’s connect the two in revers. Open <code>Readme.md</code> and update the text. This is what people see when they come to your github repository for your portfolio (as opposed to the website). I recommend adding a little bit of text and a link pointing users to the actual website. <a href="https://github.com/andreashandel/MADAcourse">You can look at the Readme.md for this course as example</a>. Edit yours as you want.</p>
+<p>You might also want to point to your website on Github.com. If you go to your repository on GitHub, you should see an <code>About</code> section in the top right. If you click on the gear symbol, there is a field in which you can enter the URL for your website (the <code>github.io</code> location). It might already show as pre-populated, but you have to actually manually enter it before it will show. You can again see how that looks on my website repository.</p>
+<p>With this, it is easy for anyone (including yourself) to quickly switch between the website and the file repository.</p>
+</div>
+<div id="creating-new-content" class="section level2">
+<h2>Creating new content</h2>
+<p>In preparation for next week, make a copy of the <code>tidytuesday_exercise.Rmd</code> file, name it <code>tidytuesday_exercise2.Rmd</code>. Open it, delete everything apart from the YAML header (the stuff between the <code>---</code>). Add a sentence that says “To be filled” or something like that. We’ll fill it next week.</p>
+<p>To see the new file and access it from the website, we also have to include it in the website navigation bar. To that end, go back to the <code>_site.yml</code> file. Under <code>menu</code>, you’ll see multiple lines of code starting with <code>text</code> and <code>href</code>. Those are the menu entries. Copy and insert the last 2 entries for Tidy Tuesday just below those entries, then replace the text with “Tidy Tuesday 2 Exercise” and the link with <code>./tidytuesday_exercise2.html</code>.</p>
+<p>Make sure your website rebuilds ok. You should now see another menu entry for Tidy Tuesday 2 and when you click on it, the essentially empty file we created should show up.</p>
+<div class="warning">
+<p>YAML (which is the format of this file) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change the YAML file and you get a weird error message when trying to rebuild your website, it’s likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind.</p>
+</div>
+</div>
+<div id="adding-more-content" class="section level2">
+<h2>Adding more content</h2>
+</div>
+<div id="styling" class="section level2">
+<h2>Styling</h2>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+</div>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>No discussion assignment this week. Instead, submit project part 4.</p>
+</div>
+<div id="project" class="section level1">
+<h1>Project</h1>
+<p>Submission of part 4 is due. Make sure your updated project is on Github.</p>
+</div>
+<div id="discussion-1" class="section level1">
+<h1>Discussion</h1>
+<p>Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).</p>
+<p>Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.</p>
 </div>
 
 
