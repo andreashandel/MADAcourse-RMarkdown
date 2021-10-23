@@ -589,73 +589,74 @@ div.tocify {
 
 <h1 class="title toc-ignore">Regularization</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-02 10:28:31</h4>
+<h4 class="date">2021-10-23 10:06:12</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will cover the related ideas of regularization. We’ll also briefly mention a few related approaches.</p>
+<p>In this unit, we will cover the concept of regularization. We’ll also briefly mention a few related approaches.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Know what regularization is and when to use it.</li>
+<li>Learn what regularization is and when to use it.</li>
 <li>Be able to implement regularization in R.</li>
 </ul>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The standard subset selection approach you just learned about considers a specific variable to be either in the model or not. There are newer approaches that go by the name of regularization that take an in-between stance. A variable might be included, but it might be given less weight than other variables by reducing (regularizing) the coefficient in front of it. That’s the idea of regularization.</p>
+<p>The standard subset selection approach you just learned about considers a specific variable to be either in the model or not.</p>
+<p>Newer approaches, called “regularization” methods, can take an in-between stance. In general, regularization forces some (or all) coefficients in a regression model to be smaller than the normal estimates. A variable might be included, but it might be given less weight than other variables by reducing (regularizing) the coefficient in front of it. That’s the idea of regularization.</p>
 </div>
 <div id="regularization" class="section level1">
 <h1>Regularization</h1>
-<p>Regularization tries to solve the same problem as subset selection, namely preventing overfitting (and also underfitting). Instead of solving this by completely removing predictors (and those model flexibility, which might lead to overfitting), it penalizes variables by giving them less influence on the outcome, thus <em>regularizing</em> model behavior (or, in technical language: making things less “wiggly”).</p>
+<p>Regularization tries to solve the same problem as subset selection, namely preventing overfitting (and also underfitting). Instead of solving this by completely removing predictors (and thus model flexibility, which might lead to overfitting), it penalizes variables by giving them less influence on the outcome, thus <em>regularizing</em> model behavior (or, in technical language: making things less “wiggly” 😁).</p>
 <p>It might be easiest to explain regularization with a specific example, so let’s consider a linear model. Note, however, that the regularization concept and approach is general and applies to many models beyond linear ones.</p>
 <p>Our model is given by</p>
-<p><span class="math display">\[Y = b_0 + b_1 X_1 + b_2 X_2 + ....\]</span>.</p>
-<p>We might decide to minimize the SSR, i.e., we are minimizing a cost function</p>
-<p><span class="math display">\[C = SSR=\sum_i (Y_m^i - Y_d^i)^2\]</span>.</p>
+<p><span class="math display">\[Y = b_0 + b_1 X_1 + b_2 X_2 + \ldots + b_nX_n.\]</span></p>
+<p>We might decide to minimize the SSR between model and data, i.e., we are minimizing a cost function</p>
+<p><span class="math display">\[C = SSR=\sum_i (Y_m^i - Y_d^i)^2.\]</span></p>
 <p>Now, if we use regularization, we are going to instead minimize</p>
-<p><span class="math display">\[C = SSR + f(b_j) \]</span> where the function <em>f</em> is some function of the model parameters. There are 3 main ways to choose that function <em>f</em>, described next.</p>
+<p><span class="math display">\[C = SSR + R(b_j),\]</span> where the function <em>R</em>, called the “regularization term” or “reguliarizer” is some function of the model parameters. Although you could (in theory) choose whatever function you want for <em>R</em>, there are 3 main ways to choose it, described next.</p>
 <div id="ridge-regression" class="section level2">
 <h2>Ridge regression</h2>
-<p>One way to choose the function that penalizes the predictors is to weigh each predictor by the predictor’s coefficient squared. Choosing the penalty term as the square of the coefficient is called <em>L2 regularization</em> or <em>ridge regression</em>. This leads to the cost function:</p>
-<p><span class="math display">\[C = SSR + \lambda \sum_j^p b_j^2 \]</span></p>
-<p>The parameter <span class="math inline">\(\lambda\)</span> decides the balance between the goodness of fit (low SSR) and the penalty for having large coefficients. Instead of trying different subsets as above and picking the best based on lowest CV performance, we now try different values of <span class="math inline">\(\lambda\)</span> and pick the model with the lowest (cross-validated) value for <em>C</em>. The parameter <span class="math inline">\(\lambda\)</span> is often referred to as the <em>tuning parameter</em>.</p>
+<p>One way to choose the function that penalizes the predictors is to weigh each predictor by the predictor’s coefficient squared. Choosing the penalty term as the square of the coefficient is called <em>ridge regression</em> (AKA <em>L2 regularization</em>, <em>Tikhonov regularization</em>, <em>weight decay</em>, and potentially lots of other names). This leads to the cost function:</p>
+<p><span class="math display">\[C = SSR + \lambda \sum_j^p b_j^2.\]</span></p>
+<p>The parameter <span class="math inline">\(\lambda\)</span> decides the balance between the goodness of fit (low SSR) and the penalty for having large coefficients. Instead of trying different subsets as above and picking the best based on lowest CV performance, we now try different values of <span class="math inline">\(\lambda\)</span> and pick the model with the lowest (cross-validated) value for our performance measure, <em>C</em>. The parameter <span class="math inline">\(\lambda\)</span> is often referred to as the <em>tuning parameter</em> or the <em>penalty</em>. Sometimes <span class="math inline">\(\lambda\)</span> is also called a <strong>hyperparameter</strong> of the model, which just means that the best value of <span class="math inline">\(\lambda\)</span> cannot be found by fitting the model one time only.</p>
 </div>
 <div id="lasso" class="section level2">
 <h2>LASSO</h2>
 <p>An alternative is to penalize the coefficients by their absolute value, namely using this cost function:</p>
 <p><span class="math display">\[C = SSR + \lambda \sum_j^p |b_j| \]</span></p>
-<p>This method is called <em>L1 regularization</em> or <em>Least Absolute Shrinkage and Selection Operator (LASSO).</em> One nice feature of LASSO (which ridge regression does not have) is that coefficients may go to 0. That means the predictor has been dropped from the model, similar to the subset selection approach described previously. One can think of the LASSO as an efficient approach for performing subset selection. It is not quite equivalent though, since, in the LASSO, the predictors that remain might have been shrunk in their impact due to the regularization penalty.</p>
+<p>This method is called <em>L1 regularization</em> or the <em>Least Absolute Shrinkage and Selection Operator (LASSO)</em>. One nice feature of LASSO (which ridge regression does not have) is that coefficients may go to 0. That means the predictor has been dropped from the model, similar to the subset selection approach described previously. One can think of the LASSO as an efficient approach for performing subset selection. It is not quite equivalent though, since, in the LASSO, the predictors that remain might have been shrunk in their impact due to the regularization penalty.</p>
 </div>
 <div id="elastic-net" class="section level2">
 <h2>Elastic net</h2>
 <p>One can also combine ridge regression and LASSO into an approach called <em>elastic net</em>, which has a cost function that is the combination of the previous two, namely:</p>
-<p><span class="math display">\[ C = SSR + \lambda ( (1-\alpha) \sum_j^p b_j^2 + \alpha \sum_j^p |b_j|)\]</span></p>
-<p>Now one needs to try different values for <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\alpha\)</span> to determine the model with the best (cross-validated) performance. <span class="math inline">\(\lambda\)</span> determines the overall weight given to the penalty factor, while <span class="math inline">\(\alpha\)</span> determines how the penalty should be distributed between the 2 alternative terms.</p>
+<p><span class="math display">\[ C = SSR + \lambda \left( (1-\alpha) \sum_j^p b_j^2 + \alpha \sum_j^p |b_j|\right)\]</span></p>
+<p>Now one needs to try different values for <span class="math inline">\(\lambda\)</span> (called the <em>penalty</em> parameter) and <span class="math inline">\(\alpha\)</span> (called the <em>mixture</em> parameter) to determine the model with the best (cross-validated) performance. <span class="math inline">\(\lambda\)</span> determines the overall weight given to the penalty factor, while <span class="math inline">\(\alpha\)</span> determines how the penalty should be distributed between the 2 alternative terms. There are also a few variants of this method, such as relaxed elastic net or adaptive elastic net which you can look into if you are interested but we won’t discuss here.</p>
 </div>
 <div id="tuning-a-regularization-model" class="section level2">
 <h2>Tuning a regularization model</h2>
-<p>Depending on the kind of regularization model you fit, you have to determine 1 or 2 extra parameters (<span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\alpha\)</span>). These parameters are called <strong>tuning parameters</strong> and it is the first time we see a model that has them. Most complex machine learning models have such tuning parameters, and determining good values for those is part of the model fitting/training process. We’ll talk about that in the next unit.</p>
+<p>Depending on the kind of regularization model you fit, you have to determine 1 or 2 extra parameters (<span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\alpha\)</span>). These parameters are called <strong>tuning parameters</strong> (or <strong>hyperparameters</strong>) and it is the first time we see a model that has them. Most complex machine learning models have such tuning parameters, and determining good values for those is part of the model fitting/training process. We’ll talk about that in the next unit.</p>
 </div>
 </div>
 <div id="further-comments" class="section level1">
 <h1>Further comments</h1>
 <p>If you are familiar with AIC, BIC or similar information criteria, you might have noticed that the cost function in regularization looks a bit like the equations for AIC or similar quantities. That is no accident. Both try to penalize the model for being overly complicated and thus have equations that contain terms for both model performance and model complexity while trying to find the model with the best balance.</p>
 <p>If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. <a href="https://statlearning.com/">See section 6.2. of ISLR</a> for more.</p>
-<p>There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization <a href="https://statlearning.com/">see section 6.2. of ISLR</a>, <a href="https://bradleyboehmke.github.io/HOML/regularized-regression.html">chapter 6 of HMLR</a> and <a href="https://rafalab.github.io/dsbook/">section 34.9 of IDS</a>. I won’t quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques.</p>
+<p>There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization <a href="https://statlearning.com/">see section 6.2. of ISLR</a>, <a href="https://bradleyboehmke.github.io/HOML/regularized-regression.html">chapter 6 of HMLR</a> and <a href="https://rafalab.github.io/dsbook/">section 34.9 of IDS</a>. I encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques.</p>
 </div>
 <div id="more-regularization" class="section level1">
 <h1>More regularization</h1>
-<p>The term <em>regularization</em> is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework, the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book <a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a> by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.</p>
+<p>The term <em>regularization</em> is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework (Bayesian or frequentist), the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book <a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a> by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.</p>
 <p>The main point is that if you see the word <em>regularization</em> in the literature, it might refer to the specific approaches discussed above, but it might also refer to other approaches related to <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">the general concept</a>.</p>
 </div>
 <div id="methods-related-to-subset-selection-and-regularization" class="section level1">
 <h1>Methods related to subset selection and regularization</h1>
-<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Examples are <a href="https://en.wikipedia.org/wiki/Partial_least_squares_regression"><em>Partial Least Squares (PLS)</em></a>, <a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><em>Principal Component Analysis (PCA)</em></a>, <a href="https://en.wikipedia.org/wiki/Least-angle_regression">Least Angle Regression (LARS)</a>. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="https://statlearning.com/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
+<p>Subset selection and regularization are not the only methods that one can use to try and find the best performing model. Other methods that try to find the optimal set of predictors, often labeled <em>feature reduction methods</em>, can be used. Examples are <a href="https://github.com/ryantibs/best-subset"><em>Best Subset Regression</em></a>, <a href="https://en.wikipedia.org/wiki/Partial_least_squares_regression"><em>Partial Least Squares (PLS)</em></a>, <a href="https://en.wikipedia.org/wiki/Principal_component_analysis"><em>Principal Component Analysis (PCA)</em></a>, <a href="https://en.wikipedia.org/wiki/Least-angle_regression">Least Angle Regression (LARS)</a>. We briefly mentioned some of them when we discussed feature reduction. Those methods are for instance discussed in <a href="https://bradleyboehmke.github.io/HOML/">chapters 17-19 of HMLR</a> and <a href="https://statlearning.com/">section 6.3. of ISLR</a>. We won’t cover those, but if you are interested, take a look.</p>
 </div>
 
 

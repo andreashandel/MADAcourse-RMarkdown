@@ -12,7 +12,7 @@ output:
 ```{r, include=FALSE}
 #just so I can use emoticons
 #devtools::install_github("hadley/emo")
-library(emo)
+library(emoji)
 #set some figure options
 knitr::opts_chunk$set(out.width = '70%')
 ```
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(out.width = '70%')
 
 
 # Overview
-In this unit, we will cover the related ideas of regularization. We'll also briefly mention a few related approaches.
+In this unit, we will cover the concept of regularization. We'll also briefly mention a few related approaches.
 
 
 # Learning Objectives
@@ -38,15 +38,15 @@ Newer approaches, called "regularization" methods, can take an in-between stance
 
 # Regularization
 
-Regularization tries to solve the same problem as subset selection, namely preventing overfitting (and also underfitting). Instead of solving this by completely removing predictors (and thus model flexibility, which might lead to overfitting), it penalizes variables by giving them less influence on the outcome, thus _regularizing_ model behavior (or, in technical language: making things less "wiggly"). 
+Regularization tries to solve the same problem as subset selection, namely preventing overfitting (and also underfitting). Instead of solving this by completely removing predictors (and thus model flexibility, which might lead to overfitting), it penalizes variables by giving them less influence on the outcome, thus _regularizing_ model behavior (or, in technical language: making things less "wiggly" `r emoji::emoji('grin')`). 
 
 It might be easiest to explain regularization with a specific example, so let's consider a linear model. Note, however, that the regularization concept and approach is general and applies to many models beyond linear ones.
 
 Our model is given by 
 
-$$Y = b_0 + b_1 X_1 + b_2 X_2 + \ldots + b_nX_n.$$. 
+$$Y = b_0 + b_1 X_1 + b_2 X_2 + \ldots + b_nX_n.$$ 
 
-We might decide to minimize the SSR, i.e., we are minimizing a cost function 
+We might decide to minimize the SSR between model and data, i.e., we are minimizing a cost function 
 
 $$C = SSR=\sum_i (Y_m^i - Y_d^i)^2.$$
 
@@ -62,7 +62,7 @@ One way to choose the function that penalizes the predictors is to weigh each pr
 
 $$C = SSR + \lambda \sum_j^p b_j^2.$$
 
-The parameter $\lambda$ decides the balance between the goodness of fit (low SSR) and the penalty for having large coefficients. Instead of trying different subsets as above and picking the best based on lowest CV performance, we now try different values of $\lambda$ and pick the model with the lowest (cross-validated) value for _C_. The parameter $\lambda$ is often referred to as the _tuning parameter_ or the _penalty_. Sometimes $\lambda$ is also called a **hyperparameter** of the model, which just means that the best value of $\lambda$ cannot be found by fitting the model one time only. 
+The parameter $\lambda$ decides the balance between the goodness of fit (low SSR) and the penalty for having large coefficients. Instead of trying different subsets as above and picking the best based on lowest CV performance, we now try different values of $\lambda$ and pick the model with the lowest (cross-validated) value for our performance measure, _C_. The parameter $\lambda$ is often referred to as the _tuning parameter_ or the _penalty_. Sometimes $\lambda$ is also called a **hyperparameter** of the model, which just means that the best value of $\lambda$ cannot be found by fitting the model one time only. 
 
 ## LASSO
 An alternative is to penalize the coefficients by their absolute value, namely using this cost function:
@@ -93,12 +93,12 @@ If you are familiar with AIC, BIC or similar information criteria, you might hav
 
 If LASSO has the nice feature of potentially removing variables and thus making the model simpler, why ever use ridge regression or the elastic net? It turns out that for some problems, those other methods perform better. [See section 6.2. of ISLR](https://statlearning.com/) for more.
 
-There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](https://statlearning.com/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I won't quiz you on those readings, but I strongly encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
+There is a lot of math behind the regularization concept. From an applied perspective, the focus is to understand the overall idea and how to implement them. For more on regularization [see section 6.2. of ISLR](https://statlearning.com/), [chapter 6 of HMLR](https://bradleyboehmke.github.io/HOML/regularized-regression.html) and [section 34.9 of IDS](https://rafalab.github.io/dsbook/). I encourage you to check out the ISLR and HMLR readings and skim through them to get a better understanding of these widespread and powerful techniques. 
 
 
 # More regularization
 
-The term _regularization_ is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework, the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.
+The term _regularization_ is broad and the idea has been applied to many different types of models. For instance in a Bayesian framework, the choice of informative priors regularizes the model and thus reduces the risk of overfitting. Similarly, in a hierarchical/multi-level statistical framework (Bayesian or frequentist), the structure imposed on the model leads to some amount of regularization. Unfortunately, those topics are outside of what we can cover in this class. If you want to learn more, I highly recommend the book [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by McElreath. It is unfortunately not free and not cheap. But if you are interested in Bayesian analysis, this is the book I suggest you start with.
 
 The main point is that if you see the word _regularization_ in the literature, it might refer to the specific approaches discussed above, but it might also refer to other approaches related to [the general concept](https://en.wikipedia.org/wiki/Regularization_(mathematics)).
 

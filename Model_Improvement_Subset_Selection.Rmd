@@ -20,7 +20,7 @@ knitr::opts_chunk$set(out.width = '70%')
 
 
 # Overview
-In this unit, we will cover the related ideas of subset selection and regularization. We'll also briefly mention a few related approaches.
+In this unit, we will cover the idea of subset selection.
 
 
 # Learning Objectives
@@ -35,7 +35,7 @@ If the goal was to fit the data you have as well as possible, you could always a
 
 You want a model that gets the trade-off between high bias (model not flexible enough to capture all the patterns seen in the data) and high variance (model too flexible, will capture noise as well) right.
 
-I showed the figure below previously. I'm repeating it here for convenience. The yellow model, in this example, has too much bias. The model is too simple to capture all the important patterns, and it **underfits** the data. The green model has too much variance. It goes too close to the data used for fitting and doesn't generalize to new data, it **overfits** the data. In this example, the blue model has the optimal model complexity.
+I showed the figure below previously. I'm repeating it here as a refresher. The yellow model (straight line), in this example, has too much bias. The model is too simple to capture all the important patterns, and it **underfits** the data. The performance metric (mean square error here) is high for both the training and test/CV data (yellow squares on the left of the right panel.) The green model (very wiggly line) has too much variance. It goes too close to the data used for fitting and doesn't generalize to new data, it **overfits** the data. This reflects itself in good performance (low MSE) for the train data, but high MSE for the test/CV data (green squares on left of the left panel) In this example, the blue model has the optimal model complexity. It captures the overall pattern in the data, without trying to fit the noise/variability. This manifests itself with the best performance on the test/CV data (blue squares).
 
 ```{r trainfit,  fig.show='hold', fig.cap='Bias-variance tradeoff. Source: ISLR.', echo=FALSE, fig.align='center', fig.alt = "A scatterplot with two panels. The left panel shows several data points along with a few different models: a straight line, a curve that passes through the middle of the points, and a curve that oscillates frequently to hit many of the points. The right panel shows the MSE of these models against the training data, where the oscillating curve performs best, and also against new data, where the curve which oscillates less frequently performs best."}
 knitr::include_graphics("./media/islr-fig29.jpg")
@@ -81,7 +81,15 @@ There have recently been a number of approaches that try to be somewhat smarter 
 
 ## Manual subset selection
 
-All the approaches above use cross-validated performance of some metric to determine which predictors should be included in the model. Another, still commonly used strategy is to do subset selection manually. The analyst usually starts with a simple model containing just one predictor (the most important one), and then decides based on model results (e.g., systematic deviations in the residuals) and/or based on scientific knowledge, if adding additional predictors is justified. For a skilled analyst with a lot of subject matter expertise, this can lead to models that are all-around very good. They have good performance, make scientific sense, and are still simple. Unfortunately, this requires a lot of knowledge, time and careful analysis. Most analyses are not done that way.
+All the approaches above use cross-validated performance of some metric to determine which predictors should be included in the model. Another, still commonly used strategy is to do subset selection manually. The analyst usually starts with a simple model containing just one predictor (the most important one), and then decides based on model results (e.g., systematic deviations in the residuals) and/or based on scientific knowledge, if adding additional predictors is justified. For a skilled analyst with a lot of subject matter expertise, this can lead to models that are all-around very good. They have good performance, make scientific sense, and are still simple. Unfortunately, this requires a lot of knowledge, time and careful analysis. Also, the analyst needs to honestly report any model they tried, not just the one they end up with. Otherwise they are using and not reporting [researcher's degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), which leads to overfitting. Most analyses are not done that way.
+
+:::note
+I mentioned this before in various places and it's a theme throughout the course, that unless data is collected and analyzed using pre-specified protocols (e.g., a clinical trial for FDA approval) it is almost always the case that scientists have so much flexibility during the data collection and analysis stages that p-values and similar statistical measures are meaningless. The [**Researcher's degress of freedom**](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) is everywhere and essentially impossible to get rid of. [Here](https://pubmed.ncbi.nlm.nih.gov/22006061/) is a very interesting paper illustrating how this very common problem leads to nonsensical results. The study is a (fake) psychology study, but everything applies in general and it is easy to follow. I highly recommend checking it out. Another resource worth reading is [this paper](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf) by [Andrew Gelman](http://www.stat.columbia.edu/~gelman/), who calls this phenomenon **The garden of forking paths**. And of course [this xkcd cartoon](https://xkcd.com/882/) is a classic and illustrates the problem clearly. 
+
+All of this applies to manual subset selection (which is why I'm thinking about it here and adding this note), but it is more general and applies to every step in a scientific project.
+:::
+
+
 
 
 # Subset selection and main predictors
