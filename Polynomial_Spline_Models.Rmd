@@ -36,7 +36,7 @@ So far, we focused on generalized linear models (GLM), and mainly on the two wor
 As mentioned, what GLM have in common is that the predictor variables show up as a linear combination, which is then mapped to the outcome with some function. In general, one can write a GLM like this
 
 $$f(Y)=b_0 + b_1X_1 + b_2X_2 + ...$$
-where the choice of the function $f$ (called link function) determines the specific model.
+where $Y$ is the outcome, the $X_i$ are the predictors, and the choice of the function $f$ (called link function) determines the specific model.
 For a standard linear model, it's simply $f=1$ and the model is
 $$\textrm{linear model:} \qquad Y=b_0 + b_1X_1 + b_2X_2 + ...$$
 For a logistic model, it is $f=\log \left( \frac{Y}{1-Y} \right)$ and the whole model becomes
