@@ -31,23 +31,24 @@ In this unit, we will very briefly cover some statistical models that provide mo
 
 # GLM review
 
-So far, we focused on generalized linear models (GLM), and mainly on the two workhorses of statistical analysis, linear models for regression modeling of continuous outcomes, and logistic models for classification modeling of categorical (binary) outcomes. 
+So far, we've focused on generalized linear models (GLM), and mainly on the two workhorses of statistical analysis: linear models for regression modeling of continuous outcomes, and logistic models for classification modeling of categorical (binary) outcomes. 
 
-As mentioned, what GLM have in common is that the predictor variables show up as a linear combination, which is then mapped to the outcome with some function. In general, one can write a GLM like this
+As mentioned, what GLMs have in common is that the predictor variables show up as a linear combination, which is then mapped to the outcome with some function. In general, one can write a GLM like this:
 
-$$f(Y)=b_0 + b_1X_1 + b_2X_2 + ...$$
-where $Y$ is the outcome, the $X_i$ are the predictors, and the choice of the function $f$ (called link function) determines the specific model.
-For a standard linear model, it's simply $f=1$ and the model is
-$$\textrm{linear model:} \qquad Y=b_0 + b_1X_1 + b_2X_2 + ...$$
-For a logistic model, it is $f=\log \left( \frac{Y}{1-Y} \right)$ and the whole model becomes
-$$\textrm{logistic model:} \qquad \log \left( \frac{Y}{1-Y} \right) = b_0 + b_1X_1 + b_2 X_2 + ...$$
+$$f(Y)=b_0 + b_1X_1 + b_2X_2 + \ldots + b_nX_n,$$
+where $Y$ is the outcome, the $X_i$ are the predictors, and the choice of the function $f(Y)$ (called the **link function**) determines the specific model.
+
+For a standard linear model, it's simply $f(Y) = Y$ and the model is
+$$\textrm{linear model:} \qquad Y=b_0 + b_1X_1 + b_2X_2 + \ldots + b_n X_n.$$
+For a logistic model, it is $f(Y)=\log \left( \frac{Y}{1-Y} \right)$ (this function is called the logit function) and the whole model becomes
+$$\textrm{logistic model:} \qquad \log \left( \frac{Y}{1-Y} \right) = b_0 + b_1X_1 + b_2 X_2 + \ldots + b_nX_n.$$
 You can re-write this such that there is just $Y$ on the left and exponentiated terms of the $X$ on the right, you might have seen either notation for the model before in one of your statistics classes. 
 
-If, instead, your outcome was poisson distributed, you would use $f = log(Y)$ and the model would be 
+If, instead, your outcome was integer counts of something, you could use a Poisson model, with $f(Y) = log(Y)$, and the model would be 
 
-$$\textrm{poisson model:} \qquad \log \left( Y \right) = b_0 + b_1X_1 + b_2 X_2 + ...$$
+$$\textrm{Poisson model:} \qquad \log \left( Y \right) = b_0 + b_1X_1 + b_2 X_2 + \ldots + b_n X_n.$$
 
-Similar GLM for outcomes that are distributed in other ways are possible, see e.g. [the list on Wikipedia](https://en.wikipedia.org/wiki/Generalized_linear_model). In `R`, if you use the `glm` function, you can set the link function by specifying the `family` argument. If you use `tidymodels`, there are similar ways to set the link function, depending on the underlying fitting function you use.
+Similar GLMs for outcomes that are distributed in other ways are possible, see e.g. [the list on Wikipedia](https://en.wikipedia.org/wiki/Generalized_linear_model). In `R`, if you use the `glm()` function, you can set the link function by specifying the `family` argument. If you use `tidymodels`, there are similar ways to set the link function, depending on the underlying fitting function you use.
 
 This model structure is easy to understand, one can test the impact of individual predictor variables by taking them in and out of the model (subset selection) or alternative approaches (e.g. regularization), and one can see in the final model which predictor variables survive, and what their impact is, as given by the coefficients in front of the variables. 
 
@@ -55,7 +56,7 @@ This model structure is easy to understand, one can test the impact of individua
 If you have a model that has a mix of categorical and continuous input variables, and you want to compare their impact by looking at the values of their coefficients, you need to standardize your continuous variables so they are on a similar scale as your categorical variables. 
 :::
 
-The main disadvantage is that GLM do not allow you to capture more intricate patterns in the data. For instance if you had a scenario where you measured the activity/movement of some animal and how that might be impacted by temperature, it is quite feasible to expect a curved relation. At low temperatures, the animals try to stay warm and don't move much. At high temperature, the animals also don't move much and instead try to stay cool. At some intermediate temperature, their movement is largest. So if you had data for animal movement as outcome, and temperature as your predictor variable, a linear model would not be good. You wanted a model that allows the pattern to curve. If you start with a linear model and look at the plot of your residuals, or an outcome-prediction plot, you would see systematic deviations, telling you that your model is not missing important patterns in the data and you are therefore **underfitting.**
+The main disadvantage is that GLMs do not allow you to capture more intricate patterns in the data. For instance if you had a scenario where you measured the activity/movement of some animal and how that might be impacted by temperature, it is quite feasible to expect a curved relationship. At low temperatures, the animals try to stay warm and don't move much. At high temperature, the animals also don't move much and instead try to stay cool. At some intermediate temperature, their movement is largest. So if you had data for animal movement as outcome, and temperature as your predictor variable, a linear model would not be good. You wanted a model that allows the pattern to curve. If you start with a linear model and look at the plot of your residuals, or an outcome-prediction plot, you would see systematic deviations, telling you that your model is not missing important patterns in the data and you are therefore **underfitting.**
 
 If that's the case, you might want to move on to more flexible models.
 
@@ -66,41 +67,41 @@ Even if you suspect (or know) that the true relation between input and output is
 
 # Polynomial models
 
-A natural extension of GLM is to include higher-order terms for the predictors, either with itself or with other predictor variables (the latter case is called an interaction term). For instance for a simple linear model, this includes second-order terms for $x_1$ and $X_2$ and also an interaction term between the two variables
+A natural extension of GLM is to include higher-order terms for the predictors, either with itself or with other predictor variables (the latter case is called an interaction term). For instance for a simple linear model, this model includes second-order terms for $X_1$ and $X_2$ and also an interaction term between the two variables:
 
-$$Y=b_0 + b_1X_1 + b_2X_2 + b_3 X_1^2 + b_4 X_2^2 + b_5 X_1X_2 + ...$$ 
+$$Y=b_0 + b_1X_1 + b_2X_2 + b_3 X_1^2 + b_4 X_2^2 + b_5 X_1X_2$$ 
 
-Such models with higher order terms ($X^2$, $X^3$, ...) are often called polynomial models. Note that statisticians still call this a linear model, since the **coefficients show up in linear combinations**, even though the variables do not. It took me years to figure out that terminology, since a physicists/engineer would call this a non-linear model!
+Such models with higher order terms ($X^2$, $X^3$, ...) are often called polynomial models. Note that statisticians still call this a linear model, since the **coefficients show up in linear combinations**, even though the variables do not. (Statisticians or statistics books will often say that a linear model is "linear in the parameters." This means the same thing as having a linear combination of coefficients.) It took me years to figure out that terminology, since a physicist/engineer would call this a non-linear model!
 
-The advantage of polynomial models is that they can more flexibly capture patterns in the data. A major shortcoming of polynomial models is that as the predictor values get very large or small, the predicted outcomes go "through the roof" (a technical statistical term `r emoji::emoji('grin')`). Let's say you had data for the animal movement-temperature example that had temperature up to 30 degrees Celcius and showed a marked decline in movement going from 20C to 30C. A 2nd order polynomial that curved down as temperature went up did a good job at modeling the data. It is quite likely that if you try to predict higher temperatures, say 35C or 40C, movement might turn negative! That of course can't happen, an animal can't move less than not at all. These are general problems with polynomial functions, they impose an overall structure on the data and generally therefore behave poorly for values outside the range of the data. Thus, while easy to use, those models are generally not the best choice, the ones we discuss next are generally better. 
+The advantage of polynomial models is that they can more flexibly capture patterns in the data. A major shortcoming of polynomial models is that as the predictor values get very large or small, the predicted outcomes go "through the roof" (a technical statistical term `r emoji::emoji('grin')`). Let's say you had data for the animal movement-temperature example that had temperature up to 30 degrees Celsius and showed a marked decline in movement going from 20C to 30C. A 2nd order polynomial (also called a degree 2 polynomial--the number is the highest power that the dependent variable is raised to in the equation) that curved down as temperature went up did a good job at modeling the data. It is quite likely that if you try to predict higher temperatures, say 35C or 40C, movement might turn negative! That of course can't happen, an animal can't move less than not at all. These are general problems with polynomial functions, they impose an overall structure on the data and generally therefore behave poorly for values outside the range of the data. Thus, while easy to use, those models are generally not the best choice, the ones we discuss next are generally better.
 
 
 # Spline models 
 
-Spline models are similar to polynomial models, inasmuch as they allow higher order terms of the predictor variables to show up in the model, and thus can capture patterns that go beyond linear relations. They try to deal with the potential problem of imposing a global structure done by polynomial models by applying polynomial combinations of predictors only to parts of the data, with connection points (knots) between those parts. The end result is a smooth function that allows for capturing of potentially non-linear patterns without the need to impose a global structure. This often improves the quality of the fits. Though even for these kinds of functions, extrapolation outside the range of observed/measured predictor values can be tricky and often lead to wrong results (in fact, a general problem for models).
+Spline models are similar to polynomial models, inasmuch as they allow higher order terms of the predictor variables to show up in the model, and thus can capture patterns that go beyond linear relations. They try to deal with the potential problem of imposing a global structure done by polynomial models by applying polynomial combinations of predictors only to parts of the data, with connection points (knots) between those parts. The end result is a smooth function that allows for capturing of potentially non-linear patterns without the need to impose a global structure. This often improves the quality of the fits. Though even for these kinds of functions, extrapolation outside the range of observed/measured predictor values can be tricky and often lead to wrong results (in fact, a general problem for models). These models are often more difficult (or at least more complicated) to interpret as well.
 
 
 # Local regression
 
-When using `ggplot2`, you likely came across a local regression curve. That default smoothing for small data if you use `geom_smooth` is a LOESS model, which is a type of [local regression](https://en.wikipedia.org/wiki/Local_regression). You can think of it conceptually very similar to spline models, though the details of how it's implemented differ. It is perfectly fine to use smoothing functions without making any adjustments during data exploration. But if you want to use any of these for actual statistical fitting, you have to tweak/tune them as discussed below.
+When using `ggplot2`, you likely came across a local regression curve. The default smoothing for small data if you use `geom_smooth()` is a LOESS (LOcally Estimated Scatterplot Smoothing) model, which is a type of [local regression](https://en.wikipedia.org/wiki/Local_regression). You can think of it as being conceptually very similar to spline models, though the details of how it's implemented differ. It is perfectly fine to use smoothing functions without making any adjustments during data exploration. But if you want to use any of these for actual statistical fitting, you have to tweak/tune them as discussed below.
 
 
 # Step functions
 
-A version of the models just discussed are those that allow non-smooth jumps in the outcome as a predictor varies. As a simple example, say you want to model current time as function of geographical location. Since humans divided the world arbitrarily into time zones, as you move from one zone to another, there is an abrupt change in the outcome (time) with a small change in the predictor (longitude). A bad way of modeling that is to discretize your predictors, since most often you don't know where the cut-offs are. Maybe the example I just gave is a bad one, since this is a rare situation where we do know the cut-offs, because they are human made `r emoji::emoji('smile')`. But say we assume some outcome changes somewhat abruptly with age. We unlikely now at what age(s) exactly we should set the cut-off. By using a model, we can let the computer decide where to set the cut-off (see below). Other model types that are good at handling rapid changes in outcome for a change in a predictor are tree-based models, which you'll be learning about shortly.
+A version of the models just discussed are those that allow non-smooth jumps in the outcome as a predictor varies. As a simple example, say you want to model current time as function of geographical location. Since humans divided the world arbitrarily into time zones, as you move from one zone to another, there is an abrupt change in the outcome (time) with a small change in the predictor (longitude). A bad way of modeling that is to discretize your predictors, since most often you don't know where the cut-offs are. Maybe the example I just gave is a bad one, since this is a rare situation where we do know the cut-offs, because they are human made `r emoji::emoji('smile')`. But say we assume some outcome changes somewhat abruptly with age. It is unlikely that we know exactly what age(s) we should set the cut-off(s) at. By using a model, we can let the computer decide where to set the cut-off (see below). Other model types that are good at handling rapid changes in outcome for a change in a predictor are tree-based models, which you'll be learning about shortly.
 
 
 
 # Generalized additive models (GAM)
 
-GAM are in some sense (though not completely, see below) a general form of the different models just discussed. The preserve the feature that each predictor enters the model additive. But now, each predictor can be related to the outcome with a - potentially complicated - function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAM allow for more flexible relations between predictors and outcome than GLM, and are still fairly easy to fit and interpret, but not quite as easily. Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that's not the case, one often uses spline function, and let the data determine the exact shape of the splines. One restriction of GAM is that having each predictor enter separately, interactions might be missed.
+GAMs are in some sense (though not completely, see below) a general form of the different models just discussed. The preserve the feature that each predictor enters the model additively. But now, each predictor can be related to the outcome with a -- potentially complicated, **unknown** -- function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAMs allow for more flexible relations between predictors and outcome than GLMs, and are still fairly easy to fit and interpret (but not quite as easy). Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that's not the case, one often uses spline function, and let the data determine the exact shape of the splines. One restriction of GAM is the same as all additive models: having each predictor enter the model separately can lead to interactions being missed.
 
 
 # Fitting polynomial/spline models
 
 The models just discussed are more flexible and allow capturing more intricate patterns in the data. Of course, the downside of this is that they might not only capture patterns that are due to real signals in the data, but might also try to capture spurious patterns that are entirely due to noise/randomness in the data. In other words, these more flexible models are easily prone to overfitting.
 
-By now, you have learned what you can do to try and minimize overfitting. Most importantly, you can build your models and decide how complex to make them by cross-validation. You can think of model parameters that determine if you should have a 2nd/3rd/4th/etc. order spline functions as a tuning parameter, and you let the cross-validation procedure decide if a 2nd order or 3rd order model is better - based on model performance during the cross-validation process. As you will see, using the `tidymodels` framework allows you to easily do this model training/tuning.
+By now, you have learned what you can do to try and minimize overfitting. Most importantly, you can build your models and decide how complex to make them by cross-validation. You can think of model parameters that determine if you should have a 2nd/3rd/4th/etc. order spline functions as a tuning parameter, and you let the cross-validation procedure decide if a 2nd order or 3rd order model is better -- based on model performance during the cross-validation process. As you will see, using the `tidymodels` framework allows you to easily do this model training/tuning.
 
 
 # Model fitting in R
