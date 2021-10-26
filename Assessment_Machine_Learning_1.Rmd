@@ -19,30 +19,69 @@ library(emoji)
 Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
 
 
-
 # Exercise
 
-For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We'll basically try to do a full analysis. So let's get started!
+For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We'll basically try to do a full analysis. The goal is to have an example of a nice full analysis by the end of this exercise that you can add to your portfolio. So let's get started!
 
 
 
-# Setup
+## Setup
 
-We'll resume work on the data set and exercise concerning the influenza data from Brian's paper. We'll also do group work again, so team up as previously. Either pairs (with someone you haven't worked with in a while) or for a group of 3, the circular setup. 
+This is a solo-exercise. Make sure your repo for this exercise is fully up-to-date and synced. 
 
-Make sure your repo for this exercise is fully synced. We'll do the group work a bit different, you **start with your partner's repo.** If you are a collaborator on their repo, make sure you pulled the latest to your local machine. If you work on a fork, make sure you update your fork to the latest, then pull to your local machine.
+The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things.
 
-Once you have your partner's latest version of the exercise repo, open the RStudio project for the exercise. 
+You want to remove anything that's not part of the exercise (any files/folders from the template). You also want to make sure you have readme files or other documentation that briefly explain what files are where and in which order to run them. Make sure your R/Rmd scripts are easy to understand and that they all run. 
 
-
-
-# Pre-processing code
-
-We previously covered pre-processing, but haven't really done any of that yet. 
+As you re-organize, you can decide the mix of R and Rmd files and what you want to combine and what to split. However you do it, make sure it's documented and easy to understand.
 
 
+## Pre-processing 
 
-# Analysis code
+We previously covered pre-processing, but haven't really done any of that yet. So let's add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
+
+To keep things a bit simpler, for this exercise we focus on a single outcome, the numerical value of **Body temperature**. Once you finished the whole workflow for that outcome, you are welcome to do it again for **Nausea** as outcome.
+
+
+### Feature/Variable removal
+
+You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at the minimum, don't help when you model, and more likely actually confuse your model and lead to errors/warnings/poor model performance. So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
+
+We also want to code the 3 multi-level factors as ordered, so make sure they are coded as ordered factors. The order should of course be None/Mild/Moderate/Severe.
+
+
+### Low variance predictors
+
+If you look at your data, you'll see that some predictors are fairly **unbalanced**, with most patients reporting `No` and only a few `Yes`. If almost everyone is in one category and almost nobody in others, that often (but not always) means those predictor variables are not very helpful in fitting/predicting the outcome. Furthermore, if you do cross-validation and one of your samples happen to not include one predictor level at all, things might go wrong when applied to the holdout-sample. Thus, it is worth considering if we want to remove them. The `recipes` package in `tidymodels` has the function `step_nzv()` which can do that for you automatically. If you have lots of predictors, that might be good to use. But it's often better to decide _manually_ for each variable based on your scientific expertise if you want to remove it or not. We'll take that approach here. After looking at the data, we decide to remove those **binary** predictors that have <50 entries in one category (there are 2). Write code to remove them. 
+
+
+
+
+## Analysis code
+
+
+### Setup
+
+* Start by setting the random seed to `123`. This should make everything reproducible and everyone should get the same results.
+
+* Split the dataset into 70% training, 30% testing. Also use the outcome `BodyTemp` as stratification. This allows for more balanced outcome values in the train and test sets.
+
+* We want to do 5-fold cross-validation, 5 times repeated. (There's no specific reason to do this 5x5 pattern, other than to show you that there are differnt ways to pick the sample, and that I want you to not use the default.) For the CV folds, we also want to stratify on `BodyTemp`, as we did for the main train/test split. Use the `vfold_cv` function to create a resample object for the training data with these specifications.
+
+* Create a recipe for the data and fit. You likely won't need to do much, but do make sure you code the categorical variables as dummy variables, otherwise things might not work smoothly. 
+
+
+
+### Multiple models
+
+We'll fit a tree, a LASSO model, a a random forest. I chose those because they are shown in the tutorial on the `tidymodels` website. You can of course add further models. For the tree, see the _Tune model parameters_ section of the [_Get Started_ tutorial](https://www.tidymodels.org/start/tuning/).
+
+For LASSO and the random forest, check out the _Case Study_ section of the  [_Get Started_ tutorial](https://www.tidymodels.org/start/case-study/). Note that you will need to adjust the code for our scenario since we have a continuous outcome. 
+
+Each of these models requires some tuning. Follow the examples by setting up a workflow, set a tuning grid, and then use the `tune_grid` function to tune the model using cross-validation.
+
+
+## Tuning
 
 So far, we have code that uses the `tidymodels` framework to fit linear and logistic regression models with different number of predictor variables to either a categorical outcome (classification) or a continuous outcome (regression). For this exercise, we'll implement a few additional machine learning models, use cross-validation, and compare results from multiple models.
 
@@ -50,21 +89,39 @@ I suggest you start with a new R script or Rmd file for this. You might want to 
 
 
 
+# Evaluation code
 
-**Finish this part by Wednesday, push your changes and let your partner know that things are ready for them to take over.**
+## Performance
+
+- Null model
+
+
+## Uncertainty
+
+
+## Residuals, observed/predicted
 
 
 
-# Presenting your findings
 
-In the final step for this set of exercises/projects, we want to nicely present all the important parts of the analyses in a manuscript type format. To that end, pull the latest version of **your** repository for this exercise to your local computer. Open the project in Rstudio.
+# Cleanup/fixing and presentation
+
+
+In the final step for this set of exercises/projects, we want to nicely present all the important parts of the analyses in a nicely readable. To that end, pull the latest version of **your** repository for this exercise to your local computer. Open the project in Rstudio.
+
+Evaluate what your teammate contributed to your repository. If you think updates are needed, either ask your teammate to do them, or do them yourself. You are the repository owner, so even if others contributed, in the end this is our project and you want it to be looking all good.
 
 
 
 
 # Discussion
 
-Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).
+Let's use this week's discussion to talk about projects. Post a short summary of your project, very briefly describing your data, your question(s), your (planned) methods and (expected) results. Sort of like an abstract for a paper. This way, everyone can get a quick glimpse as to what everyone else is doing. Also provide a link to the repo for easy access.
 
-Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.
+Then, also post any specific questions/struggles/concerns you might have regarding your project. It's quite likely that there is some overlap in approaches and questions among you and your classmates. Hopefully, through this discussion you can provide each other with some help and input.
 
+Post this by Wednesday. Then read the summaries of your classmates' projects. If you see a question/topic that you think you might be able to help with, either by answering a specific question, or by providing some general feedback, do so. 
+
+And of course, as you look at each others projects, it's a 2-way street. You can provide help/feedback, but you are also welcome to take inspiration from what others are doing and integrate some of that into your own project.
+
+Since you get feedback from me at each of your submission points, I plan to stay out of this week's discussion `r emoji::emoji('grin')`. So this is all you helping each other. Each of you will be reviewing 2 projects in a lot of depth at the end, but hopefully with the discussion this week you get a bit of an idea of what everyone else is doing, and you can provide feedback to others and earlier. 

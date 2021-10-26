@@ -589,7 +589,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Machine Learning Models 1</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-19 08:05:30</h4>
+<h4 class="date">2021-10-26 18:45:45</h4>
 
 </div>
 
@@ -600,32 +600,79 @@ div.tocify {
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We’ll basically try to do a full analysis. So let’s get started!</p>
+<p>For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We’ll basically try to do a full analysis. The goal is to have an example of a nice full analysis by the end of this exercise that you can add to your portfolio. So let’s get started!</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>This is a solo-exercise. Make sure your repo for this exercise is fully up-to-date and synced.</p>
+<p>The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things.</p>
+<p>You want to remove anything that’s not part of the exercise (any files/folders from the template). You also want to make sure you have readme files or other documentation that briefly explain what files are where and in which order to run them. Make sure your R/Rmd scripts are easy to understand and that they all run.</p>
+<p>As you re-organize, you can decide the mix of R and Rmd files and what you want to combine and what to split. However you do it, make sure it’s documented and easy to understand.</p>
 </div>
-<div id="setup" class="section level1">
-<h1>Setup</h1>
-<p>We’ll resume work on the data set and exercise concerning the influenza data from Brian’s paper. We’ll also do group work again, so team up as previously. Either pairs (with someone you haven’t worked with in a while) or for a group of 3, the circular setup.</p>
-<p>Make sure your repo for this exercise is fully synced. We’ll do the group work a bit different, you <strong>start with your partner’s repo.</strong> If you are a collaborator on their repo, make sure you pulled the latest to your local machine. If you work on a fork, make sure you update your fork to the latest, then pull to your local machine.</p>
-<p>Once you have your partner’s latest version of the exercise repo, open the RStudio project for the exercise.</p>
+<div id="pre-processing" class="section level2">
+<h2>Pre-processing</h2>
+<p>We previously covered pre-processing, but haven’t really done any of that yet. So let’s add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the <code>recipe</code> part of your <code>tidymodels</code> workflow (or a mix).</p>
+<p>To keep things a bit simpler, for this exercise we focus on a single outcome, the numerical value of <strong>Body temperature</strong>. Once you finished the whole workflow for that outcome, you are welcome to do it again for <strong>Nausea</strong> as outcome.</p>
+<div id="featurevariable-removal" class="section level3">
+<h3>Feature/Variable removal</h3>
+<p>You probably realized that some of the variables contain the same information in slightly different ways. Specifically, <code>Weakness</code>, <code>Cough</code> and <code>Myalgia</code> exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at the minimum, don’t help when you model, and more likely actually confuse your model and lead to errors/warnings/poor model performance. So let’s fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.</p>
+<p>We also want to code the 3 multi-level factors as ordered, so make sure they are coded as ordered factors. The order should of course be None/Mild/Moderate/Severe.</p>
 </div>
-<div id="pre-processing-code" class="section level1">
-<h1>Pre-processing code</h1>
-<p>We previously covered pre-processing, but haven’t really done any of that yet.</p>
+<div id="low-variance-predictors" class="section level3">
+<h3>Low variance predictors</h3>
+<p>If you look at your data, you’ll see that some predictors are fairly <strong>unbalanced</strong>, with most patients reporting <code>No</code> and only a few <code>Yes</code>. If almost everyone is in one category and almost nobody in others, that often (but not always) means those predictor variables are not very helpful in fitting/predicting the outcome. Furthermore, if you do cross-validation and one of your samples happen to not include one predictor level at all, things might go wrong when applied to the holdout-sample. Thus, it is worth considering if we want to remove them. The <code>recipes</code> package in <code>tidymodels</code> has the function <code>step_nzv()</code> which can do that for you automatically. If you have lots of predictors, that might be good to use. But it’s often better to decide <em>manually</em> for each variable based on your scientific expertise if you want to remove it or not. We’ll take that approach here. After looking at the data, we decide to remove those <strong>binary</strong> predictors that have &lt;50 entries in one category (there are 2). Write code to remove them.</p>
 </div>
-<div id="analysis-code" class="section level1">
-<h1>Analysis code</h1>
+</div>
+<div id="analysis-code" class="section level2">
+<h2>Analysis code</h2>
+<div id="setup-1" class="section level3">
+<h3>Setup</h3>
+<ul>
+<li><p>Start by setting the random seed to <code>123</code>. This should make everything reproducible and everyone should get the same results.</p></li>
+<li><p>Split the dataset into 70% training, 30% testing. Also use the outcome <code>BodyTemp</code> as stratification. This allows for more balanced outcome values in the train and test sets.</p></li>
+<li><p>We want to do 5-fold cross-validation, 5 times repeated. (There’s no specific reason to do this 5x5 pattern, other than to show you that there are differnt ways to pick the sample, and that I want you to not use the default.) For the CV folds, we also want to stratify on <code>BodyTemp</code>, as we did for the main train/test split. Use the <code>vfold_cv</code> function to create a resample object for the training data with these specifications.</p></li>
+<li><p>Create a recipe for the data and fit. You likely won’t need to do much, but do make sure you code the categorical variables as dummy variables, otherwise things might not work smoothly.</p></li>
+</ul>
+</div>
+<div id="multiple-models" class="section level3">
+<h3>Multiple models</h3>
+<p>We’ll fit a tree, a LASSO model, a a random forest. I chose those because they are shown in the tutorial on the <code>tidymodels</code> website. You can of course add further models. For the tree, see the <em>Tune model parameters</em> section of the <a href="https://www.tidymodels.org/start/tuning/"><em>Get Started</em> tutorial</a>.</p>
+<p>For LASSO and the random forest, check out the <em>Case Study</em> section of the <a href="https://www.tidymodels.org/start/case-study/"><em>Get Started</em> tutorial</a>. Note that you will need to adjust the code for our scenario since we have a continuous outcome.</p>
+<p>Each of these models requires some tuning. Follow the examples by setting up a workflow, set a tuning grid, and then use the <code>tune_grid</code> function to tune the model using cross-validation.</p>
+</div>
+</div>
+<div id="tuning" class="section level2">
+<h2>Tuning</h2>
 <p>So far, we have code that uses the <code>tidymodels</code> framework to fit linear and logistic regression models with different number of predictor variables to either a categorical outcome (classification) or a continuous outcome (regression). For this exercise, we’ll implement a few additional machine learning models, use cross-validation, and compare results from multiple models.</p>
 <p>I suggest you start with a new R script or Rmd file for this. You might want to and can copy certain parts of the code over from the previous analysis script.</p>
-<p><strong>Finish this part by Wednesday, push your changes and let your partner know that things are ready for them to take over.</strong></p>
 </div>
-<div id="presenting-your-findings" class="section level1">
-<h1>Presenting your findings</h1>
-<p>In the final step for this set of exercises/projects, we want to nicely present all the important parts of the analyses in a manuscript type format. To that end, pull the latest version of <strong>your</strong> repository for this exercise to your local computer. Open the project in Rstudio.</p>
+</div>
+<div id="evaluation-code" class="section level1">
+<h1>Evaluation code</h1>
+<div id="performance" class="section level2">
+<h2>Performance</h2>
+<ul>
+<li>Null model</li>
+</ul>
+</div>
+<div id="uncertainty" class="section level2">
+<h2>Uncertainty</h2>
+</div>
+<div id="residuals-observedpredicted" class="section level2">
+<h2>Residuals, observed/predicted</h2>
+</div>
+</div>
+<div id="cleanupfixing-and-presentation" class="section level1">
+<h1>Cleanup/fixing and presentation</h1>
+<p>In the final step for this set of exercises/projects, we want to nicely present all the important parts of the analyses in a nicely readable. To that end, pull the latest version of <strong>your</strong> repository for this exercise to your local computer. Open the project in Rstudio.</p>
+<p>Evaluate what your teammate contributed to your repository. If you think updates are needed, either ask your teammate to do them, or do them yourself. You are the repository owner, so even if others contributed, in the end this is our project and you want it to be looking all good.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).</p>
-<p>Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.</p>
+<p>Let’s use this week’s discussion to talk about projects. Post a short summary of your project, very briefly describing your data, your question(s), your (planned) methods and (expected) results. Sort of like an abstract for a paper. This way, everyone can get a quick glimpse as to what everyone else is doing. Also provide a link to the repo for easy access.</p>
+<p>Then, also post any specific questions/struggles/concerns you might have regarding your project. It’s quite likely that there is some overlap in approaches and questions among you and your classmates. Hopefully, through this discussion you can provide each other with some help and input.</p>
+<p>Post this by Wednesday. Then read the summaries of your classmates’ projects. If you see a question/topic that you think you might be able to help with, either by answering a specific question, or by providing some general feedback, do so.</p>
+<p>And of course, as you look at each others projects, it’s a 2-way street. You can provide help/feedback, but you are also welcome to take inspiration from what others are doing and integrate some of that into your own project.</p>
+<p>Since you get feedback from me at each of your submission points, I plan to stay out of this week’s discussion 😁. So this is all you helping each other. Each of you will be reviewing 2 projects in a lot of depth at the end, but hopefully with the discussion this week you get a bit of an idea of what everyone else is doing, and you can provide feedback to others and earlier.</p>
 </div>
 
 

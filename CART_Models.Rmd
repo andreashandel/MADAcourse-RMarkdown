@@ -77,7 +77,7 @@ Since trees have a tendency to **overfit**, it is common to __regularize__ them 
 
 $$C = SSR + \lambda T, $$
 
-where _T_ is the number of leaves of the tree. More leaves means a larger tree, which is being penalized. The tuning parameter $\lambda$ needs to be determined using parameter tuning or model training.
+where _T_ is the number of leaves of the tree. More leaves means a larger tree, which is being penalized. The tuning parameter $\lambda$ needs to be determined using parameter tuning or model training. Reducing a tree in this way is also called **pruning.**
 
 
 # Fast and frugal trees

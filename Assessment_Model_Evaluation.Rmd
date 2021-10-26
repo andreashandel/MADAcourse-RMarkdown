@@ -35,13 +35,12 @@ Make sure you have the latest version of the repository on your local machine. A
 At this stage, I assume all the data wrangling and EDA code, as well as the model fitting code you worked on previously is present and fully functional. If there are still some issues that need to be resolved, go ahead and do so.
 
 
+Start with a new/clean analysis script. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then source/load it from your `Rmd` file, or have everything inside the `Rmd` file. In either case, document/comment well.
+
 
 ## Data splitting
 
-Start with a new/clean analysis script. You can either use an Rmd file, or you can do an R script. In either case, make sure you comment/document liberally.
-
 Write code that takes the data and splits it randomly into a train and test that, following for instance the example in the [Data Splitting section of the Get Started tidymodels tutorial](https://www.tidymodels.org/start/recipes/). 
-
 
 ## Workflow creation and model fitting
 
@@ -70,7 +69,7 @@ Make sure everything runs and works as expected. Then commit, push and tell our 
 
 ## Continous outcome
 
-Fork and clone (or if you are added as collaborator, clone directly) your classmate's repository. Add code at the bottom of theirs. Mark where your contribution starts with your name.
+Fork and clone (or if you are added as collaborator, clone directly) your classmate's repository. Add code at the bottom of theirs. **Mark where your contribution starts with your name.**
 
 Add code that repeats the above steps, but now fits linear models to the continuous outcome. One model with all predictors, one model with just the main predictor. For that, you need to change your metric. RMSE is a good one to choose. You should find that a lot of the code your classmate wrote can copied/pasted/re-used with only minimal modifications. 
 

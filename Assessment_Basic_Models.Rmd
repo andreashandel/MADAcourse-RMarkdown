@@ -74,7 +74,7 @@ For our further analysis, we decide (well, I'm deciding that for you `r emoji::e
 
 ## EDA revisited
 
-As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R or Rmd file (call it `exploration.R`/`exploration.Rmd`) that does a bit of exploration, produces a few figures and tables. 
+As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R Markdown file (call it `exploration.Rmd`) that does a bit of exploration, produces a few figures and tables. 
 
 At minimum, your exploration code should do the following:
 
@@ -88,9 +88,11 @@ At minimum, your exploration code should do the following:
 If you only have a limited number of variables, say less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest. You can decide on the predictors to explore, the outcomes I chose for you as stated above. If you have a lot of predictors which may be important you need to use other techniques that we have not discussed.
 
 
-Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like _Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations._
+## General wrangling and EDA comments
 
-Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an `Rds` file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a README file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, one categorical) you decide are the main outcomes of interest. I specified some of that for you already, but its always good to have as much information in the code as possible.
+Always make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like _Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations._
+
+Once you are done with this part, you should generally have at a minimum code that explores and cleans the data, produces some figures and tables, and saves the final cleaned data set to an `Rds` file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a README file (or even better, all of those), that explain what variables the data contain, what each variable means, which are the main outcome(s) and main predictor(s), etc. Providing all this meta-information is important so that someone else (or your future self) can easily understand what is going on.
 
 :::note
 For this exercise, it isn't so important that the outcomes and predictors are of actual scientific interest. We won't do exciting science here, just explore the analysis workflow. However, I want to remind you that having good/interesting question to answer (and data you can use to answer it) is the **most important** part of any research project. Rather a great question and basic stats than really fancy stats answering a question nobody cares about!
@@ -103,26 +105,27 @@ Any good data collection and analysis requires that data is documented with meta
 
 # Model fitting
 
-Finally, we'll do some model fitting. Start with a clean analysis script. You can either use an `Rmd` file, or you can do an R script. In either case, document/comment well.
+Finally, we'll do some model fitting. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then load into your `Rmd` file, or have everything inside the `Rmd` file. In either case, document/comment well.
 
 Add code that does the following operations:
 
 1. Loads cleaned data.
 2. Fits a linear model to the continuous outcome using only the main predictor of interest.
 3. Fits another linear model to the continuous outcome using all (important) predictors of interest.
-4. Compares the model results for the model with just the main predictor and all predictors.
+4. Compares the model results for the model with just the main predictor and all predictors. 
 5. Fits a logistic model to the categorical outcome using only the main predictor of interest.
 6. Fits another logistic model to the categorical outcome using all (important) predictors of interest.
 7. Compares the model results for the categorical model with just the main predictor and all predictors.
 
 **Here, we decide that `RunnyNose` is our main predictor of interest, and we also care about all others. So you should fit models with each of the 2 outcomes and `RunnyNose` and models with each of the 2 outcomes and all predictors. Consider whichever outcome you are currently NOT fitting as a predictor of interest.** 
 
-You might have noticed that we are including some predictors twice, e.g. we have _Weakness_ as 4 categories and also as yes/no. That's likely not ideal. We'll address that soon, for now let's just "throw it all in".
-
+You might have noticed that we are including some predictors twice, e.g. we have _Weakness_ as 4 categories and also as yes/no. That's likely not ideal. We'll address that soon, for now let's just "throw it all in". Because we do that, you might get some warning messages from your code about rank deficiency. Usually, we would need to inspect those and make sure we either fix or understand what's going on and are ok with it. For now, you can ignore.
 
 For all of these operations, you should use the the `tidymodels` framework. To do so, I suggest to go to the [build a model tutorial](https://www.tidymodels.org/start/models/) in the _Get Started_ section on the `tidymodels` website. There, you'll see an example of fitting some data with a linear model, followed by a Bayesian model. We won't do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You'll need to use the `linear_reg()` and `set_engine("lm")` commands. For the logistic model, you will need to use `logistic_reg()` and `set_engine("glm")`.
 
 For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the `glance()` function. You can also play around a bit with the `predict()` function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like. 
+
+Comparison of models should be based on performance of the models (and anything else you want to look at). This should be heuristic, with you looking at and discussing differences. Please no comparison using p-values or other statistical shenanigans `r emoji::emoji('smile')`.
 
 The main point of this is to get you started fitting models with `tidymodels`. You'll likely see lots of information on the `tidymodels` website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we'll get to it soon enough.
 
