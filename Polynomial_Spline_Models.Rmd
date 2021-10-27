@@ -60,9 +60,9 @@ The main disadvantage is that GLMs do not allow you to capture more intricate pa
 
 If that's the case, you might want to move on to more flexible models.
 
-::note
-Even if you suspect (or know) that the true relation between input and output is not linear - and in most cases, that is true, it is still often good to start with a linear model. Often, things are approximately linear, and if you don't have a lot of data, have a good bit of noise, and are trying to capture the relation between multiple input variables and the outcome, it is quite possible that the data doesn't allow you to go beyond checking for linear relations. So it's generally good to start with a linear model, then explore the model results (e.g., residual plots) and if you see indications for underfitting, start extending your model.
-::
+:::note
+Even if you suspect (or know) that the true relation between input and output is not linear - and in most cases, that is true, - it is still often good to start with a linear model. Often, things are approximately linear, and if you don't have a lot of data, have a good bit of noise, and are trying to capture the relation between multiple input variables and the outcome, it is quite possible that the data doesn't allow you to go beyond checking for linear relations. So it's generally good to start with a linear model, then explore the model results (e.g., residual plots) and if you see indications for underfitting, start extending your model.
+:::
 
 
 # Polynomial models

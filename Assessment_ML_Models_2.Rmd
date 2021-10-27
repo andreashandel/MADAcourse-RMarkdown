@@ -24,6 +24,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there are some cleanup things for your portfolio I'd like you to do. Some of you might have already done that, then you are good to go.
 
+
 ## Setup
 
 Make sure your portfolio repository is fully up-to-date and synced. Open the project in RStudio.
@@ -62,8 +63,9 @@ YAML (which is the format of this file) is VERY finicky when it comes to formatt
 
 
 
-##
+# Project
 
+Submission of part 4 is due. Make sure your updated project is on Github.
 
 
 # Discussion
@@ -71,15 +73,4 @@ YAML (which is the format of this file) is VERY finicky when it comes to formatt
 No discussion assignment this week. Instead, submit project part 4.
 
 
-# Project
-
-Submission of part 4 is due. Make sure your updated project is on Github.
-
-
-
-# Discussion
-
-Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).
-
-Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.
 

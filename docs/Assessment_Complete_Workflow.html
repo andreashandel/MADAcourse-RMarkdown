@@ -529,7 +529,9 @@ div.tocify {
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
         </li>
-        <li class="dropdown-header">Assessment: ML models 1</li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -589,7 +591,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Complete Workflow</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-08 08:17:48</h4>
+<h4 class="date">2021-10-26 10:54:29</h4>
 
 </div>
 
@@ -613,29 +615,25 @@ div.tocify {
 <div id="what-to-do" class="section level2">
 <h2>What to do</h2>
 <p>Write code and text to perform the following steps:</p>
-<ul>
-<li>Load the data.</li>
-<li>Clean/wrangle the data.</li>
-<li>Explore the data. Show some figures/tables as appropriate.</li>
-<li>Pre-process the data.</li>
-<li>Decide on your outcome(s) of interest and, if applicable, main predictor(s) of interest.</li>
-<li>Split your data into train/test.</li>
-<li>Fit at least 3 different models to the data using the <code>tidymodels</code> framework we practiced. Use the CV approach for model training/fitting.</li>
-<li>Explore the quality of each model by looking at performance, residuals, uncertainty, etc.</li>
-<li>Pick (at least) one model as your final model (explain why). Evaluate its quality on the test data.</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li><p>Load, wrangle and explore the data. By now you know this is an iterative procedure, so it’s ok to have these parts of the process/code intertwined.</p></li>
+<li><p>Once you understand the data sufficiently, formulate a question/hypothesis. This will determine your outcome of interest and, if applicable, main predictor(s) of interest. Since we don’t know the data yet, it might be that the question is a bit contrived and not actually too interesting, but I’m sure there will be more than one potentially reasonable question one can ask, no matter what the data will be.</p></li>
+<li><p>Once you determined the question and thus outcome and main predictors, further pre-process and clean the data as needed. Then split into train/test.</p></li>
+<li><p>Fit at least 4 different ML models to the data using the <code>tidymodels</code> framework we practiced. Use the CV approach for model training/fitting. Explore the quality of each model by looking at performance, residuals, uncertainty, etc. All of this should still be evaluated using the training/CV data.</p></li>
+<li><p>Based on the model evaluation in the last step, decide on one model you think is overall best. Explain why. It doesn’t have to be the model with the best performance. You make the choice, just explain why you picked the one you picked.</p></li>
+<li><p>As a final, somewhat honest assessment of the quality of the model you chose, evaluate it (performance, residuals, uncertainty, etc.) on the <strong>test data</strong>. This is the only time you are allowed to touch the test data, and only once. Report model performance on the test data.</p></li>
+<li><p>Summarize everything you did and found in a discussion. Of course, your Rmd file should contain commentary/documentation on everything you do for each step.</p></li>
+</ol>
 </div>
 <div id="general-pointers" class="section level2">
 <h2>General pointers</h2>
-<ul>
-<li><p>You don’t need to do those steps in that specific order, for instance pre-processing might happen during general cleaning.</p></li>
-<li><p>Add ample of information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then 😁).</p></li>
-</ul>
+<p>Add ample of information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then 😄).</p>
+<p><strong>I don’t want to see any p-values anywhere 😁! This is an exploratory analysis, thus there is no place for p-values.</strong></p>
 </div>
 <div id="finish-up" class="section level2">
 <h2>Finish up</h2>
 <p>Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.</p>
-<p>And you are again free to broadcast your effort on social media, e.g., using the <code>#tidytuesday</code> hash tag on Twitter. And I’ll again be looking out for #MADA2021 tagged tweets 😁.</p>
+<p>And you are again free to broadcast your effort on social media, e.g., using the <code>#tidytuesday</code> hash tag on Twitter. I’ll again be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">

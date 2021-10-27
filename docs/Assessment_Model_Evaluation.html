@@ -529,7 +529,9 @@ div.tocify {
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
         </li>
-        <li class="dropdown-header">Assessment: ML models 1</li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -589,7 +591,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Evaluating models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-06 19:45:30</h4>
+<h4 class="date">2021-10-26 08:33:20</h4>
 
 </div>
 
@@ -607,10 +609,10 @@ div.tocify {
 <p>We’ll also do some group work again, using the - by now familiar - M1, M2, … setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked together. The goal is that again as in past exercises, everyone will work on their own and one other person’s repository. If you are in a group of 4, you can also do pairs. That of course doesn’t work in a group of 3, so you need to use the ‘circular’ setup there.</p>
 <p>Make sure you have the latest version of the repository on your local machine. As needed pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio.</p>
 <p>At this stage, I assume all the data wrangling and EDA code, as well as the model fitting code you worked on previously is present and fully functional. If there are still some issues that need to be resolved, go ahead and do so.</p>
+<p>Start with a new/clean analysis script. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then source/load it from your <code>Rmd</code> file, or have everything inside the <code>Rmd</code> file. In either case, document/comment well.</p>
 </div>
 <div id="data-splitting" class="section level2">
 <h2>Data splitting</h2>
-<p>Start with a new/clean analysis script. You can either use an Rmd file, or you can do an R script. In either case, make sure you comment/document liberally.</p>
 <p>Write code that takes the data and splits it randomly into a train and test that, following for instance the example in the <a href="https://www.tidymodels.org/start/recipes/">Data Splitting section of the Get Started tidymodels tutorial</a>.</p>
 </div>
 <div id="workflow-creation-and-model-fitting" class="section level2">
@@ -633,7 +635,7 @@ div.tocify {
 </div>
 <div id="continous-outcome" class="section level2">
 <h2>Continous outcome</h2>
-<p>Fork and clone (or if you are added as collaborator, clone directly) your classmate’s repository. Add code at the bottom of theirs. Mark where your contribution starts with your name.</p>
+<p>Fork and clone (or if you are added as collaborator, clone directly) your classmate’s repository. Add code at the bottom of theirs. <strong>Mark where your contribution starts with your name.</strong></p>
 <p>Add code that repeats the above steps, but now fits linear models to the continuous outcome. One model with all predictors, one model with just the main predictor. For that, you need to change your metric. RMSE is a good one to choose. You should find that a lot of the code your classmate wrote can copied/pasted/re-used with only minimal modifications.</p>
 </div>
 <div id="wrap-up-part-2" class="section level2">

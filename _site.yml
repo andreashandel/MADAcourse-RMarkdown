@@ -144,7 +144,7 @@ navbar:
            - text: "Many-tree models"
              href: ./Many_Tree_Models.html     
            - text: "Assessment: ML models 1"
-    #        href: ./Assessment_ML_Models_1.html
+             href: ./Assessment_ML_Models_1.html
     #     - text: "12. Machine Learning Models II"
     #       menu:
     #         - text: "SVM"

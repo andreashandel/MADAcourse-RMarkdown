@@ -623,7 +623,9 @@ div.tocify {
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
         </li>
-        <li class="dropdown-header">Assessment: ML models 1</li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
       </ul>
     </li>
   </ul>
@@ -683,7 +685,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-13 19:37:20</h4>
+<h4 class="date">2021-10-26 18:44:40</h4>
 
 </div>
 
@@ -730,7 +732,7 @@ div.tocify {
 </div>
 <div id="eda-revisited" class="section level2">
 <h2>EDA revisited</h2>
-<p>As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R or Rmd file (call it <code>exploration.R</code>/<code>exploration.Rmd</code>) that does a bit of exploration, produces a few figures and tables.</p>
+<p>As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R Markdown file (call it <code>exploration.Rmd</code>) that does a bit of exploration, produces a few figures and tables.</p>
 <p>At minimum, your exploration code should do the following:</p>
 <ul>
 <li>For each (important) variable, produce and print some numerical output (e.g. a table or some summary statistics numbers).</li>
@@ -741,8 +743,11 @@ div.tocify {
 <li>Any other exploration steps that might be useful.</li>
 </ul>
 <p>If you only have a limited number of variables, say less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest. You can decide on the predictors to explore, the outcomes I chose for you as stated above. If you have a lot of predictors which may be important you need to use other techniques that we have not discussed.</p>
-<p>Again, make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations.</em></p>
-<p>Once you are done with this part, you should have code that explores and cleans the data, and saves the final cleaned data set to an <code>Rds</code> file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a README file (or even better, all of those), that explain what variables the data contain, what each variable means, which 2 (one continuous, one categorical) you decide are the main outcomes of interest. I specified some of that for you already, but its always good to have as much information in the code as possible.</p>
+</div>
+<div id="general-wrangling-and-eda-comments" class="section level2">
+<h2>General wrangling and EDA comments</h2>
+<p>Always make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like <em>Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations.</em></p>
+<p>Once you are done with this part, you should generally have at a minimum code that explores and cleans the data, produces some figures and tables, and saves the final cleaned data set to an <code>Rds</code> file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a README file (or even better, all of those), that explain what variables the data contain, what each variable means, which are the main outcome(s) and main predictor(s), etc. Providing all this meta-information is important so that someone else (or your future self) can easily understand what is going on.</p>
 <div class="note">
 <p>For this exercise, it isn’t so important that the outcomes and predictors are of actual scientific interest. We won’t do exciting science here, just explore the analysis workflow. However, I want to remind you that having good/interesting question to answer (and data you can use to answer it) is the <strong>most important</strong> part of any research project. Rather a great question and basic stats than really fancy stats answering a question nobody cares about!</p>
 </div>
@@ -753,7 +758,7 @@ div.tocify {
 </div>
 <div id="model-fitting" class="section level1">
 <h1>Model fitting</h1>
-<p>Finally, we’ll do some model fitting. Start with a clean analysis script. You can either use an <code>Rmd</code> file, or you can do an R script. In either case, document/comment well.</p>
+<p>Finally, we’ll do some model fitting. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then load into your <code>Rmd</code> file, or have everything inside the <code>Rmd</code> file. In either case, document/comment well.</p>
 <p>Add code that does the following operations:</p>
 <ol style="list-style-type: decimal">
 <li>Loads cleaned data.</li>
@@ -765,9 +770,10 @@ div.tocify {
 <li>Compares the model results for the categorical model with just the main predictor and all predictors.</li>
 </ol>
 <p><strong>Here, we decide that <code>RunnyNose</code> is our main predictor of interest, and we also care about all others. So you should fit models with each of the 2 outcomes and <code>RunnyNose</code> and models with each of the 2 outcomes and all predictors. Consider whichever outcome you are currently NOT fitting as a predictor of interest.</strong></p>
-<p>You might have noticed that we are including some predictors twice, e.g. we have <em>Weakness</em> as 4 categories and also as yes/no. That’s likely not ideal. We’ll address that soon, for now let’s just “throw it all in”.</p>
+<p>You might have noticed that we are including some predictors twice, e.g. we have <em>Weakness</em> as 4 categories and also as yes/no. That’s likely not ideal. We’ll address that soon, for now let’s just “throw it all in”. Because we do that, you might get some warning messages from your code about rank deficiency. Usually, we would need to inspect those and make sure we either fix or understand what’s going on and are ok with it. For now, you can ignore.</p>
 <p>For all of these operations, you should use the the <code>tidymodels</code> framework. To do so, I suggest to go to the <a href="https://www.tidymodels.org/start/models/">build a model tutorial</a> in the <em>Get Started</em> section on the <code>tidymodels</code> website. There, you’ll see an example of fitting some data with a linear model, followed by a Bayesian model. We won’t do the Bayesian one (but if you want you can try). From that tutorial, pick out the bits and pieces you need to fit your two linear models. You’ll need to use the <code>linear_reg()</code> and <code>set_engine("lm")</code> commands. For the logistic model, you will need to use <code>logistic_reg()</code> and <code>set_engine("glm")</code>.</p>
 <p>For each of the 4 fits (2 linear models, 2 logistic models), report the results in some way, either as table or figure. You might want to try the <code>glance()</code> function. You can also play around a bit with the <code>predict()</code> function or do some other explorations with your fits. This is open-ended, so play around as much or as little as you like.</p>
+<p>Comparison of models should be based on performance of the models (and anything else you want to look at). This should be heuristic, with you looking at and discussing differences. Please no comparison using p-values or other statistical shenanigans 😄.</p>
 <p>The main point of this is to get you started fitting models with <code>tidymodels</code>. You’ll likely see lots of information on the <code>tidymodels</code> website that might not make sense yet, such as pre-processing, model evaluation, tuning, etc. Just ignore that for now, we’ll get to it soon enough.</p>
 <p>If you are extra ambitious or just enjoy playing around with <code>tidymodels</code>, add a <em>k</em>-nearest neighbors model fit to the continuous and/or categorical outcome. You do that by choosing <code>nearest_neighbor()</code> as the model type (instead of <code>linear_reg()</code> or <code>logistic_reg()</code>). It seems that <code>nearest_neighbor()</code> currently only supports a single engine (underlying implementation/model) called <code>kknn</code>, so you don’t even have to set an engine, it will use that one as default (but it’s still good practice in case <code>tidymodels</code> adds another engine in the future 😁). The rest should work as before. The fact that we can easily switch models and don’t have to write much new code is the beauty of the <code>tidymodels</code> framework and will become even clearer soon.</p>
 <div class="note">

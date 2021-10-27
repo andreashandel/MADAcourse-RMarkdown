@@ -1,0 +1,131 @@
+---
+title: Assessment - Machine Learning Models 1
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+```{r, include = FALSE}
+library(emoji)
+```
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+
+# Exercise
+
+For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We'll basically try to do a full analysis. The goal is to have an example of a nice full analysis by the end of this exercise that you can add to your portfolio. So let's get started!
+
+
+
+## Setup
+
+This is a solo-exercise. Make sure your repo for this exercise is fully up-to-date and synced. 
+
+The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things.
+
+You want to remove anything that's not part of the exercise (any files/folders from the template). You also want to make sure you have readme files or other documentation that briefly explain what files are where and in which order to run them. Make sure your R/Rmd scripts are easy to understand and that they all run. 
+
+As you re-organize, you can decide the mix of R and Rmd files and what you want to combine and what to split. However you do it, make sure it's documented and easy to understand.
+
+
+## Pre-processing 
+
+We previously covered pre-processing, but haven't really done any of that yet. So let's add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
+
+
+### Feature/Variable removal
+
+You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at the minimum, don't help when you model, and more likely actually confuse your model and lead to errors/warnings/poor model performance. So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
+
+We also want to code the 3 multi-level factors as ordered, so make sure they are coded as ordered factors. The order should of course be None/Mild/Moderate/Severe.
+
+
+### Low variance predictors
+
+If you look at your data, you'll see that some predictors are fairly **unbalanced**, with most patients reporting `No` and only a few `Yes`. If almost everyone is in one category and almost nobody in others, that often (but not always) means those predictor variables are not very helpful in fitting/predicting the outcome. Furthermore, if you do cross-validation and one of your samples happen to not include one predictor level at all, things might go wrong when applied to the holdout-sample. Thus, it is worth considering if we want to remove them. The `recipes` package in `tidymodels` has the function `step_nzv()` which can do that for you automatically. If you have lots of predictors, that might be good to use. But it's often better to decide _manually_ for each variable based on your scientific expertise if you want to remove it or not. We'll take that approach here. After looking at the data, we decide to remove those **binary** predictors that have <50 entries in one category (there are 2). Write code to remove them. 
+
+You should end up with a data frame that has 730 observations and 26 variables.
+
+
+## Analysis code
+
+To keep things a bit simpler, for this exercise we focus on a single outcome, the numerical value of **Body temperature**. Once you finished the whole workflow for that outcome, you are welcome to do it again for **Nausea** as outcome. We will use RMSE as our performance metric.
+
+I suggest you put all the analysis code into an Rmd file. Alternatively, if you want you can use an R script or R functions that run the main parts, and then display the outcomes in the Rmd file. You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.
+
+
+### Setup
+
+* Start by setting the random seed to `123`. This should make everything reproducible and everyone should get the same results.
+
+* Split the dataset into 70% training, 30% testing. Also use the outcome `BodyTemp` as stratification. This allows for more balanced outcome values in the train and test sets. See e.g., [section 3 of the _Get Started_ tutorial](https://www.tidymodels.org/start/resampling/).
+
+* We want to do 5-fold cross-validation, 5 times repeated. (There's no specific reason to do this 5x5 pattern, other than to show you that there are different ways to pick the sample, and that I want you to not use the default.) For the CV folds, we also want to stratify on `BodyTemp`, as we did for the main train/test split. Use the `vfold_cv` function to create a resample object for the training data with these specifications.
+
+* Create a recipe for the data and fitting. You likely won't need to do much, but do make sure you code the categorical variables as dummy variables, otherwise things might not work smoothly. 
+
+
+
+### Model tuning and fitting
+
+We'll fit a tree, a LASSO model, and a random forest. I chose those because they are used in the tutorial on the `tidymodels` website. You can of course add further models. For the tree, see the _Tune model parameters_ section of the [_Get Started_ tutorial](https://www.tidymodels.org/start/tuning/).
+
+For LASSO and the random forest, check out the _Case Study_ section of the  [_Get Started_ tutorial](https://www.tidymodels.org/start/case-study/). Note that you will need to adjust the code for our scenario since we have a continuous outcome. 
+
+I suggest you write code for each model separately. A lot of the code will look similar, so once you got the first one set up, the other two should be easier. They mainly differ in the commands specifying the tuning parameters and the tuning grid.
+
+Each of these models requires some tuning. Follow the examples by setting up a workflow, set a tuning grid, and then use the `tune_grid` function to tune the model using cross-validation. For the choices regarding the tuning parameters, you can follow the examples. Most of the models have more things that can be tuned, but for now you can stick to what they show in the tutorial.
+
+The steps (block of code) you should have here are 1) model specification, 2) workflow definition, 3) tune grid specification and 4) tuning using cross-validation and the `tune_grid` function.
+
+
+### Model evaluation
+
+Once you have done the tuning, you can get the best-fit model with `select_best()` and `finalize_workflow()` and then do one more fitting to the training data with this final workflow. Follow the examples in the tutorial.
+
+Make a plot that shows model predictions from the tuned model versus actual outcomes, and one that plots residuals.
+
+Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the `show_best()` function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. 
+
+The mean and standard deviation of the performance give you a measure of overall performance and variability in that measure. The plots show you if there are any systematic deviations between model and data. Taken together, these can be compared for the different models and based on those (and as wanted, other considerations) a final model can be chosen.
+
+
+### Model selection
+
+Once you have implemented above steps for the 3 models, you should for each model have a "best" one based on the tuning process, and each best model gives you performance, uncertainty around the performance measure, and some diagnostic plots. While for any real research project, you likely want to look deeper (e.g. at uncertainty in predictions instead of just overall performance), for now this is enough. Pick one of the three models. Explain why you pick it. There is no single answer that's correct, I just want you to learn to reason/argue for why you are doing something, in this case justify why you are picking the model you do. 
+
+
+### Final evaluation
+
+Once you picked your final model, you are allowed to once - and only once - fit it to the test data and check how well it performs there. This gives you a somewhat honest estimate of how the model might perform for new, unseen data. You can do that using the `final_fit` function applied to the model you end up choosing. For the final model applied to the test set, report performance and the diagnostic plots as above.
+
+And that concludes what is likely a fairly long exercise. The code itself is not that long, but it will take you time to cobble it together from the `tidymodel` tutorial and possibly other sources.
+
+
+
+# Cleanup/fixing and presentation
+
+Make sure your analysis and all results are nicely documented and when knitted, produce a nice-looking, stand-alone HTML file. In a future exercise, you will add this HTML file to your portfolio.
+
+
+
+
+# Discussion
+
+Let's use this week's discussion to talk about projects. Post a short summary of your project, very briefly describing your data, your question(s), your (planned) methods and (expected) results. Sort of like an abstract for a paper. This way, everyone can get a quick glimpse as to what everyone else is doing. Also provide a link to the repo for easy access.
+
+Then, also post any specific questions/struggles/concerns you might have regarding your project. It's quite likely that there is some overlap in approaches and questions among you and your classmates. Hopefully, through this discussion you can provide each other with some help and input.
+
+Post this by Wednesday. Then read the summaries of your classmates' projects. If you see a question/topic that you think you might be able to help with, either by answering a specific question, or by providing some general feedback, do so. 
+
+And of course, as you look at each others projects, it's a 2-way street. You can provide help/feedback, but you are also welcome to take inspiration from what others are doing and integrate some of that into your own project.
+
+Since you get feedback from me at each of your submission points, I plan to stay out of this week's discussion `r emoji::emoji('grin')`. So this is all you helping each other. Each of you will be reviewing 2 projects in a lot of depth at the end, but hopefully with the discussion this week you get a bit of an idea of what everyone else is doing, and you can provide feedback to others and earlier. 
