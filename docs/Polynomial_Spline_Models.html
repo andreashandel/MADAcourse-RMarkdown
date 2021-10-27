@@ -521,6 +521,9 @@ div.tocify {
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
       <ul class="dropdown-menu" role="menu">
         <li>
+          <a href="./ML_Models_Overview.html">ML Models overview</a>
+        </li>
+        <li>
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
@@ -531,6 +534,42 @@ div.tocify {
         </li>
         <li>
           <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Machine Learning Models II</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./SVM_Models.html">Support Vector Machine Models</a>
+        </li>
+        <li>
+          <a href="./DA_Models.html">Discriminant Analysis Models</a>
+        </li>
+        <li>
+          <a href="./More_ML_Models.html">Some more ML models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_2.html">Assessment: ML models 2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. The complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
         </li>
       </ul>
     </li>
@@ -591,7 +630,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Polynomial and Spline Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-26 10:55:46</h4>
+<h4 class="date">2021-10-27 08:58:31</h4>
 
 </div>
 
@@ -648,7 +687,7 @@ div.tocify {
 </div>
 <div id="generalized-additive-models-gam" class="section level1">
 <h1>Generalized additive models (GAM)</h1>
-<p>GAMs are in some sense (though not completely, see below) a general form of the different models just discussed. The preserve the feature that each predictor enters the model additively. But now, each predictor can be related to the outcome with a – potentially complicated, <strong>unknown</strong> – function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAMs allow for more flexible relations between predictors and outcome than GLMs, and are still fairly easy to fit and interpret (but not quite as easy). Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that’s not the case, one often uses spline function, and let the data determine the exact shape of the splines. One restriction of GAM is the same as all additive models: having each predictor enter the model separately can lead to interactions being missed.</p>
+<p>GAMs are in some sense (though not completely, see below) a general form of the different models just discussed. The preserve the feature that each predictor enters the model additively. But now, each predictor can be related to the outcome with a – potentially complicated, potentially unknown – function. For instance one could have a GAM where the predictor is sinusoidally related to the outcome. GAMs allow for more flexible relations between predictors and outcome than GLMs, and are still fairly easy to fit and interpret (but not quite as easy). Also, to provide good functions to map predictors to outcome, one needs to know something about the underlying system. If that’s not the case, one often uses spline function, and let the data determine the exact shape of the splines. One restriction of GAM is the same as all additive models: having each predictor enter the model separately can lead to interactions being missed.</p>
 </div>
 <div id="fitting-polynomialspline-models" class="section level1">
 <h1>Fitting polynomial/spline models</h1>

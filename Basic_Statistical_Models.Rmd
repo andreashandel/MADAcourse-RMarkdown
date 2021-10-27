@@ -67,7 +67,14 @@ Of course, you can also find lots of additional resources online describing logi
 # Generalized linear models
 
 Both linear and logistic models belong to a class of models called [generalized linear models (GLM)](https://en.wikipedia.org/wiki/Generalized_linear_model). Those types of models allow you to fit outcomes of specific types, for instance, if you have outcomes that are counts (integers), you can use Poisson regression, or if you have continuous outcomes that are all positive, you could use a Gamma regression. 
-GLMs all have the same structure: namely there is a linear combination of predictor variables (e.g., $b_1*age + b_2*height$) and those are connected to the outcome through what is called a **link function**. GLMs are a very useful class of models, and of course the most used ones are the two we just discussed. At the end of the [classification chapter in ISLR](https://statlearning.com/), there is a nice brief discussion of GLMs, I suggest you read through that in enough depth to get the overall ideas, but thre is no need to go through all the math.
+
+GLMs all have the same structure: namely there is a linear combination of predictor variables (e.g., $b_1*age + b_2*height$) and those are connected to the outcome through what is called a **link function**. 
+
+GLM are very commonly used. Among GLM, linear and logistic regression models are by far the most commonly used ones. Other models that assume specific distributions of the outcome, e.g. a Poisson distribution, can be accommodated by choosing the appropriate _link function_, which connects a linear combination of predictor variables with the outcome. GLM  models are fast and easy to fit (using e.g. the `glm` function in R), fairly easy to interpret, and often provide performance that is hard to improve upon with more complicated models, especially if the data is on the small side. To prevent overfitting, variable/feature selection or regularization approaches are often used. GLM assume a specific relation between predictors and outcome (e.g. linear, logistic) and as such might not perform well on data that does not show the assumed pattern.
+
+At the end of the [classification chapter in ISLR](https://statlearning.com/), there is a nice brief discussion of GLMs, I suggest you read through that in enough depth to get the overall ideas, but there is no need to go through all the math.
+
+
 
 
 # KNN - another simple model worth mentioning
@@ -78,7 +85,7 @@ As an example for a continuous outcome (regression), if you want to predict _hei
 
 The same idea can be applied to categorical outcomes (classification). Say you wanted to predict _sex_ instead of _height_. You again looked at the _K_ individuals whose predictor values (here _age_ and _weight_) are closest, and use the majority to predict the outcome for the new observation. (Say *K*=5, and 3 of the 5 closest individuals are male. Then you would predict the new observation to be male.)
 
-KNN is a somewhat strange model since _the data is the model_. Which means you always need to have the data to predict new outcomes, often making it not too useful in practice. You also don't learn too much in terms of inferential insight. Still, it is a useful model to know about, and it works for both continuous and categorical outcomes. It is also commonly used for imputation of missing values. In that situation, you treat the predictor you want to impute as the outcome and use the remaining predictors as the data. KNN is described in the [K-nearest neighbors chapter in HMLR](https://bradleyboehmke.github.io/HOML/knn.html) and also briefly described in [chapter 2.2. of ISLR](https://statlearning.com/) and [the _Cross-validation_ and _Examples of algorithms_ chapters of IDS](https://rafalab.github.io/dsbook/). Take a look at any of those resources if you want to learn a bit more about KNN.
+KNN often perform well, but they are not very "portable". For other models, once you trained/fit a model, you can "take it with you" and apply the model to new data, leaving the old data you used for model building behind. KNN are a somewhat strange since _the data is the model_. All the data is used to predict new observations by comparing them to existing ones and predicting outcomes based on closeness of predictor variables. Which means you always need to have the data to predict new outcomes, often making it not too useful in practice. You also don't learn too much in terms of inferential insight. Still, it is a useful model to know about, and it works for both continuous and categorical outcomes. It is also commonly used for imputation of missing values. In that situation, you treat the predictor you want to impute as the outcome and use the remaining predictors as the data. KNN are described in the [K-nearest neighbors chapter in HMLR](https://bradleyboehmke.github.io/HOML/knn.html) and also show up in [chapters 2 and 3 of ISLR](https://statlearning.com/) and [the _Cross-validation_ and _Examples of algorithms_ chapters of IDS](https://rafalab.github.io/dsbook/). Take a look at any of those resources if you want to learn a bit more about KNN.
 
 
 
@@ -105,4 +112,10 @@ If you never thought about the relation between classical statistical tests and 
 
 # Further reading
 
+[Chapters 3 and 4 of ISL](https://statlearning.com/) discuss linear and logistic models. So do [chapters 4 and 5 of HMLR](https://bradleyboehmke.github.io/HOML/).
+
 For another source that discusses almost all the models just mentioned, each one very briefly, see the [_examples of algorithms_ chapter in IDS](https://rafalab.github.io/dsbook/examples-of-algorithms.html).
+
+
+
+

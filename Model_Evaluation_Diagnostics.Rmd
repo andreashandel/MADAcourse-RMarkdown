@@ -1,5 +1,5 @@
 ---
-title: Diagnosing Model Fit
+title: Model Diagnostics
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -72,6 +72,23 @@ Since you are learning to set up your analysis in a fully automated way, doing s
 Note that sometimes the term [sensitivity analysis](https://en.wikipedia.org/wiki/Sensitivity_analysis) is used to imply in a more limited approach, namely just the exploration of the impact of model parameters on the outcomes. However, in the more broader sense of the word, it is the exploration how changes in the analysis pipeline (different subsets of data, different modeling assumptions, etc.) might or might not impact the results.
 
 
+# Model Interpretation
+
+A nice feature of using subset selection or LASSO with GLMs, or fitting a single tree, is that the algorithm decides which predictor variables are important, and throws out the remaining ones. For the ones that stay in the model, we can look at the coefficients in front of each predictor variable, or look at the final tree/decision diagram, to assess the importance of individual predictor variables on the outcome. This provides an easy way to understand _how_ specific variables influence the outcome.
+
+Those simple approaches are not available anymore for more complex models. With complex models, we generally give up interpretability in exchange for better performance. However, we ideally want both. The last several years have seen a good amount of development to come up with methods that allow one to peek inside the black box, i.e. to understand why and how a complex model makes its predictions, and what the role of specific predictor variables is on the outcome. This area is generally called _interpretable machine learning_. 
+
+There's no point in me repeating what others have already said (much better than I could) `r emoji::emoji('smiley')`, therefore, instead of me writing more on this, please take a look at [chapters 2 and 3 of the _Interpretable Machine Learning (IML) book_](https://christophm.github.io/interpretable-ml-book/), which gives a very nice introduction on this topic. As you can tell by the title, the whole book is about interpretation of machine learning methods, and is a great resource. 
+
+For a shorter, but also great resource, check out [chapter 16 of HMLR](https://bradleyboehmke.github.io/HOML/iml.html), which provides both a quick introduction and overview to the topic, and lists and illustrates the use of several R packages to do various interpretation tasks.
+
+Another good introduction is [this chapter of the _Tidy Modeling with R_ book](https://www.tmwr.org/explain.html).
+
+As models get more complex, making sense of them will increase in importance. Even if you are mainly interested in predictive performance and less on understanding your system, it is a good idea to investigate your model in some detail. You might often figure out things that can help further increase model performance. Also, without understanding at least to some extent how complex models make their predictions, the potential for unnoticed bias increases. A good example of this can be found [in this very recent Science paper](https://science.sciencemag.org/content/366/6464/447) which describes racial bias in a machine learning model that tries to predict healthcare needs of patients. See also [this commentary](https://science.sciencemag.org/content/366/6464/421) on the article. Thus, this area of interpreting results from complex models will likely see much development in the near future, hopefully leading to models that are both powerful (and thus likely complex) and interpretable. 
+
+Given how easy it is to apply some of these methods to your models, I recommend that if you decide to use a somewhat complex model (or even a not-so complex one), you should always do at least some analyses that probe the model, e.g. perform a variable importance analysis and related investigations as described in the references above. 
+
+
 
 # Other checks
 
@@ -82,9 +99,11 @@ If you get _strange_ results (either unexpectedly bad or unexpectedly good), loo
 If at any time during your analysis, you get warning messages, you need to investigate them carefully. Sometimes it is ok to ignore warning messages in R **but only after you know precisely what they mean and why they happen!**. Frequently, warning messages indicate you are doing something you shouldn't be doing and can lead to wrong results. 
 
 
+
 # Further learning
 
-All the main sources we are using in this course mention some of these topics in various places. Unfortunately, those topics are just mentioned here and there, no full chapters discuss them. If you find any good resources that provide nice discussions of the topics here, please let me know so I can add them.
+In addition to the sources mentioned above, other good reads are the [_Judging model effectiveness_ chapter](https://www.tmwr.org/performance.html) and the [_When should you trust your predictions?_ chapter](https://www.tmwr.org/trust.html) of TMWR.
+
 
 
 

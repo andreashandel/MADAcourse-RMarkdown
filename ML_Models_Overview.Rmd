@@ -1,0 +1,59 @@
+---
+title: Machine Learning Models - Overview
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this brief unit, I make a few general comments about machine learning models, before we look at several types of those models.
+
+# Learning Objectives
+* Know what ML models are.
+
+
+# Machine Learning Model Zoo
+
+By now, I am sure you have picked up on the fact that there is a _zoo full_ of different statistical and machine learning models. You have also likely picked up that the terminology is fuzzy. We could call a standard linear or logistic regression model a machine learning model, and people do. Or we can reserve the term ML for more complex models - however fuzzily we define "complex". In the end, getting hung up about terminology is not that useful and important. 
+
+What is important is that you are at least a bit familiar with some of the more common models, how they work and what they are good for, such that when you either read someone elses modeling results, or try your own, you have an idea of what's going in. All we can do in this course is to take an introductory glance at some ML models. If you end up becoming a "machine learning practitioner", you will want to learn more about specific models. The materials I link to hopefully give you places to look.
+
+ML models fall in broad classes, and within each class, there are many different variants. It is impossible to cover them all, but in this module and the next, we'll briefly go over a few of the more common ones.
+
+
+# General ML considerations
+
+**I want to make an important point here:** The statistics/model fitting topics we have discussed so far, namely pre-processing data, choosing the right performance metric, using methods like train/test and cross-validation to minimize overfitting, and carefully evaluating your model results **always apply, no matter if you fit a simple linear model or a complicated neural net**. 
+
+Some problems become more acute for certain types of models, e.g., the more complex the model, the more likely the chance for overfitting. But the general concepts always apply. Model tuning also applies to most ML models, it is just different model parts that are being tuned. Once you dig deeper, it is useful to understand enough about the model to get an idea of what tuning a specific parameter for a given model actually means. However, in a first pass, you can often do those tuning operations without knowing much about the models (which is what we'll do in this class). Nevertheless, always critically evaluate what your models return. Just because complex models are often black boxes and it's hard to understand everything that goes on inside doesn't mean you can skip your critical thinking and accept as reasonable whatever the model gives you back.
+
+
+I think by now you have also picked up on the idea that there is no _recipe_ for choosing a specific machine learning/statistical modeling approach. It depends on the data, the question, the overall goal, what others in the field are using, and potentially further factors. In general, the most thorough approach is to try both simple and complex models, and then decide based on model performance and other considerations such as simplicity, speed, scalability, etc. on a specific model. There is always a level of subjectivity involved, i.e. different analysts might favor different models. As long as the thought process behind choosing a specific model is well explained and justified, you should be allowed to choose the model that you think is overall best for a given situation. Since it is very easy to fit multiple different models and compare results, it is not a bad idea to do that. You can report the results form the main model you chose as the main findings, with results from other models as supplementary material.
+
+And with those general points out of the way, we'll look at several different statistical/ML models in the following units.
+
+
+
+# Further resources
+
+
+The books we have been using throughout this course all cover many aspects of ML. Especially [ISL](https://statlearning.com/), [IDS](https://rafalab.github.io/dsbook/) and [HMLR](https://bradleyboehmke.github.io/HOML/) are very good starting points for learning more about different machine learning methods.I will point to specific chapters when we discuss specific models.
+
+If you want to practice some more ML modeling using the `tidymodels` framework, check out [this free online course](https://supervised-ml-course.netlify.app/) by [Julia Silge](https://juliasilge.com/), one of the main `tidymodels` maintainers. It consists of 4 case studies that teach you both general ML ideas and how to do them with `tidymodels`. Another online course focusing on `tidymodels` is [this course by Allison Hill](https://tmv.netlify.app/site/).
+
+
+

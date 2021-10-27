@@ -28,19 +28,34 @@ In this unit, we will very briefly cover support vector machines (SVM), another 
 
 
 # Introduction
-By now, I am sure you have picked up on the fact that there are many different statistical and machine learning models. 
 
-Those ML models fall in broad classes, and within each class, there are many different variants. It is impossible to cover them all, but in this module we'll briefly go over a few more that are reasonably common. This is a very cursory overview. The provided references give more information for different methods, if you want to learn more. 
-
-
-# Support Vector Machines (SVM)
+SVM were developed in the computer science and engineering communities and were for a while among the best-performing types of models. They are not that exceptional anymore, but still often perform rather well, especially sometimes for data where other models don't perform quite as well. So SVM are often a good idea to try.
 
 
-SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contains outliers. As with multi-tree methods, SVM models are somewhat hard to interpret. 
+# General Idea behind SVM
 
-[Chapter 9 of ISL](https://statlearning.com/) discusses SVM. So does [chapter 14 of HMLR](https://bradleyboehmke.github.io/HOML/svm.html).
+SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM divide the predictor space into areas using multi-dimensional hyperplanes until observations within the same "volume" are sufficiently accurately predicted (a bit like trees).
+
+SVM can come in different flavors, for instance depending on how discrepancies between data and model are penalized (absolute distance, quadratic, etc.) or how the boundaries of the hyperplanes are defined.
 
 
+# Strengths and Weaknesses of SVM
+
+SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contain outliers. 
+
+The math behind SVM is not that easy to follow, and since SVM models are somewhat complex, they tend to be a bit of a _black box_ and the model itself is hard to interpret. 
+
+
+
+# SVM in `tidymodels`
+
+Tidymodels/parsnip [has several SVM models](https://parsnip.tidymodels.org/reference/index.html), such as `svm_linear()` and `svm_poly()`. They can be used as part of the `tidymodels` workflow like any other ML model you have already seen. They also need tuning. 
+
+
+
+# Further Resources
+
+To learn a bit more about SVM, you can check out [chapter 9 of ISL](https://statlearning.com/) which discusses SVM. So does [chapter 14 of HMLR](https://bradleyboehmke.github.io/HOML/svm.html).
 
 
 

@@ -1,0 +1,51 @@
+---
+title: More Machine Learning Models 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will very briefly cover some further points related to ML that didn't really fit into any other sections. 
+
+# Learning Objectives
+* Be familiar with the idea of ensemble models.
+* Know about several unsupervised modeling approaches.
+
+
+
+# Ensemble methods
+You learned previously that one can combine many trees into a larger model (e.g., a random forest or a boosted regression trees model), and that those models often have better performance. In the many-tree units, I briefly mentioned that this is an example of an ensemble model.
+
+Instead of combining just the same kind of model (e.g., multiple trees), it is possible to build models which are combinations of different types of base models, e.g., combine a tree-based model with an SVM. Those approaches are known variously as _ensemble methods_ or _super learners_ or _stacked models_. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more _black box_) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.
+
+Properly fitting ensemble models is not easy, and requires usually a lot of data. In fact, so far I have never tried to fit an ensemble model for any of my research projects. Nevertheless, it is useful to know about them if you encounter them in the literature or if you have a problem/data where you think they might be helpful. For more on those models, check out the [_Stacked Models_ chapter of HMLR](https://bradleyboehmke.github.io/HOML/stacking.html).
+
+
+
+# Unsupervised learning
+
+While I previously mentioned unsupervised learning here and there, we haven't focused much on it in this course. The reason is that most data analysis problems deal with supervised learning, i.e. with data that has a specific outcome of interest. However, there are situations where data without a given outcome needs to be analyzed. For instance images or customers might need to be sorted into categories. This analysis approach is also called _clustering_. Sometimes, unsupervised learning is also used as a preparatory step in a supervised learning setting. For instance it can be used to reduce the number of predictors. This is called _dimension reduction._ It is common in areas where one measures lots of variables but the observations are small, e.g. genetic information on a few hundred individuals, with 1000s of genetic markers measured for each person. In such a case, one can reduce the number of predictor variables into a set of combinations of the original predictors such that the new set contains the most important information. Then one can use that reduced set to perform supervised learning.
+
+Methods like _K-means clustering_ or _Hierarchical clustering_ are - as the name suggests - used for clustering of unlabeled data. _Partial least squares (PLS)_ and _Principal component analysis (PCA)_ are methods for dimension reduction. Since for unsupervised learning, a performance measure like RMSE or Accuracy does not exist, other metrics are used to define the quality of model results. Different algorithms use different ways to perform the unsupervised learning task.
+
+[The _Unsupervised Learning_ chapter of ISL](https://statlearning.com/) discusses several unsupervised learning methods. So do the _Dimension Reduction_ and _Clustering_ sections of [HMLR](https://bradleyboehmke.github.io/HOML/) and the [_Clustering_ chapter of IDS](https://rafalab.github.io/dsbook/clustering.html).
+
+
+# Further reading
+
+See the references provided in the sections above.

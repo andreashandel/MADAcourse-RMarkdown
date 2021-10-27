@@ -521,6 +521,9 @@ div.tocify {
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
       <ul class="dropdown-menu" role="menu">
         <li>
+          <a href="./ML_Models_Overview.html">ML Models overview</a>
+        </li>
+        <li>
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
@@ -531,6 +534,42 @@ div.tocify {
         </li>
         <li>
           <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Machine Learning Models II</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./SVM_Models.html">Support Vector Machine Models</a>
+        </li>
+        <li>
+          <a href="./DA_Models.html">Discriminant Analysis Models</a>
+        </li>
+        <li>
+          <a href="./More_ML_Models.html">Some more ML models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_2.html">Assessment: ML models 2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. The complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
         </li>
       </ul>
     </li>
@@ -591,7 +630,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Machine Learning Models 1</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-26 20:17:40</h4>
+<h4 class="date">2021-10-27 15:25:10</h4>
 
 </div>
 
@@ -628,8 +667,8 @@ div.tocify {
 <h2>Analysis code</h2>
 <p>To keep things a bit simpler, for this exercise we focus on a single outcome, the numerical value of <strong>Body temperature</strong>. Once you finished the whole workflow for that outcome, you are welcome to do it again for <strong>Nausea</strong> as outcome. We will use RMSE as our performance metric.</p>
 <p>I suggest you put all the analysis code into an Rmd file. Alternatively, if you want you can use an R script or R functions that run the main parts, and then display the outcomes in the Rmd file. You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.</p>
-<div id="setup-1" class="section level3">
-<h3>Setup</h3>
+<div id="data-setup" class="section level3">
+<h3>Data Setup</h3>
 <ul>
 <li><p>Start by setting the random seed to <code>123</code>. This should make everything reproducible and everyone should get the same results.</p></li>
 <li><p>Split the dataset into 70% training, 30% testing. Also use the outcome <code>BodyTemp</code> as stratification. This allows for more balanced outcome values in the train and test sets. See e.g., <a href="https://www.tidymodels.org/start/resampling/">section 3 of the <em>Get Started</em> tutorial</a>.</p></li>
@@ -649,7 +688,7 @@ div.tocify {
 <h3>Model evaluation</h3>
 <p>Once you have done the tuning, you can get the best-fit model with <code>select_best()</code> and <code>finalize_workflow()</code> and then do one more fitting to the training data with this final workflow. Follow the examples in the tutorial.</p>
 <p>Make a plot that shows model predictions from the tuned model versus actual outcomes, and one that plots residuals.</p>
-<p>Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the <code>show_best()</code> function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance.</p>
+<p>Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the <code>show_best()</code> function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. Compare that model performance with a null model, which in this case of a continuous outcome is the RMSE between the data and the mean of the data.</p>
 <p>The mean and standard deviation of the performance give you a measure of overall performance and variability in that measure. The plots show you if there are any systematic deviations between model and data. Taken together, these can be compared for the different models and based on those (and as wanted, other considerations) a final model can be chosen.</p>
 </div>
 <div id="model-selection" class="section level3">
@@ -665,7 +704,7 @@ div.tocify {
 </div>
 <div id="cleanupfixing-and-presentation" class="section level1">
 <h1>Cleanup/fixing and presentation</h1>
-<p>Make sure your analysis and all results are nicely documented and when knitted, produce a nice-looking, stand-alone HTML file. In a future exercise, you will add this HTML file to your portfolio.</p>
+<p>Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>

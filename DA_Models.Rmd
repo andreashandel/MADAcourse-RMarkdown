@@ -1,0 +1,58 @@
+---
+title: Discriminant Analysis Models 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+# Overview
+In this unit, we will very briefly cover discriminant analysis, which is a set of machine learning/statistical models that is very useful for classification.
+
+
+# Learning Objectives
+* Be familiar with discriminant analysis models.
+* Understand advantages and disadvantages of these kinds of models.
+
+
+# Introduction
+While logistic regression is the most widely used approach for classification, it has several limitations. For one, it doesn't easily generalize to outcomes that have more than 2 categories. Also, for certain types of data, logistic regression might not perform very well. Other methods like tree-based models, KNN or SVM can be used for multi-category outcome classification and often provide good performance. Another option are Discriminant Analysis (DA) methods. Those approaches are fairly quick and easy to implement and fit. At times, they provide better performance than logistic regression and might do as well as more complicated models.
+
+
+# General Idea behind DA
+DA make assumptions about the distributions for each predictor, and then uses those distributions to model and predict the outcome. This is called a _generative_ approach.
+
+There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled as being multivariate normally distributed. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allows for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized/mixture/flexible/... 
+
+As for any model, there is always a bias-variance/underfitting-overfitting trade-off between less flexible approaches like LDA and more flexible approaches like some of the nonlinear DAs.
+
+
+# Strengths and Weaknesses of DA
+
+A nice feature of DA is that it is one of the algorithms that allows for classification with more then 2 outcomes. For two outcomes, there are situations where logistic regression struggles (if the outcomes are well-separated), and DA might perform better.
+
+DA are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. DA make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.
+
+
+# DA in `tidymodels`
+
+`Tidymodels` has the [`discrim` pacakge](https://discrim.tidymodels.org), which implements several forms of discriminant analysis.
+
+
+
+# Further Resources
+
+[Chapter 4 of ISLR](https://statlearning.com/) discusses discriminant analysis. So does the _Generative Models_ section in the [_Examples of algorithms_ chapter in IDS](https://rafalab.github.io/dsbook/examples-of-algorithms.html).
+

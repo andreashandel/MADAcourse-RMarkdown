@@ -93,7 +93,7 @@ Once you have done the tuning, you can get the best-fit model with `select_best(
 
 Make a plot that shows model predictions from the tuned model versus actual outcomes, and one that plots residuals.
 
-Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the `show_best()` function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. 
+Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the `show_best()` function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. Compare that model performance with a null model, which in this case of a continuous outcome is the RMSE between the data and the mean of the data.
 
 The mean and standard deviation of the performance give you a measure of overall performance and variability in that measure. The plots show you if there are any systematic deviations between model and data. Taken together, these can be compared for the different models and based on those (and as wanted, other considerations) a final model can be chosen.
 

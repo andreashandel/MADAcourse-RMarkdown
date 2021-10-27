@@ -137,6 +137,8 @@ navbar:
              href: ./Assessment_Model_Improvement.html
         - text: "11. Machine Learning Models I"
           menu:
+           - text: "ML Models overview"
+             href: ./ML_Models_Overview.html     
            - text: "Polynomial and Spline Models"
              href: ./Polynomial_Spline_Models.html     
            - text: "Classification and Regression Trees (CART)"
@@ -147,26 +149,24 @@ navbar:
              href: ./Assessment_ML_Models_1.html
         - text: "12. Machine Learning Models II"
           menu:
-           - text: "Support Vector Machines"
+           - text: "Support Vector Machine Models"
              href: ./SVM_Models.html     
            - text: "Discriminant Analysis Models"
              href: ./DA_Models.html     
-           - text: "Some more models"
-             href: ./Further_ML_Models.html     
+           - text: "Some more ML models"
+             href: ./More_ML_Models.html     
            - text: "Assessment: ML models 2"
-            href: ./Assessment_ML_Models_2.html
-    #     - text: "13. The complete analysis workflow"
-    #       menu:
-    #         - text: "15a. Complete data analysis workflow"
-    #           href: ./15a_Complete_data_analysis_workflow.html     
-    #         - text: "15b. Assessment"
-    #           href: ./15b_Assessment.html
-    #     - text: "14. Deep learning, AI and Big data"
-    #       menu:
-    #         - text: "16a. Deep Learning, AI and Big Data"
-    #           href: ./16a_DL_AI_BigData.html     
-    #         - text: "16b. Assessment"
-    #           href: ./16b_Assessment.html
+             href: ./Assessment_ML_Models_2.html
+        - text: "13. The complete analysis workflow"
+          menu:
+           - text: "Complete data analysis workflow"
+             href: ./Complete_data_analysis_workflow.html     
+           - text: "Assessment: Complete Analysis Workflow"
+             href: ./Assessment_Complete_Workflow.html
+        - text: "14. Deep learning, AI and Big data"
+          menu:
+           - text: "Deep Learning, AI and Big Data"
+             href: ./DL_AI_BigData.html     
     - text: "Project"
       menu:
          - text: "Project information"
