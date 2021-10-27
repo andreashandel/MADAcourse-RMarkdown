@@ -22,7 +22,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there are some cleanup things for your portfolio I'd like you to do. Some of you might have already done that, then you are good to go.
+Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there is some cleanup and improvement I'd like you to do for your portfolio. Some of you might have already done some of that.
 
 
 ## Setup
@@ -36,31 +36,57 @@ First, let's make sure it's easy for people to go from your portfolio website (t
 
 Once you done that, when people now are on your website, they can click on the `Github` icon in the top right corner and be taken to your file repository. Try to make sure it works by rebuilding your website and pushing to Github. It might take a minute or so and you might need to hit refresh before it shows up on the website.
 
-Now, let's connect the two in revers. Open `Readme.md` and update the text. This is what people see when they come to your github repository for your portfolio (as opposed to the website). I recommend adding a little bit of text and a link pointing users to the actual website. [You can look at the Readme.md for this course as example](https://github.com/andreashandel/MADAcourse). Edit yours as you want. 
+Now, let's connect the two in reverse. Open `Readme.md` and update the text. This is what people see when they come to your github repository for your portfolio (as opposed to the website). I recommend adding a little bit of text and a link pointing users to the actual website. [You can look at the Readme.md for this course as example](https://github.com/andreashandel/MADAcourse). Edit yours as you want. 
 
-You might also want to point to your website on Github.com. If you go to your repository on GitHub, you should see an `About` section in the top right. If you click on the gear symbol, there is a field in which you can enter the URL for your website (the `github.io` location). It might already show as pre-populated, but you have to actually manually enter it before it will show. You can again see how that looks on my website repository.
+You might also want to point to your website in the top right area of your repository on Github.com. If you go to your repository on GitHub, you should see an `About` section in the top right. If you click on the gear symbol, there is a field in which you can enter the URL for your website (the `github.io` location). It might already show as pre-populated, but you have to actually manually enter it before it will show. You can again see how that looks on the repository for this course.
 
 With this, it is easy for anyone (including yourself) to quickly switch between the website and the file repository.
 
 
 ## Creating new content
 
-In preparation for next week, make a copy of the `tidytuesday_exercise.Rmd` file, name it `tidytuesday_exercise2.Rmd`. Open it, delete everything apart from the YAML header (the stuff between the `---`). Add a sentence that says "To be filled" or something like that. We'll fill it next week.
+In preparation for next week, make a copy of the `tidytuesday_exercise.Rmd` file, name it `tidytuesday_exercise2.Rmd`. Open it, delete everything apart from the YAML header (the stuff between the `---`). Add a sentence that says "To be filled" or something like that. You wll fill it next week.
 
 To see the new file and access it from the website, we also have to include it in the website navigation bar. To that end, go back to the `_site.yml` file. Under `menu`, you'll see multiple lines of code starting with `text` and `href`. Those are the menu entries. Copy and insert the last 2 entries for Tidy Tuesday just below those entries, then replace the text with "Tidy Tuesday 2 Exercise" and the link with `./tidytuesday_exercise2.html`.
 
 Make sure your website rebuilds ok. You should now see another menu entry for Tidy Tuesday 2 and when you click on it, the essentially empty file we created should show up.
 
 :::warning
-YAML (which is the format of this file) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change the YAML file and you get a weird error message when trying to rebuild your website, it's likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind.
+YAML (which is the format of `_site.yml`) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change a YAML file and you get a weird error message when trying to rebuild your website, it's likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind. (It happens to me all the time.)
 :::
 
 
 ## Adding more content
 
+I mentioned last week that we want to add the full data analysis exercise you've worked on over the last few weeks to the repository. 
+Let's do that. Copy the R Markdown file which contains the main analysis part from your exercise repository into this one. To make sure the file can be run, you will also need to copy any needed files. Here, that is at minimum the data file, and possibly any results (figures/tables) you created. To include them, make a sub-folder in your repository, let's call it `files`. Place the data file and any others your R Markdown file loads into that folder. Then open the R Markdown file and change paths such that the files are loaded from the right new location. 
 
-## Styling
+While you are at it, also add either to the top of or bottom of your R Markdown file a brief description what it is and where people can go (the URL to your Github repository) to find the full analysis.
 
+In a final step, we need to make sure your analysis shows up on the website. To that end, follow the steps in _Creating new content_ to add your exercise to the menu. 
+
+Rebuild your website, and if everything works, there should now be a page showcasing your data analysis exercise.
+
+We also did one more exercise where I asked you to load and play with some data from the CDC. If you think what you did is nice enough that you want to showcase it, add it to the website following the steps just described. And of course you are free to add any other content you created that you think is worth featuring.
+
+
+## Cleanup and Styling
+
+At this point, it might be worth revisiting your already posted pages and cleaning up things a bit. If anything doesn't work, fix it. If some formatting looks strange, by now you should have all the knowledge (or at least know how to get it) to adjust that. Make sure everything looks as nice and professional as possible. 
+
+While the way we built the website has only limited ways of styling things (unless you want to start changing CSS and HTML code), you can still customize some. Feel free to play around and customize the look. You can find some information [here](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html). If you look into the repository for the MADA course, you will also see that in my `_site.yml` file that I'm using my own CSS file (called `MADAstyle.css`) which is also in the course repository. CSS lets you style websites. It's not hard to write CSS code, but it is its own thing. I usually just google around to find what I'm looking for `r emoji::emoji('grin')`. You certainly don't have to, but if you want to further customize the look of your website, you can add your own CSS file and style it how you like. 
+
+
+## More Comments
+
+Future employers really do look at portfolios like this, so being able to showcase something nice and polished is useful. It is also part of having a good online presence. I think for (future) professionals like yourself, a solid online presence is vital. I discuss this with our grad students in another class, if you want to see my thoughts on that, you can check out [this presentation](https://www.andreashandel.com/presentations/2021-01-building-your-brand/) - which is of course made with R Markdown and posted to a website that is made (partially) with R products (`blogdown` in that case) `r emoji::emoji('smile')`.
+
+And if you've really gotten into making websites with R Markdown, you can always move to [blogdown](https://bookdown.org/yihui/blogdown/). This is a much more flexible and powerful way of creating websites, but it's also more complex. Maybe the currently best starting point for blogdown is [this online post/tutorial](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/).
+
+
+## Submission
+
+I know where to find your portfolio, so you don't need to submit anything. Just make sure you push a fully updated and re-built portfolio to Github and that the website looks right. I'll take a look at the website after the deadline.
 
 
 # Project

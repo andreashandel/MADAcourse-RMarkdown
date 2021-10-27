@@ -1,0 +1,46 @@
+---
+title: Support Vector Machine Models
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+```{r, include=FALSE}
+#just so I can use emoticons
+#devtools::install_github("hadley/emo")
+library(emo)
+#set some figure options
+knitr::opts_chunk$set(out.width = '70%')
+```
+
+
+
+# Overview
+In this unit, we will very briefly cover support vector machines (SVM), another useful machine learning/statistical model type.
+
+# Learning Objectives
+* Be familiar with SVM.
+* Understand advantages and disadvantages of SVM.
+
+
+# Introduction
+By now, I am sure you have picked up on the fact that there are many different statistical and machine learning models. 
+
+Those ML models fall in broad classes, and within each class, there are many different variants. It is impossible to cover them all, but in this module we'll briefly go over a few more that are reasonably common. This is a very cursory overview. The provided references give more information for different methods, if you want to learn more. 
+
+
+# Support Vector Machines (SVM)
+
+
+SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contains outliers. As with multi-tree methods, SVM models are somewhat hard to interpret. 
+
+[Chapter 9 of ISL](https://statlearning.com/) discusses SVM. So does [chapter 14 of HMLR](https://bradleyboehmke.github.io/HOML/svm.html).
+
+
+
+
+

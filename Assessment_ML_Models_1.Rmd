@@ -62,7 +62,7 @@ To keep things a bit simpler, for this exercise we focus on a single outcome, th
 I suggest you put all the analysis code into an Rmd file. Alternatively, if you want you can use an R script or R functions that run the main parts, and then display the outcomes in the Rmd file. You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.
 
 
-### Setup
+### Data Setup
 
 * Start by setting the random seed to `123`. This should make everything reproducible and everyone should get the same results.
 
@@ -113,7 +113,7 @@ And that concludes what is likely a fairly long exercise. The code itself is not
 
 # Cleanup/fixing and presentation
 
-Make sure your analysis and all results are nicely documented and when knitted, produce a nice-looking, stand-alone HTML file. In a future exercise, you will add this HTML file to your portfolio.
+Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio.
 
 
 

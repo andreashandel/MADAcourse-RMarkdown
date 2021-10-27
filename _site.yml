@@ -145,13 +145,16 @@ navbar:
              href: ./Many_Tree_Models.html     
            - text: "Assessment: ML models 1"
              href: ./Assessment_ML_Models_1.html
-    #     - text: "12. Machine Learning Models II"
-    #       menu:
-    #         - text: "SVM"
-    #         - text: "14b. Model Interpretation"
-    #           href: ./14b_Model_Interpretation.html     
-    #       - text: "Assessment: ML models 1"
-    #        href: ./Assessment_ML_Models_1.html
+        - text: "12. Machine Learning Models II"
+          menu:
+           - text: "Support Vector Machines"
+             href: ./SVM_Models.html     
+           - text: "Discriminant Analysis Models"
+             href: ./DA_Models.html     
+           - text: "Some more models"
+             href: ./Further_ML_Models.html     
+           - text: "Assessment: ML models 2"
+            href: ./Assessment_ML_Models_2.html
     #     - text: "13. The complete analysis workflow"
     #       menu:
     #         - text: "15a. Complete data analysis workflow"
