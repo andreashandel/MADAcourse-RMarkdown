@@ -630,7 +630,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">More Machine Learning Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-27 16:55:40</h4>
+<h4 class="date">2021-10-27 17:49:12</h4>
 
 </div>
 
@@ -646,10 +646,10 @@ div.tocify {
 <li>Know about several unsupervised modeling approaches.</li>
 </ul>
 </div>
-<div id="ensemble-methods" class="section level1">
-<h1>Ensemble methods</h1>
-<p>You learned previously that one can combine many trees into a larger model (e.g., a random forest or a boosted regression trees model), and that those models often have better performance. In the many-tree units, I briefly mentioned that this is an example of an ensemble model.</p>
-<p>Instead of combining just the same kind of model (e.g., multiple trees), it is possible to build models which are combinations of different types of base models, e.g., combine a tree-based model with an SVM. Those approaches are known variously as <em>ensemble methods</em> or <em>super learners</em> or <em>stacked models</em>. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more <em>black box</em>) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.</p>
+<div id="ensemble-methodsmodels" class="section level1">
+<h1>Ensemble methods/models</h1>
+<p>You learned previously that one can combine many trees into a larger model (e.g., a random forest or a boosted regression trees model), and that those models often have better performance. In the many-tree units, I briefly mentioned that this is an example of an <strong>ensemble model.</strong></p>
+<p>Instead of combining just the same kind of model (e.g., multiple trees), it is possible to build models which are combinations of different types of base models, e.g., combine a tree-based model with an SVM. Those approaches are known variously as <em>ensemble methods/models</em> or <em>super learners</em> or <em>stacked methods/models</em>. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more <em>black box</em>) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.</p>
 <p>Properly fitting ensemble models is not easy, and requires usually a lot of data. In fact, so far I have never tried to fit an ensemble model for any of my research projects. Nevertheless, it is useful to know about them if you encounter them in the literature or if you have a problem/data where you think they might be helpful. For more on those models, check out the <a href="https://bradleyboehmke.github.io/HOML/stacking.html"><em>Stacked Models</em> chapter of HMLR</a>.</p>
 </div>
 <div id="unsupervised-learning" class="section level1">
