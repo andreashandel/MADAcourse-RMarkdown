@@ -21,13 +21,13 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. We'll basically try to do a full analysis. The goal is to have an example of a nice full analysis by the end of this exercise that you can add to your portfolio. So let's get started!
+For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. This is a continuation of the data analysis exercise you've been working on over the last few weeks, analyzing flu data. The goal is that by the end of this exercise, you will have an example of a nice full analysis. So let's get started!
 
 
 
 ## Setup
 
-This is a solo-exercise. Make sure your repo for this exercise is fully up-to-date and synced. 
+This is a solo-exercise. Make sure your previous repo for this exercise is fully up-to-date and synced. 
 
 The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things.
 
