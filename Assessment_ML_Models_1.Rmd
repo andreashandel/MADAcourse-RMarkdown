@@ -111,9 +111,9 @@ And that concludes what is likely a fairly long exercise. The code itself is not
 
 
 
-# Cleanup/fixing and presentation
+## Cleanup/fixing and presentation
 
-Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio.
+Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio. No need to post about the exercise, I know where to find it.
 
 
 
