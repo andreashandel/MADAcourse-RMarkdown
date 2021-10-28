@@ -12,7 +12,7 @@ output:
 
 
 ```{r, include = FALSE}
-library(emo)
+library(emoji)
 ```
 
 
