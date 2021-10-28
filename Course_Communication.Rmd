@@ -11,13 +11,6 @@ output:
 ---
 
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
-
 
 ## Slack
 

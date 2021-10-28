@@ -8,11 +8,6 @@ output:
 ---
 
 
-```{r, include = FALSE}
-library(emo)
-```
-
-
 
 # Quiz
 

@@ -11,19 +11,13 @@ output:
 ---
 
 
-```{r, include = FALSE}
-library(emo)
-```
-
-
-
 # Quiz
 
 Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
 
 # Exercise
 
-This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub `r emo::ji("grin")`. 
+This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub `r emoji::emoji("grin")`. 
 
 ## Setup
 

@@ -9,11 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-library(emoji)
-#set some figure options
-knitr::opts_chunk$set(out.width = '70%')
-```
 
 
 

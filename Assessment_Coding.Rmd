@@ -11,11 +11,6 @@ output:
 ---
 
 
-```{r, include = FALSE}
-library(emoji)
-```
-
-
 
 # Quiz
 
@@ -157,7 +152,7 @@ Github also has _branches_. Those are similar to forks but meant for internal us
 
 ## Another _fork and pull_ exercise
 
-**This is optional. You can do it at any time during this course (and more than once) `r emo::ji('grin')`.**
+**This is optional. You can do it at any time during this course (and more than once) `r emoji::emoji('grin')`.**
 
 Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).  Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse). Follow the steps outlined above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to GitHub, then initiate a pull request. I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have contributed to improving this course! (And of course, you will be listed in the _Acknowledgments_ section of the main course page.)
 

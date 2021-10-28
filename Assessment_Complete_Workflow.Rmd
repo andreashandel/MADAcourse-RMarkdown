@@ -8,12 +8,6 @@ output:
 ---
 
 
-```{r, include = FALSE}
-library(emo)
-```
-
-
-
 # Quiz
 
 Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
@@ -68,7 +62,7 @@ Add ample of information/documentation in the form of either code comments or te
 
 Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.
 
-And you are again free to broadcast your effort on social media, e.g., using the `#tidytuesday` hash tag on Twitter. I'll again be looking out for #MADA2021 tagged tweets `r emo::ji('grin')`. 
+And you are again free to broadcast your effort on social media, e.g., using the `#tidytuesday` hash tag on Twitter. I'll again be looking out for #MADA2021 tagged tweets `r emoji::emoji('grin')`. 
 
 
 # Discussion

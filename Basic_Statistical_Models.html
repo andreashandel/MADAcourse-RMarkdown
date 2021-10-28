@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Basic statistical models</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
+    <li>
+      <a href="./Course_Assessments.html">Assessments</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Assessment_Course_Tools_Introduction.html">Assessment: Course and Tools Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Analysis.html">Assessment: Data Analysis Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Rcoding_Basics.html">R Coding Basics</a>
+        </li>
+        <li>
+          <a href="./Rcoding_Tidyverse.html">Tidyverse and Friends</a>
+        </li>
+        <li>
+          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Types.html">Data Types</a>
+        </li>
+        <li>
+          <a href="./Data_Finding.html">Finding Data</a>
+        </li>
+        <li>
+          <a href="./Data_Wrangling.html">Data wrangling</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Finding_Wrangling.html">Assessment: Data Finding and Wrangling</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Visualization_Overview.html">Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./Visualization_in_R.html">Visualization in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Visualization.html">Assessment: Visualization</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Exploration.html">Exploring data</a>
+        </li>
+        <li>
+          <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Fitting basic statistical models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Basic_Statistical_Models.html">Basic statistical models</a>
+        </li>
+        <li>
+          <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Evaluating your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Evaluation_Overview.html">Model evaluation overview</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Performance.html">Model performance evaluation</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Overfitting.html">Model performance &amp; overfitting</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Diagnostics.html">Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./ML_Models_Overview.html">ML Models overview</a>
+        </li>
+        <li>
+          <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
+        </li>
+        <li>
+          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+        </li>
+        <li>
+          <a href="./Many_Tree_Models.html">Many-tree models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Machine Learning Models II</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./SVM_Models.html">Support Vector Machine Models</a>
+        </li>
+        <li>
+          <a href="./DA_Models.html">Discriminant Analysis Models</a>
+        </li>
+        <li>
+          <a href="./More_ML_Models.html">Some more ML models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_2.html">Assessment: ML models 2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. The complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Basic statistical models</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-10-28 16:55:54</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we will discuss a few basic models, and explore how to apply them to data in R. This will set the stage for later, more in-depths explorations of statistical model concepts.</p>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Learn about several types of basic models.</li>
+<li>Understand the relation between basic models and statistical tests.</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>There are lots of models out there, too many to cover in much detail. In this module, we will briefly discuss some of the most common and basic ones, and then explore them.</p>
+<p>In further modules, we will look at several more complex models. Most of the time, you do not understand every detail of a model. You need to understand enough about how the model works, its strengths and limitations, and to determine if a certain model is useful for a given situation or not.</p>
+<p>In this course, you will get a very cursory introduction to several different models. If you happen to work on a problem where you think a certain kind of model might be useful, you will then want to revisit that model and learn some more, so you can ensure you are using the right model and are using it properly.</p>
+</div>
+<div id="simple-models-for-continuous-outcomes-regression" class="section level1">
+<h1>Simple models for continuous outcomes (regression)</h1>
+<p>The most common model type applied to continuous outcomes is a linear regression model. This model is covered in many of the course materials we have been using (and of course other places).</p>
+<p>If you are new to regression models, a good place to start are the <a href="https://r4ds.had.co.nz/index.html">chapters in the <em>Model</em> section of R4DS</a>. I recommend you code along as you go through those chapters, or at least read through the code to make sure you understand what is going on.</p>
+<p>Another good overview and introduction, at a slightly more abstract level, is given in the <a href="https://statlearning.com/">linear regression chapter in ISLR</a>. You should read through this chapter in at least enough detail to get the big picture ideas. Depending on your interest and willingness to look at equations, try to follow along with the math as well. But the important part is to understand the overall ideas.</p>
+<p>If you want further discussion of the linear model – and see it applied to baseball data – check out <a href="https://rafalab.github.io/dsbook/linear-models.html">the <em>linear models</em> chapter of IDS</a>. In this chapter, the author also discusses a few important concepts like <strong>confounding</strong> and <strong>regression to the mean.</strong></p>
+<p>But wait, there is more! Yet another discussion of linear models is in the <a href="https://bradleyboehmke.github.io/HOML/linear-regression.html">linear regression chapter in HMLR</a>.</p>
+<p>As you can tell, this is such a fundamental type of model and is thus covered in a lot of resources. Definitely check the R4DS source, skim through ISLR, then take a look at the other ones I list here or any other source you find and like (let me know if you found a nice free one so I can add it to the resources list). Make sure you read and learn enough about these models that you feel comfortable understanding conceptually what they are used for and how they work.</p>
+</div>
+<div id="simple-models-for-categorical-outcomes-classification" class="section level1">
+<h1>Simple models for categorical outcomes (classification)</h1>
+<p>For categorical outcomes, at least those with 2 categories (also called binary or dichotomous outcomes), logistic regression is the most common approach. Logistic regression has a bit of an unfortunate name since it is used for <strong>classification</strong> even though we call it a <strong>regression</strong> model. It is actually a regression model, since logistic regression predicts a numeric value between 0 and 1, which is the probability of having the outcome or not. We then usually (but not always) decide that 0.5 is the cut-off, and call any probability below as 0/not present/no and above that as 1/present/yes. Just keep in mind that logistic regression is usually used for classification problems.</p>
+<p>To learn about logistic regression, or refresh your knowledge if you have previously been exposed to those models, read through the <a href="https://bradleyboehmke.github.io/HOML/logistic-regression.html">logistic regression chapter in HMLR</a>. This reading goes into maybe more detail than you want or need at this point. So just make sure you go through it to get the main points of what logistic models are all about. We’ll come back to some of the other topics discussed there later.</p>
+<p>Logistic models are also covered in the <a href="https://statlearning.com/">classification chapter in ISLR</a>. Read through the first part of this chapter in enough detail to get the overall concepts. You can also go through the sections following the <em>logistic regression</em> section to learn about some additional methods for classification. We’ll revisit some of those types of models later.</p>
+<p>Of course, you can also find lots of additional resources online describing logistic regression models. If you find a good one, let me know.</p>
+</div>
+<div id="generalized-linear-models" class="section level1">
+<h1>Generalized linear models</h1>
+<p>Both linear and logistic models belong to a class of models called <a href="https://en.wikipedia.org/wiki/Generalized_linear_model">generalized linear models (GLM)</a>. Those types of models allow you to fit outcomes of specific types, for instance, if you have outcomes that are counts (integers), you can use Poisson regression, or if you have continuous outcomes that are all positive, you could use a Gamma regression.</p>
+<p>GLMs all have the same structure: namely there is a linear combination of predictor variables (e.g., <span class="math inline">\(b_1*age + b_2*height\)</span>) and those are connected to the outcome through what is called a <strong>link function</strong>.</p>
+<p>GLM are very commonly used. Among GLM, linear and logistic regression models are by far the most commonly used ones. Other models that assume specific distributions of the outcome, e.g. a Poisson distribution, can be accommodated by choosing the appropriate <em>link function</em>, which connects a linear combination of predictor variables with the outcome. GLM models are fast and easy to fit (using e.g. the <code>glm</code> function in R), fairly easy to interpret, and often provide performance that is hard to improve upon with more complicated models, especially if the data is on the small side. To prevent overfitting, variable/feature selection or regularization approaches are often used. GLM assume a specific relation between predictors and outcome (e.g. linear, logistic) and as such might not perform well on data that does not show the assumed pattern.</p>
+<p>At the end of the <a href="https://statlearning.com/">classification chapter in ISLR</a>, there is a nice brief discussion of GLMs, I suggest you read through that in enough depth to get the overall ideas, but there is no need to go through all the math.</p>
+</div>
+<div id="knn---another-simple-model-worth-mentioning" class="section level1">
+<h1>KNN - another simple model worth mentioning</h1>
+<p>Another model that you might have already encountered (e.g., in the ISLR reading) is one called <em>k</em>-nearest neighbors (KNN). The idea is very simple: For any new observation, you compare the values of the predictor variables with those in your data. You then predict the outcome of the new observation to be the average of the outcomes of the K observations whose predictors most closely resemble the predictors of the new observation.</p>
+<p>As an example for a continuous outcome (regression), if you want to predict <em>height</em> as the outcome and you have <em>age</em> and <em>weight</em> as the predictors, you would take an observation, look at the <em>age</em> and <em>weight</em> values for that observation/individual and compare to the <em>K</em> individuals in your dataset with the closest values (we won’t go into detail how “close” is defined). Then you take the average <em>height</em> of those <em>K</em> closest individuals and that’s your prediction for the new observation.</p>
+<p>The same idea can be applied to categorical outcomes (classification). Say you wanted to predict <em>sex</em> instead of <em>height</em>. You again looked at the <em>K</em> individuals whose predictor values (here <em>age</em> and <em>weight</em>) are closest, and use the majority to predict the outcome for the new observation. (Say <em>K</em>=5, and 3 of the 5 closest individuals are male. Then you would predict the new observation to be male.)</p>
+<p>KNN often perform well, but they are not very “portable”. For other models, once you trained/fit a model, you can “take it with you” and apply the model to new data, leaving the old data you used for model building behind. KNN are a somewhat strange since <em>the data is the model</em>. All the data is used to predict new observations by comparing them to existing ones and predicting outcomes based on closeness of predictor variables. Which means you always need to have the data to predict new outcomes, often making it not too useful in practice. You also don’t learn too much in terms of inferential insight. Still, it is a useful model to know about, and it works for both continuous and categorical outcomes. It is also commonly used for imputation of missing values. In that situation, you treat the predictor you want to impute as the outcome and use the remaining predictors as the data. KNN are described in the <a href="https://bradleyboehmke.github.io/HOML/knn.html">K-nearest neighbors chapter in HMLR</a> and also show up in <a href="https://statlearning.com/">chapters 2 and 3 of ISLR</a> and <a href="https://rafalab.github.io/dsbook/">the <em>Cross-validation</em> and <em>Examples of algorithms</em> chapters of IDS</a>. Take a look at any of those resources if you want to learn a bit more about KNN.</p>
+</div>
+<div id="simple-models-for-no-outcomes" class="section level1">
+<h1>Simple models for no outcomes</h1>
+<p>As we discussed previously, if you have an outcome variable, your data is called <strong>labeled data</strong> and the methods you use are called <strong>supervised</strong> methods/models. Such data with one (or several) outcome variable(s) are most common. But as previously discussed, sometimes you might have data without clear outcomes (<strong>unlabeled data</strong>) and you still want to determine if there is some pattern in your data. This calls for <strong>unsupervised</strong> methods.</p>
+<p>There isn’t really one single, standard go-to method for unsupervised learning – in contrast to the very common linear and logistic models for supervised learning. There are often used methods, such as <strong>Principal Component Analysis (PCA)</strong> (which falls into a larger group of methods called <strong>dimensionality reduction</strong> methods) and a group of methods called <strong>clustering methods</strong> (the most common among these are probably <em>k</em>-means clustering and hierarchical clustering). Since most of you will work on labeled data using supervised methods most of the time, we won’t go much into unsupervised methods. If you want to learn a bit more, check out for instance the <a href="https://statlearning.com/"><em>Unsupervised Learning</em> chapter of ISLR</a>. There are also chapters on PCA and different types of clustering <a href="https://bradleyboehmke.github.io/HOML/">in HMLR</a>.</p>
+</div>
+<div id="the-zoo-of-statistical-tests" class="section level1">
+<h1>The zoo of statistical tests</h1>
+<p>In some of your (bio)statistics classes, you likely came across a variety of statistical tests, e.g., <em>t</em>-test, Wilcoxon, Kruskal-Wallis, and others from the huge collection of tests. Each test makes certain assumptions and is most adequate for certain types of data. For instance you might remember hearing about parametric tests (which are most applicable if the underlying data has a certain distribution, usually a normal distribution) and non-parametric tests, which make fewer assumptions about the distribution of the data, but don’t have quite the same statistical power. Those more traditional statistical tests certainly have their uses (though are quite often overused and misused). We just don’t have time to cover them.</p>
+<p>Pretty much all of those tests have equivalent formulations as multivariable models (either a GLM type as described here, or others that we’ll cover later). The advantage of more general models, such as GLM, is that they easily allow for as many predictor variables as you want to add. Also, once you understand the general setup of GLM (and other models), this understanding transfers to other methods. For statistical tests, they are often taught as “if the data look like this, then test like that” without any underlying fundamental and transferable understanding. Overall, I am not a big fan of the way many intro (bio)stats courses are still taught these days.</p>
+<p>Because of that, and since this course is about <strong>modern</strong> data analysis, we will not cover any classical statistical tests and instead start with multivariable, GLM-type models and then move on to more complex/modern machine learning models.</p>
+<p>If you never thought about the relation between classical statistical tests and GLM-type models, you might want to check out <a href="https://lindeloev.github.io/tests-as-linear/">this resource</a> by <a href="https://lindeloev.net/">Jonas Kristoffer Lindeløv</a> which explains the relation between the two in a good bit of detail. <a href="https://steverxd.github.io/Stat_tests/">This website/book</a> by <a href="https://stevedoogue.netlify.app/">Steve Doogue</a> is also good, it is based on the original text by Lindeløv and covers some topics in more detail. Both resources show examples in R, and have links to further materials. At some point in your career as a data analyst, you might need to use or interpret classical statistical tests, and having a general idea that they can map to GLM-type and other models might be helpful.</p>
+</div>
+<div id="further-reading" class="section level1">
+<h1>Further reading</h1>
+<p><a href="https://statlearning.com/">Chapters 3 and 4 of ISL</a> discuss linear and logistic models. So do <a href="https://bradleyboehmke.github.io/HOML/">chapters 4 and 5 of HMLR</a>.</p>
+<p>For another source that discusses almost all the models just mentioned, each one very briefly, see the <a href="https://rafalab.github.io/dsbook/examples-of-algorithms.html"><em>examples of algorithms</em> chapter in IDS</a>.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

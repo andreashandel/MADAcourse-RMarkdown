@@ -12,15 +12,9 @@ output:
 
 
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 __This page is work in progress.__
 
-There are lots of technical terms related to data and its analysis. In this course, I try to explain them whenever they show up first. However, I figured it might also be useful to have one central place for quick reference. Terms are ordered alphabetically. This is how I define them, others might have different definitions - and so might I in the future, I try to change/update my understanding of things every so often `r emo::ji('grin')`.
+There are lots of technical terms related to data and its analysis. In this course, I try to explain them whenever they show up first. However, I figured it might also be useful to have one central place for quick reference. Terms are ordered alphabetically. This is how I define them, others might have different definitions - and so might I in the future, I try to change/update my understanding of things every so often `r emoji::emoji('grin')`.
 
 Note that in general, there is no regulatory terminology agency, so everyone can use these words to mean whatever they want. While some are fairly well defined, other terms are often used and abused in ways outside the definitions I provide. Always look carefully at what is described to decide what exactly is going on.
 

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Revisting the full data analysis workflow</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="MADAstyle.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
+    <li>
+      <a href="./Course_Assessments.html">Assessments</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Assessment_Course_Tools_Introduction.html">Assessment: Course and Tools Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Analysis.html">Assessment: Data Analysis Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Rcoding_Basics.html">R Coding Basics</a>
+        </li>
+        <li>
+          <a href="./Rcoding_Tidyverse.html">Tidyverse and Friends</a>
+        </li>
+        <li>
+          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Types.html">Data Types</a>
+        </li>
+        <li>
+          <a href="./Data_Finding.html">Finding Data</a>
+        </li>
+        <li>
+          <a href="./Data_Wrangling.html">Data wrangling</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Finding_Wrangling.html">Assessment: Data Finding and Wrangling</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Visualization_Overview.html">Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./Visualization_in_R.html">Visualization in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Visualization.html">Assessment: Visualization</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Exploration.html">Exploring data</a>
+        </li>
+        <li>
+          <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Fitting basic statistical models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Basic_Statistical_Models.html">Basic statistical models</a>
+        </li>
+        <li>
+          <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Evaluating your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Evaluation_Overview.html">Model evaluation overview</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Performance.html">Model performance evaluation</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Overfitting.html">Model performance &amp; overfitting</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Diagnostics.html">Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./ML_Models_Overview.html">ML Models overview</a>
+        </li>
+        <li>
+          <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
+        </li>
+        <li>
+          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+        </li>
+        <li>
+          <a href="./Many_Tree_Models.html">Many-tree models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Machine Learning Models II</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./SVM_Models.html">Support Vector Machine Models</a>
+        </li>
+        <li>
+          <a href="./DA_Models.html">Discriminant Analysis Models</a>
+        </li>
+        <li>
+          <a href="./More_ML_Models.html">Some more ML models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_2.html">Assessment: ML models 2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. The complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Information.html">Project information</a>
+    </li>
+    <li>
+      <a href="./Project_Rubric.html">Project rubric</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project review</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Revisting the full data analysis workflow</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2021-10-28 16:57:40</h4>
+
+</div>
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>This very short unit re-visits all of the data analysis concepts and components we discussed so far, and provides summary and big-picture discussion, meant to wrap up things.</p>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<ul>
+<li>Have a good grasp of all the components of a full data analysis workflow.</li>
+<li>Understand some of the do’s and don’ts for each step.</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Earlier in the course, we covered the whole data analysis workflow and all its components in a big-picture, forward-looking manner. Back then, the topics were abstract. At this stage, we have covered each topic and worked on specific examples. Now is a good time to <a href="./Data_Analysis_Overview.html">re-read the earlier unit.</a></p>
+<p>Hopefully, upon re-reading, some of the topics that were theoretical and abstract back when you first read it are no clearer and more concrete.</p>
+<p>Here, I want to briefly repeat and re-iterate the main components. I’ll keep things short and focus on the most important parts. Now that you have some experience with all the components yourself, this might make more sense and you can better appreciate what it means in practical terms.</p>
+</div>
+<div id="the-data-analysis-workflow" class="section level1">
+<h1>The Data Analysis workflow</h1>
+<p>While I hope you appreciate by now that every data analysis is different, and you need to make lots of decisions along the way for which there is often more than one possible reasonable choice, there are some components that I think are needed for any high quality project. Those can be seen as the basic ingredients of a good data analysis, with lots of freedom within each category.</p>
+<div class="note">
+<p>I mentioned this point previously, probably more than once 😄: This need to make choices and decisions on how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For a nice discussion on this topic, see <a href="http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf">this unpublished paper by Gelman</a>, which nicely, and in an easy to understand manner, describes the problem in detail. I mentioned this before as <a href="https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom"><strong>Researcher’s degress of freedom</strong></a>, which is also related to <a href="https://en.wikipedia.org/wiki/Data_dredging">Data Dredging</a> and <a href="https://doi.org/10.1371/journal.pbio.1002106"><em>p-hacking</em></a>.</p>
+</div>
+<div id="the-question" class="section level2">
+<h2>The question</h2>
+<p><strong>Having a good question (hypothesis) that is interesting, important, new, and can be answered with the resources you have (data, skills, computing power) is the most crucial part of any project.</strong> You can do an analysis that is technically perfect, but if you don’t answer an interesting and relevant question, nobody will care. While I think one should use state-of-the art analysis approaches as much as possible, it is in my opinion more important to answer a good question. I believe that an important question analyzed with a simple model is almost always better than using a complicated model to answer a question that nobody cares about. Of course, the simple model still needs to be reasonable. If one uses a completely wrong model or performs a faulty analysis, the whole project/paper might also be meaningless.</p>
+</div>
+<div id="the-setup" class="section level2">
+<h2>The setup</h2>
+<p>You should do your whole analysis as automated, reproducible, well structured and well documented as possible. Your colleagues, your readers and your future self will thank you for it. We have used tools in this course (R/RMarkdown/GitHub) which help in performing an analysis in such a way. Many other tools are available. While some tools are worse than others (e.g., Excel), in the end it doesn’t matter too much what tools you use, as long as you can do things automated, reproducible and well documented.</p>
+</div>
+<div id="the-wrangling" class="section level2">
+<h2>The wrangling</h2>
+<p>As you will likely appreciate by now, getting the data into a shape that can be analyzed is - for almost any dataset - time consuming and also incredibly important. Lots of mistakes happen at that stage. For a recent prominent example where things went wrong, see e.g. <a href="https://jamanetwork.com/journals/jama/fullarticle/2752474">this JAMA article</a>, where a mis-coding of a factor variable led to one conclusion, and upon fixing it, the conclusion changed in the other direction, leading to retraction of the original study (and republication of the corrected study). This is an example where an error was found and fixed. Unfortunately, there are probably a lot of studies in the literature where mistakes during the wrangling process were made, wrong results published, and nobody noticed. It is impossible to fully prevent making mistakes. But there are ways to try and minimize those problems. To do so, follow these rules:</p>
+<ul>
+<li>Document everything very well. Every step in the wrangling/cleaning process should be explained and justified (e.g. if you drop observations with NA, what does it mean and why do you think it’s ok to do).</li>
+<li>Automate things as much as possible. Manual tasks often introduces errors.</li>
+<li>Make everything reproducible. That helps you and others spot mistakes faster.</li>
+<li>Critically evaluate every step you take. If something is happening that doesn’t look quite right, or you get warning messages in your code, stop and figure out what is going on. Only proceed once you know exactly what is happening and are ok with it.</li>
+<li>Try different alternatives. For instance if you are unclear if you should remove missing observations, or remove a variable that has a lot of missing, or use imputation, why not try it all 3 ways? It usually doesn’t take much extra work to do a few alternatives. If each version of doing things gives you more or less the same results, it helps convince yourself and the readers that your finding might be robust to the details of the analysis. If different reasonable ways of doing the analysis lead to different results, you have learned something too, and it might be worth digging deeper to understand why results differ. You might find some new, unexpected and interesting bit of science lurking. It is important to report an any analysis you did, even if just briefly in the supplement. You are not allowed to run multiple analyses and then just report the one that gives you the answers you want (likely happens often, see p-hacking above.)</li>
+</ul>
+</div>
+<div id="the-analysis" class="section level2">
+<h2>The analysis</h2>
+<p>You have learned that there are a lot of different analysis approaches out there, and which one to choose depends on many factors, such as the question (e.g. do you care more about interpretability or performance), available resources, and many other considerations. All the rules listed above for wrangling hold for the analysis bit too. Make it reproducible, well documented, well explained and justified. Make sure you understand results at each step. If possible, try different alternative approaches. Some additional, analysis-specific considerations are the following:</p>
+<ul>
+<li>Think carefully about the performance measure you want to fit to. While the ‘standard’ ones, like RMSE/SSR for continuous outcomes and accuracy for categorical outcomes are at times ok, often other measures might be more meaningful. E.g. for continuous outcomes, you might want to do RMSE not on the outcome but the log of the outcome. Or you might want to penalize with least absolute difference to better deal with outliers. Similarly, for categorical outcomes, especially when there is imbalance in the data and you have much fewer of one category than of others, using accuracy might not be best. Some other metric such as F1 score, or a custom performance measure might be better. Spend some time thinking about the best performance measure before you do all your fitting.</li>
+<li>Once you picked your performance measure and are ready to fit/train your model, make sure to not evaluate performance on the data used for building the model. More complex models can always give improved performance on the data used to build the model, thus this metric is not meaningful! Instead, to evaluate model performance, ideally use some version of cross-validation, i.e. <strong>fitting the model to some of the data and evaluating model performance on a part of the data that was not used for fitting.</strong> If this is not possible, e.g. because you don’t have much data or it takes too long to run, us AIC &amp; Co. as a backup option to determine model quality.</li>
+<li>Compare your model to baseline/null models and simple single-predictor models to get an idea for the improvement you can get. Try a complex model to estimate the upper bound of model performance. Then try a few reasonable models “in between” the null model and the really complex model, and pick the one that works overall best for your purpose. That last step is subjective. That is ok, as long as you can explain and justify why you ended up going with the model you chose.</li>
+<li>Once you have chosen your best model (or even before, for the purpose of picking your final model), perform model assessment. Look at uncertainty, investigate residuals, look at variable importance, etc. Poke your model in as many ways as possible to understand how it works and what its limitations might be.</li>
+<li>If you have enough data, set some aside at the beginning (test data), and apply your model to that data at the very end. This gives you the most honest assessment of your model performance for new/unseen data.</li>
+</ul>
+</div>
+<div id="the-reporting" class="section level2">
+<h2>The reporting</h2>
+<p>You almost never do an analysis just for fun and for yourself. Usually, there are other reasons. For instance in academia/science, we analyze data to better understand our system, to test hypotheses, to answer questions. Similarly in industry and other applied settings, we analyze data to come to actionable conclusions (e.g. we determine which images show a likely cancer and therefore which patients need further tests or surgery). In all those situations, we want to communicate our findings to others. That can be through the peer-reviewed literature, in a meeting with our colleagues and bosses, as a report for patients, etc. Being able to report findings from a potentially complicated analysis in a way that it has an impact, and is appropriate for the right audience, is not easy. Some of the ideas listed above, as well as others are worth keeping in mind:</p>
+<ul>
+<li>Present your findings in such a way that people can (but don’t have to) go deeper easily. Start with a short summary (often called <em>executive summary</em> in industry and <em>abstract</em> in academia). This short write-up should summarize your findings understandably and honestly. Do not spin/hype things that are not supported by your actual analysis. Also, focus on the main important finding(s) and their implications. The main deliverable (usually some form of written report or a paper), should present all the main findings and steps you took, nicely explained. Then provide additional information (e.g. supplement, appendices) with more details. Finally, provide all the raw materials, i.e. data and well documented code, for others to look at. By layering content, different audiences can go into your findings in as much or little detail as they want.</li>
+<li>Explain and justify everything. It’s unlikely that everyone would have made exactly the same decisions you did during your analysis. But by explaining your rationale, readers can decide if they find what you did reasonable, and thus make an informed decision as to how much they trust your findings.</li>
+<li>Report results from multiple approaches: If you show how certain decisions during the analysis do or don’t affect the results, it makes things more transparent and can instill greater confidence in readers.</li>
+<li>Automate things. As much of your final products as possible should be automated. That means that figures and tables should not be created by hand. This way, if you want or have to change things upstream (e.g. you noticed a mistake in some analysis step or reviewers/your boss request changes), you can update everything as quickly, automated and seamless as possible.</li>
+<li>Use modern ways to report and disseminate your findings. The standard academic way is still to write peer-reviewed papers, or in industry, prepare a report. However, such documents are generally not too widely read and at times have only limited impact. As appropriate for your project, consider other sources of dissemination. For instance, make a website for your analysis. Turn it into a blog post. Tweet about it. Use interactive tools (e.g. <a href="https://shiny.rstudio.com/">the R Shiny package</a>) to allow the audience to interact with your results. Be creative and think about the best ways to reach your intended audience.</li>
+</ul>
+</div>
+</div>
+<div id="further-information" class="section level1">
+<h1>Further information</h1>
+<p>It might be worth revisit some of the older materials. For instance, you might want to give <a href="https://leanpub.com/artofdatascience"><em>The Art of Data Science (ADS)</em></a> another go-through. It addresses these various topics from a fairly big-picture level and will give you some additiona useful pointers.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

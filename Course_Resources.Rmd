@@ -10,12 +10,6 @@ output:
 ---
 
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 This page lists resources that this course draws on frequently or at least occasionally. For a more extensive list of data science resources, see the _General Resources_ page.
 
 All materials described below are (should be) freely available online. If you can't get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that's not quite right, please let me know.
@@ -43,7 +37,7 @@ All materials described below are (should be) freely available online. If you ca
 # General help
 
 * The main place to get any course specific help are our course discussion boards. Use them widely to ask questions, to answer others' questions, to post links to interesting resources, etc. 
-* Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day `r emo::ji('smiley')`.
+* Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day `r emoji::emoji('smiley')`.
 * When you search online for help, quite often you land on some [StackExchange](https://stackexchange.com/) site (often [Stack Overflow](https://stackoverflow.com/)). [These are a collection of widely-used online question and answer sites](https://stackexchange.com/sites) covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.
 * The [Rstudio community](https://community.rstudio.com/) is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven't used it much.
 * Another highly recommended resource is the [R for data science community](https://www.rfordatasci.com/). They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.
