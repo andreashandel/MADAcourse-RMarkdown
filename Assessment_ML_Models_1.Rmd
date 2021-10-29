@@ -38,28 +38,31 @@ As you re-organize, you can decide the mix of R and Rmd files and what you want 
 
 ## Pre-processing 
 
-We previously covered pre-processing, but haven't really done any of that yet. So let's add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
+We previously covered pre-processing, but haven't specifically looked at that yet in an exercise. So let's add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
 
 
 ### Feature/Variable removal
 
-You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at the minimum, don't help when you model, and more likely actually confuse your model and lead to errors/warnings/poor model performance. So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
+You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at a minimum, don't help when you model, and more likely actually confuse your model and lead to errors/warnings/poor model performance. So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
 
-We also want to code the 3 multi-level factors as ordered, so make sure they are coded as ordered factors. The order should of course be None/Mild/Moderate/Severe.
+We also want to code the 3 ordinal/multi-level factors as ordered, so make sure they are coded as ordered factors. The order should of course be None/Mild/Moderate/Severe.
 
 
 ### Low variance predictors
 
 If you look at your data, you'll see that some predictors are fairly **unbalanced**, with most patients reporting `No` and only a few `Yes`. If almost everyone is in one category and almost nobody in others, that often (but not always) means those predictor variables are not very helpful in fitting/predicting the outcome. Furthermore, if you do cross-validation and one of your samples happen to not include one predictor level at all, things might go wrong when applied to the holdout-sample. Thus, it is worth considering if we want to remove them. The `recipes` package in `tidymodels` has the function `step_nzv()` which can do that for you automatically. If you have lots of predictors, that might be good to use. But it's often better to decide _manually_ for each variable based on your scientific expertise if you want to remove it or not. We'll take that approach here. After looking at the data, we decide to remove those **binary** predictors that have <50 entries in one category (there are 2). Write code to remove them. 
 
-You should end up with a data frame that has 730 observations and 26 variables.
+You should end up with a data frame that has 730 observations and 26 variables. This is the dataset we'll use now for modeling.
 
 
 ## Analysis code
 
-To keep things a bit simpler, for this exercise we focus on a single outcome, the numerical value of **Body temperature**. Once you finished the whole workflow for that outcome, you are welcome to do it again for **Nausea** as outcome. We will use RMSE as our performance metric.
+I suggest you put all the analysis code into one R Markdown file. Note that for this exercise, some of your code might take long to run. In such situations, it is often good to have an alternative setup, where some of the heavy computations are done by separate R scripts/functions, and the results saved, pulled into and displayed in the main R Markdown file. How you want to do it here is up to you, as long as the R Markdown file shows all the main results and your code/file(s) is/are well documented. 
 
-I suggest you put all the analysis code into an Rmd file. Alternatively, if you want you can use an R script or R functions that run the main parts, and then display the outcomes in the Rmd file. You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.
+You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.
+
+To keep things a bit simpler, for this exercise we focus on a single outcome, the **continuous, numerical** value of **Body temperature**. Thus, we are doing a **regression** here. Once you finished the whole workflow for that outcome, you are welcome to do it again and run a **classification** for the **categorical** outcome of **Nausea**. Since we are doing a regression, and we don't have any specific expert knowledge that tells us how we should build our performance metric, we'll go with one of the usual ones, namely RMSE. But remember to always think about your performance metric and don't just use the default without at least considering other options.
+
 
 
 ### Data Setup
@@ -70,42 +73,65 @@ I suggest you put all the analysis code into an Rmd file. Alternatively, if you 
 
 * We want to do 5-fold cross-validation, 5 times repeated. (There's no specific reason to do this 5x5 pattern, other than to show you that there are different ways to pick the sample, and that I want you to not use the default.) For the CV folds, we also want to stratify on `BodyTemp`, as we did for the main train/test split. Use the `vfold_cv` function to create a resample object for the training data with these specifications.
 
-* Create a recipe for the data and fitting. You likely won't need to do much, but do make sure you code the categorical variables as dummy variables, otherwise things might not work smoothly. 
+* Create a recipe for the data and fitting. You won't need to do much, just make sure you code the categorical variables as dummy variables, otherwise things might not work smoothly. For that, you want to use the `step_dummy` function and pick all nominal predictor variables (which are actually all variables here, since the only continuous variable is our outcome).
 
+
+### Null model performance
+
+Write some code to compute the performance of a null model, i.e. a "model" that doesn't use any predictor information. For a continuous outcome and RMSE as our metric, a null model is one that always predicts the mean of the outcome. Compute the RMSE for both training and test data for such a "model". We'll use that later to compare it to the performance of our real models. Of course, we expect/hope our real models that use predictor information to be better. If they aren't that means they are no good.
 
 
 ### Model tuning and fitting
 
-We'll fit a tree, a LASSO model, and a random forest. I chose those because they are used in the tutorial on the `tidymodels` website. You can of course add further models. For the tree, see the _Tune model parameters_ section of the [_Get Started_ tutorial](https://www.tidymodels.org/start/tuning/).
+We'll fit a tree, a LASSO model, and a random forest. I chose those because they are used in the tutorial on the `tidymodels` website. You can of course add further models. For the tree, see the _Tune model parameters_ section of the [_Get Started_ tutorial](https://www.tidymodels.org/start/tuning/). For LASSO and the random forest, check out the _Case Study_ section of the  [_Get Started_ tutorial](https://www.tidymodels.org/start/case-study/). Note that you will need to adjust the code for our scenario since we have a continuous outcome. 
 
-For LASSO and the random forest, check out the _Case Study_ section of the  [_Get Started_ tutorial](https://www.tidymodels.org/start/case-study/). Note that you will need to adjust the code for our scenario since we have a continuous outcome. 
+If you follow the tutorial, you'll likely use the packages `rpart`, `glmnet` and `ranger` to fit those 3 models. Make sure they are installed and loaded.
 
 I suggest you write code for each model separately. A lot of the code will look similar, so once you got the first one set up, the other two should be easier. They mainly differ in the commands specifying the tuning parameters and the tuning grid.
 
-Each of these models requires some tuning. Follow the examples by setting up a workflow, set a tuning grid, and then use the `tune_grid` function to tune the model using cross-validation. For the choices regarding the tuning parameters, you can follow the examples. Most of the models have more things that can be tuned, but for now you can stick to what they show in the tutorial.
+Each of these models requires some tuning. For the choices regarding the tuning parameters, you can follow the examples. Most of the models have more things that can be tuned, but for now you can stick to what they show in the tutorial. Follow the examples by setting up a workflow, set a tuning grid, and then use the `tune_grid` function to tune the model using cross-validation. 
+
+**Note that the tuning part, i.e., calling `tune_grid()` might take a good bit of time to run (possibly minutes).**
 
 The steps (block of code) you should have here are 1) model specification, 2) workflow definition, 3) tune grid specification and 4) tuning using cross-validation and the `tune_grid` function.
 
 
+
 ### Model evaluation
 
-Once you have done the tuning, you can get the best-fit model with `select_best()` and `finalize_workflow()` and then do one more fitting to the training data with this final workflow. Follow the examples in the tutorial.
+Once you have done the tuning, you can take a look at some diagnostics by sending your object returned from the `tune_grid()` function to `autoplot()`. For instance if you tuned the tree and saved the result uas  `tree_tune_res`, you can run `tree_tune_res %>% autoplot()`. Depending on the model, the plot will be different, but in general it shows you what happened during the tuning process.
 
-Make a plot that shows model predictions from the tuned model versus actual outcomes, and one that plots residuals.
+Next, you want to get the model that the tuning process has determined is the best. You can get the best-fit model with `select_best()` and `finalize_workflow()` and then do one more fit to the **training data** with this final workflow using the `fit()` function. Follow the examples in the tutorial.
 
-Also display the model performance. Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the `show_best()` function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. Compare that model performance with a null model, which in this case of a continuous outcome is the RMSE between the data and the mean of the data.
+To evaluate the final fit for each model, do the following.
+
+1) Make two plots, one that shows model predictions from the tuned model versus actual outcomes, and one that plots residuals. The actual outcomes you get straight from the data, the predicted outcomes you can get by applying the `predict` function to the final fit. 
+
+2) Look at/print the model performance and compare it with the null model (still only training data). Here, we want the performance of the tuned, best-fitting model on the CV dataset (we are not yet touching the test data). You can get that for instance with the `show_best()` function, which gives you the mean cross-validated performance for the best models. It also shows the standard deviation for the performance. Compare that model performance with the null model.
 
 The mean and standard deviation of the performance give you a measure of overall performance and variability in that measure. The plots show you if there are any systematic deviations between model and data. Taken together, these can be compared for the different models and based on those (and as wanted, other considerations) a final model can be chosen.
 
 
-### Model selection
+### Comments for specific models
+
+**For the tree model**, if you want to plot the tree, you can use the `rpart.plot` package and run this command `rpart.plot(extract_fit_parsnip(best_tree_fit)$fit)` (assuming your result from the final workflow fit is called `best_tree_fit`). You might get a warning message, but the tree will show. You will likely find when you look at the actual/predicted plot or the residual plot that the tree model does not perform very well, and the model only predicts a few discrete outcome values. That's also noticeable when you compare RMSE for the tree model and the null model, they are very similar.
+
+**For the lasso model**, you will likely find that it performs a bit better than the tree, but not a lot. If you want to see a plot for how the number of predictors included in the LASSO model changes with the tuning parameter, you can extract the model from your final fit (say it's called `best_lasso_fit`) with `x <- best_lasso_fit$fit$fit$fit` and then `plot(x, "lambda")`. I know, this is awful code having to dig that deep into the `best_lasso_fit` object. Maybe there's a better way of doing this with some tidymodels command. If you know one, use it.
+
+
+**For the random forest model**, you will likely again find that it performs a bit better than the tree, but not a lot. The tuning setup might require some fiddling around, I had a few initial tries where the whole tuning failed. For a model like random forest, all variables stay in the model. There are ways to look at the variables that are most important. If you want to do that, you again need to pull out the fit object. Say it's called `best_rf_fit`, you can do that with `x <- best_rf_fit$fit$fit$fit` and then use the `importance()` function in `ranger` to plot it with `ranger::importance(x)`.
+
+
+
+### Model selection 
 
 Once you have implemented above steps for the 3 models, you should for each model have a "best" one based on the tuning process, and each best model gives you performance, uncertainty around the performance measure, and some diagnostic plots. While for any real research project, you likely want to look deeper (e.g. at uncertainty in predictions instead of just overall performance), for now this is enough. Pick one of the three models. Explain why you pick it. There is no single answer that's correct, I just want you to learn to reason/argue for why you are doing something, in this case justify why you are picking the model you do. 
 
 
+
 ### Final evaluation
 
-Once you picked your final model, you are allowed to once - and only once - fit it to the test data and check how well it performs there. This gives you a somewhat honest estimate of how the model might perform for new, unseen data. You can do that using the `final_fit` function applied to the model you end up choosing. For the final model applied to the test set, report performance and the diagnostic plots as above.
+Once you picked your final model, you are allowed to once - and only once - fit it to the test data and check how well it performs there. This gives you a somewhat honest estimate of how the model might perform for new, unseen data. You can do that using the `last_fit` function applied to the model you end up choosing. For the final model applied to the test set, report performance and the diagnostic plots as above.
 
 And that concludes what is likely a fairly long exercise. The code itself is not that long, but it will take you time to cobble it together from the `tidymodel` tutorial and possibly other sources.
 
