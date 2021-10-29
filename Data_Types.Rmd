@@ -12,12 +12,6 @@ output:
 
 # Overview
 
-```{r, include = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 For this unit, we will discuss different types of data and how data type influences the analysis approach.
 
 

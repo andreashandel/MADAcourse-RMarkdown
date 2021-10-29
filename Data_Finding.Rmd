@@ -11,12 +11,6 @@ output:
 ---
 
 
-```{r, include = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 
 # Overview
 
@@ -55,7 +49,7 @@ A large portion of data is entered and stored in spreadsheets, such as Excel. If
 
 # Data import in R
 
-Several functions in base R can be used for data import. (For example, `read.table()` or its variants is enough for many projects.) Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend `r emo::ji('smile')`.
+Several functions in base R can be used for data import. (For example, `read.table()` or its variants is enough for many projects.) Some packages further expand the functionality for importing data into R. Since data come in so many types and forms, we will not be able to cover all of it. We will only look at a few examples. I am providing links to resources to get you started importing different kinds of data. If you have data of different type, Google is your friend `r emoji::emoji('smile')`.
 
 Here are some of the most prominent ones:
 

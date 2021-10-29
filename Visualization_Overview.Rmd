@@ -9,11 +9,6 @@ output:
 
 # Overview
 
-```{r, include = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
 
 In this unit, we will discuss visualization (a.k.a. making figures), what they are good for, and how to do them in R.
 
@@ -29,7 +24,7 @@ knitr::include_graphics("./media/xkcd-flowcharts.png")
 
 
 # Motivating Examples
-The topic of visualization is enormous, and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course `r emo::ji('smiley')`). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.
+The topic of visualization is enormous, and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course `r emoji::emoji('smiley')`). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.
 
 In the first video [Mona Chalabi](https://monachalabi.com/) talks about good ways to present data and statistics and how good graphs can help in understanding.
 

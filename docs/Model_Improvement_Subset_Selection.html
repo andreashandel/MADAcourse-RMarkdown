@@ -630,7 +630,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Subset Selection</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-27 19:51:52</h4>
+<h4 class="date">2021-10-28 19:05:39</h4>
 
 </div>
 
@@ -652,7 +652,7 @@ div.tocify {
 <p>You want a model that gets the trade-off between high bias (model not flexible enough to capture all the patterns seen in the data) and high variance (model too flexible, will capture noise as well) right.</p>
 <p>I showed the figure below previously. I’m repeating it here as a refresher. The yellow model (straight line), in this example, has too much bias. The model is too simple to capture all the important patterns, and it <strong>underfits</strong> the data. The performance metric (mean square error here) is high for both the training and test/CV data (yellow squares on the left of the right panel.) The green model (very wiggly line) has too much variance. It goes too close to the data used for fitting and doesn’t generalize to new data, it <strong>overfits</strong> the data. This reflects itself in good performance (low MSE) for the train data, but high MSE for the test/CV data (green squares on left of the left panel) In this example, the blue model has the optimal model complexity. It captures the overall pattern in the data, without trying to fit the noise/variability. This manifests itself with the best performance on the test/CV data (blue squares).</p>
 <div class="figure" style="text-align: center">
-<img src="media/islr-fig29.jpg" alt="A scatterplot with two panels. The left panel shows several data points along with a few different models: a straight line, a curve that passes through the middle of the points, and a curve that oscillates frequently to hit many of the points. The right panel shows the MSE of these models against the training data, where the oscillating curve performs best, and also against new data, where the curve which oscillates less frequently performs best." width="70%" />
+<img src="media/islr-fig29.jpg" alt="A scatterplot with two panels. The left panel shows several data points along with a few different models: a straight line, a curve that passes through the middle of the points, and a curve that oscillates frequently to hit many of the points. The right panel shows the MSE of these models against the training data, where the oscillating curve performs best, and also against new data, where the curve which oscillates less frequently performs best." width="769" />
 <p class="caption">
 Bias-variance tradeoff. Source: ISLR.
 </p>

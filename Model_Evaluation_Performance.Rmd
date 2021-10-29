@@ -9,14 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-#set some figure options
-knitr::opts_chunk$set(out.width = '80%')
-```
-
 
 :::note
 Up to now, I have not shown much math or equations. Below, you will encounter some. The equations are fairly simple and I'm sure you'll be able to follow once you spend a few minutes to think through them. Most often, there are functions in R that compute all those quantities for you. But sometimes, you will have to compute a few of them yourself. It is therefore good to know their definitions. Once you do, you realize that you can simply compute them yourself with just a few lines of R code. Again, most often you won't need to do that, but sometimes it is useful to have that ability and know how to do it.

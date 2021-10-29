@@ -10,12 +10,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 # Overview
 In this unit, we'll discuss how to structure a data analysis to make it as efficient as possible.
 
@@ -25,7 +19,7 @@ In this unit, we'll discuss how to structure a data analysis to make it as effic
 
  
 # Overall project structure
-You want to set up your analysis in such a way that it makes sense to you and others and allows for a good and efficient workflow. The main components of your analysis will be data, code, results (tables, figures, etc.) and products (reports, interactive apps, slides, etc.). It is a good idea to have separate folders for each of those elements inside your main project folder. Your project folder could be a Github repository (a good idea) or not. Since you might not want to share your analysis publicly, sometimes using a private repository is useful. (Though don't worry about getting scooped. Everyone is so busy with their own stuff, nobody really cares what you are working on `r emo::ji('grin')`. In general, I recommend private repositories if you have data that can't be made public.) Starting your project as an R project is also a good idea.
+You want to set up your analysis in such a way that it makes sense to you and others and allows for a good and efficient workflow. The main components of your analysis will be data, code, results (tables, figures, etc.) and products (reports, interactive apps, slides, etc.). It is a good idea to have separate folders for each of those elements inside your main project folder. Your project folder could be a Github repository (a good idea) or not. Since you might not want to share your analysis publicly, sometimes using a private repository is useful. (Though don't worry about getting scooped. Everyone is so busy with their own stuff, nobody really cares what you are working on `r emoji::emoji('grin')`. In general, I recommend private repositories if you have data that can't be made public.) Starting your project as an R project is also a good idea.
 
 Inside your folders, you can have subfolders, e.g., separate folders for figures and tables. Or you could have subfolders for different types of analyses. There is no one correct way to set up things, but you should think of a logical and consistent structure before you start your project.
 

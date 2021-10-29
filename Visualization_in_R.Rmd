@@ -9,10 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include = FALSE}
-library(emo)
-```
-
 
 # Visualization and graphics in R 
 
@@ -51,7 +47,7 @@ For even richer, interactive graphical operations and visualizations, including 
 
 Often, getting professional-looking interactive figures, dashboards, and other widgets in R is not that difficult. However, since those are all specialized products, they usually require commands and concepts that are somewhat different from basic or tidyverse R, which generally takes some time to learn. 
  
-Interactive graphs and apps are beyond what we'll cover in this class, but it is something that might be worth learning, and you are certainly welcome to make use of some of these packages and tools for your class project `r emo::ji('smiley')`.
+Interactive graphs and apps are beyond what we'll cover in this class, but it is something that might be worth learning, and you are certainly welcome to make use of some of these packages and tools for your class project `r emoji::emoji('smiley')`.
 
 
 # Further R visualization resources

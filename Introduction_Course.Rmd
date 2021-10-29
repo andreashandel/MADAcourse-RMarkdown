@@ -10,11 +10,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, echo = FALSE}
-library(emo)
-```
-
-
 ## Introduction
 Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will generally refer to the course as MADA.
 

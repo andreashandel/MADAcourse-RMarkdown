@@ -10,13 +10,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
-
 
 
 # Overview
@@ -41,14 +34,14 @@ knitr::include_graphics("./media/LearningToCode.jpg")
 
 It is [from this good article](https://www.thinkful.com/blog/why-learning-to-code-is-so-damn-hard/). Read the article, or read at least the beginning. 
 
-My goal is that during this course, you will reach the beginning of the _upswing of awesome_, at least when it comes to being able to use R to perform data analyses. But to get there, you'll have to go over the _cliff of confusion_ and through the _desert of despair_, and I'm confident that you'll get there and won't be stuck in the _hand-holding honeymoon_. In fact, at times I'm providing you less detailed instructions than I could to get you quickly to the stage where you have to figure out bits yourself. I guess one could say that instead of hand-holding, I let you stumble and fall some, and then will help you to get back up `r emo::ji('smiley')`. It might feel a bit more frustrating at least initially, but it's a much better way to learn.
+My goal is that during this course, you will reach the beginning of the _upswing of awesome_, at least when it comes to being able to use R to perform data analyses. But to get there, you'll have to go over the _cliff of confusion_ and through the _desert of despair_, and I'm confident that you'll get there and won't be stuck in the _hand-holding honeymoon_. In fact, at times I'm providing you less detailed instructions than I could to get you quickly to the stage where you have to figure out bits yourself. I guess one could say that instead of hand-holding, I let you stumble and fall some, and then will help you to get back up `r emoji::emoji('smiley')`. It might feel a bit more frustrating at least initially, but it's a much better way to learn.
 
 It goes without saying that learning to code (or learning anything else) is not a linear process. Even after many years of coding and using R, I regularly encounter the _cliff of confusion_ and the _desert of despair_ if I'm trying to do something new that I haven't done before and invariably get stuck.
 
 
 # Learning the basics of R
 
-Going through the resources below and practicing the material will likely take a good bit of time for those new to programming. I estimate 20+ hours! You will also likely have to come back and revisit R coding throughout the course. Be prepared to spend a good bit of time learning some coding. I think it's a skill that's worth the effort `r emo::ji('smiley')`.
+Going through the resources below and practicing the material will likely take a good bit of time for those new to programming. I estimate 20+ hours! You will also likely have to come back and revisit R coding throughout the course. Be prepared to spend a good bit of time learning some coding. I think it's a skill that's worth the effort `r emoji::emoji('smiley')`.
 
 *Note: If you already know some R, most of these exercises will be refreshers. You can decide which ones are useful and which ones are not.*
 

@@ -9,15 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-#set some figure options
-knitr::opts_chunk$set(out.width = '70%')
-```
-
-
 
 # Overview
 In this brief unit, I make a few general comments about machine learning models, before we look at several types of those models.

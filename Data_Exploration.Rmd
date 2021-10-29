@@ -11,12 +11,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 
 # Overview
 
@@ -28,7 +22,7 @@ While there were separate modules for _finding and wrangling_ and _visualizing_ 
 knitr::include_graphics("./media/analysis-workflow.png")
 ```
 
-Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you _mess_ with your data (that's a technical term `r emo::ji('grin')`) to get ready for the main formal analysis. And often, as you start that formal analysis, you'll have to go back and do some more cleaning/exploration.
+Different data-analysis related tasks rarely happen in a linear sequence. Instead there is a general stage before statistical analysis where you _mess_ with your data (that's a technical term `r emoji::emoji('grin')`) to get ready for the main formal analysis. And often, as you start that formal analysis, you'll have to go back and do some more cleaning/exploration.
 
 
 

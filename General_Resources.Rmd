@@ -11,12 +11,6 @@ output:
 ---
 
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed here is related to the course, i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. For even more materials, see the links to various lists by others at the end of this document.
 
 Most materials described below are (should be) freely available online. For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If any link does not work and you can't access the materials for some reason, let me know so I can update this document.
@@ -41,7 +35,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Exploratory Data Analysis](https://eda.seas.gwu.edu/) - materials for an online course teaching exploratory data analysis using R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 * The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
 * Roger Peng and Hillary Parker have a Stats and Data Science related podcast called [Not so standard deviations](http://nssdeviations.com/).
-* A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science. Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emo::ji('smile')`, so if you can't or don't want to pay, getting them for free is ok. As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
+* A few individuals, most notably [Roger Peng](https://leanpub.com/u/rdpeng), [Brian Caffo](https://leanpub.com/u/bcaffo) and [Jeff Leek](https://leanpub.com/u/jtleek) have books on Leanpub related to R and data science. Most of the books have a minimum price of zero and are worth looking at. If you feel any of these Leanpub books are worth paying for, go ahead and do so. But I am fairly sure those authors do not rely on the book royalties for their living `r emoji::emoji('smile')`, so if you can't or don't want to pay, getting them for free is ok. As a side note, Leanpub uses Markdown, which means if you write a report in (R)Markdown and want to turn it into a (self)-published book, it is rather easy to do with Leanpub. That's how those individuals made their books, as spin-offs from their RMarkdown course materials.
 * [ModernDive - Statistical Inference via Data Science](https://moderndive.com) - another good recent book covering data analysis with R. 
 * [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
 * [Reproducible Medical Research with R](https://bookdown.org/pdr_higgins/rmrwr/) - free online book showing how to use R to do basic analysis.

@@ -9,15 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emoji)
-#set some figure options
-knitr::opts_chunk$set(out.width = '70%')
-```
-
-
 
 # Overview
 In this unit, we will cover the concept of regularization. We'll also briefly mention a few related approaches.

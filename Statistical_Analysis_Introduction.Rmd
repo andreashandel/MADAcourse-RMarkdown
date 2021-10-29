@@ -9,14 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-#set some figure options
-knitr::opts_chunk$set(out.width = '70%')
-```
-
 
 # Overview
 
@@ -79,7 +71,7 @@ Essentially all standard statistical tests and approaches you are likely already
 
 Often, we would like to go from **association** to **causation**, i.e., we would like to say that not only does an increase in X correlate with an increase in Y, but that X causes that increase in Y. There are two ways of doing so. One is to collect the data in the right way, namely using a randomized clinical trial or equivalent lab science approach where all contributing factors but the input of interest, X, are controlled. This way, we can say that a change in X directly causes a change in Y. If the data does not come from such a study design, methods of [causal inference (which we won't discuss in this course)](https://en.wikipedia.org/wiki/Causal_inference) can sometimes help in trying to determine causality.
 
-Classical statistical models can get us as far as determining potential **causal** relations. If we want to go even further and not only try to answer _if_ X causes Y, but _how_ X causes Y, we will need to employ studies or models that are **mechanistic.** Such models explicitly include postulated mechanisms, and by comparing such models to data, one can often determine which mechanisms are more plausible. Mechanistic models are also beyond what we cover in this course (if you are interested in those, I teach two courses on mechanistic modeling in infectious diseases `r emo::ji('smiley')`). 
+Classical statistical models can get us as far as determining potential **causal** relations. If we want to go even further and not only try to answer _if_ X causes Y, but _how_ X causes Y, we will need to employ studies or models that are **mechanistic.** Such models explicitly include postulated mechanisms, and by comparing such models to data, one can often determine which mechanisms are more plausible. Mechanistic models are also beyond what we cover in this course (if you are interested in those, I teach two courses on mechanistic modeling in infectious diseases `r emoji::emoji('smiley')`). 
 
 While the main goal of science is generally **understanding** a system as well as possible, outside of science, other goals are often more important. In applied/industry/commerce settings, one often does not care too much if or how exactly certain inputs influence outcomes of interest. Instead, the main purpose is to try and **predict** future outcomes given a set of inputs. In this case, the interpretability of your model is not that important. Instead, a **predictive** modeling framework is more important. That's where complex models, such as machine learning and artificial intelligence (neural net) approaches come into play. Those models are too complex to allow much interpretation and understanding of the system, but often these kinds of models are very good at prediction and real world performance (e.g., differentiating cats from dogs in images).
 

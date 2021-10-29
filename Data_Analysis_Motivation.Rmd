@@ -10,12 +10,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, echo = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 # Overview
 
 We'll get into the details of what data analysis is and how to do it very soon. But to start with, I want to provide a few hopefully inspiring and motivating examples of data analysis and use. You'll be doing similar projects yourself soon! In fact, you will be fully reproducing several analyses below.
@@ -74,7 +68,7 @@ David does screencast recordings showing him analyze the data. Here is a recent 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2HpRXIpU4jI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
-You don't need to watch all of the almost 2 hour long recording `r emo::ji("smile")`, but do watch the first few minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching. You might not be familiar with some or most of the R coding,  but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, [he has a bunch more of those screencasts](https://www.youtube.com/user/safe4democracy/videos).
+You don't need to watch all of the almost 2 hour long recording `r emoji::emoji("smile")`, but do watch the first few minutes to see him coding/analyzing in real-time. You might just get hooked and keep watching. You might not be familiar with some or most of the R coding,  but you will still get the overall idea of how he does the analysis. And his thinking out loud is informative as well. If you like the ability to look over his shoulder while he does data analysis, [he has a bunch more of those screencasts](https://www.youtube.com/user/safe4democracy/videos).
 
 There are also others who do live-streaming of data analysis, including competitions, on platforms such as Twitch. Check out [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) or [Nick Wan](https://www.twitch.tv/nickwan_datasci) if interested.
 

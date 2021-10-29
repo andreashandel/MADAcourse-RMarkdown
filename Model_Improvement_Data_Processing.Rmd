@@ -9,11 +9,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include=FALSE}
-library(emo)
-knitr::opts_chunk$set(out.width = '70%')
-```
-
 
 # Overview
 

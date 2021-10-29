@@ -10,12 +10,6 @@ output:
     toc_depth: 3
 ---
 
-```{r, include = FALSE}
-#just so I can use emoticons
-#devtools::install_github("hadley/emo")
-library(emo)
-```
-
 
 
 # Overview
