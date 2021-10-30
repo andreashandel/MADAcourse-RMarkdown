@@ -23,6 +23,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. This is a continuation of the data analysis exercise you've been working on over the last few weeks, analyzing flu data. The goal is that by the end of this exercise, you will have an example of a nice full analysis. So let's get started!
 
+**Note: This exercise is likely time-consuming and you might get stuck. Please plan accordingly. Start early and ask for help in Slack.**
 
 
 ## Setup
@@ -99,7 +100,7 @@ The steps (block of code) you should have here are 1) model specification, 2) wo
 
 ### Model evaluation
 
-Once you have done the tuning, you can take a look at some diagnostics by sending your object returned from the `tune_grid()` function to `autoplot()`. For instance if you tuned the tree and saved the result uas  `tree_tune_res`, you can run `tree_tune_res %>% autoplot()`. Depending on the model, the plot will be different, but in general it shows you what happened during the tuning process.
+Once you have done the tuning, you can take a look at some diagnostics by sending your object returned from the `tune_grid()` function to `autoplot()`. For instance if you tuned the tree and saved the result as  `tree_tune_res`, you can run `tree_tune_res %>% autoplot()`. Depending on the model, the plot will be different, but in general it shows you what happened during the tuning process.
 
 Next, you want to get the model that the tuning process has determined is the best. You can get the best-fit model with `select_best()` and `finalize_workflow()` and then do one more fit to the **training data** with this final workflow using the `fit()` function. Follow the examples in the tutorial.
 
@@ -112,14 +113,19 @@ To evaluate the final fit for each model, do the following.
 The mean and standard deviation of the performance give you a measure of overall performance and variability in that measure. The plots show you if there are any systematic deviations between model and data. Taken together, these can be compared for the different models and based on those (and as wanted, other considerations) a final model can be chosen.
 
 
+**Implement the model tuning/fitting and evaluating steps for all 3 models.**
+
+
 ### Comments for specific models
+
+Here are some more suggestions and hints. Most of this is optional but worth trying.
 
 **For the tree model**, if you want to plot the tree, you can use the `rpart.plot` package and run this command `rpart.plot(extract_fit_parsnip(best_tree_fit)$fit)` (assuming your result from the final workflow fit is called `best_tree_fit`). You might get a warning message, but the tree will show. You will likely find when you look at the actual/predicted plot or the residual plot that the tree model does not perform very well, and the model only predicts a few discrete outcome values. That's also noticeable when you compare RMSE for the tree model and the null model, they are very similar.
 
-**For the lasso model**, you will likely find that it performs a bit better than the tree, but not a lot. If you want to see a plot for how the number of predictors included in the LASSO model changes with the tuning parameter, you can extract the model from your final fit (say it's called `best_lasso_fit`) with `x <- best_lasso_fit$fit$fit$fit` and then `plot(x, "lambda")`. I know, this is awful code having to dig that deep into the `best_lasso_fit` object. Maybe there's a better way of doing this with some tidymodels command. If you know one, use it.
+**For the lasso model**, you will likely find that it performs a bit better than the tree, but not a lot. If you want to see a plot for how the number of predictors included in the LASSO model changes with the tuning parameter, you can extract the model from your final fit (say it's called `best_lasso_fit`) with `x <- best_lasso_fit$fit$fit$fit` and then `plot(x, "lambda")`. I know, this is awful code having to dig that deep into the `best_lasso_fit` object. Maybe there's a better way of doing this with some `tidymodels` command. If you know one, use it.
 
 
-**For the random forest model**, you will likely again find that it performs a bit better than the tree, but not a lot. The tuning setup might require some fiddling around, I had a few initial tries where the whole tuning failed. For a model like random forest, all variables stay in the model. There are ways to look at the variables that are most important. If you want to do that, you again need to pull out the fit object. Say it's called `best_rf_fit`, you can do that with `x <- best_rf_fit$fit$fit$fit` and then use the `importance()` function in `ranger` to plot it with `ranger::importance(x)`.
+**For the random forest model**, you will likely again find that it performs a bit better than the tree, but not a lot. The tuning setup might require some fiddling around, I had a few initial tries where the whole tuning failed. For a model like random forest, all variables stay in the model. There are ways to look at the variables that are most important. If you want to do that, you again need to pull out the fit object. Say it's called `best_rf_fit`, you can do that with `x <- best_rf_fit$fit$fit$fit` and then use the `vip()` function from the `vip` package to plot the importance of the variables.
 
 
 
@@ -131,16 +137,14 @@ Once you have implemented above steps for the 3 models, you should for each mode
 
 ### Final evaluation
 
-Once you picked your final model, you are allowed to once - and only once - fit it to the test data and check how well it performs there. This gives you a somewhat honest estimate of how the model might perform for new, unseen data. You can do that using the `last_fit` function applied to the model you end up choosing. For the final model applied to the test set, report performance and the diagnostic plots as above.
+Once you picked your final model, you are allowed to once - **and only once** - fit it to the test data and check how well it performs on that data. This gives you a somewhat honest estimate of how the model might perform for new, unseen data. You can do that using the `last_fit()` function applied to the model you end up choosing. For the final model applied to the test set, report performance and the diagnostic plots as above.
 
 And that concludes what is likely a fairly long exercise. The code itself is not that long, but it will take you time to cobble it together from the `tidymodel` tutorial and possibly other sources.
-
 
 
 ## Cleanup/fixing and presentation
 
 Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio. No need to post about the exercise, I know where to find it.
-
 
 
 
