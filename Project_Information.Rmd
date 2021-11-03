@@ -67,11 +67,12 @@ The main document should be an Rmarkdown (or bookdown) file, which can be turned
 
 Structure your project similar to the provided template (see below), with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report. 
 
+Use a setup that resembles a real research paper. A main manuscript file in R Markdown format should contain text, the main results (figures/tables), references, etc. A supplementary R markdown file should contain additional results, such as some of your exploratory analysis findings. Any code and further results should be in additional R or Rmd files. Overall, your write-up can be a bit more detailed than what would normally go into a peer reviewed paper, with the most salient parts shown in the main text, and the rest in a supplementary R Markdown file.
+
 For all your submissions, you need to provide everything needed (data, code, etc.) to allow a full and automated reproduction of your analysis.
 
-Your report should be more detailed than what would normally go into a peer reviewed paper. Include parts such as results from your exploratory analysis. Those can be part of the main document or if you prefer a separate supplementary document.
-
 References should be included as a bibtex file and cited in the Rmd file. See the template for an example.
+
 
 # Project template
 
