@@ -11,7 +11,7 @@ output:
 
 
 # Overview
-In this unit, we will very briefly cover support vector machines (SVM), another useful machine learning/statistical model type.
+In this unit, we will very briefly cover support vector machines (SVM), another useful type of machine learning/statistical model.
 
 # Learning Objectives
 * Be familiar with SVM.
@@ -20,12 +20,12 @@ In this unit, we will very briefly cover support vector machines (SVM), another 
 
 # Introduction
 
-SVM were developed in the computer science and engineering communities and were for a while among the best-performing types of models. They are not that exceptional anymore, but still often perform rather well, especially sometimes for data where other models don't perform quite as well. So SVM are often a good idea to try.
+SVM were developed in the computer science and engineering communities and were among the best-performing types of models for a while. They are not that exceptional anymore (now the big trend is neural networks), but still often perform rather well, especially sometimes for data where other models don't perform quite as well. So SVM are often a good idea to try.
 
 
 # General Idea behind SVM
 
-SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which penalized as soon as there is any difference between model and data. SVM divide the predictor space into areas using multi-dimensional hyperplanes until observations within the same "volume" are sufficiently accurately predicted (a bit like trees).
+SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which implement a penalty for any difference between model and data. SVM divide the predictor space into areas using multi-dimensional hyperplanes until observations within the same "volume" are sufficiently accurately predicted (a bit like trees).
 
 SVM can come in different flavors, for instance depending on how discrepancies between data and model are penalized (absolute distance, quadratic, etc.) or how the boundaries of the hyperplanes are defined.
 

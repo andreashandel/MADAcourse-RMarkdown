@@ -26,7 +26,7 @@ While logistic regression is the most widely used approach for classification, i
 # General Idea behind DA
 DA make assumptions about the distributions for each predictor, and then uses those distributions to model and predict the outcome. This is called a _generative_ approach.
 
-There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled as being multivariate normally distributed. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allows for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized/mixture/flexible/... 
+There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled with a multivariate normal distribution. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allow for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized, mixture, flexible, ...
 
 As for any model, there is always a bias-variance/underfitting-overfitting trade-off between less flexible approaches like LDA and more flexible approaches like some of the nonlinear DAs.
 
@@ -35,7 +35,7 @@ As for any model, there is always a bias-variance/underfitting-overfitting trade
 
 A nice feature of DA is that it is one of the algorithms that allows for classification with more then 2 outcomes. For two outcomes, there are situations where logistic regression struggles (if the outcomes are well-separated), and DA might perform better.
 
-DA are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. DA make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.
+DA models are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. Also, DA models make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.
 
 
 # DA in `tidymodels`
