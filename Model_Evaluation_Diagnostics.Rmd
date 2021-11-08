@@ -43,7 +43,7 @@ Once you have a model with good performance, you want to inspect their actual pr
 
 # Residuals 
 
-Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference, which is called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn't capture.
+Instead of (or in addition to) plotting observed versus predicted for continuous outcomes, you can plot the difference between the two. These differences are called the residuals. What you are looking for is a cloud of points with no discernible pattern. If there is a pattern (e.g., an overall skew, or more points above the 0 y-axes than below), it again suggests that there is still some pattern/signal in the data that the model didn't capture.
 
 
 
