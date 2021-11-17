@@ -84,14 +84,16 @@ In addition to the Rmd file, there is a bibliography file in bibtex format which
 
 I recommend you use this template as starting point for your project. To use the template for your class project, go to [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-MADA-project`. Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
 
+
 # Feedback and Assessment
 You will receive feedback from me and/or your classmates after each submission. 
 
-* I will provide feedback on parts 1-3. 
-* Your classmates will provide peer-review feedback on part 4. Details on that will be provided in a separate document, posted to the _Project_ section of the website.
-* Part 5 is the final submission. 
+* I will provide feedback and assess parts 1-4, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. 
+* Your classmates will provide peer-review feedback on part 5. Details on that is provided in the [Project Review document](./Project_Review.html). I will assess these _peer reviews_.
+* Part 6 is the final submission. 
 
-I will assess parts 1-4, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. I will also assess your _peer reviews_ for part 5. Those portions are about 25% of the project grade. The final submission will count for the remaining 75%. 
+
+The initial submissions and peer reviews make up 25% of the project grade. The final submission counts for the remaining 75%. 
 
 **More details on what exactly is expected and how it is assessed is provided in the _Project Rubric_ document.**
 

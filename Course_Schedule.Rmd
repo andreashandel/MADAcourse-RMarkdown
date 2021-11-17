@@ -34,7 +34,7 @@ __Unless otherwise specified, the first posting of the discussion is due by end 
 | Module 12 – Machine learning models II | 11/8 – 11/12 | quiz, exercise, project part 4 |
 | Module 13 – The complete analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |
 | Finishing Project | 11/22 – 11/26 (fall break part of the week) | project part 5 due Monday 11/29, 9am | 
-| Project Reviews | 11/29 – 11/3 | project reviews | 
+| Project Reviews | 11/29 – 12/3 | project reviews | 
 | Final project submission  | 12/10 |  project part 6 |
 | Module 14 – AI & deep learning introduction | none | none - this module is optional material |
 

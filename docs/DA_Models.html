@@ -630,7 +630,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Discriminant Analysis Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 18:53:36</h4>
+<h4 class="date">2021-11-08 13:23:37</h4>
 
 </div>
 
@@ -653,13 +653,13 @@ div.tocify {
 <div id="general-idea-behind-da" class="section level1">
 <h1>General Idea behind DA</h1>
 <p>DA make assumptions about the distributions for each predictor, and then uses those distributions to model and predict the outcome. This is called a <em>generative</em> approach.</p>
-<p>There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled as being multivariate normally distributed. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allows for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized/mixture/flexible/…</p>
+<p>There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled with a multivariate normal distribution. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allow for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized, mixture, flexible, …</p>
 <p>As for any model, there is always a bias-variance/underfitting-overfitting trade-off between less flexible approaches like LDA and more flexible approaches like some of the nonlinear DAs.</p>
 </div>
 <div id="strengths-and-weaknesses-of-da" class="section level1">
 <h1>Strengths and Weaknesses of DA</h1>
 <p>A nice feature of DA is that it is one of the algorithms that allows for classification with more then 2 outcomes. For two outcomes, there are situations where logistic regression struggles (if the outcomes are well-separated), and DA might perform better.</p>
-<p>DA are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. DA make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.</p>
+<p>DA models are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. Also, DA models make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.</p>
 </div>
 <div id="da-in-tidymodels" class="section level1">
 <h1>DA in <code>tidymodels</code></h1>

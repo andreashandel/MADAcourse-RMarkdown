@@ -137,9 +137,7 @@ _An excellent project would look similar to the Brian McKay's paper example you 
 
 To that end, provide the following pieces of information:
 
-* Everything from part 5, with improvements based on peer review feedback.
-* You are allowed to make as little or as many improvements based on feedback from your classmates as you like. I will only look at this final product and grade it.
+* A complete project, with as many further improvements as you want to implement, based on feedback from your classmates and any other improvements you can think of. 
 
-I will grade the final project using the same criteria your classmates used for peer-assessment. This will be graded on a 100 points scale and combined with the other project scores for a final overall project score.
-
+I will grade the final project using the same criteria your classmates used for peer review. This will be graded on a 100 points scale and combined with the other project scores for a final overall project score.
 
