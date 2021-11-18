@@ -114,7 +114,10 @@ As an example, this course website is displayed at [https://andreashandel.github
 
 ### Further information
 
-The approach you used here to create a website is fairly easy to use and somewhat flexible. I host all my course websites in this way. However, it is not as flexible as other approaches. For instance having a layout like [this page on my group website](http://handelgroup.uga.edu/people/) would be very hard to do. If you are interested in making websites using R Markdown & co that are more flexible, you can use the `blogdown` package. To learn more about it, check out [the blogdown book](https://bookdown.org/yihui/blogdown/). I also have [a few blog posts](https://www.andreashandel.com/posts/) on my website describing [how to start a blogdown website](https://www.andreashandel.com/posts/blogdown-website-1/) as well as some other ways of doing websites with R Markdown, including the approach we use here.
+I wrote a tutorial a while back describing essentially this setup. It has some additional information and you can [check it out here.](https://www.andreashandel.com/posts/github-website/)
+
+
+The approach you used here to create a website is fairly easy to use and somewhat flexible. I host all my course websites in this way. However, it is not as flexible as other approaches. For instance having a layout like [this page on my group website](http://handelgroup.uga.edu/people/) would be very hard to do. If you are interested in making websites using R Markdown & co that are more flexible, you can use the `blogdown` package. To learn more about it, check out [the blogdown book](https://bookdown.org/yihui/blogdown/). I also have [a few blog posts](https://www.andreashandel.com/posts/) on my website describing [how to start a blogdown website](https://www.andreashandel.com/posts/blogdown-website-1/) as well as some other ways of doing websites with R Markdown.
 
 
 
