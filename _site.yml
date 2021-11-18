@@ -6,8 +6,9 @@ base_url: https://andreashandel.github.io/MADAcourse/
 repository_url: https://github.com/andreashandel/MADAcourse/
 output:
   html_document:
-    theme: readable
-    highlight: espresso
+    theme: 
+      version: 4
+      bootswatch: yeti
     toc: true
     toc_depth: 2
     toc_float: 
