@@ -25,7 +25,7 @@ I have several goals for this project review:
 * The week following the deadline is devoted to project reviews. 
 * Go to the _projects_ Slack channel and find the 2 persons/projects you have been assigned to review. You can find links to project repositories in the _Discussion 11_ channel.
 * For reviewing, you can either use the _fork and pull_ workflow, or the project owner can make you a collaborator and you can pull/push directly. _Fork and pull_ is maybe a bit safer since there are now 2 reviewers making changes to the repository at the same time. But you can decide on the workflow.
-* Follow the instructions provided in the repository to run all code and reproduce everything. Review the whole project using [this review template](https://github.com/andreashandel/MADAcourse/blob/master/docs/rfiles/Project_Review_Template.Rmd).
+* Follow the instructions provided in the repository to run all code and reproduce everything. Review the whole project using [this review template](https://raw.githubusercontent.com/andreashandel/MADAcourse/master/docs/rfiles/Project_Review_Template.Rmd) (right-klick to download).
 * Write up a detailed review using and filling out the template Markdown file. Once you are done, place your completed review document into the repository you are reviewing, and send a pull request (or do a direct push) for each project you review.
 
 :::note
