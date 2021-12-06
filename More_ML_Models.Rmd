@@ -39,4 +39,4 @@ Methods like _K-means clustering_ or _Hierarchical clustering_ are -- as the nam
 
 # Further reading
 
-See the references provided in the sections above.
+See the references provided in the sections above, as well as the general references provided in the ML Introduction page. 

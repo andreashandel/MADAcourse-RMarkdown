@@ -633,7 +633,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-26 18:44:40</h4>
+<h4 class="date">2021-12-06 08:16:02</h4>
 
 </div>
 
@@ -661,19 +661,6 @@ div.tocify {
 <li>Also remove the variable <code>Unique.Visit</code>. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.</li>
 <li>Remove any NA observations, there aren’t many.</li>
 </ul>
-<div class="note">
-<p>With the <code>tidyverse</code> and the pipe operator, a lot of these steps can be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:</p>
-<pre class="r"><code>data %&gt;% filter() %&gt;% 
-         select() %&gt;%
-         fct_lump() %&gt;%
-         mutate() %&gt;% ...</code></pre>
-<p>I suggest instead to write code like this</p>
-<pre class="r"><code>dat_small1 &lt;- data %&gt;% filter()
-dat_small2 &lt;- dat_small1 %&gt;% select()
-dat_small3 &lt;- dat_small2 %&gt;% fct_lump()
-...</code></pre>
-<p>That style of coding defeats the purpose of the pipe operator a bit, but I think it initially helps to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it’s much harder to follow along and find bugs.</p>
-</div>
 <p><strong>No matter how you do it, write comments into your R script explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).</strong></p>
 <p>At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an <code>Rds</code> file, as before.</p>
 <p>For our further analysis, we decide (well, I’m deciding that for you 😁) is that our main continuous outcome of interest is <strong>Body temperature</strong>, and our main categorical outcome is <strong>Nausea</strong>. We want to see if the other symptoms are correlated with (predict) those outcomes.</p>

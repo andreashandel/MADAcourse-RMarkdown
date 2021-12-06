@@ -3,7 +3,7 @@
 ---------------*/
 
 
-.image {
+/* .image {
   max-width: 100%;
 	padding: 0;
 	text-align: center;
@@ -22,6 +22,7 @@
  	margin-left: auto;
   margin-right: auto;
 }
+ */
 
 /* Image inside figure div, for diagrams
 ---------------*/
@@ -50,10 +51,23 @@ a.thumbnail:hover {
   text-decoration: none;
 }
 
+
+div.note
+{
+    padding: 1em;
+    margin: 1em 0;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+}
+
+
 /* -----------div tips------------- */
 /* adapted from  */
 /* http://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/ */
 
+
+/* 
 
   div.puzzle, div.fyi, div.demo, div.note {
     padding: 1em;
@@ -84,4 +98,4 @@ div.demo {
 div.note {
   background-image: url("./media/lightbulb.png");
 }  
-  
+   */

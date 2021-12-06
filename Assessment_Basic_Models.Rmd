@@ -46,26 +46,7 @@ For this exercise, write some code in the `processingscript.R` file that further
 * Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.
 * Remove any NA observations, there aren't many. 
 
-:::note
-With the `tidyverse` and the pipe operator, a lot of these steps can be done in one long chain of commands. While convenient, I generally consider this not the best idea. It is often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of coding like this:
-```{r, eval = FALSE}
-data %>% filter() %>% 
-         select() %>%
-         fct_lump() %>%
-         mutate() %>% ...
-```
-I suggest instead to write code like this
-```{r, eval = FALSE}
-dat_small1 <- data %>% filter()
-dat_small2 <- dat_small1 %>% select()
-dat_small3 <- dat_small2 %>% fct_lump()
-...
-```
-That style of coding defeats the purpose of the pipe operator a bit, but I think it initially helps to be able to inspect what happens at each step. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it's much harder to follow along and find bugs.
-:::
-
 **No matter how you do it, write comments into your R script explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).**
-
 
 At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an `Rds` file, as before.   
 
