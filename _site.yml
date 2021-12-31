@@ -176,6 +176,8 @@ navbar:
            href: ./Project_Rubric.html
          - text: "Project review"
            href: ./Project_Review.html
+         - text: "Project examples"
+           href: ./Project_Examples.html
     - text: "Resources"
       menu:
          - text: "Course Resources"

@@ -1,0 +1,22 @@
+---
+title: Course Project Examples 
+subtitle: ""
+author: Andreas Handel
+date: "`r as.Date(file.mtime(knitr::current_input()))`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+To showcase some of the work previous students have done, and as inspiration of future projects, below you can find links to a selection of past projects. Of course, all are posted with permission from the students.
+
+(I only decided to ask students if I can showcase some of their projects in 2021, so currently that's the only year that has examples.)
+
+
+# 2021 Projects
+
+* _Plastic in the Urban Freshwater Environment_ by [Amelia Foley](https://ameliafoley.github.io/AMELIAFOLEY-MADA-portfolio/) - [Main report](./projectexamples/Foley_Report.html) and [supplement file](./projectexamples/Foley_Supplement.html). The Github project repository [is here.](https://github.com/ameliafoley/AmeliaFoley-MADA-project)
+
+* _Predicting Federal Emergency Management Agency Funding for U.S. Disasters_ by [Morgan Taylor](https://morganataylor.github.io/MorganTaylor-MADA-portfolio/index.html) - [Main report](./projectexamples/Taylor_Report.html) and [supplement file](./projectexamples/Taylor_Supplement.html). The Github project repository [is here.](https://github.com/morganataylor/MorganTaylor-MADA-project)
