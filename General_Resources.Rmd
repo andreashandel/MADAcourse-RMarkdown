@@ -75,6 +75,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * The books and resources by [Edward Tufte](https://www.edwardtufte.com/tufte/), are classics. He is one of the most influential people in the field of visualization. Unfortunately, as far as I'm aware, his books are not freely available.
 * [Data Visualization - A practical introduction](https://socviz.co/) is a fairly complete free online draft of a book by the same name. It provides a general introduction to making good graphs, and the R code for the figures is shown.
 * [Flowing Data](https://flowingdata.com/) is a website with a lot of cool information on how to make great data visualizations. Some content is free, other parts are not. 
+* The [Esquisse R package](https://dreamrs.github.io/esquisse/) lets you quickly make ggplots in an interactive manner. Very good to get started on some exploratory plots. You can take the ggplot code you generated and tweak further.
 
 
 # Lists and other sources
