@@ -45,6 +45,14 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
 
 
+# Bayesian Analysis
+
+_While we don't cover Bayesian methods in this course, I personally find them very useful and compelling. Here are some resources that could be worth checking out if you want to learn some Bayesian statistics/data analysis._
+
+* [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath. My favorite stats book (bayesian or otherwise). It starts slow but goes pretty far. The book is not free (but worth the price), but there are resources on the website which are free.
+* [Bayes Rules](https://www.bayesrulesbook.com/) by Johnson, Ott and Dogucu. Very hands-on introduction to Bayesian statistics. The online version is free.
+
+
 
 # R coding
 
