@@ -53,6 +53,11 @@ _While we don't cover Bayesian methods in this course, I personally find them ve
 * [Bayes Rules](https://www.bayesrulesbook.com/) by Johnson, Ott and Dogucu. Very hands-on introduction to Bayesian statistics. The online version is free.
 
 
+# Longitudinal Analysis
+
+* [This set of lecture notes](https://data.princeton.edu/wws509/notes/c7s1) provide - among other topics - a nice introduction to survival modeling of longitudinal data.
+
+
 
 # R coding
 
