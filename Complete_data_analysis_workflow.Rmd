@@ -33,7 +33,7 @@ Here, I want to briefly repeat and re-iterate the main components. I'll keep thi
 While I hope you appreciate by now that every data analysis is different, and you need to make lots of decisions along the way. For each, there is often more than one possible reasonable choice, but there are some components that I think are needed for any high quality project. Those can be seen as the basic ingredients of a good data analysis, with lots of freedom within each category. 
 
 :::note
-I mentioned this point previously, probably more than once `r emoji::emoji('smile')`: This need to make choices and decisions on how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For a nice discussion on this topic, see [this unpublished paper by Gelman](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf), which nicely, and in an easy to understand manner, describes the problem in detail. I mentioned this before as [**Researcher's degress of freedom**](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), which is also related to [Data Dredging](https://en.wikipedia.org/wiki/Data_dredging) and [_p-hacking_](https://doi.org/10.1371/journal.pbio.1002106).
+I mentioned this point previously, probably more than once `r emoji::emoji('smile')`: This need to make choices and decisions on how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For some good and easy introductions to that topic, see the "Pitfalls" section on the [General Resources page](./General_Resources.html).
 :::
 
 

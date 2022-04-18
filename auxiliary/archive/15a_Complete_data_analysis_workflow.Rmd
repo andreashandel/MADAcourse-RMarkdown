@@ -33,7 +33,7 @@ In module 4 of the course, we covered the whole data analysis workflow and all i
 
 
 # The Data Analysis workflow
-While I hope you appreciate by now that every data analysis is different, and you need to make many small decisions along the way for which there is often more than one possible reasonable decision, there are some components that I think are needed for any high quality project. Those can be seen as the basic ingredients of a good data analysis, with lots of freedom within each category. (As a side note, this freedom in deciding how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For a nice discussion on this topic, see [this unpublished paper by Gelman](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf), which nicely, and in an easy to understand manner, describes the problem in detail.)
+While I hope you appreciate by now that every data analysis is different, and you need to make many small decisions along the way for which there is often more than one possible reasonable decision, there are some components that I think are needed for any high quality project. Those can be seen as the basic ingredients of a good data analysis, with lots of freedom within each category. (This freedom in deciding how exactly to perform various steps of an analysis is one reason why p-values are generally meaningless, or at least do not mean what people think/claim they mean. For more, see the "Pitfalls" section on the [General Resources page](./General_Resources.html).)
 
 
 ## The question 

@@ -10,12 +10,11 @@ output:
     toc_depth: 3
 ---
 
-
-The _Course Resources_ page was becoming too large, so I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other resources that are not used or mentioned explicitly in the course, but that might be useful and interesting. Everything listed here is related to the course, i.e. the resources focus on topics (Data Science/Stats/etc.) or approaches (R/GitHub/etc.) used in the course. For even more materials, see the links to various lists by others at the end of this document.
+I kept adding resources until things got too unwieldy and the _Course Resources_ page was becoming too large `r emoji::emoji('grin')`. So I decided to split things into two pages. The _Course Resources_ page lists materials directly related to and used/mentioned in the course. This page lists a lot of other resources that are not heavily featured in the course, but that might be useful and interesting. Everything listed here is broadly related to the course topic, i.e. the resources focus on Data Science/Stats/R Coding/GitHub/etc. For even more materials, see the links to various lists by others at the end of this document.
 
 Most materials described below are (should be) freely available online. For better or for worse, a lot of the resources I list below are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If any link does not work and you can't access the materials for some reason, let me know so I can update this document.
 
-I placed them into categories according to main topic, but there is a lot of overlap. Many R coding resources focus on data analysis, and almost all data science resources I list focus on R.
+I placed them into categories according to main topic, but there is a lot of overlap. Many R coding resources focus on data analysis, and most data science resources I list focus on R.
 
 I am familiar with some, but not all of these resources. Sometimes I just took a quick glimpse to decide if it was worth including them here. If you find particular resources especially helpful or unhelpful (both listed and not listed), I'd love to receive feedback.
 
@@ -43,6 +42,29 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
 * [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
+* [Andrew Heiss](https://www.andrewheiss.com/) has a lot of good materials related to R and data analysis on his website.
+
+
+# Pitfalls and best practices in data analysis
+
+## Researcher degrees of freedom (p-hacking)
+
+* The concept of [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), which is related to [Data Dredging](https://en.wikipedia.org/wiki/Data_dredging) and [_p-hacking_](https://doi.org/10.1371/journal.pbio.1002106) are important ideas to keep in mind when doing a data analysis. Note that this issue is often cast in the language of p-values since those are still (unfortunately) the most common approach to statistical analyses. But the concept applies even if one doesn't use p-values.
+
+* You can find a fun hands-on exploration of the potential problem of researcher degrees of freedom [in this 538 visualization](https://projects.fivethirtyeight.com/p-hacking/) and another choose-your-own adventure story [here](https://jabde.com/2022/03/20/p-hack-your-own-adventure/). 
+
+* For further discussions of this general problem, see e.g. [this article from 538](https://fivethirtyeight.com/features/science-isnt-broken/) (which goes with the hands-on example just mentioned) or [this article by Gelman and Loken](https://www.americanscientist.org/article/the-statistical-crisis-in-science), with a closely related article [here](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
+
+* [This paper](https://pubmed.ncbi.nlm.nih.gov/22006061/) provides a nice and easy to follow illustration how researcher degrees of freedom, combined with incomplete reporting, can lead to apparently nonsensical results. The study is a (fake) psychology study, but everything applies in general and it is easy to follow. 
+
+* Not surprisingly, _xkcd_ has also [covered the topic of p-hacking](https://xkcd.com/882/). 
+
+
+## Reproducible research
+
+* [This study](https://www.nature.com/articles/s41597-022-01143-6) provides a nice glimpse at the problems that still exist when trying to reproduce/replicate prior studies by re-running the code. 
+
+
 
 
 # Bayesian Analysis
@@ -58,14 +80,20 @@ _While we don't cover Bayesian methods in this course, I personally find them ve
 * [This set of lecture notes](https://data.princeton.edu/wws509/notes/c7s1) provide - among other topics - a nice introduction to survival modeling of longitudinal data.
 
 
+# Causal Analysis
+
+Unfortunately, as part of this course, we cannot cover the broad and important topic of [causal analysis](https://en.wikipedia.org/wiki/Causal_analysis). However, it is a topic worth learning. If you are interested, here are a few basic references that can get you started. Most of the ones listed are fairly non-technical and thus beginner-friendly.
+
+* [This short paper](https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2018.304337) provides a very basic and easy introduction and commentary on the topic of causal analysis.
+
+
+
 
 # R coding
 
 * [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
 * [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
 * [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
-* [R Studio cheatsheets](https://www.rstudio.com/resources/cheatsheets/) are 1 page reference documents that quickly let you see how you use specific R packages or do certain tasks. A very useful resource, definitely check them out. 
-* [A meta-cheatsheet](https://github.com/business-science/cheatsheets/blob/master/Data_Science_With_R_Workflow.pdf) - this is a cheat-sheet showing you links to different R packages and their cheat-sheets for specific tasks. A nice overview document, developed by the folks at [business-science.io](https://www.business-science.io/).
 * [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
 * [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 * [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
@@ -94,10 +122,12 @@ _While we don't cover Bayesian methods in this course, I personally find them ve
 # Lists and other sources
 
 * By now, there are hundreds of books on R and Data Science available online. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
-* I created lists related to R and Data Analysis (as well as other topics). [You can find all resource lists here](https://andreashandel.github.io/research-and-teaching-resources/). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
 * Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
 * [Machine Learning](https://m-clark.github.io/introduction-to-machine-learning/) - an online reference (almost book) which nicely explains some of the basics of machine learning.
 * [Data Sci Guide](http://www.datasciguide.com/) is a website that is trying to collect and curate a lot of data science sources.
 * RStudio has a [collection of materials for data science](https://resources.rstudio.com/the-essentials-of-data-science).
+* [R Studio cheatsheets](https://www.rstudio.com/resources/cheatsheets/) are 1 page reference documents that quickly let you see how you use specific R packages or do certain tasks. A very useful resource, definitely check them out. 
+* [A meta-cheatsheet](https://github.com/business-science/cheatsheets/blob/master/Data_Science_With_R_Workflow.pdf) - this is a cheat-sheet showing you links to different R packages and their cheat-sheets for specific tasks. A nice overview document, developed by the folks at [business-science.io](https://www.business-science.io/).
+* I created lists related to R and Data Analysis (as well as other topics). [You can find all resource lists here](https://andreashandel.github.io/research-and-teaching-resources/). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
 

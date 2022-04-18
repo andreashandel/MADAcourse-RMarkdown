@@ -13,7 +13,7 @@
 
 <title>Modern Applied Data Analysis</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -55,6 +55,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -75,6 +76,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -227,7 +231,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -237,7 +241,7 @@ $(document).ready(function () {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     General Information
      
     <span class="caret"></span>
@@ -258,14 +262,14 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Modules
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">1. Course and Tools Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">1. Course and Tools Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Introduction_Course.html">Course Introduction</a>
@@ -291,7 +295,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">2. Data Analysis Introduction</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">2. Data Analysis Introduction</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
@@ -308,7 +312,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">3. R Coding Basics</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">3. R Coding Basics</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Rcoding_Basics.html">R Coding Basics</a>
@@ -322,7 +326,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Types.html">Data Types</a>
@@ -339,7 +343,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">5. Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">5. Visualization</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
@@ -353,7 +357,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">6. Data Exploration</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">6. Data Exploration</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Data_Exploration.html">Exploring data</a>
@@ -364,7 +368,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">7. Statistical analysis overview</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">7. Statistical analysis overview</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
@@ -378,7 +382,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">8. Fitting basic statistical models</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">8. Fitting basic statistical models</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Basic_Statistical_Models.html">Basic statistical models</a>
@@ -392,7 +396,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">9. Evaluating your model fits</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">9. Evaluating your model fits</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Model_Evaluation_Overview.html">Model evaluation overview</a>
@@ -415,7 +419,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">10. Improving your model fits</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">10. Improving your model fits</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
@@ -438,7 +442,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">11. Machine Learning Models I</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">11. Machine Learning Models I</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./ML_Models_Overview.html">ML Models overview</a>
@@ -458,7 +462,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">12. Machine Learning Models II</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">12. Machine Learning Models II</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./SVM_Models.html">Support Vector Machine Models</a>
@@ -475,7 +479,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">13. The complete analysis workflow</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">13. The complete analysis workflow</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
@@ -486,7 +490,7 @@ $(document).ready(function () {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">14. Deep learning, AI and Big data</a>
       <ul class="dropdown-menu" role="menu">
         <li>
           <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
@@ -496,7 +500,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Project
      
     <span class="caret"></span>
@@ -517,7 +521,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -563,7 +567,7 @@ $(document).ready(function () {
      $head.prepend('<img src=\"media/MADAlogo.png\" style=\"float: right; border: none; width: 150px;\"/>')
    });
 </script>
-<p>Last updated: 2021-12-31 16:17:21</p>
+<p>Last updated: 2022-04-18 09:16:12</p>
 <!-- _**The website will be continuously updated throughout the semester with new material released on an ongoing basis, as well as adjustments/fixes as needed. Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
 <p>Welcome to the <strong>Modern Applied Data Analysis (MADA)</strong> course website.</p>
 <p>This website contains almost all the content of an online graduate level course taught by <a href="https://www.andreashandel.com/">Andreas Handel</a> at the University of Georgia. Most materials are hosted here, some are on external sites and either linked or embedded from here.</p>
