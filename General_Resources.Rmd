@@ -64,7 +64,13 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 
 * [This study](https://www.nature.com/articles/s41597-022-01143-6) provides a nice glimpse at the problems that still exist when trying to reproduce/replicate prior studies by re-running the code. 
 
+* [R Workflow](http://hbiostat.org/rflow/) is an online book describing how to do reproducible research using the R ecosystem and the still fairly new [Quarto](https://quarto.org/) framework.
 
+
+# General Statistical Analysis
+
+* [Common statistical tests are linear models](https://lindeloev.github.io/tests-as-linear/) is a website that illustrates how many standard statistical tests are equivalent to certain types of linear models. Very useful if you are bewildered by the zoo of statistical tests and wonder how they are related to regression models.
+* [Library of Statistical Techniques](https://lost-stats.github.io/) is a collection of short explanations and code covering a range of different statistical topics. More general data analysis topics, e.g. wranging and visualization, are also covered.
 
 
 # Bayesian Analysis
@@ -73,6 +79,7 @@ _While we don't cover Bayesian methods in this course, I personally find them ve
 
 * [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath. My favorite stats book (bayesian or otherwise). It starts slow but goes pretty far. The book is not free (but worth the price), but there are resources on the website which are free.
 * [Bayes Rules](https://www.bayesrulesbook.com/) by Johnson, Ott and Dogucu. Very hands-on introduction to Bayesian statistics. The online version is free.
+
 
 
 # Longitudinal Analysis
