@@ -45,6 +45,24 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Andrew Heiss](https://www.andrewheiss.com/) has a lot of good materials related to R and data analysis on his website.
 
 
+
+# Data Sources and Wrangling
+
+* [juicr R package](https://cran.r-project.org/web/packages/juicr/index.html) allows one to extract numerical values from figures.
+
+
+
+# Data Visualization
+
+* [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
+* A great free book which discusses the principles of good data visualization is [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). The book is not R specific (and doesn't show R code, but all figures are made in R). 
+* The books and resources by [Edward Tufte](https://www.edwardtufte.com/tufte/), are classics. He is one of the most influential people in the field of visualization. Unfortunately, as far as I'm aware, his books are not freely available.
+* [Data Visualization - A practical introduction](https://socviz.co/) is a fairly complete free online draft of a book by the same name. It provides a general introduction to making good graphs, and the R code for the figures is shown.
+* [Flowing Data](https://flowingdata.com/) is a website with a lot of cool information on how to make great data visualizations. Some content is free, other parts are not. 
+* The [Esquisse R package](https://dreamrs.github.io/esquisse/) lets you quickly make ggplots in an interactive manner. Very good to get started on some exploratory plots. You can take the ggplot code you generated and tweak further.
+
+
+
 # Pitfalls and best practices in data analysis
 
 ## Researcher degrees of freedom (p-hacking)
@@ -116,14 +134,6 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 * The [Software Carpentry](https://software-carpentry.org/) has a great introductory course that walks you through the basics of Git (and GitHub) step-by-step. This is useful if you want to know what exactly is going on, even if you mainly use a graphical interface for your Git/GitHub work. The whole course materials [are online](http://swcarpentry.github.io/git-novice/).
 
 
-# Data Visualization
-
-* [Data Visualization](https://datavizs21.classes.andrewheiss.com/) - comprehensive materials for an online course on data visualization in R, taught by [Andrew Heiss](https://www.andrewheiss.com/). 
-* A great free book which discusses the principles of good data visualization is [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/). The book is not R specific (and doesn't show R code, but all figures are made in R). 
-* The books and resources by [Edward Tufte](https://www.edwardtufte.com/tufte/), are classics. He is one of the most influential people in the field of visualization. Unfortunately, as far as I'm aware, his books are not freely available.
-* [Data Visualization - A practical introduction](https://socviz.co/) is a fairly complete free online draft of a book by the same name. It provides a general introduction to making good graphs, and the R code for the figures is shown.
-* [Flowing Data](https://flowingdata.com/) is a website with a lot of cool information on how to make great data visualizations. Some content is free, other parts are not. 
-* The [Esquisse R package](https://dreamrs.github.io/esquisse/) lets you quickly make ggplots in an interactive manner. Very good to get started on some exploratory plots. You can take the ggplot code you generated and tweak further.
 
 
 # Lists and other sources
