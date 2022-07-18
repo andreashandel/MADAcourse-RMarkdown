@@ -138,6 +138,7 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 
 # Lists and other sources
 
+* [Big Book of R](https://www.bigbookofr.com/) - a website listing and summarizing several hundred books, many free, related to R and Data Science. If you are looking for a resource on a specific topic, this is a good place to check.
 * By now, there are hundreds of books on R and Data Science available online. Many of these books are written in bookdown, a version of R Markdown. You will learn all about it in this course. It is worth checking out [the main bookdown website](https://bookdown.org/) as well as the [archive list](https://bookdown.org/home/archive/) and scrolling through the list of books. Some of the books you can find there are very good. Of course, there is also a good bit of "noise".
 * Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
