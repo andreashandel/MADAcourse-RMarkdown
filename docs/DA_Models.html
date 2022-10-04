@@ -14,7 +14,7 @@
 
 <title>Discriminant Analysis Models</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,37 +651,77 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will very briefly cover discriminant analysis, which is a set of machine learning/statistical models that is very useful for classification.</p>
+<p>In this unit, we will very briefly cover discriminant analysis, which
+is a set of machine learning/statistical models that is very useful for
+classification.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
 <li>Be familiar with discriminant analysis models.</li>
-<li>Understand advantages and disadvantages of these kinds of models.</li>
+<li>Understand advantages and disadvantages of these kinds of
+models.</li>
 </ul>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>While logistic regression is the most widely used approach for classification, it has several limitations. For one, it doesn’t easily generalize to outcomes that have more than 2 categories. Also, for certain types of data, logistic regression might not perform very well. Other methods like tree-based models, KNN or SVM can be used for multi-category outcome classification and often provide good performance. Another option are Discriminant Analysis (DA) methods. Those approaches are fairly quick and easy to implement and fit. At times, they provide better performance than logistic regression and might do as well as more complicated models.</p>
+<p>While logistic regression is the most widely used approach for
+classification, it has several limitations. For one, it doesn’t easily
+generalize to outcomes that have more than 2 categories. Also, for
+certain types of data, logistic regression might not perform very well.
+Other methods like tree-based models, KNN or SVM can be used for
+multi-category outcome classification and often provide good
+performance. Another option are Discriminant Analysis (DA) methods.
+Those approaches are fairly quick and easy to implement and fit. At
+times, they provide better performance than logistic regression and
+might do as well as more complicated models.</p>
 </div>
 <div id="general-idea-behind-da" class="section level1">
 <h1>General Idea behind DA</h1>
-<p>DA make assumptions about the distributions for each predictor, and then uses those distributions to model and predict the outcome. This is called a <em>generative</em> approach.</p>
-<p>There are different forms of DA. Linear Discriminant Analysis (LDA) is the simplest approach, it assumes that predictors can be modeled with a multivariate normal distribution. Nonlinear discriminant analysis approaches, e.g., quadratic DA, allow for a more flexible distribution of the predictors. This makes the model more flexible, but also bigger (so possibly more prone to overfitting). One can show that LDA and logistic regression are mathematically rather similar (see e.g. the ISLR book). Other nonlinear variants of DA exist, e.g. regularized, mixture, flexible, …</p>
-<p>As for any model, there is always a bias-variance/underfitting-overfitting trade-off between less flexible approaches like LDA and more flexible approaches like some of the nonlinear DAs.</p>
+<p>DA make assumptions about the distributions for each predictor, and
+then uses those distributions to model and predict the outcome. This is
+called a <em>generative</em> approach.</p>
+<p>There are different forms of DA. Linear Discriminant Analysis (LDA)
+is the simplest approach, it assumes that predictors can be modeled with
+a multivariate normal distribution. Nonlinear discriminant analysis
+approaches, e.g., quadratic DA, allow for a more flexible distribution
+of the predictors. This makes the model more flexible, but also bigger
+(so possibly more prone to overfitting). One can show that LDA and
+logistic regression are mathematically rather similar (see e.g. the ISLR
+book). Other nonlinear variants of DA exist, e.g. regularized, mixture,
+flexible, …</p>
+<p>As for any model, there is always a
+bias-variance/underfitting-overfitting trade-off between less flexible
+approaches like LDA and more flexible approaches like some of the
+nonlinear DAs.</p>
 </div>
 <div id="strengths-and-weaknesses-of-da" class="section level1">
 <h1>Strengths and Weaknesses of DA</h1>
-<p>A nice feature of DA is that it is one of the algorithms that allows for classification with more then 2 outcomes. For two outcomes, there are situations where logistic regression struggles (if the outcomes are well-separated), and DA might perform better.</p>
-<p>DA models are not as common as logistic regression, thus it might require a bit more explanation to your audience if you decide to use them. Also, DA models make assumptions about the distributions of the predictors. If those assumptions do not hold, DA might not perform well. In situations where logistic regression works well, it usually performs better. Like logistic regression, DA is used for classification, not regression.</p>
+<p>A nice feature of DA is that it is one of the algorithms that allows
+for classification with more then 2 outcomes. For two outcomes, there
+are situations where logistic regression struggles (if the outcomes are
+well-separated), and DA might perform better.</p>
+<p>DA models are not as common as logistic regression, thus it might
+require a bit more explanation to your audience if you decide to use
+them. Also, DA models make assumptions about the distributions of the
+predictors. If those assumptions do not hold, DA might not perform well.
+In situations where logistic regression works well, it usually performs
+better. Like logistic regression, DA is used for classification, not
+regression.</p>
 </div>
 <div id="da-in-tidymodels" class="section level1">
 <h1>DA in <code>tidymodels</code></h1>
-<p><code>Tidymodels</code> has the <a href="https://discrim.tidymodels.org"><code>discrim</code> pacakge</a>, which implements several forms of discriminant analysis.</p>
+<p><code>Tidymodels</code> has the <a
+href="https://discrim.tidymodels.org"><code>discrim</code> pacakge</a>,
+which implements several forms of discriminant analysis.</p>
 </div>
 <div id="further-resources" class="section level1">
 <h1>Further Resources</h1>
-<p><a href="https://statlearning.com/">Chapter 4 of ISLR</a> discusses discriminant analysis. So does the <em>Generative Models</em> section in the <a href="https://rafalab.github.io/dsbook/examples-of-algorithms.html"><em>Examples of algorithms</em> chapter in IDS</a>.</p>
+<p><a href="https://statlearning.com/">Chapter 4 of ISLR</a> discusses
+discriminant analysis. So does the <em>Generative Models</em> section in
+the <a
+href="https://rafalab.github.io/dsbook/examples-of-algorithms.html"><em>Examples
+of algorithms</em> chapter in IDS</a>.</p>
 </div>
 
 

@@ -14,7 +14,7 @@
 
 <title>Assessment - Exploration</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,39 +651,98 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>For this exercise, we will join the R data science community and participate in <strong>Tidy Tuesday</strong>, a weekly exercise that allows you to practice some parts of data analysis. The focus for Tidy Tuesday is on getting, cleaning (i.e., tidying) and exploring a data set, though people sometimes do statistical analyses as well.</p>
-<p>This is another solo exercise, so no group work this week, but of course more GitHub. This exercise will go into your portfolio.</p>
+<p>For this exercise, we will join the R data science community and
+participate in <strong>Tidy Tuesday</strong>, a weekly exercise that
+allows you to practice some parts of data analysis. The focus for Tidy
+Tuesday is on getting, cleaning (i.e., tidying) and exploring a data
+set, though people sometimes do statistical analyses as well.</p>
+<p>This is another solo exercise, so no group work this week, but of
+course more GitHub. This exercise will go into your portfolio.</p>
 </div>
 <div id="what-is-tidy-tuesday" class="section level2">
 <h2>What is Tidy Tuesday</h2>
-<p>You briefly encountered Tidy Tuesday before in the <a href="./Data_Analysis_Motivation.html">Data Analysis Motivation unit</a>. If you can’t remember, revisit that unit and re-read that section. Also read the information at the provided links.</p>
-<p>If you want to see another Tidy Tuesday example, <a href="https://www.andreashandel.com/posts/tidytuesday-analysis/">here is one I did</a>, as part of a previous version of MADA. I did it at the same time the students did theirs. I plan to do my own Tidy Tuesday again this time. For even more examples of previous analyses, <a href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice Shiny app</a> which scans twitter for posts mentioning <code>#tidytuesday</code>.</p>
+<p>You briefly encountered Tidy Tuesday before in the <a
+href="./Data_Analysis_Motivation.html">Data Analysis Motivation
+unit</a>. If you can’t remember, revisit that unit and re-read that
+section. Also read the information at the provided links.</p>
+<p>If you want to see another Tidy Tuesday example, <a
+href="https://www.andreashandel.com/posts/tidytuesday-analysis/">here is
+one I did</a>, as part of a previous version of MADA. I did it at the
+same time the students did theirs. I plan to do my own Tidy Tuesday
+again this time. For even more examples of previous analyses, <a
+href="https://nsgrantham.shinyapps.io/tidytuesdayrocks/">see this nice
+Shiny app</a> which scans twitter for posts mentioning
+<code>#tidytuesday</code>.</p>
 <div class="note">
-<p>Apparently, there is now also a <a href="https://www.tidytuesday.com/">Tidy Tuesday podcast</a>. I’m not familiar with it, so I’m not sure what it’s all about and if it is worth checking out. It probably is worth giving it a try, since it’s (almost) always good to check out new things 😁 and those are very short recordings, so I think they just introduce the data of the week. If you end up listening to some, let me know what you think (post somewhere on Slack).</p>
+<p>Apparently, there is now also a <a
+href="https://www.tidytuesday.com/">Tidy Tuesday podcast</a>. I’m not
+familiar with it, so I’m not sure what it’s all about and if it is worth
+checking out. It probably is worth giving it a try, since it’s (almost)
+always good to check out new things 😁 and those are very short
+recordings, so I think they just introduce the data of the week. If you
+end up listening to some, let me know what you think (post somewhere on
+Slack).</p>
 </div>
 </div>
 <div id="your-tidy-tuesday-exercise" class="section level2">
 <h2>Your Tidy Tuesday Exercise</h2>
-<p>Your assignment is to participate in Tidy Tuesday by analyzing this week’s dataset. You can start as soon as the dataset is posted, which is Mondays. <a href="https://github.com/rfordatascience/tidytuesday">The datasets are released on GitHub</a>. As I’m writing this, I have no idea what the data will be the week this exercise happens. That’s part of the fun of it 😄.</p>
+<p>Your assignment is to participate in Tidy Tuesday by analyzing this
+week’s dataset. You can start as soon as the dataset is posted, which is
+Mondays. <a href="https://github.com/rfordatascience/tidytuesday">The
+datasets are released on GitHub</a>. As I’m writing this, I have no idea
+what the data will be the week this exercise happens. That’s part of the
+fun of it 😄.</p>
 <p>Here are some more detailed instructions:</p>
-<p>Use your portfolio website. Make sure it’s up to date and fully synced. Open it in R Studio. Then open the <code>tidytuesday_exercise.Rmd</code> file. That’s where you’ll write your Tidy Tuesday analysis.</p>
-<p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called <code>data</code>).</p>
-<p>Write an R Markdown file that loads the data, performs any needed cleaning and wrangling, and produces some results (tables, figures). For this exercise, you don’t need to implement any statistical models. If you want, you can use some simple ones (e.g. adding a linear fit line to a scatterplot, or doing some simple stats tests). This is a fairly open-ended task. I trust that you get the right balance between spending too little and too much time/effort on this. Depending on your coding skills, I think around 1-4 hours (actually working, not having Facebook open at the same time 😁) might be a good time commitment.</p>
-<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.</p>
-<p>And you are again free to broadcast your effort on social media, e.g., using the <code>#tidytuesday</code> hash tag on Twitter. And I’ll again be looking out for #MADA2021 tagged tweets 😁.</p>
+<p>Use your portfolio website. Make sure it’s up to date and fully
+synced. Open it in R Studio. Then open the
+<code>tidytuesday_exercise.Rmd</code> file. That’s where you’ll write
+your Tidy Tuesday analysis.</p>
+<p>Go to the <a
+href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github
+repository</a>. Look for the dataset for this week, and read the
+instructions on how to get the data. You will also be provided with a
+data dictionary. If the data is available for download, place it
+somewhere in your portfolio repository (e.g., you can make a new folder
+called <code>data</code>).</p>
+<p>Write an R Markdown file that loads the data, performs any needed
+cleaning and wrangling, and produces some results (tables, figures). For
+this exercise, you don’t need to implement any statistical models. If
+you want, you can use some simple ones (e.g. adding a linear fit line to
+a scatterplot, or doing some simple stats tests). This is a fairly
+open-ended task. I trust that you get the right balance between spending
+too little and too much time/effort on this. Depending on your coding
+skills, I think around 1-4 hours (actually working, not having Facebook
+open at the same time 😁) might be a good time commitment.</p>
+<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio
+site to make sure everything works and looks good, that all the links
+work, etc. Then push to GitHub by the deadline. Since this will be on
+your portfolio website, and I know where to find it, there is no need to
+post any link this week.</p>
+<p>And you are again free to broadcast your effort on social media,
+e.g., using the <code>#tidytuesday</code> hash tag on Twitter. And I’ll
+again be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Write a post in this week’s discussion channel that answers this question:</p>
-<p><em>What is (so far) your favorite R package or command or plot type or… for data cleaning or exploration? And what data cleaning or exploration operations do you find tricky to do and wish you knew a better way of tackling that (with R)?</em></p>
-<p>Then comment on each others posts. Especially if someone is looking for better ways of doing certain cleaning/exploration operations in R, if you know of a good way, tell them.</p>
+<p>Write a post in this week’s discussion channel that answers this
+question:</p>
+<p><em>What is (so far) your favorite R package or command or plot type
+or… for data cleaning or exploration? And what data cleaning or
+exploration operations do you find tricky to do and wish you knew a
+better way of tackling that (with R)?</em></p>
+<p>Then comment on each others posts. Especially if someone is looking
+for better ways of doing certain cleaning/exploration operations in R,
+if you know of a good way, tell them.</p>
 </div>
 
 

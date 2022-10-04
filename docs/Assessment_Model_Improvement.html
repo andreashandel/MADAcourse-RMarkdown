@@ -14,7 +14,7 @@
 
 <title>Assessment - Improving models</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,16 +651,28 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>We definitely need to practice some of the topics we covered in this (and previous modules). But since at the end of the week there is another project deadline, I want you to focus on that. Thus no exercise this week, we’ll practice the topics we covered in upcoming exercises.</p>
+<p>We definitely need to practice some of the topics we covered in this
+(and previous modules). But since at the end of the week there is
+another project deadline, I want you to focus on that. Thus no exercise
+this week, we’ll practice the topics we covered in upcoming
+exercises.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s).</p>
-<p>Post your discussion (with link to paper) by Wednesday, then read at least one other paper posted by your classmates and comment on it.</p>
+<p>Find a peer-reviewed paper where the authors use one or several of
+the approaches covered this week, and discuss if the authors properly
+explain and justify why they are doing what they are doing, and why you
+think what they are doing is or is not a good approach given their
+stated objective(s).</p>
+<p>Post your discussion (with link to paper) by Wednesday, then read at
+least one other paper posted by your classmates and comment on it.</p>
 </div>
 
 

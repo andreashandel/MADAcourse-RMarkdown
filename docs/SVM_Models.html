@@ -14,7 +14,7 @@
 
 <title>Support Vector Machine Models</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,7 +651,8 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will very briefly cover support vector machines (SVM), another useful type of machine learning/statistical model.</p>
+<p>In this unit, we will very briefly cover support vector machines
+(SVM), another useful type of machine learning/statistical model.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -658,25 +663,53 @@ div.tocify {
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>SVM were developed in the computer science and engineering communities and were among the best-performing types of models for a while. They are not that exceptional anymore (now the big trend is neural networks), but still often perform rather well, especially sometimes for data where other models don’t perform quite as well. So SVM are often a good idea to try.</p>
+<p>SVM were developed in the computer science and engineering
+communities and were among the best-performing types of models for a
+while. They are not that exceptional anymore (now the big trend is
+neural networks), but still often perform rather well, especially
+sometimes for data where other models don’t perform quite as well. So
+SVM are often a good idea to try.</p>
 </div>
 <div id="general-idea-behind-svm" class="section level1">
 <h1>General Idea behind SVM</h1>
-<p>SVM have cost/objective functions that do not penalize discrepancy between true and predicted outcome if the two are within a certain range, and do penalize outside that range. This is different than penalties based on basic least squares, which implement a penalty for any difference between model and data. SVM divide the predictor space into areas using multi-dimensional hyperplanes until observations within the same “volume” are sufficiently accurately predicted (a bit like trees).</p>
-<p>SVM can come in different flavors, for instance depending on how discrepancies between data and model are penalized (absolute distance, quadratic, etc.) or how the boundaries of the hyperplanes are defined.</p>
+<p>SVM have cost/objective functions that do not penalize discrepancy
+between true and predicted outcome if the two are within a certain
+range, and do penalize outside that range. This is different than
+penalties based on basic least squares, which implement a penalty for
+any difference between model and data. SVM divide the predictor space
+into areas using multi-dimensional hyperplanes until observations within
+the same “volume” are sufficiently accurately predicted (a bit like
+trees).</p>
+<p>SVM can come in different flavors, for instance depending on how
+discrepancies between data and model are penalized (absolute distance,
+quadratic, etc.) or how the boundaries of the hyperplanes are
+defined.</p>
 </div>
 <div id="strengths-and-weaknesses-of-svm" class="section level1">
 <h1>Strengths and Weaknesses of SVM</h1>
-<p>SVM can be used for both classification and regression. They are very flexible and often have very good predictive performance. They are often well suited for data that contain outliers.</p>
-<p>The math behind SVM is not that easy to follow, and since SVM models are somewhat complex, they tend to be a bit of a <em>black box</em> and the model itself is hard to interpret.</p>
+<p>SVM can be used for both classification and regression. They are very
+flexible and often have very good predictive performance. They are often
+well suited for data that contain outliers.</p>
+<p>The math behind SVM is not that easy to follow, and since SVM models
+are somewhat complex, they tend to be a bit of a <em>black box</em> and
+the model itself is hard to interpret.</p>
 </div>
 <div id="svm-in-tidymodels" class="section level1">
 <h1>SVM in <code>tidymodels</code></h1>
-<p>Tidymodels/parsnip <a href="https://parsnip.tidymodels.org/reference/index.html">has several SVM models</a>, such as <code>svm_linear()</code> and <code>svm_poly()</code>. They can be used as part of the <code>tidymodels</code> workflow like any other ML model you have already seen. They also need tuning.</p>
+<p>Tidymodels/parsnip <a
+href="https://parsnip.tidymodels.org/reference/index.html">has several
+SVM models</a>, such as <code>svm_linear()</code> and
+<code>svm_poly()</code>. They can be used as part of the
+<code>tidymodels</code> workflow like any other ML model you have
+already seen. They also need tuning.</p>
 </div>
 <div id="further-resources" class="section level1">
 <h1>Further Resources</h1>
-<p>To learn a bit more about SVM, you can check out <a href="https://statlearning.com/">chapter 9 of ISL</a> which discusses SVM. So does <a href="https://bradleyboehmke.github.io/HOML/svm.html">chapter 14 of HMLR</a>.</p>
+<p>To learn a bit more about SVM, you can check out <a
+href="https://statlearning.com/">chapter 9 of ISL</a> which discusses
+SVM. So does <a
+href="https://bradleyboehmke.github.io/HOML/svm.html">chapter 14 of
+HMLR</a>.</p>
 </div>
 
 

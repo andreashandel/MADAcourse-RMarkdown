@@ -14,7 +14,7 @@
 
 <title>Model Performance Evaluation</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -646,99 +650,420 @@ div.tocify {
 
 
 <div class="note">
-<p>Up to now, I have not shown much math or equations. Below, you will encounter some. The equations are fairly simple and I’m sure you’ll be able to follow once you spend a few minutes to think through them. Most often, there are functions in R that compute all those quantities for you. But sometimes, you will have to compute a few of them yourself. It is therefore good to know their definitions. Once you do, you realize that you can simply compute them yourself with just a few lines of R code. Again, most often you won’t need to do that, but sometimes it is useful to have that ability and know how to do it.</p>
+<p>Up to now, I have not shown much math or equations. Below, you will
+encounter some. The equations are fairly simple and I’m sure you’ll be
+able to follow once you spend a few minutes to think through them. Most
+often, there are functions in R that compute all those quantities for
+you. But sometimes, you will have to compute a few of them yourself. It
+is therefore good to know their definitions. Once you do, you realize
+that you can simply compute them yourself with just a few lines of R
+code. Again, most often you won’t need to do that, but sometimes it is
+useful to have that ability and know how to do it.</p>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>When you fit a model, e.g., a linear model using <code>lm()</code> in R (either directly, or calling it through some other package, such as <code>parsnip</code> or <code>tidymodels</code>), what exactly happens? What does it mean when we ask the computer to <em>fit a model</em>? Think about what’s going on for a minute.</p>
-<p>What <code>lm()</code> or similar functions do is vary the parameters of a model until the model predicted outcomes are as close as possible to the actual observed outcomes in the data. Let’s say you want to fit a multivariable linear model like this one, where you want to fit some outcome <span class="math inline">\(Y\)</span> given some predictor variables <span class="math inline">\(X_i\)</span> (e.g. fitting/predicting weight of a person, given their height and age). The model equation will look like this:</p>
-<p><span class="math display">\[Y_m=b_0 + b_1X_1 + b_2X_2 + \ldots + b_n X_n.\]</span></p>
-<p>When you ask the computer to fit this model, it will guess some values of the coefficients <em>b<sub>i</sub></em> and then vary them (in a smart way) until the predicted <em>Y<sub>m</sub></em> (AKA <span class="math inline">\(\hat{y}\)</span>) from the model are as close as possible to the actual data values <em>Y<sub>d</sub></em> (usually just called <span class="math inline">\(y\)</span>).</p>
-<p>This procedure for fitting models is very general and applies to any kind of model, as well as both continuous and categorical outcomes. What changes between problems and approaches is how exactly the fitting routine goes about varying the parameters (something we won’t discuss in this course), and how we define <em>closeness</em> between data and model outcomes. The latter is a scientific choice, and you need to specify it when you fit models.</p>
+<p>When you fit a model, e.g., a linear model using <code>lm()</code> in
+R (either directly, or calling it through some other package, such as
+<code>parsnip</code> or <code>tidymodels</code>), what exactly happens?
+What does it mean when we ask the computer to <em>fit a model</em>?
+Think about what’s going on for a minute.</p>
+<p>What <code>lm()</code> or similar functions do is vary the parameters
+of a model until the model predicted outcomes are as close as possible
+to the actual observed outcomes in the data. Let’s say you want to fit a
+multivariable linear model like this one, where you want to fit some
+outcome <span class="math inline">\(Y\)</span> given some predictor
+variables <span class="math inline">\(X_i\)</span>
+(e.g. fitting/predicting weight of a person, given their height and
+age). The model equation will look like this:</p>
+<p><span class="math display">\[Y_m=b_0 + b_1X_1 + b_2X_2 + \ldots + b_n
+X_n.\]</span></p>
+<p>When you ask the computer to fit this model, it will guess some
+values of the coefficients <em>b<sub>i</sub></em> and then vary them (in
+a smart way) until the predicted <em>Y<sub>m</sub></em> (AKA <span
+class="math inline">\(\hat{y}\)</span>) from the model are as close as
+possible to the actual data values <em>Y<sub>d</sub></em> (usually just
+called <span class="math inline">\(y\)</span>).</p>
+<p>This procedure for fitting models is very general and applies to any
+kind of model, as well as both continuous and categorical outcomes. What
+changes between problems and approaches is how exactly the fitting
+routine goes about varying the parameters (something we won’t discuss in
+this course), and how we define <em>closeness</em> between data and
+model outcomes. The latter is a scientific choice, and you need to
+specify it when you fit models.</p>
 </div>
 <div id="the-costlossobjective-function" class="section level1">
 <h1>The cost/loss/objective function</h1>
-<p>For the computer to perform the routine of <em>vary model parameters to get the model as close to the data as possible</em>, we have to quantify this closeness (or difference) between model and data. To do so, we define some function of both model predictions (<em>Y<sub>m</sub></em>) and measured/data (<em>Y<sub>d</sub></em>) outcomes. This function goes by different names, but the terms most commonly used are <strong>cost function</strong> or <a href="https://en.wikipedia.org/wiki/Loss_function"><strong>loss function</strong></a>. In more general math or stats context, this is also called an <strong>objective function.</strong> Other names are common in different areas of science, see e.g., those listed in the linked Wikipedia article. Another term that is used by <code>tidymodels</code> is simply <strong>metric</strong>; this term is somewhat more common in machine learning situations. The <code>yardstick</code> package from <code>tidymodels</code> is all about such metrics. I will interchangably use cost, lost, and objective function, as well as metric, so just be aware that they all mean the same thing: a function that is used to measure how close the model predictions are to the data.</p>
-<p>The convention is to set up the problem such that larger discrepancies between model and data lead to a larger numerical value of this function. Then our goal is to minimize the objective function, which means minimizing the difference between the data and the model predictions. (Occasionally, problems are set up to maximize this function–however, note that this is the same as minimizing the additive inverse of that function, i.e. you can just add a negative sign around the whole function.)</p>
-<p>In equation form, we have in the general case: <span class="math display">\[C = f(Y_m,Y_d).\]</span></p>
-<p>The <span class="math inline">\(Y_m\)</span> are all the predictions made by the model for the outcome, and the <span class="math inline">\(Y_d\)</span> are the actual outcomes from the data. If you have <span class="math inline">\(N\)</span> observations, you will have <span class="math inline">\(N\)</span> pairs of <span class="math inline">\(Y_m\)</span> and <span class="math inline">\(Y_d\)</span> and then you need to specify some function, <em>f</em>, that uses all those values to compute a single value to measure your performance. The different types of functions, <em>f</em>, depend on the type of data and other considerations. Once you define <em>f</em>, this is the performance metric which quantifies how well a given model fits the data.</p>
-<p>When you do a single model fit, e.g., using <code>lm()</code>, the computer calculates <em>f</em> for different values of the parameters, <em>b<sub>i</sub></em>, until it finds the ones that produce the best (i.e., minimum) value of <em>C</em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<p>Similarly, if you fit two different models (e.g., a linear model with 3 predictor variables, and another one with 5), you can use the value of <em>C</em> to compare model performance (with some important caveats, which we will discuss shortly).</p>
+<p>For the computer to perform the routine of <em>vary model parameters
+to get the model as close to the data as possible</em>, we have to
+quantify this closeness (or difference) between model and data. To do
+so, we define some function of both model predictions
+(<em>Y<sub>m</sub></em>) and measured/data (<em>Y<sub>d</sub></em>)
+outcomes. This function goes by different names, but the terms most
+commonly used are <strong>cost function</strong> or <a
+href="https://en.wikipedia.org/wiki/Loss_function"><strong>loss
+function</strong></a>. In more general math or stats context, this is
+also called an <strong>objective function.</strong> Other names are
+common in different areas of science, see e.g., those listed in the
+linked Wikipedia article. Another term that is used by
+<code>tidymodels</code> is simply <strong>metric</strong>; this term is
+somewhat more common in machine learning situations. The
+<code>yardstick</code> package from <code>tidymodels</code> is all about
+such metrics. I will interchangably use cost, lost, and objective
+function, as well as metric, so just be aware that they all mean the
+same thing: a function that is used to measure how close the model
+predictions are to the data.</p>
+<p>The convention is to set up the problem such that larger
+discrepancies between model and data lead to a larger numerical value of
+this function. Then our goal is to minimize the objective function,
+which means minimizing the difference between the data and the model
+predictions. (Occasionally, problems are set up to maximize this
+function–however, note that this is the same as minimizing the additive
+inverse of that function, i.e. you can just add a negative sign around
+the whole function.)</p>
+<p>In equation form, we have in the general case: <span
+class="math display">\[C = f(Y_m,Y_d).\]</span></p>
+<p>The <span class="math inline">\(Y_m\)</span> are all the predictions
+made by the model for the outcome, and the <span
+class="math inline">\(Y_d\)</span> are the actual outcomes from the
+data. If you have <span class="math inline">\(N\)</span> observations,
+you will have <span class="math inline">\(N\)</span> pairs of <span
+class="math inline">\(Y_m\)</span> and <span
+class="math inline">\(Y_d\)</span> and then you need to specify some
+function, <em>f</em>, that uses all those values to compute a single
+value to measure your performance. The different types of functions,
+<em>f</em>, depend on the type of data and other considerations. Once
+you define <em>f</em>, this is the performance metric which quantifies
+how well a given model fits the data.</p>
+<p>When you do a single model fit, e.g., using <code>lm()</code>, the
+computer calculates <em>f</em> for different values of the parameters,
+<em>b<sub>i</sub></em>, until it finds the ones that produce the best
+(i.e., minimum) value of <em>C</em>.<a href="#fn1" class="footnote-ref"
+id="fnref1"><sup>1</sup></a></p>
+<p>Similarly, if you fit two different models (e.g., a linear model with
+3 predictor variables, and another one with 5), you can use the value of
+<em>C</em> to compare model performance (with some important caveats,
+which we will discuss shortly).</p>
 </div>
-<div id="costlossobjective-functions-for-continuous-outcomes" class="section level1">
+<div id="costlossobjective-functions-for-continuous-outcomes"
+class="section level1">
 <h1>Cost/loss/objective functions for continuous outcomes</h1>
 <div id="least-squares" class="section level2">
 <h2>Least squares</h2>
-<p>You are likely familiar with one of the most widely used functions for <em>f</em>, the <a href="https://en.wikipedia.org/wiki/Least_squares">least-squares method</a>. If you have ever fit a linear model (e.g. using <code>lm()</code> in R or an equivalent function in a different statistical software), chances are you used least squares as your objective function (maybe without knowing that you did). For least squares, we compute the squared difference between model prediction and data for each observation and sum it all up. In equation form:</p>
-<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i (Y_m^i - Y_d^i)^2\]</span> Again, <span class="math inline">\(Y^i_m\)</span> are all the predictions made by the model for the outcome, and the <span class="math inline">\(Y^i_d\)</span> are the actual outcomes from the data. The quantity <span class="math inline">\(C\)</span> for this equation has many names. A common one is least squares error, or sum of square residuals (SSR), or residual sum of squares (RSS), or sum of squares (SS), or residual square error (RSE), and a bunch of similar names. You will usually be able to tell from the context what is being used as the performance metric.</p>
-<p>You will often see a variation where one divides by the sample size, i.e. <span class="math inline">\(C\)</span> will look like</p>
-<p><span class="math display">\[C = \frac{1}{N} \sum_i (Y_m^i - Y_d^i)^2\]</span></p>
-<p>This is called <a href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared error</a>. Other names of exist of course.</p>
-<p>Dividing by the sample size has the advantage of allowing you to compare values across samples of different size from the same dataset (but it doesn’t really work for comparing across different datasets). For instance if you compare model performance on training and test data (to be discussed shortly), and each has different sample size, you need to make sure you standardize by it.</p>
-<p>If you want to compare different models on the same dataset which might include some missing values, and one of your models can deal with missing data while the other cannot, you need to be careful. One option is to fit both models only to the data without missing values. If you decide to allow one model to use the observations that have some missing values, while the other model does not, you definitely need to standardize by the sample size. Even then, care is needed, since the samples with some missing data might be systematically different from those without and thus the datasets might not be equivalent anymore.</p>
-<p>Another variant is a version where at the end you take the square-root, i.e.</p>
-<p><span class="math display">\[C = \sqrt{\frac{1}{N} \sum_i (Y_m^i - Y_d^i)^2}\]</span></p>
-<p>which is called the root mean squared error (RMSE). The advantage of taking the square-root at the end is that now the units of <span class="math inline">\(C\)</span> are the same as those of your outcomes. THis often makes interpretation of the results easier. In general, it is best to use MSE or RMSE. In <code>tidymodels</code>, the <code>yardstick</code> package has the <code>rmse()</code> metric built-in.</p>
+<p>You are likely familiar with one of the most widely used functions
+for <em>f</em>, the <a
+href="https://en.wikipedia.org/wiki/Least_squares">least-squares
+method</a>. If you have ever fit a linear model (e.g. using
+<code>lm()</code> in R or an equivalent function in a different
+statistical software), chances are you used least squares as your
+objective function (maybe without knowing that you did). For least
+squares, we compute the squared difference between model prediction and
+data for each observation and sum it all up. In equation form:</p>
+<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i (Y_m^i -
+Y_d^i)^2\]</span> Again, <span class="math inline">\(Y^i_m\)</span> are
+all the predictions made by the model for the outcome, and the <span
+class="math inline">\(Y^i_d\)</span> are the actual outcomes from the
+data. The quantity <span class="math inline">\(C\)</span> for this
+equation has many names. A common one is least squares error, or sum of
+square residuals (SSR), or residual sum of squares (RSS), or sum of
+squares (SS), or residual square error (RSE), and a bunch of similar
+names. You will usually be able to tell from the context what is being
+used as the performance metric.</p>
+<p>You will often see a variation where one divides by the sample size,
+i.e. <span class="math inline">\(C\)</span> will look like</p>
+<p><span class="math display">\[C = \frac{1}{N} \sum_i (Y_m^i -
+Y_d^i)^2\]</span></p>
+<p>This is called <a
+href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared
+error</a>. Other names of exist of course.</p>
+<p>Dividing by the sample size has the advantage of allowing you to
+compare values across samples of different size from the same dataset
+(but it doesn’t really work for comparing across different datasets).
+For instance if you compare model performance on training and test data
+(to be discussed shortly), and each has different sample size, you need
+to make sure you standardize by it.</p>
+<p>If you want to compare different models on the same dataset which
+might include some missing values, and one of your models can deal with
+missing data while the other cannot, you need to be careful. One option
+is to fit both models only to the data without missing values. If you
+decide to allow one model to use the observations that have some missing
+values, while the other model does not, you definitely need to
+standardize by the sample size. Even then, care is needed, since the
+samples with some missing data might be systematically different from
+those without and thus the datasets might not be equivalent anymore.</p>
+<p>Another variant is a version where at the end you take the
+square-root, i.e.</p>
+<p><span class="math display">\[C = \sqrt{\frac{1}{N} \sum_i (Y_m^i -
+Y_d^i)^2}\]</span></p>
+<p>which is called the root mean squared error (RMSE). The advantage of
+taking the square-root at the end is that now the units of <span
+class="math inline">\(C\)</span> are the same as those of your outcomes.
+THis often makes interpretation of the results easier. In general, it is
+best to use MSE or RMSE. In <code>tidymodels</code>, the
+<code>yardstick</code> package has the <code>rmse()</code> metric
+built-in.</p>
 </div>
 <div id="coefficient-of-determination" class="section level2">
 <h2>Coefficient of determination</h2>
-<p>An equivalent alternative to SSR is to use a quantity called <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">Coefficient of determination</a>, or more commonly <span class="math inline">\(R^2\)</span> (R-squared). This quantity is defined as <span class="math display">\[1-RSS/TSS\]</span>, where RSS is the residual sum of square introduced above and TSS is the <a href="https://en.wikipedia.org/wiki/Total_sum_of_squares">total sum of squares</a>. The latter is defined as</p>
-<p><span class="math display">\[TSS =  \sum_i (Y_{av} - Y_d^i)^2\]</span></p>
-<p>where <span class="math inline">\(Y_{av}\)</span> is the mean of the data. Therefore, the equation for <span class="math inline">\(R^2\)</span> is</p>
-<p><span class="math display">\[R^2 = 1-  \frac{\sum_i (Y_m^i - Y_d^i)^2}{\sum_i (Y_{av} - Y_d^i)^2}\]</span></p>
-<p>Since TSS is fixed for a given dataset, minimizing SSR is equivalent to maximizing <span class="math inline">\(R^2\)</span>. You might see <span class="math inline">\(R^2\)</span> reported in papers, and it is highly likely that the fitting was performed by minimizing SSR (or MSE or RMSE). The SST is a useful quantity since it tells us the performance of a <em>dumb/null model</em> which uses no information from any predictor variables, but instead just predicts the mean of the outcomes. <strong>Any model you build that includes predictors needs to do better than this dumb null model.</strong></p>
-<p>Least squares fitting is simple and frequently used. A lot of standard routines in major statistical packages use least squares. It often makes good sense to penalize predictions that deviate from the actual value with the squared distance (and under certain conditions, this is equivalent to maximizing the likelihood). However, sometimes a different way to define the function <em>f</em> might be useful. We’ll discuss a few of them briefly.</p>
+<p>An equivalent alternative to SSR is to use a quantity called <a
+href="https://en.wikipedia.org/wiki/Coefficient_of_determination">Coefficient
+of determination</a>, or more commonly <span
+class="math inline">\(R^2\)</span> (R-squared). This quantity is defined
+as <span class="math display">\[1-RSS/TSS\]</span>, where RSS is the
+residual sum of square introduced above and TSS is the <a
+href="https://en.wikipedia.org/wiki/Total_sum_of_squares">total sum of
+squares</a>. The latter is defined as</p>
+<p><span class="math display">\[TSS =  \sum_i (Y_{av} -
+Y_d^i)^2\]</span></p>
+<p>where <span class="math inline">\(Y_{av}\)</span> is the mean of the
+data. Therefore, the equation for <span
+class="math inline">\(R^2\)</span> is</p>
+<p><span class="math display">\[R^2 = 1-  \frac{\sum_i (Y_m^i -
+Y_d^i)^2}{\sum_i (Y_{av} - Y_d^i)^2}\]</span></p>
+<p>Since TSS is fixed for a given dataset, minimizing SSR is equivalent
+to maximizing <span class="math inline">\(R^2\)</span>. You might see
+<span class="math inline">\(R^2\)</span> reported in papers, and it is
+highly likely that the fitting was performed by minimizing SSR (or MSE
+or RMSE). The SST is a useful quantity since it tells us the performance
+of a <em>dumb/null model</em> which uses no information from any
+predictor variables, but instead just predicts the mean of the outcomes.
+<strong>Any model you build that includes predictors needs to do better
+than this dumb null model.</strong></p>
+<p>Least squares fitting is simple and frequently used. A lot of
+standard routines in major statistical packages use least squares. It
+often makes good sense to penalize predictions that deviate from the
+actual value with the squared distance (and under certain conditions,
+this is equivalent to maximizing the likelihood). However, sometimes a
+different way to define the function <em>f</em> might be useful. We’ll
+discuss a few of them briefly.</p>
 </div>
 <div id="beyond-least-squares" class="section level2">
 <h2>Beyond least squares</h2>
-<p>An alternative to least squares is to penalize not with the distance <em>squared</em>, but <em>linearly</em> with the (absolute) distance. This metric is called <strong>(mean) absolute error</strong> or <a href="https://en.wikipedia.org/wiki/Least_absolute_deviations"><strong>(least) absolute deviation</strong></a>, and the model is</p>
-<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i |Y_m^i - Y_d^i|\]</span></p>
-<p>This approach can be useful if the data contains outliers (that are real, and one can’t justify removing them during cleaning). With a squared distance penalty, outliers have a strong impact on the model fit. With a linear penalty, such outliers carry less weight. Because of this, the linear difference approach is sometimes called a robust estimation. One drawback is that functions like <code>lm</code> or <code>glm</code> do not allow you to use this approach. However, a large number of R packages exist that allow fitting this way, see e.g., the <a href="https://cran.r-project.org/web/views/Robust.html">CRAN Robust Task View</a>. The <code>yardstick</code> package as the metric <code>mae()</code> which computes the mean absolute error.</p>
-<p>Another way to define <em>f</em> is with step functions. The idea is that as long as model and data are within some distance, the penalty is zero. Once model and data differ by some threshold, a penalty is given, e.g., a fixed value or a linear or quadratic penalty. Such types of schemes to define <em>f</em> are common in the class of models called Support Vector Machines, which we will look at later in the course.</p>
-<p>Some other metrics are implemented in <code>yardstick</code>. You can check out which ones <a href="https://yardstick.tidymodels.org/articles/metric-types.html">here</a>. For instance there is one called <code>huber_loss()</code> which is a combination of least squares and absolute error.</p>
-<p>No matter what scheme you choose, it might often be useful to weigh data points. In the examples given above, each model-data pair was given the same importance. Sometimes it might be that you have some data points that should carry more weight. A common case is if you have measurements not on the individual level but some aggregate level. As an example, assume you have a fraction of heart attacks among all patients for some time period in different hospitals, and you want to fit that fraction. You don’t know the number of people who had heart attacks, only the fraction. But you do know something about the total number of beds each hospital has. You could then argue that hospitals with more beds have more patients and thus likely more heart attacks, and therefore the data from larger hospitals should get more weight, and you could e.g., multiply each term in the sum by bed size. Note that this is a scientific decision based on your expert knowledge of the data. Almost all fitting routines allow you to provide weights for your data and you can then perform <em>weighted least squares</em> (or a weighted version of whatever other approaches you choose). Unfortunately, it seems that <a href="https://github.com/tidymodels/parsnip/issues/136">currently, tidymodels does not yet support weights - but plans to do so soon</a>.</p>
+<p>An alternative to least squares is to penalize not with the distance
+<em>squared</em>, but <em>linearly</em> with the (absolute) distance.
+This metric is called <strong>(mean) absolute error</strong> or <a
+href="https://en.wikipedia.org/wiki/Least_absolute_deviations"><strong>(least)
+absolute deviation</strong></a>, and the model is</p>
+<p><span class="math display">\[C = f(Y_m,Y_d) = \sum_i |Y_m^i -
+Y_d^i|\]</span></p>
+<p>This approach can be useful if the data contains outliers (that are
+real, and one can’t justify removing them during cleaning). With a
+squared distance penalty, outliers have a strong impact on the model
+fit. With a linear penalty, such outliers carry less weight. Because of
+this, the linear difference approach is sometimes called a robust
+estimation. One drawback is that functions like <code>lm</code> or
+<code>glm</code> do not allow you to use this approach. However, a large
+number of R packages exist that allow fitting this way, see e.g., the <a
+href="https://cran.r-project.org/web/views/Robust.html">CRAN Robust Task
+View</a>. The <code>yardstick</code> package as the metric
+<code>mae()</code> which computes the mean absolute error.</p>
+<p>Another way to define <em>f</em> is with step functions. The idea is
+that as long as model and data are within some distance, the penalty is
+zero. Once model and data differ by some threshold, a penalty is given,
+e.g., a fixed value or a linear or quadratic penalty. Such types of
+schemes to define <em>f</em> are common in the class of models called
+Support Vector Machines, which we will look at later in the course.</p>
+<p>Some other metrics are implemented in <code>yardstick</code>. You can
+check out which ones <a
+href="https://yardstick.tidymodels.org/articles/metric-types.html">here</a>.
+For instance there is one called <code>huber_loss()</code> which is a
+combination of least squares and absolute error.</p>
+<p>No matter what scheme you choose, it might often be useful to weigh
+data points. In the examples given above, each model-data pair was given
+the same importance. Sometimes it might be that you have some data
+points that should carry more weight. A common case is if you have
+measurements not on the individual level but some aggregate level. As an
+example, assume you have a fraction of heart attacks among all patients
+for some time period in different hospitals, and you want to fit that
+fraction. You don’t know the number of people who had heart attacks,
+only the fraction. But you do know something about the total number of
+beds each hospital has. You could then argue that hospitals with more
+beds have more patients and thus likely more heart attacks, and
+therefore the data from larger hospitals should get more weight, and you
+could e.g., multiply each term in the sum by bed size. Note that this is
+a scientific decision based on your expert knowledge of the data. Almost
+all fitting routines allow you to provide weights for your data and you
+can then perform <em>weighted least squares</em> (or a weighted version
+of whatever other approaches you choose). Unfortunately, it seems that
+<a href="https://github.com/tidymodels/parsnip/issues/136">currently,
+tidymodels does not yet support weights - but plans to do so
+soon</a>.</p>
 </div>
 </div>
-<div id="performance-measures-for-categorical-outcomes" class="section level1">
+<div id="performance-measures-for-categorical-outcomes"
+class="section level1">
 <h1>Performance measures for categorical outcomes</h1>
-<p>For categorical outcomes, one needs different ways to specify the loss function/metric. Again, a lot of different options exist. Here, we’ll just discuss a few common ones.</p>
+<p>For categorical outcomes, one needs different ways to specify the
+loss function/metric. Again, a lot of different options exist. Here,
+we’ll just discuss a few common ones.</p>
 <div id="accuracy" class="section level2">
 <h2>Accuracy</h2>
-<p>The simplest way to determine performance of a model for categorical data is to count the fraction of times the model did (not) correctly predict the outcome. If we instead count the fraction of correct predictions made by the model, it is called <strong>accuracy.</strong> If we focus on the number of times the model got it wrong, it is called the <strong>(mis)classification error</strong>. The <code>yardstick</code> package has it as metric <code>accuracy()</code>.</p>
-<p>While accuracy is often not a bad choice of metric, sometimes just counting the number of times a model didn’t get it right might not be the best idea. A common situation where accuracy (just counting how often the model prediction is right/wrong) is not very useful is for rare (but important) outcomes. Data of this type is often called <strong>unbalanced data</strong>. As an example, say we had some algorithm that tried to screen people to predict if they are about to go on a mass-shooting rampage. Fortunately, people like this are very rare. Let’s say (I’m making this number up) that 1 in a million people are at risk of committing such a crime. Therefore, a model that predicts that <em>nobody poses a danger</em> would be a very accurate model, it would only make one mistake in a million. However, missing that one person would be a very important mistake. We likely would prefer a model that predicts that 10 people are at risk of starting a mass-shooting, including the person really at risk and 9 false positives. This model has worse accuracy since it gets 9 out 1 million wrong. But it’s likely more important to catch the one true future mass-shooter before they have a chance to execute, even if it means checking in and interrogating several innocent individuals. Of course this trade-off is very common. You likely know it in the context of balancing <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">sensitivity and specificity</a> of say a clinical test.</p>
+<p>The simplest way to determine performance of a model for categorical
+data is to count the fraction of times the model did (not) correctly
+predict the outcome. If we instead count the fraction of correct
+predictions made by the model, it is called <strong>accuracy.</strong>
+If we focus on the number of times the model got it wrong, it is called
+the <strong>(mis)classification error</strong>. The
+<code>yardstick</code> package has it as metric
+<code>accuracy()</code>.</p>
+<p>While accuracy is often not a bad choice of metric, sometimes just
+counting the number of times a model didn’t get it right might not be
+the best idea. A common situation where accuracy (just counting how
+often the model prediction is right/wrong) is not very useful is for
+rare (but important) outcomes. Data of this type is often called
+<strong>unbalanced data</strong>. As an example, say we had some
+algorithm that tried to screen people to predict if they are about to go
+on a mass-shooting rampage. Fortunately, people like this are very rare.
+Let’s say (I’m making this number up) that 1 in a million people are at
+risk of committing such a crime. Therefore, a model that predicts that
+<em>nobody poses a danger</em> would be a very accurate model, it would
+only make one mistake in a million. However, missing that one person
+would be a very important mistake. We likely would prefer a model that
+predicts that 10 people are at risk of starting a mass-shooting,
+including the person really at risk and 9 false positives. This model
+has worse accuracy since it gets 9 out 1 million wrong. But it’s likely
+more important to catch the one true future mass-shooter before they
+have a chance to execute, even if it means checking in and interrogating
+several innocent individuals. Of course this trade-off is very common.
+You likely know it in the context of balancing <a
+href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">sensitivity
+and specificity</a> of say a clinical test.</p>
 </div>
 <div id="beyond-accuracy" class="section level2">
 <h2>Beyond accuracy</h2>
-<p>In instances where accuracy/misclassification is not a good performance metric, other metrics are more helpful. A large variety of such metrics exist. Some only apply to the special (but very common) case of a binary outcome, and others apply more generally. Fairly common ones are <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">(Cohen’s) Kappa</a>, which is implemented in <code>yardstick</code> as <code>kappa()</code>, <a href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews correlation coefficient</a> (<code>mcc()</code> in <code>yarstick</code>) and the <a href="https://en.wikipedia.org/wiki/F-score">F-score</a> (<code>f_meas()</code> in <code>yardstick</code>).</p>
+<p>In instances where accuracy/misclassification is not a good
+performance metric, other metrics are more helpful. A large variety of
+such metrics exist. Some only apply to the special (but very common)
+case of a binary outcome, and others apply more generally. Fairly common
+ones are <a
+href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">(Cohen’s)
+Kappa</a>, which is implemented in <code>yardstick</code> as
+<code>kappa()</code>, <a
+href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews
+correlation coefficient</a> (<code>mcc()</code> in
+<code>yarstick</code>) and the <a
+href="https://en.wikipedia.org/wiki/F-score">F-score</a>
+(<code>f_meas()</code> in <code>yardstick</code>).</p>
 </div>
 <div id="the-confusion-matrix" class="section level2">
 <h2>The confusion matrix</h2>
-<p>For the common case of a binary outcome, one can construct what is called the <a href="https://en.wikipedia.org/wiki/Confusion_matrix"><strong>confusion matrix</strong></a> (also known as 2x2 table in epidemiology). The confusion matrix tracks 4 quantities: true positives (TP, model predicts positive, and data is positive), true negative (TN, both model and data are negative), false positive (FP, model wrongly predicts positive) and false negative (FN, model wrongly predicts negative).</p>
-<p>The confusion matrix comes with very confusing terminology since many of the quantities are labeled differently in different fields. For instance, epidemiologists tend to call the quantity TP/(TP+FN) <em>sensitivity</em>, while in other areas, such as machine learning, it is called <em>recall</em>. For a good overview of those different quantities and terminology <a href="https://en.wikipedia.org/wiki/Confusion_matrix">see this Wikipedia article</a>.</p>
-<p>One can of course also make a table for a case with more than 2 outcomes and track the true values versus the predictions. Some of the metrics generalize to such a scenario of more than 2 outcomes, but not all do.</p>
+<p>For the common case of a binary outcome, one can construct what is
+called the <a
+href="https://en.wikipedia.org/wiki/Confusion_matrix"><strong>confusion
+matrix</strong></a> (also known as 2x2 table in epidemiology). The
+confusion matrix tracks 4 quantities: true positives (TP, model predicts
+positive, and data is positive), true negative (TN, both model and data
+are negative), false positive (FP, model wrongly predicts positive) and
+false negative (FN, model wrongly predicts negative).</p>
+<p>The confusion matrix comes with very confusing terminology since many
+of the quantities are labeled differently in different fields. For
+instance, epidemiologists tend to call the quantity TP/(TP+FN)
+<em>sensitivity</em>, while in other areas, such as machine learning, it
+is called <em>recall</em>. For a good overview of those different
+quantities and terminology <a
+href="https://en.wikipedia.org/wiki/Confusion_matrix">see this Wikipedia
+article</a>.</p>
+<p>One can of course also make a table for a case with more than 2
+outcomes and track the true values versus the predictions. Some of the
+metrics generalize to such a scenario of more than 2 outcomes, but not
+all do.</p>
 </div>
 </div>
 <div id="custom-cost-functionsmetrics" class="section level1">
 <h1>Custom cost functions/metrics</h1>
-<p>While one of the standard loss functions/metrics (e.g., those just discussed or other commone ones) might work for your data and question, it is worth thinking carefully about what it is you want to optimize, i.e., how exactly the function <em>f</em> should work.</p>
-<p>There are many different performance measures that have already been “invented”. All metrics currently implemented in <code>yardstick</code> are <a href="https://yardstick.tidymodels.org/articles/metric-types.html">listed here</a>.</p>
-<p>If no existing measure is suitable for your problem, you can and should define your own. Based on scientific/expert knowledge, you should define the most appropriate cost function and then measure your models based on that. <strong>Getting the cost function right is an important, and often overlooked part of the modeling process.</strong> For instance, revisiting the example I gave above, if we think that falsely accusing a person of being a criminal has cost (in some units, that could be monetary or otherwise) of 1, but missing to identify a person who is a threat has cost of 1000, then we should weigh false positives and false negatives accordingly when computing our cost function and designing our model. This is similar to applying weights in the continuous case. The <code>yardstick</code> package allows you to define your own metrics, <a href="https://yardstick.tidymodels.org/articles/custom-metrics.html">as described here</a>.</p>
+<p>While one of the standard loss functions/metrics (e.g., those just
+discussed or other commone ones) might work for your data and question,
+it is worth thinking carefully about what it is you want to optimize,
+i.e., how exactly the function <em>f</em> should work.</p>
+<p>There are many different performance measures that have already been
+“invented”. All metrics currently implemented in <code>yardstick</code>
+are <a
+href="https://yardstick.tidymodels.org/articles/metric-types.html">listed
+here</a>.</p>
+<p>If no existing measure is suitable for your problem, you can and
+should define your own. Based on scientific/expert knowledge, you should
+define the most appropriate cost function and then measure your models
+based on that. <strong>Getting the cost function right is an important,
+and often overlooked part of the modeling process.</strong> For
+instance, revisiting the example I gave above, if we think that falsely
+accusing a person of being a criminal has cost (in some units, that
+could be monetary or otherwise) of 1, but missing to identify a person
+who is a threat has cost of 1000, then we should weigh false positives
+and false negatives accordingly when computing our cost function and
+designing our model. This is similar to applying weights in the
+continuous case. The <code>yardstick</code> package allows you to define
+your own metrics, <a
+href="https://yardstick.tidymodels.org/articles/custom-metrics.html">as
+described here</a>.</p>
 </div>
 <div id="likelihood-approach" class="section level1">
 <h1>Likelihood approach</h1>
-<p>The most general approach to defining the cost/loss function, <em>f</em>, is the likelihood approach. Using this approach, which underlies a lot of modern statistics, both frequentist and Bayesian approaches, you start by explicitly specifying a model/distribution for the data (both deterministic and probability parts). As an example, you might postulate that expected number of cases of Cholera in a given month depends linearly on the monthly amount of rainfall (deterministic component) and that the actual/measured number of cases are Poisson distributed (probability component). Both the deterministic and probabilistic components of your model have parameters. You write down (or simulate) the likelihood and then run some optimization routine which varies parameters until it found the optimal result (maximum of the likelihood, or more commonly the minimum of the log-likelihood).</p>
-<p>Using the Likelihood is the most general and flexible approach to model fitting and for more complex problems, often the only feasible approach. It applies to any kind of outcome, and you can specify any model you want. Unfortunately, it is generally more complicated and often requires more custom-written code (though a lot more user-friendly R packages have become available in recent times). We can’t get much into likelihood-based fitting in this course. For more information, I recommend <a href="https://ms.mcmaster.ca/~bolker/emdbook/">Ben Bolker’s book “Ecological Models and Data in R”</a> as a good starting point for (mostly frequentists) Likelihood fitting approaches. Another book that introduces the ideas from a Bayesian perspective is <a href="https://xcelab.net/rm/statistical-rethinking/">Statistical Rethinking</a>. Unfortunately, neither book is freely available online (as far as I’m aware). If you know of any good introductory books that teach model fitting using likelihood approaches with R, please let me know.</p>
+<p>The most general approach to defining the cost/loss function,
+<em>f</em>, is the likelihood approach. Using this approach, which
+underlies a lot of modern statistics, both frequentist and Bayesian
+approaches, you start by explicitly specifying a model/distribution for
+the data (both deterministic and probability parts). As an example, you
+might postulate that expected number of cases of Cholera in a given
+month depends linearly on the monthly amount of rainfall (deterministic
+component) and that the actual/measured number of cases are Poisson
+distributed (probability component). Both the deterministic and
+probabilistic components of your model have parameters. You write down
+(or simulate) the likelihood and then run some optimization routine
+which varies parameters until it found the optimal result (maximum of
+the likelihood, or more commonly the minimum of the log-likelihood).</p>
+<p>Using the Likelihood is the most general and flexible approach to
+model fitting and for more complex problems, often the only feasible
+approach. It applies to any kind of outcome, and you can specify any
+model you want. Unfortunately, it is generally more complicated and
+often requires more custom-written code (though a lot more user-friendly
+R packages have become available in recent times). We can’t get much
+into likelihood-based fitting in this course. For more information, I
+recommend <a href="https://ms.mcmaster.ca/~bolker/emdbook/">Ben Bolker’s
+book “Ecological Models and Data in R”</a> as a good starting point for
+(mostly frequentists) Likelihood fitting approaches. Another book that
+introduces the ideas from a Bayesian perspective is <a
+href="https://xcelab.net/rm/statistical-rethinking/">Statistical
+Rethinking</a>. Unfortunately, neither book is freely available online
+(as far as I’m aware). If you know of any good introductory books that
+teach model fitting using likelihood approaches with R, please let me
+know.</p>
 </div>
 <div id="further-materials" class="section level1">
 <h1>Further materials</h1>
-<p>If you want to get some more intuition with fitting a continuous outcome, <a href="https://shiny.ovpr.uga.edu/modelperformance/">go through this interactive tutorial</a>. If it looks like the RStudio Primer tutorials you’ve seen, that is no accident. Both use the <a href="https://rstudio.github.io/learnr/">learnr package</a>. The difference is that I wrote this tutorial, the other ones were written by RStudio and are therefore more polished and less buggy 😄.</p>
-<p>The <a href="https://bradleyboehmke.github.io/HOML/process.html#model-eval">model evaluation section of HMLR</a> lists and describes various performance metrics. <a href="https://www.tmwr.org/performance.html">This chapter of the Tidy Modeling with R book</a> also discusses different performance metrics.</p>
-<p><a href="https://www.statlearning.com/">Chapter 2 of ISRL</a>, which you already looked at previously, also discusses the topic of performance, and several other issues we are discussing in this module. Now, or once you are finished with the other readings of this module, might be good time to revisit that chapter.</p>
+<p>If you want to get some more intuition with fitting a continuous
+outcome, <a href="https://shiny.ovpr.uga.edu/modelperformance/">go
+through this interactive tutorial</a>. If it looks like the RStudio
+Primer tutorials you’ve seen, that is no accident. Both use the <a
+href="https://rstudio.github.io/learnr/">learnr package</a>. The
+difference is that I wrote this tutorial, the other ones were written by
+RStudio and are therefore more polished and less buggy 😄.</p>
+<p>The <a
+href="https://bradleyboehmke.github.io/HOML/process.html#model-eval">model
+evaluation section of HMLR</a> lists and describes various performance
+metrics. <a href="https://www.tmwr.org/performance.html">This chapter of
+the Tidy Modeling with R book</a> also discusses different performance
+metrics.</p>
+<p><a href="https://www.statlearning.com/">Chapter 2 of ISRL</a>, which
+you already looked at previously, also discusses the topic of
+performance, and several other issues we are discussing in this module.
+Now, or once you are finished with the other readings of this module,
+might be good time to revisit that chapter.</p>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
-<li id="fn1"><p>Technically, for <code>lm()</code> and some other simple models, it is possible to find the best parameter values other than by ‘trial and error’, but for many other models, this is more or less what is happening. Developing routines that can quickly, efficiently, and reliably find the optimum value of a function (here the minimum of <em>C</em>) is part of the large field of <a href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a>. Fortunately, for our purposes, we can let the different functions in R do this task without us having to worry too much about how the optimal value is determined. However, for more advanced analyses, the built-in optimizers sometimes do not work. In that case, I recommend using the <code>nloptr</code> package - but we won’t need it in this course.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Technically, for <code>lm()</code> and some other simple
+models, it is possible to find the best parameter values other than by
+‘trial and error’, but for many other models, this is more or less what
+is happening. Developing routines that can quickly, efficiently, and
+reliably find the optimum value of a function (here the minimum of
+<em>C</em>) is part of the large field of <a
+href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a>.
+Fortunately, for our purposes, we can let the different functions in R
+do this task without us having to worry too much about how the optimal
+value is determined. However, for more advanced analyses, the built-in
+optimizers sometimes do not work. In that case, I recommend using the
+<code>nloptr</code> package - but we won’t need it in this course.<a
+href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

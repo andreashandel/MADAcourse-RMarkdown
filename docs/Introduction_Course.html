@@ -14,7 +14,7 @@
 
 <title>MADA - Course Introduction</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,11 +651,16 @@ div.tocify {
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn’t matter if you are enrolled under the EPID or BIOS label. I will generally refer to the course as MADA.</p>
+<p>Welcome to the class Modern Applied Data Analysis (MADA)! The course
+is listed as EPID8060E/BIOS8060E. It doesn’t matter if you are enrolled
+under the EPID or BIOS label. I will generally refer to the course as
+MADA.</p>
 </div>
 <div id="module-overview" class="section level2">
 <h2>Module Overview</h2>
-<p>The course is divided into modules. Each module is usually covered over 1-2 weeks. This first module provides a brief introduction to the course, the tools we will be using, and the topic.</p>
+<p>The course is divided into modules. Each module is usually covered
+over 1-2 weeks. This first module provides a brief introduction to the
+course, the tools we will be using, and the topic.</p>
 </div>
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
@@ -663,14 +672,19 @@ div.tocify {
 </div>
 <div id="course-goals" class="section level2">
 <h2>Course Goals</h2>
-<p>The main goal for this course is for you to learn the whole process of performing a data analysis project. The focus is on applied analysis of real world, messy data.</p>
-<p>A second goal is to introduce you to some modern analysis approaches commonly referred to as <strong>Machine Learning</strong>.</p>
-<p>A related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.</p>
+<p>The main goal for this course is for you to learn the whole process
+of performing a data analysis project. The focus is on applied analysis
+of real world, messy data.</p>
+<p>A second goal is to introduce you to some modern analysis approaches
+commonly referred to as <strong>Machine Learning</strong>.</p>
+<p>A related goal is to introduce you to a set of tools that allow for a
+modern, reproducible workflow of your analysis.</p>
 <p>For more detailed learning objectives, see the course syllabus.</p>
 <div class="figure" style="text-align: center">
 <img src="media/phd_dataisorare.gif" alt="In this course, we randomly switch back and forth. Source: phdcomics.com." width="100%" />
 <p class="caption">
-In this course, we randomly switch back and forth. Source: phdcomics.com.
+In this course, we randomly switch back and forth. Source:
+phdcomics.com.
 </p>
 </div>
 </div>
@@ -678,31 +692,71 @@ In this course, we randomly switch back and forth. Source: phdcomics.com.
 <h2>Course Philosophy</h2>
 <p>Here are my goals, promises, and expectations for this course.</p>
 <ul>
-<li><p>I expect you to be self-motivated and committed to learning the material by putting in the effort needed to succeed.</p></li>
-<li><p>I will try to maximize the rewards you get by hopefully teaching methods that are useful to you, and I will try to provide as much help as needed to maximize your learning.</p></li>
-<li><p>This class strives to be challenging but non-threatening. As such, I’ll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don’t grade hard - unless you fail to keep up your end of the agreement and don’t put in the work.</p></li>
-<li><p>This class is <em>open everything</em>. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning.</p></li>
-<li><p>I will not perform any policing to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to <em>help you stay on track.</em> If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning.</p></li>
+<li><p>I expect you to be self-motivated and committed to learning the
+material by putting in the effort needed to succeed.</p></li>
+<li><p>I will try to maximize the rewards you get by hopefully teaching
+methods that are useful to you, and I will try to provide as much help
+as needed to maximize your learning.</p></li>
+<li><p>This class strives to be challenging but non-threatening. As
+such, I’ll make you work hard, and expect you to do the assigned tasks
+by the deadlines, but in the end, I usually don’t grade hard - unless
+you fail to keep up your end of the agreement and don’t put in the
+work.</p></li>
+<li><p>This class is <em>open everything</em>. You can use the internet,
+ask your classmates, myself and others, get help from wherever you can.
+I trust you will find the right balance of getting help when you need it
+while still putting in enough effort to experience real
+learning.</p></li>
+<li><p>I will not perform any policing to try to prevent you from taking
+shortcuts (i.e., not doing work yourself). The class contains graded
+assessments with deadlines, but those are meant to <em>help you stay on
+track.</em> If you somehow cheat - and cheating will be easy - you are
+mainly cheating yourself out of learning.</p></li>
 </ul>
-<p><strong>Overall, I hope this course is going to be useful, interesting, challenging and also interactive. Online courses are always a bit tricky with interaction/participation. I hope we can create something online that feels like a classroom. Please participate, ask questions, etc. The more you engage in the course, the more you’ll get out of it.</strong></p>
+<p><strong>Overall, I hope this course is going to be useful,
+interesting, challenging and also interactive. Online courses are always
+a bit tricky with interaction/participation. I hope we can create
+something online that feels like a classroom. Please participate, ask
+questions, etc. The more you engage in the course, the more you’ll get
+out of it.</strong></p>
 </div>
 <div id="course-setup" class="section level2">
 <h2>Course Setup</h2>
 <ul>
-<li>The course is split into modules, each with one or more units. Each module will usually be covered in a week. The <strong>Schedule</strong> document gives an outline. The schedule is not fully finalized and will change, so check frequently.</li>
-<li>Each module consists of one or several units/documents containing a mix of things I wrote, and writings or videos by others. They are listed in the order you should go through them.</li>
-<li>All material for the course can be accessed through this course website. Some material might not be available yet and will be unlocked as the course proceeds.</li>
-<li>There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Otherwise, consider the materials to be resources you can visit on demand, e.g., when you are working on the exercises.</li>
-<li>You will be placed in groups throughout the course. The hope is that this will create a support group of classmates where you can help each other. Assignments often require interaction among group members (like in a real-world team), and I hope you will interact with your group members outside the assignments as well. You are welcome and encouraged to interact with anyone else in the course.</li>
+<li>The course is split into modules, each with one or more units. Each
+module will usually be covered in a week. The <strong>Schedule</strong>
+document gives an outline. The schedule is not fully finalized and will
+change, so check frequently.</li>
+<li>Each module consists of one or several units/documents containing a
+mix of things I wrote, and writings or videos by others. They are listed
+in the order you should go through them.</li>
+<li>All material for the course can be accessed through this course
+website. Some material might not be available yet and will be unlocked
+as the course proceeds.</li>
+<li>There is generally a lot of material for each unit. You are expected
+to go through the main components at a level that allows you to get the
+big picture and be able to answer the quiz questions. Otherwise,
+consider the materials to be resources you can visit on demand, e.g.,
+when you are working on the exercises.</li>
+<li>You will be placed in groups throughout the course. The hope is that
+this will create a support group of classmates where you can help each
+other. Assignments often require interaction among group members (like
+in a real-world team), and I hope you will interact with your group
+members outside the assignments as well. You are welcome and encouraged
+to interact with anyone else in the course.</li>
 </ul>
 </div>
 <div id="course-tools" class="section level2">
 <h2>Course Tools</h2>
-<p>This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.</p>
+<p>This is a brief overview of the tools we will be using for this
+class. The next module, which you can and should start right after
+finishing this one, describes all these tools in more detail and gives
+instructions on how to set them all up.</p>
 <ul>
 <li>We will use the R software in this course.</li>
 <li>We will also use RStudio (a graphical frontend to R).</li>
-<li>We will use a lot of tools available within R/RStudio, such as R Markdown and related features.</li>
+<li>We will use a lot of tools available within R/RStudio, such as R
+Markdown and related features.</li>
 <li>We will use Git/GitHub for exercises and the project.</li>
 <li>We will use Slack for discussions and help.</li>
 <li>We will use an online system for quizzes.</li>
@@ -710,15 +764,22 @@ In this course, we randomly switch back and forth. Source: phdcomics.com.
 </div>
 <div id="assessments" class="section level2">
 <h2>Assessments</h2>
-<p>For details on assessments, see the <a href="./Course_Assessments.html">Assessments page</a>.</p>
+<p>For details on assessments, see the <a
+href="./Course_Assessments.html">Assessments page</a>.</p>
 </div>
 <div id="course-resources" class="section level2">
 <h2>Course Resources</h2>
-<p>We’ll be drawing on a lot of different resources. I compiled a list with the ones we’ll use and others you might find helpful in the <strong>Resources</strong> section of the class website.</p>
+<p>We’ll be drawing on a lot of different resources. I compiled a list
+with the ones we’ll use and others you might find helpful in the
+<strong>Resources</strong> section of the class website.</p>
 </div>
 <div id="getting-help" class="section level2">
 <h2>Getting help</h2>
-<p>I do not expect you to figure it all out yourselves. You will get stuck and are encouraged to seek help. You can ask for help from your classmates or your instructor. Also, use the wider community online. For specific places to get help, see the <strong>Resources</strong> pages.</p>
+<p>I do not expect you to figure it all out yourselves. You will get
+stuck and are encouraged to seek help. You can ask for help from your
+classmates or your instructor. Also, use the wider community online. For
+specific places to get help, see the <strong>Resources</strong>
+pages.</p>
 </div>
 
 

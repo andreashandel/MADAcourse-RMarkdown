@@ -14,7 +14,7 @@
 
 <title>Assessment - Evaluating models</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,65 +651,154 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>We’ll practice the topics covered in this unit by continuing with the exercise from last week.</p>
+<p>We’ll practice the topics covered in this unit by continuing with the
+exercise from last week.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>For this week’s exercise, we’ll continue on the exercise from last week.</p>
-<p>We’ll also do some group work again, using the – by now familiar – M1, M2, … setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked with. The goal is that, as in past exercises, everyone will work on their own repository and on one other person’s repository. If you are in a group of 4, you can also do pairs. That of course doesn’t work in a group of 3, so you need to use the ‘circular’ setup there.</p>
-<p>Make sure you have the latest version of the repository on your local machine. As needed, pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio.</p>
-<p>At this stage, I assume all the data wrangling and EDA code, as well as the model fitting code you worked on previously is present and fully functional. If there are still some issues that need to be resolved, go ahead and do so.</p>
-<p>Start with a new/clean analysis script. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then source/load it from your <code>Rmd</code> file, or have everything inside the <code>Rmd</code> file. In either case, document/comment well.</p>
+<p>For this week’s exercise, we’ll continue on the exercise from last
+week.</p>
+<p>We’ll also do some group work again, using the – by now familiar –
+M1, M2, … setup. Assign each other a number. As much as possible, do it
+such that you end up working with group members you have not (or not in
+a while) worked with. The goal is that, as in past exercises, everyone
+will work on their own repository and on one other person’s repository.
+If you are in a group of 4, you can also do pairs. That of course
+doesn’t work in a group of 3, so you need to use the ‘circular’ setup
+there.</p>
+<p>Make sure you have the latest version of the repository on your local
+machine. As needed, pull/push/merge to make sure remote and local
+repositories are in sync. Open the project in RStudio.</p>
+<p>At this stage, I assume all the data wrangling and EDA code, as well
+as the model fitting code you worked on previously is present and fully
+functional. If there are still some issues that need to be resolved, go
+ahead and do so.</p>
+<p>Start with a new/clean analysis script. Start with a clean analysis
+script. Use another R Markdown file. If you want, you can place some of
+the code into a separate R script and then source/load it from your
+<code>Rmd</code> file, or have everything inside the <code>Rmd</code>
+file. In either case, document/comment well.</p>
 </div>
 <div id="data-splitting" class="section level2">
 <h2>Data splitting</h2>
-<p>Write code that takes the data and splits it randomly into a train and test that, following for instance the example in the <a href="https://www.tidymodels.org/start/recipes/">Data Splitting section of the Get Started tidymodels tutorial</a>.</p>
+<p>Write code that takes the data and splits it randomly into a train
+and test that, following for instance the example in the <a
+href="https://www.tidymodels.org/start/recipes/">Data Splitting section
+of the Get Started tidymodels tutorial</a>.</p>
 </div>
 <div id="workflow-creation-and-model-fitting" class="section level2">
 <h2>Workflow creation and model fitting</h2>
-<p>Next, following the example in the <a href="https://www.tidymodels.org/start/recipes/">Create Recipes section of the Get Started tidymodels tutorial</a>, create a simple recipe that fits our <strong>categorical outcome of interest</strong> to all predictors (we’ll start with categorical and all predictors since that’s the closest to the shown example). For now, you can ignore the concept of <code>roles</code> and <code>features</code> they mention.</p>
-<p>Set a model as you did in the previous exercise, then use the <code>workflow()</code> package to create a simple workflow that fits a logistic model to all predictors using the <code>glm</code> function. To that end, follow the <em>Fit a model with a recipe</em> section of the tutorial and adjust for your case.</p>
-<p>You should end up with a fit object similar to the one shown at the end of that section in the tutorial - of course, yours will look somewhat different since you are using a different dataset, but overall things should look similar.</p>
+<p>Next, following the example in the <a
+href="https://www.tidymodels.org/start/recipes/">Create Recipes section
+of the Get Started tidymodels tutorial</a>, create a simple recipe that
+fits our <strong>categorical outcome of interest</strong> to all
+predictors (we’ll start with categorical and all predictors since that’s
+the closest to the shown example). For now, you can ignore the concept
+of <code>roles</code> and <code>features</code> they mention.</p>
+<p>Set a model as you did in the previous exercise, then use the
+<code>workflow()</code> package to create a simple workflow that fits a
+logistic model to all predictors using the <code>glm</code> function. To
+that end, follow the <em>Fit a model with a recipe</em> section of the
+tutorial and adjust for your case.</p>
+<p>You should end up with a fit object similar to the one shown at the
+end of that section in the tutorial - of course, yours will look
+somewhat different since you are using a different dataset, but overall
+things should look similar.</p>
 </div>
 <div id="model-1-evaluation" class="section level2">
 <h2>Model 1 evaluation</h2>
-<p>Follow the example in the <em>Use a trained workflow to predict</em> section of the tutorial to look at the predictions, ROC curve and ROC-AUC for your data. Apply it to both the training and the test data. ROC curve analysis and ROC-AUC is another common performance measure/metric for categorical outcomes. If you are not familiar with it, you can read more about them by following the link in the tutorial. It’s not too important to go into the details for now. The focus here is on getting the code to work. In general, a ROC-AUC of 0.5 means the model is no good, 1 is a perfect model. Generally, somewhere above 0.7 do people think the model might be useful. If your model has a ROC-AUC a lot less than 0.5, you likely have an issue with how your factors are coded or how tidymodels is interpreting them.</p>
+<p>Follow the example in the <em>Use a trained workflow to predict</em>
+section of the tutorial to look at the predictions, ROC curve and
+ROC-AUC for your data. Apply it to both the training and the test data.
+ROC curve analysis and ROC-AUC is another common performance
+measure/metric for categorical outcomes. If you are not familiar with
+it, you can read more about them by following the link in the tutorial.
+It’s not too important to go into the details for now. The focus here is
+on getting the code to work. In general, a ROC-AUC of 0.5 means the
+model is no good, 1 is a perfect model. Generally, somewhere above 0.7
+do people think the model might be useful. If your model has a ROC-AUC a
+lot less than 0.5, you likely have an issue with how your factors are
+coded or how tidymodels is interpreting them.</p>
 </div>
 <div id="alternative-model" class="section level2">
 <h2>Alternative model</h2>
-<p>Let’s re-do the fitting but now with a model that only fits the main predictor to the categorical outcome. You should notice that the only thing you have to change is to set up a new <code>recipe</code>, this time one that only has the name of the predictor of interest on the right side of the formula (instead of the <code>.</code> symbol, which is shorthand notation for “all predictors”.) Then you can set up a new workflow with the new recipe, rerun the fit and evaluate performance using the same code as above. In general, if you do multiple models/recipes, you might want to write a loop to go over them, or parallelize/vectorize things. For now, just copying and pasting most of the code is ok.</p>
+<p>Let’s re-do the fitting but now with a model that only fits the main
+predictor to the categorical outcome. You should notice that the only
+thing you have to change is to set up a new <code>recipe</code>, this
+time one that only has the name of the predictor of interest on the
+right side of the formula (instead of the <code>.</code> symbol, which
+is shorthand notation for “all predictors”.) Then you can set up a new
+workflow with the new recipe, rerun the fit and evaluate performance
+using the same code as above. In general, if you do multiple
+models/recipes, you might want to write a loop to go over them, or
+parallelize/vectorize things. For now, just copying and pasting most of
+the code is ok.</p>
 </div>
 <div id="wrap-up-part-1" class="section level2">
 <h2>Wrap up part 1</h2>
-<p>Make sure everything runs and works as expected. Then commit, push and tell your classmate that they can take over. <strong>Finish this by Wednesday.</strong></p>
+<p>Make sure everything runs and works as expected. Then commit, push
+and tell your classmate that they can take over. <strong>Finish this by
+Wednesday.</strong></p>
 </div>
 <div id="continous-outcome" class="section level2">
 <h2>Continous outcome</h2>
-<p>Fork and clone (or if you are added as collaborator, clone directly) your classmate’s repository. Add code at the bottom of theirs. <strong>Mark where your contribution starts with your name.</strong></p>
-<p>Add code that repeats the above steps, but now fits linear models to the continuous outcome. One model with all predictors, one model with just the main predictor. For that, you need to change your metric. RMSE is a good one to choose. You should find that a lot of the code your classmate wrote can copied/pasted/re-used with only minimal modifications.</p>
+<p>Fork and clone (or if you are added as collaborator, clone directly)
+your classmate’s repository. Add code at the bottom of theirs.
+<strong>Mark where your contribution starts with your name.</strong></p>
+<p>Add code that repeats the above steps, but now fits linear models to
+the continuous outcome. One model with all predictors, one model with
+just the main predictor. For that, you need to change your metric. RMSE
+is a good one to choose. You should find that a lot of the code your
+classmate wrote can copied/pasted/re-used with only minimal
+modifications.</p>
 </div>
 <div id="wrap-up-part-2" class="section level2">
 <h2>Wrap up part 2</h2>
-<p>Make sure everything runs and works as expected. Then commit, push and if you forked the repo, initiate a pull request. Tell our classmate that its done.</p>
+<p>Make sure everything runs and works as expected. Then commit, push
+and if you forked the repo, initiate a pull request. Tell our classmate
+that its done.</p>
 </div>
 <div id="cleanup-and-submit" class="section level2">
 <h2>Cleanup and submit</h2>
-<p>The original repository owner should make sure everything works, and update as needed. At this point, you might also want to perform some cleanup in your repository. You will keep working on this exercise, and eventually add it to your online portfolio website, so it’s a good idea to clean up a bit. Update README files, remove files and folders that are not used, etc. Ideally, you should have only materials in there that are relevant to the various exercise parts you (and your classmate contributors) did for this. Any leftover stuff from the original template should go or be updated.</p>
-<p>Once all is ready, push to GitHub. No need to post a link since it’s the same one as last week.</p>
+<p>The original repository owner should make sure everything works, and
+update as needed. At this point, you might also want to perform some
+cleanup in your repository. You will keep working on this exercise, and
+eventually add it to your online portfolio website, so it’s a good idea
+to clean up a bit. Update README files, remove files and folders that
+are not used, etc. Ideally, you should have only materials in there that
+are relevant to the various exercise parts you (and your classmate
+contributors) did for this. Any leftover stuff from the original
+template should go or be updated.</p>
+<p>Once all is ready, push to GitHub. No need to post a link since it’s
+the same one as last week.</p>
 </div>
 <div id="looking-ahead" class="section level2">
 <h2>Looking ahead</h2>
-<p>We also covered overfitting and strategies to minimize it (e.g., cross-validation), and further model assessment strategies in the materials. We’ll practice those in future exercises. I figured the above will already take a good bit of getting used to, and we will be able to practice more when we look at further model types in the coming weeks.</p>
+<p>We also covered overfitting and strategies to minimize it (e.g.,
+cross-validation), and further model assessment strategies in the
+materials. We’ll practice those in future exercises. I figured the above
+will already take a good bit of getting used to, and we will be able to
+practice more when we look at further model types in the coming
+weeks.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Write a post in this week’s discussion channel that answers this question:</p>
-<p>Which of the concept(s) we covered in this module is/are the most interesting/surprising to you, and why? And which concept(s) or topic(s) from this module’s materials do you find the most confusing, and why/how so?</p>
-<p>Post by Wednesday, then reply to each other by Friday. See if you can help each other reduce any existing confusion. I’ll be participating too of course.</p>
+<p>Write a post in this week’s discussion channel that answers this
+question:</p>
+<p>Which of the concept(s) we covered in this module is/are the most
+interesting/surprising to you, and why? And which concept(s) or topic(s)
+from this module’s materials do you find the most confusing, and why/how
+so?</p>
+<p>Post by Wednesday, then reply to each other by Friday. See if you can
+help each other reduce any existing confusion. I’ll be participating too
+of course.</p>
 </div>
 
 

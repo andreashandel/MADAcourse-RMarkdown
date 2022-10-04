@@ -14,7 +14,7 @@
 
 <title>Some Guidance and Tips for R/RStudio/GitHub</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -638,7 +642,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Some Guidance and Tips for R/RStudio/GitHub</h1>
+<h1 class="title toc-ignore">Some Guidance and Tips for
+R/RStudio/GitHub</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-09-13 08:31:47</h4>
 
@@ -647,36 +652,159 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This document is a collection of guides and tips related to getting started and using R, R Studio and GitHub, based on stumbling blocks that I have noticed students encounter somewhat regularly.</p>
+<p>This document is a collection of guides and tips related to getting
+started and using R, R Studio and GitHub, based on stumbling blocks that
+I have noticed students encounter somewhat regularly.</p>
 </div>
 <div id="general-coding" class="section level1">
 <h1>General Coding</h1>
-<p>Here are a few brief suggestions for good coding practices in R (and any other language.)</p>
-<p><strong>Write modular code.</strong> The idea is that you break things into logical components, and structure your code that way. For instance R Markdown chunks are little modules. Each chunk should do some actions that make sense to be grouped together. For instance one or a few data cleaning steps can be in a code chunk. Then for the next set of actions (e.g. making a plot), you start a new chunk. You should also add comments explaining not only each line of code, but also what those modules do. Structuring your codes into sections/modules that do specific things makes it easier to follow what is going on.</p>
-<p><strong>Write DRY code.</strong> DRY stands for <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Don’t Repeat Yourself</a>. The idea is that if you have code that does the same thing more than once (or maybe more than a few times), you should rewrite your code in such a way that you write a single bit (module) of code that you call repeatedly. The most natural way this is done is with writing a function.</p>
-<p><strong>Write functions.</strong> Pretty much everything you use in R (or other languages) is a function. A function is a bit of code that you give some <em>inputs</em> (also called <em>arguments</em>), the function does something with those inputs, and usually returns something back to you (not always, sometimes the function might write a file to your computer). For instance if you define some object/variable <code>x</code> and send it to the function <code>sum()</code>, then <code>sum(x)</code> returns the sum of the elements in <code>x</code>. It likely also does a few other things, such as checking that everything contained in <code>x</code> is a number that can be summed. While writing your own functions is a bit more advanced, at some point you should do it. Functions are automatically modular and allow for DRY coding. They are therefore important components of most code. It takes a bit of practice, but once you understand how functions work, you should be able to write your own as part of your code. Functions can either live in separate files, or in the same file (usually at the top) from which you call it. We generally call code that just runs, without being passed in things and returning stuff, a <em>script</em> to differentiate it from a <em>function</em>. The R Studio Primers might be a good starting point if you are completely new to functions.</p>
-<p><strong>Have consistent style.</strong> There are often many ways to implement a certain operation with code. There are also many ways how you style your code (e.g., give variables names, use indentation). It’s important to write code that looks consistent and is written in a way that’s easy to read and comprehend by others and your future self. For R, the tidyverse has <a href="https://style.tidyverse.org/">a style guide</a> which is a good one to use. But you don’t have to follow it, you can have your own style.</p>
+<p>Here are a few brief suggestions for good coding practices in R (and
+any other language.)</p>
+<p><strong>Write modular code.</strong> The idea is that you break
+things into logical components, and structure your code that way. For
+instance R Markdown chunks are little modules. Each chunk should do some
+actions that make sense to be grouped together. For instance one or a
+few data cleaning steps can be in a code chunk. Then for the next set of
+actions (e.g. making a plot), you start a new chunk. You should also add
+comments explaining not only each line of code, but also what those
+modules do. Structuring your codes into sections/modules that do
+specific things makes it easier to follow what is going on.</p>
+<p><strong>Write DRY code.</strong> DRY stands for <a
+href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">Don’t
+Repeat Yourself</a>. The idea is that if you have code that does the
+same thing more than once (or maybe more than a few times), you should
+rewrite your code in such a way that you write a single bit (module) of
+code that you call repeatedly. The most natural way this is done is with
+writing a function.</p>
+<p><strong>Write functions.</strong> Pretty much everything you use in R
+(or other languages) is a function. A function is a bit of code that you
+give some <em>inputs</em> (also called <em>arguments</em>), the function
+does something with those inputs, and usually returns something back to
+you (not always, sometimes the function might write a file to your
+computer). For instance if you define some object/variable
+<code>x</code> and send it to the function <code>sum()</code>, then
+<code>sum(x)</code> returns the sum of the elements in <code>x</code>.
+It likely also does a few other things, such as checking that everything
+contained in <code>x</code> is a number that can be summed. While
+writing your own functions is a bit more advanced, at some point you
+should do it. Functions are automatically modular and allow for DRY
+coding. They are therefore important components of most code. It takes a
+bit of practice, but once you understand how functions work, you should
+be able to write your own as part of your code. Functions can either
+live in separate files, or in the same file (usually at the top) from
+which you call it. We generally call code that just runs, without being
+passed in things and returning stuff, a <em>script</em> to differentiate
+it from a <em>function</em>. The R Studio Primers might be a good
+starting point if you are completely new to functions.</p>
+<p><strong>Have consistent style.</strong> There are often many ways to
+implement a certain operation with code. There are also many ways how
+you style your code (e.g., give variables names, use indentation). It’s
+important to write code that looks consistent and is written in a way
+that’s easy to read and comprehend by others and your future self. For
+R, the tidyverse has <a href="https://style.tidyverse.org/">a style
+guide</a> which is a good one to use. But you don’t have to follow it,
+you can have your own style.</p>
 </div>
 <div id="r-packages" class="section level1">
 <h1>R packages</h1>
 <ul>
-<li><p>Sometimes when you install or update a package, you might get the message <strong><code>Do you want to install from sources the packages which need compilation</code>.</strong> What that means is that there is an R package available that has just been updated and exists as <em>source</em> but not yet turned into what’s called a <em>binary</em> format that’s pre-compiled for whatever operating system you use. There is almost never a reason to get the very latest <em>source</em> version. And if you want to install from source, you might need <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> to do so. <strong>Therefore, I suggest that when you get this question/message, you check <code>No</code>.</strong></p></li>
-<li><p>Sometimes during install or updating of a package, you might get a <strong><code>package is loaded/in use</code></strong> message. You are usually offered to restart R. Agree to that. It might fix things, but not always. The best way to install new packages if you run into those problems is to completely shut down RStudio, then restart. Next, immediately go to the console (bottom left) and install the needed packages with <code>install.packages('PACKAGENAME')</code> without doing anything else. That should minimize any potential conflicts.</p></li>
-<li><p>Sometimes when you try to install a package you get the message <strong><code>package ‘PACKAGENAME’ is not available for this version of R.</code></strong> This is a bit confusing, it sounds like you need to upgrade your R version. What really happens most of the time is that you mis-typed the package name, and that package just doesn’t exist (for no version of R). So first make sure you are spelling the package name correctly, including all capitalization being correct. That fixes things almost always. It is rare that there is a package that you want, but not for your version of R (unless you haven’t updated R in years.)</p></li>
+<li><p>Sometimes when you install or update a package, you might get the
+message
+<strong><code>Do you want to install from sources the packages which need compilation</code>.</strong>
+What that means is that there is an R package available that has just
+been updated and exists as <em>source</em> but not yet turned into
+what’s called a <em>binary</em> format that’s pre-compiled for whatever
+operating system you use. There is almost never a reason to get the very
+latest <em>source</em> version. And if you want to install from source,
+you might need <a
+href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> to do
+so. <strong>Therefore, I suggest that when you get this
+question/message, you check <code>No</code>.</strong></p></li>
+<li><p>Sometimes during install or updating of a package, you might get
+a <strong><code>package is loaded/in use</code></strong> message. You
+are usually offered to restart R. Agree to that. It might fix things,
+but not always. The best way to install new packages if you run into
+those problems is to completely shut down RStudio, then restart. Next,
+immediately go to the console (bottom left) and install the needed
+packages with <code>install.packages('PACKAGENAME')</code> without doing
+anything else. That should minimize any potential conflicts.</p></li>
+<li><p>Sometimes when you try to install a package you get the message
+<strong><code>package ‘PACKAGENAME’ is not available for this version of R.</code></strong>
+This is a bit confusing, it sounds like you need to upgrade your R
+version. What really happens most of the time is that you mis-typed the
+package name, and that package just doesn’t exist (for no version of R).
+So first make sure you are spelling the package name correctly,
+including all capitalization being correct. That fixes things almost
+always. It is rare that there is a package that you want, but not for
+your version of R (unless you haven’t updated R in years.)</p></li>
 </ul>
 </div>
 <div id="r-coding" class="section level1">
 <h1>R Coding</h1>
-<p><strong>Vectorize.</strong> In R, most things you do can be vectorized. What that means is that if you have multiple elements in an object, e.g., multiple entries in a vector, or many rows and columns in a data frame, you can use functions that process each entry at once. For instance if you use the <code>filter</code> function from <code>dplyr</code> like this: <code>filter(mydata, age &gt; 50)</code>, the function looks at the age for <strong>each row in the column called age</strong> and keeps those that are larger then 50. If you wanted to do the same in another programming language, like C/C++, you would need to write code that explicitly runs through each row of <code>mydata</code> and looks at <code>age</code> for each row and decides to keep it or not. That would be multiple lines of code. There are other languages that are vectorized like R, so it’s not just R. But it’s an important feature of R and whenever possible, you should try to apply your operations on all elements at the same time instead of writing <code>for loops</code>. (Though sometimes, loops are easier to read and code, so don’t feel like you can’t ever use them again).</p>
-<p><strong>Don’t mix and match too much.</strong> You have already or will likely figure out soon that there are often many ways to do something in R, especially once you start using R packages, such as the <code>tidyverse</code> set of packages. While it is perfectly ok to write some code that uses just the basic R commands, and other code that makes use of packages, you do need to be somewhat careful when you mix and match. As an example, there are the basic R commands <code>cbind</code> and <code>rbind</code> to combine data frames by rows or columns. There are also the commands <code>bind_cols</code> and <code>bind_rows</code> in the <code>dplyr</code> package. They do more or less the same thing, but have slightly different behavior. For instance the returned object might be of a different class (e.g., if you <code>cbind</code> two matrices, the result is a matrix, if you use <code>bind_cols</code>, you get a tibble/data frame.) Sometimes, these slight differences do not matter, but other times they might. It is therefore important to pay attention if you switch between different ways of doing things in R, and if possible stick with a given approach (e.g. all/most base R commands or mostly tidyverse).</p>
+<p><strong>Vectorize.</strong> In R, most things you do can be
+vectorized. What that means is that if you have multiple elements in an
+object, e.g., multiple entries in a vector, or many rows and columns in
+a data frame, you can use functions that process each entry at once. For
+instance if you use the <code>filter</code> function from
+<code>dplyr</code> like this: <code>filter(mydata, age &gt; 50)</code>,
+the function looks at the age for <strong>each row in the column called
+age</strong> and keeps those that are larger then 50. If you wanted to
+do the same in another programming language, like C/C++, you would need
+to write code that explicitly runs through each row of
+<code>mydata</code> and looks at <code>age</code> for each row and
+decides to keep it or not. That would be multiple lines of code. There
+are other languages that are vectorized like R, so it’s not just R. But
+it’s an important feature of R and whenever possible, you should try to
+apply your operations on all elements at the same time instead of
+writing <code>for loops</code>. (Though sometimes, loops are easier to
+read and code, so don’t feel like you can’t ever use them again).</p>
+<p><strong>Don’t mix and match too much.</strong> You have already or
+will likely figure out soon that there are often many ways to do
+something in R, especially once you start using R packages, such as the
+<code>tidyverse</code> set of packages. While it is perfectly ok to
+write some code that uses just the basic R commands, and other code that
+makes use of packages, you do need to be somewhat careful when you mix
+and match. As an example, there are the basic R commands
+<code>cbind</code> and <code>rbind</code> to combine data frames by rows
+or columns. There are also the commands <code>bind_cols</code> and
+<code>bind_rows</code> in the <code>dplyr</code> package. They do more
+or less the same thing, but have slightly different behavior. For
+instance the returned object might be of a different class (e.g., if you
+<code>cbind</code> two matrices, the result is a matrix, if you use
+<code>bind_cols</code>, you get a tibble/data frame.) Sometimes, these
+slight differences do not matter, but other times they might. It is
+therefore important to pay attention if you switch between different
+ways of doing things in R, and if possible stick with a given approach
+(e.g. all/most base R commands or mostly tidyverse).</p>
 </div>
 <div id="github" class="section level1">
 <h1>GitHub</h1>
-<p><strong>It sometimes happens that your repository ends up in a mess.</strong> For instance you might have made changes to your local repository that you didn’t mean to. Or someone else (or you on a different computer) added changes to the Github.com repository and things don’t merge with your local repo. If you have some local updates that you want to keep, here is a method that often works. 1. Copy the files you changed locally and that you want to keep to some “safe” location (outside of your repository).</p>
-<p>2a. If you are using GitKraken and you haven’t committed your local changes, there is a red trash button symbol in the top left. If you click on it, you can discard your changes. once you have done that, you can sync with the remote. Your local and remote should be in sync again, and you should be able to move to step 3.</p>
-<p>2b. If you already committed your changes, you can right-click in GitKraken on the latest version on the remote commit (those symbols with comments in the main window). Then pick <code>reset main/master to this commit</code> and then choose a <code>hard</code>. This overwrites anything you’ve done locally with the remote version on Github.com, so make sure any local changes you want to keep have been copied to a safe place (step 1). Your local and remote should be in sync again, and you should be able to move to step 3.</p>
+<p><strong>It sometimes happens that your repository ends up in a
+mess.</strong> For instance you might have made changes to your local
+repository that you didn’t mean to. Or someone else (or you on a
+different computer) added changes to the Github.com repository and
+things don’t merge with your local repo. If you have some local updates
+that you want to keep, here is a method that often works. 1. Copy the
+files you changed locally and that you want to keep to some “safe”
+location (outside of your repository).</p>
+<p>2a. If you are using GitKraken and you haven’t committed your local
+changes, there is a red trash button symbol in the top left. If you
+click on it, you can discard your changes. once you have done that, you
+can sync with the remote. Your local and remote should be in sync again,
+and you should be able to move to step 3.</p>
+<p>2b. If you already committed your changes, you can right-click in
+GitKraken on the latest version on the remote commit (those symbols with
+comments in the main window). Then pick
+<code>reset main/master to this commit</code> and then choose a
+<code>hard</code>. This overwrites anything you’ve done locally with the
+remote version on Github.com, so make sure any local changes you want to
+keep have been copied to a safe place (step 1). Your local and remote
+should be in sync again, and you should be able to move to step 3.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Once all is ok again and your local repository and the remote one are in sync, you can copy the files (or the content from those files) you placed in a safe location in step 1 back into your repository. Then continue with the usual work flow.</li>
+<li>Once all is ok again and your local repository and the remote one
+are in sync, you can copy the files (or the content from those files)
+you placed in a safe location in step 1 back into your repository. Then
+continue with the usual work flow.</li>
 </ol>
 </div>
 

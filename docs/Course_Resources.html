@@ -14,7 +14,7 @@
 
 <title>Course Resources</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -645,43 +649,110 @@ div.tocify {
 </div>
 
 
-<p>This page lists resources that this course draws on frequently or at least occasionally. For a more extensive list of data science resources, see the <em>General Resources</em> page.</p>
-<p>All materials described below are (should be) freely available online. If you can’t get to them, let me know. Note that a lot of the listed resources are dynamic and ever changing. That means occasionally links might not work, sites go offline, chapters in online books get re-arranged, etc. If you notice anything that’s not quite right, please let me know.</p>
+<p>This page lists resources that this course draws on frequently or at
+least occasionally. For a more extensive list of data science resources,
+see the <em>General Resources</em> page.</p>
+<p>All materials described below are (should be) freely available
+online. If you can’t get to them, let me know. Note that a lot of the
+listed resources are dynamic and ever changing. That means occasionally
+links might not work, sites go offline, chapters in online books get
+re-arranged, etc. If you notice anything that’s not quite right, please
+let me know.</p>
 <div id="books-and-online-tutorials" class="section level1">
 <h1>Books and online tutorials</h1>
 <ul>
-<li><a href="https://rafalab.github.io/dsbook/">IDS = Introduction to Data Science</a> is the book I’ll refer to a good bit in the 1st part of the course.</li>
-<li><a href="http://r4ds.had.co.nz/index.html">R4DS = R for Data Science</a> is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I’ll be referring to it frequently.</li>
-<li><a href="https://leanpub.com/artofdatascience">ADS = The Art of Data Science</a> has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a <em>pay what you want</em> book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).<br />
+<li><a href="https://rafalab.github.io/dsbook/">IDS = Introduction to
+Data Science</a> is the book I’ll refer to a good bit in the 1st part of
+the course.</li>
+<li><a href="http://r4ds.had.co.nz/index.html">R4DS = R for Data
+Science</a> is another resource that will come up frequently. It is a
+very gentle and good introduction to data science in R. I’ll be
+referring to it frequently.</li>
+<li><a href="https://leanpub.com/artofdatascience">ADS = The Art of Data
+Science</a> has some good big-picture, introductory level chapters on
+different aspects of a data analysis. It is a <em>pay what you want</em>
+book with a minimum price of zero, which means you can get it for free
+(note that the book + video bundle has a non-zero minimum price).<br />
 </li>
-<li><a href="https://statlearning.com/">ISL(R) = An Introduction to Statistical Learning (in R)</a> is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I’ll refer to it frequently in the second part of the course. While we won’t work through the exercises/labs that are part of ISL, if you are interested in trying out some of those, <a href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">here is a website</a> that does the labs using the tidymodels set of packages, which we will also be using in this course.</li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on Machine Learning with R</a> covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.</li>
-<li><a href="https://bookdown.org/max/FES/">FES = Feature Engineering and Selection</a> focuses on a specific aspect of the data analysis workflow and is a good resource for those topics.</li>
-<li><a href="https://happygitwithr.com/">HGR = happygitwitR</a> is a good resource to learn some of the basics of Git/Github with R.</li>
-<li><a href="https://rstudio.cloud/learn/primers">RP = R Studio Primers</a> are a great source for introductory, interactive tutorials covering basics of R coding and data analysis.</li>
+<li><a href="https://statlearning.com/">ISL(R) = An Introduction to
+Statistical Learning (in R)</a> is a good introduction to the
+statistical and machine learning (i.e. model fitting) part of the data
+analysis workflow. I’ll refer to it frequently in the second part of the
+course. While we won’t work through the exercises/labs that are part of
+ISL, if you are interested in trying out some of those, <a
+href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">here
+is a website</a> that does the labs using the tidymodels set of
+packages, which we will also be using in this course.</li>
+<li><a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on
+Machine Learning with R</a> covers somewhat similar material as ISL, but
+with different emphasis and a different approach. I refer to it in
+several of the later course modules.</li>
+<li><a href="https://bookdown.org/max/FES/">FES = Feature Engineering
+and Selection</a> focuses on a specific aspect of the data analysis
+workflow and is a good resource for those topics.</li>
+<li><a href="https://happygitwithr.com/">HGR = happygitwitR</a> is a
+good resource to learn some of the basics of Git/Github with R.</li>
+<li><a href="https://rstudio.cloud/learn/primers">RP = R Studio
+Primers</a> are a great source for introductory, interactive tutorials
+covering basics of R coding and data analysis.</li>
 </ul>
 </div>
 <div id="tools" class="section level1">
 <h1>Tools</h1>
 <ul>
-<li>We’ll be using <a href="https://www.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/download/">R Studio Desktop</a>. The <a href="./Tools_RandRStudio.html">R and R Studio document</a> has details.</li>
-<li>We will also be using <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>. You need to get that software and a GitHub user account. I also recommend/assume you are using the <a href="https://www.gitkraken.com/">GitKraken</a> client (but you don’t have to). See the <a href="./Tools_Github_Introduction.html">GitHub introduction document</a> for details.</li>
+<li>We’ll be using <a href="https://www.r-project.org/">R</a> and <a
+href="https://www.rstudio.com/products/rstudio/download/">R Studio
+Desktop</a>. The <a href="./Tools_RandRStudio.html">R and R Studio
+document</a> has details.</li>
+<li>We will also be using <a href="https://git-scm.com/">Git</a> and <a
+href="https://github.com/">GitHub</a>. You need to get that software and
+a GitHub user account. I also recommend/assume you are using the <a
+href="https://www.gitkraken.com/">GitKraken</a> client (but you don’t
+have to). See the <a href="./Tools_Github_Introduction.html">GitHub
+introduction document</a> for details.</li>
 </ul>
 </div>
 <div id="general-help" class="section level1">
 <h1>General help</h1>
 <ul>
-<li>The main place to get any course specific help are our course discussion boards. Use them widely to ask questions, to answer others’ questions, to post links to interesting resources, etc.</li>
-<li>Most questions you will have are likely not course specific, but will have to do with R/Github/RMarkdown/etc. For that, Google will be your best friend. Most of the time, someone had the same problem/question you do and someone else answered it. The only tricky thing is finding that post. Even after years of doing this, I probably google how to do something in R every day 😃.</li>
-<li>When you search online for help, quite often you land on some <a href="https://stackexchange.com/">StackExchange</a> site (often <a href="https://stackoverflow.com/">Stack Overflow</a>). <a href="https://stackexchange.com/sites">These are a collection of widely-used online question and answer sites</a> covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.</li>
-<li>The <a href="https://community.rstudio.com/">Rstudio community</a> is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven’t used it much.</li>
-<li>Another highly recommended resource is the <a href="https://www.rfordatasci.com/">R for data science community</a>. They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.</li>
-<li>Here is another resource, <a href="https://www.datahelpers.org/">a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter</a>.</li>
+<li>The main place to get any course specific help are our course
+discussion boards. Use them widely to ask questions, to answer others’
+questions, to post links to interesting resources, etc.</li>
+<li>Most questions you will have are likely not course specific, but
+will have to do with R/Github/RMarkdown/etc. For that, Google will be
+your best friend. Most of the time, someone had the same
+problem/question you do and someone else answered it. The only tricky
+thing is finding that post. Even after years of doing this, I probably
+google how to do something in R every day 😃.</li>
+<li>When you search online for help, quite often you land on some <a
+href="https://stackexchange.com/">StackExchange</a> site (often <a
+href="https://stackoverflow.com/">Stack Overflow</a>). <a
+href="https://stackexchange.com/sites">These are a collection of
+widely-used online question and answer sites</a> covering all kinds of
+topics (including R, Github, Data Analysis, etc.). The majority of the
+time, you will find an answer, or at least something that gets you
+closer, on those sites. I rarely go to those sites directly, instead I
+type my query into Google and it often sends me to one of the
+StackExchange sites.</li>
+<li>The <a href="https://community.rstudio.com/">Rstudio community</a>
+is another good place to ask questions. It is not as widely used as
+StackExchange, but it seems to be more newcomer friendly. I haven’t used
+it much.</li>
+<li>Another highly recommended resource is the <a
+href="https://www.rfordatasci.com/">R for data science community</a>.
+They have a Slack workspace which you can join for free and ask
+questions about R, Data Science and related topics. They are very
+newbie-friendly. I have not used them much but they seem to respond
+fairly quickly and are helpful.</li>
+<li>Here is another resource, <a href="https://www.datahelpers.org/">a
+list of individuals who volunteered to answer R and/or Data Science
+questions mainly through Twitter</a>.</li>
 </ul>
 </div>
 <div id="more-resources" class="section level1">
 <h1>More resources</h1>
-<p>The <a href="./General_Resources.html">general resources</a> page has a more extensive list of relevant resources.</p>
+<p>The <a href="./General_Resources.html">general resources</a> page has
+a more extensive list of relevant resources.</p>
 </div>
 
 

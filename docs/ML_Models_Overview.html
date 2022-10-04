@@ -14,7 +14,7 @@
 
 <title>Machine Learning Models - Overview</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,7 +651,8 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this brief unit, I make a few general comments about machine learning models, before we look at several types of those models.</p>
+<p>In this brief unit, I make a few general comments about machine
+learning models, before we look at several types of those models.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -657,22 +662,98 @@ div.tocify {
 </div>
 <div id="machine-learning-model-zoo" class="section level1">
 <h1>Machine Learning Model Zoo</h1>
-<p>By now, I am sure you have picked up on the fact that there is a whole zoo of different statistical and machine learning models. You have also likely picked up that the terminology is fuzzy. We could call a standard linear or logistic regression model a machine learning model, and people do. Or we can reserve the term ML for more complex models - however fuzzily we define “complex”. In the end, getting hung up about terminology is not that useful and important.</p>
-<p>What is important is that you are at least a bit familiar with some of the more common models, how they work and what they are good for, such that when you either read someone else’s modeling results, or try your own, you have an idea of what’s going in. All we can do in this course is to take an introductory glance at some ML models. If you end up becoming a “machine learning practitioner”, you will want to learn more about specific models. The materials I link to hopefully give you places to look.</p>
-<p>ML models fall in broad classes, and within each class, there are many different variants. It is impossible to cover them all, but in this module and the next, we’ll briefly go over a few of the more common ones.</p>
+<p>By now, I am sure you have picked up on the fact that there is a
+whole zoo of different statistical and machine learning models. You have
+also likely picked up that the terminology is fuzzy. We could call a
+standard linear or logistic regression model a machine learning model,
+and people do. Or we can reserve the term ML for more complex models -
+however fuzzily we define “complex”. In the end, getting hung up about
+terminology is not that useful and important.</p>
+<p>What is important is that you are at least a bit familiar with some
+of the more common models, how they work and what they are good for,
+such that when you either read someone else’s modeling results, or try
+your own, you have an idea of what’s going in. All we can do in this
+course is to take an introductory glance at some ML models. If you end
+up becoming a “machine learning practitioner”, you will want to learn
+more about specific models. The materials I link to hopefully give you
+places to look.</p>
+<p>ML models fall in broad classes, and within each class, there are
+many different variants. It is impossible to cover them all, but in this
+module and the next, we’ll briefly go over a few of the more common
+ones.</p>
 </div>
 <div id="general-ml-considerations" class="section level1">
 <h1>General ML considerations</h1>
-<p><strong>I want to make an important point here:</strong> The statistics/model fitting topics we have discussed so far, namely pre-processing data, choosing the right performance metric, using methods like train/test and cross-validation to minimize overfitting, and carefully evaluating your model results <strong>always apply, no matter if you fit a simple linear model or a complicated neural net</strong>.</p>
-<p>Some problems become more acute for certain types of models, e.g., the more complex the model, the more likely the chance for overfitting. But the general concepts always apply. Model tuning also applies to most ML models, it is just different model parts that are being tuned. Once you dig deeper, it is useful to understand enough about the model to get an idea of what tuning a specific parameter for a given model actually means. However, in a first pass, you can often do those tuning operations without knowing much about the models (which is what we’ll do in this class). Nevertheless, always critically evaluate what your models return. Just because complex models are often black boxes and it’s hard to understand everything that goes on inside doesn’t mean you can skip your critical thinking and accept as reasonable whatever the model gives you back.</p>
-<p>I think by now you have also picked up on the idea that there is no <em>recipe</em> for choosing a specific machine learning/statistical modeling approach. It depends on the data, the question, the overall goal, what others in the field are using, and potentially further factors. In general, the most thorough approach is to try both simple and complex models, and then decide based on model performance and other considerations such as simplicity, speed, scalability, etc. on a specific model. There is always a level of subjectivity involved, i.e. different analysts might favor different models. As long as the thought process behind choosing a specific model is well explained and justified, you should be allowed to choose the model that you think is overall best for a given situation. Since it is very easy to fit multiple different models and compare results, it is not a bad idea to do that. You can report the results form the main model you chose as the main findings, with results from other models as supplementary material.</p>
-<p>And with those general points out of the way, we’ll look at several different statistical/ML models in the following units.</p>
+<p><strong>I want to make an important point here:</strong> The
+statistics/model fitting topics we have discussed so far, namely
+pre-processing data, choosing the right performance metric, using
+methods like train/test and cross-validation to minimize overfitting,
+and carefully evaluating your model results <strong>always apply, no
+matter if you fit a simple linear model or a complicated neural
+net</strong>.</p>
+<p>Some problems become more acute for certain types of models, e.g.,
+the more complex the model, the more likely the chance for overfitting.
+But the general concepts always apply. Model tuning also applies to most
+ML models, it is just different model parts that are being tuned. Once
+you dig deeper, it is useful to understand enough about the model to get
+an idea of what tuning a specific parameter for a given model actually
+means. However, in a first pass, you can often do those tuning
+operations without knowing much about the models (which is what we’ll do
+in this class). Nevertheless, always critically evaluate what your
+models return. Just because complex models are often black boxes and
+it’s hard to understand everything that goes on inside doesn’t mean you
+can skip your critical thinking and accept as reasonable whatever the
+model gives you back.</p>
+<p>I think by now you have also picked up on the idea that there is no
+<em>recipe</em> for choosing a specific machine learning/statistical
+modeling approach. It depends on the data, the question, the overall
+goal, what others in the field are using, and potentially further
+factors. In general, the most thorough approach is to try both simple
+and complex models, and then decide based on model performance and other
+considerations such as simplicity, speed, scalability, etc. on a
+specific model. There is always a level of subjectivity involved,
+i.e. different analysts might favor different models. As long as the
+thought process behind choosing a specific model is well explained and
+justified, you should be allowed to choose the model that you think is
+overall best for a given situation. Since it is very easy to fit
+multiple different models and compare results, it is not a bad idea to
+do that. You can report the results form the main model you chose as the
+main findings, with results from other models as supplementary
+material.</p>
+<p>And with those general points out of the way, we’ll look at several
+different statistical/ML models in the following units.</p>
 </div>
 <div id="further-resources" class="section level1">
 <h1>Further resources</h1>
-<p>The books we have been using throughout this course all cover many aspects of ML. Especially <a href="https://statlearning.com/">ISL</a>, <a href="https://rafalab.github.io/dsbook/">IDS</a> and <a href="https://bradleyboehmke.github.io/HOML/">HMLR</a> are very good starting points for learning more about different machine learning methods. I will point to specific chapters when we discuss specific models.</p>
-<p>There are also tons of online resources on machine learning models, the quality varies widely, but it might be worth looking around a bit. <a href="https://www.theinsaneapp.com/2021/11/machine-learning-algorithms-for-beginners.html">This one</a> is a nice overview. Note that at the time I’m writing this, when I did a brief read-through I noticed some inaccuracies. E.g., they claim that a logistic regression model predicts 0/1, which is not quite right, it predicts probability which then is usually converted to 0/1 by defining a threshold. In general, when you look at resources like that, they are rarely completely wrong but might occasionally not be fully accurate (I’m sure my course website is no different 🙄 ). So it’s often good to cross-check with resources that are fairly certain to be right (e.g., textbooks or Wikipedia).</p>
-<p>If you want to practice some more ML modeling using the <code>tidymodels</code> framework, check out <a href="https://supervised-ml-course.netlify.app/">this free online course</a> by <a href="https://juliasilge.com/">Julia Silge</a>, one of the main <code>tidymodels</code> maintainers. It consists of 4 case studies that teach you both general ML ideas and how to do them with <code>tidymodels</code>. Another online course focusing on <code>tidymodels</code> is <a href="https://tmv.netlify.app/site/">this course by Allison Hill</a>.</p>
+<p>The books we have been using throughout this course all cover many
+aspects of ML. Especially <a href="https://statlearning.com/">ISL</a>,
+<a href="https://rafalab.github.io/dsbook/">IDS</a> and <a
+href="https://bradleyboehmke.github.io/HOML/">HMLR</a> are very good
+starting points for learning more about different machine learning
+methods. I will point to specific chapters when we discuss specific
+models.</p>
+<p>There are also tons of online resources on machine learning models,
+the quality varies widely, but it might be worth looking around a bit.
+<a
+href="https://www.theinsaneapp.com/2021/11/machine-learning-algorithms-for-beginners.html">This
+one</a> is a nice overview. Note that at the time I’m writing this, when
+I did a brief read-through I noticed some inaccuracies. E.g., they claim
+that a logistic regression model predicts 0/1, which is not quite right,
+it predicts probability which then is usually converted to 0/1 by
+defining a threshold. In general, when you look at resources like that,
+they are rarely completely wrong but might occasionally not be fully
+accurate (I’m sure my course website is no different 🙄 ). So it’s often
+good to cross-check with resources that are fairly certain to be right
+(e.g., textbooks or Wikipedia).</p>
+<p>If you want to practice some more ML modeling using the
+<code>tidymodels</code> framework, check out <a
+href="https://supervised-ml-course.netlify.app/">this free online
+course</a> by <a href="https://juliasilge.com/">Julia Silge</a>, one of
+the main <code>tidymodels</code> maintainers. It consists of 4 case
+studies that teach you both general ML ideas and how to do them with
+<code>tidymodels</code>. Another online course focusing on
+<code>tidymodels</code> is <a href="https://tmv.netlify.app/site/">this
+course by Allison Hill</a>.</p>
 </div>
 
 

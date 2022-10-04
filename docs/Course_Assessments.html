@@ -14,7 +14,7 @@
 
 <title>Course Assessments - Overview</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,48 +651,113 @@ div.tocify {
 
 <div id="assessments-overview" class="section level2">
 <h2>Assessments overview</h2>
-<p>Each module comes with assessments. Those are things you need to do that will be graded. In general, expect that each module contains <strong>a Quiz, an Exercise, and a Discussion</strong>. Sometimes there are additional/alternative components, such as submission of project parts.</p>
-<p>Due dates are usually Friday 5 pm the week of the module. Some might be at other times, e.g., the beginning or middle of the week. See the schedule or the module specific assessment document. If unclear, ask.</p>
-<p>The assessments are meant as a help for you, consider them gentle prods to ensure you work through and learn the course material. It is very easy to take shortcuts (cheat) for any of the assessments. Our academic honesty policy prohibits you from doing so. More importantly, if you take shortcuts by e.g. getting answers from a classmate, you are only hurting your own learning. I encourage getting help from any source you can, including your classmates. I let you decide how much helping each other is acceptable and at what point it turns into having someone else do the work for you that you should be doing yourself.</p>
+<p>Each module comes with assessments. Those are things you need to do
+that will be graded. In general, expect that each module contains
+<strong>a Quiz, an Exercise, and a Discussion</strong>. Sometimes there
+are additional/alternative components, such as submission of project
+parts.</p>
+<p>Due dates are usually Friday 5 pm the week of the module. Some might
+be at other times, e.g., the beginning or middle of the week. See the
+schedule or the module specific assessment document. If unclear,
+ask.</p>
+<p>The assessments are meant as a help for you, consider them gentle
+prods to ensure you work through and learn the course material. It is
+very easy to take shortcuts (cheat) for any of the assessments. Our
+academic honesty policy prohibits you from doing so. More importantly,
+if you take shortcuts by e.g. getting answers from a classmate, you are
+only hurting your own learning. I encourage getting help from any source
+you can, including your classmates. I let you decide how much helping
+each other is acceptable and at what point it turns into having someone
+else do the work for you that you should be doing yourself.</p>
 </div>
 <div id="quizzes" class="section level2">
 <h2>Quizzes</h2>
-<p>The quizzes cover the basics and ensures you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.</p>
-<p><strong>Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the <strong>Announcements Slack Channel</strong> for the link.</strong></p>
-<p><strong>Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Fridays), otherwise the system will not take your submission.</strong></p>
+<p>The quizzes cover the basics and ensures you have gone through some
+of the material. Each quiz consists of around 10-20 short questions. Not
+all answers to the quiz questions are directly found in the materials,
+sometimes you need to do a - hopefully straightforward - online
+search.</p>
+<p><strong>Before submitting any quizzes, you need to set up a password
+using the Google Form created for that purpose. See the
+<strong>Announcements Slack Channel</strong> for the link.</strong></p>
+<p><strong>Unless otherwise specified, you can submit each quiz once,
+and it needs to be submitted by the deadline (generally Fridays),
+otherwise the system will not take your submission.</strong></p>
 <div id="quiz-sheets" class="section level3">
 <h3>Quiz sheets</h3>
-<p>For each module, you are asked to fill out an Excel sheet with questions related to the course material. Download the quiz files from the links below, fill in the “Answer” column, and submit to an online quiz submission system by the deadline specified in the <strong>Schedule</strong> document.</p>
-<p><strong>The URL for the website to submit your quizzes for auto-grading is currently disabled.</strong></p>
-<p>Unless otherwise noted, you have one submission attempt. For the first module, so you can get used to the system, you have 2 attempts.</p>
-<p><strong>You can expand and resize the columns/rows of the Excel file so you can make sure to see all content. Other than that, please only fill in the <em>Answer</em> column and don’t make other changes (e.g. don’t rename or delete rows/columns). If you do make changes, submission might fail. If that happens and you get an error message during submission, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.</strong></p>
+<p>For each module, you are asked to fill out an Excel sheet with
+questions related to the course material. Download the quiz files from
+the links below, fill in the “Answer” column, and submit to an online
+quiz submission system by the deadline specified in the
+<strong>Schedule</strong> document.</p>
+<p><strong>The URL for the website to submit your quizzes for
+auto-grading is currently disabled.</strong></p>
+<p>Unless otherwise noted, you have one submission attempt. For the
+first module, so you can get used to the system, you have 2
+attempts.</p>
+<p><strong>You can expand and resize the columns/rows of the Excel file
+so you can make sure to see all content. Other than that, please only
+fill in the <em>Answer</em> column and don’t make other changes
+(e.g. don’t rename or delete rows/columns). If you do make changes,
+submission might fail. If that happens and you get an error message
+during submission, simply come back here, download a fresh sheet and
+copy and paste your answers into it, making sure to not change any other
+part of the sheet.</strong></p>
 <ul>
-<li><a href="./quizsheets/mada_course_tools_student.xlsx">Module 1 – Course and tools introduction</a> - you have 2 attempts available for this one.</li>
-<li><a href="./quizsheets/mada_data_analysis_intro_student.xlsx">Module 2 – Data analysis introduction</a></li>
-<li><a href="./quizsheets/mada_coding_basics_student.xlsx">Module 3 – R coding basics</a></li>
-<li><a href="./quizsheets/mada_data_finding_wrangling_student.xlsx">Module 4 – Contemplating, finding and wrangling data</a></li>
-<li><a href="./quizsheets/mada_visualization_student.xlsx">Module 5 – Visualization</a></li>
-<li><a href="./quizsheets/mada_data_exploration_student.xlsx">Module 6 – Exploration</a></li>
-<li><a href="./quizsheets/mada_statistical_analysis_overview_student.xlsx">Module 7 – Statistical Analysis Overview</a></li>
-<li><a href="./quizsheets/mada_basic_statistical_models_student.xlsx">Module 8 – Fitting basic statistical models</a></li>
-<li><a href="./quizsheets/mada_model_evaluation_student.xlsx">Module 9 – Evaluating your model fits</a></li>
-<li><a href="./quizsheets/mada_model_improvement_student.xlsx">Module 10 – Improving your model fits</a></li>
-<li><a href="./quizsheets/mada_ml_models_1_student.xlsx">Module 11 – Machine Learning Models I</a></li>
-<li><a href="./quizsheets/mada_ml_models_2_student.xlsx">Module 12 – Machine Learning Models II</a></li>
-<li><a href="./quizsheets/mada_full_workflow_student.xlsx">Module 13 – The complete analysis workflow</a></li>
+<li><a href="./quizsheets/mada_course_tools_student.xlsx">Module 1 –
+Course and tools introduction</a> - you have 2 attempts available for
+this one.</li>
+<li><a href="./quizsheets/mada_data_analysis_intro_student.xlsx">Module
+2 – Data analysis introduction</a></li>
+<li><a href="./quizsheets/mada_coding_basics_student.xlsx">Module 3 – R
+coding basics</a></li>
+<li><a
+href="./quizsheets/mada_data_finding_wrangling_student.xlsx">Module 4 –
+Contemplating, finding and wrangling data</a></li>
+<li><a href="./quizsheets/mada_visualization_student.xlsx">Module 5 –
+Visualization</a></li>
+<li><a href="./quizsheets/mada_data_exploration_student.xlsx">Module 6 –
+Exploration</a></li>
+<li><a
+href="./quizsheets/mada_statistical_analysis_overview_student.xlsx">Module
+7 – Statistical Analysis Overview</a></li>
+<li><a
+href="./quizsheets/mada_basic_statistical_models_student.xlsx">Module 8
+– Fitting basic statistical models</a></li>
+<li><a href="./quizsheets/mada_model_evaluation_student.xlsx">Module 9 –
+Evaluating your model fits</a></li>
+<li><a href="./quizsheets/mada_model_improvement_student.xlsx">Module 10
+– Improving your model fits</a></li>
+<li><a href="./quizsheets/mada_ml_models_1_student.xlsx">Module 11 –
+Machine Learning Models I</a></li>
+<li><a href="./quizsheets/mada_ml_models_2_student.xlsx">Module 12 –
+Machine Learning Models II</a></li>
+<li><a href="./quizsheets/mada_full_workflow_student.xlsx">Module 13 –
+The complete analysis workflow</a></li>
 </ul>
 </div>
 <div id="quiz-grading" class="section level3">
 <h3>Quiz grading</h3>
-<p>Quizzes are auto-graded on submission based on a simple counting of the right answers. At the end, I’ll average across all quizzes.</p>
-<p>Note that since there are &gt;10 quizzes and all quizzes together count for only a fraction of the total grade, each quiz counts for a small part of your grade.</p>
+<p>Quizzes are auto-graded on submission based on a simple counting of
+the right answers. At the end, I’ll average across all quizzes.</p>
+<p>Note that since there are &gt;10 quizzes and all quizzes together
+count for only a fraction of the total grade, each quiz counts for a
+small part of your grade.</p>
 </div>
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
-<p>The exercises are usually quite in-depth, require you to apply some of the material, and are really the main means of learning the material. For each exercise, I will provide detailed instructions that hopefully make it clear what you need to do.</p>
-<p>If you get stuck during the exercises (quite possible), do feel free to get help. Use the various course materials, the course discussion board as well as outside resources. But do try to do as much as possible yourself (of course with the help of Google).</p>
-<p><strong>Unless otherwise specified, exercises are due by Friday. Quite often, some part of the exercise needs to be done before that deadline to allow for group work.</strong></p>
+<p>The exercises are usually quite in-depth, require you to apply some
+of the material, and are really the main means of learning the material.
+For each exercise, I will provide detailed instructions that hopefully
+make it clear what you need to do.</p>
+<p>If you get stuck during the exercises (quite possible), do feel free
+to get help. Use the various course materials, the course discussion
+board as well as outside resources. But do try to do as much as possible
+yourself (of course with the help of Google).</p>
+<p><strong>Unless otherwise specified, exercises are due by Friday.
+Quite often, some part of the exercise needs to be done before that
+deadline to allow for group work.</strong></p>
 <div id="exercise-grading" class="section level3">
 <h3>Exercise grading</h3>
 <p>I grade the exercises based on 4 categories:</p>
@@ -698,44 +767,98 @@ div.tocify {
 <li>1 points = some parts are present, but overall very incomplete.</li>
 <li>0 points = completely or almost completely missing.</li>
 </ul>
-<p>At my discretion, I might consider assignments even if they are submitted after the deadline. In that case, I might take off a point for lateness.</p>
-<p>Don’t interpret these scores as grades, I just use them to differentiate, then I’ll adjust at the end when I compute the overall project score.</p>
+<p>At my discretion, I might consider assignments even if they are
+submitted after the deadline. In that case, I might take off a point for
+lateness.</p>
+<p>Don’t interpret these scores as grades, I just use them to
+differentiate, then I’ll adjust at the end when I compute the overall
+project score.</p>
 </div>
 </div>
 <div id="discussions" class="section level2">
 <h2>Discussions</h2>
-<p>We can’t have in-class discussions in an online course, but hopefully we can still have robust discussions as part of the course. I hope that lively online discussions will allow us to create a sense of class community that usually comes more naturally in an in-class course. I want everyone to feel like they are part of a class, a community of students learning together, instead of just being on their own interacting with the course in front of a computer screen. To achieve that, having a lot of discussion activity is vital.</p>
-<p>You will be asked to participate in discussions throughout the course, and discussion participation is part of the grade. The discussions are meant to connect the module content to the broader context and hopefully will spark interesting further thoughts and insights.</p>
-<p><strong>Unless otherwise specified, the first posting of the discussion is due by Wednesday, the discussion replies are due by Friday. Post to the discussion channel for the applicable module (e.g. module2_discussion, module3_discussion).</strong></p>
+<p>We can’t have in-class discussions in an online course, but hopefully
+we can still have robust discussions as part of the course. I hope that
+lively online discussions will allow us to create a sense of class
+community that usually comes more naturally in an in-class course. I
+want everyone to feel like they are part of a class, a community of
+students learning together, instead of just being on their own
+interacting with the course in front of a computer screen. To achieve
+that, having a lot of discussion activity is vital.</p>
+<p>You will be asked to participate in discussions throughout the
+course, and discussion participation is part of the grade. The
+discussions are meant to connect the module content to the broader
+context and hopefully will spark interesting further thoughts and
+insights.</p>
+<p><strong>Unless otherwise specified, the first posting of the
+discussion is due by Wednesday, the discussion replies are due by
+Friday. Post to the discussion channel for the applicable module
+(e.g. module2_discussion, module3_discussion).</strong></p>
 <div id="discussion-guidelines" class="section level3">
 <h3>Discussion guidelines</h3>
-<p>To make sure discussions work well for everyone, here are some general guidelines.</p>
+<p>To make sure discussions work well for everyone, here are some
+general guidelines.</p>
 <ul>
-<li>You can and will be asked to both start new threads/posts or reply to others. If you start a new topic, make sure you are in the right channel. (If needed, you can also move posts to other channels later).</li>
-<li>You are encouraged to include links to additional material that you find online, including but not limited to research papers, or sources like Wikipedia, and other useful resources. There are no rules on formatting other than that it should be readable.</li>
-<li>You don’t always have to provide references/links to resources, nor do you need to be sure that ‘you got it right’. It’s ok to post speculations/ruminations/thoughts occasionally.</li>
-<li>Make meaningful contributions. You are welcome to react to each others’ posts with 😃 or 👍, but that does not replace more substantial responses. Give reasons why you think something is one way or another.</li>
-<li>For the purpose of assessment, you need to participate in the discussions at the level specified in each module’s assessment document. I encourage you to engage in further discussions. Those further posts won’t be counted toward the requirement for a given module but will factor into the overall participation portion of the grade.</li>
-<li>It should be obvious that any posts should be helpful and civilized. I will remove any posts that are demeaning or otherwise inappropriate. Please let me know if you see such posts.</li>
-<li>Discussions will remain available for the whole course, and you can keep contributing at any time.</li>
+<li>You can and will be asked to both start new threads/posts or reply
+to others. If you start a new topic, make sure you are in the right
+channel. (If needed, you can also move posts to other channels
+later).</li>
+<li>You are encouraged to include links to additional material that you
+find online, including but not limited to research papers, or sources
+like Wikipedia, and other useful resources. There are no rules on
+formatting other than that it should be readable.</li>
+<li>You don’t always have to provide references/links to resources, nor
+do you need to be sure that ‘you got it right’. It’s ok to post
+speculations/ruminations/thoughts occasionally.</li>
+<li>Make meaningful contributions. You are welcome to react to each
+others’ posts with 😃 or 👍, but that does not replace more substantial
+responses. Give reasons why you think something is one way or
+another.</li>
+<li>For the purpose of assessment, you need to participate in the
+discussions at the level specified in each module’s assessment document.
+I encourage you to engage in further discussions. Those further posts
+won’t be counted toward the requirement for a given module but will
+factor into the overall participation portion of the grade.</li>
+<li>It should be obvious that any posts should be helpful and civilized.
+I will remove any posts that are demeaning or otherwise inappropriate.
+Please let me know if you see such posts.</li>
+<li>Discussions will remain available for the whole course, and you can
+keep contributing at any time.</li>
 </ul>
 </div>
 <div id="discussion-grading" class="section level3">
 <h3>Discussion grading</h3>
-<p>For most modules, you’ll have to do the following (unless specifically directed otherwise):</p>
+<p>For most modules, you’ll have to do the following (unless
+specifically directed otherwise):</p>
 <ul>
-<li>You need to write a post (generally a few hundred words) as instructed. Post it to the appropriate channel by <strong>Wednesday evening</strong>.</li>
-<li>You need to write <strong>at least</strong> 3 replies to posts from classmates. Those can be replies to 3 different posts or multiple back-and-forth (of substance) for the same post/thread. You must post your replies by <strong>Friday evening</strong>.</li>
-<li>For each module (i.e. each week) you need to post a <strong>minimum</strong> of 4 posts (1 initial, 3 replies) with around 500 <em>meaningful</em> words total by the deadlines. I won’t count words (unless it looks really short), and probably also won’t count the number of posts, unless both seem well below the minimum.</li>
-<li>I will use the same 0-3 point score for each discussion as for the quizzes.</li>
-<li>Going above the minimum (more posts, longer contributions, especially thoughtful, etc.) will count positively toward the participation portion of the final grade.</li>
-<li>For each module, the assessment document contains specific discussion instructions. If the specific discussion instructions are different than the general ones here, you should follow the specific ones.</li>
+<li>You need to write a post (generally a few hundred words) as
+instructed. Post it to the appropriate channel by <strong>Wednesday
+evening</strong>.</li>
+<li>You need to write <strong>at least</strong> 3 replies to posts from
+classmates. Those can be replies to 3 different posts or multiple
+back-and-forth (of substance) for the same post/thread. You must post
+your replies by <strong>Friday evening</strong>.</li>
+<li>For each module (i.e. each week) you need to post a
+<strong>minimum</strong> of 4 posts (1 initial, 3 replies) with around
+500 <em>meaningful</em> words total by the deadlines. I won’t count
+words (unless it looks really short), and probably also won’t count the
+number of posts, unless both seem well below the minimum.</li>
+<li>I will use the same 0-3 point score for each discussion as for the
+quizzes.</li>
+<li>Going above the minimum (more posts, longer contributions,
+especially thoughtful, etc.) will count positively toward the
+participation portion of the final grade.</li>
+<li>For each module, the assessment document contains specific
+discussion instructions. If the specific discussion instructions are
+different than the general ones here, you should follow the specific
+ones.</li>
 </ul>
 </div>
 </div>
 <div id="projects" class="section level2">
 <h2>Projects</h2>
-<p>See the <strong>Projects</strong> section on the website for more information.</p>
+<p>See the <strong>Projects</strong> section on the website for more
+information.</p>
 </div>
 
 

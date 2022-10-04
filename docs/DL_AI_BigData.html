@@ -14,7 +14,7 @@
 
 <title>Deep Learning, Artificial Intelligence and Big Data</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -638,7 +642,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Deep Learning, Artificial Intelligence and Big Data</h1>
+<h1 class="title toc-ignore">Deep Learning, Artificial Intelligence and
+Big Data</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-11-08 13:23:37</h4>
 
@@ -647,65 +652,266 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will <strong>very</strong> briefly talk about the topics of Deep Learning, Artificial Intelligence and Big Data, and how R can be used for them.</p>
-<p>This is completely optional material, and only meant to give you pointers if to get started. If you want to learn more, see the various resources mentioned in this document.</p>
+<p>In this unit, we will <strong>very</strong> briefly talk about the
+topics of Deep Learning, Artificial Intelligence and Big Data, and how R
+can be used for them.</p>
+<p>This is completely optional material, and only meant to give you
+pointers if to get started. If you want to learn more, see the various
+resources mentioned in this document.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Know what Deep Learning, Artificial Intelligence and Big Data are.</li>
+<li>Know what Deep Learning, Artificial Intelligence and Big Data
+are.</li>
 <li>Know how one can use R for such tasks.</li>
 </ul>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>The terms deep learning (DL) and artificial intelligence (AI), and to a lesser extent Big Data, are popping up a lot lately, even in the mainstream media. DL/AI approaches have led to some impressive recent technological advances, such as self-driving cars, very good language translation, biometrics and image recognition, computers that beat humans at games like Chess/Go/Poker, etc. I have no doubt that progress in AI/DL in the next 10-20 years will be rapid and lead to many important advances. With everything “new and shiny” there comes a good bit of hype. The goal for this short unit is to give you a very brief introduction to what these topics are, how they related to data analysis/machine learning, and how you could – if you wanted – do DL/AI yourself (using R).</p>
+<p>The terms deep learning (DL) and artificial intelligence (AI), and to
+a lesser extent Big Data, are popping up a lot lately, even in the
+mainstream media. DL/AI approaches have led to some impressive recent
+technological advances, such as self-driving cars, very good language
+translation, biometrics and image recognition, computers that beat
+humans at games like Chess/Go/Poker, etc. I have no doubt that progress
+in AI/DL in the next 10-20 years will be rapid and lead to many
+important advances. With everything “new and shiny” there comes a good
+bit of hype. The goal for this short unit is to give you a very brief
+introduction to what these topics are, how they related to data
+analysis/machine learning, and how you could – if you wanted – do DL/AI
+yourself (using R).</p>
 </div>
 <div id="neural-networks-nn" class="section level1">
 <h1>Neural networks (NN)</h1>
-<p>The main workhorse of deep learning (DL) and artificial intelligence (AI) are a type of method/algorithm called neural net/network (NN). Those are specific kinds of models that originated as an attempt to capture the functioning of biological neurons, and thus brains. While neural nets have been around for a while and have had some successes (e.g. in digit recognition), they have really taken off in recent years with the advent of more data, faster computers, and better algorithms.</p>
-<p>Without going into details, there are a few ways you can think of how neural nets work. One is that those are collections of individual, <em>in silico</em>, neurons, which are combined into layers. On one end, the input is fed into the model, at the other end, the output is produced. See e.g. <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">this Wikipedia page</a> for some schematic drawing. The input are your predictor variables, e.g. lots of characteristics measured for a patient; data from an -omics array; pixels of an image; words of some text; sounds of an audio file, etc. The output is whatever label you want to predict, e.g. for some images it could be the 4 categories <em>cat/dog/neither/both</em>. You feed the data to the model and train it. Training of NN is conceptually similar to training other ML algorithms. Each neuron has parameters associated with it. As you fit the model, those parameters are tweaked to optimize performance. The bigger your neural network (more neurons and more layers), the more flexible the model. That means potentially more powerful, but also more data-hungry.</p>
-<p>While the analogy to a biological brain is apt, this comparison does sometimes make NN sound more complicated and fancy than they are. To demystify NN somewhat, you can switch out the comparison to a biological brain, and instead think of them as a coupled set of logistic regressions. Each neuron is more or less described by some type of logistic regression function. It gets some input from multiple variables (either the original input, or a previous layer of neurons), and then based on that input and its parameter setting returns either 0/No or Yes/1. The output is then fed to the next layer of networks. The NN is thus a combination of individual logistic regression models, coupled together in some way.</p>
-<p>This idea of connecting individual models to make a bigger, better model should be familiar by now. You saw it when we discussed making models like random forests that combine individual trees, and it was also mentioned as a general idea of <strong>ensemble models.</strong> You can think of NN as an ensemble of simpler, logistic-type models.</p>
-<p>Of course, neural networks are complicated and understanding them in more detail is time-consuming. However, as general user, you don’t need to understand all the details. Instead, like for other complex models we discussed, as long as you know how to use them and evaluate what they return, it is ok to not fully understand their inner workings. Properly training/fitting NN can be tricky, because they generally have many different parameters that need tuning to achieve good performance. Thus a lot of development has gone into methods that allow for efficient tuning/fitting. Fortunately for us as users, those methods have become fairly good such that it is possible to use NN algorithms built by others and generally trust they work well – similar to us using other models (GLM, trees, SVM, etc.) without having to worry about all the details.</p>
-<p>If you want to learn more about neural nets, <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">the wikipedia entry</a> is a good place to start. <a href="https://bradleyboehmke.github.io/HOML/deep-learning.html">The <em>Deep Learning Chapter</em> of HMLR</a> also provides a nice introduction.</p>
+<p>The main workhorse of deep learning (DL) and artificial intelligence
+(AI) are a type of method/algorithm called neural net/network (NN).
+Those are specific kinds of models that originated as an attempt to
+capture the functioning of biological neurons, and thus brains. While
+neural nets have been around for a while and have had some successes
+(e.g. in digit recognition), they have really taken off in recent years
+with the advent of more data, faster computers, and better
+algorithms.</p>
+<p>Without going into details, there are a few ways you can think of how
+neural nets work. One is that those are collections of individual,
+<em>in silico</em>, neurons, which are combined into layers. On one end,
+the input is fed into the model, at the other end, the output is
+produced. See e.g. <a
+href="https://en.wikipedia.org/wiki/Artificial_neural_network">this
+Wikipedia page</a> for some schematic drawing. The input are your
+predictor variables, e.g. lots of characteristics measured for a
+patient; data from an -omics array; pixels of an image; words of some
+text; sounds of an audio file, etc. The output is whatever label you
+want to predict, e.g. for some images it could be the 4 categories
+<em>cat/dog/neither/both</em>. You feed the data to the model and train
+it. Training of NN is conceptually similar to training other ML
+algorithms. Each neuron has parameters associated with it. As you fit
+the model, those parameters are tweaked to optimize performance. The
+bigger your neural network (more neurons and more layers), the more
+flexible the model. That means potentially more powerful, but also more
+data-hungry.</p>
+<p>While the analogy to a biological brain is apt, this comparison does
+sometimes make NN sound more complicated and fancy than they are. To
+demystify NN somewhat, you can switch out the comparison to a biological
+brain, and instead think of them as a coupled set of logistic
+regressions. Each neuron is more or less described by some type of
+logistic regression function. It gets some input from multiple variables
+(either the original input, or a previous layer of neurons), and then
+based on that input and its parameter setting returns either 0/No or
+Yes/1. The output is then fed to the next layer of networks. The NN is
+thus a combination of individual logistic regression models, coupled
+together in some way.</p>
+<p>This idea of connecting individual models to make a bigger, better
+model should be familiar by now. You saw it when we discussed making
+models like random forests that combine individual trees, and it was
+also mentioned as a general idea of <strong>ensemble models.</strong>
+You can think of NN as an ensemble of simpler, logistic-type models.</p>
+<p>Of course, neural networks are complicated and understanding them in
+more detail is time-consuming. However, as general user, you don’t need
+to understand all the details. Instead, like for other complex models we
+discussed, as long as you know how to use them and evaluate what they
+return, it is ok to not fully understand their inner workings. Properly
+training/fitting NN can be tricky, because they generally have many
+different parameters that need tuning to achieve good performance. Thus
+a lot of development has gone into methods that allow for efficient
+tuning/fitting. Fortunately for us as users, those methods have become
+fairly good such that it is possible to use NN algorithms built by
+others and generally trust they work well – similar to us using other
+models (GLM, trees, SVM, etc.) without having to worry about all the
+details.</p>
+<p>If you want to learn more about neural nets, <a
+href="https://en.wikipedia.org/wiki/Artificial_neural_network">the
+wikipedia entry</a> is a good place to start. <a
+href="https://bradleyboehmke.github.io/HOML/deep-learning.html">The
+<em>Deep Learning Chapter</em> of HMLR</a> also provides a nice
+introduction.</p>
 </div>
 <div id="deep-learning-dl" class="section level1">
 <h1>Deep Learning (DL)</h1>
-<p>Deep Learning (DL) generally refers to using a specific class of neural networks, namely those that have multiple layers of (<em>in silico</em>) neurons (it has nothing to do with deep as in especially insightful). These days, DL is sometimes used a bit more loosely and can refer to any NN based complex algorithm (or sometimes even a non-NN complex model) applied to a problem. However, most often if someone says/writes that they use deep learning to address some problem, they mean using a type of neural net to fit data.</p>
+<p>Deep Learning (DL) generally refers to using a specific class of
+neural networks, namely those that have multiple layers of (<em>in
+silico</em>) neurons (it has nothing to do with deep as in especially
+insightful). These days, DL is sometimes used a bit more loosely and can
+refer to any NN based complex algorithm (or sometimes even a non-NN
+complex model) applied to a problem. However, most often if someone
+says/writes that they use deep learning to address some problem, they
+mean using a type of neural net to fit data.</p>
 </div>
 <div id="artificial-intelligence-ai" class="section level1">
 <h1>Artificial Intelligence (AI)</h1>
-<p>Artificial Intelligence (AI) is definitely a trendy topic these days. It is widely used and also widely mis-used in many contexts these days. Roughly speaking, AI is the use of complex models, usually NN, to solve difficult problems. If one wanted to differentiate DL and AI, one might say that AI is the use of DL approaches applied to “complex” problems. However, it seems these days that DL and AI are terms that are used largely interchangeably. Overall, if you hear AI or DL, you can think of it roughly as <em>fitting a neural net model to data.</em> Unfortunately, since DL and AI have become such <em>hot</em> topics, terms are often misused these days, especially outside academia. You might find someone claiming to do DL/AI even though all they do is fit a linear regression to some data.</p>
-<p>As with all “new and shiny” things, there seems to be a bit of a current trend to use DL/AI approaches even when not needed. As an example, <a href="https://www.nature.com/articles/s41586-018-0438-y">this Nature article</a> used deep learning to analyze data; <a href="https://www.nature.com/articles/s41586-019-1582-8">this follow-up correspondence article</a> showed that a single logistic regression produced more or less the same results. <a href="https://www.nature.com/articles/s41586-019-1583-7">The reply by one of the original authors</a> is also worth reading.</p>
-<p>Overall, DL and AI are certainly very promising approaches and will without lead to significant improvements in our ability to harness data. As with most technologies going through a “bubble” there is currently work that is both substantial and important, and work that is fluffy and full of hype.</p>
+<p>Artificial Intelligence (AI) is definitely a trendy topic these days.
+It is widely used and also widely mis-used in many contexts these days.
+Roughly speaking, AI is the use of complex models, usually NN, to solve
+difficult problems. If one wanted to differentiate DL and AI, one might
+say that AI is the use of DL approaches applied to “complex” problems.
+However, it seems these days that DL and AI are terms that are used
+largely interchangeably. Overall, if you hear AI or DL, you can think of
+it roughly as <em>fitting a neural net model to data.</em>
+Unfortunately, since DL and AI have become such <em>hot</em> topics,
+terms are often misused these days, especially outside academia. You
+might find someone claiming to do DL/AI even though all they do is fit a
+linear regression to some data.</p>
+<p>As with all “new and shiny” things, there seems to be a bit of a
+current trend to use DL/AI approaches even when not needed. As an
+example, <a
+href="https://www.nature.com/articles/s41586-018-0438-y">this Nature
+article</a> used deep learning to analyze data; <a
+href="https://www.nature.com/articles/s41586-019-1582-8">this follow-up
+correspondence article</a> showed that a single logistic regression
+produced more or less the same results. <a
+href="https://www.nature.com/articles/s41586-019-1583-7">The reply by
+one of the original authors</a> is also worth reading.</p>
+<p>Overall, DL and AI are certainly very promising approaches and will
+without lead to significant improvements in our ability to harness data.
+As with most technologies going through a “bubble” there is currently
+work that is both substantial and important, and work that is fluffy and
+full of hype.</p>
 </div>
 <div id="dl-and-ai-in-r" class="section level1">
 <h1>DL and AI in R</h1>
-<p>There has been rapid developments in the tools that allow DL/AI applications. Several major technology companies have made some of their products publicly available. A very widely used and powerful tools is <a href="https://www.tensorflow.org/">TensorFlow</a>, partly developed by Google. It implements several powerful NN and other ML methods and allows one to fit those on various hardware platforms.</p>
-<p>To use TensorFlow directly, one needs to write a good bit of probably somewhat complicated code (I’ve never tried). To make using TensorFlow easier, other packages exist that provide a nice interface (a bit like using <code>caret</code> or <code>mlr</code> to access all kinds of ML models). A widely used tool to do DL/AI in an easy manner using TensorFlow (or similar such low-level engines) is <a href="https://keras.io/">Keras</a> (see also <a href="https://en.wikipedia.org/wiki/Keras">it’s Wikipedia entry</a>). Keras was originally developed for Python, a programming language that is somewhat similar to R and heavily used in the ML/DL/AI community. The folks from RStudio, together with the Keras development team, have since <a href="https://keras.rstudio.com/index.html">ported Keras to R</a>. It is thus possible to use these powerful tools (Keras and TensorFlow) from within R (though a Python installation is also required).</p>
-<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras website</a> has a lot of good information and documentation on how to use Keras through R to do DL/AI. The very brief <a href="https://keras.rstudio.com/articles/why_use_keras.html"><em>Why Use Keras?</em> article</a> provides some motivation and explanation of Keras strengths (and also shows a few nice graphs where you can see alternativel DL tools). While I’m sure a DL/AI expert uses more than just Keras/Tensorflow as their tools (I’m not one, so I’m not sure), you can get very far with those. And for playing around with DL/AI, Keras through R is a great place to start. See the exercise for suggested starting points.</p>
+<p>There has been rapid developments in the tools that allow DL/AI
+applications. Several major technology companies have made some of their
+products publicly available. A very widely used and powerful tools is <a
+href="https://www.tensorflow.org/">TensorFlow</a>, partly developed by
+Google. It implements several powerful NN and other ML methods and
+allows one to fit those on various hardware platforms.</p>
+<p>To use TensorFlow directly, one needs to write a good bit of probably
+somewhat complicated code (I’ve never tried). To make using TensorFlow
+easier, other packages exist that provide a nice interface (a bit like
+using <code>caret</code> or <code>mlr</code> to access all kinds of ML
+models). A widely used tool to do DL/AI in an easy manner using
+TensorFlow (or similar such low-level engines) is <a
+href="https://keras.io/">Keras</a> (see also <a
+href="https://en.wikipedia.org/wiki/Keras">it’s Wikipedia entry</a>).
+Keras was originally developed for Python, a programming language that
+is somewhat similar to R and heavily used in the ML/DL/AI community. The
+folks from RStudio, together with the Keras development team, have since
+<a href="https://keras.rstudio.com/index.html">ported Keras to R</a>. It
+is thus possible to use these powerful tools (Keras and TensorFlow) from
+within R (though a Python installation is also required).</p>
+<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras
+website</a> has a lot of good information and documentation on how to
+use Keras through R to do DL/AI. The very brief <a
+href="https://keras.rstudio.com/articles/why_use_keras.html"><em>Why Use
+Keras?</em> article</a> provides some motivation and explanation of
+Keras strengths (and also shows a few nice graphs where you can see
+alternativel DL tools). While I’m sure a DL/AI expert uses more than
+just Keras/Tensorflow as their tools (I’m not one, so I’m not sure), you
+can get very far with those. And for playing around with DL/AI, Keras
+through R is a great place to start. See the exercise for suggested
+starting points.</p>
 <div id="side-note-gpu-computing" class="section level2 note">
 <h2>Side note: GPU computing</h2>
-<p>Since DL/AI usually fit large amounts of data to complex models, time constraints are often important. Powerful computers are at times needed. An important development is the use of GPU (graphical processing unit) computing. While modern computers usually have more than 1 CPU, they are still generally limited to a small number. Even a very powerful single desktop will have generally less than 100 CPUs. In contrast, modern graphics cards often have &gt;1000 GPUs. Those can all be used in parallel to perform model fitting. Products such as Tensorflow allow one to use (mainly NVIDIA) GPUs to fit complex models to a lot of data in an often reasonable amount of time without requiring a supercomputer cluster. Unfortunately, R currently has poor GPU support.</p>
+<p>Since DL/AI usually fit large amounts of data to complex models, time
+constraints are often important. Powerful computers are at times needed.
+An important development is the use of GPU (graphical processing unit)
+computing. While modern computers usually have more than 1 CPU, they are
+still generally limited to a small number. Even a very powerful single
+desktop will have generally less than 100 CPUs. In contrast, modern
+graphics cards often have &gt;1000 GPUs. Those can all be used in
+parallel to perform model fitting. Products such as Tensorflow allow one
+to use (mainly NVIDIA) GPUs to fit complex models to a lot of data in an
+often reasonable amount of time without requiring a supercomputer
+cluster. Unfortunately, R currently has poor GPU support.</p>
 </div>
 </div>
 <div id="big-data" class="section level1">
 <h1>Big Data</h1>
-<p>You often hear the term <em>big data</em> when people talk about DL or AI. The reason for that is that complex models, such as DL models, need a lot of data to work well. Thus, DL models and big data often – but not always – go together. That said, you can analyze big data with any model you want, including simple GLM or similar such models.</p>
-<p>While the term <em>big data</em> is a bit fuzzy, in general people mean any dataset that doesn’t easily fit into the memory of a regular computer (or cluster) and thus needs to be analyzed using special tools. Alternatively, data that is so big that doing analysis on it takes too long using standard tools (e.g. R on a regular computer) and instead requires special treatment. Of course this also depends on the type of analysis, not only the type of data. As computers keep getting faster and tools more flexible and integrated, the label <strong>big data</strong> is a moving target.</p>
-<p>Generally, big data is stored somewhere in a database. <a href="https://en.wikipedia.org/wiki/SQL">SQL type databases</a> are most common. You then want to access that database in a form that allows you to perform your analysis. There are different ways of dealing with big data. Most methods are general and apply independent of the programming language you use. <a href="https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/">This article</a> describes a few general approaches and explains how they can be implemented in R. <a href="https://rstudio.com/resources/webinars/working-with-big-data-in-r/">This webinar</a> gives a bit more information and a nice description of the overall setup for big data. As you learn in that tutorial, R is often used together with other software to analyze big data. A tool that is often used for big data analysis is <a href="http://spark.apache.org/">Spark</a>. For R, there is the <a href="https://spark.rstudio.com/">sparklyr package</a>, which allows one to nicely interface with Spark.</p>
-<p>In general, when you work with big data, you will have to carefully look at the data, the type of database it is stored, and the analysis goals. Based on that, you should use a stack of tools that allows analysis. The <a href="https://cran.r-project.org/web/views/Databases.html">Databases task view</a> gives a good overview of different R packages for specific types of databases. You will use R for your analysis, and R will then interface with other software. This interface is usually fairly seamless.</p>
+<p>You often hear the term <em>big data</em> when people talk about DL
+or AI. The reason for that is that complex models, such as DL models,
+need a lot of data to work well. Thus, DL models and big data often –
+but not always – go together. That said, you can analyze big data with
+any model you want, including simple GLM or similar such models.</p>
+<p>While the term <em>big data</em> is a bit fuzzy, in general people
+mean any dataset that doesn’t easily fit into the memory of a regular
+computer (or cluster) and thus needs to be analyzed using special tools.
+Alternatively, data that is so big that doing analysis on it takes too
+long using standard tools (e.g. R on a regular computer) and instead
+requires special treatment. Of course this also depends on the type of
+analysis, not only the type of data. As computers keep getting faster
+and tools more flexible and integrated, the label <strong>big
+data</strong> is a moving target.</p>
+<p>Generally, big data is stored somewhere in a database. <a
+href="https://en.wikipedia.org/wiki/SQL">SQL type databases</a> are most
+common. You then want to access that database in a form that allows you
+to perform your analysis. There are different ways of dealing with big
+data. Most methods are general and apply independent of the programming
+language you use. <a
+href="https://rviews.rstudio.com/2019/07/17/3-big-data-strategies-for-r/">This
+article</a> describes a few general approaches and explains how they can
+be implemented in R. <a
+href="https://rstudio.com/resources/webinars/working-with-big-data-in-r/">This
+webinar</a> gives a bit more information and a nice description of the
+overall setup for big data. As you learn in that tutorial, R is often
+used together with other software to analyze big data. A tool that is
+often used for big data analysis is <a
+href="http://spark.apache.org/">Spark</a>. For R, there is the <a
+href="https://spark.rstudio.com/">sparklyr package</a>, which allows one
+to nicely interface with Spark.</p>
+<p>In general, when you work with big data, you will have to carefully
+look at the data, the type of database it is stored, and the analysis
+goals. Based on that, you should use a stack of tools that allows
+analysis. The <a
+href="https://cran.r-project.org/web/views/Databases.html">Databases
+task view</a> gives a good overview of different R packages for specific
+types of databases. You will use R for your analysis, and R will then
+interface with other software. This interface is usually fairly
+seamless.</p>
 </div>
 <div id="computing-resources" class="section level1">
 <h1>Computing resources</h1>
-<p>As you do DL/AI or use big data, you might exceed what your desktop can do in a reasonable amount of time. The tips described above (e.g. using a GPU for DL or sampling to reduce data size) often help. But at times, you need more powerful computing. Fortunately, this is increasingly available for cheap. You can often access academic computing resources, such as UGA’s <a href="https://gacrc.uga.edu/">Georgia Advanced Computing Resources Center (GACRC)</a> and use them for free. Commercial services also exist, such as <a href="https://aws.amazon.com/">Amazon Web Services (AWS)</a> which allow you to tap into a vast amount of computing power. Of course, for AWS and similar services, you need to pay. At times, you might get a discount as a student/academic. You can find good information on such services online, for instance on the GACRC website.</p>
+<p>As you do DL/AI or use big data, you might exceed what your desktop
+can do in a reasonable amount of time. The tips described above
+(e.g. using a GPU for DL or sampling to reduce data size) often help.
+But at times, you need more powerful computing. Fortunately, this is
+increasingly available for cheap. You can often access academic
+computing resources, such as UGA’s <a
+href="https://gacrc.uga.edu/">Georgia Advanced Computing Resources
+Center (GACRC)</a> and use them for free. Commercial services also
+exist, such as <a href="https://aws.amazon.com/">Amazon Web Services
+(AWS)</a> which allow you to tap into a vast amount of computing power.
+Of course, for AWS and similar services, you need to pay. At times, you
+might get a discount as a student/academic. You can find good
+information on such services online, for instance on the GACRC
+website.</p>
 </div>
 <div id="further-information" class="section level1">
 <h1>Further information</h1>
-<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras website</a> has a lot of good information, and also provides links to further resources. Starting there with the <em>Tutorials</em> section is probably the best way to get going. After that you can branch out to some of the listed resources (e.g. the <em>Learn</em> section on that website). Making use of the <em>Keras</em> website and resources mentioned there, will get you far.</p>
-<p>For some additional/complementary material, <a href="https://github.com/philbowsher/Workshop-R-Tensorflow-Scientific-Computing">here are materials from a recent workshop by Phil Bowsher</a> that also describes doing deep learning in R.</p>
-<p>If you are interested in some general information on AI, NN and related topics, a really good (but non-free) book is <a href="https://melaniemitchell.me/aibook/">Artificial Intelligence: A Guide for Thinking Humans</a>.</p>
+<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras
+website</a> has a lot of good information, and also provides links to
+further resources. Starting there with the <em>Tutorials</em> section is
+probably the best way to get going. After that you can branch out to
+some of the listed resources (e.g. the <em>Learn</em> section on that
+website). Making use of the <em>Keras</em> website and resources
+mentioned there, will get you far.</p>
+<p>For some additional/complementary material, <a
+href="https://github.com/philbowsher/Workshop-R-Tensorflow-Scientific-Computing">here
+are materials from a recent workshop by Phil Bowsher</a> that also
+describes doing deep learning in R.</p>
+<p>If you are interested in some general information on AI, NN and
+related topics, a really good (but non-free) book is <a
+href="https://melaniemitchell.me/aibook/">Artificial Intelligence: A
+Guide for Thinking Humans</a>.</p>
 </div>
 
 

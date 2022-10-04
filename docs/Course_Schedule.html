@@ -14,7 +14,7 @@
 
 <title>MADA – Fall 2021 – Schedule</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -137,11 +137,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -563,9 +567,15 @@ $(document).ready(function () {
 </div>
 
 
-<p>This is the current course schedule for the class. Things might change, so check regularly for updates.</p>
-<p>The <em>Assessments</em> column lists items that need to be submitted and that will be graded. Those are described in more detail in an <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page and in the assessment document for each module.</p>
-<p><strong>Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.</strong></p>
+<p>This is the current course schedule for the class. Things might
+change, so check regularly for updates.</p>
+<p>The <em>Assessments</em> column lists items that need to be submitted
+and that will be graded. Those are described in more detail in an <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page
+and in the assessment document for each module.</p>
+<p><strong>Unless otherwise specified, the first posting of the
+discussion is due by end of Wednesday, the discussion replies, the
+quizzes and exercises are due by end of Friday.</strong></p>
 <table>
 <colgroup>
 <col width="25%" />
@@ -689,9 +699,19 @@ $(document).ready(function () {
 <p><em>Note: Withdrawal deadline is Monday 10/25.</em></p>
 <div id="synchronous-zoom-meetings" class="section level2">
 <h2>Synchronous Zoom meetings</h2>
-<p>I will offer <strong>completely optional</strong> Zoom meetings. See the <em>Communication</em> section for some more details. You can find the Zoom link on Slack. The current plan is to have <strong>one Zoom meeting per module on Thursdays, alternating between 3pm (odd modules) and 8am (even modules).</strong> (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)</p>
-<p>Hopefully, one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.</p>
-<p><strong>The first Zoom session will be on Thursday, 8/19 at 3pm ET.</strong></p>
+<p>I will offer <strong>completely optional</strong> Zoom meetings. See
+the <em>Communication</em> section for some more details. You can find
+the Zoom link on Slack. The current plan is to have <strong>one Zoom
+meeting per module on Thursdays, alternating between 3pm (odd modules)
+and 8am (even modules).</strong> (That means, most of the time, one
+meeting per week, unless a module is longer than a week, as it is for
+the first one.)</p>
+<p>Hopefully, one of those two times works for everyone, allowing people
+to join at least every other time if they want. If you already know that
+neither times work for you, and you are keen on joining the Zoom
+meetings, let me know and we can adjust.</p>
+<p><strong>The first Zoom session will be on Thursday, 8/19 at 3pm
+ET.</strong></p>
 </div>
 
 

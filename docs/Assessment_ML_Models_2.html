@@ -14,7 +14,7 @@
 
 <title>Assessment - Machine Learning Models 2</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,62 +651,170 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>Since this week is another week with a project submission deadline, I’m keeping the exercise short, but there is some cleanup and improvement I’d like you to do for your portfolio. Some of you might have already done some of that.</p>
+<p>Since this week is another week with a project submission deadline,
+I’m keeping the exercise short, but there is some cleanup and
+improvement I’d like you to do for your portfolio. Some of you might
+have already done some of that.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>Make sure your portfolio repository is fully up-to-date and synced. Open the project in RStudio.</p>
+<p>Make sure your portfolio repository is fully up-to-date and synced.
+Open the project in RStudio.</p>
 </div>
 <div id="connecting-website-and-file-repository" class="section level2">
 <h2>Connecting website and file repository</h2>
-<p>First, let’s make sure it’s easy for people to go from your portfolio website (the <code>github.io</code> location) to your file repository (the <code>github.com</code> location) and back. To that end, open the <code>_site.yml</code> file. At the bottom, it says <code>URL-TO-THIS-REPOSITORY-HERE</code>. Replace that with the URL to your Github repository. As an example, for the MADA course, the URL one would put in there is <code>https://github.com/andreashandel/MADAcourse</code> (while the website lives at <code>https://andreashandel.github.io/MADAcourse/</code>).</p>
-<p>Once you done that, when people now are on your website, they can click on the <code>Github</code> icon in the top right corner and be taken to your file repository. Try to make sure it works by rebuilding your website and pushing to Github. It might take a minute or so and you might need to hit refresh before it shows up on the website.</p>
-<p>Now, let’s connect the two in reverse. Open <code>Readme.md</code> and update the text. This is what people see when they come to your github repository for your portfolio (as opposed to the website). I recommend adding a little bit of text and a link pointing users to the actual website. <a href="https://github.com/andreashandel/MADAcourse">You can look at the Readme.md for this course as example</a>. Edit yours as you want.</p>
-<p>You might also want to point to your website in the top right area of your repository on Github.com. If you go to your repository on GitHub, you should see an <code>About</code> section in the top right. If you click on the gear symbol, there is a field in which you can enter the URL for your website (the <code>github.io</code> location). It might already show as pre-populated, but you have to actually manually enter it before it will show. You can again see how that looks on the repository for this course.</p>
-<p>With this, it is easy for anyone (including yourself) to quickly switch between the website and the file repository.</p>
+<p>First, let’s make sure it’s easy for people to go from your portfolio
+website (the <code>github.io</code> location) to your file repository
+(the <code>github.com</code> location) and back. To that end, open the
+<code>_site.yml</code> file. At the bottom, it says
+<code>URL-TO-THIS-REPOSITORY-HERE</code>. Replace that with the URL to
+your Github repository. As an example, for the MADA course, the URL one
+would put in there is
+<code>https://github.com/andreashandel/MADAcourse</code> (while the
+website lives at
+<code>https://andreashandel.github.io/MADAcourse/</code>).</p>
+<p>Once you done that, when people now are on your website, they can
+click on the <code>Github</code> icon in the top right corner and be
+taken to your file repository. Try to make sure it works by rebuilding
+your website and pushing to Github. It might take a minute or so and you
+might need to hit refresh before it shows up on the website.</p>
+<p>Now, let’s connect the two in reverse. Open <code>Readme.md</code>
+and update the text. This is what people see when they come to your
+github repository for your portfolio (as opposed to the website). I
+recommend adding a little bit of text and a link pointing users to the
+actual website. <a
+href="https://github.com/andreashandel/MADAcourse">You can look at the
+Readme.md for this course as example</a>. Edit yours as you want.</p>
+<p>You might also want to point to your website in the top right area of
+your repository on Github.com. If you go to your repository on GitHub,
+you should see an <code>About</code> section in the top right. If you
+click on the gear symbol, there is a field in which you can enter the
+URL for your website (the <code>github.io</code> location). It might
+already show as pre-populated, but you have to actually manually enter
+it before it will show. You can again see how that looks on the
+repository for this course.</p>
+<p>With this, it is easy for anyone (including yourself) to quickly
+switch between the website and the file repository.</p>
 </div>
 <div id="creating-new-content" class="section level2">
 <h2>Creating new content</h2>
-<p>In preparation for next week, make a copy of the <code>tidytuesday_exercise.Rmd</code> file, name it <code>tidytuesday_exercise2.Rmd</code>. Open it, delete everything apart from the YAML header (the stuff between the <code>---</code>). Add a sentence that says “To be filled” or something like that. You will fill it next week.</p>
-<p>To see the new file and access it from the website, we also have to include it in the website navigation bar. To that end, go back to the <code>_site.yml</code> file. Under <code>menu</code>, you’ll see multiple lines of code starting with <code>text</code> and <code>href</code>. Those are the menu entries. Copy and insert the last 2 entries for Tidy Tuesday just below those entries, then replace the text with “Tidy Tuesday 2 Exercise” and the link with <code>./tidytuesday_exercise2.html</code>.</p>
-<p>Make sure your website rebuilds ok. You should now see another menu entry for Tidy Tuesday 2 and when you click on it, the essentially empty file we created should show up.</p>
+<p>In preparation for next week, make a copy of the
+<code>tidytuesday_exercise.Rmd</code> file, name it
+<code>tidytuesday_exercise2.Rmd</code>. Open it, delete everything apart
+from the YAML header (the stuff between the <code>---</code>). Add a
+sentence that says “To be filled” or something like that. You will fill
+it next week.</p>
+<p>To see the new file and access it from the website, we also have to
+include it in the website navigation bar. To that end, go back to the
+<code>_site.yml</code> file. Under <code>menu</code>, you’ll see
+multiple lines of code starting with <code>text</code> and
+<code>href</code>. Those are the menu entries. Copy and insert the last
+2 entries for Tidy Tuesday just below those entries, then replace the
+text with “Tidy Tuesday 2 Exercise” and the link with
+<code>./tidytuesday_exercise2.html</code>.</p>
+<p>Make sure your website rebuilds ok. You should now see another menu
+entry for Tidy Tuesday 2 and when you click on it, the essentially empty
+file we created should show up.</p>
 <div class="warning">
-<p>YAML (which is the format of <code>_site.yml</code>) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change a YAML file and you get a weird error message when trying to rebuild your website, it’s likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind. (It happens to me all the time.)</p>
+<p>YAML (which is the format of <code>_site.yml</code>) is VERY finicky
+when it comes to formatting. You need to have exactly the right number
+of empty spaces. If you ever change a YAML file and you get a weird
+error message when trying to rebuild your website, it’s likely because
+some minor formatting is wrong, e.g. an empty space is missing or too
+much. Just keep that in mind. (It happens to me all the time.)</p>
 </div>
 </div>
 <div id="adding-more-content" class="section level2">
 <h2>Adding more content</h2>
-<p>I mentioned last week that we want to add the full data analysis exercise you’ve worked on over the last few weeks to the repository. Let’s do that. Copy the R Markdown file which contains the main analysis part from your exercise repository into this one. To make sure the file can be run, you will also need to copy any needed files. Here, that is at minimum the data file, and possibly any results (figures/tables) you created. To include them, make a sub-folder in your repository, let’s call it <code>files</code>. Place the data file and any others your R Markdown file loads into that folder. Then open the R Markdown file and change paths such that the files are loaded from the right new location.</p>
-<p>While you are at it, also add either to the top of or bottom of your R Markdown file a brief description what it is and where people can go (the URL to your Github repository) to find the full analysis.</p>
-<p>In a final step, we need to make sure your analysis shows up on the website. To that end, follow the steps in <em>Creating new content</em> to add your exercise to the menu.</p>
-<p>Rebuild your website, and if everything works, there should now be a page showcasing your data analysis exercise.</p>
-<p>We also did one more exercise where I asked you to load and play with some data from the CDC. If you think what you did is nice enough that you want to showcase it, add it to the website following the steps just described. And of course you are free to add any other content you created that you think is worth featuring.</p>
+<p>I mentioned last week that we want to add the full data analysis
+exercise you’ve worked on over the last few weeks to the repository.
+Let’s do that. Copy the R Markdown file which contains the main analysis
+part from your exercise repository into this one. To make sure the file
+can be run, you will also need to copy any needed files. Here, that is
+at minimum the data file, and possibly any results (figures/tables) you
+created. To include them, make a sub-folder in your repository, let’s
+call it <code>files</code>. Place the data file and any others your R
+Markdown file loads into that folder. Then open the R Markdown file and
+change paths such that the files are loaded from the right new
+location.</p>
+<p>While you are at it, also add either to the top of or bottom of your
+R Markdown file a brief description what it is and where people can go
+(the URL to your Github repository) to find the full analysis.</p>
+<p>In a final step, we need to make sure your analysis shows up on the
+website. To that end, follow the steps in <em>Creating new content</em>
+to add your exercise to the menu.</p>
+<p>Rebuild your website, and if everything works, there should now be a
+page showcasing your data analysis exercise.</p>
+<p>We also did one more exercise where I asked you to load and play with
+some data from the CDC. If you think what you did is nice enough that
+you want to showcase it, add it to the website following the steps just
+described. And of course you are free to add any other content you
+created that you think is worth featuring.</p>
 </div>
 <div id="cleanup-and-styling" class="section level2">
 <h2>Cleanup and Styling</h2>
-<p>At this point, it might be worth revisiting your already posted pages and cleaning up things a bit. If anything doesn’t work, fix it. If some formatting looks strange, by now you should have all the knowledge (or at least know how to get it) to adjust that. Make sure everything looks as nice and professional as possible.</p>
-<p>While the way we built the website has only limited ways of styling things (unless you want to start changing CSS and HTML code), you can still customize some. Feel free to play around and customize the look. You can find some information <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">here</a>. If you look into the repository for the MADA course, you will also see that in my <code>_site.yml</code> file that I’m using my own CSS file (called <code>MADAstyle.css</code>) which is also in the course repository. CSS lets you style websites. It’s not hard to write CSS code, but it is its own thing. I usually just google around to find what I’m looking for 😁. You certainly don’t have to, but if you want to further customize the look of your website, you can add your own CSS file and style it how you like.</p>
+<p>At this point, it might be worth revisiting your already posted pages
+and cleaning up things a bit. If anything doesn’t work, fix it. If some
+formatting looks strange, by now you should have all the knowledge (or
+at least know how to get it) to adjust that. Make sure everything looks
+as nice and professional as possible.</p>
+<p>While the way we built the website has only limited ways of styling
+things (unless you want to start changing CSS and HTML code), you can
+still customize some. Feel free to play around and customize the look.
+You can find some information <a
+href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">here</a>.
+If you look into the repository for the MADA course, you will also see
+that in my <code>_site.yml</code> file that I’m using my own CSS file
+(called <code>MADAstyle.css</code>) which is also in the course
+repository. CSS lets you style websites. It’s not hard to write CSS
+code, but it is its own thing. I usually just google around to find what
+I’m looking for 😁. You certainly don’t have to, but if you want to
+further customize the look of your website, you can add your own CSS
+file and style it how you like.</p>
 </div>
 <div id="more-comments" class="section level2">
 <h2>More Comments</h2>
-<p>Future employers really do look at portfolios like this, so being able to showcase something nice and polished is useful. It is also part of having a good online presence. I think for (future) professionals like yourself, a solid online presence is vital. I discuss this with our grad students in another class, if you want to see my thoughts on that, you can check out <a href="https://www.andreashandel.com/presentations/2021-01-building-your-brand/">this presentation</a> – which is of course made with R Markdown and posted to a website that is made (partially) with R products (<code>blogdown</code> in that case) 😄.</p>
-<p>And if you’ve really gotten into making websites with R Markdown, you can always move to <a href="https://bookdown.org/yihui/blogdown/">blogdown</a>. This is a much more flexible and powerful way of creating websites, but it’s also more complex. Maybe the current best starting point for blogdown is <a href="https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/">this online post/tutorial</a>.</p>
+<p>Future employers really do look at portfolios like this, so being
+able to showcase something nice and polished is useful. It is also part
+of having a good online presence. I think for (future) professionals
+like yourself, a solid online presence is vital. I discuss this with our
+grad students in another class, if you want to see my thoughts on that,
+you can check out <a
+href="https://www.andreashandel.com/presentations/2021-01-building-your-brand/">this
+presentation</a> – which is of course made with R Markdown and posted to
+a website that is made (partially) with R products
+(<code>blogdown</code> in that case) 😄.</p>
+<p>And if you’ve really gotten into making websites with R Markdown, you
+can always move to <a
+href="https://bookdown.org/yihui/blogdown/">blogdown</a>. This is a much
+more flexible and powerful way of creating websites, but it’s also more
+complex. Maybe the current best starting point for blogdown is <a
+href="https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/">this
+online post/tutorial</a>.</p>
 </div>
 <div id="submission" class="section level2">
 <h2>Submission</h2>
-<p>I know where to find your portfolio, so you don’t need to submit anything. Just make sure you push a fully updated and re-built portfolio to Github and that the website looks right. I’ll take a look at the website after the deadline.</p>
+<p>I know where to find your portfolio, so you don’t need to submit
+anything. Just make sure you push a fully updated and re-built portfolio
+to Github and that the website looks right. I’ll take a look at the
+website after the deadline.</p>
 </div>
 </div>
 <div id="project" class="section level1">
 <h1>Project</h1>
-<p>Submission of part 4 is due. Make sure your updated project is on Github.</p>
+<p>Submission of part 4 is due. Make sure your updated project is on
+Github.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>No discussion assignment this week. Instead, submit project part 4.</p>
+<p>No discussion assignment this week. Instead, submit project part
+4.</p>
 </div>
 
 

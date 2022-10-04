@@ -14,7 +14,7 @@
 
 <title>MADA – Fall 2021 – Syllabus</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -650,66 +654,143 @@ div.tocify {
 <ul>
 <li>Instructor: Andreas Handel</li>
 <li>Office Location: 124 B.S. Miller Hall, Health Sciences Campus</li>
-<li>Email: <a href="mailto:ahandel@uga.edu" class="email">ahandel@uga.edu</a></li>
+<li>Email: <a href="mailto:ahandel@uga.edu"
+class="email">ahandel@uga.edu</a></li>
 <li>Office Hours: by appointment/online</li>
-<li>Course Meeting Time and Location: asynchronous, online. For optional synchronous meeting, see <em>Communication</em>.</li>
+<li>Course Meeting Time and Location: asynchronous, online. For optional
+synchronous meeting, see <em>Communication</em>.</li>
 </ul>
 </div>
 <div id="textbook-and-other-course-material" class="section level2">
 <h2>Textbook and Other Course Material</h2>
-<p>There is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download.</p>
+<p>There is no required textbook. We will make use of several freely
+available textbooks and other materials. All course materials will be
+provided. We will use the R software for data analysis, which is freely
+available for download.</p>
 </div>
 <div id="course-description" class="section level2">
 <h2>Course Description</h2>
-<p>This course provides a survey of modern statistical approaches to analyze data. We will cover a variety of modern approaches for analyzing and interpreting data commonly encountered in public health, biomedical sciences, and related areas. This is an applied, hands-on class. We will use real data (bring your own data if you have it) to learn different methods of analysis. We will discuss all the steps of a data analysis, including obtaining and cleaning data, exploratory and full analysis, and presentation of results.</p>
-<p>We will discuss how to formulate scientifically solid questions for a given set of data, how to decide on the right method of analysis, how to implement the analysis in R, and how to present and communicate the results. We will cover statistical topics such as regression, tree based models, cross-validation, bootstrapping, and model selection.</p>
+<p>This course provides a survey of modern statistical approaches to
+analyze data. We will cover a variety of modern approaches for analyzing
+and interpreting data commonly encountered in public health, biomedical
+sciences, and related areas. This is an applied, hands-on class. We will
+use real data (bring your own data if you have it) to learn different
+methods of analysis. We will discuss all the steps of a data analysis,
+including obtaining and cleaning data, exploratory and full analysis,
+and presentation of results.</p>
+<p>We will discuss how to formulate scientifically solid questions for a
+given set of data, how to decide on the right method of analysis, how to
+implement the analysis in R, and how to present and communicate the
+results. We will cover statistical topics such as regression, tree based
+models, cross-validation, bootstrapping, and model selection.</p>
 </div>
 <div id="course-learning-objectives" class="section level2">
 <h2>Course Learning Objectives</h2>
-<p>The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, proceeds to getting, cleaning and exploring the data, culminates with fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of ‘Machine Learning’. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.</p>
-<p>The specific learning objectives that I hope you will achieve by going through this course are:</p>
-<p><em>Define meaningful data analysis questions and assess the feasibility of answering these questions with the available data.</em></p>
+<p>The main goal for this course is for you to learn the whole process
+of performing a data analysis project. This starts with identifying a
+suitable question-data pair, proceeds to getting, cleaning and exploring
+the data, culminates with fitting statistical models and producing
+materials that communicate what you did and found. A second goal is to
+introduce you to some modern analysis approaches that these days often
+go by the name of ‘Machine Learning’. Finally, a related goal is to
+introduce you to a set of tools that allow for a modern, reproducible
+workflow of your analysis.</p>
+<p>The specific learning objectives that I hope you will achieve by
+going through this course are:</p>
+<p><em>Define meaningful data analysis questions and assess the
+feasibility of answering these questions with the available
+data.</em></p>
 <ul>
-<li>Given a data set, define the questions that can be answered and formulate and implement suitable analytic approaches.</li>
-<li>Given a data analysis question, determine the type of data and analytic approach needed to answer it.</li>
+<li>Given a data set, define the questions that can be answered and
+formulate and implement suitable analytic approaches.</li>
+<li>Given a data analysis question, determine the type of data and
+analytic approach needed to answer it.</li>
 </ul>
-<p><em>Be able to obtain, organize and process data for detailed analysis.</em></p>
+<p><em>Be able to obtain, organize and process data for detailed
+analysis.</em></p>
 <ul>
 <li>Know how to obtain data from a variety of different sources.</li>
-<li>Be knowledgeable about data types and standards and how to process them.</li>
-<li>Be able to organize and process data in a reproducible, automated and documented manner.</li>
-<li>Be able to thoughtfully and critically assess strengths and weaknesses of specific data sets and process the data appropriately.</li>
+<li>Be knowledgeable about data types and standards and how to process
+them.</li>
+<li>Be able to organize and process data in a reproducible, automated
+and documented manner.</li>
+<li>Be able to thoughtfully and critically assess strengths and
+weaknesses of specific data sets and process the data
+appropriately.</li>
 </ul>
-<p><em>Be knowledgeable of different data analysis methods and select the appropriate approach for a given project based on data and question.</em></p>
+<p><em>Be knowledgeable of different data analysis methods and select
+the appropriate approach for a given project based on data and
+question.</em></p>
 <ul>
-<li>Critically compare and evaluate the strengths and weaknesses of different data analysis approaches.</li>
-<li>Judge the appropriateness of different approaches for specific questions and data sets and know how to apply an appropriate analytic approach.</li>
-<li>Design and implement successful data analyses using state-of-the-art analysis software to translate data to information and knowledge that leads to actionable insights.</li>
+<li>Critically compare and evaluate the strengths and weaknesses of
+different data analysis approaches.</li>
+<li>Judge the appropriateness of different approaches for specific
+questions and data sets and know how to apply an appropriate analytic
+approach.</li>
+<li>Design and implement successful data analyses using state-of-the-art
+analysis software to translate data to information and knowledge that
+leads to actionable insights.</li>
 </ul>
-<p><em>Efficiently communicate results from data analyses to a variety of stakeholders.</em></p>
+<p><em>Efficiently communicate results from data analyses to a variety
+of stakeholders.</em></p>
 <ul>
-<li>Summarize analysis results in ways that provide actionable conclusions and that are easily understandable by different audiences, such as laypersons, decision makers, and expert colleagues.</li>
-<li>Assess the strengths and weaknesses of different formats for representing the results of data analyses.</li>
+<li>Summarize analysis results in ways that provide actionable
+conclusions and that are easily understandable by different audiences,
+such as laypersons, decision makers, and expert colleagues.</li>
+<li>Assess the strengths and weaknesses of different formats for
+representing the results of data analyses.</li>
 </ul>
-<p><em>Use modern coding and analysis tools to implement automated, reproducible analysis and project management workflows.</em></p>
+<p><em>Use modern coding and analysis tools to implement automated,
+reproducible analysis and project management workflows.</em></p>
 <ul>
-<li>Explain the importance of workflow, project management, and reproducibility tools, and know how to use those tools.</li>
-<li>Be proficient in R coding to implement and execute a complete data analysis project in a reproducible and automated manner.</li>
-<li>Be comfortable using R and Github to do data analysis in a reproducible manner.</li>
-<li>Be able to quickly learn how to use new software and tools, figure out how to get help when stuck, and make it work for you.</li>
+<li>Explain the importance of workflow, project management, and
+reproducibility tools, and know how to use those tools.</li>
+<li>Be proficient in R coding to implement and execute a complete data
+analysis project in a reproducible and automated manner.</li>
+<li>Be comfortable using R and Github to do data analysis in a
+reproducible manner.</li>
+<li>Be able to quickly learn how to use new software and tools, figure
+out how to get help when stuck, and make it work for you.</li>
 </ul>
-<p><em>Develop skills to critically assess your own and others’ analyses and conclusions.</em></p>
+<p><em>Develop skills to critically assess your own and others’ analyses
+and conclusions.</em></p>
 <ul>
-<li>Judge the usefulness and appropriateness of data analyses described in the primary research literature.</li>
-<li>Learn to <em>look over your shoulder</em> and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.</li>
+<li>Judge the usefulness and appropriateness of data analyses described
+in the primary research literature.</li>
+<li>Learn to <em>look over your shoulder</em> and critically assess what
+you are doing, what assumptions you make by doing certain things, and if
+and how you can justify these.</li>
 </ul>
 </div>
 <div id="prerequisites" class="section level2">
 <h2>Prerequisites</h2>
-<p><em>Formal requirement for the course is BIOS 7010. Knowledge of material from BIOS 7010 is assumed. If your lack pre-requisites prevent you from enrolling in this course, please contact me to get permission to enroll.</em></p>
-<p>This is a quantitative course. We will not discuss the mathematical details of specific data analysis approaches, however some statistical background and being comfortable with quantitative thinking are needed. Knowledge of statistics at the level of fitting linear or logistic models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are assumed. Some R coding skills (e.g., as obtained in our EPID 7500 class), are helpful.</p>
-<p>If you do not have any coding or statistics knowledge, you can still take the class, but you need to be prepared to spend extra time and effort to fill any gaps. This will be especially true for the R coding part. Some of you likely have previous R experience, while others might have little to none. If you are in the <em>little to none</em> category, expect to spend extra time getting up to speed. I believe it’s doable and worth the effort, but you need to be prepared for it. There will be plenty of help from myself, classmates, and the internet if you end up getting stuck with some of the coding, but your effort and commitment are still required.</p>
-<p><strong>To re-emphasize: For those among you who have not used R or any other programming language before, this course will be time-consuming. Budget your time accordingly and plan ahead! If you do, I’m fairly certain you will find it worth it. If you are not able or willing to allot the time needed to learn enough R (and GitHub) to make things work, this course might not be ideal for you.</strong></p>
+<p><em>Formal requirement for the course is BIOS 7010. Knowledge of
+material from BIOS 7010 is assumed. If your lack pre-requisites prevent
+you from enrolling in this course, please contact me to get permission
+to enroll.</em></p>
+<p>This is a quantitative course. We will not discuss the mathematical
+details of specific data analysis approaches, however some statistical
+background and being comfortable with quantitative thinking are needed.
+Knowledge of statistics at the level of fitting linear or logistic
+models to data (e.g., as obtained in our BIOS 7010 and 7020 courses) are
+assumed. Some R coding skills (e.g., as obtained in our EPID 7500
+class), are helpful.</p>
+<p>If you do not have any coding or statistics knowledge, you can still
+take the class, but you need to be prepared to spend extra time and
+effort to fill any gaps. This will be especially true for the R coding
+part. Some of you likely have previous R experience, while others might
+have little to none. If you are in the <em>little to none</em> category,
+expect to spend extra time getting up to speed. I believe it’s doable
+and worth the effort, but you need to be prepared for it. There will be
+plenty of help from myself, classmates, and the internet if you end up
+getting stuck with some of the coding, but your effort and commitment
+are still required.</p>
+<p><strong>To re-emphasize: For those among you who have not used R or
+any other programming language before, this course will be
+time-consuming. Budget your time accordingly and plan ahead! If you do,
+I’m fairly certain you will find it worth it. If you are not able or
+willing to allot the time needed to learn enough R (and GitHub) to make
+things work, this course might not be ideal for you.</strong></p>
 </div>
 <div id="grading" class="section level2">
 <h2>Grading</h2>
@@ -720,37 +801,57 @@ div.tocify {
 <li>10% participation/discussions</li>
 <li>40% a course long project, broken up into pieces.</li>
 </ul>
-<p>The following grading scale will be used, final grades might be curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F &lt; 60</p>
-<p>More detailed descriptions of the different assessments is provided on the <a href="./Course_Assessments.html">Assessments page</a>.</p>
+<p>The following grading scale will be used, final grades might be
+curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+
+77-80, C 73-77, C- 70-73, D 60-70, F &lt; 60</p>
+<p>More detailed descriptions of the different assessments is provided
+on the <a href="./Course_Assessments.html">Assessments page</a>.</p>
 </div>
 <div id="class-attendance-make-up-policy" class="section level2">
 <h2>Class Attendance, Make-up Policy</h2>
-<p>This class is online. You are expected to submit all assignments by their due dates. Excused misses of due dates are only provided by prior agreement with the instructor or for special reasons (medical, etc.).</p>
+<p>This class is online. You are expected to submit all assignments by
+their due dates. Excused misses of due dates are only provided by prior
+agreement with the instructor or for special reasons (medical,
+etc.).</p>
 </div>
 <div id="getting-help" class="section level2">
 <h2>Getting Help</h2>
-<p>If you have questions about any aspect of the course, please do not hesitate to ask for help. The course materials describe in detail the ways you can ask for help.</p>
+<p>If you have questions about any aspect of the course, please do not
+hesitate to ask for help. The course materials describe in detail the
+ways you can ask for help.</p>
 </div>
-<div id="university-honor-code-and-academic-honesty-policy" class="section level2">
+<div id="university-honor-code-and-academic-honesty-policy"
+class="section level2">
 <h2>University Honor Code and Academic Honesty Policy</h2>
-<p>All academic work must meet the standards contained in <em>A Culture of Honesty</em>. All students are responsible to inform themselves about those standards before performing any academic work. More detailed information about academic honesty can be found at: <a href="http://www.uga.edu/honesty/" class="uri">http://www.uga.edu/honesty/</a></p>
-<p>Discussions with your classmates and the instructor are encouraged. However, the final work should be your own.</p>
+<p>All academic work must meet the standards contained in <em>A Culture
+of Honesty</em>. All students are responsible to inform themselves about
+those standards before performing any academic work. More detailed
+information about academic honesty can be found at: <a
+href="http://www.uga.edu/honesty/"
+class="uri">http://www.uga.edu/honesty/</a></p>
+<p>Discussions with your classmates and the instructor are encouraged.
+However, the final work should be your own.</p>
 </div>
 <div id="students-with-disabilities" class="section level2">
 <h2>Students with Disabilities</h2>
-<p>Students with disabilities who require reasonable accommodations in order to participate in course activities or meet course requirements should contact the instructor.</p>
+<p>Students with disabilities who require reasonable accommodations in
+order to participate in course activities or meet course requirements
+should contact the instructor.</p>
 </div>
 <div id="general-disclaimers" class="section level2">
 <h2>General Disclaimers</h2>
-<p>This syllabus is a general plan, deviations announced to the class by the instructor may be necessary.</p>
+<p>This syllabus is a general plan, deviations announced to the class by
+the instructor may be necessary.</p>
 </div>
 <div id="course-outline" class="section level2">
 <h2>Course Outline</h2>
-<p>For an outline of the course, please see the <em>Course Schedule</em> document.</p>
+<p>For an outline of the course, please see the <em>Course Schedule</em>
+document.</p>
 </div>
 <div id="more-details" class="section level2">
 <h2>More Details</h2>
-<p>The introductory unit of this course contains all the logistic details you need to know.</p>
+<p>The introductory unit of this course contains all the logistic
+details you need to know.</p>
 </div>
 
 

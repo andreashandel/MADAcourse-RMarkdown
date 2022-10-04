@@ -14,7 +14,7 @@
 
 <title>Tidyverse and Friends</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,50 +651,149 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>One of the strengths of R (and also a source of confusion) is that it is very flexible and almost always lets you do things in more than one way. R itself comes with some functionality. This is often referred to as <code>base R</code>. Even with just this basic functionality, there are often many ways to accomplish a task. But the real power of R comes from its many packages. Packages (also called libraries in some other programming languages) contain additional functions and functionality that lets you fairly easily do things that would require a ton of coding effort if you tried to do it yourself. Someone basically wrote the functionality for you, and you can use it.</p>
-<p>While there are tons of packages available, some are very commonly used. For data analysis tasks, the folks from R Studio have developed many packages that are very useful. One such set of packages, the most widely used set, is called the <a href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using those packages, a lot of coding applied to data analysis becomes easier, more readable, and more powerful. We will use the <code>tidyverse</code> packages and their functionality a lot. That said, knowing some base R is very useful. In general, you can fairly easily mix and match.</p>
+<p>One of the strengths of R (and also a source of confusion) is that it
+is very flexible and almost always lets you do things in more than one
+way. R itself comes with some functionality. This is often referred to
+as <code>base R</code>. Even with just this basic functionality, there
+are often many ways to accomplish a task. But the real power of R comes
+from its many packages. Packages (also called libraries in some other
+programming languages) contain additional functions and functionality
+that lets you fairly easily do things that would require a ton of coding
+effort if you tried to do it yourself. Someone basically wrote the
+functionality for you, and you can use it.</p>
+<p>While there are tons of packages available, some are very commonly
+used. For data analysis tasks, the folks from R Studio have developed
+many packages that are very useful. One such set of packages, the most
+widely used set, is called the <a
+href="https://www.tidyverse.org/"><code>tidyverse</code></a>. By using
+those packages, a lot of coding applied to data analysis becomes easier,
+more readable, and more powerful. We will use the <code>tidyverse</code>
+packages and their functionality a lot. That said, knowing some base R
+is very useful. In general, you can fairly easily mix and match.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
 <li>Know what the <code>tidyverse</code> is</li>
-<li>Be able to apply <code>tidyverse</code> code to data wrangling problems</li>
+<li>Be able to apply <code>tidyverse</code> code to data wrangling
+problems</li>
 <li>Be able to use R packages for specific needs</li>
 </ul>
 </div>
 <div id="tidy-data" class="section level1">
 <h1>Tidy data</h1>
-<p>The concept of the tidyverse can be traced back to the concept of <em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a> introduced in <a href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>. Give the article a quick read to get the overall idea. You will see it a lot, so it’s good to be familiar with it.</p>
+<p>The concept of the tidyverse can be traced back to the concept of
+<em>tidy data</em>, which <a href="http://hadley.nz/">Hadley Wickham</a>
+introduced in <a
+href="https://www.jstatsoft.org/article/view/v059i10/">this article</a>.
+Give the article a quick read to get the overall idea. You will see it a
+lot, so it’s good to be familiar with it.</p>
 </div>
 <div id="tidyverse-philosophy" class="section level1">
 <h1>Tidyverse philosophy</h1>
-<p>The R packages developed by Hadley and others were eventually grouped together and now goes by the name “tidyverse”. If you want to learn more about the principles of those packages, <a href="https://tidyverse.tidyverse.org/articles/manifesto.html">you can read this short manifesto</a> written by Hadley. Some of what he writes might not be fully understandable to you (e.g., functional programming or pipes), but you’ll get the overall idea. For our purpose, the important aspects to remember is that the tidyverse is a collection of R packages that are all structured similarly (from a user perspective), play nice with each other, and help you in your various analysis tasks as you go from messy data to data that is tidied up and ready for formal analysis.</p>
-<p>Note that there are many more R packages that are not part of the core tidyverse, but that still follow the same principles and nicely work with other tidyverse packages.</p>
+<p>The R packages developed by Hadley and others were eventually grouped
+together and now goes by the name “tidyverse”. If you want to learn more
+about the principles of those packages, <a
+href="https://tidyverse.tidyverse.org/articles/manifesto.html">you can
+read this short manifesto</a> written by Hadley. Some of what he writes
+might not be fully understandable to you (e.g., functional programming
+or pipes), but you’ll get the overall idea. For our purpose, the
+important aspects to remember is that the tidyverse is a collection of R
+packages that are all structured similarly (from a user perspective),
+play nice with each other, and help you in your various analysis tasks
+as you go from messy data to data that is tidied up and ready for formal
+analysis.</p>
+<p>Note that there are many more R packages that are not part of the
+core tidyverse, but that still follow the same principles and nicely
+work with other tidyverse packages.</p>
 </div>
 <div id="learning-the-tidyverse" class="section level1">
 <h1>Learning the Tidyverse</h1>
-<p>To learn more and practice some of the tidyverse functionality, I suggest you go through the <em>Work with Data</em> and <em>Tidy your Data</em> sections of the <a href="https://rstudio.cloud/learn/primers/">R Studio primers</a>. More or less the same content, presented a bit differently and non-interactively, can be found in the <a href="https://r4ds.had.co.nz/tidy-data.html"><em>Tidy data</em> chapter in R4DS</a>. This might be a good reference to look up things. If you want to practice and learn more, read the <em>tidyverse</em>, <em>Introduction to data wrangling</em>, <em>Reshaping data</em> and <em>Joining tables</em> chapters of <a href="https://rafalab.github.io/dsbook/">IDS</a>. If you want some more data tyding practice, check out <a href="http://garrettgman.github.io/tidying/">this tutorial by Garrett Grolemund</a> or <a href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/">this short blog post by Joachim Goedhart</a>.</p>
-<p>These are a lot of resources, and I don’t expect you to work through all of them in detail. I do suggest you take a quick look at all of them, and then work through some of them based on your knowledge level. As we progress through the course and you are asked to do a lot of these tasks, you will likely want to re-visit these materials. And as always, Google is your friend.</p>
+<p>To learn more and practice some of the tidyverse functionality, I
+suggest you go through the <em>Work with Data</em> and <em>Tidy your
+Data</em> sections of the <a
+href="https://rstudio.cloud/learn/primers/">R Studio primers</a>. More
+or less the same content, presented a bit differently and
+non-interactively, can be found in the <a
+href="https://r4ds.had.co.nz/tidy-data.html"><em>Tidy data</em> chapter
+in R4DS</a>. This might be a good reference to look up things. If you
+want to practice and learn more, read the <em>tidyverse</em>,
+<em>Introduction to data wrangling</em>, <em>Reshaping data</em> and
+<em>Joining tables</em> chapters of <a
+href="https://rafalab.github.io/dsbook/">IDS</a>. If you want some more
+data tyding practice, check out <a
+href="http://garrettgman.github.io/tidying/">this tutorial by Garrett
+Grolemund</a> or <a
+href="https://thenode.biologists.com/converting-excellent-spreadsheets-tidy-data/education/">this
+short blog post by Joachim Goedhart</a>.</p>
+<p>These are a lot of resources, and I don’t expect you to work through
+all of them in detail. I do suggest you take a quick look at all of
+them, and then work through some of them based on your knowledge level.
+As we progress through the course and you are asked to do a lot of these
+tasks, you will likely want to re-visit these materials. And as always,
+Google is your friend.</p>
 <div class="note">
-<p>As you’ll find out shortly, one feature of R code written in the <code>tidyverse</code> style is the heavy use of the <code>magrittr</code> <a href="https://magrittr.tidyverse.org/">pipe operator</a> (the <code>%&gt;%</code> symbol). For instance, this is the kind of code that you might see when doing data wrangling (note that this code doesn’t work since it only shows the chain of functions, for it to work there would need to be arguments provided to each function, i.e. there needs to be something inside the <code>()</code>):</p>
+<p>As you’ll find out shortly, one feature of R code written in the
+<code>tidyverse</code> style is the heavy use of the
+<code>magrittr</code> <a href="https://magrittr.tidyverse.org/">pipe
+operator</a> (the <code>%&gt;%</code> symbol). For instance, this is the
+kind of code that you might see when doing data wrangling (note that
+this code doesn’t work since it only shows the chain of functions, for
+it to work there would need to be arguments provided to each function,
+i.e. there needs to be something inside the <code>()</code>):</p>
 <pre class="r"><code>data %&gt;% filter() %&gt;% 
          select() %&gt;%
          fct_lump() %&gt;%
          mutate() %&gt;% ...</code></pre>
-<p>The idea is that you pipe the results from one operation into the next, and thus potentially build a long chain of commands. That style of coding makes it often quite easy to understand what the code is doing. For instance in the example code above, you first filter the data based on some row values, then select some columns, then combine some factor variable, then mutate a variable into a new one, and so on.</p>
-<p>The problem, especially when you start out, is that things can (and will) go wrong at some of those steps, and it’s difficulty to figure out where the problem is. At least when starting out, it is in my opinion often better to save the result of some cleaning operation as a new intermediate variable. That lets you more easily check for bugs, and to see how the data changed from step to step and if it does what you think it should. So instead of using a long chain of pipes, you can write the code like so:</p>
+<p>The idea is that you pipe the results from one operation into the
+next, and thus potentially build a long chain of commands. That style of
+coding makes it often quite easy to understand what the code is doing.
+For instance in the example code above, you first filter the data based
+on some row values, then select some columns, then combine some factor
+variable, then mutate a variable into a new one, and so on.</p>
+<p>The problem, especially when you start out, is that things can (and
+will) go wrong at some of those steps, and it’s difficulty to figure out
+where the problem is. At least when starting out, it is in my opinion
+often better to save the result of some cleaning operation as a new
+intermediate variable. That lets you more easily check for bugs, and to
+see how the data changed from step to step and if it does what you think
+it should. So instead of using a long chain of pipes, you can write the
+code like so:</p>
 <pre class="r"><code>dat_small1 &lt;- data %&gt;% filter()
 dat_small2 &lt;- dat_small1 %&gt;% select()
 dat_small3 &lt;- dat_small2 %&gt;% fct_lump()
 ...</code></pre>
-<p>This code is not quite as easy to read, and it creates all these additional variables that you might not want or need. But I think at least as you are learning the different <code>tidyverse</code> functions, it often helps to be able to inspect what happens at each step, and thus more easily spot when things go wrong. Once you get more comfortable with cleaning steps and coding in general, and make few mistakes, you can start chaining things together. But if you start out writing code that way, it’s much harder to follow along and find bugs.</p>
-<p>There is also a nice project called <a href="https://tidydatatutor.com/">Tidy Data Tutor</a> that allows you to visualize the different steps in a data analysis chain of commands. Once you get used to chaining commands together in a long pipeline, or try to inspect someone else’s code, using that tool to look at each step can be quite useful. Give it a try.</p>
+<p>This code is not quite as easy to read, and it creates all these
+additional variables that you might not want or need. But I think at
+least as you are learning the different <code>tidyverse</code>
+functions, it often helps to be able to inspect what happens at each
+step, and thus more easily spot when things go wrong. Once you get more
+comfortable with cleaning steps and coding in general, and make few
+mistakes, you can start chaining things together. But if you start out
+writing code that way, it’s much harder to follow along and find
+bugs.</p>
+<p>There is also a nice project called <a
+href="https://tidydatatutor.com/">Tidy Data Tutor</a> that allows you to
+visualize the different steps in a data analysis chain of commands. Once
+you get used to chaining commands together in a long pipeline, or try to
+inspect someone else’s code, using that tool to look at each step can be
+quite useful. Give it a try.</p>
 </div>
 </div>
 <div id="beyond-the-tidyverse" class="section level1">
 <h1>Beyond the Tidyverse</h1>
-<p>There are lots of other useful R packages that make your coding life easier. We’ll make liberal use of them throughout this course. It is highly likely that for some of the course exercises or the course project, you will be using other packages that you find helpful. Being able to find packages that do what you need is important.</p>
-<p>The quality of packages varies. In general, if they are on <code>CRAN</code> or <code>bioconductor</code>, they are reasonably stable. Any packages that involve RStudio, or are otherwise widely used and have many developers, suggests that things are tested fairly well. Other packages might be more experimental, and while they might work well, there might also be bugs. So always carefully inspect the results you get to make sure things are reliable.</p>
+<p>There are lots of other useful R packages that make your coding life
+easier. We’ll make liberal use of them throughout this course. It is
+highly likely that for some of the course exercises or the course
+project, you will be using other packages that you find helpful. Being
+able to find packages that do what you need is important.</p>
+<p>The quality of packages varies. In general, if they are on
+<code>CRAN</code> or <code>bioconductor</code>, they are reasonably
+stable. Any packages that involve RStudio, or are otherwise widely used
+and have many developers, suggests that things are tested fairly well.
+Other packages might be more experimental, and while they might work
+well, there might also be bugs. So always carefully inspect the results
+you get to make sure things are reliable.</p>
 </div>
 
 

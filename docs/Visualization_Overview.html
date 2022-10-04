@@ -14,7 +14,7 @@
 
 <title>Visualization Overview</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,11 +651,13 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will discuss visualization (a.k.a. making figures), what they are good for, and how to do them in R.</p>
+<p>In this unit, we will discuss visualization (a.k.a. making figures),
+what they are good for, and how to do them in R.</p>
 <div class="figure" style="text-align: center">
 <img src="media/xkcd-flowcharts.png" alt="A comic from the website XKCD. It shows an extremely confusing and illogical flowchart which includes a line chart, a battery charging circuit, a resistance diagram, a golden spiral, and an arrow that leads out of the containing box, among other things." width="60%" />
 <p class="caption">
-Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.com.
+Flowcharts are sometimes, but not always good visualization tools.
+Source: xkcd.com.
 </p>
 </div>
 </div>
@@ -659,14 +665,20 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 <h1>Objectives</h1>
 <ul>
 <li>Understand when and how to use graphs.</li>
-<li>Become familiar with major types of graphs and when to use them.</li>
+<li>Become familiar with major types of graphs and when to use
+them.</li>
 <li>Learn how to implement high-quality graphs in R.</li>
 </ul>
 </div>
 <div id="motivating-examples" class="section level1">
 <h1>Motivating Examples</h1>
-<p>The topic of visualization is enormous, and impossible to cover thoroughly in a week (like pretty much any topic we talk about in this course 😃). To get you started, the two following TED talks provide some examples of interesting and inspiring data visualizations.</p>
-<p>In the first video <a href="https://monachalabi.com/">Mona Chalabi</a> talks about good ways to present data and statistics and how good graphs can help in understanding.</p>
+<p>The topic of visualization is enormous, and impossible to cover
+thoroughly in a week (like pretty much any topic we talk about in this
+course 😃). To get you started, the two following TED talks provide some
+examples of interesting and inspiring data visualizations.</p>
+<p>In the first video <a href="https://monachalabi.com/">Mona
+Chalabi</a> talks about good ways to present data and statistics and how
+good graphs can help in understanding.</p>
 <div style="max-width:854px">
 <div style="position:relative;height:0;padding-bottom:56.25%">
 <iframe src="https://embed.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen>
@@ -674,7 +686,10 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 </div>
 </div>
 <p><br></p>
-<p>In the second video <a href="http://www.chrisjordan.com/gallery/epu/#e-pluribus-unum">Chris Jordan</a> discusses how one can take abstract facts and make them much more tangible through visualization.</p>
+<p>In the second video <a
+href="http://www.chrisjordan.com/gallery/epu/#e-pluribus-unum">Chris
+Jordan</a> discusses how one can take abstract facts and make them much
+more tangible through visualization.</p>
 <div style="max-width:854px">
 <div style="position:relative;height:0;padding-bottom:56.25%">
 <iframe src="https://embed.ted.com/talks/lang/en/chris_jordan_pictures_some_shocking_stats" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen>
@@ -682,20 +697,51 @@ Flowcharts are sometimes, but not always good visualization tools. Source: xkcd.
 </div>
 </div>
 <p><br></p>
-<p>If you are interested, you can find more interesting talks on visualization in this <a href="https://www.ted.com/topics/visualizations"><em>TED topics</em> site</a> and this <a href="http://www.ted.com/read/ted-studies/statistics"><em>TED Studies</em> collection</a>.</p>
+<p>If you are interested, you can find more interesting talks on
+visualization in this <a
+href="https://www.ted.com/topics/visualizations"><em>TED topics</em>
+site</a> and this <a
+href="http://www.ted.com/read/ted-studies/statistics"><em>TED
+Studies</em> collection</a>.</p>
 </div>
 <div id="visualization-uses" class="section level1">
 <h1>Visualization uses</h1>
-<p>Figures and graphs are useful at any stage of your analysis. Use them early to explore your data, to get an idea for what you have, to figure out what cleaning you might need to do, and to check what analysis approaches might be useful. Use visualizations once you have done your analysis to check your results and interpret them. Use them at the end to communicate your results. While tables can be useful tools of communication as well, they tend to be much harder to understand and are – in my opinion – overused in science. Good figures are, most of the time, easier to understand and a more effective way to look at data.</p>
+<p>Figures and graphs are useful at any stage of your analysis. Use them
+early to explore your data, to get an idea for what you have, to figure
+out what cleaning you might need to do, and to check what analysis
+approaches might be useful. Use visualizations once you have done your
+analysis to check your results and interpret them. Use them at the end
+to communicate your results. While tables can be useful tools of
+communication as well, they tend to be much harder to understand and are
+– in my opinion – overused in science. Good figures are, most of the
+time, easier to understand and a more effective way to look at data.</p>
 </div>
 <div id="types-of-graphs" class="section level1">
 <h1>Types of graphs</h1>
-<p>I am sure you are familiar with different graphs. Some are commonly used and widely overused (e.g., bar plots or pie charts). A nice discussion of bar graphs, why not to use them, and what to use instead <a href="https://osf.io/bsa46/">can be found in this presentation</a>, with <a href="https://osf.io/h2q7w/">this accompanying document</a> showing how to do it in R.</p>
-<p>others types of graphs are less frequently used (e.g., violin plots or hex bins). Instead of me providing summaries of different plots, read the <em>Directory of Visualizations</em> chapter of the excellent <a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization</a> book by <a href="https://clauswilke.com/">Claus Wilke</a>. That chapter provides a quick overview of many common and useful plots. Further chapters in his book describe specific types of plots in more detail, and also provide general best practices for making plots. You should definitely read through those sections describing plots that interest you the most. Also, note that all the graphs in his book are made with ggplot2 and friends. He doesn’t show any code in the book, but if you dig through the Github repository for the book, you’ll likely be able to find code for specific figures.</p>
+<p>I am sure you are familiar with different graphs. Some are commonly
+used and widely overused (e.g., bar plots or pie charts). A nice
+discussion of bar graphs, why not to use them, and what to use instead
+<a href="https://osf.io/bsa46/">can be found in this presentation</a>,
+with <a href="https://osf.io/h2q7w/">this accompanying document</a>
+showing how to do it in R.</p>
+<p>others types of graphs are less frequently used (e.g., violin plots
+or hex bins). Instead of me providing summaries of different plots, read
+the <em>Directory of Visualizations</em> chapter of the excellent <a
+href="https://serialmentor.com/dataviz/">Fundamentals of Data
+Visualization</a> book by <a href="https://clauswilke.com/">Claus
+Wilke</a>. That chapter provides a quick overview of many common and
+useful plots. Further chapters in his book describe specific types of
+plots in more detail, and also provide general best practices for making
+plots. You should definitely read through those sections describing
+plots that interest you the most. Also, note that all the graphs in his
+book are made with ggplot2 and friends. He doesn’t show any code in the
+book, but if you dig through the Github repository for the book, you’ll
+likely be able to find code for specific figures.</p>
 </div>
 <div id="further-visualization-resources" class="section level1">
 <h1>Further visualization resources</h1>
-<p>See the <a href="./General_Resources.html">general resources page</a> for some additional sources.</p>
+<p>See the <a href="./General_Resources.html">general resources page</a>
+for some additional sources.</p>
 </div>
 
 

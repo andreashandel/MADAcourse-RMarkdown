@@ -14,7 +14,7 @@
 
 <title>Fitting (simple) statistical models in R</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -638,7 +642,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Fitting (simple) statistical models in R</h1>
+<h1 class="title toc-ignore">Fitting (simple) statistical models in
+R</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-11-18 11:03:59</h4>
 
@@ -647,7 +652,8 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will discuss common approaches and packages that are useful for fitting statistical models in R.</p>
+<p>In this unit, we will discuss common approaches and packages that are
+useful for fitting statistical models in R.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -657,30 +663,116 @@ div.tocify {
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>R has a few statistical model fitting routines built in, e.g., the <code>lm()</code> and <code>glm()</code> functions. Those are well-tested and reliable, but often do not allow for fitting more advanced models. To fit more advanced models, there are <strong>many</strong> (100+) different R packages that provide additional functionality. The variety can be bewildering. Often it is hard to decide which package to use. Also, many packages do things slightly differently, which can be confusing and can make coding tedious. At some point in your analysis career, you’ll likely have to interact with packages specific to your data and questions and have to learn their syntax. Initially, to make things easier, several groups have undertaken efforts to create packages that allow a unified approach to fitting a lot of different models. We will focus on those packages here.</p>
+<p>R has a few statistical model fitting routines built in, e.g., the
+<code>lm()</code> and <code>glm()</code> functions. Those are
+well-tested and reliable, but often do not allow for fitting more
+advanced models. To fit more advanced models, there are
+<strong>many</strong> (100+) different R packages that provide
+additional functionality. The variety can be bewildering. Often it is
+hard to decide which package to use. Also, many packages do things
+slightly differently, which can be confusing and can make coding
+tedious. At some point in your analysis career, you’ll likely have to
+interact with packages specific to your data and questions and have to
+learn their syntax. Initially, to make things easier, several groups
+have undertaken efforts to create packages that allow a unified approach
+to fitting a lot of different models. We will focus on those packages
+here.</p>
 </div>
 <div id="the-tidymodels-set-of-packages" class="section level1">
 <h1>The <code>tidymodels</code> set of packages</h1>
-<p>You’ve learned about the <code>tidyverse</code> already. A more recent effort by the folks from RStudio – and many other contributors - is a set of packages called <a href="https://www.tidymodels.org/">tidymodels</a>. The idea is that similar to various packages in the <code>tidyverse</code> you can use for data wrangling, <code>tidymodels</code> provides a set of packages that help you with the code related to fitting models. For this course, we will focus on the <code>tidymodels</code> set of packages.</p>
-<p>You can use <code>tidymodels</code> for pretty much any part of the modeling workflow (e.g., pre-processing, model evaluation, tuning). We have not yet covered most of those steps, but will do so shortly. The goal for this unit is to start exploring the <code>tidymodels</code> workflow – for now we’ll ignore a lot of the additional features, but we’ll discuss shortly.</p>
-<p>The <code>tidymodels</code> suite is a relatively recent addition to the R universe. One of the main persons behind <code>tidymodels</code>, <a href="https://github.com/topepo">Max Kuhn</a> previously wrote the package <a href="http://topepo.github.io/caret/index.html">caret</a>. This was – and still is – a nice and comprehensive package. I used it in previous versions of this course. However, at this point, all effort by Max and his team is put into <code>tidymodels</code>. Thus, for this iteration of the course, we will focus on those newer packages. If you ever end up working with the <code>caret</code> package, you might want to check out <a href="https://rafalab.github.io/dsbook/caret.html">the <em>caret</em> chapter in IDS</a> – <code>caret</code> has existed for a while so you can find all kinds of resources online as well.</p>
+<p>You’ve learned about the <code>tidyverse</code> already. A more
+recent effort by the folks from RStudio – and many other contributors -
+is a set of packages called <a
+href="https://www.tidymodels.org/">tidymodels</a>. The idea is that
+similar to various packages in the <code>tidyverse</code> you can use
+for data wrangling, <code>tidymodels</code> provides a set of packages
+that help you with the code related to fitting models. For this course,
+we will focus on the <code>tidymodels</code> set of packages.</p>
+<p>You can use <code>tidymodels</code> for pretty much any part of the
+modeling workflow (e.g., pre-processing, model evaluation, tuning). We
+have not yet covered most of those steps, but will do so shortly. The
+goal for this unit is to start exploring the <code>tidymodels</code>
+workflow – for now we’ll ignore a lot of the additional features, but
+we’ll discuss shortly.</p>
+<p>The <code>tidymodels</code> suite is a relatively recent addition to
+the R universe. One of the main persons behind <code>tidymodels</code>,
+<a href="https://github.com/topepo">Max Kuhn</a> previously wrote the
+package <a href="http://topepo.github.io/caret/index.html">caret</a>.
+This was – and still is – a nice and comprehensive package. I used it in
+previous versions of this course. However, at this point, all effort by
+Max and his team is put into <code>tidymodels</code>. Thus, for this
+iteration of the course, we will focus on those newer packages. If you
+ever end up working with the <code>caret</code> package, you might want
+to check out <a href="https://rafalab.github.io/dsbook/caret.html">the
+<em>caret</em> chapter in IDS</a> – <code>caret</code> has existed for a
+while so you can find all kinds of resources online as well.</p>
 </div>
 <div id="other-comprehensive-packages" class="section level1">
 <h1>Other comprehensive packages</h1>
-<p>While the whole data exploring, cleaning, and wrangling part in R is strongly dominated by the various <code>tidyverse</code> packages, <code>tidymodel</code> packages do not (yet) dominate the fitting part as much. And it is always good to have options.</p>
-<p>Another great set of packages for model fitting is <a href="https://mlr3.mlr-org.com/">Machine Learning in R (mlr3)</a>. The goal of the various packages which are part of <code>mlr3</code> is similar to those of <code>tidymodels</code>. While there is overlap, each set of tools can do certain things the other cannot do. For instance, in my experience, <code>mlr3</code> has more options for parameter tuning, though <code>tidymodels</code> is catching up.</p>
-<p>The main reason why we focus on <code>tidymodels</code> in this course is that the coding style is very similar to the <code>tidyverse</code> coding style, e.g., heavy use of pipes. Thus, in my opinion it is easier to learn. The <code>mlr3</code> package has its own syntax. It is of course still R, but things look and operate quite a bit differently, which means one needs more time to get used to the code. Thus, to keep things as simple as possible on the coding side, we are not looking at <code>mlr3</code> in this course. If, however, you ever end up trying to do a fitting/machine learning operation that you can’t do with the <code>tidymodels</code> set of packages, checking out <code>mlr3</code> is certainly a good option.</p>
-<p>Note that similar to <code>tidymodels</code> and <code>caret</code>, <code>mlr3</code> had a predecessor called <a href="https://mlr.mlr-org.com/"><code>mlr</code></a> (I don’t know if there ever was <code>mlr2</code> 🤷). <code>mlr</code> still exists, but all new development occurs in <code>mlr3</code>.</p>
+<p>While the whole data exploring, cleaning, and wrangling part in R is
+strongly dominated by the various <code>tidyverse</code> packages,
+<code>tidymodel</code> packages do not (yet) dominate the fitting part
+as much. And it is always good to have options.</p>
+<p>Another great set of packages for model fitting is <a
+href="https://mlr3.mlr-org.com/">Machine Learning in R (mlr3)</a>. The
+goal of the various packages which are part of <code>mlr3</code> is
+similar to those of <code>tidymodels</code>. While there is overlap,
+each set of tools can do certain things the other cannot do. For
+instance, in my experience, <code>mlr3</code> has more options for
+parameter tuning, though <code>tidymodels</code> is catching up.</p>
+<p>The main reason why we focus on <code>tidymodels</code> in this
+course is that the coding style is very similar to the
+<code>tidyverse</code> coding style, e.g., heavy use of pipes. Thus, in
+my opinion it is easier to learn. The <code>mlr3</code> package has its
+own syntax. It is of course still R, but things look and operate quite a
+bit differently, which means one needs more time to get used to the
+code. Thus, to keep things as simple as possible on the coding side, we
+are not looking at <code>mlr3</code> in this course. If, however, you
+ever end up trying to do a fitting/machine learning operation that you
+can’t do with the <code>tidymodels</code> set of packages, checking out
+<code>mlr3</code> is certainly a good option.</p>
+<p>Note that similar to <code>tidymodels</code> and <code>caret</code>,
+<code>mlr3</code> had a predecessor called <a
+href="https://mlr.mlr-org.com/"><code>mlr</code></a> (I don’t know if
+there ever was <code>mlr2</code> 🤷). <code>mlr</code> still exists, but
+all new development occurs in <code>mlr3</code>.</p>
 </div>
-<div id="direct-interaction-with-statistical-fitting-packages" class="section level1">
+<div id="direct-interaction-with-statistical-fitting-packages"
+class="section level1">
 <h1>Direct interaction with statistical fitting packages</h1>
-<p>The idea behind <code>tidymodels</code> and <code>mlr3</code> is that you write code that allows you to easily switch between the underlying model and algorithm you want to apply to your data, without having to write separate code each time. That often works rather well. Occasionally, you might need direct access to and interaction with a package. Say you want to fit some mixed-effects/multilevel/hierarchical models using a package that is not yet supported by <code>tidymodels</code> or <code>mlr3</code>. In that case, you will have to write code using the syntax your specific package needs. You might still be able to use, say, <code>tidymodels</code> to do a lot of the processing before and after fitting. It is generally good to try and start with a framework that tries to make your life easier, such as <code>tidymodels</code>. Once you realize you can’t get what you need through those packages, you can add custom code.</p>
+<p>The idea behind <code>tidymodels</code> and <code>mlr3</code> is that
+you write code that allows you to easily switch between the underlying
+model and algorithm you want to apply to your data, without having to
+write separate code each time. That often works rather well.
+Occasionally, you might need direct access to and interaction with a
+package. Say you want to fit some mixed-effects/multilevel/hierarchical
+models using a package that is not yet supported by
+<code>tidymodels</code> or <code>mlr3</code>. In that case, you will
+have to write code using the syntax your specific package needs. You
+might still be able to use, say, <code>tidymodels</code> to do a lot of
+the processing before and after fitting. It is generally good to try and
+start with a framework that tries to make your life easier, such as
+<code>tidymodels</code>. Once you realize you can’t get what you need
+through those packages, you can add custom code.</p>
 </div>
 <div id="further-reading" class="section level1">
 <h1>Further reading</h1>
-<p>One nice feature about <code>tidymodels</code> is that the developers are placing a lot of emphasis not only on implementing new features, but also on providing good documentation. The <a href="https://www.tidymodels.org/">tidymodels website</a> is your best starting point. It has several sections that contain documentation and help resources. I recommend you visit and browse through regularly.</p>
-<p>Max Kuhn and <code>tidymodels</code> co-maintainer <a href="https://juliasilge.com/">Julia Silge</a> also have <a href="https://www.tmwr.org/">on online book called <em>Tidy Modeling with R</em></a> which discusses both the general concepts and the specific details of some of the <code>tidymodels</code> packages.</p>
-<p>There are lots of good tutorials and walk-throughs both on the <code>tidymodels</code> website and other places. I’ll give you some more links soon. But since most of those discuss the full workflow, and we haven’t gotten there quite yet, we’ll save most of those for later.</p>
+<p>One nice feature about <code>tidymodels</code> is that the developers
+are placing a lot of emphasis not only on implementing new features, but
+also on providing good documentation. The <a
+href="https://www.tidymodels.org/">tidymodels website</a> is your best
+starting point. It has several sections that contain documentation and
+help resources. I recommend you visit and browse through regularly.</p>
+<p>Max Kuhn and <code>tidymodels</code> co-maintainer <a
+href="https://juliasilge.com/">Julia Silge</a> also have <a
+href="https://www.tmwr.org/">on online book called <em>Tidy Modeling
+with R</em></a> which discusses both the general concepts and the
+specific details of some of the <code>tidymodels</code> packages.</p>
+<p>There are lots of good tutorials and walk-throughs both on the
+<code>tidymodels</code> website and other places. I’ll give you some
+more links soon. But since most of those discuss the full workflow, and
+we haven’t gotten there quite yet, we’ll save most of those for
+later.</p>
 </div>
 
 

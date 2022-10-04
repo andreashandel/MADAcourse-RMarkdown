@@ -15,7 +15,7 @@
 
 <title>Course Project Examples</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -141,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -648,14 +652,34 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>To showcase some of the work previous students have done, and as inspiration of future projects, below you can find links to a selection of past projects. Of course, all are posted with permission from the students.</p>
-<p>(I only decided to ask students if I can showcase some of their projects in 2021, so currently that’s the only year that has examples.)</p>
+<p>To showcase some of the work previous students have done, and as
+inspiration of future projects, below you can find links to a selection
+of past projects. Of course, all are posted with permission from the
+students.</p>
+<p>(I only decided to ask students if I can showcase some of their
+projects in 2021, so currently that’s the only year that has
+examples.)</p>
 </div>
 <div id="projects" class="section level1">
 <h1>2021 Projects</h1>
 <ul>
-<li><p><em>Plastic in the Urban Freshwater Environment</em> by <a href="https://ameliafoley.github.io/AMELIAFOLEY-MADA-portfolio/">Amelia Foley</a> - <a href="./projectexamples/Foley_Report.html">Main report</a> and <a href="./projectexamples/Foley_Supplement.html">supplement file</a>. The Github project repository <a href="https://github.com/ameliafoley/AmeliaFoley-MADA-project">is here.</a></p></li>
-<li><p><em>Predicting Federal Emergency Management Agency Funding for U.S. Disasters</em> by <a href="https://morganataylor.github.io/MorganTaylor-MADA-portfolio/index.html">Morgan Taylor</a> - <a href="./projectexamples/Taylor_Report.html">Main report</a> and <a href="./projectexamples/Taylor_Supplement.html">supplement file</a>. The Github project repository <a href="https://github.com/morganataylor/MorganTaylor-MADA-project">is here.</a></p></li>
+<li><p><em>Plastic in the Urban Freshwater Environment</em> by <a
+href="https://ameliafoley.github.io/AMELIAFOLEY-MADA-portfolio/">Amelia
+Foley</a> - <a href="./projectexamples/Foley_Report.html">Main
+report</a> and <a
+href="./projectexamples/Foley_Supplement.html">supplement file</a>. The
+Github project repository <a
+href="https://github.com/ameliafoley/AmeliaFoley-MADA-project">is
+here.</a></p></li>
+<li><p><em>Predicting Federal Emergency Management Agency Funding for
+U.S. Disasters</em> by <a
+href="https://morganataylor.github.io/MorganTaylor-MADA-portfolio/index.html">Morgan
+Taylor</a> - <a href="./projectexamples/Taylor_Report.html">Main
+report</a> and <a
+href="./projectexamples/Taylor_Supplement.html">supplement file</a>. The
+Github project repository <a
+href="https://github.com/morganataylor/MorganTaylor-MADA-project">is
+here.</a></p></li>
 </ul>
 </div>
 

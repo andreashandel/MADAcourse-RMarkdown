@@ -14,7 +14,7 @@
 
 <title>Assessment - Data Analysis</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,37 +651,113 @@ div.tocify {
 
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level2">
 <h2>Exercise</h2>
-<p>For this exercise, you will practice with GitHub some more, you are exploring a data analysis (at least a template), and you will start doing group work.</p>
+<p>For this exercise, you will practice with GitHub some more, you are
+exploring a data analysis (at least a template), and you will start
+doing group work.</p>
 <div id="preliminaries" class="section level3">
 <h3>Preliminaries</h3>
-<p>Start by going to the Github repository called <a href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a> I created. It is meant as a template for doing a data analysis project. It is also recommended for your class project. Read the information in the <code>README</code> file (at the bottom of the website).</p>
-<p>Next, use the template to start your own repository. Follow the same steps you used previously with the portfolio template. You can give it any name, this is just for playing around. For instance you could name it <code>YOURNAME-MADA-analysis1</code>. Clone it to your local machine, open the project in RStudio.</p>
-<p>Take a look at the different folders, files, <code>readme</code> comments. Feel free to run the various R and R Markdown scripts. The idea is that you get some familiarity with the whole setup to prepare you for the next steps.</p>
+<p>Start by going to the Github repository called <a
+href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>
+I created. It is meant as a template for doing a data analysis project.
+It is also recommended for your class project. Read the information in
+the <code>README</code> file (at the bottom of the website).</p>
+<p>Next, use the template to start your own repository. Follow the same
+steps you used previously with the portfolio template. You can give it
+any name, this is just for playing around. For instance you could name
+it <code>YOURNAME-MADA-analysis1</code>. Clone it to your local machine,
+open the project in RStudio.</p>
+<p>Take a look at the different folders, files, <code>readme</code>
+comments. Feel free to run the various R and R Markdown scripts. The
+idea is that you get some familiarity with the whole setup to prepare
+you for the next steps.</p>
 </div>
 <div id="group-setup" class="section level3">
 <h3>Group setup</h3>
-<p>If you haven’t already, get in touch with your group members. You can find their names in the pinned post in the <code>announcements</code> channel. Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributor 1, 2, … depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.</p>
+<p>If you haven’t already, get in touch with your group members. You can
+find their names in the pinned post in the <code>announcements</code>
+channel. Get in touch with them, e.g. by using the group-specific
+channels on Slack, or some other means. Assign each group member a role
+for this exercise. One person is the project owner, the others are
+contributor 1, 2, … depending on the number of group members. (If you
+want to know what each role does, read through the rest of the exercise
+instructions first.) You also need to exchange GitHub user names.</p>
 </div>
 <div id="pretend-data-analysis" class="section level3">
 <h3>Pretend data-analysis</h3>
-<p>The person your group designated as <strong>project owner</strong> should do the following: Go ahead and start another repository using the template. Name it <code>GROUP-N-MADA-analysis1</code> (with N of course your group number). Next, find the repository on your GitHub page, go into <code>Settings -&gt; Manage Access</code> and use the <code>Invite Collaborator</code> button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.</p>
-<p>Once everyone is added and all invitations are accepted, all group members can go ahead and clone the repository to their local computer using GitKraken (or your preferred client). Make sure when you clone, you choose <code>Github.com</code> as source, and then you should be able to see the repository in the <code>Repository to clone</code> list.</p>
-<p>Once cloned to the local computer, <strong>contributor 1</strong> goes ahead and opens the <code>exampledata.xlsx</code> file (with Excel or a similar program) and adds 2 more columns to the data. One column should be something numeric, the other can be something consisting of (a few) different categories. As a (boring) example, you could add sex and waist size. Feel free to come up with more creative attributes/variables to add. Once done, save the new data as <strong><code>exampledata2.xlsx</code></strong>, then commit your changes (write a meaningful commit message) and push them to GitHub.com.</p>
-<p>Once contributor 1 is done, <strong>contributor 2</strong> pulls the repository with the updated changes (i.e., the added data). Adjust the <code>processingscript.R</code> file such that it now loads the new data file called <code>exampledata2.xlsx</code>. Take a look at the new data. If necessary (depending on what contributor 1 added), add a few lines of code to clean the new data as needed. If this is needed, you either need to know at least a little bit of R coding, otherwise Google your way to a solution. Once everything works and the script creates a new clean dataset that can be saved as <code>processeddata.rds</code>, your job is done. Commit your changes and push to GitHub.</p>
-<p><strong>If your team does not have 4 persons, then contributor 2 will also need to do the part of contributor 3.</strong></p>
-<p>Now <strong>contributor 3</strong> pulls the latest version of the repository, then opens <code>analysisscript.R</code>. Edit the code such that it creates a boxplot with the new categorical variable (whatever it is) on the x-axis, and height on the y-axis. Also create another scatterplot with weight on the x-axis and the new numerical variable on the y-axis. Save both figures to files. Once done, commit and push.</p>
-<p>Finally, it’s back to the <strong>project owner</strong>. Pull the latest version of the repository. Then open <code>Manuscript.Rmd</code>. Add code to display the two new figures for the new data your other group members produced. Then knit it to a word doc. Make sure it looks ok. Commit and push your changes. <strong>Finally, post the link to your repository with the updated manuscript into the <code>module2_exercise</code> Slack channel by the deadline.</strong></p>
-<p><em>After the deadline, I’ll check/grade the repository of each group. The grade will be a single one and the same for every group member.</em></p>
+<p>The person your group designated as <strong>project owner</strong>
+should do the following: Go ahead and start another repository using the
+template. Name it <code>GROUP-N-MADA-analysis1</code> (with N of course
+your group number). Next, find the repository on your GitHub page, go
+into <code>Settings -&gt; Manage Access</code> and use the
+<code>Invite Collaborator</code> button to add the other group members
+to the repository. You need to give them write access. Your group
+members need to accept the invitation.</p>
+<p>Once everyone is added and all invitations are accepted, all group
+members can go ahead and clone the repository to their local computer
+using GitKraken (or your preferred client). Make sure when you clone,
+you choose <code>Github.com</code> as source, and then you should be
+able to see the repository in the <code>Repository to clone</code>
+list.</p>
+<p>Once cloned to the local computer, <strong>contributor 1</strong>
+goes ahead and opens the <code>exampledata.xlsx</code> file (with Excel
+or a similar program) and adds 2 more columns to the data. One column
+should be something numeric, the other can be something consisting of (a
+few) different categories. As a (boring) example, you could add sex and
+waist size. Feel free to come up with more creative attributes/variables
+to add. Once done, save the new data as
+<strong><code>exampledata2.xlsx</code></strong>, then commit your
+changes (write a meaningful commit message) and push them to
+GitHub.com.</p>
+<p>Once contributor 1 is done, <strong>contributor 2</strong> pulls the
+repository with the updated changes (i.e., the added data). Adjust the
+<code>processingscript.R</code> file such that it now loads the new data
+file called <code>exampledata2.xlsx</code>. Take a look at the new data.
+If necessary (depending on what contributor 1 added), add a few lines of
+code to clean the new data as needed. If this is needed, you either need
+to know at least a little bit of R coding, otherwise Google your way to
+a solution. Once everything works and the script creates a new clean
+dataset that can be saved as <code>processeddata.rds</code>, your job is
+done. Commit your changes and push to GitHub.</p>
+<p><strong>If your team does not have 4 persons, then contributor 2 will
+also need to do the part of contributor 3.</strong></p>
+<p>Now <strong>contributor 3</strong> pulls the latest version of the
+repository, then opens <code>analysisscript.R</code>. Edit the code such
+that it creates a boxplot with the new categorical variable (whatever it
+is) on the x-axis, and height on the y-axis. Also create another
+scatterplot with weight on the x-axis and the new numerical variable on
+the y-axis. Save both figures to files. Once done, commit and push.</p>
+<p>Finally, it’s back to the <strong>project owner</strong>. Pull the
+latest version of the repository. Then open <code>Manuscript.Rmd</code>.
+Add code to display the two new figures for the new data your other
+group members produced. Then knit it to a word doc. Make sure it looks
+ok. Commit and push your changes. <strong>Finally, post the link to your
+repository with the updated manuscript into the
+<code>module2_exercise</code> Slack channel by the
+deadline.</strong></p>
+<p><em>After the deadline, I’ll check/grade the repository of each
+group. The grade will be a single one and the same for every group
+member.</em></p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian’s project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience being able (or not) to reproduce it as a post in the <em>Reproducible Project Examples</em> channel. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.). Post your finding.</p>
-<p>Then take a look at a few of your classmates postings and explore/comment on what they found.</p>
+<p>Look online and find an example of a research project that provides
+(or claims to provide) all materials to allow reproduction of results,
+similar to Brian’s project I shared with you. If you are able, download
+the materials and see if you can reproduce things. Report the project
+you found and your experience being able (or not) to reproduce it as a
+post in the <em>Reproducible Project Examples</em> channel. I suggest
+you focus on projects that are done with our set of tools (R/Rmarkdown,
+etc.). Post your finding.</p>
+<p>Then take a look at a few of your classmates postings and
+explore/comment on what they found.</p>
 </div>
 
 

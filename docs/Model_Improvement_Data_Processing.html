@@ -14,7 +14,7 @@
 
 <title>Some common data processing tasks</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,69 +651,276 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This unit provides a quick description of some common data processing tasks that one often needs to do before starting the actual fitting part.</p>
+<p>This unit provides a quick description of some common data processing
+tasks that one often needs to do before starting the actual fitting
+part.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <ul>
-<li>Become familiar with and able to apply common data processing tasks</li>
-<li>Understand the advantages and disadvantages of specific processing tasks</li>
+<li>Become familiar with and able to apply common data processing
+tasks</li>
+<li>Understand the advantages and disadvantages of specific processing
+tasks</li>
 </ul>
 </div>
 <div id="introductory-comments" class="section level1">
 <h1>Introductory comments</h1>
-<p>We already discussed tasks that one needs to do to get the data in shape for fitting. We called this data <em>wrangling</em> or <em>cleaning</em>. The tasks described below haven’t shown up yet. These are usually mentioned in the various sources we have been using, but not presented in one place like I do here. Also, the terminology is not quite settled. I call this <em>(pre-)processing data</em>. This is arguably fuzzy since there is a lot of that going on in other stages of the cleaning/wrangling process. In R4DS, they use the term <em>transforming</em> but that term doesn’t quite cover all the topics I’m covering here. Some of these tasks are also discussed and part of the <code>tidymodels</code> framework. Those tasks are usually done closer to the analysis portion of the project, but there is no real hard differentiation. It is best to always keep all of those possible tasks in mind and use them as needed.</p>
+<p>We already discussed tasks that one needs to do to get the data in
+shape for fitting. We called this data <em>wrangling</em> or
+<em>cleaning</em>. The tasks described below haven’t shown up yet. These
+are usually mentioned in the various sources we have been using, but not
+presented in one place like I do here. Also, the terminology is not
+quite settled. I call this <em>(pre-)processing data</em>. This is
+arguably fuzzy since there is a lot of that going on in other stages of
+the cleaning/wrangling process. In R4DS, they use the term
+<em>transforming</em> but that term doesn’t quite cover all the topics
+I’m covering here. Some of these tasks are also discussed and part of
+the <code>tidymodels</code> framework. Those tasks are usually done
+closer to the analysis portion of the project, but there is no real hard
+differentiation. It is best to always keep all of those possible tasks
+in mind and use them as needed.</p>
 </div>
 <div id="motivation" class="section level1">
 <h1>Motivation</h1>
-<p>Beyond general data cleaning, which is always needed, performing specific processing tasks on the data can help for certain types of statistical models. For instance, some methods perform poorly if the data contains predictors that are essentially “noise”, i.e., that are not correlated with the outcome. Predictors that are too correlated with each other can also be a problem for some (but not all) methods. Often, it is useful to have predictors on the same scales or transform outcomes and predictors such that they follow a distribution more suitable for modeling (often a normal distribution). The amount and type of processing needed depends not only on the data itself but also on the statistical method and algorithm you plan to use.</p>
+<p>Beyond general data cleaning, which is always needed, performing
+specific processing tasks on the data can help for certain types of
+statistical models. For instance, some methods perform poorly if the
+data contains predictors that are essentially “noise”, i.e., that are
+not correlated with the outcome. Predictors that are too correlated with
+each other can also be a problem for some (but not all) methods. Often,
+it is useful to have predictors on the same scales or transform outcomes
+and predictors such that they follow a distribution more suitable for
+modeling (often a normal distribution). The amount and type of
+processing needed depends not only on the data itself but also on the
+statistical method and algorithm you plan to use.</p>
 </div>
 <div id="common-processing-tasks" class="section level1">
 <h1>Common processing tasks</h1>
 <div id="variablepredictor-removal" class="section level2">
 <h2>Variable/Predictor Removal</h2>
-<p>It is often the case that we have more data than we need to answer a scientific question. For almost any analysis, one therefore needs to remove some variables before starting the statistical model fitting process. A simple (and somewhat stupid) example is an identifier (ID) variable for subjects. This contains no meaningful information for the modeling process and should thus be removed before fitting. Other examples are instances where the data was collected for some purpose other than our analysis. In this case, it is likely that there are variables in the data which are irrelevant for our analysis.</p>
-<p>Such removal of variables is done on scientific grounds, based on expert opinion. Ideally, you should report in enough detail which parts of the data you included and excluded in that way to allow the reader to make an informed decision if they agree with what you did. And of course, you should – as much as possible – also provide the raw data and the R scripts which do and document removal of specific variables – such that someone who doesn’t agree with your choice could re-run the analysis with different inclusion/exclusion criteria.</p>
-<p>Sometimes, you might have variables that could, in principle, be useful, but the reported values show little diversity and thus contain little information. For instance, if you had a sample of several hundred individuals and only 3 of them were smokers, then it might not be useful to include the smoking variable for the analysis of this dataset, even if, in general, it might be worth considering. Such variables that do not contain much information are called “near-zero variance” variables. Some models perform better if those variables are removed. Other modeling approaches do not care since they have built-in mechanisms to remove variables that are not useful in predicting the outcome.</p>
-<p>Another instance where removing variables might be useful is if predictors are strongly collinear/correlated. A trivial example is if you have height reported as both inches and centimeters in your data. Obviously, one of them should be removed. Other variables might not be so obviously containing the same information, but might be related enough (collinear) that including both makes the model performance worse. An example might be age and height among children.</p>
-<p>Another example we already disused are variables with missing values. In this case, you might want to remove the variable, or the observations, or a mix of them.</p>
-<p>In R, removing variables or observations is easily done with the <code>select</code> and <code>filter</code> functions from <code>dplyr</code>. There are a variety of good packages for dealing with missing/NA values. The <a href="https://cran.r-project.org/web/packages/naniar/index.html"><code>naniar</code></a> package is one of them.</p>
-<p><strong>All of these inclusion/exclusion decisions are based on expert (that’s you!) judgment. There is no magic recipe you can follow. Some statistical methods can help (see below), but they are only so useful. If someone on the internet tries to sell a magical way of knowing how to process your data before fitting, run away!</strong></p>
+<p>It is often the case that we have more data than we need to answer a
+scientific question. For almost any analysis, one therefore needs to
+remove some variables before starting the statistical model fitting
+process. A simple (and somewhat stupid) example is an identifier (ID)
+variable for subjects. This contains no meaningful information for the
+modeling process and should thus be removed before fitting. Other
+examples are instances where the data was collected for some purpose
+other than our analysis. In this case, it is likely that there are
+variables in the data which are irrelevant for our analysis.</p>
+<p>Such removal of variables is done on scientific grounds, based on
+expert opinion. Ideally, you should report in enough detail which parts
+of the data you included and excluded in that way to allow the reader to
+make an informed decision if they agree with what you did. And of
+course, you should – as much as possible – also provide the raw data and
+the R scripts which do and document removal of specific variables – such
+that someone who doesn’t agree with your choice could re-run the
+analysis with different inclusion/exclusion criteria.</p>
+<p>Sometimes, you might have variables that could, in principle, be
+useful, but the reported values show little diversity and thus contain
+little information. For instance, if you had a sample of several hundred
+individuals and only 3 of them were smokers, then it might not be useful
+to include the smoking variable for the analysis of this dataset, even
+if, in general, it might be worth considering. Such variables that do
+not contain much information are called “near-zero variance” variables.
+Some models perform better if those variables are removed. Other
+modeling approaches do not care since they have built-in mechanisms to
+remove variables that are not useful in predicting the outcome.</p>
+<p>Another instance where removing variables might be useful is if
+predictors are strongly collinear/correlated. A trivial example is if
+you have height reported as both inches and centimeters in your data.
+Obviously, one of them should be removed. Other variables might not be
+so obviously containing the same information, but might be related
+enough (collinear) that including both makes the model performance
+worse. An example might be age and height among children.</p>
+<p>Another example we already disused are variables with missing values.
+In this case, you might want to remove the variable, or the
+observations, or a mix of them.</p>
+<p>In R, removing variables or observations is easily done with the
+<code>select</code> and <code>filter</code> functions from
+<code>dplyr</code>. There are a variety of good packages for dealing
+with missing/NA values. The <a
+href="https://cran.r-project.org/web/packages/naniar/index.html"><code>naniar</code></a>
+package is one of them.</p>
+<p><strong>All of these inclusion/exclusion decisions are based on
+expert (that’s you!) judgment. There is no magic recipe you can follow.
+Some statistical methods can help (see below), but they are only so
+useful. If someone on the internet tries to sell a magical way of
+knowing how to process your data before fitting, run away!</strong></p>
 </div>
 <div id="variable-transformation" class="section level2">
 <h2>Variable transformation</h2>
-<p>It is often a good idea to transform variables. For instance if you have a model with continuous and categorical predictors, and you want to compare the coefficients returned from some model, you need to have the predictors on the same scales, which you can accomplish by <strong>standardizing</strong> predictors through <strong>centering</strong> (transforming the data so the mean is a specific value) and <strong>scaling</strong> (transforming the data so that it falls within a specific range). The most common method of centering is subtracting the mean, and the most common method of scaling is dividing by the standard deviation. The drawback of such a transformation is that the model results might be harder to interpret and might have to be ‘back-transformed’ to have biological meaning.</p>
-<p>Other common used transformations are converting to log units, since often the log scale is the biologically relevant one. This also reduces the impact of very high and very low values.</p>
-<p>It is also often the case that some numerical methods your statistical model uses work better when you transform variables. It is always good to check the manual for any statistical model (and its numerical implementation) to see what is described and recommended there.</p>
-<p>Whenever you do some kind of normalization or transformation, check the result of such a transformation to ensure nothing went wrong (e.g., you didn’t accidentally divide by 0 or take the log of a negative number).</p>
-<p>There are many ways to do variable transformation in R. In this course we will focus for our model fitting approaches on the <a href="https://www.tidymodels.org/">tidymodels</a> set of packages. Within that set of packages, the <a href="https://recipes.tidymodels.org/">recipes package</a> is used for variable transformation.</p>
+<p>It is often a good idea to transform variables. For instance if you
+have a model with continuous and categorical predictors, and you want to
+compare the coefficients returned from some model, you need to have the
+predictors on the same scales, which you can accomplish by
+<strong>standardizing</strong> predictors through
+<strong>centering</strong> (transforming the data so the mean is a
+specific value) and <strong>scaling</strong> (transforming the data so
+that it falls within a specific range). The most common method of
+centering is subtracting the mean, and the most common method of scaling
+is dividing by the standard deviation. The drawback of such a
+transformation is that the model results might be harder to interpret
+and might have to be ‘back-transformed’ to have biological meaning.</p>
+<p>Other common used transformations are converting to log units, since
+often the log scale is the biologically relevant one. This also reduces
+the impact of very high and very low values.</p>
+<p>It is also often the case that some numerical methods your
+statistical model uses work better when you transform variables. It is
+always good to check the manual for any statistical model (and its
+numerical implementation) to see what is described and recommended
+there.</p>
+<p>Whenever you do some kind of normalization or transformation, check
+the result of such a transformation to ensure nothing went wrong (e.g.,
+you didn’t accidentally divide by 0 or take the log of a negative
+number).</p>
+<p>There are many ways to do variable transformation in R. In this
+course we will focus for our model fitting approaches on the <a
+href="https://www.tidymodels.org/">tidymodels</a> set of packages.
+Within that set of packages, the <a
+href="https://recipes.tidymodels.org/">recipes package</a> is used for
+variable transformation.</p>
 </div>
 <div id="feature-engineering-variable-creation" class="section level2">
 <h2>Feature engineering (variable creation)</h2>
-<p>The term <em>feature engineering</em> is often used in machine learning. It basically means creating new variables from the existing ones. The hope is that the new variables are better at describing/predicting/correlating with the outcome. (<strong>Feature</strong> is another word used for <strong>predictor</strong> or <strong>independent</strong> variable. The term <strong>feature</strong> is especially common in the machine learning literature). For instance, if we want to assess the impact of weight on diabetes, using weight itself might not be the best option since it is confounded by height. A 200lb person who’s 5 feet tall is likely at greater risk than someone who is 6 feet tall. We can instead use weight and height and compute BMI and then include that variable/feature in our model instead. In the ML terminology, we just <em>engineered the feature of BMI from the features weight and height</em>. Or in more everyday wording <em>we created a new variable BMI from the two existing variables weight and height</em>.</p>
-<p>Creating the right features that are most meaningful for a model needs to be guided by expert knowledge, and often differentiates the models with good predictive performance from those that are not so good. There are whole books focused on feature engineering (e.g. <a href="http://www.feat.engineering/">Feature Engineering and Selection: A Practical Approach for Predictive Models</a> ). The <a href="https://recipes.tidymodels.org/">recipes package</a> mentioned above helps with some feature engineering tasks. We won’t use it too much in the course exercises, but keep in mind that it is always an option to create new variables from your existing ones. (One could think of variable transformation described in the previous section as a very simple form of feature engineering, i.e., we create a new variable/feature which is basically just the old one but somehow transformed.)</p>
+<p>The term <em>feature engineering</em> is often used in machine
+learning. It basically means creating new variables from the existing
+ones. The hope is that the new variables are better at
+describing/predicting/correlating with the outcome.
+(<strong>Feature</strong> is another word used for
+<strong>predictor</strong> or <strong>independent</strong> variable. The
+term <strong>feature</strong> is especially common in the machine
+learning literature). For instance, if we want to assess the impact of
+weight on diabetes, using weight itself might not be the best option
+since it is confounded by height. A 200lb person who’s 5 feet tall is
+likely at greater risk than someone who is 6 feet tall. We can instead
+use weight and height and compute BMI and then include that
+variable/feature in our model instead. In the ML terminology, we just
+<em>engineered the feature of BMI from the features weight and
+height</em>. Or in more everyday wording <em>we created a new variable
+BMI from the two existing variables weight and height</em>.</p>
+<p>Creating the right features that are most meaningful for a model
+needs to be guided by expert knowledge, and often differentiates the
+models with good predictive performance from those that are not so good.
+There are whole books focused on feature engineering (e.g. <a
+href="http://www.feat.engineering/">Feature Engineering and Selection: A
+Practical Approach for Predictive Models</a> ). The <a
+href="https://recipes.tidymodels.org/">recipes package</a> mentioned
+above helps with some feature engineering tasks. We won’t use it too
+much in the course exercises, but keep in mind that it is always an
+option to create new variables from your existing ones. (One could think
+of variable transformation described in the previous section as a very
+simple form of feature engineering, i.e., we create a new
+variable/feature which is basically just the old one but somehow
+transformed.)</p>
 </div>
 <div id="feature-reduction-variable-reduction" class="section level2">
 <h2>Feature Reduction (variable reduction)</h2>
-<p>This could be considered one type of feature engineering. In some areas of science, this is a step that’s almost always required. For instance, with <strong>-omics</strong> type data (proteomics, transcriptomics, metabolomics, etc.), it is not uncommon to measure 1000s of variables (e.g., gene expression levels) for one individual person. Thus those datasets often have many more predictors than observations (individuals/samples in the study). This means some models might not work at all (e.g. a standard linear or logistic model) and other models might work but take way too long to run.</p>
-<p>It is therefore often necessary to reduce the number of predictors. Manual removal of predictors based on biological/expert knowledge, as described above, is one option. But with thousands of predictors, and often no clear <em>a priori</em> idea of which ones are biologically meaningful, this quickly becomes unfeasible. Another option is to use a statistical approach with the goal to find a set of new predictors of size <span class="math inline">\(m\)</span>, made up of combinations of the <span class="math inline">\(p\)</span> old ones, such that <span class="math inline">\(m \ll p\)</span> (<span class="math inline">\(m\)</span> is much less than <span class="math inline">\(p\)</span>). An approach called Principal Component Analysis (PCA) can be used to find such a smaller set of new predictors that capture most of the information contained in the larger set. One drawback of PCA is that it ignores the relationship between predictors and outcome. That means it tries to reduce the dimension/number of predictors by looking for correlations among them, but without paying attention to the potential correlations between predictors and outcome. This can at times lead to sub-optimal performance of the model. To keep predictors that are most associated with the outcome in the model, one can use a method called Partial Least Squares (PLS). Other approaches exist. The overall problem is that the new set of predictors is harder to interpret, and thus insights gained from the model are somewhat reduced. We won’t have time to look in much detail at any of those approaches, but the resources we have been using for this class cover some of the approaches, so check there if interested.</p>
+<p>This could be considered one type of feature engineering. In some
+areas of science, this is a step that’s almost always required. For
+instance, with <strong>-omics</strong> type data (proteomics,
+transcriptomics, metabolomics, etc.), it is not uncommon to measure
+1000s of variables (e.g., gene expression levels) for one individual
+person. Thus those datasets often have many more predictors than
+observations (individuals/samples in the study). This means some models
+might not work at all (e.g. a standard linear or logistic model) and
+other models might work but take way too long to run.</p>
+<p>It is therefore often necessary to reduce the number of predictors.
+Manual removal of predictors based on biological/expert knowledge, as
+described above, is one option. But with thousands of predictors, and
+often no clear <em>a priori</em> idea of which ones are biologically
+meaningful, this quickly becomes unfeasible. Another option is to use a
+statistical approach with the goal to find a set of new predictors of
+size <span class="math inline">\(m\)</span>, made up of combinations of
+the <span class="math inline">\(p\)</span> old ones, such that <span
+class="math inline">\(m \ll p\)</span> (<span
+class="math inline">\(m\)</span> is much less than <span
+class="math inline">\(p\)</span>). An approach called Principal
+Component Analysis (PCA) can be used to find such a smaller set of new
+predictors that capture most of the information contained in the larger
+set. One drawback of PCA is that it ignores the relationship between
+predictors and outcome. That means it tries to reduce the
+dimension/number of predictors by looking for correlations among them,
+but without paying attention to the potential correlations between
+predictors and outcome. This can at times lead to sub-optimal
+performance of the model. To keep predictors that are most associated
+with the outcome in the model, one can use a method called Partial Least
+Squares (PLS). Other approaches exist. The overall problem is that the
+new set of predictors is harder to interpret, and thus insights gained
+from the model are somewhat reduced. We won’t have time to look in much
+detail at any of those approaches, but the resources we have been using
+for this class cover some of the approaches, so check there if
+interested.</p>
 </div>
 </div>
 <div id="processing-one-should-avoid" class="section level1">
 <h1>Processing one should avoid</h1>
-<p>There are certain very common ways data gets processed that should, in fact, be avoided. Here are some things <strong>you should not do!</strong></p>
-<p><strong>Discretizing/binning continuous variables.</strong> Doing so leads to loss of power and the binning is almost always arbitrary. E.g., there is no reason to stick people into age categories - keep age continuous (no matter how many Epi papers you see where they do that kind of stuff.) Unfortunately, binning/categorizing of continuous variables is very commonly done, but almost never is there a good reason to do so, other than custom and people not being familiar with other approaches (exceedingly bad reasons for doing things). In the statistical literature, this unhealthy urge to dichotomize/discretize has been labeled <strong>Dichotomania</strong>. <a href="https://www.fharrell.com/post/errmed/#catg">This reference and links therein</a> discusses dichotomania related to chopping up of variables. Another dichotomania exists regarding misinterpretation of statistical results and especially the “magical” 0.05 <em>p</em>-value threshold, which is thorough abused throughout the scientific literature. For some discussion on this <a href="https://academic.oup.com/aje/article/186/6/639/3886035">see e.g., here</a> or <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.2331">this review</a>.</p>
-<p>Sometimes, the reason given for binning is that there might not be a linear relation between predictor and outcome, e.g., between age and risk of some disease. That is certainly possible. But the right approach for this is almost always to change the model and use a more flexible statistical model that allows a relation between predictor and outcome that is not linear.</p>
-<p>There are occasions when discretizing is warranted. For instance at the end of an analysis, one might need to have a decision rule that determines further action (e.g., treat or don’t treat with statin drugs) based on some continuous quantity (e.g., cholesterol level). However, the analysis should still be done with continuous variables and any binning only done at the end.</p>
-<p><strong>Variable transformation</strong> is – as I mentioned above – sometimes a good idea. However, it should not be used without a reason, and sometimes there are better alternatives. For instance if your outcome is not normally distributed, then maybe use a model that more closely mimics your data. For instance, if your data come from a process that likely produces Poisson distributed data, you can use a generalized linear model with a Poisson distribution assumption. Similarly, you do not always need to transform predictors: at times transformations make interpretability harder and it might be better to not transform.</p>
+<p>There are certain very common ways data gets processed that should,
+in fact, be avoided. Here are some things <strong>you should not
+do!</strong></p>
+<p><strong>Discretizing/binning continuous variables.</strong> Doing so
+leads to loss of power and the binning is almost always arbitrary. E.g.,
+there is no reason to stick people into age categories - keep age
+continuous (no matter how many Epi papers you see where they do that
+kind of stuff.) Unfortunately, binning/categorizing of continuous
+variables is very commonly done, but almost never is there a good reason
+to do so, other than custom and people not being familiar with other
+approaches (exceedingly bad reasons for doing things). In the
+statistical literature, this unhealthy urge to dichotomize/discretize
+has been labeled <strong>Dichotomania</strong>. <a
+href="https://www.fharrell.com/post/errmed/#catg">This reference and
+links therein</a> discusses dichotomania related to chopping up of
+variables. Another dichotomania exists regarding misinterpretation of
+statistical results and especially the “magical” 0.05 <em>p</em>-value
+threshold, which is thorough abused throughout the scientific
+literature. For some discussion on this <a
+href="https://academic.oup.com/aje/article/186/6/639/3886035">see e.g.,
+here</a> or <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.2331">this
+review</a>.</p>
+<p>Sometimes, the reason given for binning is that there might not be a
+linear relation between predictor and outcome, e.g., between age and
+risk of some disease. That is certainly possible. But the right approach
+for this is almost always to change the model and use a more flexible
+statistical model that allows a relation between predictor and outcome
+that is not linear.</p>
+<p>There are occasions when discretizing is warranted. For instance at
+the end of an analysis, one might need to have a decision rule that
+determines further action (e.g., treat or don’t treat with statin drugs)
+based on some continuous quantity (e.g., cholesterol level). However,
+the analysis should still be done with continuous variables and any
+binning only done at the end.</p>
+<p><strong>Variable transformation</strong> is – as I mentioned above –
+sometimes a good idea. However, it should not be used without a reason,
+and sometimes there are better alternatives. For instance if your
+outcome is not normally distributed, then maybe use a model that more
+closely mimics your data. For instance, if your data come from a process
+that likely produces Poisson distributed data, you can use a generalized
+linear model with a Poisson distribution assumption. Similarly, you do
+not always need to transform predictors: at times transformations make
+interpretability harder and it might be better to not transform.</p>
 </div>
 <div id="general-suggestions" class="section level1">
 <h1>General suggestions</h1>
-<p>Once you have an idea of the kinds of models you want to apply, figure out if they require or could benefit from some of the data pre-processing steps just described. If yes, implement those processing steps. If a specific algorithm allows it, you can always try to fit the data with and without processing. The differences (or lack of differences) might tell you something useful. At times, this might be a trial-and-error process, where you first do not pre-process, realize the model doesn’t work, then figure out what further processing is needed, then try again.</p>
+<p>Once you have an idea of the kinds of models you want to apply,
+figure out if they require or could benefit from some of the data
+pre-processing steps just described. If yes, implement those processing
+steps. If a specific algorithm allows it, you can always try to fit the
+data with and without processing. The differences (or lack of
+differences) might tell you something useful. At times, this might be a
+trial-and-error process, where you first do not pre-process, realize the
+model doesn’t work, then figure out what further processing is needed,
+then try again.</p>
 </div>
 <div id="further-resources" class="section level1">
 <h1>Further Resources</h1>
-<p>For some more reading see <a href="https://bradleyboehmke.github.io/HOML/process.html">Chapter 3 of HMLR</a>. The above mentioned book <a href="http://www.feat.engineering/">Feature Engineering and Selection: A Practical Approach for Predictive Models</a> is also a good resource. The <a href="https://www.tidymodels.org/">tidymodels website</a> also has articles and tutorials that cover some of these topics.</p>
+<p>For some more reading see <a
+href="https://bradleyboehmke.github.io/HOML/process.html">Chapter 3 of
+HMLR</a>. The above mentioned book <a
+href="http://www.feat.engineering/">Feature Engineering and Selection: A
+Practical Approach for Predictive Models</a> is also a good resource.
+The <a href="https://www.tidymodels.org/">tidymodels website</a> also
+has articles and tutorials that cover some of these topics.</p>
 </div>
 
 

@@ -14,7 +14,7 @@
 
 <title>Assessment - Data Finding and Wrangling</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -638,7 +642,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Data Finding and Wrangling</h1>
+<h1 class="title toc-ignore">Assessment - Data Finding and
+Wrangling</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-10-28 18:50:28</h4>
 
@@ -647,49 +652,129 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
-<p>This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub 😁.</p>
+<p>This exercise lets you do a bit of data loading and wrangling. And of
+course more group work and GitHub 😁.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>While this is going to be a small and incomplete data analysis, we’ll practice using the full setup. To that end, grab another copy of the <a href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>, make it your own repository (name it <code>YOURNAME-MADA-analysis2</code>), and clone it to your local computer. Then use the structure of this repository to do the project as described below.</p>
-<p>We’ll also use the same group setup as last week. Assign each member in your group an (arbitrary) number (I’m calling them M1, M2, …). The order should be different than last week so you get to interact with a different group member. Everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2’s repository, M2 will work on M3, etc. The last person (M3 or M4), will work on M1’s repository. This way, everyone will work on their own and one group member’s repository.</p>
+<p>While this is going to be a small and incomplete data analysis, we’ll
+practice using the full setup. To that end, grab another copy of the <a
+href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>,
+make it your own repository (name it
+<code>YOURNAME-MADA-analysis2</code>), and clone it to your local
+computer. Then use the structure of this repository to do the project as
+described below.</p>
+<p>We’ll also use the same group setup as last week. Assign each member
+in your group an (arbitrary) number (I’m calling them M1, M2, …). The
+order should be different than last week so you get to interact with a
+different group member. Everyone will first work on their own and finish
+this part by Wednesday. Then M1 will contribute to M2’s repository, M2
+will work on M3, etc. The last person (M3 or M4), will work on M1’s
+repository. This way, everyone will work on their own and one group
+member’s repository.</p>
 </div>
 <div id="finding-data" class="section level2">
 <h2>Finding Data</h2>
-<p>Previously, you did a quick exploration of a dataset that came with an R package (<code>gapminder</code> data inside <code>dslabs</code> package). A lot of datasets can be found inside R packages. For instance, <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">this page lists what is likely only a small fraction</a>. There is even a <a href="https://www.reddit.com/r/datasets/">Reddit group dedicated to R datasets</a>. The good and the bad about datasets that come with R packages is that they are often fairly clean/tidy. That’s unfortunately not how most “real world” datasets look like. Getting dirty and messy datasets and wrangling them into a form that is suitable for statistical analysis is part of most workflows and often takes a lot of time. We’ll start practicing this here by getting data that might or might not be very clean.</p>
-<p>Go to the CDC’s data website at <a href="https://data.cdc.gov/">https://data.cdc.gov/</a>. Browse through the site and identify a dataset of interest.</p>
-<p>Which dataset you choose is up to you. To make a future exercise easier on you, I suggest you pick a dataset that has at least 5 different variables, and a mix of continuous and categorical ones. Often, 5 variables means 5 columns. That would be the case in properly formatted data. However, some of the data provided by the CDC is rather poorly formatted. For instance <a href="https://data.cdc.gov/Traumatic-Brain-Injury-/Rates-of-TBI-related-Deaths-by-Age-Group-United-St/nq6q-szvs">this dataset</a> has the same variable (age) in separate columns, and it is also discretized. As we’ll discuss, these are two really bad things you can do to your data, so I recommend staying away from such datasets. There are plenty on that website, so I’m sure you’ll find one that is suitable and interesting to you.</p>
-<p>If you absolutely can’t find a good dataset on the CDC website, you can get one somewhere else. It needs to be <em>real world</em> data (so no training/teaching data repositories), decently documented, and readily available.</p>
+<p>Previously, you did a quick exploration of a dataset that came with
+an R package (<code>gapminder</code> data inside <code>dslabs</code>
+package). A lot of datasets can be found inside R packages. For
+instance, <a
+href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">this
+page lists what is likely only a small fraction</a>. There is even a <a
+href="https://www.reddit.com/r/datasets/">Reddit group dedicated to R
+datasets</a>. The good and the bad about datasets that come with R
+packages is that they are often fairly clean/tidy. That’s unfortunately
+not how most “real world” datasets look like. Getting dirty and messy
+datasets and wrangling them into a form that is suitable for statistical
+analysis is part of most workflows and often takes a lot of time. We’ll
+start practicing this here by getting data that might or might not be
+very clean.</p>
+<p>Go to the CDC’s data website at <a
+href="https://data.cdc.gov/">https://data.cdc.gov/</a>. Browse through
+the site and identify a dataset of interest.</p>
+<p>Which dataset you choose is up to you. To make a future exercise
+easier on you, I suggest you pick a dataset that has at least 5
+different variables, and a mix of continuous and categorical ones.
+Often, 5 variables means 5 columns. That would be the case in properly
+formatted data. However, some of the data provided by the CDC is rather
+poorly formatted. For instance <a
+href="https://data.cdc.gov/Traumatic-Brain-Injury-/Rates-of-TBI-related-Deaths-by-Age-Group-United-St/nq6q-szvs">this
+dataset</a> has the same variable (age) in separate columns, and it is
+also discretized. As we’ll discuss, these are two really bad things you
+can do to your data, so I recommend staying away from such datasets.
+There are plenty on that website, so I’m sure you’ll find one that is
+suitable and interesting to you.</p>
+<p>If you absolutely can’t find a good dataset on the CDC website, you
+can get one somewhere else. It needs to be <em>real world</em> data (so
+no training/teaching data repositories), decently documented, and
+readily available.</p>
 </div>
 <div id="loading-data" class="section level2">
 <h2>Loading data</h2>
-<p>Get the dataset you selected into R. You can do that by downloading the file to your computer first and placing it into the <code>raw_data</code> folder. Then modify the <code>processingscript.R</code> file to read in your data file. You can delete or comment out anything that’s already in that R script.</p>
-<p>If no file is available for download, or if it is too large to download and place in the repo (GitHub doesn’t like really large files, one of its limitations), you can instead write code to pull it directly from the source through the API (Google is your friend to figure out what commands you need to write).</p>
-<p>Once the data is loaded, you’ll likely need to do some processing. Comprehensive and full cleaning of the data is not necessary. Instead, decide on a few variables of interest and clean those. Think of one variable as the main outcome of interest (in a plot, that would generally be shown on the y-axis) and some other variable(s) as the predictors of interest. Similar to the height/weight example code. Or it could be some quantity changing over time. It’s your choice.</p>
-<p>Once you written code that processes the bits of the data you are interested in, save them as an RDS file, similar to what you see in the example code.</p>
-<p><strong>Add enough commentary into your R script such that your classmate who will take over next knows what you are doing and what variables they should work with!</strong></p>
-<p>When all the cleaning parts work, commit and push your changes to GitHub. Then let the group member who will take over (see above) know where to find your repository.</p>
+<p>Get the dataset you selected into R. You can do that by downloading
+the file to your computer first and placing it into the
+<code>raw_data</code> folder. Then modify the
+<code>processingscript.R</code> file to read in your data file. You can
+delete or comment out anything that’s already in that R script.</p>
+<p>If no file is available for download, or if it is too large to
+download and place in the repo (GitHub doesn’t like really large files,
+one of its limitations), you can instead write code to pull it directly
+from the source through the API (Google is your friend to figure out
+what commands you need to write).</p>
+<p>Once the data is loaded, you’ll likely need to do some processing.
+Comprehensive and full cleaning of the data is not necessary. Instead,
+decide on a few variables of interest and clean those. Think of one
+variable as the main outcome of interest (in a plot, that would
+generally be shown on the y-axis) and some other variable(s) as the
+predictors of interest. Similar to the height/weight example code. Or it
+could be some quantity changing over time. It’s your choice.</p>
+<p>Once you written code that processes the bits of the data you are
+interested in, save them as an RDS file, similar to what you see in the
+example code.</p>
+<p><strong>Add enough commentary into your R script such that your
+classmate who will take over next knows what you are doing and what
+variables they should work with!</strong></p>
+<p>When all the cleaning parts work, commit and push your changes to
+GitHub. Then let the group member who will take over (see above) know
+where to find your repository.</p>
 </div>
 <div id="wrangling-and-exploring-data" class="section level2">
 <h2>Wrangling and exploring data</h2>
-<p>Fork and clone your fellow group member’s repository as you did previously. Once you have it on your local computer, open the <code>analysisscript.R</code> file and replace the existing code with new code that loads the data cleaned by your colleague and produces a few quick plots and/or tables. Then update the <code>Manuscript.Rmd</code> file by removing the old results and showing your new results.</p>
-<p>Once all done, commit, push to your repo on Github (the fork of the original), then initiate a pull request (PR) to the original repository.</p>
+<p>Fork and clone your fellow group member’s repository as you did
+previously. Once you have it on your local computer, open the
+<code>analysisscript.R</code> file and replace the existing code with
+new code that loads the data cleaned by your colleague and produces a
+few quick plots and/or tables. Then update the
+<code>Manuscript.Rmd</code> file by removing the old results and showing
+your new results.</p>
+<p>Once all done, commit, push to your repo on Github (the fork of the
+original), then initiate a pull request (PR) to the original
+repository.</p>
 </div>
 <div id="posting-the-final-product" class="section level2">
 <h2>Posting the “final” product</h2>
-<p>The original repository owner should check the PR they received from their colleague, request changes if needed, approve if all looks okay, then merge and update their own local repo. Then post the link to the repository into the <code>module4_exercise</code> channel. I’ll take a look/grade the project after the deadline.</p>
+<p>The original repository owner should check the PR they received from
+their colleague, request changes if needed, approve if all looks okay,
+then merge and update their own local repo. Then post the link to the
+repository into the <code>module4_exercise</code> channel. I’ll take a
+look/grade the project after the deadline.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>No discussion assignment this week. Instead, submit project part 1.</p>
+<p>No discussion assignment this week. Instead, submit project part
+1.</p>
 </div>
 <div id="project" class="section level1">
 <h1>Project</h1>
-<p>Submission of part 1 is due. Submit a link with a URL to your repository to the <em>project_topics</em> Slack channel.</p>
+<p>Submission of part 1 is due. Submit a link with a URL to your
+repository to the <em>project_topics</em> Slack channel.</p>
 </div>
 
 

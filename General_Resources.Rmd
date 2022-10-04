@@ -30,7 +30,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
 * [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
-* I used to recommend and use Datacamp, an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). They also became  much less academic-friendly, their student discount is much less nice than it used to be, and apparently they recently sued R Studio (a company I think highly of). I'm not sure if they have become a "nice" company again and it would be ok to use their stuff again, but I have basically moved on. Too much other good stuff available. Here is a good resource that shows [possible alternatives to Datacamp's courses.](https://docs.google.com/spreadsheets/d/1LtaeWPzEhRiy-kdNZBn0gPwc6aTYkWtt6Cau6PzcXuo/edit#gid=0)
+* I used to recommend and use Datacamp, an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). They also became  much less academic-friendly, their student discount is much less nice than it used to be, and apparently they recently sued R Studio (a company I think highly of). I'm not sure what the current status is on both their company culture and their academic/student-friendliness, but I have basically moved on. Too much other good stuff available to bother further. 
 * [Exploratory Data Analysis](https://eda.seas.gwu.edu/) - materials for an online course teaching exploratory data analysis using R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 * The journal PeerJ has a collection of articles on the topic of [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/). A lot of the papers in that collection use R. 
 * Roger Peng and Hillary Parker have a Stats and Data Science related podcast called [Not so standard deviations](http://nssdeviations.com/).
@@ -82,6 +82,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 
 * [R Workflow](http://hbiostat.org/rflow/) is an online book describing how to do reproducible research using the R ecosystem and the still fairly new [Quarto](https://quarto.org/) framework.
 
+* For more Quarto, the [Awesome Quarto](https://github.com/mcanouil/awesome-quarto) repository has a nice curated list of links to resources.
 
 # General Statistical Analysis
 
@@ -112,7 +113,7 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 
 
 # Machine Learning
-* [Machine Learning University (MLU)](https://mlu-explain.github.io/) is an educational offering from Amazon with nice tutorials covering several important ML-related topics.
+* [Machine Learning University (MLU)](https://mlu-explain.github.io/) is an educational offering from Amazon with several nice tutorials covering important ML-related topics. It also includes very basic statistical concepts such as linear/logistic regression.
 
 
 # R coding

@@ -14,7 +14,7 @@
 
 <title>Assessment - Complete Workflow</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,50 +651,114 @@ div.tocify {
 
 <div id="quiz" class="section level1">
 <h1>Quiz</h1>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level1">
 <h1>Exercise</h1>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>For this exercise, we will participate in one more <strong>Tidy Tuesday</strong> exercise. This time, we’ll apply a full analysis workflow to the data.</p>
-<p>This is another solo exercise, so no group work this week, but of course more GitHub. This exercise will go into your portfolio.</p>
+<p>For this exercise, we will participate in one more <strong>Tidy
+Tuesday</strong> exercise. This time, we’ll apply a full analysis
+workflow to the data.</p>
+<p>This is another solo exercise, so no group work this week, but of
+course more GitHub. This exercise will go into your portfolio.</p>
 </div>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>Use your portfolio website. Make sure it’s up to date and fully synced. Open it in R Studio. From last week’s exercise, you should have an empty Rmd file called <code>tidytuesday_exercise2.Rmd</code>. Open it, that’s where you’ll write your Tidy Tuesday analysis.</p>
-<p>Go to the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github repository</a>. Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called <code>data</code>).</p>
+<p>Use your portfolio website. Make sure it’s up to date and fully
+synced. Open it in R Studio. From last week’s exercise, you should have
+an empty Rmd file called <code>tidytuesday_exercise2.Rmd</code>. Open
+it, that’s where you’ll write your Tidy Tuesday analysis.</p>
+<p>Go to the <a
+href="https://github.com/rfordatascience/tidytuesday">TidyTuesday Github
+repository</a>. Look for the dataset for this week, and read the
+instructions on how to get the data. You will also be provided with a
+data dictionary. If the data is available for download, place it
+somewhere in your portfolio repository (e.g., you can make a new folder
+called <code>data</code>).</p>
 </div>
 <div id="what-to-do" class="section level2">
 <h2>What to do</h2>
 <p>Write code and text to perform the following steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Load, wrangle and explore the data. By now you know this is an iterative procedure, so it’s ok to have these parts of the process/code intertwined.</p></li>
-<li><p>Once you understand the data sufficiently, formulate a question/hypothesis. This will determine your outcome of interest and, if applicable, main predictor(s) of interest. Since we don’t know the data yet, it might be that the question is a bit contrived and not actually too interesting, but I’m sure there will be more than one potentially reasonable question one can ask, no matter what the data will be.</p></li>
-<li><p>Once you determine the question and thus your outcome and main predictors, further pre-process and clean the data as needed. Then split into train/test.</p></li>
-<li><p>Fit at least 4 different ML models to the data using the <code>tidymodels</code> framework we practiced. Use the CV approach for model training/fitting. Explore the quality of each model by looking at performance, residuals, uncertainty, etc. All of this should still be evaluated using the training/CV data. You can of course recycle code from the previous exercise, but I also encourage you to explore further, e.g. try different ML models or use different metrics. You might have to do that anyway, depending on your question/outcome.</p></li>
-<li><p>Based on the model evaluations, decide on one model you think is overall best. Explain why. It doesn’t have to be the model with the best performance. You make the choice, just explain why you picked the one you picked.</p></li>
-<li><p>As a final, somewhat honest assessment of the quality of the model you chose, evaluate it (performance, residuals, uncertainty, etc.) on the <strong>test data</strong>. This is the only time you are allowed to touch the test data, and only once. Report model performance on the test data.</p></li>
-<li><p>Summarize everything you did and found in a discussion. Of course, your Rmd file should contain commentary/documentation on everything you do for each step.</p></li>
+<li><p>Load, wrangle and explore the data. By now you know this is an
+iterative procedure, so it’s ok to have these parts of the process/code
+intertwined.</p></li>
+<li><p>Once you understand the data sufficiently, formulate a
+question/hypothesis. This will determine your outcome of interest and,
+if applicable, main predictor(s) of interest. Since we don’t know the
+data yet, it might be that the question is a bit contrived and not
+actually too interesting, but I’m sure there will be more than one
+potentially reasonable question one can ask, no matter what the data
+will be.</p></li>
+<li><p>Once you determine the question and thus your outcome and main
+predictors, further pre-process and clean the data as needed. Then split
+into train/test.</p></li>
+<li><p>Fit at least 4 different ML models to the data using the
+<code>tidymodels</code> framework we practiced. Use the CV approach for
+model training/fitting. Explore the quality of each model by looking at
+performance, residuals, uncertainty, etc. All of this should still be
+evaluated using the training/CV data. You can of course recycle code
+from the previous exercise, but I also encourage you to explore further,
+e.g. try different ML models or use different metrics. You might have to
+do that anyway, depending on your question/outcome.</p></li>
+<li><p>Based on the model evaluations, decide on one model you think is
+overall best. Explain why. It doesn’t have to be the model with the best
+performance. You make the choice, just explain why you picked the one
+you picked.</p></li>
+<li><p>As a final, somewhat honest assessment of the quality of the
+model you chose, evaluate it (performance, residuals, uncertainty, etc.)
+on the <strong>test data</strong>. This is the only time you are allowed
+to touch the test data, and only once. Report model performance on the
+test data.</p></li>
+<li><p>Summarize everything you did and found in a discussion. Of
+course, your Rmd file should contain commentary/documentation on
+everything you do for each step.</p></li>
 </ol>
 </div>
 <div id="general-pointers" class="section level2">
 <h2>General pointers</h2>
-<p>Add ample information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then 😄).</p>
-<p><strong>I don’t want to see any p-values anywhere 😁! This is an exploratory analysis, thus there is no place for p-values.</strong></p>
+<p>Add ample information/documentation in the form of either code
+comments or text in the Rmd file. Ideally both. You should provide a
+running commentary on what you do, why you do it, and if you use some R
+trickery, maybe also how (so if you stare at it in a few weeks, you can
+remember what in the world you did back then 😄).</p>
+<p><strong>I don’t want to see any p-values anywhere 😁! This is an
+exploratory analysis, thus there is no place for p-values.</strong></p>
 </div>
 <div id="finish-up" class="section level2">
 <h2>Finish up</h2>
-<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio site to make sure everything works and looks good, that all the links work, etc. Then push to GitHub by the deadline. Since this will be on your portfolio website, and I know where to find it, there is no need to post any link this week.</p>
-<p>And you are again free to broadcast your effort on social media, e.g., using the <code>#tidytuesday</code> hash tag on Twitter. I’ll again be looking out for #MADA2021 tagged tweets 😁.</p>
+<p>Once done with your Tidy Tuesday analysis, rebuild your portfolio
+site to make sure everything works and looks good, that all the links
+work, etc. Then push to GitHub by the deadline. Since this will be on
+your portfolio website, and I know where to find it, there is no need to
+post any link this week.</p>
+<p>And you are again free to broadcast your effort on social media,
+e.g., using the <code>#tidytuesday</code> hash tag on Twitter. I’ll
+again be looking out for #MADA2021 tagged tweets 😁.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Write a post in this week’s discussion channel that addresses this topic:</p>
-<p><em>Now that we’ve essentially reached the end of the course and did the whole data-analysis pipeline, which specific topics in the data-analysis workflow do you still find unclear/confusing? Which ones do you wish we had covered more? Are you looking for further resources on a specific topic and haven’t found anything good?</em></p>
-<p>Post by Wednesday, then comment on each others posts. I hope this discussion will allow us to point each other to further possibly helpful resources and maybe help clarify some still open questions.</p>
-<p>And just to re-iterate: I very much welcome contributions to the course pages, so if you have resources you think should be added, or sections that are unclear and you can improve, please contribute! By now you know how to do that: Fork the course repo, make changes, send a pull request. I’ll take a look, if things look good I’ll merge. And of course add you to the <em>Acknowledgments</em> section of the course 😄.</p>
+<p>Write a post in this week’s discussion channel that addresses this
+topic:</p>
+<p><em>Now that we’ve essentially reached the end of the course and did
+the whole data-analysis pipeline, which specific topics in the
+data-analysis workflow do you still find unclear/confusing? Which ones
+do you wish we had covered more? Are you looking for further resources
+on a specific topic and haven’t found anything good?</em></p>
+<p>Post by Wednesday, then comment on each others posts. I hope this
+discussion will allow us to point each other to further possibly helpful
+resources and maybe help clarify some still open questions.</p>
+<p>And just to re-iterate: I very much welcome contributions to the
+course pages, so if you have resources you think should be added, or
+sections that are unclear and you can improve, please contribute! By now
+you know how to do that: Fork the course repo, make changes, send a pull
+request. I’ll take a look, if things look good I’ll merge. And of course
+add you to the <em>Acknowledgments</em> section of the course 😄.</p>
 </div>
 
 

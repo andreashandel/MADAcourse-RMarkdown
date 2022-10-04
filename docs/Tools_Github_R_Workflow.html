@@ -14,7 +14,7 @@
 
 <title>The GitHub and R Workflow</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -647,7 +651,9 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>This document gives a brief discussion of working with R projects through GitHub. There is more than one way to do this, they should be equivalent in most instances.</p>
+<p>This document gives a brief discussion of working with R projects
+through GitHub. There is more than one way to do this, they should be
+equivalent in most instances.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -657,66 +663,184 @@ div.tocify {
 </div>
 <div id="prerequisites" class="section level1">
 <h1>Prerequisites</h1>
-<p>I assume you read through the <a href="./Tools_Github_Introduction.html">Git/GitHub introduction</a> and have created a GitHub account.</p>
-<p>I also assume that you are using the GitKraken client. If you don’t, you need to adjust things accordingly.</p>
+<p>I assume you read through the <a
+href="./Tools_Github_Introduction.html">Git/GitHub introduction</a> and
+have created a GitHub account.</p>
+<p>I also assume that you are using the GitKraken client. If you don’t,
+you need to adjust things accordingly.</p>
 </div>
 <div id="approach-1---start-on-github" class="section level1">
 <h1>Approach 1 - start on GitHub</h1>
 <div id="github" class="section level3">
 <h3>GitHub</h3>
-<p>For this approach, you start by creating your repository on GitHub. The most common place to create a repository is under your own user name/account. Note that it is also possible to create repositories inside an organization (if you are part of an organization). As an example, my Github user name is <code>andreashandel</code> and the name of my research group/organization is <code>ahgroup</code>. Depending on if I want a repository under my name or under the research group/organization, I’ll go to <code>https://github.com/andreashandel</code> or <code>https://github.com/ahgroup/</code>).</p>
-<p>Once you are in the location/account where you want the new repository, click on <code>Repositories</code> to see your list of repositories (which might initially be empty). Now create a new repository by clicking the green <em>New</em> button. A page should show up where you can specify details for your new repository, something like this:</p>
+<p>For this approach, you start by creating your repository on GitHub.
+The most common place to create a repository is under your own user
+name/account. Note that it is also possible to create repositories
+inside an organization (if you are part of an organization). As an
+example, my Github user name is <code>andreashandel</code> and the name
+of my research group/organization is <code>ahgroup</code>. Depending on
+if I want a repository under my name or under the research
+group/organization, I’ll go to
+<code>https://github.com/andreashandel</code> or
+<code>https://github.com/ahgroup/</code>).</p>
+<p>Once you are in the location/account where you want the new
+repository, click on <code>Repositories</code> to see your list of
+repositories (which might initially be empty). Now create a new
+repository by clicking the green <em>New</em> button. A page should show
+up where you can specify details for your new repository, something like
+this:</p>
 <p><img src="media/newrepo.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>Specify the repository owner. Make sure it’s the one you want, e.g., yourself or an organization you are part of. Pick a good name for your repository. Set the repository as private or public. In general, you should consider doing it public, unless there is an important reason to have it private (e.g. confidential data). Note that if you set it to private, you might not be able to access it with the free version of GitKraken. Check the box <em>Initialize this repository with a README</em>. Set the <em>.gitignore</em> option to <code>R</code>. You can keep the license box unchecked, or choose a license for your page. Click “create repository”.</p>
+<p>Specify the repository owner. Make sure it’s the one you want, e.g.,
+yourself or an organization you are part of. Pick a good name for your
+repository. Set the repository as private or public. In general, you
+should consider doing it public, unless there is an important reason to
+have it private (e.g. confidential data). Note that if you set it to
+private, you might not be able to access it with the free version of
+GitKraken. Check the box <em>Initialize this repository with a
+README</em>. Set the <em>.gitignore</em> option to <code>R</code>. You
+can keep the license box unchecked, or choose a license for your page.
+Click “create repository”.</p>
 </div>
 <div id="gitkraken" class="section level3">
 <h3>GitKraken</h3>
-<p>Open Gitkraken, under <code>File</code> choose <code>Clone Repo</code> go to <code>Github.com</code>, find the name of the repository you just created and clone it to some place on your local computer (i.e. copy it from Github to your local computer.) E.g. if your repository was called <code>mynewrepo</code>, and you place it on your desktop under windows, you might choose <code>C:\Users\yourname\Desktop</code> as the target. I recommend having a main folder for a specific organization or course or project, and into which you place all your repositories related to it (e.g. place all your repositories for this course into a folder called <code>MADA</code>, such as <code>C:\Data\GitHub\MADA\</code>.)</p>
-<p><strong>Remember to not place your repository in a location that is synced by other software such as DropBox or Onedrive. Also do not place GitHub repositories inside other GitHub repositories.</strong></p>
+<p>Open Gitkraken, under <code>File</code> choose
+<code>Clone Repo</code> go to <code>Github.com</code>, find the name of
+the repository you just created and clone it to some place on your local
+computer (i.e. copy it from Github to your local computer.) E.g. if your
+repository was called <code>mynewrepo</code>, and you place it on your
+desktop under windows, you might choose
+<code>C:\Users\yourname\Desktop</code> as the target. I recommend having
+a main folder for a specific organization or course or project, and into
+which you place all your repositories related to it (e.g. place all your
+repositories for this course into a folder called <code>MADA</code>,
+such as <code>C:\Data\GitHub\MADA\</code>.)</p>
+<p><strong>Remember to not place your repository in a location that is
+synced by other software such as DropBox or Onedrive. Also do not place
+GitHub repositories inside other GitHub repositories.</strong></p>
 </div>
 <div id="rstudio" class="section level3">
 <h3>RStudio</h3>
-<p>Open RStudio on your computer. Choose <code>File</code>, <code>New Project</code>, <code>Existing Directory</code> and find the directory/folder you just created on Github and copied to your local computer (e.g. <code>C:\Users\yourname\Desktop\mynewrepo</code>). If things work, you should see in the bottom right window of RStudio (at least) 2 files, one with <code>.Rproj</code> ending and a <code>README.md</code>.</p>
-<p>Click to open the <code>README.md</code> file. It will only contain the name of your repository with a <code>#</code> sign in front. At some point, it is useful to add meaningful information. For now, just to practice, you can add whatever you want.</p>
-<p>In the future, if you want to edit your project, click or double-click on the <code>.Rproj</code> file. You can try it. Close RStudio, click the <code>.Rproj</code> file and the same setup as before should show up. Using R projects has several advantages. One is that it makes how you write file paths easier, so while having an <code>.Rproj</code> file is not strictly required I recommend you do it that way.</p>
-<p>Now create your content, place any files you create inside your project directory or its sub-folders.</p>
+<p>Open RStudio on your computer. Choose <code>File</code>,
+<code>New Project</code>, <code>Existing Directory</code> and find the
+directory/folder you just created on Github and copied to your local
+computer (e.g. <code>C:\Users\yourname\Desktop\mynewrepo</code>). If
+things work, you should see in the bottom right window of RStudio (at
+least) 2 files, one with <code>.Rproj</code> ending and a
+<code>README.md</code>.</p>
+<p>Click to open the <code>README.md</code> file. It will only contain
+the name of your repository with a <code>#</code> sign in front. At some
+point, it is useful to add meaningful information. For now, just to
+practice, you can add whatever you want.</p>
+<p>In the future, if you want to edit your project, click or
+double-click on the <code>.Rproj</code> file. You can try it. Close
+RStudio, click the <code>.Rproj</code> file and the same setup as before
+should show up. Using R projects has several advantages. One is that it
+makes how you write file paths easier, so while having an
+<code>.Rproj</code> file is not strictly required I recommend you do it
+that way.</p>
+<p>Now create your content, place any files you create inside your
+project directory or its sub-folders.</p>
 </div>
 <div id="syncing" class="section level3">
 <h3>Syncing</h3>
-<p>Once you are done editing your content (for now), go to Gitkraken (or your preferred Git client) and push your changes to Github.</p>
-<p>If you use GitKraken, in the top right you should see a notification about changed files. Click <em>view changes</em>, then <strong>Stage all Changes</strong>. Write a commit message, the <strong>Commit</strong> the changes. In the main area of GitKraken, you should see that the repository – usually <em>main</em> or <em>master</em>, unless you work on a branch – shows the computer icon above the one with some random logo (or your picture). That means your local repository is ahead of the one on GitHub.com. To get them in sync, you click the <strong>Push</strong> button. If things work, the two symbols should now be in the same line.</p>
-<p>If your code cannot sync you will likely receive an option from GitKraken to perform a <strong>force push</strong>. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer however, if any additional changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be <strong>overwritten</strong> by the force push since they are not on your local repo. Thus, use with care.</p>
-<p>Now that everything is established, the workflow is simple, you just need to remember to go through all the steps.</p>
+<p>Once you are done editing your content (for now), go to Gitkraken (or
+your preferred Git client) and push your changes to Github.</p>
+<p>If you use GitKraken, in the top right you should see a notification
+about changed files. Click <em>view changes</em>, then <strong>Stage all
+Changes</strong>. Write a commit message, the <strong>Commit</strong>
+the changes. In the main area of GitKraken, you should see that the
+repository – usually <em>main</em> or <em>master</em>, unless you work
+on a branch – shows the computer icon above the one with some random
+logo (or your picture). That means your local repository is ahead of the
+one on GitHub.com. To get them in sync, you click the
+<strong>Push</strong> button. If things work, the two symbols should now
+be in the same line.</p>
+<p>If your code cannot sync you will likely receive an option from
+GitKraken to perform a <strong>force push</strong>. A force push will
+overwrite the remote repo with the local repo forcibly. This means that
+the remote will be updated with any changes that exist on your local
+computer however, if any additional changes have been made to the code
+since you began editing (i.e. someone else has made a commit to the repo
+while you were working on it) they will be <strong>overwritten</strong>
+by the force push since they are not on your local repo. Thus, use with
+care.</p>
+<p>Now that everything is established, the workflow is simple, you just
+need to remember to go through all the steps.</p>
 <ol style="list-style-type: decimal">
-<li>Before working on a repo/project, open GitKraken to make sure the local and remote are in sync. If the remote is ahead (e.g. because someone else worked on it, or you did on a different computer), do a <strong>Pull</strong>. If the local one is ahead, you don’t need to push (but you should have right after you finished your last local session).</li>
-<li>Open your project in RStudio (assuming it is an RStudio project). Make any changes you want to make. Once done for the day, go back to GitKraken and stage, then commit your changes, then push.</li>
+<li>Before working on a repo/project, open GitKraken to make sure the
+local and remote are in sync. If the remote is ahead (e.g. because
+someone else worked on it, or you did on a different computer), do a
+<strong>Pull</strong>. If the local one is ahead, you don’t need to push
+(but you should have right after you finished your last local
+session).</li>
+<li>Open your project in RStudio (assuming it is an RStudio project).
+Make any changes you want to make. Once done for the day, go back to
+GitKraken and stage, then commit your changes, then push.</li>
 </ol>
 </div>
 </div>
 <div id="approach-2---start-with-an-r-project" class="section level1">
 <h1>Approach 2 - start with an R Project</h1>
-<p>Above we created the repository on GitHub first, then cloned it to the local machine, then initialized it as an RStudio project. It is also possible to do this in reverse. <strong>If you want to start a Git repo this way, you need to install Git standalone, and it must be configured to work with third-party applications. You can read <a href="https://happygitwithr.com/install-git.html">chapter 6 of <code>happygitwithr</code></a> for more detailed instructions.</strong></p>
+<p>Above we created the repository on GitHub first, then cloned it to
+the local machine, then initialized it as an RStudio project. It is also
+possible to do this in reverse. <strong>If you want to start a Git repo
+this way, you need to install Git standalone, and it must be configured
+to work with third-party applications. You can read <a
+href="https://happygitwithr.com/install-git.html">chapter 6 of
+<code>happygitwithr</code></a> for more detailed
+instructions.</strong></p>
 <div id="rstudio-1" class="section level3">
 <h3>RStudio</h3>
-<p>Open RStudio. Choose <code>File</code>, <code>New Project</code>, <code>New Directory</code> and (usually) you’ll choose <code>New Project</code>. Pick a project name and location. Check the <code>Create a git repository</code> box. <em>This button might not appear if you only installed Gitkraken and not Git.</em></p>
+<p>Open RStudio. Choose <code>File</code>, <code>New Project</code>,
+<code>New Directory</code> and (usually) you’ll choose
+<code>New Project</code>. Pick a project name and location. Check the
+<code>Create a git repository</code> box. <em>This button might not
+appear if you only installed Gitkraken and not Git.</em></p>
 <p><img src="media/newproject.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Create your content in the project folder.</p>
 </div>
 <div id="gitkraken-1" class="section level3">
 <h3>GitKraken</h3>
-<p>Once you finished working on your project for now, open GitKraken. Go to <code>File -&gt; Init Repo</code> and choose the folder where your project is in. You’ll likely get a message about an initial commit that needs to be created. Agree to it. Your repository should show up in GitKraken. In the top right, look at and stage your changes, write a commit message, then commit. Next, press the <code>Push</code> button.</p>
-<p>At this point, if you didn’t properly connect GitKraken and GitHub previously, you’ll likely get an error message. Follow the error message and the <a href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect Gitkraken to your Github account</a> information to get it to work.</p>
-<p>You’ll see a message about no remote existing and if you want to add one. Say <code>yes</code>. A menu on the left should show up. Make sure the repository name is the same as your local repository/folder name. Then click the green button. If things worked, your local repository has been created on GitHub.com.</p>
+<p>Once you finished working on your project for now, open GitKraken. Go
+to <code>File -&gt; Init Repo</code> and choose the folder where your
+project is in. You’ll likely get a message about an initial commit that
+needs to be created. Agree to it. Your repository should show up in
+GitKraken. In the top right, look at and stage your changes, write a
+commit message, then commit. Next, press the <code>Push</code>
+button.</p>
+<p>At this point, if you didn’t properly connect GitKraken and GitHub
+previously, you’ll likely get an error message. Follow the error message
+and the <a
+href="https://www.gitkraken.com/resources/gitkraken-github-cheat-sheet">connect
+Gitkraken to your Github account</a> information to get it to work.</p>
+<p>You’ll see a message about no remote existing and if you want to add
+one. Say <code>yes</code>. A menu on the left should show up. Make sure
+the repository name is the same as your local repository/folder name.
+Then click the green button. If things worked, your local repository has
+been created on GitHub.com.</p>
 </div>
 <div id="syncing-1" class="section level3">
 <h3>Syncing</h3>
-<p>Once your repository exists both locally and on Github.com, the syncing process is exactly as described under <em>Approach 1</em>.</p>
+<p>Once your repository exists both locally and on Github.com, the
+syncing process is exactly as described under <em>Approach 1</em>.</p>
 </div>
 </div>
 <div id="merge-conflicts" class="section level1">
 <h1>Merge conflicts</h1>
-<p>Sooner or later, you will encounter a merge conflict. That happens if the same file(s) changed both locally and on GitHub.com. That can happen if multiple people work on the same files, or if you work on multiple computers and forget to always push/pull before and after you work on a project. GitKraken can help you resolve conflicts. Sometimes you have to do it manually. Moving the offending files out of your local repository, then doing the merge and after that adding the updates again can help. If you know that one source is the definite one, you can force a push or pull. A more advanced approach is to use branches.</p>
-<p>More information on merge conflicts and how to deal with them using GitKraken can be found <a href="https://www.gitkraken.com/blog/merge-conflict-tool">here</a> and <a href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git">here</a>.</p>
+<p>Sooner or later, you will encounter a merge conflict. That happens if
+the same file(s) changed both locally and on GitHub.com. That can happen
+if multiple people work on the same files, or if you work on multiple
+computers and forget to always push/pull before and after you work on a
+project. GitKraken can help you resolve conflicts. Sometimes you have to
+do it manually. Moving the offending files out of your local repository,
+then doing the merge and after that adding the updates again can help.
+If you know that one source is the definite one, you can force a push or
+pull. A more advanced approach is to use branches.</p>
+<p>More information on merge conflicts and how to deal with them using
+GitKraken can be found <a
+href="https://www.gitkraken.com/blog/merge-conflict-tool">here</a> and
+<a
+href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git">here</a>.</p>
 </div>
 
 

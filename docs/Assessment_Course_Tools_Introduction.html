@@ -14,7 +14,7 @@
 
 <title>Assessment - Course and Tools Introduction</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -140,11 +140,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -638,7 +642,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Course and Tools Introduction</h1>
+<h1 class="title toc-ignore">Assessment - Course and Tools
+Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
 <h4 class="date">2021-11-18 08:45:14</h4>
 
@@ -647,93 +652,274 @@ div.tocify {
 
 <div id="module-assessments" class="section level1">
 <h1>Module Assessments</h1>
-<p>Each module comes with an assessment. Those are things you need to do that will be graded. Each module has a document, like this one, which describes what the assessments are. Often, there is a good bit of information for the exercises.</p>
+<p>Each module comes with an assessment. Those are things you need to do
+that will be graded. Each module has a document, like this one, which
+describes what the assessments are. Often, there is a good bit of
+information for the exercises.</p>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
-<p>Get the quiz sheet for this module from the general <a href="./Course_Assessments.html"><strong>Assessments</strong></a> page. Fill it in, then submit to the online grading system before the deadline.</p>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
 <div id="exercise" class="section level2">
 <h2>Exercise</h2>
-<p>For this module, you are asked to do a project for which you’ll be using Github, R, RStudio, and Rmarkdown to create the start of a website which will become your portfolio for this class. You’ll write and post a short personal introduction of yourself.</p>
+<p>For this module, you are asked to do a project for which you’ll be
+using Github, R, RStudio, and Rmarkdown to create the start of a website
+which will become your portfolio for this class. You’ll write and post a
+short personal introduction of yourself.</p>
 <div id="privacy-note" class="section level3">
 <h3>Privacy Note</h3>
-<p>As part of this exercise, you are asked to create a public website, which at the end of the course will contain your portfolio of data analysis products. I consider this a good way of creating products that are public and which you can list on your resume and show potential future employers. However, as a student, you have the right to have all your student-related information be kept private, including the fact that you are taking this class. Keeping everything private can be done using private GitHub repositories. But it means you won’t be able to create a website, and you can’t follow the general instructions in the exercises. Instead I’ll need to give you special instructions. Some of the group exercises also won’t work. Thus, if for some reason you want to keep the fact that you are taking this class a secret, and thus are not willing to use public GitHub repositories/create a publicly accessible online portfolio <strong>please contact me.</strong></p>
+<p>As part of this exercise, you are asked to create a public website,
+which at the end of the course will contain your portfolio of data
+analysis products. I consider this a good way of creating products that
+are public and which you can list on your resume and show potential
+future employers. However, as a student, you have the right to have all
+your student-related information be kept private, including the fact
+that you are taking this class. Keeping everything private can be done
+using private GitHub repositories. But it means you won’t be able to
+create a website, and you can’t follow the general instructions in the
+exercises. Instead I’ll need to give you special instructions. Some of
+the group exercises also won’t work. Thus, if for some reason you want
+to keep the fact that you are taking this class a secret, and thus are
+not willing to use public GitHub repositories/create a publicly
+accessible online portfolio <strong>please contact me.</strong></p>
 </div>
 <div id="workload-note" class="section level3">
 <h3>Workload Note</h3>
-<p>For those of you who are new to Github/R/Rmarkdown, this first project will make you do a lot of things that you are not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It’s partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I’m confident with a bit of trial and error you’ll get it to work.</p>
-<p>If you get stuck (quite possible), check the materials listed in the <strong>Resources</strong> section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We’ll use all the bits you are learning here repeatedly during this course.</p>
+<p>For those of you who are new to Github/R/Rmarkdown, this first
+project will make you do a lot of things that you are not be familiar
+with. I know that this will be time-consuming and also might feel a bit
+intimidating. It’s partly unavoidable and partly on purpose. You need to
+learn how to quickly get up to speed with all kinds of new tools that
+come your way. So practicing it is a good idea. You are welcome to draw
+on any sources for help that you want (online, classmates, instructor,
+etc.). I’m confident with a bit of trial and error you’ll get it to
+work.</p>
+<p>If you get stuck (quite possible), check the materials listed in the
+<strong>Resources</strong> section of the course, or use Google. Also
+use the discussion boards to ask questions. You may use any method to
+get help (Google, R4Ds Slack channel, colleagues/friends/relatives with
+R/Markdown experience, etc.). Still, try to do as much as possible
+yourself. We’ll use all the bits you are learning here repeatedly during
+this course.</p>
 </div>
 <div id="pre-requisites" class="section level3">
 <h3>Pre-requisites</h3>
-<p>You should have set up with all the tools we need, namely R, RStudio, GitHub and GitKraken (or your preferred Git client).</p>
+<p>You should have set up with all the tools we need, namely R, RStudio,
+GitHub and GitKraken (or your preferred Git client).</p>
 </div>
 <div id="github-setup" class="section level3">
 <h3>Github setup</h3>
 <ul>
-<li>I made a template for you to get started. Go to <a href="https://github.com/andreashandel/online-portfolio-template">this page</a>. Make sure you are logged into GitHub, then click on <code>Use this template</code>. Create a new repository, call it <code>YOURNAME-MADA-portfolio</code> (YOURNAME should include both your first and last name.). Choose public repository, then create it.</li>
-<li>You should have been sent to the website for your new repository. If not, go to your main GitHub account website and find the repository in your list of repositories. We want to set things such that your repository can at the same time become a public website. Github allows you to do that with its <a href="https://pages.github.com/"><em>Github Pages</em></a> feature. To turn on the <em>Github Pages</em> feature, go to <code>Settings</code> for your repository in the top right. Find the <code>Pages</code> section. Switch <code>none</code> to <code>main</code> and folder as <code>/docs</code>. Click <code>Save</code>. You should see a message <code>Your site is ready to be published at URL</code>. If you click on it, nothing will show since we haven’t created the content yet. Copy/remember the URL, we’ll need it later. Note that this is NOT the URL for your repository, instead it is the URL for your website. See the <strong>Github pages</strong> section below for more.<br />
+<li>I made a template for you to get started. Go to <a
+href="https://github.com/andreashandel/online-portfolio-template">this
+page</a>. Make sure you are logged into GitHub, then click on
+<code>Use this template</code>. Create a new repository, call it
+<code>YOURNAME-MADA-portfolio</code> (YOURNAME should include both your
+first and last name.). Choose public repository, then create it.</li>
+<li>You should have been sent to the website for your new repository. If
+not, go to your main GitHub account website and find the repository in
+your list of repositories. We want to set things such that your
+repository can at the same time become a public website. Github allows
+you to do that with its <a href="https://pages.github.com/"><em>Github
+Pages</em></a> feature. To turn on the <em>Github Pages</em> feature, go
+to <code>Settings</code> for your repository in the top right. Find the
+<code>Pages</code> section. Switch <code>none</code> to
+<code>main</code> and folder as <code>/docs</code>. Click
+<code>Save</code>. You should see a message
+<code>Your site is ready to be published at URL</code>. If you click on
+it, nothing will show since we haven’t created the content yet.
+Copy/remember the URL, we’ll need it later. Note that this is NOT the
+URL for your repository, instead it is the URL for your website. See the
+<strong>Github pages</strong> section below for more.<br />
 </li>
-<li><em>Clone</em> the repository (which will be something like <code>https://github.com/USERNAME/REPOSITORYNAME/</code>) from Github.com to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called <em>MADA2021</em>) and place all class-related repositories (of which this is the first one) into this folder. Remember that these repositories/folders should not be synced with some other software (e.g., Dropbox).</li>
+<li><em>Clone</em> the repository (which will be something like
+<code>https://github.com/USERNAME/REPOSITORYNAME/</code>) from
+Github.com to your local computer (using Gitkraken or whatever
+software/method you decided to use). I recommend that you make a folder
+somewhere on your computer (e.g., called <em>MADA2021</em>) and place
+all class-related repositories (of which this is the first one) into
+this folder. Remember that these repositories/folders should not be
+synced with some other software (e.g., Dropbox).</li>
 </ul>
 </div>
 <div id="quick-website-check" class="section level3">
 <h3>Quick website check</h3>
-<p>Once your repository is on your local computer, go into the folder and click on <code>online_portfolio.Rproj</code>, which should open RStudio. In the bottom right, you’ll see several files that are part of your repository/project. We’ll edit a bunch of them shortly. In the top right panel in RStudio, you should see a <code>Build</code> tab. Click on it. It should show a <code>Build website</code> button, click it. You might get complaints about missing packages, if that’s the case, install them. If everything works well, a preview of your soon-to-be new website will pop up.</p>
+<p>Once your repository is on your local computer, go into the folder
+and click on <code>online_portfolio.Rproj</code>, which should open
+RStudio. In the bottom right, you’ll see several files that are part of
+your repository/project. We’ll edit a bunch of them shortly. In the top
+right panel in RStudio, you should see a <code>Build</code> tab. Click
+on it. It should show a <code>Build website</code> button, click it. You
+might get complaints about missing packages, if that’s the case, install
+them. If everything works well, a preview of your soon-to-be new website
+will pop up.</p>
 <p>If you got that far, let’s create some content.</p>
 </div>
 <div id="rmarkdown-content-creation" class="section level3">
 <h3>RMarkdown content creation</h3>
-<p><strong>For this part of the task, the book <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>, the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown cookbook</a> and the <a href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown website</a> will likely be useful.</strong></p>
-<p>Open <code>index.Rmd</code>. This is the main landing page for your website. Change the text however you want to. What you are writing here is R Markdown, so now would be a good time to check out some of the R Markdown resources and play with them.</p>
-<p>Next, open <code>aboutme.Rmd</code> and write some text introducing yourself, as follows:</p>
+<p><strong>For this part of the task, the book <a
+href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive
+Guide</a>, the <a
+href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown
+cookbook</a> and the <a
+href="https://rmarkdown.rstudio.com/index.html">RStudio RMarkdown
+website</a> will likely be useful.</strong></p>
+<p>Open <code>index.Rmd</code>. This is the main landing page for your
+website. Change the text however you want to. What you are writing here
+is R Markdown, so now would be a good time to check out some of the R
+Markdown resources and play with them.</p>
+<p>Next, open <code>aboutme.Rmd</code> and write some text introducing
+yourself, as follows:</p>
 <ul>
-<li>Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I’d also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.</li>
-<li>Give your text a nice structure with headings, subheadings, etc.</li>
-<li>Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.</li>
-<li>Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.</li>
-<li>If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.</li>
+<li>Talk a bit about yourself, your background, training, research
+interests. Let me/us know what kind of statistics, programming, data
+analysis experience you already have. I’d also be curious to know what
+you most hope to learn in this course. And then talk about (at least
+one) interesting personal fact(s) about you.</li>
+<li>Give your text a nice structure with headings, subheadings,
+etc.</li>
+<li>Include a picture of yourself. To do so, place the picture in the
+repository and link it from the Rmarkdown file.</li>
+<li>Finally, include a link to a picture/video/website/etc. The linked
+material should be somehow related to data analysis. Find something that
+you think is really cool/interesting/weird/etc. Provide a few
+explanatory sentences.</li>
+<li>If you want, feel free to get creative and include other things. You
+can play with RMarkdown if you wish to, e.g., you can try to include
+some table or a video or whatever.</li>
 </ul>
-<p><em>Every time you make changes and want to see how they look, you just re-build the website and take a look.</em></p>
+<p><em>Every time you make changes and want to see how they look, you
+just re-build the website and take a look.</em></p>
 </div>
 <div id="styling" class="section level3">
 <h3>Styling</h3>
-<p>You can style your website if you like. Full styling will require knowledge of CSS and HTML. We won’t get into this. But if you want to play a bit with the look, open the <code>_site.yml</code> file. This file defines the menu structure, and some styling. To change the look, you can replace <code>theme</code> with a different one. These are available: “cerulean”, “journal”, “flatly”, “darkly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, “yeti”. Try some, see how things change. If you want to go further, check out <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">these instructions</a>, which also explain how you could use your own CSS.</p>
-<p>You might also want to replace the <code>URL-TO-THIS-REPOSITORY-HERE</code> placeholder text with the actual Github URL of the repository you just created. (This should point to the <code>github.com</code> location of the files, not the <code>github.io</code> location for the website.)</p>
+<p>You can style your website if you like. Full styling will require
+knowledge of CSS and HTML. We won’t get into this. But if you want to
+play a bit with the look, open the <code>_site.yml</code> file. This
+file defines the menu structure, and some styling. To change the look,
+you can replace <code>theme</code> with a different one. These are
+available: “cerulean”, “journal”, “flatly”, “darkly”, “readable”,
+“spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”,
+“yeti”. Try some, see how things change. If you want to go further,
+check out <a
+href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">these
+instructions</a>, which also explain how you could use your own CSS.</p>
+<p>You might also want to replace the
+<code>URL-TO-THIS-REPOSITORY-HERE</code> placeholder text with the
+actual Github URL of the repository you just created. (This should point
+to the <code>github.com</code> location of the files, not the
+<code>github.io</code> location for the website.)</p>
 </div>
 <div id="update-your-repository-readme-file" class="section level3">
 <h3>Update your repository Readme file</h3>
-<p>Click to open the README.md file. It only contains a single sentence I placed there. This file will not be part of your website, but it is what people see if they land at your github repository (i.e. the behind-the-scenes location). Edit it as you like.</p>
+<p>Click to open the README.md file. It only contains a single sentence
+I placed there. This file will not be part of your website, but it is
+what people see if they land at your github repository (i.e. the
+behind-the-scenes location). Edit it as you like.</p>
 </div>
 <div id="sending-updates-to-github" class="section level3">
 <h3>Sending updates to Github</h3>
-<p>Once you are happy with your updates, or if you want to take a break, make sure to push your updates to GitHub. First close RStudio. Then go to the program you use for Github (I will assume that it’s GitKraken. If you use something else the details might vary). In the top right of Gitkraken, there should be a notification about changed files. Click <em>view changes</em>, then <em>Stage</em>. Write a commit message, commit the changes. You should see the <em>master</em> with the computer symbol above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the <em>push</em> button. If things work, the two symbols should now be in the same line.</p>
-<p>Once you pushed to GitHub, go to the URL of your website (if you forgot it, find it in the <em>Pages</em> section of your repository). You should now see your new portfolio website with the content you just created online. Make any further changes you want on your local computer, push them to GitHub. Repeat until happy with the result.</p>
+<p>Once you are happy with your updates, or if you want to take a break,
+make sure to push your updates to GitHub. First close RStudio. Then go
+to the program you use for Github (I will assume that it’s GitKraken. If
+you use something else the details might vary). In the top right of
+Gitkraken, there should be a notification about changed files. Click
+<em>view changes</em>, then <em>Stage</em>. Write a commit message,
+commit the changes. You should see the <em>master</em> with the computer
+symbol above the one with some random logo. That means your local
+repository is ahead of the one on github.com. To get them in sync, you
+click the <em>push</em> button. If things work, the two symbols should
+now be in the same line.</p>
+<p>Once you pushed to GitHub, go to the URL of your website (if you
+forgot it, find it in the <em>Pages</em> section of your repository).
+You should now see your new portfolio website with the content you just
+created online. Make any further changes you want on your local
+computer, push them to GitHub. Repeat until happy with the result.</p>
 <div class="note">
-<p>Sometimes, there might be issues that prevent syncing, e.g., if someone else changed the same files you did. If you are sure your local version is the correct one, you can perform a <strong>force push</strong>. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer. If any changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be <strong>destroyed</strong> by the force push since they are not on your local repo. For this assignment, you are the only person working on your introduction so it is unlikely you will encounter any issues with force push, but it is good to be aware of the function of the action. Use with care. It’s generally better to <a href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git">resolve merge conflicts.</a></p>
+<p>Sometimes, there might be issues that prevent syncing, e.g., if
+someone else changed the same files you did. If you are sure your local
+version is the correct one, you can perform a <strong>force
+push</strong>. A force push will overwrite the remote repo with the
+local repo forcibly. This means that the remote will be updated with any
+changes that exist on your local computer. If any changes have been made
+to the code since you began editing (i.e. someone else has made a commit
+to the repo while you were working on it) they will be
+<strong>destroyed</strong> by the force push since they are not on your
+local repo. For this assignment, you are the only person working on your
+introduction so it is unlikely you will encounter any issues with force
+push, but it is good to be aware of the function of the action. Use with
+care. It’s generally better to <a
+href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git">resolve
+merge conflicts.</a></p>
 </div>
 </div>
 <div id="general-github-workflow" class="section level3">
 <h3>General Github workflow</h3>
-<p>In the future, if you work on repositories like this one (or any others), your workflow should be as follows: * Open GitKraken or your preferred Git client and make sure the local copy of your repository is up-to-date (this is important if you collaborate with someone or you are working on multiple computers). If the remote is ahead of the local, do a <em>pull</em>. * Once your local repo is up-to-date, open your project in RStudio by double-clicking the name of the project (ends in .Rproj). Make all the edits you like. Make sure to knit your Rmd files. Once you are done with edits, close Rstudio, go to Gitkraken, stage/commit/push your changes back to the remote server.</p>
+<p>In the future, if you work on repositories like this one (or any
+others), your workflow should be as follows: * Open GitKraken or your
+preferred Git client and make sure the local copy of your repository is
+up-to-date (this is important if you collaborate with someone or you are
+working on multiple computers). If the remote is ahead of the local, do
+a <em>pull</em>. * Once your local repo is up-to-date, open your project
+in RStudio by double-clicking the name of the project (ends in .Rproj).
+Make all the edits you like. Make sure to knit your Rmd files. Once you
+are done with edits, close Rstudio, go to Gitkraken, stage/commit/push
+your changes back to the remote server.</p>
 <p><strong>You will be using this workflow a lot</strong>.</p>
 </div>
 <div id="github-pages" class="section level3">
 <h3>Github pages</h3>
-<p>You might have noticed that the files for your new website live on the domain <code>github.com</code>, while your nice-looking website lives at the domain <code>github.io</code>. This is how Github Pages work. It take files from your repository and turns them into a website with a distinct URL. Those files can either be in the main repository folder or in a <code>/docs</code> subfolder (our setup). Your website URL and your repository URL are distinct. All github actions, like pushing, pulling, cloning, etc. are done with the repository on the <code>github.com</code> domain. The <code>github.io</code> domain is only there to display websites.</p>
-<p>As an example, this course website is displayed at <a href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a> and all the files that make up the webpage are at <a href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>. Note the text at the bottom of the repository view. That text comes from the <code>Readme.md</code> file.</p>
+<p>You might have noticed that the files for your new website live on
+the domain <code>github.com</code>, while your nice-looking website
+lives at the domain <code>github.io</code>. This is how Github Pages
+work. It take files from your repository and turns them into a website
+with a distinct URL. Those files can either be in the main repository
+folder or in a <code>/docs</code> subfolder (our setup). Your website
+URL and your repository URL are distinct. All github actions, like
+pushing, pulling, cloning, etc. are done with the repository on the
+<code>github.com</code> domain. The <code>github.io</code> domain is
+only there to display websites.</p>
+<p>As an example, this course website is displayed at <a
+href="https://andreashandel.github.io/MADAcourse/">https://andreashandel.github.io/MADAcourse/</a>
+and all the files that make up the webpage are at <a
+href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.
+Note the text at the bottom of the repository view. That text comes from
+the <code>Readme.md</code> file.</p>
 </div>
 <div id="further-information" class="section level3">
 <h3>Further information</h3>
-<p>I wrote a tutorial a while back describing essentially this setup. It has some additional information and you can <a href="https://www.andreashandel.com/posts/github-website/">check it out here.</a></p>
-<p>The approach you used here to create a website is fairly easy to use and somewhat flexible. I host all my course websites in this way. However, it is not as flexible as other approaches. For instance having a layout like <a href="http://handelgroup.uga.edu/people/">this page on my group website</a> would be very hard to do. If you are interested in making websites using R Markdown &amp; co that are more flexible, you can use the <code>blogdown</code> package. To learn more about it, check out <a href="https://bookdown.org/yihui/blogdown/">the blogdown book</a>. I also have <a href="https://www.andreashandel.com/posts/">a few blog posts</a> on my website describing <a href="https://www.andreashandel.com/posts/blogdown-website-1/">how to start a blogdown website</a> as well as some other ways of doing websites with R Markdown.</p>
+<p>I wrote a tutorial a while back describing essentially this setup. It
+has some additional information and you can <a
+href="https://www.andreashandel.com/posts/github-website/">check it out
+here.</a></p>
+<p>The approach you used here to create a website is fairly easy to use
+and somewhat flexible. I host all my course websites in this way.
+However, it is not as flexible as other approaches. For instance having
+a layout like <a href="http://handelgroup.uga.edu/people/">this page on
+my group website</a> would be very hard to do. If you are interested in
+making websites using R Markdown &amp; co that are more flexible, you
+can use the <code>blogdown</code> package. To learn more about it, check
+out <a href="https://bookdown.org/yihui/blogdown/">the blogdown
+book</a>. I also have <a href="https://www.andreashandel.com/posts/">a
+few blog posts</a> on my website describing <a
+href="https://www.andreashandel.com/posts/blogdown-website-1/">how to
+start a blogdown website</a> as well as some other ways of doing
+websites with R Markdown.</p>
 </div>
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
-<p>The discussion for this module is all about your introductions. For your original post, simply post the URL to your newly created website into the <code>introductions</code> slack channel. <strong>Do so by Wednesday.</strong></p>
-<p>For your replies, visit some of your classmates websites and leave feedback as a reply to their initial Slack post.</p>
-<p>I hope this will allow you to start getting to know each other, even if only virtually.</p>
+<p>The discussion for this module is all about your introductions. For
+your original post, simply post the URL to your newly created website
+into the <code>introductions</code> slack channel. <strong>Do so by
+Wednesday.</strong></p>
+<p>For your replies, visit some of your classmates websites and leave
+feedback as a reply to their initial Slack post.</p>
+<p>I hope this will allow you to start getting to know each other, even
+if only virtually.</p>
 </div>
 </div>
 
