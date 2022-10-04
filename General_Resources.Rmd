@@ -94,7 +94,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 
 _While we don't cover Bayesian methods in this course, I personally find them very useful and compelling. Here are some resources that could be worth checking out if you want to learn some Bayesian statistics/data analysis._
 
-* [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath. My favorite stats book (bayesian or otherwise). It starts slow but goes pretty far. The book is not free (but worth the price), but there are resources on the website which are free.
+* [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath. My favorite stats book (Bayesian or otherwise). It starts slow but goes pretty far. The book is not free (but worth the price), but there are resources on the website which are free.
 * [Bayes Rules](https://www.bayesrulesbook.com/) by Johnson, Ott and Dogucu. Very hands-on introduction to Bayesian statistics. The online version is free.
 
 
@@ -110,6 +110,8 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 
 * [This short paper](https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2018.304337) provides a very basic and easy introduction and commentary on the topic of causal analysis.
 * [Causal Inference - The Mixtape](https://mixtape.scunning.com/index.html) is the free online version of a book that provides a good introduction to causal analysis/inference/modeling.
+* [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) is a great book on the topic that's freely available online.
+* The above mentioned [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath also covers a good bit of causal analysis at a very accessible introductory level. He also has several great recordings on the topic [on his YouTube channek](https://www.youtube.com/channel/UCNJK6_DZvcMqNSzQdEkzvzA).
 
 
 # Machine Learning
