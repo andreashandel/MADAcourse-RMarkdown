@@ -25,6 +25,9 @@ library(emoji)
 Last updated: `r Sys.time()`
 
 
+**This is currently the material from the last time the course was offered. Expect changes. As long as this message is shown, consider the current website outdated, things will change (though likely not by a whole lot).**
+
+
 <!-- _**The website will be continuously updated throughout the semester with new material released on an ongoing basis, as well as adjustments/fixes as needed. Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
 
 

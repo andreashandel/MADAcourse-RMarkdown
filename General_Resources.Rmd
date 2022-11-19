@@ -66,22 +66,15 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 ## Researcher degrees of freedom (p-hacking)
 
 * The concept of [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), which is related to [Data Dredging](https://en.wikipedia.org/wiki/Data_dredging) and [_p-hacking_](https://doi.org/10.1371/journal.pbio.1002106) are important ideas to keep in mind when doing a data analysis. Note that this issue is often cast in the language of p-values since those are still (unfortunately) the most common approach to statistical analyses. But the concept applies even if one doesn't use p-values.
-
-* You can find a fun hands-on exploration of the potential problem of researcher degrees of freedom [in this 538 visualization](https://projects.fivethirtyeight.com/p-hacking/) and another choose-your-own adventure story [here](https://jabde.com/2022/03/20/p-hack-your-own-adventure/). 
-
-* For further discussions of this general problem, see e.g. [this article from 538](https://fivethirtyeight.com/features/science-isnt-broken/) (which goes with the hands-on example just mentioned) or [this article by Gelman and Loken](https://www.americanscientist.org/article/the-statistical-crisis-in-science), with a closely related article [here](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
-
+* You can find a fun hands-on exploration of the potential problem of researcher degrees of freedom [in this 538 visualization](https://projects.fivethirtyeight.com/p-hacking/) and another choose-your-own adventure story [here](https://jabde.com/2022/03/20/p-hack-your-own-adventure/). * For further discussions of this general problem, see e.g. [this article from 538](https://fivethirtyeight.com/features/science-isnt-broken/) (which goes with the hands-on example just mentioned) or [this article by Gelman and Loken](https://www.americanscientist.org/article/the-statistical-crisis-in-science), with a closely related article [here](http://www.stat.columbia.edu/~gelman/research/unpublished/p_hacking.pdf).
 * [This paper](https://pubmed.ncbi.nlm.nih.gov/22006061/) provides a nice and easy to follow illustration how researcher degrees of freedom, combined with incomplete reporting, can lead to apparently nonsensical results. The study is a (fake) psychology study, but everything applies in general and it is easy to follow. 
-
 * Not surprisingly, _xkcd_ has also [covered the topic of p-hacking](https://xkcd.com/882/). 
 
 
 ## Reproducible research
 
 * [This study](https://www.nature.com/articles/s41597-022-01143-6) provides a nice glimpse at the problems that still exist when trying to reproduce/replicate prior studies by re-running the code. 
-
 * [R Workflow](http://hbiostat.org/rflow/) is an online book describing how to do reproducible research using the R ecosystem and the still fairly new [Quarto](https://quarto.org/) framework.
-
 * For more Quarto, the [Awesome Quarto](https://github.com/mcanouil/awesome-quarto) repository has a nice curated list of links to resources.
 
 # General Statistical Analysis
@@ -120,10 +113,11 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 
 # R coding
 
-* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially beginner students have found it to be a good start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the console, which is not the way one should write `real` code. It's still worth checking out if you want to get some more direct, hands-on R practice.
 * [R Studio primers](https://rstudio.cloud/learn/primers) are a great collection of lessons covering the basics of R coding and data analysis. I highly recommend them. 
 * [R Studio education](https://education.rstudio.com/) is a fairly new website that I expect will contain an increasing collection to all kinds of useful teaching resources related to R and Data Science. Check their _Learn_ section for links to resources.
+* [Swirl](http://swirlstats.com) is a package that teaches R inside R. Especially complete beginner students have found it to be a nice start since it provides very encouraging feedback. The downside is that all code writing happens interactively in the `R` console, which is not the way one writes real code. It's still worth checking out if you want to get some more direct, hands-on R practice. Unfortunately, the package seems dormant and hasn't been updated in a few years (but what's in there probably still works?)
 * [Ready for R](https://ready4r.netlify.app/) - materials for a basic introductory online R course taught by [Ted Laderas](https://laderast.github.io/).
+* [Modern R with the tidyverse](https://modern-rstats.eu/) - online book that provides a very nice introduction to important concepts of R coding with a focus on data analysis. 
 * [Intro to Programming for Analytics](http://p4a.seas.gwu.edu/) - materials for an online course teaching intro to programming with R, taught by [John Paul Helveston](https://www.jhelvy.com/).
 * [Efficient R programming](https://csgillespie.github.io/efficientR/) contains a lot of good tips and tricks towards writing better code.
 * [R for Epidemiology](https://www.r4epi.com/) - an introduction to R with a focus on tasks that are often used in Epidemiology/Public Health. 
