@@ -12,7 +12,8 @@ output:
 
 
 
-__This page is work in progress.__
+_This page is work in progress. Feel free to contribute via a GitHhub pull request._
+
 
 There are lots of technical terms related to data and its analysis. In this course, I try to explain them whenever they show up first. However, I figured it might also be useful to have one central place for quick reference. Terms are ordered alphabetically. This is how I define them, others might have different definitions - and so might I in the future, I try to change/update my understanding of things every so often `r emoji::emoji('grin')`.
 

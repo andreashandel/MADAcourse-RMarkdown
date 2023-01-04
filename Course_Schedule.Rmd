@@ -1,5 +1,5 @@
 ---
-title: MADA – Fall 2021 – Schedule
+title: MADA – Spring 2023 – Schedule
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -12,40 +12,39 @@ output:
 
 This is the current course schedule for the class. Things might change, so check regularly for updates.
 
+The *Assessments* column lists items that need to be submitted and that will be graded. Those are described in more detail in an [**Assessments**](./Course_Assessments.html) page and in the assessment document for each module.
 
-The _Assessments_ column lists items that need to be submitted and that will be graded. Those are described in more detail in an [__Assessments__](./Course_Assessments.html) page and in the assessment document for each module. 
+**Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.**
 
-__Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.__ 
+| **Module Topic**                                      | **Start and end dates** | **Assessments**                                         |     |
+|------------------|------------------|------------------|------------------|
+| Module 1 -- Course and tools introduction             | 1/9 -- 1/13             | quiz, exercise (due Wed), discussion                    |     |
+| Module 2 -- Data analysis introduction                | 1/16 -- 1/20            | quiz, exercise (staggered completion dates), discussion |     |
+| Module 3 -- R coding basics                           | 1/23 -- 1/27            | quiz, exercise (first part due Wed), discussion         |     |
+| Module 4 -- Contemplating, finding and wrangling data | 1/30 -- 2/3             | quiz, exercise (first part due Wed), project part 1     |     |
+| Module 5 -- Visualizing data                          | 2/6 -- 2/10             | quiz, exercise, discussion                              |     |
+| Module 6 -- Exploring data                            | 2/13 -- 2/17            | quiz, exercise, discussion                              |     |
+| Module 7 -- Statistical analysis overview             | 2/20 -- 2/24            | quiz, project part 2, discussion                        |     |
+| Module 8 -- Fitting basic statistical models          | 2/27 -- 3/3             | quiz, exercise, discussion                              |     |
+| **Spring Break**                                      | **3/6 - 3/10**          |                                                         |     |
+| Module 9 -- Evaluating your model fits                | 3/13 -- 3/17            | quiz, exercise (first part due Wed), discussion         |     |
+| Module 10 -- Improving your model fits                | 3/20 -- 3/24            | quiz, project part 3, discussion                        |     |
+| Module 11 -- Machine learning models I                | 3/27 -- 3/31            | quiz, exercise, discussion                              |     |
+| Module 12 -- Machine learning models II               | 4/3 -- 4/7              | quiz, exercise, project part 4                          |     |
+| Module 13 -- The complete analysis workflow           | 4/10 -- 4/14            | quiz, exercise, discussion                              |     |
+| Finishing Project                                     | 4/17 -- 4/21            | project part 5 due Monday 4/24, 8am                     |     |
+| Project Reviews                                       | 4/24 -- 4/28            | project reviews due Friday 4/28, 5pm                    |     |
+| Final project revision                                | 5/1 - 5/5               | project part 6 due Monday 5/8, 8am                      |     |
+| Module 14 -- AI & deep learning introduction          | none                    | none - this module is optional material                 |     |
 
-
-| **Module Topic**   | **Start and end dates** | **Assessments** |
-| --- | --- | --- | --- |
-| Module 1 – Course and tools introduction | 8/18 – 8/27 | quiz, exercise (due Wed), discussion |
-| Module 2 – Data analysis introduction  | 8/30 – 9/3 | quiz, exercise (staggered completion dates), discussion |
-| Module 3 – R coding basics | 9/6 – 9/10 | quiz, exercise (first part due Wed), discussion  |
-| Module 4 – Contemplating, finding and wrangling data | 9/13 – 9/17 | quiz, exercise (first part due Wed), project part 1|
-| Module 5 – Visualizing data | 9/20 – 9/24 | quiz, exercise, discussion  |
-| Module 6 – Exploring data | 9/27 – 10/1 | quiz, exercise, discussion  |
-| Module 7 – Statistical analysis overview | 10/4 – 10/8 | quiz, project part 2, discussion  |
-| Module 8 – Fitting basic statistical models | 10/11 – 10/15 | quiz, exercise, discussion  |
-| Module 9 – Evaluating your model fits | 10/18 – 10/22 | quiz, exercise (first part due Wed), discussion  |
-| Module 10 – Improving your model fits | 10/25 – 10/29 | quiz,  project part 3, discussion|
-| Module 11 – Machine learning models I | 11/1 – 11/5 | quiz, exercise, discussion  |
-| Module 12 – Machine learning models II | 11/8 – 11/12 | quiz, exercise, project part 4 |
-| Module 13 – The complete analysis workflow | 11/15 – 11/19 | quiz, exercise, discussion  |
-| Finishing Project | 11/22 – 11/26 (fall break part of the week) | project part 5 due Monday 11/29, 9am | 
-| Project Reviews | 11/29 – 12/3 | project reviews | 
-| Final project submission  | 12/10 |  project part 6 |
-| Module 14 – AI & deep learning introduction | none | none - this module is optional material |
-
-_Note: Withdrawal deadline is Monday 10/25._
-
+*Note: Withdrawal deadline is Thursday 3/23.*
 
 ## Synchronous Zoom meetings
 
-I will offer **completely optional** Zoom meetings. See the _Communication_ section for some more details. You can find the Zoom link on Slack. The current plan is to have **one Zoom meeting per module on Thursdays, alternating between 3pm (odd modules) and 8am (even modules).** (That means, most of the time, one meeting per week, unless a module is longer than a week, as it is for the first one.)
+I will offer a weekly, **completely optional** Zoom meeting (aka office hour). See the *Communication* section for some more details. You can find the Zoom link on Slack. The plan is to have weekly alternating times for those zoom meetings such that everyone is able to make the meeting at least every 2 weeks.
 
-Hopefully, one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.
+The current plan is to have **Zoom meetings for odd module numbers on Tuesdays at 8am, and for even module numbers on Wednesdays at 8am.** 
 
-**The first Zoom session will be on Thursday, 8/19 at 3pm ET.**
+Hopefully, at least one of those two times works for everyone, allowing people to join at least every other time if they want. If you already know that neither times work for you, and you are keen on joining the Zoom meetings, let me know and we can adjust.
 
+**The first Zoom session will be on Tuesday, 1/10 at 8am ET.**

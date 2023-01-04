@@ -1,5 +1,5 @@
 ---
-title: "Modern Applied Data Analysis"
+title: "Modern Applied Data Analysis (MADA)"
 output: 
   html_document:
     toc: FALSE
@@ -25,17 +25,17 @@ library(emoji)
 Last updated: `r Sys.time()`
 
 
-**This is currently the material from the last time the course was offered. Expect changes. As long as this message is shown, consider the current website outdated, things will change (though likely not by a whole lot).**
+**This course website is currently being updated for spring 2023. As long as this message is shown, consider the current website outdated, things will change (though likely not by a whole lot).**
 
-
-<!-- _**The website will be continuously updated throughout the semester with new material released on an ongoing basis, as well as adjustments/fixes as needed. Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
-
+_**The website will be continuously updated throughout the semester with new material released on an ongoing basis, as well as adjustments/fixes as needed. Visit/check regularly, especially the Schedule. Note the last update time above.**_
 
 Welcome to the **Modern Applied Data Analysis (MADA)** course website.
 
 This website contains almost all the content of an online graduate level course taught by [Andreas Handel](https://www.andreashandel.com/) at the University of Georgia. Most materials are hosted here, some are on external sites and either linked or embedded from here.
 
-When the course is running, some material might not be visible and will be unlocked as the course proceeds. The course ran last in fall 2021. At this point, all materials are online and will remain so with likely only small updates happening on an ongoing basis and larger updates expected once the course runs again. 
+The course is currently running, some material might not be visible and will be unlocked as the course proceeds. 
+
+<!-- At this point, all materials are online and will remain so with likely only small updates happening on an ongoing basis and larger updates expected once the course runs again.  -->
 
 
 # Website content

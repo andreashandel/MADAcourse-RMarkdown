@@ -22,7 +22,7 @@ The assessments are meant as a help for you, consider them gentle prods to ensur
 
 ## Quizzes
 
-The quizzes cover the basics and ensures you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.
+The quizzes cover the basics and ensure that you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.
 
 **Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the __Announcements Slack Channel__ for the link.**
 
@@ -35,13 +35,13 @@ For each module, you are asked to fill out an Excel sheet with questions related
 
 **The URL for the website to submit your quizzes for auto-grading is currently disabled.**
 
-Unless otherwise noted, you have one submission attempt. For the first module, so you can get used to the system, you have 2 attempts.
+Unless otherwise noted, you have one submission attempt. For the first module, you have 2 attempts. This allows you to get used to the submission system.
 
 **You can expand and resize the columns/rows of the Excel file so you can make sure to see all content. Other than that, please only fill in the _Answer_ column and don't make other changes (e.g. don't rename or delete rows/columns). If you do make changes, submission might fail. If that happens and you get an error message during submission, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.** 
 
-__Quizzes will become available soon.__
+__Quizzes will become available here as the course progresses.__
 
-<!-- * [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_student.xlsx) - you have 2 attempts available for this one. -->
+* [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_student.xlsx) - you have 2 attempts available for this one.
 <!-- * [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_student.xlsx) -->
 <!-- * [Module 3 – R coding basics](./quizsheets/mada_coding_basics_student.xlsx) -->
 <!-- * [Module 4 – Contemplating, finding and wrangling data](./quizsheets/mada_data_finding_wrangling_student.xlsx) -->
@@ -68,9 +68,11 @@ Note that since there are >10 quizzes and all quizzes together count for only a 
 
 ## Exercises
 
-The exercises are usually quite in-depth, require you to apply some of the material, and are really the main means of learning the material. For each exercise, I will provide detailed instructions that hopefully make it clear what you need to do. 
+**The exercises are the most important component of the course!** The material we cover in this class can only be learned by doing it yourself. As such, the focus is really on the exercises (i.e. the homework), with the readings and videos mainly meant to help you find and learn the material you need to do the exercises.
 
-If you get stuck during the exercises (quite possible), do feel free to get help. Use the various course materials, the course discussion board as well as outside resources. But do try to do as much as possible yourself (of course with the help of Google). 
+Because the exercises are so important, they are usually quite in-depth and also often time-consuming. Plan accordingly. For each exercise, I will provide detailed instructions that hopefully make it clear what you need to do. 
+
+If you get stuck during the exercises (quite possible), feel free to ask for help. Use the various course materials, the course discussion board as well as outside resources. But do try to do as much as possible yourself (of course with the help of Google). 
 
 __Unless otherwise specified, exercises are due by Friday. Quite often, some part of the exercise needs to be done before that deadline to allow for group work.__ 
 

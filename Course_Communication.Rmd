@@ -14,9 +14,9 @@ output:
 
 ## Slack
 
-The main mode of communication will be through Slack. You should get an email invite to the Slack workspace for this class. It will go to your official UGA email and you need to use that email to sign up. If you haven't received an email by August 20, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Slack or this website. 
+The main mode of communication will be through Slack. You should get an email invite to the Slack workspace for this class. It will go to your official UGA email and you need to use that email to sign up. If you haven't received an email by Friday before classes start, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Slack or this website. 
 
-If you are unfamiliar with Slack, it is essentially a chat/discussion tool. The main area for the class is called a _workspace_ in Slack. Ours is called __MADA-2021__. If you use Slack for other purposes, you might have additional workspaces. Each of them is independent. Inside the workspace are _channels_. Each _channel_ corresponds to a topic. The names and descriptions of the different channels should be self-explanatory. 
+If you are unfamiliar with Slack, it is essentially a chat/discussion tool. The main area for the class is called a _workspace_ in Slack. Ours is called __MADA-2023__. If you use Slack for other purposes, you might have additional workspaces. Each of them is independent. Inside the workspace are _channels_. Each _channel_ corresponds to a topic. The names and descriptions of the different channels should be self-explanatory. 
 
 You need to be a member of a channel to see and participate in the channel discussion. If a channel is public, you can see it and join by clicking on the + symbol next to channels and go to 'browse channels'. Sometimes channels are private, then only those invited can participate. When I create new channels, I try to remember to add everyone by default, but it might be useful to check occasionally if there are channels which you are not a member of but would like to be.
 
