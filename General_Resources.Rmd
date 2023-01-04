@@ -28,7 +28,6 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * Advanced Data Science [version 1](http://jtleek.com/advdatasci/index.html) and [version 2](https://jhu-advdatasci.github.io/2018/index.html)
 * [Data science for economists](https://github.com/uo-ec607/lectures)
 * [STOR 390 - Introduction to data science](https://idc9.github.io/stor390/)
-* [Introduction to R for Data Analysis in the Health Sciences](https://github.com/adw96/biost509/)
 * [Kaggle (owned by Google)](https://www.kaggle.com/) is a website that hosts data analysis competitions. Everyone can participate and compete for - sometimes rather large - prizes. The website also has a lot of good datasets and code, as well as other resources related to data analysis. Definitely worth checking out. 
 * I used to recommend and use Datacamp, an online platform that has interactive courses teaching R and Data Analysis (and other topics). Unfortunately, the company dealt rather poorly with a [case of sexual harassment](https://www.buzzfeednews.com/article/daveyalba/datacamp-sexual-harassment-metoo-tech-startup). They also became  much less academic-friendly, their student discount is much less nice than it used to be, and apparently they recently sued R Studio (a company I think highly of). I'm not sure what the current status is on both their company culture and their academic/student-friendliness, but I have basically moved on. Too much other good stuff available to bother further. 
 * [Exploratory Data Analysis](https://eda.seas.gwu.edu/) - materials for an online course teaching exploratory data analysis using R, taught by [John Paul Helveston](https://www.jhelvy.com/).
@@ -39,6 +38,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) is a free online textbook teaching statistics using R in a modern framework.
 * [Reproducible Medical Research with R](https://bookdown.org/pdr_higgins/rmrwr/) - free online book showing how to use R to do basic analysis.
 * [Data Science for the Biomedical Sciences](https://ds4biomed.tech/) - another free online textbook. Part of a workshop, but can also be used for self-learning.
+* [Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) - is a somewhat advanced book on statistical/machine learning. Not useful as introduction, but a potentially good reference.
 * [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
 * [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
@@ -141,7 +141,6 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 * Another recent list of good R and Data Science resources [can be found here](https://github.com/Chris-Engelhardt/data_sci_guide).
 * [Teach Data Science](https://teachdatascience.com/) - a blog with short, informative posts on various aspects related to data science using R.
 * [Machine Learning](https://m-clark.github.io/introduction-to-machine-learning/) - an online reference (almost book) which nicely explains some of the basics of machine learning.
-* [Data Sci Guide](http://www.datasciguide.com/) is a website that is trying to collect and curate a lot of data science sources.
 * RStudio has a [collection of materials for data science](https://resources.rstudio.com/the-essentials-of-data-science).
 * [R Studio cheatsheets](https://www.rstudio.com/resources/cheatsheets/) are 1 page reference documents that quickly let you see how you use specific R packages or do certain tasks. A very useful resource, definitely check them out. 
 * [A meta-cheatsheet](https://github.com/business-science/cheatsheets/blob/master/Data_Science_With_R_Workflow.pdf) - this is a cheat-sheet showing you links to different R packages and their cheat-sheets for specific tasks. A nice overview document, developed by the folks at [business-science.io](https://www.business-science.io/).

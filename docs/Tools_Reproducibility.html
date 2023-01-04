@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Reproducibility, (R)Markdown &amp; Co</title>
+<title>Reproducibility, Quarto &amp; Co</title>
 
 <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -364,7 +364,7 @@ div.tocify {
           <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
         </li>
         <li>
-          <a href="./Tools_Reproducibility.html">RMarkdown &amp; Co</a>
+          <a href="./Tools_Reproducibility.html">Reproducibility, Quarto &amp; Co</a>
         </li>
         <li>
           <a href="./Tools_Reference_Management.html">Reference Management</a>
@@ -635,9 +635,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Reproducibility, (R)Markdown &amp; Co</h1>
+<h1 class="title toc-ignore">Reproducibility, Quarto &amp; Co</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-19 12:40:31</h4>
+<h4 class="date">2023-01-04 16:25:30</h4>
 
 </div>
 
@@ -755,100 +755,61 @@ steps and what you do well. So it not only helps others, but <em>future
 you</em> will be very thankful. The importance of documenting the
 process increases, as analyses get more complex.</p>
 </div>
-<div id="markdown-and-r-markdown-for-reproducible-analysis"
+<div id="quarto-and-r-markdown-for-reproducible-analysis"
 class="section level1">
-<h1>Markdown and R Markdown for reproducible analysis</h1>
+<h1>Quarto and R Markdown for reproducible analysis</h1>
 <p>Creating a reproducible and automated analysis used to be a good bit
-of extra work, but not anymore. R, GitHub, and related tools have made
-it fairly easy to set up a reproducible workflow. We discuss GitHub
+of extra work, but not anymore. Quarto, GitHub, and related tools have
+made it fairly easy to set up a reproducible workflow. We discuss GitHub
 separately, see that document. Since it controls and tracks any changes
 you make, and works nicely with collaborators, it is an excellent tool
 for reproducible work.</p>
 <p>While there are different tools and programming languages that allow
 reproducible research (e.g. Jupyter notebooks in Python, Mathematica
-notebooks, Sweave, Latex), we will focus on one stack of tools, namely
-(R)Markdown &amp; Co.</p>
-<p>Markdown is a language/platform that allows you to write nice-looking
-documents easily. The idea is that you write plain text documents with
-simple formatting, and then turn them into a lot of different output
-formats, e.g., HTML, PDF, Word, or slides. You can apply layout and
-styling to those documents, which is done separately from the content.
-This means you can quickly switch between outputs. In our flow, the
-software in the background that turns our text documents into different
-formats is called <a href="https://pandoc.org/">Pandoc</a>. The good
-thing is, you don’t need to care, it all happens (almost always) behind
-the scenes. Markdown is rather easy to learn. If you have no experience
-with Markdown, I suggest you go through <a
-href="https://www.markdowntutorial.com/">this nice, short interactive
-tutorial.</a>. A good reference to look up formatting for Markdown until
-you have it memorized is this <a
+notebooks, Sweave, Latex), we will focus on one tool, namely the <a
+href="https://quarto.org/">Quarto system</a>.</p>
+<p>Quarto was created by the folks at Posit (formerly RStudio), and is a
+newer and improved iteration of R Markdown.</p>
+<p>The idea is that you can easily combine code with plain text
+documents with simple formatting (called Markdown format), and then turn
+them into a lot of different output formats, e.g., HTML, PDF, Word, or
+slides. You can apply layout and styling to those documents, which is
+done separately from the content. This means you can quickly switch
+between outputs. In our flow, the software in the background that turns
+our text documents into different formats is QUarto, which in turn <a
+href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">calls
+various other pieces of software</a>.</p>
+<p>The good thing is, you don’t need to care, it all happens (almost
+always) smoothly behind the scenes. Quarto and markdown are rather easy
+to learn. If you have no experience with Markdown, I suggest you go
+through <a href="https://www.markdowntutorial.com/">this nice, short
+interactive tutorial.</a>. A good reference to look up formatting for
+Markdown until you have it memorized is this <a
 href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">online
 cheat sheet</a>.</p>
 <p>The folks from Rstudio developed <a
 href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allows you to
-combine R code with Markdown text. You can write a single Rmarkdown
-(Rmd) document which contains code and text. You then <code>knit</code>
-the document, which uses an R package called <code>knitr</code>, runs
-the code, produces results and turns everything into a markdown (md)
-document, then using the <code>rmarkdown</code> package and
-<code>pandoc</code> turns this into some output format of your choice,
-e.g. an html or pdf or Word or Powerpoint document. Again, most of the
-time, this happens without you needing to care about the details of this
-process. There are by now <a
-href="https://rmarkdown.rstudio.com/formats.html">a lot of different
-output formats</a> that R Markdown supports. As an example, this whole
-course is written in R Markdown and <a
+combine R code with Markdown text. More recently, they developed <a
+href="https://quarto.org/">Quarto</a>, which is an improved version of
+the whole system that allows using different programming languages and
+creating many different types of outputs (papers, presentations,
+websites, etc.). In this course, we focus on using Quarto. But you’ll
+still see people use R Markdown. As an example, this whole course is
+written in R Markdown and <a
 href="https://github.com/andreashandel/MADAcourse">lives on GitHub</a>.
-You can copy all the files and completely reproduce this course.</p>
-<p>Note that if you want to produce pdf output, you need to have a
-(La)TeX (pronounced like lay-tech or luh-tech, not like how it is
-spelled) system installed. It’s a free typesetting system that is a bit
-similar to Markdown, but more complicated and more powerful. The <a
-href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">currently
-recommended LaTeX system is TinyTeX</a>. Others are <a
-href="https://miktex.org/">MiKTeX</a> for Windows (which I generally
-use) and <a href="http://www.tug.org/mactex/">MacTeX</a> for Mac. We
-don’t absolutely need LaTeX for the class, but it’s good to have if you
-ever want to create pdf output, and it is free, so I suggest you go
-ahead and install it.</p>
-<p>One great thing about R Markdown is that it’s well documented. The <a
-href="https://rmarkdown.rstudio.com/">R Studio R Markdown site</a> and
-the <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a>
-are great resources. Another good source targeted at scientists is the
-online book <a href="https://rmd4sci.njtierney.com/">R Markdown for
-Scientists</a>. RStudio also has an R Markdown cheat sheet in their <a
-href="https://www.rstudio.com/resources/cheatsheets/">collection of very
-useful cheat sheets</a>.</p>
-<p>Since developing knitr and R Markdown, <a
-href="https://yihui.name/en/">Yihui Xie</a> and colleagues have
-developed several other versions of the tool. There is <a
-href="https://bookdown.org/yihui/bookdown/">bookdown</a> which lets you
-nicely add references and write full books and scientific manuscripts
-(see the research example in the introductory lesson and a list of books
-written in bookdown on the <a href="https://bookdown.org/">bookdown
-website</a>) and <a
-href="https://bookdown.org/yihui/blogdown/">blogdown</a> which lets you
-make webpages (see e.g. <a href="http://handelgroup.uga.edu/">my group
-webpage which is done that way</a>).</p>
-<p>The whole R Markdown/Markdown/pandoc system has become incredibly
-flexible and powerful, and we’ll use it in this class. Because R
-Markdown &amp; Co are very feature rich and you can do a ton, trying to
-read all about it does not make much sense. The best is a <em>learn it
-as you need it</em> approach. Some good sources that you might want to
-glimpse at are the chapters in the <em>Communicate</em> section of the
-<a href="http://r4ds.had.co.nz/index.html">R for Data Science book</a>
-and the beginning chapters of the <a
-href="https://bookdown.org/yihui/rmarkdown/">R Markdown book</a>.
-There’s also the newer <a
-href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown
-Cookbook</a>, which is a good <em>how do I do X</em> resource.</p>
-<p>Again, you don’t need to read these materials in much detail, but if
-you are new to R Markdown, try to get enough information so you
-understand what it’s all about and how to get started. The way you learn
-R Markdown is by having a specific task you want to accomplish or a
-product you want to produce, and then look at various of the above
-listed documents to figure out how to do it. You’ll get plenty of
-practice throughout this course. project.</p>
+Eventually I’ll switch it to Quarto. The good thing is that the
+transition is easy, it’s almost the same. Quarto is the future, so it’s
+a good idea to start using it.</p>
+<p>The whole Quarto system has become incredibly flexible and powerful,
+and we’ll use it in this class. Because it is very feature rich and you
+can do a ton, trying to read all about it does not make much sense. The
+best is a <em>learn it as you need it</em> approach. The <a
+href="https://quarto.org/">Quarto website</a> has great documentation,
+you’ll likely be going there often.</p>
+<!-- One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/). RStudio also has an R Markdown cheat sheet in their [collection of very useful cheat sheets](https://www.rstudio.com/resources/cheatsheets/). -->
+<!-- Since developing knitr and R Markdown, [Yihui Xie](https://yihui.name/en/) and colleagues have developed several other versions of the tool. There is [bookdown](https://bookdown.org/yihui/bookdown/) which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the [bookdown website](https://bookdown.org/)) and [blogdown](https://bookdown.org/yihui/blogdown/) which lets you make webpages (see e.g. [my group webpage which is done that way](http://handelgroup.uga.edu/)).  -->
+<!-- Some good sources that you might want to glimpse at are the chapters in the _Communicate_ section of the [R for Data Science book](http://r4ds.had.co.nz/index.html) and the beginning chapters of the [R Markdown book](https://bookdown.org/yihui/rmarkdown/). There's also the newer [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/), which is a good _how do I do X_ resource. -->
+<!-- Again, you don't need to read these materials in much detail, but if you are new to R Markdown, try to get enough information so you understand what it's all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. You'll get plenty of practice throughout this course. project. -->
 </div>
 
 

@@ -44,7 +44,7 @@ navbar:
               href: ./Tools_Github_Introduction.html
             - text: "GitHub and R Workflow"
               href: ./Tools_Github_R_Workflow.html
-            - text: "RMarkdown & Co"
+            - text: "Reproducibility, Quarto & Co"
               href: ./Tools_Reproducibility.html
             - text: "Reference Management"
               href: ./Tools_Reference_Management.html
