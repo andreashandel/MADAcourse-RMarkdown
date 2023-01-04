@@ -14,14 +14,14 @@
 
 <title>R and RStudio</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-<script src="site_libs/bs3compat-0.3.1/transition.js"></script>
-<script src="site_libs/bs3compat-0.3.1/tabs.js"></script>
-<script src="site_libs/bs3compat-0.3.1/bs3compat.js"></script>
+<script src="site_libs/bs3compat-0.4.2/transition.js"></script>
+<script src="site_libs/bs3compat-0.4.2/tabs.js"></script>
+<script src="site_libs/bs3compat-0.4.2/bs3compat.js"></script>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -177,8 +177,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -186,16 +186,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -644,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R and RStudio</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-19 12:40:31</h4>
+<h4 class="date">2023-01-04 13:07:31</h4>
 
 </div>
 
@@ -693,27 +686,43 @@ branching statements or functions), it applies to all those languages.
 Thus, learning a new programming language is much easier once you
 already know one. And R is a good one to get started with.</p>
 </div>
+<div id="about-rstudio" class="section level1">
+<h1>About RStudio</h1>
+<p>RStudio is an integrated development environment (IDE) made by the
+folks from <a href="https://posit.co/">Posit</a> (formerly the company
+was also named RStudio, but that changed recently). RStudio is separate
+from the R programming language. It basically wraps some useful tools
+around <code>R</code> to making writing and running <code>R</code> code
+much easier. RStudio is by far the most commonly used environment for
+folks who write <code>R</code> code, but it is not the only option.
+There are other IDEs available for <code>R</code>, most notably maybe VS
+Code. In this course, I assume you are using RStudio and instructions
+are specific for it. But if for some reason you don’t want to, you can
+use a different way to write and run <code>R</code> code. You just have
+to figure out some things on your own.</p>
+</div>
 <div id="installing-r-and-rstudio" class="section level1">
 <h1>Installing R and RStudio</h1>
 <ul>
 <li>If you haven’t already, <a href="https://www.r-project.org/">install
 R first</a>. You can pick any mirror you like. If you already have R
-installed, make sure it is a fairly recent version, version 4.0 or
-newer. If yours is older, I suggest you update (install a new R
-version).</li>
+installed, make sure it is a fairly recent version, at least version 4.0
+or newer. I recommend you upgrade to the most recent version (as of this
+writing 4.2.2, but if there is a newer one available, use that
+one).</li>
 <li>Once you have R installed, install the free version of <a
 href="https://www.rstudio.com/products/rstudio/download/">RStudio
-Desktop</a>. Again, make sure it’s a recent version, it should be of the
-1.4.X series.</li>
+Desktop</a>. Get the most recent version. If you have an older one
+already installed, update it.</li>
 </ul>
 <p>Installing R and RStudio should be fairly straightforward. If you
 want detailed instructions <a
 href="https://rafalab.github.io/dsbook/installing-r-rstudio.html">go
 through this chapter of IDS</a>. If things don’t work, ask for help on
 the discussion boards.</p>
-<p>I personally only have experience with Windows, but everything should
-work on all the standard operating systems (Windows, Mac, and even
-Linux).</p>
+<p>I personally only have experience with Windows (and a little bit of
+Mac), but everything should work on all the standard operating systems
+(Windows, Mac, and even Linux).</p>
 </div>
 <div id="installing-and-loading-r-packages" class="section level1">
 <h1>Installing and loading R packages</h1>

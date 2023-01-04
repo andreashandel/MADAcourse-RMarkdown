@@ -11,11 +11,15 @@ output:
 ---
 
 ## Introduction
-Welcome to the class Modern Applied Data Analysis (MADA)! The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will generally refer to the course as MADA.
+
+Welcome to the class Modern Applied Data Analysis (MADA)! 
+
+The course is listed as EPID8060E/BIOS8060E. It doesn't matter if you are enrolled under the EPID or BIOS label. I will generally refer to the course as MADA.
 
 
 ## Module Overview
-The course is divided into modules. Each module is usually covered over 1-2 weeks. This first module provides a brief introduction to the course, the tools we will be using, and the topic. 
+
+This first module provides a brief introduction to the course, the tools we will be using, and the topic. 
 
 
 ## Learning Objectives
@@ -35,7 +39,7 @@ A related goal is to introduce you to a set of tools that allow for a modern, re
 
 For more detailed learning objectives, see the course syllabus.
 
-```{r datacartoon,  echo=FALSE, fig.cap="In this course, we randomly switch back and forth. Source: phdcomics.com.", out.width = '100%', fig.align='center'}
+```{r datacartoon,  echo=FALSE, fig.cap="In this course, I randomly switch back and forth between singluar and plurar. Source: phdcomics.com.", out.width = '100%', fig.align='center'}
 knitr::include_graphics("./media/phd_dataisorare.gif")
 ```
 
@@ -60,10 +64,12 @@ __Overall, I hope this course is going to be useful, interesting, challenging an
 
 
 ## Course Setup
-* The course is split into modules, each with one or more units. Each module will usually be covered in a week. The __Schedule__ document gives an outline. The schedule is not fully finalized and will change, so check frequently.
+
+* The course is split into modules. Each module will usually be covered in a week. The __Schedule__ document gives an outline. The schedule is 
+not fully finalized and will change, so check frequently.
 * Each module consists of one or several units/documents containing a mix of things I wrote, and writings or videos by others. They are listed in the order you should go through them.
 * All material for the course can be accessed through this course website. Some material might not be available yet and will be unlocked as the course proceeds.
-* There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Otherwise, consider the materials to be resources you can visit on demand, e.g., when you are working on the exercises.
+* There is generally a lot of material for each unit. You are expected to go through the main components at a level that allows you to get the big picture and be able to answer the quiz questions. Once you get the overall idea, consider the materials to be resources you can visit on demand, e.g., when you are working on the exercises.
 * You will be placed in groups throughout the course. The hope is that this will create a support group of classmates where you can help each other. Assignments often require interaction among group members (like in a real-world team), and I hope you will interact with your group members outside the assignments as well. You are welcome and encouraged to interact with anyone else in the course.
 
 ## Course Tools
@@ -71,7 +77,7 @@ This is a brief overview of the tools we will be using for this class. The next 
 
 * We will use the R software in this course.
 * We will also use RStudio (a graphical frontend to R).
-* We will use a lot of tools available within R/RStudio, such as R Markdown and related features.
+* We will use Quarto, which nicely plays with R/Rstudio to let you create easy, automated workflows.
 * We will use Git/GitHub for exercises and the project.
 * We will use Slack for discussions and help.
 * We will use an online system for quizzes.

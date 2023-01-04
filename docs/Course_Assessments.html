@@ -14,14 +14,14 @@
 
 <title>Course Assessments - Overview</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-<script src="site_libs/bs3compat-0.3.1/transition.js"></script>
-<script src="site_libs/bs3compat-0.3.1/tabs.js"></script>
-<script src="site_libs/bs3compat-0.3.1/bs3compat.js"></script>
+<script src="site_libs/bs3compat-0.4.2/transition.js"></script>
+<script src="site_libs/bs3compat-0.4.2/tabs.js"></script>
+<script src="site_libs/bs3compat-0.4.2/bs3compat.js"></script>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -177,8 +177,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -186,16 +186,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -644,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Course Assessments - Overview</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-03 17:54:58</h4>
+<h4 class="date">2023-01-04 08:52:20</h4>
 
 </div>
 
@@ -678,8 +671,8 @@ questions. Not all answers to the quiz questions are directly found in
 the materials, sometimes you need to do a - hopefully straightforward -
 online search.</p>
 <p><strong>Before submitting any quizzes, you need to set up a password
-using the Google Form created for that purpose. See the
-<strong>Announcements Slack Channel</strong> for the link.</strong></p>
+using the Google Form that was shared with you in the welcome
+email.</strong></p>
 <p><strong>Unless otherwise specified, you can submit each quiz once,
 and it needs to be submitted by the deadline (generally Fridays),
 otherwise the system will not take your submission.</strong></p>
@@ -690,8 +683,8 @@ questions related to the course material. Download the quiz files from
 the links below, fill in the “Answer” column, and submit to an online
 quiz submission system by the deadline specified in the
 <strong>Schedule</strong> document.</p>
-<p><strong>The URL for the website to submit your quizzes for
-auto-grading is currently disabled.</strong></p>
+<p><strong>The link to the website for quiz submission is pinned to the
+<em>announcements</em> Slack channel.</strong></p>
 <p>Unless otherwise noted, you have one submission attempt. For the
 first module, you have 2 attempts. This allows you to get used to the
 submission system.</p>

@@ -35,7 +35,7 @@ _GitHub_ gives you an organized way to track your projects. It is very well suit
 
 
 # What to (not) use Git/GitHub for
-GitHub is ideal if you have a project with a fair number of files, most of those files are text files (such as code, LaTeX, (R)markdown, etc.) and different people work on different parts of the project.
+GitHub is ideal if you have a project with (possibly many) smallish files, and most of those files are text files (such as R code, LaTeX, Quarto/Markdown, etc.) and different people work on different parts of the project.
 
 GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.
 
@@ -43,7 +43,7 @@ GitHub is also not ideal if you have very large files (e.g., large data files). 
 
 
 # Getting Git/GitHub
-Git is a piece of software. It can be installed [from here](https://git-scm.com/). If you use GitKraken as described below, you don't need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken. 
+Git is a piece of software. It can be installed [from here](https://git-scm.com/). If you use GitKraken as described below, you don't need to install Git separately. However, it might still be worth doing so, in case at some point you need to do some Git operation outside of GitKraken (e.g, through RStudio or a terminal). 
 
 GitHub is an online platform. You don't need to install anything, but if you don't have a GitHub account yet, you need to create one [here](https://github.com/). **Note that GitHub is widely used professionally. You might use it beyond this class and for your future career. You might also want to allow other people to see your GitHub presence. You should therefore use a future-proof, professional sounding user name for your GitHub account.** You can use your UGA or a different email for GitHub. Whichever email you use is where you will receive GitHub activity related notifications (including our GitHub class activities). 
 
@@ -71,16 +71,16 @@ __I strongly recommend you get the [GitHub student developer pack](https://educa
 
 There are a lot of other goodies that come with the student pack. We won't use them in the course, but some might be of interest to you.
 
-_Note that there is a similar offering for teachers/educators, which you can [get here](https://education.github.com/toolbox)._ 
 
 
 # Git/GitHub terminology
+
 Git/GitHub has a lot of specialized terminology that takes getting used to. The GitHub folks posted a [handy page with short descriptions of some of the important terms](https://docs.github.com/en/github/getting-started-with-github/github-glossary). Some of the terms you will encounter soon are _Repository_ (also often called _repo_), _User_, _Organization_, _Branch_, _Fork_, _Push_, _Pull_, _Commit_ and _Stage_. For some reason, the last term is not explained in the list linked to above. 
 _Staging_ is the step you need to do after you made changes and before you commit them. For pretty much all of my work, I find this a not too helpful extra step, but you need to know what it means and you need to do/use it as part of the GitHub workflow.
 
 
 # Git/GitHub and other cloud based sync options
-In some way, you can think of GitHub as a more controlled, a bit more complex alternative to systems such as Dropbox, OneDrive, GoogleDrive, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox & Co is that the syncing between your local computer and github.com is not automatic. So don't forget to pull before you start work on a repository and push once you are done! 
+In some way, you can think of GitHub as a more controlled (and more complex) alternative to systems such as Dropbox, OneDrive, GoogleDrive, etc. With the GitHub workflow, you can work locally on different machines, and everything is backed up in the cloud (on github.com). The (sometimes annoying) difference to Dropbox & Co is that the syncing between your local computer and github.com is not automatic. So don't forget to pull before you start work on a repository and push once you are done! 
 
 I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular files, e.g. MS Office documents, pdfs, images, etc. Some of my research projects, especially those where I collaborate with people that don't use GitHub, are run through Dropbox. Dropbox or a similar service are convenient since all the syncing happens automatically. For anything where I want a more structured and organized approach, e.g. coding projects, some research projects or course materials like this site, I use GitHub. 
 
@@ -90,7 +90,13 @@ Similarly, don't store a GitHub repository inside another repository. While this
 
 
 # GitHub for this course
-We will make heavy use of GitHub for this course. In the past, I created a dedicated organization for the course, but I decided we actually don't need it. Instead, everyone will just be working through their own GitHub accounts. The advantage of this setup is that once the course ends, everything you did for the course automatically stays with you. 
+
+We will make heavy use of GitHub for this course. Instead, everyone will just be working through their own GitHub accounts. The advantage of this setup is that once the course ends, everything you did for the course automatically stays with you. 
+
+**Privacy note:** As part of this course, you will be asked to create several public GitHub repositories, including a public website, which at the end of the course will contain your portfolio of data analysis products. I consider this a good way of creating products that are public and which you can list on your resume and show potential future employers. However, as a student, under the [Family Educational Rights and Privacy Act (FERPA)](https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html) you have the right to have all your student-related information be kept private, including the fact that you are taking this class. Keeping everything private can be done using private GitHub repositories. But it means you won't be able to create a public website/portfolio, and you can't follow the general instructions in the exercises. Instead I'll need to give you special instructions. Some of the group exercises also won't work. If for some reason you want to keep the fact that you are taking this class a secret, and thus do not want to use public GitHub repositories/create a publicly accessible online portfolio **please let me know.** If I don't hear from you, I consider this as you being consenting with producing public materials as part of this course, and thus make your participation in this course public.
+
+**Frustration note:** Git/GitHub can be finnicky, even for seasoned users. Sooner or later, you'll run into some issues.
+
 
 
 # Further Resources and help

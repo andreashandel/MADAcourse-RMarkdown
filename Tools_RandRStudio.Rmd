@@ -20,6 +20,7 @@ This is a very quick introduction to R and RStudio, to get you set up and runnin
 * Know how to install and load R packages.
 
 # About R
+
 Like every programming language, R has its advantages and disadvantages. Feel free to do a web search on that topic, and you will encounter tons of people with tons of opinions. Some of the features that are useful to us are:
 
 * R is Open Source, FREE, and cross-platform.
@@ -32,16 +33,26 @@ Like every programming language, R has its advantages and disadvantages. Feel fr
 
 While we use R in this course, it is not the only option to analyze data. Maybe the most similar to R, and widely used, is Python, which is also free. There is also commercial software that can be used to analyze data (e.g., Matlab, Mathematica, Tableau, SAS, SPSS). Other more general programming languages are suitable for certain types of analyses as well (e.g., C, Fortran, Perl, Java, Julia). Depending on your future needs or jobs, you might have to learn one or several of those additional languages. The good news is that even though those languages are all different, they all share general ways of thinking and structuring code. So once you understand a specific concept (e.g., variables, loops, branching statements or functions), it applies to all those languages. Thus, learning a new programming language is much easier once you already know one. And R is a good one to get started with.
 
+
+# About RStudio
+
+RStudio is an integrated development environment (IDE) made by the folks from [Posit](https://posit.co/) (formerly the company was also named RStudio, but that changed recently). RStudio is separate from the R programming language. It basically wraps some useful tools around `R` to making writing and running `R` code much easier.
+RStudio is by far the most commonly used environment for folks who write `R` code, but it is not the only option. There are other IDEs available for `R`, most notably maybe VS Code. In this course, I assume you are using RStudio and instructions are specific for it. But if for some reason you don't want to, you can use a different way to write and run `R` code. You just have to figure out some things on your own.
+
+
   
 # Installing R and RStudio 
-* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, version 4.0 or newer. If yours is older, I suggest you update (install a new R version).
-* Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Again, make sure it's a recent version, it should be of the 1.4.X series.
+
+* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, at least version 4.0 or newer. I recommend you upgrade to the most recent version (as of this writing 4.2.2, but if there is a newer one available, use that one).
+* Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Get the most recent version. If you have an older one already installed, update it.
 
 Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through this chapter of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help on the discussion boards.
 
-I personally only have experience with Windows, but everything should work on all the standard operating systems (Windows, Mac, and even Linux).
+I personally only have experience with Windows (and a little bit of Mac), but everything should work on all the standard operating systems (Windows, Mac, and even Linux).
+
 
 # Installing and loading R packages
+
 Most of the functionality and features in R come in the form of add-on packages. There are tens of thousands of packages available, some big, some small, some well documented, some not. We'll be using many different packages in this course. Of course, you are free to install and use any package you come across for any of the assignments.
 
 The "official" place for packages is the [CRAN website](https://cran.r-project.org/web/packages/available_packages_by_name.html). If you are interested in packages on a specific topic, the [CRAN task views](http://cran.r-project.org/web/views/) provide curated descriptions of packages sorted by topic. 

@@ -12,16 +12,16 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>MADA – Fall 2021 – Syllabus</title>
+<title>MADA – Spring 2023 – Syllabus</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-<script src="site_libs/bs3compat-0.3.1/transition.js"></script>
-<script src="site_libs/bs3compat-0.3.1/tabs.js"></script>
-<script src="site_libs/bs3compat-0.3.1/bs3compat.js"></script>
+<script src="site_libs/bs3compat-0.4.2/transition.js"></script>
+<script src="site_libs/bs3compat-0.4.2/tabs.js"></script>
+<script src="site_libs/bs3compat-0.4.2/bs3compat.js"></script>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -177,8 +177,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -186,16 +186,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -642,32 +635,13 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">MADA – Fall 2021 – Syllabus</h1>
+<h1 class="title toc-ignore">MADA – Spring 2023 – Syllabus</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-08-15 13:24:31</h4>
+<h4 class="date">2023-01-04 08:32:30</h4>
 
 </div>
 
 
-<div id="course-information" class="section level2">
-<h2>Course Information</h2>
-<ul>
-<li>Instructor: Andreas Handel</li>
-<li>Office Location: 124 B.S. Miller Hall, Health Sciences Campus</li>
-<li>Email: <a href="mailto:ahandel@uga.edu"
-class="email">ahandel@uga.edu</a></li>
-<li>Office Hours: by appointment/online</li>
-<li>Course Meeting Time and Location: asynchronous, online. For optional
-synchronous meeting, see <em>Communication</em>.</li>
-</ul>
-</div>
-<div id="textbook-and-other-course-material" class="section level2">
-<h2>Textbook and Other Course Material</h2>
-<p>There is no required textbook. We will make use of several freely
-available textbooks and other materials. All course materials will be
-provided. We will use the R software for data analysis, which is freely
-available for download.</p>
-</div>
 <div id="course-description" class="section level2">
 <h2>Course Description</h2>
 <p>This course provides a survey of modern statistical approaches to
@@ -792,20 +766,41 @@ I’m fairly certain you will find it worth it. If you are not able or
 willing to allot the time needed to learn enough R (and GitHub) to make
 things work, this course might not be ideal for you.</strong></p>
 </div>
+<div id="course-setup" class="section level2">
+<h2>Course Setup</h2>
+<p>This course is a fully online, asynchronous, cohort-based course.
+That means there are weekly deadlines, but other than the fixed
+deadlines, you can do the work whenever it is convenient for you.</p>
+<p>All course materials are freely available online. We will make use of
+several freely available textbooks and other materials. All course
+materials are listed on the course website. We will use the R software
+for data analysis. We will also use a few other software tools. All are
+freely available.</p>
+<p><strong>This course is very hands-on. The weekly exercises (aka
+homework) are usually quite in-depth and also often time-consuming. Plan
+accordingly.</strong> For each exercise, I will provide detailed
+instructions that hopefully make it clear what you need to do. The
+materials provided on the course website are not meant to be memorized,
+but to be used to be able to do the hands-on activities, such as the
+exercises and the class project.</p>
+<p>For more details on course logistics, see the other information in
+the <em>General Information</em> section of the course website.</p>
+</div>
 <div id="grading" class="section level2">
 <h2>Grading</h2>
 <p>The grade will be made up as follows:</p>
 <ul>
-<li>20% online quizzes</li>
-<li>30% homework/exercises</li>
+<li>20% quizzes</li>
+<li>30% exercises/homework</li>
 <li>10% participation/discussions</li>
 <li>40% a course long project, broken up into pieces.</li>
 </ul>
 <p>The following grading scale will be used, final grades might be
-curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+
-77-80, C 73-77, C- 70-73, D 60-70, F &lt; 60</p>
+curved (upward, never down): A 93-100, A- 90-93, B+ 87-90, B 83-87, B-
+80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F &lt; 60</p>
 <p>More detailed descriptions of the different assessments is provided
-on the <a href="./Course_Assessments.html">Assessments page</a>.</p>
+on the <a href="./Course_Assessments.html"><em>Assessments
+page</em></a>.</p>
 </div>
 <div id="class-attendance-make-up-policy" class="section level2">
 <h2>Class Attendance, Make-up Policy</h2>
@@ -845,13 +840,13 @@ the instructor may be necessary.</p>
 </div>
 <div id="course-outline" class="section level2">
 <h2>Course Outline</h2>
-<p>For an outline of the course, please see the <em>Course Schedule</em>
-document.</p>
+<p>For an outline of the course, please see the <a
+href="./Course_Schedule.html"><em>Course Schedule</em></a> document.</p>
 </div>
 <div id="more-details" class="section level2">
 <h2>More Details</h2>
-<p>The introductory unit of this course contains all the logistic
-details you need to know.</p>
+<p>The <em>General Information</em> section and the introductory unit of
+this course contains all the logistic details you need to know.</p>
 </div>
 
 

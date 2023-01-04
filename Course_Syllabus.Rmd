@@ -1,5 +1,5 @@
 ---
-title: MADA – Fall 2021 – Syllabus
+title: MADA – Spring 2023 – Syllabus
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
@@ -8,19 +8,6 @@ output:
   html_document:
     toc_depth: 3
 ---
-
-
-## Course Information
-
-* Instructor: Andreas Handel
-* Office Location: 124 B.S. Miller Hall, Health Sciences Campus
-* Email: ahandel@uga.edu
-* Office Hours:  by appointment/online
-* Course Meeting Time and Location: asynchronous, online. For optional synchronous meeting, see _Communication_.
-
-## Textbook and Other Course Material
-
-There is no required textbook. We will make use of several freely available textbooks and other materials. All course materials will be provided. We will use the R software for data analysis, which is freely available for download. 
 
 ## Course Description
 
@@ -85,19 +72,31 @@ If you do not have any coding or statistics knowledge, you can still take the cl
 
 
 
+## Course Setup
+
+This course is a fully online, asynchronous, cohort-based course. That means there are weekly deadlines, but other than the fixed deadlines, you can do the work whenever it is convenient for you. 
+
+All course materials are freely available online. We will make use of several freely available textbooks and other materials. All course materials are listed on the course website. We will use the R software for data analysis. We will also use a few other software tools. All are freely available. 
+
+**This course is very hands-on. The weekly exercises (aka homework) are usually quite in-depth and also often time-consuming. Plan accordingly.** For each exercise, I will provide detailed instructions that hopefully make it clear what you need to do. The materials provided on the course website are not meant to be memorized, but to be used to be able to do the hands-on activities, such as the exercises and the class project.
+
+For more details on course logistics, see the other information in the _General Information_ section of the course website.
+
+
+
 
 ## Grading
 
 The grade will be made up as follows:
 
-* 20% online quizzes
-* 30% homework/exercises
+* 20% quizzes
+* 30% exercises/homework
 * 10% participation/discussions
 * 40% a course long project, broken up into pieces. 
 
-The following grading scale will be used, final grades might be curved (upward): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F < 60
+The following grading scale will be used, final grades might be curved (upward, never down): A 93-100, A- 90-93, B+ 87-90, B 83-87, B- 80-83, C+ 77-80, C 73-77, C- 70-73, D 60-70, F < 60
 
-More detailed descriptions of the different assessments is provided on the [Assessments page](./Course_Assessments.html).
+More detailed descriptions of the different assessments is provided on the [_Assessments page_](./Course_Assessments.html).
 
 ## Class Attendance, Make-up Policy
 
@@ -126,8 +125,9 @@ This syllabus is a general plan, deviations announced to the class by the instru
 
 ## Course Outline
 
-For an outline of the course, please see the _Course Schedule_ document. 
+For an outline of the course, please see the [_Course Schedule_](./Course_Schedule.html) document. 
+
 
 ## More Details
 
-The introductory unit of this course contains all the logistic details you need to know.
+The _General Information_ section and the introductory unit of this course contains all the logistic details you need to know.

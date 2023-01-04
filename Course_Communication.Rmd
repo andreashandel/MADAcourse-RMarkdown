@@ -10,6 +10,14 @@ output:
     toc: FALSE
 ---
 
+# Overview
+
+* The main course content can be found on this website. 
+* We'll mostly communicate and discuss through Slack.
+* There will be completely optional Zoom sessions (aka office hours).
+* Some communication/interaction will happen via GitHub. More details are provided in the relevant sections.
+* Quizzes will be available from this website and submitted to an online system, instructions are provided.
+
 
 
 ## Slack
@@ -58,6 +66,6 @@ We will also use Github for some specific communications, related to exercises a
 
 ## eLC
 
-We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC much. I don't plan on posting any materials to eLC, they will all be on this website, or for confidential information, in our group Slack workspace.
+We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC. I don't plan on posting any materials to eLC, they will all be on this website, or if it is confidential information, in our group Slack workspace.
 
 

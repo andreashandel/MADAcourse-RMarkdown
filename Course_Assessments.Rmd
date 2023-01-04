@@ -24,7 +24,8 @@ The assessments are meant as a help for you, consider them gentle prods to ensur
 
 The quizzes cover the basics and ensure that you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.
 
-**Before submitting any quizzes, you need to set up a password using the Google Form created for that purpose. See the __Announcements Slack Channel__ for the link.**
+**Before submitting any quizzes, you need to set up a password using the Google Form that was shared with you in the welcome email.**
+
 
 **Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Fridays), otherwise the system will not take your submission.**
 
@@ -33,7 +34,8 @@ The quizzes cover the basics and ensure that you have gone through some of the m
 
 For each module, you are asked to fill out an Excel sheet with questions related to the course material. Download the quiz files from the links below, fill in the "Answer" column, and submit to an online quiz submission system by the deadline specified in the __Schedule__ document.
 
-**The URL for the website to submit your quizzes for auto-grading is currently disabled.**
+
+**The link to the website for quiz submission is pinned to the _announcements_ Slack channel.**
 
 Unless otherwise noted, you have one submission attempt. For the first module, you have 2 attempts. This allows you to get used to the submission system.
 

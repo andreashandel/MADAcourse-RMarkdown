@@ -14,14 +14,14 @@
 
 <title>Git/GitHub Introduction</title>
 
-<script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-<script src="site_libs/bs3compat-0.3.1/transition.js"></script>
-<script src="site_libs/bs3compat-0.3.1/tabs.js"></script>
-<script src="site_libs/bs3compat-0.3.1/bs3compat.js"></script>
+<script src="site_libs/bs3compat-0.4.2/transition.js"></script>
+<script src="site_libs/bs3compat-0.4.2/tabs.js"></script>
+<script src="site_libs/bs3compat-0.4.2/bs3compat.js"></script>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -177,8 +177,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -186,16 +186,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -644,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Git/GitHub Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 19:11:42</h4>
+<h4 class="date">2023-01-04 13:59:53</h4>
 
 </div>
 
@@ -694,9 +687,10 @@ Bryan</a>.</p>
 </div>
 <div id="what-to-not-use-gitgithub-for" class="section level1">
 <h1>What to (not) use Git/GitHub for</h1>
-<p>GitHub is ideal if you have a project with a fair number of files,
-most of those files are text files (such as code, LaTeX, (R)markdown,
-etc.) and different people work on different parts of the project.</p>
+<p>GitHub is ideal if you have a project with (possibly many) smallish
+files, and most of those files are text files (such as R code, LaTeX,
+Quarto/Markdown, etc.) and different people work on different parts of
+the project.</p>
 <p>GitHub is less useful if you have a lot of non-text files (e.g. Word
 or PowerPoint) and different team members might want to edit the same
 document at the same time. In that instance, a solution like Google
@@ -715,7 +709,8 @@ your data, then you can place it in a public or private repository.</p>
 href="https://git-scm.com/">from here</a>. If you use GitKraken as
 described below, you don’t need to install Git separately. However, it
 might still be worth doing so, in case at some point you need to do some
-Git operation outside of GitKraken.</p>
+Git operation outside of GitKraken (e.g, through RStudio or a
+terminal).</p>
 <p>GitHub is an online platform. You don’t need to install anything, but
 if you don’t have a GitHub account yet, you need to create one <a
 href="https://github.com/">here</a>. <strong>Note that GitHub is widely
@@ -789,9 +784,6 @@ access private repositories with it. Often, being able to use private
 repositories is useful.</p>
 <p>There are a lot of other goodies that come with the student pack. We
 won’t use them in the course, but some might be of interest to you.</p>
-<p><em>Note that there is a similar offering for teachers/educators,
-which you can <a href="https://education.github.com/toolbox">get
-here</a>.</em></p>
 </div>
 <div id="gitgithub-terminology" class="section level1">
 <h1>Git/GitHub terminology</h1>
@@ -812,8 +804,8 @@ the GitHub workflow.</p>
 <div id="gitgithub-and-other-cloud-based-sync-options"
 class="section level1">
 <h1>Git/GitHub and other cloud based sync options</h1>
-<p>In some way, you can think of GitHub as a more controlled, a bit more
-complex alternative to systems such as Dropbox, OneDrive, GoogleDrive,
+<p>In some way, you can think of GitHub as a more controlled (and more
+complex) alternative to systems such as Dropbox, OneDrive, GoogleDrive,
 etc. With the GitHub workflow, you can work locally on different
 machines, and everything is backed up in the cloud (on github.com). The
 (sometimes annoying) difference to Dropbox &amp; Co is that the syncing
@@ -843,12 +835,32 @@ service.</p>
 </div>
 <div id="github-for-this-course" class="section level1">
 <h1>GitHub for this course</h1>
-<p>We will make heavy use of GitHub for this course. In the past, I
-created a dedicated organization for the course, but I decided we
-actually don’t need it. Instead, everyone will just be working through
-their own GitHub accounts. The advantage of this setup is that once the
-course ends, everything you did for the course automatically stays with
-you.</p>
+<p>We will make heavy use of GitHub for this course. Instead, everyone
+will just be working through their own GitHub accounts. The advantage of
+this setup is that once the course ends, everything you did for the
+course automatically stays with you.</p>
+<p><strong>Privacy note:</strong> As part of this course, you will be
+asked to create several public GitHub repositories, including a public
+website, which at the end of the course will contain your portfolio of
+data analysis products. I consider this a good way of creating products
+that are public and which you can list on your resume and show potential
+future employers. However, as a student, under the <a
+href="https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html">Family
+Educational Rights and Privacy Act (FERPA)</a> you have the right to
+have all your student-related information be kept private, including the
+fact that you are taking this class. Keeping everything private can be
+done using private GitHub repositories. But it means you won’t be able
+to create a public website/portfolio, and you can’t follow the general
+instructions in the exercises. Instead I’ll need to give you special
+instructions. Some of the group exercises also won’t work. If for some
+reason you want to keep the fact that you are taking this class a
+secret, and thus do not want to use public GitHub repositories/create a
+publicly accessible online portfolio <strong>please let me
+know.</strong> If I don’t hear from you, I consider this as you being
+consenting with producing public materials as part of this course, and
+thus make your participation in this course public.</p>
+<p><strong>Frustration note:</strong> Git/GitHub can be finnicky, even
+for seasoned users. Sooner or later, you’ll run into some issues.</p>
 </div>
 <div id="further-resources-and-help" class="section level1">
 <h1>Further Resources and help</h1>
