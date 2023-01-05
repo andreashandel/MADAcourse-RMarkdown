@@ -43,7 +43,7 @@ RStudio is by far the most commonly used environment for folks who write `R` cod
   
 # Installing R and RStudio 
 
-* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, at least version 4.0 or newer. I recommend you upgrade to the most recent version (as of this writing 4.2.2, but if there is a newer one available, use that one).
+* If you haven't already, [install R first](https://www.r-project.org/). You can pick any mirror you like. If you already have R installed, make sure it is a fairly recent version, at least version 4.1 or newer. I recommend you upgrade to the most recent version (as of this writing 4.2.2, but if there is a newer one available, use that one).
 * Once you have R installed, install the free version of [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/). Get the most recent version. If you have an older one already installed, update it.
 
 Installing R and RStudio should be fairly straightforward. If you want detailed instructions [go through this chapter of IDS](https://rafalab.github.io/dsbook/installing-r-rstudio.html). If things don't work, ask for help on the discussion boards.
@@ -74,7 +74,7 @@ install.packages('DSAIDE')
 
 This installs a package that gives you access to various infectious disease simulation models. We won't do anything with that package in this course, we just install it for practice. If you want to learn more about DSAIDE, [take a look at the package website](https://ahgroup.github.io/DSAIDE/).
 
-If this is the first time you are installing packages, you'll see that a lot of other packages are installed, too. You might get a message about _Installing from source packages that need compilation_. I generally recommend to say _No_ to this, though usually both approaches work.
+If this is the first time you are installing packages, you'll see that a lot of other packages are installed, too. You might get a message about _Installing from source packages that need compilation_.  You should generally say **No** to this. If you are on a Windows computer, compilation requires you to have [Rtools installed](https://cran.r-project.org/bin/windows/Rtools/). It's not a bad idea to install Rtools (if you do, make sure you pick the version that matches your `R` version.) But even then, or if you use a Mac or Linux (which have the equivalent of Rtools already pre-installed) sometimes the compilation doesn't work. So if you have a choice, say **No**. (On some Mac/Linux setups, things happen automatically, then just let it run.)
 
 To see which packages are needed by a specific package, e.g. `DSAIDE`, and thus are being installed if not present, type `tools::package_dependencies("DSAIDE")` into the R console. Of course it can be that those packages depend on other packages, so you end up installing even more. At some point, you'll have the most common packages all installed and installing new packages will lead to less overall installing. The package install process generally works well.
 

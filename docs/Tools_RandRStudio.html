@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">R and RStudio</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-04 13:07:31</h4>
+<h4 class="date">2023-01-05 14:14:14</h4>
 
 </div>
 
@@ -706,7 +706,7 @@ to figure out some things on your own.</p>
 <ul>
 <li>If you haven’t already, <a href="https://www.r-project.org/">install
 R first</a>. You can pick any mirror you like. If you already have R
-installed, make sure it is a fairly recent version, at least version 4.0
+installed, make sure it is a fairly recent version, at least version 4.1
 or newer. I recommend you upgrade to the most recent version (as of this
 writing 4.2.2, but if there is a newer one available, use that
 one).</li>
@@ -762,9 +762,16 @@ about DSAIDE, <a href="https://ahgroup.github.io/DSAIDE/">take a look at
 the package website</a>.</p>
 <p>If this is the first time you are installing packages, you’ll see
 that a lot of other packages are installed, too. You might get a message
-about <em>Installing from source packages that need compilation</em>. I
-generally recommend to say <em>No</em> to this, though usually both
-approaches work.</p>
+about <em>Installing from source packages that need compilation</em>.
+You should generally say <strong>No</strong> to this. If you are on a
+Windows computer, compilation requires you to have <a
+href="https://cran.r-project.org/bin/windows/Rtools/">Rtools
+installed</a>. It’s not a bad idea to install Rtools (if you do, make
+sure you pick the version that matches your <code>R</code> version.) But
+even then, or if you use a Mac or Linux (which have the equivalent of
+Rtools already pre-installed) sometimes the compilation doesn’t work. So
+if you have a choice, say <strong>No</strong>. (On some Mac/Linux
+setups, things happen automatically, then just let it run.)</p>
 <p>To see which packages are needed by a specific package,
 e.g. <code>DSAIDE</code>, and thus are being installed if not present,
 type <code>tools::package_dependencies("DSAIDE")</code> into the R

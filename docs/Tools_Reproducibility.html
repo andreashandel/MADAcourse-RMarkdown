@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Reproducibility, Quarto &amp; Co</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-04 20:23:02</h4>
+<h4 class="date">2023-01-05 14:37:04</h4>
 
 </div>
 
@@ -659,8 +659,8 @@ Not a good example of reproducibility.
 <h1>Learning Objectives</h1>
 <ul>
 <li>Know the concept and importance of reproducible research</li>
-<li>Know how to implement reproducible research with R</li>
-<li>Be familiar with (R)Markdown and start using it</li>
+<li>Know about a method to implement reproducible research with R</li>
+<li>Be familiar with Quarto/Markdown and start using it</li>
 </ul>
 </div>
 <div id="reproducibility-in-science" class="section level1">
@@ -759,63 +759,96 @@ process increases, as analyses get more complex.</p>
 class="section level1">
 <h1>Quarto and R Markdown for reproducible analysis</h1>
 <p>Creating a reproducible and automated analysis used to be a good bit
-of extra work, but not anymore. Quarto, GitHub, and related tools have
-made it fairly easy to set up a reproducible workflow. We discuss GitHub
-separately, see that document. Since it controls and tracks any changes
-you make, and works nicely with collaborators, it is an excellent tool
-for reproducible work.</p>
+of extra work, but not anymore. A large number of software tools are
+available that make it fairly easy to set up a reproducible
+workflow.</p>
 <p>While there are different tools and programming languages that allow
 reproducible research (e.g. Jupyter notebooks in Python, Mathematica
 notebooks, Sweave, Latex), we will focus on one tool, namely the <a
-href="https://quarto.org/">Quarto system</a>.</p>
-<p>Quarto was created by the folks at Posit (formerly RStudio), and is a
-newer and improved iteration of R Markdown.</p>
-<p>The idea is that you can easily combine code with plain text
-documents with simple formatting (called Markdown format), and then turn
-them into a lot of different output formats, e.g., HTML, PDF, Word, or
-slides. You can apply layout and styling to those documents, which is
-done separately from the content. This means you can quickly switch
-between outputs. In our flow, the software in the background that turns
-our text documents into different formats is QUarto, which in turn <a
-href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">calls
-various other pieces of software</a>.</p>
-<p>The good thing is, you don’t need to care, it all happens (almost
-always) smoothly behind the scenes. Quarto and markdown are rather easy
-to learn. If you have no experience with Markdown, I suggest you go
-through <a href="https://www.markdowntutorial.com/">this nice, short
-interactive tutorial.</a>. A good reference to look up formatting for
-Markdown until you have it memorized is this <a
-href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">online
-cheat sheet</a>.</p>
-<p>The folks from Rstudio developed <a
-href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allows you to
+href="https://quarto.org/">Quarto system</a>. (GitHub is also part of
+this reproducible workflow, but we discuss that separately).</p>
+<p>The folks from Posit (formerly Rstudio) previously developed <a
+href="http://rmarkdown.rstudio.com/">R Markdown</a>. This allowed you to
 combine R code with Markdown text. More recently, they developed <a
 href="https://quarto.org/">Quarto</a>, which is an improved version of
 the whole system that allows using different programming languages and
 creating many different types of outputs (papers, presentations,
-websites, etc.). In this course, we focus on using Quarto. But you’ll
-still see people use R Markdown. As an example, this whole course is
-written in R Markdown and <a
+websites, etc.).</p>
+<p>R Markdown is still around and functional. For instance, this course
+website is written in R Markdown and <a
 href="https://github.com/andreashandel/MADAcourse">lives on GitHub</a>.
-Eventually I’ll switch it to Quarto. The good thing is that the
-transition is easy, it’s almost the same. Quarto is the future, so it’s
-a good idea to start using it.</p>
-<p>The whole Quarto system has become incredibly flexible and powerful,
-and we’ll use it in this class. Because it is very feature rich and you
-can do a ton, trying to read all about it does not make much sense. The
-best is a <em>learn it as you need it</em> approach. The <a
-href="https://quarto.org/">Quarto website</a> has great documentation,
-you’ll likely be going there often.</p>
+But in my opinion, Quarto is the future. We’ll therefore focus on using
+it. Eventually I’ll switch all my materials over to Quarto. The good
+thing is that the transition is easy.</p>
+<p>The idea behind Quarto is that you have a system that allows you to
+combine code with text and simple formatting to easily and reproducibly
+turn them into a lot of different output formats, e.g., HTML, PDF, Word,
+or slides. You can apply layout and styling to those documents, which is
+done separately from the content. This means you can quickly switch
+between outputs. Quarto <a
+href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">calls
+various other pieces of software</a> to - almost magically - turn text
+and code input into a variety of different output formats. The good
+thing is, you generally don’t need to care what goes on under the hood,
+it all happens (almost always) smoothly behind the scenes.</p>
+<p>The input (for us) into a Quarto document are <code>R</code> code and
+Markdown text. Markdown is a simple way of formatting text to get some
+reasonably nice layouts with minimal effort. If you have no experience
+with Markdown, I suggest you go through <a
+href="https://www.markdowntutorial.com/">this nice, short interactive
+tutorial.</a>. A good reference to look up formatting for Markdown until
+you have it memorized is this <a
+href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">online
+cheat sheet</a>.</p>
 <p><strong>Quarto and R Markdown Note:</strong> Quarto is fairly new. It
 didn’t exist yet last time I taught the course. I’m switching to Quarto
 because I think it’s the future. But you might still find me talking
 about R Markdown in some places. If you do, let me know so I can update.
 In general, either R Markdown or Quarto will do the job, but Quarto is
 the future, so it’s best to use/learn it.</p>
+</div>
+<div id="getting-started-with-quarto" class="section level1">
+<h1>Getting started with Quarto</h1>
+<p>The whole Quarto system is already incredibly flexible and powerful
+(and continues to grow). Because it is very feature rich and you can do
+a ton, trying to read all about it does not make much sense. The best is
+a <em>learn it as you need it</em> approach. The <a
+href="https://quarto.org/">Quarto website</a> has great documentation,
+you’ll likely be going there often.</p>
+<p>To get started, follow the <a
+href="https://quarto.org/docs/get-started/">get started guide</a> on the
+Quarto website. Install Quarto and - if you haven’t already - R Studio.
+Then go through the 3 starter tutorials. There is already a lot going on
+in those tutorials, and there is no need to memorize it. The point is to
+get an idea of what you can do and play around a bit. You’ll repeatedly
+be coming back to the Quarto documentation as you try to figure out how
+to do specific things. So if some of the material in the tutorials is
+not quite clear on your first pass-through, that’s ok. Just get an
+overall idea and play around so you feel comfortable. You’ll be using
+Quarto in the exercise (and pretty much all the time from now on).</p>
 <!-- One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/). RStudio also has an R Markdown cheat sheet in their [collection of very useful cheat sheets](https://www.rstudio.com/resources/cheatsheets/). -->
 <!-- Since developing knitr and R Markdown, [Yihui Xie](https://yihui.name/en/) and colleagues have developed several other versions of the tool. There is [bookdown](https://bookdown.org/yihui/bookdown/) which lets you nicely add references and write full books and scientific manuscripts (see the research example in the introductory lesson and a list of books written in bookdown on the [bookdown website](https://bookdown.org/)) and [blogdown](https://bookdown.org/yihui/blogdown/) which lets you make webpages (see e.g. [my group webpage which is done that way](http://handelgroup.uga.edu/)).  -->
 <!-- Some good sources that you might want to glimpse at are the chapters in the _Communicate_ section of the [R for Data Science book](http://r4ds.had.co.nz/index.html) and the beginning chapters of the [R Markdown book](https://bookdown.org/yihui/rmarkdown/). There's also the newer [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/), which is a good _how do I do X_ resource. -->
 <!-- Again, you don't need to read these materials in much detail, but if you are new to R Markdown, try to get enough information so you understand what it's all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. You'll get plenty of practice throughout this course. project. -->
+</div>
+<div id="other-reproducibility-tips" class="section level1">
+<h1>Other reproducibility tips</h1>
+<p>We’ll cover that more later, but it is important to not do things
+that only work on your computer but not on others. The most important
+and frequent mistake I see is someone using a local path. If you load
+data from <code>C:\Users\myname\mydata</code> then it won’t work for me.
+Always load/save data relative to the project folder. The <a
+href="https://here.r-lib.org/"><code>here</code> R package</a> and its
+associated <code>here()</code> command in R is very useful. You’ll see
+it show up and you should use it.</p>
+<p>Another good idea is to start your R code with
+<code>use_blank_slate()</code> from the <a
+href="https://usethis.r-lib.org/"><code>usethis</code> R
+package</a>.</p>
+<p>For some more background on this, see <a
+href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">this
+article</a> by Jenny Bryan, co-author of both the <code>here</code> and
+<code>usethis</code> packages.</p>
 </div>
 
 

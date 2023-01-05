@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Git/GitHub Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-04 18:59:50</h4>
+<h4 class="date">2023-01-05 14:30:35</h4>
 
 </div>
 
@@ -695,13 +695,24 @@ the project.</p>
 or PowerPoint) and different team members might want to edit the same
 document at the same time. In that instance, a solution like Google
 Docs, Word+Dropbox, Word+Onedrive, etc. might be better.</p>
-<p>GitHub is also not ideal if you have very large files (e.g., large
-data files). And if you have data, you need to be careful since by
-default, GitHub repositories (the GitHub name for your projects) are
-public. You can set them private, but need to be careful that you don’t
-accidentally expose confidential data to the public. It is in general
-not a good idea to have confidential data on GitHub. First anonymize
-your data, then you can place it in a public or private repository.</p>
+<p>GitHub also has a problem with large files. Anything above around
+100MB can lead to very slow syncing and sometimes outright failure.
+Unfortunately, once GitHub has chocked on a large file, it can be quite
+tricky to fix the repository to work again. Therefore <strong>keep large
+(&gt;100MB) files out of your GitHub repositories.</strong> If you have
+to work with such files, try to reduce them first before placing into
+the GitHub repository. Or as alternative, place those files in another
+sync service (e.g. Dropbox, OneDrive, GoogleDrive) and load them from
+there.</p>
+<p>Finally, if you have data, you need to be careful since by default,
+GitHub repositories (the GitHub name for your projects) are
+<strong>public</strong> and everyone can see them. You can set them
+private, but you need to be careful that you don’t accidentally expose
+confidential data to the public. It is in general not a good idea to
+have confidential data on GitHub. First anonymize your data enough that
+it is not at risk of identifiability, then you can place it in a private
+repository. If you put it public, be <strong>very careful</strong> that
+you only make things public that are ok to be made public.</p>
 </div>
 <div id="getting-gitgithub" class="section level1">
 <h1>Getting Git/GitHub</h1>
@@ -768,8 +779,8 @@ the two</a>.</p>
 <h1>GitHub developer pack</h1>
 <p><strong>I strongly recommend you get the <a
 href="https://education.github.com/pack">GitHub student developer
-pack</a>.</strong> This pack as a lot of nice free goodies that you
-might be interested in. I encourage you to explore all the different
+pack</a>.</strong> This pack gives you a lot of nice free goodies that
+you might be interested in. I encourage you to explore all the different
 products and deals. For this class, we definitely want the
 following:</p>
 <p><strong>GitHub Pro account:</strong> This will give you your own free

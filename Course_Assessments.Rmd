@@ -17,33 +17,29 @@ Each module comes with assessments. Those are things you need to do that will be
 
 Due dates are usually Friday 5 pm the week of the module. Some might be at other times, e.g., the beginning or middle of the week. See the schedule or the module specific assessment document. If unclear, ask.
 
-The assessments are meant as a help for you, consider them gentle prods to ensure you work through and learn the course material. It is very easy to take shortcuts (cheat) for any of the assessments. Our academic honesty policy prohibits you from doing so. More importantly, if you take shortcuts by e.g. getting answers from a classmate, you are only hurting your own learning. I encourage getting help from any source you can, including your classmates. I let you decide how much helping each other is acceptable and at what point it turns into having someone else do the work for you that you should be doing yourself.   
+The assessments, especially the exercises, are the main way of learning the material. There are therefore meant as a help for you, giving you incentives to work through and learn the course material. It is very easy to take shortcuts (cheat) for any of the assessments. Of course, our academic honesty policy prohibits you from doing so. But more importantly, I assume you want to learn the material. And if you take shortcuts by e.g. getting answers from a classmate, you are only hurting your own learning. That said, I encourage getting help from any source you can, including your classmates. I let you decide how much helping each other is acceptable and at what point it turns into having someone else do the work for you that you should be doing yourself.   
 
 
 ## Quizzes
 
 The quizzes cover the basics and ensure that you have gone through some of the material. Each quiz consists of around 10-20 short questions. Not all answers to the quiz questions are directly found in the materials, sometimes you need to do a - hopefully straightforward - online search.
 
-**Before submitting any quizzes, you need to set up a password using the Google Form that was shared with you in the welcome email.**
+Quizzes are auto-graded on submission based on a simple counting of the right answers. At the end, I'll average across all quizzes. Note that since there are >10 quizzes and all quizzes together count for only a fraction of the total grade, each quiz counts for a small part of your grade. So try to get them as correct and complete as possible, but don't stress out about missing a question here and there.
 
+**The link to the website for quiz submission is pinned to the _announcements_ Slack channel. Before submitting any quizzes, you need to set up a password by filling the Google Form that was shared with you in the welcome email.**
 
 **Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Fridays), otherwise the system will not take your submission.**
 
 
 ### Quiz sheets
 
-For each module, you are asked to fill out an Excel sheet with questions related to the course material. Download the quiz files from the links below, fill in the "Answer" column, and submit to an online quiz submission system by the deadline specified in the __Schedule__ document.
-
-
-**The link to the website for quiz submission is pinned to the _announcements_ Slack channel.**
-
-Unless otherwise noted, you have one submission attempt. For the first module, you have 2 attempts. This allows you to get used to the submission system.
+For each module, you are asked to fill out an Excel sheet with questions related to the course material. Download the quiz files from the links below, fill in the `Answer`" column, and submit to the online quiz submission system by the deadline specified in the __Schedule__ document.
 
 **You can expand and resize the columns/rows of the Excel file so you can make sure to see all content. Other than that, please only fill in the _Answer_ column and don't make other changes (e.g. don't rename or delete rows/columns). If you do make changes, submission might fail. If that happens and you get an error message during submission, simply come back here, download a fresh sheet and copy and paste your answers into it, making sure to not change any other part of the sheet.** 
 
-__Quizzes will become available here as the course progresses.__
+_Quizzes will become available here as the course progresses. Once a quiz is available, you should be able to submit it at any time before the deadline._
 
-* [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_student.xlsx) - you have 2 attempts available for this one.
+<!-- * [Module 1 – Course and tools introduction](./quizsheets/mada_course_tools_student.xlsx) - you have 2 attempts available for this one. -->
 <!-- * [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_student.xlsx) -->
 <!-- * [Module 3 – R coding basics](./quizsheets/mada_coding_basics_student.xlsx) -->
 <!-- * [Module 4 – Contemplating, finding and wrangling data](./quizsheets/mada_data_finding_wrangling_student.xlsx) -->
@@ -58,14 +54,6 @@ __Quizzes will become available here as the course progresses.__
 <!-- * [Module 13 – The complete analysis workflow](./quizsheets/mada_full_workflow_student.xlsx) -->
 
 
-
-
-
-### Quiz grading
-
-Quizzes are auto-graded on submission based on a simple counting of the right answers. At the end, I'll average across all quizzes. 
-
-Note that since there are >10 quizzes and all quizzes together count for only a fraction of the total grade, each quiz counts for a small part of your grade. 
 
 
 ## Exercises
@@ -91,6 +79,7 @@ I grade the exercises based on 4 categories:
 At my discretion, I might consider assignments even if they are submitted after the deadline. In that case, I might take off a point for lateness.
 
 Don't interpret these scores as grades, I just use them to differentiate, then I'll adjust at the end when I compute the overall project score.
+
 
 
 ## Discussions 

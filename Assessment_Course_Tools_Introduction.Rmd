@@ -14,9 +14,18 @@ output:
 
 Each module comes with an assessment. Those are things you need to do that will be graded. Each module has a document, like this one, which describes what the assessments are. Often, there is a good bit of information for the exercises.
 
+If you haven't done so, please first read through the [**Assessments**](./Course_Assessments.html) page before continuing here.
+
+
+
 ## Quiz
 
 Get the quiz sheet for this module from the general [**Assessments**](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline.
+
+For this first module, you have 2 submission attempts. This allows you to get used to the submission system. 
+
+Note that the quiz and grading system will only become available once student passwords have been set.
+
 
 ## Exercise
 

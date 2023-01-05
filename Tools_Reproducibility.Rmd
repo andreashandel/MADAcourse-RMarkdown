@@ -22,8 +22,9 @@ knitr::include_graphics("./media/amiracleoccurs.gif")
 
 # Learning Objectives
 * Know the concept and importance of reproducible research
-* Know how to implement reproducible research with R
-* Be familiar with (R)Markdown and start using it
+* Know about a method to implement reproducible research with R
+* Be familiar with Quarto/Markdown and start using it
+
 
 # Reproducibility in Science
 
@@ -76,21 +77,30 @@ Making an analysis reproducible also means you to document all your steps and wh
 
 # Quarto and R Markdown for reproducible analysis
 
-Creating a reproducible and automated analysis used to be a good bit of extra work, but not anymore. Quarto, GitHub, and related tools have made it fairly easy to set up a reproducible workflow. We discuss GitHub separately, see that document. Since it controls and tracks any changes you make, and works nicely with collaborators, it is an excellent tool for reproducible work. 
+Creating a reproducible and automated analysis used to be a good bit of extra work, but not anymore. A large number of software tools are available that make it fairly easy to set up a reproducible workflow. 
 
-While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one tool, namely the [Quarto system](https://quarto.org/). 
+While there are different tools and programming languages that allow reproducible research (e.g. Jupyter notebooks in Python, Mathematica notebooks, Sweave, Latex), we will focus on one tool, namely the [Quarto system](https://quarto.org/). (GitHub is also part of this reproducible workflow, but we discuss that separately).
 
-Quarto was created by the folks at Posit (formerly RStudio), and is a newer and improved iteration of R Markdown.
+The folks from Posit (formerly Rstudio) previously developed [R Markdown](http://rmarkdown.rstudio.com/). This allowed you to combine R code with Markdown text. More recently, they developed [Quarto](https://quarto.org/), which is an improved version of the whole system that allows using different programming languages and creating many different types of outputs (papers, presentations, websites, etc.). 
 
-The idea is that you can easily combine code with plain text documents with simple formatting (called Markdown format), and then turn them into a lot of different output formats, e.g., HTML, PDF, Word, or slides. You can apply layout and styling to those documents, which is done separately from the content. This means you can quickly switch between outputs. In our flow, the software in the background that turns our text documents into different formats is QUarto, which in turn [calls various other pieces of software](https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works).
+R Markdown is still around and functional. For instance, this course website is written in R Markdown and [lives on GitHub](https://github.com/andreashandel/MADAcourse). 
+But in my opinion, Quarto is the future. We'll therefore focus on using it. Eventually I'll switch all my materials over to Quarto. The good thing is that the transition is easy. 
 
-The good thing is, you don't need to care, it all happens (almost always) smoothly behind the scenes. Quarto and markdown are rather easy to learn. If you have no experience with Markdown, I suggest you go through [this nice, short interactive tutorial.](https://www.markdowntutorial.com/). A good reference to look up formatting for Markdown until you have it memorized is this [online cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). 
+The idea behind Quarto is that you have a system that allows you to combine code with text and simple formatting to easily and reproducibly turn them into a lot of different output formats, e.g., HTML, PDF, Word, or slides. You can apply layout and styling to those documents, which is done separately from the content. This means you can quickly switch between outputs. 
+Quarto [calls various other pieces of software](https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works) to - almost magically - turn text and code input into a variety of different output formats. The good thing is, you generally don't need to care what goes on under the hood, it all happens (almost always) smoothly behind the scenes. 
 
-The folks from Rstudio developed [R Markdown](http://rmarkdown.rstudio.com/). This allows you to combine R code with Markdown text. More recently, they developed [Quarto](https://quarto.org/), which is an improved version of the whole system that allows using different programming languages and creating many different types of outputs (papers, presentations, websites, etc.). In this course, we focus on using Quarto. But you'll still see people use R Markdown. As an example, this whole course is written in R Markdown and [lives on GitHub](https://github.com/andreashandel/MADAcourse). Eventually I'll switch it to Quarto. The good thing is that the transition is easy, it's almost the same. Quarto is the future, so it's a good idea to start using it.
+The input (for us) into a Quarto document are `R` code and Markdown text. Markdown is a simple way of formatting text to get some reasonably nice layouts with minimal effort. If you have no experience with Markdown, I suggest you go through [this nice, short interactive tutorial.](https://www.markdowntutorial.com/). A good reference to look up formatting for Markdown until you have it memorized is this [online cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). 
 
-The whole Quarto system has become incredibly flexible and powerful, and we'll use it in this class. Because it is very feature rich and you can do a ton, trying to read all about it does not make much sense. The best is a _learn it as you need it_ approach. The [Quarto website](https://quarto.org/) has great documentation, you'll likely be going there often.
 
 **Quarto and R Markdown Note:** Quarto is fairly new. It didn't exist yet last time I taught the course. I'm switching to Quarto because I think it's the future. But you might still find me talking about R Markdown in some places. If you do, let me know so I can update. In general, either R Markdown or Quarto will do the job, but Quarto is the future, so it's best to use/learn it.
+
+
+# Getting started with Quarto 
+
+The whole Quarto system is already incredibly flexible and powerful (and continues to grow). Because it is very feature rich and you can do a ton, trying to read all about it does not make much sense. The best is a _learn it as you need it_ approach. The [Quarto website](https://quarto.org/) has great documentation, you'll likely be going there often.
+
+To get started, follow the [get started guide](https://quarto.org/docs/get-started/) on the Quarto website. Install Quarto and - if you haven't already - R Studio. Then go through the 3 starter tutorials. There is already a lot going on in those tutorials, and there is no need to memorize it. The point is to get an idea of what you can do and play around a bit. You'll repeatedly be coming back to the Quarto documentation as you try to figure out how to do specific things. So if some of the material in the tutorials is not quite clear on your first pass-through, that's ok. Just get an overall idea and play around so you feel comfortable. You'll be using Quarto in the exercise (and pretty much all the time from now on).
+
 
 <!-- One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/). RStudio also has an R Markdown cheat sheet in their [collection of very useful cheat sheets](https://www.rstudio.com/resources/cheatsheets/). -->
 
@@ -99,6 +109,23 @@ The whole Quarto system has become incredibly flexible and powerful, and we'll u
 <!-- Some good sources that you might want to glimpse at are the chapters in the _Communicate_ section of the [R for Data Science book](http://r4ds.had.co.nz/index.html) and the beginning chapters of the [R Markdown book](https://bookdown.org/yihui/rmarkdown/). There's also the newer [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/), which is a good _how do I do X_ resource. -->
 
 <!-- Again, you don't need to read these materials in much detail, but if you are new to R Markdown, try to get enough information so you understand what it's all about and how to get started. The way you learn R Markdown is by having a specific task you want to accomplish or a product you want to produce, and then look at various of the above listed documents to figure out how to do it. You'll get plenty of practice throughout this course. project. -->
+
+
+# Other reproducibility tips
+
+We'll cover that more later, but it is important to not do things that only work on your computer but not on others.
+The most important and frequent mistake I see is someone using a local path. If you load data from `C:\Users\myname\mydata` then it won't work for me. Always load/save data relative to the project folder. The [`here` R package](https://here.r-lib.org/) and its associated `here()` command in R is very useful. You'll see it show up and you should use it.
+
+Another good idea is to start your R code with `use_blank_slate()` from the [`usethis` R package](https://usethis.r-lib.org/).
+
+For some more background on this, see [this article](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) by Jenny Bryan, co-author of both the `here` and `usethis` packages.
+
+
+
+
+
+
+
 
 
 

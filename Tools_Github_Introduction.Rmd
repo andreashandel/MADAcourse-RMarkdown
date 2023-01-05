@@ -35,11 +35,14 @@ _GitHub_ gives you an organized way to track your projects. It is very well suit
 
 
 # What to (not) use Git/GitHub for
+
 GitHub is ideal if you have a project with (possibly many) smallish files, and most of those files are text files (such as R code, LaTeX, Quarto/Markdown, etc.) and different people work on different parts of the project.
 
 GitHub is less useful if you have a lot of non-text files (e.g. Word or PowerPoint) and different team members might want to edit the same document at the same time. In that instance, a solution like Google Docs, Word+Dropbox, Word+Onedrive, etc. might be better.
 
-GitHub is also not ideal if you have very large files (e.g., large data files). And if you have data, you need to be careful since by default, GitHub repositories (the GitHub name for your projects) are public. You can set them private, but need to be careful that you don't accidentally expose confidential data to the public. It is in general not a good idea to have confidential data on GitHub. First anonymize your data, then you can place it in a public or private repository.
+GitHub also has a problem with large files. Anything above around 100MB can lead to very slow syncing and sometimes outright failure. Unfortunately, once GitHub has chocked on a large file, it can be quite tricky to fix the repository to work again. Therefore **keep large (>100MB) files out of your GitHub repositories.** If you have to work with such files, try to reduce them first before placing into the GitHub repository. Or as alternative, place those files in another sync service (e.g. Dropbox, OneDrive, GoogleDrive) and load them from there.
+
+Finally, if you have data, you need to be careful since by default, GitHub repositories (the GitHub name for your projects) are **public** and everyone can see them. You can set them private, but you need to be careful that you don't accidentally expose confidential data to the public. It is in general not a good idea to have confidential data on GitHub. First anonymize your data enough that it is not at risk of identifiability, then you can place it in a private repository. If you put it public, be **very careful** that you only make things public that are ok to be made public.
 
 
 # Getting Git/GitHub
@@ -63,7 +66,7 @@ Once you have your GitHub account set up and GitKraken installed, make sure you 
 
 
 # GitHub developer pack
-__I strongly recommend you get the [GitHub student developer pack](https://education.github.com/pack).__ This pack as a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:
+__I strongly recommend you get the [GitHub student developer pack](https://education.github.com/pack).__ This pack gives you a lot of nice free goodies that you might be interested in. I encourage you to explore all the different products and deals. For this class, we definitely want the following:
 
 **GitHub Pro account:** This will give you your own free private repositories. We will mostly use public repositories, but there might be times you want to have a private repository, e.g. for data you don't want to be public. Normally, if you want private repositories, you have to pay. But with the student pack (or as an academic), you get them for free. 
 
@@ -89,6 +92,8 @@ I am a heavy user of both GitHub and Dropbox. I use Dropbox for a lot of regular
 You can do any setup you want. However, **don't mix and match**. Because GitHub works similar to Dropbox, it is a bad idea to locally store your GitHub repositories in a folder that is synced by Dropbox. If you do, the Dropbox sync process and the GitHub sync process can conflict, potentially leading to syncing mess. __For any GitHub repository, store it locally in a folder that is not synced across your computers by another software (such as Dropbox, OneDrive, Box, etc.)__
 
 Similarly, don't store a GitHub repository inside another repository. While this is technically allowed, it can easily lead to a mess. Each repository should be separate and not connected to any other syncing service.
+
+
 
 
 # GitHub for this course
