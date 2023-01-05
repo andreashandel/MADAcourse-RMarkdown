@@ -44,9 +44,9 @@ I find it the least confusing to call _things which store values in R_ `objects`
 
 ## Loading and checking data
 
-We'll look at and play with some data from the [`dslabs` package](https://simplystatistics.org/2018/01/22/the-dslabs-package-provides-datasets-for-teaching-data-science/). Write a code chunk using the `library()` function that loads the package (install the `dslabs` package first if you don't have it yet). 
+We'll look at and play with some data from the [`dslabs` package](https://cran.r-project.org/web/packages/dslabs/index.html). Write a code chunk using the `library()` function that loads the package (install the `dslabs` package first if you don't have it yet). 
 
-**All the code you write for this (and any other) project should be written into an R (or in our case R Markdown) file, not in the R console. The reason for that is that you want a permanent record of what you did, and the ability to modify and re-run your analysis easily.**
+**All the code you write for this (and any other) project should be written into an R (or in our case Quarto) file, not in the R console. The reason for that is that you want a permanent record of what you did, and the ability to modify and re-run your analysis easily.**
 
 We'll look at the `gapminder` dataset from `dslabs`. Write a code chunk using the `help()` function that pulls up the help page for the data to see what it contains. Then use the `str()` and `summary()` functions to take a look at the data. Use the `class()` function to check what type of object `gapminder` is.
 

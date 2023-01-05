@@ -91,7 +91,7 @@ You will receive feedback from me and/or your classmates after each submission.
 * Part 6 is the final submission. 
 
 
-The initial submissions and peer reviews make up 25% of the project grade. The final submission counts for the remaining 75%. 
+The initial submissions and peer reviews make up 40% of the project grade. The final submission counts for the remaining 60%. 
 
 **More details on what exactly is expected and how it is assessed is provided in the _Project Rubric_ document.**
 

@@ -90,7 +90,7 @@ The folks from Rstudio developed [R Markdown](http://rmarkdown.rstudio.com/). Th
 
 The whole Quarto system has become incredibly flexible and powerful, and we'll use it in this class. Because it is very feature rich and you can do a ton, trying to read all about it does not make much sense. The best is a _learn it as you need it_ approach. The [Quarto website](https://quarto.org/) has great documentation, you'll likely be going there often.
 
-
+**Quarto and R Markdown Note:** Quarto is fairly new. It didn't exist yet last time I taught the course. I'm switching to Quarto because I think it's the future. But you might still find me talking about R Markdown in some places. If you do, let me know so I can update. In general, either R Markdown or Quarto will do the job, but Quarto is the future, so it's best to use/learn it.
 
 <!-- One great thing about R Markdown is that it's well documented. The [R Studio R Markdown site](https://rmarkdown.rstudio.com/) and the [R Markdown book](https://bookdown.org/yihui/rmarkdown/) are great resources. Another good source targeted at scientists is the online book [R Markdown for Scientists](https://rmd4sci.njtierney.com/). RStudio also has an R Markdown cheat sheet in their [collection of very useful cheat sheets](https://www.rstudio.com/resources/cheatsheets/). -->
 

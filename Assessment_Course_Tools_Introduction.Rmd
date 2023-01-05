@@ -27,7 +27,7 @@ For this module, you are asked to do a project for which you will be using Githu
 
 For those of you who are new to Github/R/Quarto, this first project will make you do a lot of things that you are not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.
 
-If you get stuck (quite possible), check the materials listed in the **Resources** section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course.
+If you get stuck (quite possible), check the materials listed in the **Resources** section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Quarto/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course.
 
 ### Pre-requisites
 
@@ -60,9 +60,9 @@ Next, open `aboutme.qmd` and write some text introducing yourself, as follows:
 
 -   Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
 -   Give your text a nice structure with headings, subheadings, etc.
--   Include a picture of yourself. To do so, place the picture in the repository and link it from the Rmarkdown file.
+-   Include a picture of yourself. To do so, place the picture in the repository and link it from the Quarto file.
 -   Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.
--   If you want, feel free to get creative and include other things. You can play with RMarkdown if you wish to, e.g., you can try to include some table or a video or whatever.
+-   If you want, feel free to get creative and include other things. You can play with Quarto if you wish to, e.g., you can try to include some table or a video or whatever.
 
 *Every time you make changes and want to see how they look, just save your changes and re-load the website in our browser, it should show you any changes.*
 
@@ -122,7 +122,7 @@ In the future, if you work on repositories like this one (or any others), your w
 
 ### Further information
 
-I wrote a tutorial a while back describing the setup with Github pages. It has some additional information and you can [check it out here.](https://www.andreashandel.com/posts/github-website/) Note that this tutorial still used R Markdown instead of Quarto. Some of the information still applies, other parts are different with Quarto.
+I wrote a tutorial a while back describing the setup with Github pages. It has some additional information and you can [check it out here](https://www.andreashandel.com/posts/github-website/). Note that this tutorial still used R Markdown instead of Quarto. Some of the information still applies, other parts are different with Quarto.
 
 Using Github pages makes it fairly easy to create websites. I currently host all my course websites in this way. What we created was a fairly basic page. It is easy with Quarto to create other, more full-featured websites. For instance [my personal website](https://www.andreashandel.com/) uses Quarto. If you are interested in such a more full-featured approach, check out [this part of the Quarto documentation](https://quarto.org/docs/websites/). You can also find a few more links to other resources [here](https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/).
 
