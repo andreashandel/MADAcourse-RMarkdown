@@ -638,7 +638,7 @@ div.tocify {
 <h1 class="title toc-ignore">Deep Learning, Artificial Intelligence and
 Big Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-11-08 13:23:37</h4>
+<h4 class="date">2023-01-04 18:08:59</h4>
 
 </div>
 
@@ -799,20 +799,18 @@ href="https://en.wikipedia.org/wiki/Keras">it’s Wikipedia entry</a>).
 Keras was originally developed for Python, a programming language that
 is somewhat similar to R and heavily used in the ML/DL/AI community. The
 folks from RStudio, together with the Keras development team, have since
-<a href="https://keras.rstudio.com/index.html">ported Keras to R</a>. It
-is thus possible to use these powerful tools (Keras and TensorFlow) from
-within R (though a Python installation is also required).</p>
-<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras
+<a href="https://tensorflow.rstudio.com/">ported Keras to R</a>. It is
+thus possible to use these powerful tools (Keras and TensorFlow) with
+R.</p>
+<p>The <a href="https://tensorflow.rstudio.com/">RStudio TensorFlow
 website</a> has a lot of good information and documentation on how to
-use Keras through R to do DL/AI. The very brief <a
-href="https://keras.rstudio.com/articles/why_use_keras.html"><em>Why Use
-Keras?</em> article</a> provides some motivation and explanation of
-Keras strengths (and also shows a few nice graphs where you can see
-alternativel DL tools). While I’m sure a DL/AI expert uses more than
-just Keras/Tensorflow as their tools (I’m not one, so I’m not sure), you
-can get very far with those. And for playing around with DL/AI, Keras
-through R is a great place to start. See the exercise for suggested
-starting points.</p>
+use Keras through R to do DL/AI. Starting there with the
+<em>Tutorials</em> section is probably the best way to get going. After
+that you can branch out to some of the other resources. While I’m sure a
+DL/AI expert uses more than just Keras/Tensorflow as tools, you can get
+very far with those. And for playing around with DL/AI, Keras through R
+is a great place to start. See the exercise for suggested starting
+points.</p>
 <div id="side-note-gpu-computing" class="section level2 note">
 <h2>Side note: GPU computing</h2>
 <p>Since DL/AI usually fit large amounts of data to complex models, time
@@ -825,7 +823,8 @@ graphics cards often have &gt;1000 GPUs. Those can all be used in
 parallel to perform model fitting. Products such as Tensorflow allow one
 to use (mainly NVIDIA) GPUs to fit complex models to a lot of data in an
 often reasonable amount of time without requiring a supercomputer
-cluster. Unfortunately, R currently has poor GPU support.</p>
+cluster. Unfortunately, R still doesn’t have great GPU support. I have
+not recently tried to use Keras with GPUs through R.</p>
 </div>
 </div>
 <div id="big-data" class="section level1">
@@ -890,13 +889,6 @@ website.</p>
 </div>
 <div id="further-information" class="section level1">
 <h1>Further information</h1>
-<p>The <a href="https://keras.rstudio.com/index.html">RStudio Keras
-website</a> has a lot of good information, and also provides links to
-further resources. Starting there with the <em>Tutorials</em> section is
-probably the best way to get going. After that you can branch out to
-some of the listed resources (e.g. the <em>Learn</em> section on that
-website). Making use of the <em>Keras</em> website and resources
-mentioned there, will get you far.</p>
 <p>For some additional/complementary material, <a
 href="https://github.com/philbowsher/Workshop-R-Tensorflow-Scientific-Computing">here
 are materials from a recent workshop by Phil Bowsher</a> that also

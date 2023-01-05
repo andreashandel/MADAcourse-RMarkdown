@@ -92,9 +92,9 @@ _While we don't cover Bayesian methods in this course, I personally find them ve
 
 
 
-# Longitudinal Analysis
+<!-- # Longitudinal Analysis -->
 
-* [This set of lecture notes](https://data.princeton.edu/wws509/notes/c7s1) provide - among other topics - a nice introduction to survival modeling of longitudinal data.
+<!-- * [This set of lecture notes](https://data.princeton.edu/wws509/notes/c7s1) provide - among other topics - a nice introduction to survival modeling of longitudinal data. -->
 
 
 # Causal Analysis
