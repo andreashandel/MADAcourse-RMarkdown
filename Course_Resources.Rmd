@@ -18,7 +18,7 @@ All materials described below are (should be) freely available online. If you ca
 # Books and online tutorials
 
 * [IDS = Introduction to Data Science](https://rafalab.github.io/dsbook/) is the book I'll refer to a good bit in the 1st part of the course. 
-* [R4DS = R for Data Science](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be referring to it frequently. 
+* [R4DS = R for Data Science (1st edition)](http://r4ds.had.co.nz/index.html) is another resource that will come up frequently. It is a very gentle and good introduction to data science in R. I'll be referring to it frequently. **Note:** The [second edition](https://r4ds.hadley.nz/) of the book also exists. It is worth checking out. If there are references to specific chapters/pages of R4DS on this website, they currently refer to the 1st edition. I'll be updating things to indicate 1st or 2nd edition with R4DSe1 and R4DSe2. If no edition is specified, assume it means the 1st one.
 * [ADS = The Art of Data Science](https://leanpub.com/artofdatascience) has some good big-picture, introductory level chapters on different aspects of a data analysis. It is a _pay what you want_ book with a minimum price of zero, which means you can get it for free (note that the book + video bundle has a non-zero minimum price).  
 * [ISL(R) = An Introduction to Statistical Learning (in R)](https://statlearning.com/) is a good introduction to the statistical and machine learning (i.e. model fitting) part of the data analysis workflow. I'll refer to it frequently in the second part of the course. While we won't work through the exercises/labs that are part of ISL, if you are interested in trying out some of those, [here is a website](https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html) that does the labs using the tidymodels set of packages, which we will also be using in this course.
 * [HMLR = Hands-on Machine Learning with R](https://bradleyboehmke.github.io/HOML/) covers somewhat similar material as ISL, but with different emphasis and a different approach. I refer to it in several of the later course modules.
@@ -31,6 +31,12 @@ All materials described below are (should be) freely available online. If you ca
 
 * We'll be using [R](https://www.r-project.org/) and [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/). The [R and R Studio document](./Tools_RandRStudio.html) has details. 
 * We will also be using [Git](https://git-scm.com/) and [GitHub](https://github.com/). You need to get that software and a GitHub user account. I also recommend/assume you are using the [GitKraken](https://www.gitkraken.com/) client (but you don't have to). See the [GitHub introduction document](./Tools_Github_Introduction.html) for details.
+
+
+# Important notes
+
+* The last time this course was taught, the company now called **Posit** was called **R Studio**. You will likely see the old label show up. The **software** we use for coding R is still called R Studio.
+* The last time the course was taught, **Quarto** did not exist, we used **R Markdown** instead. You will likely see references to **R Markdown**. Just think of it as now being Quarto (i.e. instead of `.Rmd` files we now work with `.qmd` files).
 
 
 

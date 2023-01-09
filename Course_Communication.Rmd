@@ -51,11 +51,11 @@ To make things more personal, I suggest you update your Slack workspace profile 
 
 I will offer weekly synchronous meetings through Zoom. Those are **completely optional.**  Whoever wants to join can do so, and we will use the meeting for discussions, answering questions, and whatever else you want to talk about. Think of those meetings a bit like virtual office hours or virtual in-class discussions. To ensure everyone will be able to join at least occasionally, I plan to alternate between two times each week. 
 
+I want to emphasize that there is **nothing** covered in the meetings other than me addressing questions from individuals. I will **not record** these meetings to ensure students feel comfortable asking "dumb" questions (they are rarely "dumb", but I don't want anyone to feel limited out of fear of "looking stupid" in the recording). If any topic comes up that I think is worth sharing more widely, I will afterwards post a message to Slack and/or add content to the website. Therefore, if you can't make these Zoom meetings, you are not missing anything (other than the option of asking me questions that might be tricky to discuss on Slack).
+
 Tentative dates for Zoom meetings are listed in the _Schedule_ document. Those are subject to change. If we need to move things around, I'll let you know on Slack and also update the _Schedule_ document. At the designated times, I will start the meeting. I'll wait around for 15 minutes. If nobody connects, I'll end the meeting. If people connect, we'll talk until we covered everything, or until I or you need to move on to our next appointments. The information for the Zoom meeting login will be provided on Slack.
 
 And of course, if you have something you want to discuss outside of those scheduled times, send me a message and we can schedule a meeting.
-
-
 
 
 ## GitHub
@@ -67,5 +67,11 @@ We will also use Github for some specific communications, related to exercises a
 ## eLC
 
 We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC. I don't plan on posting any materials to eLC, they will all be on this website, or if it is confidential information, in our group Slack workspace.
+
+
+
+## Course Teaching Assistant
+
+In some semesters, I have a TA for the class. If there is a TA the semester you are taking the class, they will be another point of contact for you to ask questions. The TA will be posting an introduction in the Slack workspace with details of their availability and preferred modes of communication (Slack/Zoom/etc.).
 
 
