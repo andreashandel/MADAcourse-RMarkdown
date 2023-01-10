@@ -10,7 +10,7 @@ output:
 
 # Overview
 
-To showcase some of the work previous students have done, and as inspiration of future projects, below you can find links to a selection of past projects. Of course, all are posted with permission from the students.
+To showcase some of the work previous students have done, and as inspiration of future projects, below you can find links to a selection of past projects. Of course, all are posted with permission from the students. 
 
 (I only decided to ask students if I can showcase some of their projects in 2021, so currently that's the only year that has examples.)
 

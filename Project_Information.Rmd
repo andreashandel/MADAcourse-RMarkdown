@@ -59,13 +59,13 @@ _Often, the most interesting questions can be asked by combining data from more 
 
 # Logistics and formatting
 
-Each assignment needs to be submitted in a fully reproducible form. You should create a Github repository which should contain all the files for your project. Name it `YOURNAME-MADA-project`. The preferred type is a public repository, if you have data that requires to be kept confidential, you can make it a private repository.
+Each assignment needs to be submitted in a fully reproducible form, using the tools we cover in the class (R, Quarto, GitHub, etc.). You should create a Github repository (using the template described below) which should contain all the files for your project. Name it `YOURNAME-MADA-project`. The preferred type is a public repository, if you have data that requires to be kept confidential, you can make it a private repository. If you need to use a private repository, please let me know.
 
-The main document should be an Rmarkdown (or bookdown) file, which can be turned into a suitable output format (html or word or pdf). I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that's ok too.
+The main document should be a Quarto file, which can be turned into a suitable output format (html or word or pdf). This should have the structure of a scientific paper. Follow the template, and adjust as needed. I suggest having the output be a word document, since that is what most journals want for submission of a scientific paper. The template I provide is set up for word output. However, if you for instance decide to include interactive figures or apps (using e.g. Shiny) in your analysis project, you can also pick html as output. If for some reason you want/need pdf, that's ok too.
 
 Structure your project similar to the provided template (see below), with data, scripts, results and manuscript in different folders, various R scripts to perform different bits of the analysis, and a final Rmd file that pulls everything in and generates the report. 
 
-Use a setup that resembles a real research paper. A main manuscript file in R Markdown format should contain text, the main results (figures/tables), references, etc. A supplementary R markdown file should contain additional results, such as some of your exploratory analysis findings. Any code and further results should be in additional R or Rmd files. Overall, your write-up can be a bit more detailed than what would normally go into a peer reviewed paper, with the most salient parts shown in the main text, and the rest in a supplementary R Markdown file.
+Use a setup that resembles a real research paper. A main manuscript file in Quarto format should contain text, the main results (figures/tables), references, etc. A supplementary Quarto file should contain additional results, such as some of your exploratory analysis findings. Any code and further results should be in additional Quarto files (with code either inside the Quarto file, or in separate R files). Overall, your write-up can be a bit more detailed than what would normally go into a peer reviewed paper, with the most salient parts shown in the main text, and the rest in a supplementary file.
 
 For all your submissions, you need to provide everything needed (data, code, etc.) to allow a full and automated reproduction of your analysis.
 
@@ -76,18 +76,18 @@ References should be included as a bibtex file and cited in the Rmd file. See th
 
 I created [a public Github repository called dataanalyis-template](https://github.com/andreashandel/dataanalysis-template) which is meant as a template for doing a data analysis project. It has different folders for organizing your project. Various readme files are provided to explain what each folder should contain. The template also contains several example files to show how the whole project workflow (or any data analysis workflow for that matter) can work. 
 
-Inside the `manuscript` folder, there is a R Markdown template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one github repository, at the end.
+Inside the `manuscript` folder, there is a Quarto template file with a suggested outline for the report write-up. I have also indicated which sections need to be completed/filled for which part of the project. This template is just a guide, you do not have to follow exactly that structure, as long as you provide all the requested parts for the the different submission deadlines and a final, complete, fully automated and reproducible project, with all files in one GitHub repository, at the end.
 
-In addition to the Rmd file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style.
+In addition to the Quarto file, there is a bibliography file in bibtex format which contains the references, and a style file which indicates reference formatting. You can use it as starting point. Feel free to switch the reference formatting style. You do need to use a setup and reference manager that plays nicely with Quarto.
 
-I recommend you use this template as starting point for your project. To use the template for your class project, go to [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-MADA-project`. Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
+Use the provided template as starting point for your project. To do so, go to [its Github repository](https://github.com/andreashandel/dataanalysis-template) and follow the instructions to turn it into a new repository for your class project, call it `YOURNAME-MADA-project`. Once you made the new repository, follow the usual Github workflow to get it to your local computer. Then open the readme file and change the text so it states somewhere "This is YOURNAME class project repository".
 
 
 # Feedback and Assessment
 You will receive feedback from me and/or your classmates after each submission. 
 
-* I will provide feedback and assess parts 1-4, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. 
-* Your classmates will provide peer-review feedback on part 5. Details on that is provided in the [Project Review document](./Project_Review.html). I will assess these _peer reviews_.
+* I will provide feedback and assess parts 1,2 and  4, mainly checking to see that you deliver what you were supposed to and got the project to the requested stage. 
+* Your classmates will provide peer-review feedback on parts 3 and 5. Details on that is provided in the [Project Review document](./Project_Review.html). I will assess these _peer reviews_.
 * Part 6 is the final submission. 
 
 

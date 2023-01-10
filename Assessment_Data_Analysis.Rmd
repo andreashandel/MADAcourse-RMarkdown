@@ -24,28 +24,30 @@ For this exercise, you will practice with GitHub some more, you are exploring a 
 
 ### Preliminaries
 
-Start by going to the Github repository called [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template) I created. It is meant as a template for doing a data analysis project. It is also recommended for your class project. Read the information in the `README` file (at the bottom of the website).
+Start by going to the Github repository called [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template). It is meant as a template for doing a data analysis project. You will also use it for the class project. Read the information in the `README` file (at the bottom of the website).
 
-Next, use the template to start your own repository. Follow the same steps you used previously with the portfolio template. You can give it any name, this is just for playing around. For instance you could name it `YOURNAME-MADA-analysis1`. Clone it to your local machine, open the project in RStudio.
+Next, use the template to start your own repository. Follow the same steps you used previously with the portfolio template. Name it `YOURNAME-MADA-test-analysis`. Clone it to your local machine, open the project in RStudio.
 
-Take a look at the different folders, files, `readme` comments. Feel free to run the various R and R Markdown scripts. The idea is that you get some familiarity with the whole setup to prepare you for the next steps.
+Take a look at the different folders, files, `readme` comments. Feel free to run the various R and Quarto scripts. The idea is that you get some familiarity with the whole setup to prepare you for the next steps.
+
 
 
 ### Group setup
 
 If you haven't already, get in touch with your group members. You can find their names in the pinned post in the `announcements` channel. 
-Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributor 1, 2, ...  depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.
+Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributors number 1, 2, ...  depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.
+
 
 
 ### Pretend data-analysis
 
-The person your group designated as __project owner__ should do the following: Go ahead and start another repository using the template. Name it `GROUP-N-MADA-analysis1` (with N of course your group number). Next, find the repository on your GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
+The person your group designated as __project owner__ should do the following: Go ahead and start another repository using the template. Name it `GROUP-N-MADA-test-analysis` (with N of course your group number). Next, find the repository on your GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
 
 Once everyone is added and all invitations are accepted, all group members can go ahead and clone the repository to their local computer using GitKraken (or your preferred client). Make sure when you clone, you choose `Github.com` as source, and then you should be able to see the repository in the `Repository to clone` list. 
 
 Once cloned to the local computer, __contributor 1__ goes ahead and opens the `exampledata.xlsx` file (with Excel or a similar program) and adds 2 more columns to the data. One column should be something numeric, the other can be something consisting of (a few) different categories. As a (boring) example, you could add sex and waist size. Feel free to come up with more creative attributes/variables to add. Once done, save the new data as **`exampledata2.xlsx`**, then commit your changes (write a meaningful commit message) and push them to GitHub.com. 
 
-Once contributor 1 is done, __contributor 2__ pulls the repository with the updated changes (i.e., the added data). Adjust the `processingscript.R` file such that it now loads the new data file called `exampledata2.xlsx`. Take a look at the new data. If necessary (depending on what contributor 1 added), add a few lines of code to clean the new data as needed. If this is needed, you either need to know at least a little bit of R coding, otherwise Google your way to a solution. Once everything works and the script creates a new clean dataset that can be saved as `processeddata.rds`, your job is done. Commit your changes and push to GitHub.
+Once contributor 1 is done, __contributor 2__ pulls the repository with the updated changes (i.e., the added data). Adjust the `processingscript.R` file such that it now loads the new data file called `exampledata2.xlsx`. Take a look at the new data. If necessary (depending on what contributor 1 added), add a few lines of code to clean the new data as needed. If this is needed, you either need to know at least a little bit of R coding, otherwise Google your way to a solution. Once everything works and the script creates a new clean dataset that can be saved as `processeddata.rds`, go to `processingfile_v2.qmd` and adjust as needed to make sure the updates you made to the R script are reflected in the Quarto file. Once both `processingscript.R` and `processingfile_v2.qmd` are updated and run without error messages, commit your changes and push to GitHub. Then let the next person in your group know.
 
 __If your team does not have 4 persons, then contributor 2 will also need to do the part of contributor 3.__
 
@@ -60,7 +62,7 @@ _After the deadline, I'll check/grade the repository of each group. The grade wi
 
 # Discussion
 
-Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. Report the project you found and your experience being able (or not) to reproduce it as a post in the _Reproducible Project Examples_ channel. I suggest you focus on projects that are done with our set of tools (R/Rmarkdown, etc.). Post your finding. 
+Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. I suggest you focus on projects that are done with our set of tools (R/Quarto, etc.), but that's not required. Report the project you found and your experience being able (or not) to reproduce it as a post in the _Module 2 Discussion_ channel.  
 
 Then take a look at a few of your classmates postings and explore/comment on what they found.
 

@@ -32,8 +32,7 @@ This website contains almost all the content of an online graduate level course 
 
 _**The course is currently running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_
 
-_**The course is currently not running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_
-
+<!-- _**The course is currently not running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
 
 <!-- **This course website is currently being updated for spring 2023. As long as this message is shown, consider the current website outdated, things will change (though likely not by a whole lot).** -->
 
