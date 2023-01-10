@@ -21,13 +21,13 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-We'll practice the topics covered in this unit by continuing with the exercise from last week.
+We'll practice the topics covered in this and prior units by continuing with the exercise we started previously.
 
 
 
 ## Setup
 
-For this week's exercise, we'll continue on the exercise we started previously. We'll also do some group work again, using the -- by now familiar -- M1, M2, ... setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked with. The goal is that, as in past exercises, everyone will work on their own repository and on one other person's repository. If you are in a group of 4, you can also do pairs. That of course doesn't work in a group of 3, so you need to use the 'circular' setup there.
+For this week's exercise, we'll continue on the exercise/repository we started previously. We'll also do some group work again, using the -- by now familiar -- M1, M2, ... setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked with. The goal is that, as in past exercises, everyone will work on their own repository and on one other person's repository. If you are in a group of 4, you can also do pairs. That of course doesn't work in a group of 3, so you need to use the 'circular' setup there.
 
 Make sure you have the latest version of the repository on your local machine. As needed, pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio. 
 

@@ -24,6 +24,10 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 We definitely need to practice some of the topics we covered in this (and previous modules). But since at the end of the week there is another project deadline, I want you to focus on that. Thus no exercise this week, we'll practice the topics we covered in upcoming exercises.
 
 
+# Project
+
+Finish (and make sure to push) part 3 of the project. There is no need to submit a link. Unless you renamed your repository, I, and your classmates, know where to find it based on your previous submissions. Do make sure the link you posted previously tn the `project_related` Slack channel is accurate.
+
 
 
 # Discussion

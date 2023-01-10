@@ -74,4 +74,4 @@ No discussion assignment this week. Instead, submit project part 1.
 
 # Project
 
-Submission of part 1 is due. Submit a link with a URL to your repository to the _project_topics_ Slack channel. 
+Submission of part 1 is due. **Submit a link with a URL to your repository to the `project_related` Slack channel.** 

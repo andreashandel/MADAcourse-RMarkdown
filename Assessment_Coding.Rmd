@@ -1,10 +1,7 @@
 ---
 title: Assessment - R Coding Basics  
-subtitle: ""
 author: Andreas Handel
-institute: "University of Georgia"
 date: "`r file.mtime(knitr::current_input())`"
-#bibliography: ../media/references.bib
 output: 
   html_document:
     toc_depth: 3
@@ -28,12 +25,12 @@ Assign each member in your group an (arbitrary) number (I'm calling them M1, M2,
 
 
 ## Getting started
-Open your portfolio website project in RStudio. Then open the Rmd file for the coding exercise. The name of this file might be `rcoding.Rmd` or `coding_exercise.Rmd`, depending on when you forked the `online-portfolio-template` (I kept making changes to the template). You'll edit that file for this exercise.
+Open your portfolio website project in RStudio. Then open the file for the coding exercise, `coding_exercise.qmd`.
 
 :::note
 Documenting well is very important! Add lots of comments into your code/file. I suggest that your code should be more than half comments. For every block of code, you have a few lines of comments at the beginning explaining what the code block does, and then each line of code gets its separate line of comment with more details. Comment on both the how and why of your code. This much commentary might seem overkill initially. But as your code gets more complex, it will be very useful. Both your collaborators, and your future self looking at the code you wrote several weeks ago will be incredibly thankful for your comments!
 
-If you write R code, your comments will be lines that start with `#`. For R Markdown files, you can either add comments as Markdown text above/below your code, and/or add comments inside your R code chunks.
+If you write R code, your comments will be lines that start with `#`. For QUarto or R Markdown files, you can either add comments as Markdown text above/below your code, and/or add comments inside your R code chunks. Both is ideal. R Studio allows you to quickly turn sections of a document into comments or un-comment them (In the `Code` section of the R Studio menu). That can be useful for turning on/off code during testing, or hiding some parts of text that's just meant for you but not for the reader.
 :::
 
 :::note
@@ -46,11 +43,11 @@ I find it the least confusing to call _things which store values in R_ `objects`
 
 We'll look at and play with some data from the [`dslabs` package](https://cran.r-project.org/web/packages/dslabs/index.html). Write a code chunk using the `library()` function that loads the package (install the `dslabs` package first if you don't have it yet). 
 
-**All the code you write for this (and any other) project should be written into an R (or in our case Quarto) file, not in the R console. The reason for that is that you want a permanent record of what you did, and the ability to modify and re-run your analysis easily.**
+**All the code you write for this (and any other) project should be written into an R or Quarto file, not in the R console. The reason for that is that you want a permanent record of what you did, and the ability to modify and re-run your analysis easily.** For this exercise, you can either write the code directly into the Quarto document, or if you prefer the setup of a separate R script and pulling code into the Quarto document (see the data analysis template for an example), you can do it that way too.
 
 We'll look at the `gapminder` dataset from `dslabs`. Write a code chunk using the `help()` function that pulls up the help page for the data to see what it contains. Then use the `str()` and `summary()` functions to take a look at the data. Use the `class()` function to check what type of object `gapminder` is.
 
-To illustrate how that should look, you should have these lines of code in the R Markdown file you opened for this exercise.
+To illustrate how that should look, you should have these lines of code so far for this exercise.
 
 ```{r, eval = FALSE}
 #load dslabs package

@@ -1,0 +1,165 @@
+---
+title: Assessment - R Coding Basics  
+subtitle: ""
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+format: 
+  html:
+    toc_depth: 3
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+
+
+# Quiz
+
+Get the quiz sheet for this module from the general [__Assessments__](./Course_Assessments.html) page. Fill it in, then submit to the online grading system before the deadline. 
+
+# Exercise
+
+This project asks you to write code to do a simple data analysis. This also involves group work, and of course GitHub. 
+
+**The first part of the project is due by Wednesday, so your classmate can do their part before the Friday deadline.**
+
+## Group setup
+
+Assign each member in your group an (arbitrary) number (I'm calling them M1, M2, ...). For this exercise, everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2's repository, M2 will work on M3, etc. The last person (M3 or M4), will work on M1's repository. This way, everyone will work on their own and one group member's repository. Details are given below.
+
+
+## Getting started
+Open your portfolio website project in RStudio. Then open the file for the coding exercise, `coding_exercise.qmd`.
+
+:::note
+Documenting well is very important! Add lots of comments into your code/file. I suggest that your code should be more than half comments. For every block of code, you have a few lines of comments at the beginning explaining what the code block does, and then each line of code gets its separate line of comment with more details. Comment on both the how and why of your code. This much commentary might seem overkill initially. But as your code gets more complex, it will be very useful. Both your collaborators, and your future self looking at the code you wrote several weeks ago will be incredibly thankful for your comments!
+
+If you write R code, your comments will be lines that start with `#`. For QUarto or R Markdown files, you can either add comments as Markdown text above/below your code, and/or add comments inside your R code chunks. Both is ideal. R Studio allows you to quickly turn sections of a document into comments or un-comment them (In the `Code` section of the R Studio menu). That can be useful for turning on/off code during testing, or hiding some parts of text that's just meant for you but not for the reader.
+:::
+
+:::note
+I find it the least confusing to call _things which store values in R_ `objects` (e.g., `x` is an object here: `x <- 2 + 2`) and reserve the word `variable` for a data variable, i.e., usually a column. However, it is common to refer to an `object` as a `variable` as well. Because of that, I sometimes use that terminology inadvertently too. So if I talk about a variable, you need to determine from the context if I mean a certain variable in the data (e.g. height or weight), or a variable in R (e.g. `x` or `result`) that stores some content.
+:::
+
+
+
+## Loading and checking data
+
+We'll look at and play with some data from the [`dslabs` package](https://cran.r-project.org/web/packages/dslabs/index.html). Write a code chunk using the `library()` function that loads the package (install the `dslabs` package first if you don't have it yet). 
+
+**All the code you write for this (and any other) project should be written into an R or Quarto file, not in the R console. The reason for that is that you want a permanent record of what you did, and the ability to modify and re-run your analysis easily.** For this exercise, you can either write the code directly into the Quarto document, or if you prefer the setup of a separate R script and pulling code into the Quarto document (see the data analysis template for an example), you can do it that way too.
+
+We'll look at the `gapminder` dataset from `dslabs`. Write a code chunk using the `help()` function that pulls up the help page for the data to see what it contains. Then use the `str()` and `summary()` functions to take a look at the data. Use the `class()` function to check what type of object `gapminder` is.
+
+To illustrate how that should look, you should have these lines of code for this exercise.
+
+```{r, eval = FALSE}
+#load dslabs package
+library("dslabs")
+#look at help file for gapminder data
+help(gapminder)
+#get an overview of data structure
+str(gapminder)
+#get a summary of data
+summary(gapminder)
+#determine the type of object gapminder is
+class(gapminder)
+```
+
+## Processing data
+
+Write code that assigns only the African countries to a new object/variable called `africadata`. Run `str` and `summary` on the new object you created. You should now have 2907 observations, down from 10545. Depending on how you do this, you might also notice that all the different categories are still kept in the `continent` (and other) variables, but show 0. R does not automatically remove categories of what in R is called a factor variable (a categorical variable) even if they are empty. We don't have to worry about that just now, but something to keep in mind, it can sometimes lead to strange behavior.
+
+Take the `africadata` object and make two new variables (name them whatever you want), one that contains only `infant_mortality` and `life_expectancy` and one that contains only `population` and `life_expectancy`. You should have two new objects/variables with 2907 rows and two columns. Use the `str`, and `summary` commands to take a look at both variables.
+
+:::note
+It is good practice to load all packages at the beginning of your code. So if you are using some R package for the tasks I just described, instead of loading it (with `library` just before you use it, place all your `library` commands at the beginning of your script. Also, add a short comment explaining why you are loading a certain package.)
+:::
+
+
+## Plotting
+
+Using the new variables you created, plot life expectancy as a function of infant mortality and as a function of population size. Make two separate plots. Plot the data as points. For the plot with population size on the x-axis, set the x-axis to a log scale.
+
+You should see a negative correlation between infant mortality and life expectancy, which makes sense. You should also see a positive correlation between population size and life expectancy. In both plots, especially the second one, you will see 'streaks' of data that seem to go together. Can you figure out what is going on here? Take another look at the `africadata` data we generated, which should give you a hint of what's happening. 
+
+
+## More data processing
+
+I'm sure you realized that the pattern we see in the data is due to the fact that we have different years for individual countries, and that over time these countries increase in population size and also life expectancy. Let's pick only one year and see what patterns we find. We want a year for which we have the most data. You might have noticed that in `africadata`, there are 226 NA (i.e., missing values) for infant mortality. Write code that figures out which years have missing data for infant mortality. You should find that there is missing up to 1981 and then again for 2016. So we'll avoid those years and go with 2000 instead. Create a new object by extracting only the data for the year 2000 from the `africadata` object. You should end up with 51 observations and 9 variables. Check it with `str` and `summary`.
+
+
+## More plotting
+
+Let's make the same plots as above again, this time only for the year 2000. Based on those plots, there seems to still be a negative correlation between infant mortality and life expectancy, and no noticeable correlation between population size and life expectancy. Let's apply some statistics to this data.
+
+
+## A simple fit
+
+Use the `lm` function and fit life expectancy as the outcome, and infant mortality as the predictor. Then use the population size as the predictor. (Use the data from 2000 only.) Save the result from the two fits into two objects (e.g. `fit1` and `fit2`) and apply the `summary` command to both, which will print various fit results to the screen. Based on the p-values for each fit, what do you conclude? 
+
+
+## Sending updates to Github
+
+Once you are done with your exercise, re-build your website (use the `Build Website` button under the `Build` tab in the upper right panel of R Studio). Make sure no error messages show up. A preview should show up, check that the page for this exercise looks as you want it to. Once you are happy with how everything looks, close RStudio. Go to GitKraken, commit your changes, and push to the remote repository. Check your portfolio website online to make sure you can now see the newly created R exercise document (in addition to your previously created `About` page). Of course at any point, feel free to make further enhancements to your portfolio website.
+
+
+## Improving each other's work
+
+Once everyone has done their part (by **Wednesday** at the latest), you'll contribute to another group member's project. 
+
+Earlier, we did collaborative work by having individuals added as collaborators for a repository. There are other ways, we'll try a different one here, called the __Fork and pull-request__ workflow. You'll be using that multiple times throughout this class. 
+
+The basic idea is as follows. First, you make a copy of someone's GitHub repository. In GitHub terminology, that is called doing a _fork_ of their repository. You can do that for any public repository, even if you are not a collaborator on the repository. 
+
+Then you implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main repository. This last part is called issuing a __pull request__. You are requesting that the other person _pull_ your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as _merge_ requests or _sync_ requests, i.e. you are requesting that they merge or sync your changes into their repository. You'll find the terminology _merge request_ is used at times. If the person who controls the main repository likes your changes, they will _merge_ your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this _fork and pull_ flow now.
+
+Find the repository of the team member you will contribute to and `Fork` their repository. Then clone it to your local machine, as you have done previously with your own repositories. In fact, this fork is now your own repository, you have it forever, even if the person who owns the original repository deletes theirs. 
+
+Open the Rmd file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
+
+Start a new section below the part your classmate did. **Add a sentence to indicate where your section starts and also add your name.** E.g., you can write something like "this section added by YOURNAME".
+
+Write some more code to do some more analysis of the dataset. This is fairly open-ended. I want you to create a few more plots of the data, and fit another model to some parts of data and display the fitting results in a table. You can e.g. use the `broom` package to convert output from `lm` into a data frame you can show as a table. What exactly you explore, plot and fit is up to you. 
+
+Once you wrote your code, confirm that it runs without problems and errors, and produces the expected results. Once everything is good, commit and push your changes to the remote. Note that this pushes to __your fork__ (i.e. copy) of the repository. Now it's time to offer your contribution to your classmate to integrate into their repository.
+
+
+## Making a pull request
+Now, let's contribute your code to your classmate's project. Go to the GitHub.com website for your repository. In the top left, you should see the _New Pull Request_ button. (Underneath, it should say something like `this branch is N commits ahead of NNN`). Click the _New Pull Request_ button. A page comes up showing what you want to do, which is to send your changes to the original repository. You are requesting that the other person _pull_ your changes into their repository. Hopefully, you'll see a green check-mark that says _able to merge_. If your classmate made changes to the same files you did, it could have created a merge conflict. Hopefully, this won't be the case. In either case (merge conflict or not), you can click the green button and _Create a pull request_. You are presented with a box in which you want to add a meaningful title, so the other person knows what you changed and some more explanation in the box. Then click _Create pull request_.
+
+
+## Checking and merging pull requests
+Once your classmate who has worked on your repository creates a pull request, you should receive a notification that a pull request was created. Go to the GitHub site and to your online portfolio repository. Click on _Pull requests_, then click on the request (there should only be one). Take a look. On the first page, it shows you their message and if there are conflicts with your version of the repository. Hopefully, you didn't change things around while they did, so there shouldn't be any conflicts. Click on the _Files changed_ button, which will show you an overview of the code they changed. Removals are red, and additions are green.
+
+On the main pull request site, you can do various things. If you don't like the suggested edits, you can write a comment and close the pull request without merging their changes into your repository. If you like most of what they did, but there is something they need to adjust, write a comment and let them know. Still, close the pull request and ask them to send a new one. If you are ok with their changes (hopefully, this is the case here), you can merge the pull request and close it. Their updates are now part of your repository.
+
+**Important:** To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt on your local machine likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.
+
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it.**
+
+
+:::note
+I mentioned this before, but it doesn't hurt repeating. At times, you will get merge conflicts. At that stage, it gets a bit tricky. GitKraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn't work well for other files (word, Excel, etc.). Sometimes you have to temporarily move one of the conflicting files out of the repository, then do the merge, then manually see how the files changed and do the merge yourself. To minimize conflicts, it is good practice to make multiple pull requests with small changes instead of a single large pull request. If you changed 20 files and 2 of them create a conflict, the person has to reject your complete pull request if they don't want those conflicts. It is better to change a few files and work on just one topic, then issue a pull request. After that, start the next set, and issue another pull request. By breaking them up, it is more likely that conflicts are avoided or localized.
+:::
+
+## More information
+Some more information on _forks_ and _pulls_ and what to do if things don't go right can be found in [happygitwithR](https://happygitwithr.com/). Note that a lot of the commands described for use on the command line (e.g. `stash`) can be applied graphically through GitKraken.
+
+:::note
+Github also has _branches_. Those are similar to forks but meant for internal use. For instance, if you have a project and want to implement something new, but it might not work, you can create a branch, work in that branch, and once everything is ok, you can merge the branch into the main/master. This is useful if you write software that others are using, and you don't want to break the whole thing. It is also helpful if you work with collaborators on a project. To be able to use branches, you need to be an owner or member of a repository. In contrast, you can fork any public repository.
+:::
+
+
+## Another _fork and pull_ exercise
+
+**This is optional. You can do it at any time during this course (and more than once) `r emoji::emoji('grin')`.**
+
+Help improve the course with your contributions! Find something wrong/unclear/worth improving with this course (e.g. a typo, something confusing, a broken link, a suggestion for a new reference, or anything else).  Go to the [Github repository for this course](https://github.com/andreashandel/MADAcourse). Follow the steps outlined above: Fork the course to your personal account, clone it to your local computer, implement your updates, push it back to GitHub, then initiate a pull request. I will get a notification of your pull request. If things look ok and no conflicts exist, I will merge your improvements into the course. And just like that, you have contributed to improving this course! (And of course, you will be listed in the _Acknowledgments_ section of the main course page.)
+
+
+
+# Discussion
+
+Describe one thing you learned in this module about R that you find rather annoying or confusing or dumb, and one thing about R that you find interesting or cool or awesome.
+
+Then comment/reply to your classmates posts.

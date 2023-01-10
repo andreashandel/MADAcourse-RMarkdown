@@ -16,26 +16,26 @@ The *Assessments* column lists items that need to be submitted and that will be 
 
 **Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.**
 
-| **Module Topic**                                      | **Start and end dates** | **Assessments**                                         |
+| **Module Topic**                                      | **Start and end dates** | **Assessments**                                            |
 |----------------------------|----------------|---------------------------|
-| Module 1 -- Course and tools introduction             | 1/9 -- 1/13             | quiz, exercise (due Wed), discussion                    |
-| Module 2 -- Data analysis introduction                | 1/16 -- 1/20            | quiz, exercise (staggered completion dates), discussion |
-| Module 3 -- R coding basics                           | 1/23 -- 1/27            | quiz, exercise (first part due Wed), discussion         |
-| Module 4 -- Contemplating, finding and wrangling data | 1/30 -- 2/3             | quiz, exercise (first part due Wed), **project part 1** |
-| Module 5 -- Visualizing data                          | 2/6 -- 2/10             | quiz, exercise, discussion                              |
-| Module 6 -- Exploring data                            | 2/13 -- 2/17            | quiz, exercise, discussion                              |
-| Module 7 -- Statistical analysis overview             | 2/20 -- 2/24            | quiz, **project part 2**, discussion                    |
-| Module 8 -- Fitting basic statistical models          | 2/27 -- 3/3             | quiz, exercise, discussion                              |
-| **Spring Break**                                      | **3/6 - 3/10**          |                                                         |
-| Module 9 -- Evaluating your model fits                | 3/13 -- 3/17            | quiz, **project part 3**, discussion                    |
-| Module 10 -- Improving your model fits                | 3/20 -- 3/24            | quiz, exercise (first part due Wed), part 3 feedback    |
-| Module 11 -- Machine learning models I                | 3/27 -- 3/31            | quiz, exercise, discussion                              |
-| Module 12 -- Machine learning models II               | 4/3 -- 4/7              | quiz, exercise, **project part 4**                      |
-| Module 13 -- The complete analysis workflow           | 4/10 -- 4/14            | quiz, exercise, discussion                              |
-| Finishing Project                                     | 4/17 -- 4/21            | **project part 5** due Monday 4/24, 8am                 |
-| Project Reviews                                       | 4/24 -- 4/28            | project reviews due Friday 4/28, 5pm                    |
-| Final project revision                                | 5/1 - 5/5               | **project part 6** due Monday 5/8, 8am                  |
-| Module 14 -- AI & deep learning introduction          | none                    | none - this module is optional material                 |
+| Module 1 -- Course and tools introduction             | 1/9 -- 1/13             | quiz, exercise (due Wed), discussion                       |
+| Module 2 -- Data analysis introduction                | 1/16 -- 1/20            | quiz, exercise (staggered completion dates), discussion    |
+| Module 3 -- R coding basics                           | 1/23 -- 1/27            | quiz, exercise (first part due Wed), discussion            |
+| Module 4 -- Contemplating, finding and wrangling data | 1/30 -- 2/3             | quiz, exercise (first part due Wed), **project part 1**    |
+| Module 5 -- Visualizing data                          | 2/6 -- 2/10             | quiz, exercise, discussion                                 |
+| Module 6 -- Exploring data                            | 2/13 -- 2/17            | quiz, exercise, discussion                                 |
+| Module 7 -- Statistical analysis overview             | 2/20 -- 2/24            | quiz, **project part 2**, discussion                       |
+| Module 8 -- Fitting basic statistical models          | 2/27 -- 3/3             | quiz, exercise, discussion                                 |
+| **Spring Break**                                      | **3/6 - 3/10**          |                                                            |
+| Module 9 -- Evaluating your model fits                | 3/13 -- 3/17            | quiz, **project part 3**, discussion                       |
+| Module 10 -- Improving your model fits                | 3/20 -- 3/24            | quiz, exercise (first part due Wed), project part 3 review |
+| Module 11 -- Machine learning models I                | 3/27 -- 3/31            | quiz, exercise, discussion                                 |
+| Module 12 -- Machine learning models II               | 4/3 -- 4/7              | quiz, exercise, **project part 4**                         |
+| Module 13 -- The complete analysis workflow           | 4/10 -- 4/14            | quiz, exercise, discussion                                 |
+| Finishing Project                                     | 4/17 -- 4/21            | **project part 5** due Monday 4/24, 8am                    |
+| Project Reviews                                       | 4/24 -- 4/28            | project reviews due Friday 4/28, 5pm                       |
+| Final project revision                                | 5/1 - 5/5               | **project part 6** due Monday 5/8, 8am                     |
+| Module 14 -- AI & deep learning introduction          | none                    | none - this module is optional material                    |
 
 *Note: Withdrawal deadline is Thursday 3/23.*
 

@@ -51,10 +51,10 @@ Once contributor 1 is done, __contributor 2__ pulls the repository with the upda
 
 __If your team does not have 4 persons, then contributor 2 will also need to do the part of contributor 3.__
 
-Now __contributor 3__ pulls the latest version of the repository, then opens `analysisscript.R`. Edit the code such that it creates a boxplot with the new categorical variable (whatever it is) on the x-axis, and height on the y-axis. Also create another scatterplot with weight on the x-axis and the new numerical variable on the y-axis. Save both figures to files. Once done, commit and push.
+As __contributor 3__ pull, the latest version of the repository, then open `statistical_analysis.R`. Edit the code such that it creates a boxplot with the new categorical variable (whatever it is) on the x-axis, and height on the y-axis. Also create another scatterplot with weight on the x-axis and the new numerical variable on the y-axis. Save both figures to files. Once done, commit and push.
 
 
-Finally, it's back to the __project owner__. Pull the latest version of the repository. Then open `Manuscript.Rmd`. Add code to display the two new figures for the new data your other group members produced. Then knit it to a word doc. Make sure it looks ok. Commit and push your changes. **Finally, post the link to your repository with the updated manuscript into the `module2_exercise` Slack channel by the deadline.**
+Finally, it's back to the __project owner__. Pull the latest version of the repository. Then open `Manuscript.qmd`. Add code to display the two new figures for the new data your other group members produced. Process the Quarto file to make sure it renders into a word doc and everything looks good. Commit and push your changes. **Finally, post the link to your repository with the updated manuscript into the `module2_exercise` Slack channel by the deadline.**
 
 _After the deadline, I'll check/grade the repository of each group. The grade will be a single one and the same for every group member._
 
