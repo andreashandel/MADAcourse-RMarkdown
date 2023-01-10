@@ -64,9 +64,21 @@ class(gapminder)
 
 ## Processing data
 
+:::note
+You can accomplish the next steps (and pretty much anything) with just basic R commands and not using extra functionality from packages. However, things are often easier with packages. 
+For data processing tasks, the packages from [the tidyverse]() are very useful. You can do the following tasks with any commands/packages you like. 
+If you use functions from various packages, it is good practice to load all packages at the beginning of your code. This way, it is 
+
+So if you are using some R package for the tasks I just described, instead of loading it (with `library` just before you use it, place all your `library` commands at the beginning of your script. Also, add a short comment explaining why you are loading a certain package.)
+:::
+
+
 Write code that assigns only the African countries to a new object/variable called `africadata`. Run `str` and `summary` on the new object you created. You should now have 2907 observations, down from 10545. Depending on how you do this, you might also notice that all the different categories are still kept in the `continent` (and other) variables, but show 0. R does not automatically remove categories of what in R is called a factor variable (a categorical variable) even if they are empty. We don't have to worry about that just now, but something to keep in mind, it can sometimes lead to strange behavior.
 
-Take the `africadata` object and make two new variables (name them whatever you want), one that contains only `infant_mortality` and `life_expectancy` and one that contains only `population` and `life_expectancy`. You should have two new objects/variables with 2907 rows and two columns. Use the `str`, and `summary` commands to take a look at both variables.
+Take the `africadata` object and create two new objects  (name them whatever you want), one that contains only `infant_mortality` and `life_expectancy` and one that contains only `population` and `life_expectancy`. You should have two new objects/variables with 2907 rows and two columns. Use the `str`, and `summary` commands to take a look at both.
+
+
+
 
 :::note
 It is good practice to load all packages at the beginning of your code. So if you are using some R package for the tasks I just described, instead of loading it (with `library` just before you use it, place all your `library` commands at the beginning of your script. Also, add a short comment explaining why you are loading a certain package.)
