@@ -17,12 +17,12 @@ The *Assessments* column lists items that need to be submitted and that will be 
 **Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.**
 
 | **Module Topic**                                      | **Start and end dates** | **Assessments**                                            |
-|----------------------------|----------------|---------------------------|
+|----------------------------|------------------|---------------------------|
 | Module 1 -- Course and tools introduction             | 1/9 -- 1/13             | quiz, exercise (due Wed), discussion                       |
 | Module 2 -- Data analysis introduction                | 1/16 -- 1/20            | quiz, exercise (staggered completion dates), discussion    |
 | Module 3 -- R coding basics                           | 1/23 -- 1/27            | quiz, exercise (first part due Wed), discussion            |
 | Module 4 -- Contemplating, finding and wrangling data | 1/30 -- 2/3             | quiz, exercise (first part due Wed), **project part 1**    |
-| Module 5 -- Visualizing data                          | 2/6 -- 2/10             | quiz, exercise, discussion                                 |
+| Module 5 -- Visualizing data                          | 2/6 -- 2/10             | quiz, exercise (first part due Wed), discussion            |
 | Module 6 -- Exploring data                            | 2/13 -- 2/17            | quiz, exercise, discussion                                 |
 | Module 7 -- Statistical analysis overview             | 2/20 -- 2/24            | quiz, **project part 2**, discussion                       |
 | Module 8 -- Fitting basic statistical models          | 2/27 -- 3/3             | quiz, exercise, discussion                                 |

@@ -9,13 +9,13 @@ output:
     toc_depth: 3
 ---
 
-## Course Description
+## Overview
 
 This course provides a survey of modern statistical approaches to analyze data. We will cover a variety of modern approaches for analyzing and interpreting data commonly encountered in public health, biomedical sciences, and related areas. This is an applied, hands-on class. We will use real data (bring your own data if you have it) to learn different methods of analysis. We will discuss all the steps of a data analysis, including obtaining and cleaning data, exploratory and full analysis, and presentation of results.
 
 We will discuss how to formulate scientifically solid questions for a given set of data, how to decide on the right method of analysis, how to implement the analysis in R, and how to present and communicate the results. We will cover statistical topics such as regression, tree based models, cross-validation, bootstrapping, and model selection. 
 
-## Course Learning Objectives
+## Learning Objectives
 
 The main goal for this course is for you to learn the whole process of performing a data analysis project. This starts with identifying a suitable question-data pair, proceeds to getting, cleaning and exploring the data, culminates with fitting statistical models and producing materials that communicate what you did and found. A second goal is to introduce you to some modern analysis approaches that these days often go by the name of 'Machine Learning'. Finally, a related goal is to introduce you to a set of tools that allow for a modern, reproducible workflow of your analysis.
 
@@ -56,6 +56,31 @@ _Develop skills to critically assess your own and others' analyses and conclusio
 
 * Judge the usefulness and appropriateness of data analyses described in the primary research literature.
 * Learn to _look over your shoulder_ and critically assess what you are doing, what assumptions you make by doing certain things, and if and how you can justify these.
+
+
+## Topics
+
+Here is a non-exhaustive lists of topics that this course does and does not cover.
+
+
+### We will cover
+
+* How to set up an analysis workflow that is as reproducible and automated as possible.
+* Getting, cleaning and processing messy real-world data.
+* Data visualization.
+* Modern tools for data analysis (e.g., R, Quarto, Git/GitHub).
+* The `tidyverse` for data processing and `tidymodels` for fitting models.
+* An introduction to some Machine Learning tools and techniques.
+
+
+### We will not (or barely) cover
+
+* Advanced visualization techniques using interactive tools such as R/Shiny.
+* Dealing with "non-rectangular" data, such as time-series data, images, audio, complex -omics data, etc. (we won't cover it, but you can use such data for your class project).
+* Statistical tests and basic statistical modeling (linear and generalized linear models). Some familiarity with those techniques is assumed and they do show up a few times, but won't be covered.  
+* How to code in R. We will use R, but this course doesn't teach R. With enough effort, a student can learn both the subject matter and pick up enough R at the same time, but this will require extra effort. In general, some basic familiarity with R or another programming language will be assumed.
+* Anything in depth. This is a survey course and covers a lot of material, thus we won't be able to go into much depth for any topic. Resources are provided to allow anyone interested to go deeper on their own.
+
 
 
 

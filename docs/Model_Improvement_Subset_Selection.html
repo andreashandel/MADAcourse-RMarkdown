@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Subset Selection</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2022-04-18 09:08:38</h4>
+<h4 class="date">2023-01-12 13:16:26</h4>
 
 </div>
 
@@ -929,12 +929,12 @@ discuss that more soon.</p>
 <h1>Maybe avoid subset selection</h1>
 <p>So I just explained in detail how subset selection works and what it
 tries to accomplish (make simpler models and prevent overfitting), and
-now I’m going to tell you to maybe avoid it 🤦?! Here is the discussion.
-If you go to the statistical literature or online, you will find papers
-and posts telling you why subset selection is bad. <a
-href="./media/heinze17ti.pdf">Here is a nice paper that lists subset
-selection as one: <em>Five myths about variable selection.</em></a>.
-Many similar papers and discussions exist. If you want to see more, <a
+now I’m going to tell you to maybe avoid it 🤦?!</p>
+<p>If you go to the statistical literature or online, you will find
+papers and posts telling you why subset selection is bad. Here is a nice
+paper that talks about it. <a href="./media/heinze17ti.pdf"><em>Five
+myths about variable selection.</em></a>. Many similar papers and
+discussions exist. If you want to see more, <a
 href="https://en.wikipedia.org/wiki/Stepwise_regression">check
 Wikipedia</a> or do a Google search on
 <code>problems with stepwise selection</code>. You’ll find plenty. The
@@ -942,9 +942,9 @@ general criticism is that subset selection doesn’t solve the problem of
 overfitting. Instead, by trying lots of different models, it might make
 it worse. Most of the criticism is directed at doing subset selection
 through AIC, F-test or other criteria, not using CV. I haven’t yet seen
-a convincing article that explains that subset selection if using CV is
-equally bad (if you find one, please let me know!) Even when using CV,
-subset selection might still lead to overfitting, especially if the
+a convincing article that explains that subset selection is equally bad
+if one uses CV (if you find one, please let me know!) Even when using
+CV, subset selection might still lead to overfitting, especially if the
 amount of data you have is not large and thus CV estimates not too
 reliable. Probably because of that, and also because there are other
 methods, such as regularization (which we’ll cover next), that

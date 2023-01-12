@@ -21,14 +21,19 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-For this exercise, you are asked to re-create a professional-looking graph that you find online. No group work this week, but of course more GitHub. This exercise will go into your portfolio.
+For this exercise, you are asked to re-create a professional-looking graph that you find online. This exercise will go into your portfolio.
 
 For motivation take a quick look at [this blog post by Rafael Irizarry](https://simplystatistics.org/posts/2019-08-28-you-can-replicate-almost-any-plot-with-ggplot2/) (the author of the IDS book we've been using). He shows how one can use R and ggplot to reproduce figures that look very similar to professional ones. You'll see that it usually doesn't require that many lines of code to get an outstanding looking figure!
 
 We'll try to do that ourselves.
 
-## Getting started
-Open your portfolio website project in RStudio. Then open the `visualization_exercise.Rmd` file. We'll use that file for this exercise.
+
+## Setup
+
+We'll do a bit of group work again. If you are a group of 4, team up in pairs. If you are a group of 3, do the "circular" pairing again. Everyone should do the visualization and comment on one other person's exercsie (via GitHub Issues as described below).
+
+Once you determined your partner(s) for this exercise, open your portfolio website project in RStudio. Then open the `visualization_exercise.qmd` file. We'll use that file for this exercise.
+
 
 
 ## Find a graph to reproduce
@@ -41,11 +46,15 @@ If you can't find a graph on FiveThirtyEight that you like and would like to rep
 
 The only requirements are that the original graph must be interesting and good looking (a basic scatterplot is not enough) and freely available online, not behind a paywall.
 
+_If you already feel comfortable making graphs with `ggplot` and want to try something different, feel free to create an interactive graph using one of the many options for that (e.g., Shiny, plotly). You can also recreate a previous static graph and make it interactive (e.g., allowing people to turn on/off specific parts)._
+
+
 ## Get the data
 
 Once you have a graph you'd like to reproduce, either extract (e.g, read off or some other extraction method) the data right from the graph or find the original data source. If neither is an option, move on to the next graph. Having access to the data is critical.
 
 Make a new folder in your repository, call it `data`. Place the data file you found or created inside that folder. If you found it, it will be in whatever format you got. If you made it yourself by extracting it from the original graph, I recommend a CSV file. 
+
 
 ## Re-create the original graph
 
@@ -53,18 +62,23 @@ Once you have the data and the original graph, you'll first need to add a few li
 
 Then write R code to try and get as close as possible to the original graph. You will likely use ggplot2 & friends, but if you want to use base R, lattice or another plotting approach that's ok too, as long as everything happens with R code. The goal is to put in some effort to get close, but don't spend an insane amount of time trying to make a perfect copy. A few (maybe 1-4) hours of working on this should suffice. If it still looks a bit different in the end, that's ok. 
 
-Your final product should be code and explanatory text inside your Rmd file that shows the original plot and links to its source, then shows your code that re-creates the graph, and finally shows your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
+Your final product should be code and explanatory text that shows the original plot and links to its source, then shows your code that re-creates the graph, and finally shows your graph. Also, provide some additional information that helps readers understand how you went about making the plot. For instance, you should provide some additional text describing things you tried that did and didn't work, or include links to sources from which you took inspiration, adapted your code, etc. 
 
-Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).
+Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the **discussion** channel for this module. Do that by Wednesday.
 
-And of course, for this and any other products you create, if you are active online (e.g., social media or LinkedIn), you can post an announcement of your visualization exercise there. 
+
+## Provide feedback
+
+Once everyone has updated their portfolio website to contain their visualization exercise, find the one from your exercise partner and take a close look. Then go to their repository online and use the GitHub Issues feature to provide feedback on things you noticed that might need fixing, or something that you think could be further improved, or any other thought you have that might help your classmate further improve. 
+
+The person receiving the feedback should look at the Issue, address it, then provide a comment to the Issue and if they think it's fully addressed, they can close the Issue. Otherwise you can leave it open.
+
 
 
 # Discussion
 
-Post the link to your visualization page to the discussion channel for this module (module 5). Take a look at some of the figures your colleagues created, and provide feedback.
-
-Since the exercise is due Friday, you can either look at and comment on those posts from classmates that finished the exercise early, or continue the discussion after Friday. I won't check/assess until beginning of the following week.
+Take a look at some of the figures your colleagues created (other than the exercise partner you already reviewed), and provide general feedback. 
+Hopefully, by looking at the different visualizations and code, you get a good idea for what can be done.
 
 
 

@@ -81,7 +81,7 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 
 * [Common statistical tests are linear models](https://lindeloev.github.io/tests-as-linear/) is a website that illustrates how many standard statistical tests are equivalent to certain types of linear models. Very useful if you are bewildered by the zoo of statistical tests and wonder how they are related to regression models.
 * [Library of Statistical Techniques](https://lost-stats.github.io/) is a collection of short explanations and code covering a range of different statistical topics. More general data analysis topics, e.g. wranging and visualization, are also covered.
-
+* [Common statistical myths and how to push back](https://discourse.datamethods.org/t/reference-collection-to-push-back-against-common-statistical-myths/1787) - this is a collection of links to references that address/refute common statistical myths (i.e., things that are wrong but that are commonly done/said/written in the scientific literature anyway.)
 
 # Bayesian Analysis
 
