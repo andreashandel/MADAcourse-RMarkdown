@@ -28,7 +28,7 @@ We'll practice a bit of model fitting using the `tidymodels` framework. Of cours
 
 We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files and **make sure to unzip**. Find the `SympAct_Any_Pos.Rda` file, which is the one we'll work with. 
 
-Start a new repository using the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-analysis3`), and clone it to your local computer. 
+Start a new repository using the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-flu-analysis`), and clone it to your local computer. 
 
 Place Brian's data file into the `raw_data` folder. (I know he already processed it some, but we use it as our start, so for us that is the raw material.)
 
@@ -40,15 +40,15 @@ We already spent time on the important steps of data wrangling/cleaning and expl
 
 By now you will have figured out that the whole wrangling/exploring process is iterative. Without exploring your data, you don't know how to clean/wrangle it. Without at least some cleaning, exploration often doesn't work (e.g. if you have missing values, some R summary functions don't work properly).
 
-For this exercise, write some code in the `processingscript.R` file that further processes and cleans the data as follows:
+For this exercise, write some code (as Quarto or Quarto+R) that further processes and cleans the data as follows:
 
 * Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name.
 * Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.
 * Remove any NA observations, there aren't many. 
 
-**No matter how you do it, write comments into your R script explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code that are not part of your cleaning (e.g., leftovers from the template).**
+**Make sure to add plenty of comments explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code or any files that are not part of your cleaning (e.g., leftovers from the template).**
 
-At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an `Rds` file, as before.   
+At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an `Rds` file.   
 
 For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) is that our main continuous outcome of interest is **Body temperature**, and our main categorical outcome is **Nausea**. We want to see if the other symptoms are correlated with (predict) those outcomes.
 

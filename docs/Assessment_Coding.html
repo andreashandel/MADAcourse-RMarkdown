@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-10 12:29:23</h4>
+<h4 class="date">2023-01-12 11:41:22</h4>
 
 </div>
 
@@ -669,7 +669,7 @@ one group member’s repository. Details are given below.</p>
 <p>Open your portfolio website project in RStudio. Then open the file
 for the coding exercise, <code>coding_exercise.qmd</code>.</p>
 <div class="note">
-<p>Documenting well is very important! Add lots of comments into your
+<p>Documenting well is very important! Add lots of comments to your
 code/file. I suggest that your code should be more than half comments.
 For every block of code, you have a few lines of comments at the
 beginning explaining what the code block does, and then each line of
@@ -688,18 +688,6 @@ turn sections of a document into comments or un-comment them (In the
 turning on/off code during testing, or hiding some parts of text that’s
 just meant for you but not for the reader.</p>
 </div>
-<div class="note">
-<p>I find it the least confusing to call <em>things which store values
-in R</em> <code>objects</code> (e.g., <code>x</code> is an object here:
-<code>x &lt;- 2 + 2</code>) and reserve the word <code>variable</code>
-for a data variable, i.e., usually a column. However, it is common to
-refer to an <code>object</code> as a <code>variable</code> as well.
-Because of that, I sometimes use that terminology inadvertently too. So
-if I talk about a variable, you need to determine from the context if I
-mean a certain variable in the data (e.g. height or weight), or a
-variable in R (e.g. <code>x</code> or <code>result</code>) that stores
-some content.</p>
-</div>
 </div>
 <div id="loading-and-checking-data" class="section level2">
 <h2>Loading and checking data</h2>
@@ -708,6 +696,22 @@ href="https://cran.r-project.org/web/packages/dslabs/index.html"><code>dslabs</c
 package</a>. Write a code chunk using the <code>library()</code>
 function that loads the package (install the <code>dslabs</code> package
 first if you don’t have it yet).</p>
+<div class="note">
+<p>It is good practice to load all packages at the beginning of your
+code. So if you are using some R package, instead of loading it with
+<code>library</code> just before you use it, place all your
+<code>library</code> commands at the beginning of your R script or
+Quarto file. Also, add a short comment explaining why you are loading a
+certain package. For a complex project, it might even make sense to list
+all packages you use in a <code>readme</code> file. Even better is to
+use something like the <a
+href="https://rstudio.github.io/renv/"><code>renv</code> package</a>
+which keeps track of all your packages and makes sure someone running
+your project at a later time gets exactly the same packages you use.
+While I’m not requiring <code>renv</code> for the course, I encourage
+you to check it out and if you are up for it, use it for the class
+exercises and the project.</p>
+</div>
 <p><strong>All the code you write for this (and any other) project
 should be written into an R or Quarto file, not in the R console. The
 reason for that is that you want a permanent record of what you did, and
@@ -742,14 +746,7 @@ class(gapminder)</code></pre>
 just basic R commands and not using extra functionality from packages.
 However, things are often easier with packages. For data processing
 tasks, the packages from <a href="">the tidyverse</a> are very useful.
-You can do the following tasks with any commands/packages you like. If
-you use functions from various packages, it is good practice to load all
-packages at the beginning of your code. This way, it is</p>
-<p>So if you are using some R package for the tasks I just described,
-instead of loading it (with <code>library</code> just before you use it,
-place all your <code>library</code> commands at the beginning of your
-script. Also, add a short comment explaining why you are loading a
-certain package.)</p>
+You can do the following tasks with any commands/packages you like.</p>
 </div>
 <p>Write code that assigns only the African countries to a new
 object/variable called <code>africadata</code>. Run <code>str</code> and
@@ -769,12 +766,16 @@ that contains only <code>population</code> and
 with 2907 rows and two columns. Use the <code>str</code>, and
 <code>summary</code> commands to take a look at both.</p>
 <div class="note">
-<p>It is good practice to load all packages at the beginning of your
-code. So if you are using some R package for the tasks I just described,
-instead of loading it (with <code>library</code> just before you use it,
-place all your <code>library</code> commands at the beginning of your
-script. Also, add a short comment explaining why you are loading a
-certain package.)</p>
+<p>I find it the least confusing to call <em>things which store values
+in R</em> <code>objects</code> (e.g., <code>x</code> is an object here:
+<code>x &lt;- 2 + 2</code>) and reserve the word <code>variable</code>
+for a data variable, i.e., usually a column. However, it is common in
+programming to refer to an <code>object</code> as a
+<code>variable</code> as well. Because of that, I sometimes use that
+terminology (inadvertently) too. So if I talk about a variable, you need
+to determine from the context if I mean a certain variable in the data
+(e.g. height or weight), or a variable in R (e.g. <code>x</code> or
+<code>result</code>) that stores some content.</p>
 </div>
 </div>
 <div id="plotting" class="section level2">
@@ -827,16 +828,15 @@ p-values for each fit, what do you conclude?</p>
 </div>
 <div id="sending-updates-to-github" class="section level2">
 <h2>Sending updates to Github</h2>
-<p>Once you are done with your exercise, re-build your website (use the
-<code>Build Website</code> button under the <code>Build</code> tab in
-the upper right panel of R Studio). Make sure no error messages show up.
-A preview should show up, check that the page for this exercise looks as
-you want it to. Once you are happy with how everything looks, close
-RStudio. Go to GitKraken, commit your changes, and push to the remote
-repository. Check your portfolio website online to make sure you can now
-see the newly created R exercise document (in addition to your
-previously created <code>About</code> page). Of course at any point,
-feel free to make further enhancements to your portfolio website.</p>
+<p>Once you are done with your exercise, re-build your website. Make
+sure no error messages show up. A preview should show up, check that the
+page for this exercise looks the way you want it to. Once you are happy
+with how everything looks, close RStudio. Go to GitKraken, commit your
+changes, and push to the remote repository. Check your portfolio website
+online to make sure you can now see the newly created R exercise
+document (in addition to your previously created <code>About</code>
+page). Of course, at any point, feel free to make further enhancements
+to your portfolio website.</p>
 </div>
 <div id="improving-each-others-work" class="section level2">
 <h2>Improving each other’s work</h2>
@@ -869,7 +869,7 @@ flow now.</p>
 as you have done previously with your own repositories. In fact, this
 fork is now your own repository, you have it forever, even if the person
 who owns the original repository deletes theirs.</p>
-<p>Open the Rmd file that contains the coding exercise. It should look
+<p>Open the file that contains the coding exercise. It should look
 fairly similar to yours, though probably somewhat different since there
 are many ways to do things in R, and their comments might be
 different.</p>
@@ -892,10 +892,10 @@ repository.</p>
 </div>
 <div id="making-a-pull-request" class="section level2">
 <h2>Making a pull request</h2>
-<p>Now, let’s contribute your code to your classmate’s project. Go to
-the GitHub.com website for your repository. In the top left, you should
-see the <em>New Pull Request</em> button. (Underneath, it should say
-something like <code>this branch is N commits ahead of NNN</code>).
+<p>Let’s contribute your code to your classmate’s project. Go to the
+GitHub.com website for your (forked) repository. In the top left, you
+should see the <em>New Pull Request</em> button. (Underneath, it should
+say something like <code>this branch is N commits ahead of NNN</code>).
 Click the <em>New Pull Request</em> button. A page comes up showing what
 you want to do, which is to send your changes to the original
 repository. You are requesting that the other person <em>pull</em> your
@@ -966,13 +966,13 @@ the commands described for use on the command line
 GitKraken.</p>
 <div class="note">
 <p>Github also has <em>branches</em>. Those are similar to forks but
-meant for internal use. For instance, if you have a project and want to
-implement something new, but it might not work, you can create a branch,
-work in that branch, and once everything is ok, you can merge the branch
-into the main/master. This is useful if you write software that others
-are using, and you don’t want to break the whole thing. It is also
-helpful if you work with collaborators on a project. To be able to use
-branches, you need to be an owner or member of a repository. In
+meant for more internal use. For instance, if you have a project and
+want to implement something new, but it might not work, you can create a
+branch, work in that branch, and once everything is ok, you can merge
+the branch into the main/master. This is useful if you write software
+that others are using, and you don’t want to break the whole thing. It
+is also helpful if you work with collaborators on a project. To be able
+to use branches, you need to be an owner or member of a repository. In
 contrast, you can fork any public repository.</p>
 </div>
 </div>
@@ -993,6 +993,8 @@ conflicts exist, I will merge your improvements into the course. And
 just like that, you have contributed to improving this course! (And of
 course, you will be listed in the <em>Acknowledgments</em> section of
 the main course page.)</p>
+<p>Another option for helping to improve the course website is to file a
+GitHub Issue.</p>
 </div>
 </div>
 <div id="discussion" class="section level1">

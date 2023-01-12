@@ -638,7 +638,7 @@ div.tocify {
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical
 Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-12-06 08:16:02</h4>
+<h4 class="date">2023-01-12 10:29:57</h4>
 
 </div>
 
@@ -667,7 +667,7 @@ work with.</p>
 <p>Start a new repository using the <a
 href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>,
 make it your own repository (name it
-<code>YOURNAME-MADA-analysis3</code>), and clone it to your local
+<code>YOURNAME-MADA-flu-analysis</code>), and clone it to your local
 computer.</p>
 <p>Place Brian’s data file into the <code>raw_data</code> folder. (I
 know he already processed it some, but we use it as our start, so for us
@@ -683,9 +683,8 @@ process is iterative. Without exploring your data, you don’t know how to
 clean/wrangle it. Without at least some cleaning, exploration often
 doesn’t work (e.g. if you have missing values, some R summary functions
 don’t work properly).</p>
-<p>For this exercise, write some code in the
-<code>processingscript.R</code> file that further processes and cleans
-the data as follows:</p>
+<p>For this exercise, write some code (as Quarto or Quarto+R) that
+further processes and cleans the data as follows:</p>
 <ul>
 <li>Remove all variables that have <em>Score</em> or <em>Total</em> or
 <em>FluA</em> or <em>FluB</em> or <em>Dxname</em> or <em>Activity</em>
@@ -696,14 +695,14 @@ Only one, temperature, is continuous. A few have multiple
 categories.</li>
 <li>Remove any NA observations, there aren’t many.</li>
 </ul>
-<p><strong>No matter how you do it, write comments into your R script
-explaining each step. State briefly why you are making a decision, and
-then if the code is not obvious, explain the how. At this point, you
-should also delete any bits from your code that are not part of your
-cleaning (e.g., leftovers from the template).</strong></p>
+<p><strong>Make sure to add plenty of comments explaining each step.
+State briefly why you are making a decision, and then if the code is not
+obvious, explain the how. At this point, you should also delete any bits
+from your code or any files that are not part of your cleaning (e.g.,
+leftovers from the template).</strong></p>
 <p>At the end of your (fairly short) cleaning process, you should end up
 with 730 observations and 32 variables. Save the new dataset to an
-<code>Rds</code> file, as before.</p>
+<code>Rds</code> file.</p>
 <p>For our further analysis, we decide (well, I’m deciding that for you
 😁) is that our main continuous outcome of interest is <strong>Body
 temperature</strong>, and our main categorical outcome is

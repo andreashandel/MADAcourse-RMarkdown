@@ -22,7 +22,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there is some cleanup and improvement I'd like you to do for your portfolio. Some of you might have already done some of that.
+Since this week is another week with a project submission deadline, I'm keeping the exercise short, but there is some cleanup and improvement I'd like you to do for your portfolio. Some of you might have already done some of that, then you can just ignore those parts.
 
 
 ## Setup
@@ -32,7 +32,7 @@ Make sure your portfolio repository is fully up-to-date and synced. Open the pro
 
 ## Connecting website and file repository
 
-First, let's make sure it's easy for people to go from your portfolio website (the `github.io` location) to your file repository (the `github.com` location) and back. To that end, open the `_site.yml` file. At the bottom, it says `URL-TO-THIS-REPOSITORY-HERE`. Replace that with the URL to your Github repository. As an example, for the MADA course, the URL one would put in there is `https://github.com/andreashandel/MADAcourse` (while the website lives at `https://andreashandel.github.io/MADAcourse/`). 
+First, let's make sure it's easy for people to go from your portfolio website (the `github.io` location) to your file repository (the `github.com` location) and back. To that end, open the `_quarto.yml` file. At the bottom, it says `URL-TO-THIS-REPOSITORY-HERE`. Replace that with the URL to your Github repository. As an example, for the MADA course, the URL one would put in there is `https://github.com/andreashandel/MADAcourse` (while the website lives at `https://andreashandel.github.io/MADAcourse/`). 
 
 Once you done that, when people now are on your website, they can click on the `Github` icon in the top right corner and be taken to your file repository. Try to make sure it works by rebuilding your website and pushing to Github. It might take a minute or so and you might need to hit refresh before it shows up on the website.
 

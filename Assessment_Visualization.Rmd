@@ -57,7 +57,8 @@ Your final product should be code and explanatory text inside your Rmd file that
 
 Once done, re-build your website and make sure that your data visualization exercise shows up nicely. Then, post the link to your online page showing your visualization into the module discussion channel (see next).
 
-And of course, for this and any other products you create, if you are active on social media, you can post an announcement of your project there. I'll be looking out for #MADA2021 tagged tweets `r emoji::emoji('grin')`. 
+And of course, for this and any other products you create, if you are active online (e.g., social media or LinkedIn), you can post an announcement of your visualization exercise there. 
+
 
 # Discussion
 
