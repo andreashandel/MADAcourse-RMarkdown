@@ -34,14 +34,14 @@ Take a look at the different folders, files, `readme` comments. Feel free to run
 
 ### Group setup
 
-If you haven't already, get in touch with your group members. You can find their names in the pinned post in the `announcements` channel. 
-Get in touch with them, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributors number 1, 2, ...  depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.
+If you haven't already, find your group. You can find that information in the pinned post in the `announcements` channel. 
+Get in touch with your group members, e.g. by using the group-specific channels on Slack, or some other means. Assign each group member a role for this exercise. One person is the project owner, the others are contributors number 1, 2, ...  depending on the number of group members. (If you want to know what each role does, read through the rest of the exercise instructions first.) You also need to exchange GitHub user names.
 
 
 
 ### Pretend data-analysis
 
-The person your group designated as __project owner__ should do the following: Go ahead and start another repository using the template. Name it `GROUP-N-MADA-test-analysis` (with N of course your group number). Next, find the repository on your GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
+The person your group designated as __project owner__ should do the following: Go ahead and start another repository using the template. Name it `GROUP-N-MADA-test-analysis` (with `N` of course your group number). Next, find the repository on your GitHub page, go into `Settings -> Manage Access` and use the `Invite Collaborator` button to add the other group members to the repository. You need to give them write access. Your group members need to accept the invitation.
 
 Once everyone is added and all invitations are accepted, all group members can go ahead and clone the repository to their local computer using GitKraken (or your preferred client). Make sure when you clone, you choose `Github.com` as source, and then you should be able to see the repository in the `Repository to clone` list. 
 

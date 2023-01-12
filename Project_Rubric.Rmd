@@ -36,10 +36,10 @@ Grading for this part will follow the following rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete, contains enough information to allow assessment of feasibility of proposed project | 3 |
+| Sufficient | Submission is (almost) complete, contains enough information to allow assessment of feasibility of proposed project  | 3 |
 | Somewhat insufficient | Most components are present, but noticeable gaps exist | 2 |
 | Not sufficient | Submission is rather incomplete, has major missing parts which does not allow assessment of feasibility of proposed project | 1 
-| Absent | Everything or majority of submission is missing | 0 |
+| Absent | (Almost) everything of submission is missing | 0 |
 
 
 # Part 2
@@ -61,10 +61,10 @@ Grading for this part will follow the following rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 3 |
+| Sufficient | Submission is (almost) complete | 3 |
 | Somewhat insufficient | Submission is somewhat incomplete, parts missing or not reproducible| 2 |
 | Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
-| Absent | Everything or majority of submission is missing | 0 |
+| Absent | (Almost) everything of submission is missing | 0 |
 
 
 
@@ -83,10 +83,10 @@ Grading for this part will follow this rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 3 |
+| Sufficient | Submission is (almost) complete | 3 |
 | Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
 | Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
-| Absent | Everything or majority of submission is missing | 0 |
+| Absent | (Almost) everything of submission is missing | 0 |
 
 
 # Part 4
@@ -106,10 +106,10 @@ Grading for this part will follow this rubric:
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is complete or fairly complete | 3 |
+| Sufficient | Submission is (almost) complete | 3 |
 | Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
 | Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
-| Absent | Everything or majority of submission is missing | 0 |
+| Absent | (Almost) everything of submission is missing | 0 |
 
 
 
@@ -127,9 +127,9 @@ To that end, provide the following pieces of information:
 * Meta-data explaining your data as needed.
 * Everything very well documented and polished as much as possible.
 
-Check the [Project Review Template file](./rfiles/Project_Review_Template.Rmd) to see how this submission will be assessed by your peers. I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
+Check the [Project Review Template file](./templatefiles/Project_Review_Template.qmd) to see how this submission will be assessed by your peers. I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
 
-_An excellent project would look similar to the Brian McKay's paper example you checked out in the [Motivating Examples document](./Data_Analysis_Motivation.html)_ 
+_An excellent project would be at the level of Brian McKay's paper example you checked out in the [Motivating Examples document](./Data_Analysis_Motivation.html), or one of the projects on the `Project Examples` page._ 
 
 # Part 6
 

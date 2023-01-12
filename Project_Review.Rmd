@@ -12,7 +12,7 @@ output:
 
 # Overview
 
-You will be asked to review the projects of others twice, once for part 3, and a very thorough review at the end (part 5).
+You will be asked to review the projects of a few of your classmates twice, once for part 3, and once at the end (part 5).
 
 I have several goals for these project reviews:
 
@@ -21,38 +21,43 @@ I have several goals for these project reviews:
 * You practice being on the 'receiving end' of reproducible research, i.e. you will have to be able to reproduce someone else's project so you can properly critique it.
 
 
-
-# Logistics
-* By the deadline specified in the [Schedule](./Course_Schedule.html), everyone has to push their finished project to their project repository. 
-* The week following the deadline is devoted to project reviews. 
-* Go to the _projects_ Slack channel and find the 2 persons/projects you have been assigned to review. You can find links to project repositories in the _projects_ channel.
-*
-For reviewing, you can either use the _fork and pull_ workflow, or the project owner can make you a collaborator and you can pull/push directly. _Fork and pull_ is maybe a bit safer since there are now 2 reviewers making changes to the repository at the same time. But you can decide on the workflow.
-* Follow the instructions provided in the repository to run all code and reproduce everything. Review the whole project using [this review template](https://raw.githubusercontent.com/andreashandel/MADAcourse/master/docs/rfiles/Project_Review_Template.Rmd) (right-klick to download).
-* Write up a detailed review using and filling out the template Markdown file. Once you are done, place your completed review document into the repository you are reviewing, and send a pull request (or do a direct push) for each project you review.
-
-:::note
-As you reproduce the project, you will likely make a lot of changes to the repository (e.g., by re-creating figures/tables). If you and another reviewer do that both, you might run into conflicts when sending a pull request. If you encounter problems like this, you can provide the project owner your completed review in some other manner (e.g. through email or Slack) and they'll add it to the repository. **The important part is that at the end of the review process, there should be (at least) 2 completed review documents in the project repository (either the main folder, or make a `reviews` subfolder for them.)**
-:::
+# General Logistics
+* By the deadline specified in the [Schedule](./Course_Schedule.html), everyone has to push their project to their project repository. 
+* Project reviews happen the following week. For part 3, this is during the semester. For the final, in-depth review, there is dedicated time at the end of the semester. 
+* I will post a list indicating which projects everyone is assigned to review to Slack. Watch the `announcements` channel.
+* You can find links to project repositories for your classmates in the _project_related_ Slack channel.
+* For reviewing, you can either use the _fork and pull_ workflow, or the project owner can make you a collaborator and you can pull/push directly. _Fork and pull_ is maybe a bit safer since there are now 2 reviewers making changes to the repository at the same time. But you can decide on the workflow. Working as a collaborator will be required if the project happens to use a private repository.
 
 
 
 # Part 3 review
 
-This review is to give each other some informal feedback and guidance to ensure everyone is on the right track. Use the simple grading rubric shown in the part 3 section of the [Project Rubric](./Project_Rubric.html) document.
+This review is meant to give each other some informal feedback and guidance to ensure everyone is on the right track. 
 
-Provide feedback as follows:
+## Part 3 review logistics
 
-* Fork the repository of the student
-
+* Follow the instructions provided in the repository to run all code and reproduce everything. 
+* Use the simple grading rubric shown in the part 3 section of the [Project Rubric](./Project_Rubric.html) document.
+* Provide your feedback and your score by filing a GitHub Issue in the project repository. As part of the issue, provide any feedback you think your classmate might find useful to help them improve and be on the right track. Also provide your score as indicated in the rubric.
 
 
 
 
 # Part 5 review
 
+After the project has been completed, each of you will review a few of the projects of your classmates, similar to peer review of a manuscript submitted for publication. 
+**The part 5 review should be much more detailed and in-depth than the part 3 review.**
 
-After the project has been completed, each of you will review the projects of 2 of your classmates, similar to peer review of a manuscript submitted for publication.
+
+## Part 5 review logistics
+
+Follow the instructions provided in the repository to run all code and reproduce everything. Review the whole project using [this review template](https://raw.githubusercontent.com/andreashandel/MADAcourse/master/docs/templatefiles/Project_Review_Template.qmd) (right-klick to download).
+* Write up a detailed review using and filling out the template. Once you are done, place your completed review document into the repository you are reviewing, and send a pull request (or do a direct push) for each project you review.
+
+:::note
+As you reproduce the project, you will likely make a lot of changes to the repository (e.g., by re-creating figures/tables). If you and another reviewer do that both, you might run into conflicts when sending a pull request. If you encounter problems like this, you can provide the project owner your completed review in some other manner (e.g. through email or Slack) and they'll add it to the repository. **The important part is that at the end of the review process, there should be (at least) 2 completed review documents in the project repository (either the main folder, or make a `reviews` subfolder for them.)**
+:::
+
 
 
 ## Review Assessment Rubric
@@ -68,7 +73,8 @@ Ok, now it gets maybe a bit complicated. I will review and assess the quality of
 **You get a full week to do those reviews, so I expect thorough and good quality work!**
 
 
+
 ## Finals steps
-* Use the peer feedback/reviews from your classmates to further improve your project. You can make any further improvements you want to make.
+* Use the peer feedback/reviews from your classmates to further improve your project. You can make any further changes you want to make.
 * Push your final project to your GitHub repository by the specified deadline for final grading.
 * I will assess your final project using the same categories in the template used during peer review.

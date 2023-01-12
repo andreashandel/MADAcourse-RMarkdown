@@ -1,11 +1,12 @@
 ---
 title: Project Review Template 
+author: YOUR NAME
 date: "`r file.mtime(knitr::current_input())`"
-#bibliography: ../media/references.bib
-output: 
-  html_document:
-    toc_depth: 3
-    number_sections: true
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
 ---
 
 # Overview

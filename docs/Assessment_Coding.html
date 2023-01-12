@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Assessment - Data Analysis</title>
+<title>Assessment - R Coding Basics</title>
 
 <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -635,128 +635,372 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assessment - Data Analysis</h1>
+<h1 class="title toc-ignore">Assessment - R Coding Basics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-12 08:51:38</h4>
+<h4 class="date">2023-01-10 12:29:23</h4>
 
 </div>
 
 
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
 <p>Get the quiz sheet for this module from the general <a
 href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
 Fill it in, then submit to the online grading system before the
 deadline.</p>
 </div>
-<div id="exercise" class="section level2">
-<h2>Exercise</h2>
-<p>For this exercise, you will practice with GitHub some more, you are
-exploring a data analysis (at least a template), and you will start
-doing group work.</p>
-<div id="preliminaries" class="section level3">
-<h3>Preliminaries</h3>
-<p>Start by going to the Github repository called <a
-href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>.
-It is meant as a template for doing a data analysis project. You will
-also use it for the class project. Read the information in the
-<code>README</code> file (at the bottom of the website).</p>
-<p>Next, use the template to start your own repository. Follow the same
-steps you used previously with the portfolio template. Name it
-<code>YOURNAME-MADA-test-analysis</code>. Clone it to your local
-machine, open the project in RStudio.</p>
-<p>Take a look at the different folders, files, <code>readme</code>
-comments. Feel free to run the various R and Quarto scripts. The idea is
-that you get some familiarity with the whole setup to prepare you for
-the next steps.</p>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<p>This project asks you to write code to do a simple data analysis.
+This also involves group work, and of course GitHub.</p>
+<p><strong>The first part of the project is due by Wednesday, so your
+classmate can do their part before the Friday deadline.</strong></p>
+<div id="group-setup" class="section level2">
+<h2>Group setup</h2>
+<p>Assign each member in your group an (arbitrary) number (I’m calling
+them M1, M2, …). For this exercise, everyone will first work on their
+own and finish this part by Wednesday. Then M1 will contribute to M2’s
+repository, M2 will work on M3, etc. The last person (M3 or M4), will
+work on M1’s repository. This way, everyone will work on their own and
+one group member’s repository. Details are given below.</p>
 </div>
-<div id="group-setup" class="section level3">
-<h3>Group setup</h3>
-<p>If you haven’t already, find your group. You can find that
-information in the pinned post in the <code>announcements</code>
-channel. Get in touch with your group members, e.g. by using the
-group-specific channels on Slack, or some other means. Assign each group
-member a role for this exercise. One person is the project owner, the
-others are contributors number 1, 2, … depending on the number of group
-members. (If you want to know what each role does, read through the rest
-of the exercise instructions first.) You also need to exchange GitHub
-user names.</p>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
+<p>Open your portfolio website project in RStudio. Then open the file
+for the coding exercise, <code>coding_exercise.qmd</code>.</p>
+<div class="note">
+<p>Documenting well is very important! Add lots of comments into your
+code/file. I suggest that your code should be more than half comments.
+For every block of code, you have a few lines of comments at the
+beginning explaining what the code block does, and then each line of
+code gets its separate line of comment with more details. Comment on
+both the how and why of your code. This much commentary might seem
+overkill initially. But as your code gets more complex, it will be very
+useful. Both your collaborators, and your future self looking at the
+code you wrote several weeks ago will be incredibly thankful for your
+comments!</p>
+<p>If you write R code, your comments will be lines that start with
+<code>#</code>. For QUarto or R Markdown files, you can either add
+comments as Markdown text above/below your code, and/or add comments
+inside your R code chunks. Both is ideal. R Studio allows you to quickly
+turn sections of a document into comments or un-comment them (In the
+<code>Code</code> section of the R Studio menu). That can be useful for
+turning on/off code during testing, or hiding some parts of text that’s
+just meant for you but not for the reader.</p>
 </div>
-<div id="pretend-data-analysis" class="section level3">
-<h3>Pretend data-analysis</h3>
-<p>The person your group designated as <strong>project owner</strong>
-should do the following: Go ahead and start another repository using the
-template. Name it <code>GROUP-N-MADA-test-analysis</code> (with
-<code>N</code> of course your group number). Next, find the repository
-on your GitHub page, go into <code>Settings -&gt; Manage Access</code>
-and use the <code>Invite Collaborator</code> button to add the other
-group members to the repository. You need to give them write access.
-Your group members need to accept the invitation.</p>
-<p>Once everyone is added and all invitations are accepted, all group
-members can go ahead and clone the repository to their local computer
-using GitKraken (or your preferred client). Make sure when you clone,
-you choose <code>Github.com</code> as source, and then you should be
-able to see the repository in the <code>Repository to clone</code>
-list.</p>
-<p>Once cloned to the local computer, <strong>contributor 1</strong>
-goes ahead and opens the <code>exampledata.xlsx</code> file (with Excel
-or a similar program) and adds 2 more columns to the data. One column
-should be something numeric, the other can be something consisting of (a
-few) different categories. As a (boring) example, you could add sex and
-waist size. Feel free to come up with more creative attributes/variables
-to add. Once done, save the new data as
-<strong><code>exampledata2.xlsx</code></strong>, then commit your
-changes (write a meaningful commit message) and push them to
-GitHub.com.</p>
-<p>Once contributor 1 is done, <strong>contributor 2</strong> pulls the
-repository with the updated changes (i.e., the added data). Adjust the
-<code>processingscript.R</code> file such that it now loads the new data
-file called <code>exampledata2.xlsx</code>. Take a look at the new data.
-If necessary (depending on what contributor 1 added), add a few lines of
-code to clean the new data as needed. If this is needed, you either need
-to know at least a little bit of R coding, otherwise Google your way to
-a solution. Once everything works and the script creates a new clean
-dataset that can be saved as <code>processeddata.rds</code>, go to
-<code>processingfile_v2.qmd</code> and adjust as needed to make sure the
-updates you made to the R script are reflected in the Quarto file. Once
-both <code>processingscript.R</code> and
-<code>processingfile_v2.qmd</code> are updated and run without error
-messages, commit your changes and push to GitHub. Then let the next
-person in your group know.</p>
-<p><strong>If your team does not have 4 persons, then contributor 2 will
-also need to do the part of contributor 3.</strong></p>
-<p>As <strong>contributor 3</strong> pull, the latest version of the
-repository, then open <code>statistical_analysis.R</code>. Edit the code
-such that it creates a boxplot with the new categorical variable
-(whatever it is) on the x-axis, and height on the y-axis. Also create
-another scatterplot with weight on the x-axis and the new numerical
-variable on the y-axis. Save both figures to files. Once done, commit
-and push.</p>
-<p>Finally, it’s back to the <strong>project owner</strong>. Pull the
-latest version of the repository. Then open <code>Manuscript.qmd</code>.
-Add code to display the two new figures for the new data your other
-group members produced. Process the Quarto file to make sure it renders
-into a word doc and everything looks good. Commit and push your changes.
-<strong>Finally, post the link to your repository with the updated
-manuscript into the <code>module2_exercise</code> Slack channel by the
-deadline.</strong></p>
-<p><em>After the deadline, I’ll check/grade the repository of each
-group. The grade will be a single one and the same for every group
-member.</em></p>
+<div class="note">
+<p>I find it the least confusing to call <em>things which store values
+in R</em> <code>objects</code> (e.g., <code>x</code> is an object here:
+<code>x &lt;- 2 + 2</code>) and reserve the word <code>variable</code>
+for a data variable, i.e., usually a column. However, it is common to
+refer to an <code>object</code> as a <code>variable</code> as well.
+Because of that, I sometimes use that terminology inadvertently too. So
+if I talk about a variable, you need to determine from the context if I
+mean a certain variable in the data (e.g. height or weight), or a
+variable in R (e.g. <code>x</code> or <code>result</code>) that stores
+some content.</p>
+</div>
+</div>
+<div id="loading-and-checking-data" class="section level2">
+<h2>Loading and checking data</h2>
+<p>We’ll look at and play with some data from the <a
+href="https://cran.r-project.org/web/packages/dslabs/index.html"><code>dslabs</code>
+package</a>. Write a code chunk using the <code>library()</code>
+function that loads the package (install the <code>dslabs</code> package
+first if you don’t have it yet).</p>
+<p><strong>All the code you write for this (and any other) project
+should be written into an R or Quarto file, not in the R console. The
+reason for that is that you want a permanent record of what you did, and
+the ability to modify and re-run your analysis easily.</strong> For this
+exercise, you can either write the code directly into the Quarto
+document, or if you prefer the setup of a separate R script and pulling
+code into the Quarto document (see the data analysis template for an
+example), you can do it that way too.</p>
+<p>We’ll look at the <code>gapminder</code> dataset from
+<code>dslabs</code>. Write a code chunk using the <code>help()</code>
+function that pulls up the help page for the data to see what it
+contains. Then use the <code>str()</code> and <code>summary()</code>
+functions to take a look at the data. Use the <code>class()</code>
+function to check what type of object <code>gapminder</code> is.</p>
+<p>To illustrate how that should look, you should have these lines of
+code so far for this exercise.</p>
+<pre class="r"><code>#load dslabs package
+library(&quot;dslabs&quot;)
+#look at help file for gapminder data
+help(gapminder)
+#get an overview of data structure
+str(gapminder)
+#get a summary of data
+summary(gapminder)
+#determine the type of object gapminder is
+class(gapminder)</code></pre>
+</div>
+<div id="processing-data" class="section level2">
+<h2>Processing data</h2>
+<div class="note">
+<p>You can accomplish the next steps (and pretty much anything) with
+just basic R commands and not using extra functionality from packages.
+However, things are often easier with packages. For data processing
+tasks, the packages from <a href="">the tidyverse</a> are very useful.
+You can do the following tasks with any commands/packages you like. If
+you use functions from various packages, it is good practice to load all
+packages at the beginning of your code. This way, it is</p>
+<p>So if you are using some R package for the tasks I just described,
+instead of loading it (with <code>library</code> just before you use it,
+place all your <code>library</code> commands at the beginning of your
+script. Also, add a short comment explaining why you are loading a
+certain package.)</p>
+</div>
+<p>Write code that assigns only the African countries to a new
+object/variable called <code>africadata</code>. Run <code>str</code> and
+<code>summary</code> on the new object you created. You should now have
+2907 observations, down from 10545. Depending on how you do this, you
+might also notice that all the different categories are still kept in
+the <code>continent</code> (and other) variables, but show 0. R does not
+automatically remove categories of what in R is called a factor variable
+(a categorical variable) even if they are empty. We don’t have to worry
+about that just now, but something to keep in mind, it can sometimes
+lead to strange behavior.</p>
+<p>Take the <code>africadata</code> object and create two new objects
+(name them whatever you want), one that contains only
+<code>infant_mortality</code> and <code>life_expectancy</code> and one
+that contains only <code>population</code> and
+<code>life_expectancy</code>. You should have two new objects/variables
+with 2907 rows and two columns. Use the <code>str</code>, and
+<code>summary</code> commands to take a look at both.</p>
+<div class="note">
+<p>It is good practice to load all packages at the beginning of your
+code. So if you are using some R package for the tasks I just described,
+instead of loading it (with <code>library</code> just before you use it,
+place all your <code>library</code> commands at the beginning of your
+script. Also, add a short comment explaining why you are loading a
+certain package.)</p>
+</div>
+</div>
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<p>Using the new variables you created, plot life expectancy as a
+function of infant mortality and as a function of population size. Make
+two separate plots. Plot the data as points. For the plot with
+population size on the x-axis, set the x-axis to a log scale.</p>
+<p>You should see a negative correlation between infant mortality and
+life expectancy, which makes sense. You should also see a positive
+correlation between population size and life expectancy. In both plots,
+especially the second one, you will see ‘streaks’ of data that seem to
+go together. Can you figure out what is going on here? Take another look
+at the <code>africadata</code> data we generated, which should give you
+a hint of what’s happening.</p>
+</div>
+<div id="more-data-processing" class="section level2">
+<h2>More data processing</h2>
+<p>I’m sure you realized that the pattern we see in the data is due to
+the fact that we have different years for individual countries, and that
+over time these countries increase in population size and also life
+expectancy. Let’s pick only one year and see what patterns we find. We
+want a year for which we have the most data. You might have noticed that
+in <code>africadata</code>, there are 226 NA (i.e., missing values) for
+infant mortality. Write code that figures out which years have missing
+data for infant mortality. You should find that there is missing up to
+1981 and then again for 2016. So we’ll avoid those years and go with
+2000 instead. Create a new object by extracting only the data for the
+year 2000 from the <code>africadata</code> object. You should end up
+with 51 observations and 9 variables. Check it with <code>str</code> and
+<code>summary</code>.</p>
+</div>
+<div id="more-plotting" class="section level2">
+<h2>More plotting</h2>
+<p>Let’s make the same plots as above again, this time only for the year
+2000. Based on those plots, there seems to still be a negative
+correlation between infant mortality and life expectancy, and no
+noticeable correlation between population size and life expectancy.
+Let’s apply some statistics to this data.</p>
+</div>
+<div id="a-simple-fit" class="section level2">
+<h2>A simple fit</h2>
+<p>Use the <code>lm</code> function and fit life expectancy as the
+outcome, and infant mortality as the predictor. Then use the population
+size as the predictor. (Use the data from 2000 only.) Save the result
+from the two fits into two objects (e.g. <code>fit1</code> and
+<code>fit2</code>) and apply the <code>summary</code> command to both,
+which will print various fit results to the screen. Based on the
+p-values for each fit, what do you conclude?</p>
+</div>
+<div id="sending-updates-to-github" class="section level2">
+<h2>Sending updates to Github</h2>
+<p>Once you are done with your exercise, re-build your website (use the
+<code>Build Website</code> button under the <code>Build</code> tab in
+the upper right panel of R Studio). Make sure no error messages show up.
+A preview should show up, check that the page for this exercise looks as
+you want it to. Once you are happy with how everything looks, close
+RStudio. Go to GitKraken, commit your changes, and push to the remote
+repository. Check your portfolio website online to make sure you can now
+see the newly created R exercise document (in addition to your
+previously created <code>About</code> page). Of course at any point,
+feel free to make further enhancements to your portfolio website.</p>
+</div>
+<div id="improving-each-others-work" class="section level2">
+<h2>Improving each other’s work</h2>
+<p>Once everyone has done their part (by <strong>Wednesday</strong> at
+the latest), you’ll contribute to another group member’s project.</p>
+<p>Earlier, we did collaborative work by having individuals added as
+collaborators for a repository. There are other ways, we’ll try a
+different one here, called the <strong>Fork and pull-request</strong>
+workflow. You’ll be using that multiple times throughout this class.</p>
+<p>The basic idea is as follows. First, you make a copy of someone’s
+GitHub repository. In GitHub terminology, that is called doing a
+<em>fork</em> of their repository. You can do that for any public
+repository, even if you are not a collaborator on the repository.</p>
+<p>Then you implement your improvements in the forked repository. Once
+you are done, you ask the owner of the original repository to
+incorporate the updates you made in the fork into their main repository.
+This last part is called issuing a <strong>pull request</strong>. You
+are requesting that the other person <em>pull</em> your changes into
+their repository, hence the at times confusing (at least for me)
+terminology. I prefer to think of them as <em>merge</em> requests or
+<em>sync</em> requests, i.e. you are requesting that they merge or sync
+your changes into their repository. You’ll find the terminology
+<em>merge request</em> is used at times. If the person who controls the
+main repository likes your changes, they will <em>merge</em> your fork
+into the main branch. And just like that, you have contributed to some
+project becoming better! We will practice this <em>fork and pull</em>
+flow now.</p>
+<p>Find the repository of the team member you will contribute to and
+<code>Fork</code> their repository. Then clone it to your local machine,
+as you have done previously with your own repositories. In fact, this
+fork is now your own repository, you have it forever, even if the person
+who owns the original repository deletes theirs.</p>
+<p>Open the Rmd file that contains the coding exercise. It should look
+fairly similar to yours, though probably somewhat different since there
+are many ways to do things in R, and their comments might be
+different.</p>
+<p>Start a new section below the part your classmate did. <strong>Add a
+sentence to indicate where your section starts and also add your
+name.</strong> E.g., you can write something like “this section added by
+YOURNAME”.</p>
+<p>Write some more code to do some more analysis of the dataset. This is
+fairly open-ended. I want you to create a few more plots of the data,
+and fit another model to some parts of data and display the fitting
+results in a table. You can e.g. use the <code>broom</code> package to
+convert output from <code>lm</code> into a data frame you can show as a
+table. What exactly you explore, plot and fit is up to you.</p>
+<p>Once you wrote your code, confirm that it runs without problems and
+errors, and produces the expected results. Once everything is good,
+commit and push your changes to the remote. Note that this pushes to
+<strong>your fork</strong> (i.e. copy) of the repository. Now it’s time
+to offer your contribution to your classmate to integrate into their
+repository.</p>
+</div>
+<div id="making-a-pull-request" class="section level2">
+<h2>Making a pull request</h2>
+<p>Now, let’s contribute your code to your classmate’s project. Go to
+the GitHub.com website for your repository. In the top left, you should
+see the <em>New Pull Request</em> button. (Underneath, it should say
+something like <code>this branch is N commits ahead of NNN</code>).
+Click the <em>New Pull Request</em> button. A page comes up showing what
+you want to do, which is to send your changes to the original
+repository. You are requesting that the other person <em>pull</em> your
+changes into their repository. Hopefully, you’ll see a green check-mark
+that says <em>able to merge</em>. If your classmate made changes to the
+same files you did, it could have created a merge conflict. Hopefully,
+this won’t be the case. In either case (merge conflict or not), you can
+click the green button and <em>Create a pull request</em>. You are
+presented with a box in which you want to add a meaningful title, so the
+other person knows what you changed and some more explanation in the
+box. Then click <em>Create pull request</em>.</p>
+</div>
+<div id="checking-and-merging-pull-requests" class="section level2">
+<h2>Checking and merging pull requests</h2>
+<p>Once your classmate who has worked on your repository creates a pull
+request, you should receive a notification that a pull request was
+created. Go to the GitHub site and to your online portfolio repository.
+Click on <em>Pull requests</em>, then click on the request (there should
+only be one). Take a look. On the first page, it shows you their message
+and if there are conflicts with your version of the repository.
+Hopefully, you didn’t change things around while they did, so there
+shouldn’t be any conflicts. Click on the <em>Files changed</em> button,
+which will show you an overview of the code they changed. Removals are
+red, and additions are green.</p>
+<p>On the main pull request site, you can do various things. If you
+don’t like the suggested edits, you can write a comment and close the
+pull request without merging their changes into your repository. If you
+like most of what they did, but there is something they need to adjust,
+write a comment and let them know. Still, close the pull request and ask
+them to send a new one. If you are ok with their changes (hopefully,
+this is the case here), you can merge the pull request and close it.
+Their updates are now part of your repository.</p>
+<p><strong>Important:</strong> To check that everything is ok, pull the
+updated repository to your local computer. Rebuild the website, make
+sure the preview looks ok and all the updates show. Since the website
+rebuilt on your local machine likely changed some files, commit your
+updates, push to the remote. If you now go to your portfolio website,
+you should see the changes from your classmates showing underneath what
+you wrote originally.</p>
+<p><strong>Since this will be part of your portfolio site, and you
+already posted a link to that previously, you don’t need to post
+anything, I know where to find it.</strong></p>
+<div class="note">
+<p>I mentioned this before, but it doesn’t hurt repeating. At times, you
+will get merge conflicts. At that stage, it gets a bit tricky. GitKraken
+has a good tool to help you resolve conflicts, and it works well for
+text files (code, Rmd, md, etc.). It doesn’t work well for other files
+(word, Excel, etc.). Sometimes you have to temporarily move one of the
+conflicting files out of the repository, then do the merge, then
+manually see how the files changed and do the merge yourself. To
+minimize conflicts, it is good practice to make multiple pull requests
+with small changes instead of a single large pull request. If you
+changed 20 files and 2 of them create a conflict, the person has to
+reject your complete pull request if they don’t want those conflicts. It
+is better to change a few files and work on just one topic, then issue a
+pull request. After that, start the next set, and issue another pull
+request. By breaking them up, it is more likely that conflicts are
+avoided or localized.</p>
+</div>
+</div>
+<div id="more-information" class="section level2">
+<h2>More information</h2>
+<p>Some more information on <em>forks</em> and <em>pulls</em> and what
+to do if things don’t go right can be found in <a
+href="https://happygitwithr.com/">happygitwithR</a>. Note that a lot of
+the commands described for use on the command line
+(e.g. <code>stash</code>) can be applied graphically through
+GitKraken.</p>
+<div class="note">
+<p>Github also has <em>branches</em>. Those are similar to forks but
+meant for internal use. For instance, if you have a project and want to
+implement something new, but it might not work, you can create a branch,
+work in that branch, and once everything is ok, you can merge the branch
+into the main/master. This is useful if you write software that others
+are using, and you don’t want to break the whole thing. It is also
+helpful if you work with collaborators on a project. To be able to use
+branches, you need to be an owner or member of a repository. In
+contrast, you can fork any public repository.</p>
+</div>
+</div>
+<div id="another-fork-and-pull-exercise" class="section level2">
+<h2>Another <em>fork and pull</em> exercise</h2>
+<p><strong>This is optional. You can do it at any time during this
+course (and more than once) 😁.</strong></p>
+<p>Help improve the course with your contributions! Find something
+wrong/unclear/worth improving with this course (e.g. a typo, something
+confusing, a broken link, a suggestion for a new reference, or anything
+else). Go to the <a
+href="https://github.com/andreashandel/MADAcourse">Github repository for
+this course</a>. Follow the steps outlined above: Fork the course to
+your personal account, clone it to your local computer, implement your
+updates, push it back to GitHub, then initiate a pull request. I will
+get a notification of your pull request. If things look ok and no
+conflicts exist, I will merge your improvements into the course. And
+just like that, you have contributed to improving this course! (And of
+course, you will be listed in the <em>Acknowledgments</em> section of
+the main course page.)</p>
 </div>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
-<p>Look online and find an example of a research project that provides
-(or claims to provide) all materials to allow reproduction of results,
-similar to Brian’s project I shared with you. If you are able, download
-the materials and see if you can reproduce things. I suggest you focus
-on projects that are done with our set of tools (R/Quarto, etc.), but
-that’s not required. Report the project you found and your experience
-being able (or not) to reproduce it as a post in the <em>Module 2
-Discussion</em> channel.</p>
-<p>Then take a look at a few of your classmates postings and
-explore/comment on what they found.</p>
+<p>Describe one thing you learned in this module about R that you find
+rather annoying or confusing or dumb, and one thing about R that you
+find interesting or cool or awesome.</p>
+<p>Then comment/reply to your classmates posts.</p>
 </div>
 
 

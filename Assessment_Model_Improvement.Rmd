@@ -91,10 +91,16 @@ We also covered overfitting and strategies to minimize it (e.g., cross-validatio
 
 
 
+# Project
+
+Review and provide feedback on part 3 of the projects you have been assigned to as described in the **Projects** section.
+
+
 
 # Discussion
 
-Instead of a discussion, review and provide feedback on part 3 of the projects you have been assigned to as described in the **Projects** section.
+Because you'll be doing the project reviews, there is no discussion assignment for this module.
+
 
 
 <!-- Find a peer-reviewed paper where the authors use one or several of the approaches covered this week, and discuss if the authors properly explain and justify why they are doing what they are doing, and why you think what they are doing is or is not a good approach given their stated objective(s). -->
