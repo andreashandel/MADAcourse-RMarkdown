@@ -62,7 +62,7 @@ _After the deadline, I'll check/grade the repository of each group. The grade wi
 
 # Discussion
 
-Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Brian's project I shared with you. If you are able, download the materials and see if you can reproduce things. I suggest you focus on projects that are done with our set of tools (R/Quarto, etc.), but that's not required. Report the project you found and your experience being able (or not) to reproduce it as a post in the _Module 2 Discussion_ channel.  
+Look online and find an example of a research project that provides (or claims to provide) all materials to allow reproduction of results, similar to Dr. Brian McKay's project I shared with you. If you are able, download the materials and see if you can reproduce things. I suggest you focus on projects that are done with our set of tools (R/Quarto, etc.), but that's not required. Report the project you found and your experience being able (or not) to reproduce it as a post in the _Module 2 Discussion_ channel.  
 
 Then take a look at a few of your classmates postings and explore/comment on what they found.
 
