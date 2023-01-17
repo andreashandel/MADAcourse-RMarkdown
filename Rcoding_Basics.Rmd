@@ -49,7 +49,7 @@ RStudio is starting to develop [a nice set of online tutorials they call Primers
 
 _Note: Some of the bits surrounding the exercises are somewhat strange. You can generally type anything you want into the R boxes, and you always get a 'that's right' kind of message. The R package that is used to write this tutorial is in the early stages of development and is not full-featured yet. I'm sure it will get better over time. The whole tutorial should still work._
 
-_Note: There are two ways of assigning something to an object in R, one can write `x <- 2` or `x = 2` and almost always that is the same. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. `x <- 2`. The problem is that most other programming languages do it the second way, so if you learned to code in another language first (like I did), it's more natural to write `x = 2`. It's your choice. Just be aware that both notations exist and do the same thing. When I write code, I do a mix (without any logic to it). In R, you can also write this in the opposite direction, i.e. `2 -> x`. If you are new to programming this isn't generally recommended, but some online R personalities will assign variables this way._
+_Note: There are two ways of assigning something to an object in R, one can write `x <- 2` or `x = 2` and often (but not always) you can use either. People argue about which way to do it. In the RStudio tutorial, they do it the first way. If you are completely new to programming, I recommend the first version, i.e. `x <- 2`. The problem is that most other programming languages do it the second way, so if you learned to code in another language first (like I did), it's more natural to write `x = 2`. It's your choice. Just be aware that both notations exist. When I write code, I usually do a mix (without any logic to it). In R, you can also write this in the opposite direction, i.e. `2 -> x`. If you are new to programming this isn't generally recommended, but some online R personalities will assign variables this way._
 
 If you want to practice some basic coding further, I suggest you go through [chapters 2 and 3 of IDS](https://rafalab.github.io/dsbook/). Continuing on to chapter 4 is a good idea. Alternatively, pick any other source you like, e.g. those listed in the resources section of this course, or anything else you find. (If you find something not listed that is really useful, feel free to share!)
 
@@ -60,7 +60,9 @@ We only focus explicitly on R coding in this module. That is obviously not enoug
 
 
 # Getting help
-Maybe the most important skill for learning any programming language is figuring out how to find and get help with any problem. Google, StackOverflow, and the Internet are your friend. If you have a problem with your code, it's likely someone else had the same/similar problem before you and asked a question (and probably got an answer). So search the web, and you'll find something useful most of the time.
+Maybe the most important skill for learning any programming language is figuring out how to find and get help with any problem. Google, StackOverflow, and the Internet are your friend. The [Posit Community Forum](https://community.rstudio.com/) is also a great place to ask for help.
+
+If you have a problem with your code, it's likely someone else had the same/similar problem before you and asked a question (and probably got an answer). So search the web, and you'll find something useful most of the time.
 
 ```{r versioncontrol,  echo=FALSE, fig.cap='Fortunately rare for R. Source: xkcd.com.', out.width = '60%', fig.align='center'}
 knitr::include_graphics("./media/xkcd_wisdom_of_the_ancients.png")
