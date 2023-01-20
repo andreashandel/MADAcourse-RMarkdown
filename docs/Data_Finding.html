@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Finding and Getting Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2022-04-18 08:45:35</h4>
+<h4 class="date">2023-01-19 19:34:26</h4>
 
 </div>
 
@@ -752,34 +752,33 @@ kinds of data. If you have data of different type, Google is your friend
 😄.</p>
 <p>Here are some of the most prominent ones:</p>
 <ul>
-<li>RStudio has a lot of good ways to import so-called “tabular data”
-(i.e. data that is stored in a spreadsheet). The <a
-href="https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf">data
-import cheat sheet</a> is a good first place to look if you have some
-type of spreadsheet.
-<ul>
 <li>The <a
 href="https://readr.tidyverse.org/index.html"><code>readr</code>
-package</a> is good for importing CSV and similar spreadsheet type data.
-For some more introductory material on the <code>readr</code> package,
-see <a href="https://r4ds.had.co.nz/data-import.html">chapter 11 of
-R4DS</a>.</li>
+package</a> is great first choice for importing CSV and similar
+spreadsheet type data. For some more introductory material on the
+<code>readr</code> package, see <a
+href="https://r4ds.had.co.nz/data-import.html">chapter 11 of R4DS</a>.
+It can often guess the right way to import data, even if it is slightly
+messy. But always check! It’s a good first choice for CSV/TSV/text style
+data.</li>
 <li><code>readr</code> is not suitable for data in Excel format, for
 that use the <a href="https://readxl.tidyverse.org/"><code>readxl</code>
 package</a>.</li>
 <li>For dealing with Google sheets, the <a
 href="https://googlesheets4.tidyverse.org/"><code>googlesheets4</code>
 package</a> can be used.</li>
-</ul></li>
 <li>The <a href="https://haven.tidyverse.org/"><code>haven</code>
 package</a> is good for dealing with SPSS, SAS and Stata data.</li>
 <li>For reading in various online data forms, e.g., XML and JSON, see
 the <a href="https://www.tidyverse.org/packages/">Import section</a> on
 the <code>tidyverse</code> packages site.</li>
+<li>The folks from Posit/RStudio but together a useful <a
+href="https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf">data
+import cheat sheet</a>, which is worth checking out.</li>
 </ul>
 <p>The packages I listed above are all from the <code>tidyverse</code>.
-There are many more packages with additional functionality, and many
-base R commands.</p>
+There are many more packages with additional functionality, e.g., for
+reading in large data fast.</p>
 <p>To learn some more, you can check out the <a
 href="https://rafalab.github.io/dsbook/importing-data.html"><em>Importing
 Data</em> chapter in IDS</a>. The <a

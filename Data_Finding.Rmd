@@ -53,15 +53,14 @@ Several functions in base R can be used for data import. (For example, `read.tab
 
 Here are some of the most prominent ones:
 
-* RStudio has a lot of good ways to import so-called "tabular data" (i.e. data that is stored in a spreadsheet). The [data import cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf) is a good first place to look if you have some type of spreadsheet.
-  * The [`readr` package](https://readr.tidyverse.org/index.html) is good for importing CSV and similar spreadsheet type data. For some more introductory material on the `readr` package, see [chapter 11 of R4DS](https://r4ds.had.co.nz/data-import.html).
+  * The [`readr` package](https://readr.tidyverse.org/index.html) is great first choice for importing CSV and similar spreadsheet type data. For some more introductory material on the `readr` package, see [chapter 11 of R4DS](https://r4ds.had.co.nz/data-import.html). It can often guess the right way to import data, even if it is slightly messy. But always check! It's a good first choice for CSV/TSV/text style data.
   * `readr` is not suitable for data in Excel format, for that use the [`readxl` package](https://readxl.tidyverse.org/).
   * For dealing with Google sheets, the [`googlesheets4` package](https://googlesheets4.tidyverse.org/) can be used. 
 * The [`haven` package](https://haven.tidyverse.org/) is good for dealing with SPSS, SAS and Stata data.
 * For reading in various online data forms, e.g., XML and JSON, see the [Import section](https://www.tidyverse.org/packages/) on the `tidyverse` packages site.
+* The folks from Posit/RStudio but together a useful [data import cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-import.pdf), which is worth checking out.
 
-The packages I listed above are all from the `tidyverse`. There are many more packages with additional functionality, and many base R commands.
-
+The packages I listed above are all from the `tidyverse`. There are many more packages with additional functionality, e.g., for reading in large data fast.
 
 To learn some more, you can check out the [_Importing Data_ chapter in IDS](https://rafalab.github.io/dsbook/importing-data.html). The [_Web scraping_ chapter in IDS](https://rafalab.github.io/dsbook/web-scraping.html) provides additional information on how to pull online data into R. 
 
