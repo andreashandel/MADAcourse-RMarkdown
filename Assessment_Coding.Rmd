@@ -19,13 +19,15 @@ This project asks you to write code to do a simple data analysis. This also invo
 
 **The first part of the project is due by Wednesday, so your classmate can do their part before the Friday deadline.**
 
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
+
 ## Group setup
 
-Assign each member in your group an (arbitrary) number (I'm calling them M1, M2, ...). For this exercise, everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2's repository, M2 will work on M3, etc. The last person (M3 or M4), will work on M1's repository. This way, everyone will work on their own and one group member's repository. Details are given below.
+Assign each member in your group an (arbitrary) number (I'm calling them M1, M2, ...). For this exercise, everyone will first work on their own and finish this part by Wednesday. Then M1 will contribute to M2's repository, M2 will work on M3, etc. The last person (M3/M4/M5, based on the number of people in our group), will work on M1's repository. This way, everyone will work on their own and one group member's repository. Details are given below.
 
 
 ## Getting started
-Open your portfolio website project in RStudio. Then open the file for the coding exercise, `coding_exercise.qmd`.
+Open **your portfolio website project** in RStudio. Then open the file for the coding exercise, `coding_exercise.qmd`.
 
 :::note
 Documenting well is very important! Add lots of comments to your code/file. I suggest that your code should be more than half comments. For every block of code, you have a few lines of comments at the beginning explaining what the code block does, and then each line of code gets its separate line of comment with more details. Comment on both the how and why of your code. This much commentary might seem overkill initially. But as your code gets more complex, it will be very useful. Both your collaborators, and your future self looking at the code you wrote several weeks ago will be incredibly thankful for your comments!
@@ -117,7 +119,7 @@ The basic idea is as follows. First, you make a copy of someone's GitHub reposit
 
 Then you implement your improvements in the forked repository. Once you are done, you ask the owner of the original repository to incorporate the updates you made in the fork into their main repository. This last part is called issuing a __pull request__. You are requesting that the other person _pull_ your changes into their repository, hence the at times confusing (at least for me) terminology. I prefer to think of them as _merge_ requests or _sync_ requests, i.e. you are requesting that they merge or sync your changes into their repository. You'll find the terminology _merge request_ is used at times. If the person who controls the main repository likes your changes, they will _merge_ your fork into the main branch. And just like that, you have contributed to some project becoming better! We will practice this _fork and pull_ flow now.
 
-Find the repository of the team member you will contribute to and `Fork` their repository. Then clone it to your local machine, as you have done previously with your own repositories. In fact, this fork is now your own repository, you have it forever, even if the person who owns the original repository deletes theirs. 
+Find the repository of the team member you will contribute to and `Fork` their repository. **You can't find links to everyone's portfolio repository in the `Introductions` Slack channel.** Then clone it to your local machine, as you have done previously with your own repositories. In fact, this fork is now your own repository, you have it forever, even if the person who owns the original repository deletes theirs. 
 
 Open the file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
 
