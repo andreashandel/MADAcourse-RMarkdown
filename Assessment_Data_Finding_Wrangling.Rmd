@@ -19,7 +19,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 This exercise lets you do a bit of data loading and wrangling. And of course more group work and GitHub `r emoji::emoji("grin")`. 
 
-**The first part of the project is due by Wednesday, so your classmate can do their part before the Friday deadline.**
+**The first part of the exercise is due by Wednesday, so your classmate can do their part before the Friday deadline.**
 
 **Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
 
