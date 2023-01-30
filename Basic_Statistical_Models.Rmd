@@ -94,6 +94,10 @@ There isn't really one single, standard go-to method for unsupervised learning -
 [_Unsupervised Learning_ chapter of ISLR](https://statlearning.com/). There are also chapters on PCA and different types of clustering [in HMLR](https://bradleyboehmke.github.io/HOML/).
 
 
+```{r kmeans,  echo=FALSE, fig.cap='Choosing K is an important task. 3 sometimes works. Source: xkcd.com.', out.width = '50%', fig.align='center'}
+knitr::include_graphics("./media/xkcd_k_means_clustering_2x.png")
+```
+
 
 
 # The zoo of statistical tests
