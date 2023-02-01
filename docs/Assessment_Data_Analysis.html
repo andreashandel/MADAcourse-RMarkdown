@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-30 10:19:26</h4>
+<h4 class="date">2023-01-31 17:55:00</h4>
 
 </div>
 
@@ -704,30 +704,32 @@ or a similar program) and adds 2 more columns to the data. One column
 should be something numeric, the other can be something consisting of (a
 few) different categories. As a (boring) example, you could add eye
 color and waist size. Feel free to come up with more creative
-attributes/variables to add. Once done, save the new data as
+attributes/variables to add. Also add descriptions of your new variables
+to the <code>Codebook</code> sheet. Once done, save the new data as
 <strong><code>exampledata2.xlsx</code></strong>, then commit your
 changes (write a meaningful commit message) and push them to
 GitHub.com.</p>
 <p>Once contributor 1 is done, <strong>contributor 2</strong> pulls the
-repository with the updated changes (i.e., the added data). Adjust the
-<code>processingcode.R</code> file such that it now loads the new data
-file called <code>exampledata2.xlsx</code>. Take a look at the new data.
-If necessary (depending on what contributor 1 added), add a few lines of
-code to clean the new data as needed. If this is needed, you either need
-to know at least a little bit of R coding, otherwise Google your way to
-a solution. Once everything works and the script creates a new clean
-dataset that can be saved as <code>processeddata.rds</code>, go to
-<code>processingfile_v2.qmd</code> and adjust as needed to make sure the
-updates you made to the R script are reflected in the Quarto file. Once
-both <code>processingscript.R</code> and
-<code>processingfile_v2.qmd</code> are updated and run without error
-messages, commit your changes and push to GitHub. Then let the next
-person in your group know.</p>
+repository with the updated changes (i.e., the added data). Take a look
+at the new variabes (use the <code>Codebook</code> information if they
+aren’t obvious). Adjust the <code>processingcode.R</code> file such that
+it now loads the new data file called <code>exampledata2.xlsx</code>.
+Take a look at the new data. If necessary (depending on what contributor
+1 added), add a few lines of code to clean the new data as needed. If
+this is needed, you either need to know at least a little bit of R
+coding, otherwise Google your way to a solution. Once everything works
+and the script creates a new clean dataset that can be saved as
+<code>processeddata.rds</code>, go to <code>processingfile_v2.qmd</code>
+and adjust as needed to make sure the updates you made to the R script
+are reflected in the Quarto file. Once both
+<code>processingscript.R</code> and <code>processingfile_v2.qmd</code>
+are updated and run without error messages, commit your changes and push
+to GitHub. Then let the next person in your group know.</p>
 <p><strong>If your team does not have 4 persons, then contributor 2 will
 also need to do the part of contributor 3.</strong></p>
-<p>As <strong>contributor 3</strong> pull, the latest version of the
-repository, then open <code>statistical_analysis.R</code>. Edit the code
-such that it creates a boxplot with the new categorical variable
+<p><strong>Contributor 3</strong> pulls the latest version of the
+repository, then opens <code>statistical_analysis.R</code>. Edit the
+code such that it creates a boxplot with the new categorical variable
 (whatever it is) on the x-axis, and height on the y-axis. Also create
 another scatterplot with weight on the x-axis and the new numerical
 variable on the y-axis. Save both figures to files. Once done, commit
