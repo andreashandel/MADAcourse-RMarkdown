@@ -30,7 +30,7 @@ We'll try to do that ourselves.
 
 ## Setup
 
-We'll do a bit of group work again. If you are a group of 4, team up in pairs. If you are a group of 3, do the "circular" pairing again. Everyone should do the visualization and comment on one other person's exercsie (via GitHub Issues as described below).
+We'll do a bit of group work again. If you are a group of 4, team up in pairs. If you are a group of 3, do the "circular" pairing again. Everyone should do the visualization and comment on one other person's exercise (via GitHub Issues as described below).
 
 Once you determined your partner(s) for this exercise, open your portfolio website project in RStudio. Then open the `visualization_exercise.qmd` file. We'll use that file for this exercise.
 

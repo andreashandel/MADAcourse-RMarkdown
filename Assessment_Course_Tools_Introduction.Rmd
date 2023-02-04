@@ -78,10 +78,12 @@ Next, open `aboutme.qmd` and write some text introducing yourself, as follows:
 
 ### Styling
 
-You can style your website if you like. Full styling will require knowledge of CSS and HTML. We won't get into this. But if you want to play a bit with the look, open the `_quarto.yml` file. This file defines the menu structure, and some styling. To change the look, you can replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. You can do a lot more styling by for instance editing the `styles.css` file. This is not a web design class `r emoji::emoji('grin')`, we therefore won't go into styling further, but feel free to explore on your own.
+It is possible to change the looks of your website. Full styling will require knowledge of CSS and HTML. We won't get into this. But we'll explore a quick way to change the look. Open the `_quarto.yml` file. This file defines the menu structure, and some styling. To change the look, can replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. 
 
+**Also go ahead and replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text in `_quarto.yml` with the actual Github URL of the repository you just created (e.g. something like `https://github.com/andreashandel/andreashandel-MADA-portfolio`).** 
 
-Also go ahead and replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text in `_quarto.yml` with the actual Github URL of the repository you just created (e.g. something like `https://github.com/andreashandel/andreashandel-MADA-portfolio`). 
+You can do a lot more styling by for instance editing the `styles.css` file. This is not a web design class `r emoji::emoji('grin')`, we therefore won't go into styling further, but feel free to explore on your own.
+
 
 
 

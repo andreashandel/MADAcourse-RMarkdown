@@ -43,8 +43,8 @@ _Quizzes will become available here as the course progresses. Once a quiz is ava
 * [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_student.xlsx)
 * [Module 3 – R coding basics](./quizsheets/m3_mada_coding_basics_student.xlsx)
 * [Module 4 – Contemplating, finding and wrangling data](./quizsheets/m4_mada_data_finding_wrangling_student.xlsx)
-<!-- * [Module 5 – Visualization](./quizsheets/m5_mada_visualization_student.xlsx) -->
-<!-- * [Module 6 – Exploration](./quizsheets/m6_mada_data_exploration_student.xlsx) -->
+* [Module 5 – Visualization](./quizsheets/m5_mada_visualization_student.xlsx)
+* [Module 6 – Exploration](./quizsheets/m6_mada_data_exploration_student.xlsx)
 <!-- * [Module 7 – Statistical Analysis Overview](./quizsheets/m7_mada_statistical_analysis_overview_student.xlsx) -->
 <!-- * [Module 8 – Fitting basic statistical models](./quizsheets/m8_mada_basic_statistical_models_student.xlsx) -->
 <!-- * [Module 9 – Evaluating your model fits](./quizsheets/m9_mada_model_evaluation_student.xlsx) -->
