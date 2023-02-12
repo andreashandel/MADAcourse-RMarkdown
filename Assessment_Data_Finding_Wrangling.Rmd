@@ -48,14 +48,14 @@ To get the dataset you selected, it is easiest if you download the file to your 
 
 **Remember that GitHub doesn't like large files. So if you pick a large data file (>100MB), first place it somewhere outside your repository, then reduce it by e.g., writing some R code that selects only a portion of the data. Once it's small enough, you can place it into the GitHub repository.** If no file is available for easy download, or if it is too large to download and place in the repo, you can instead write code to pull it directly from the source. This is generally done via an API that the place you get the data from provides (Google is your friend to figure out what commands you need to write).
 
-
 ## Loading and processing the data
 
 Now, write code that loads the data and processes/cleans it.  
 
 Add a `dataanalysis_exercise.qmd` file to the main folder of your repository (the place where the other `_exercise.qmd` files are). You can write code either into that Quarto file, or do a combined R script + Quarto, like the examples in the `Data Analysis Template`.
 
-At the top of the Quarto file, add a brief description of the data, where you got it, what it contains. 
+At the top of the Quarto file, add a brief description of the data, where you got it, what it contains. Also add a link to the source.
+
 Then write code that reads/load and process the data. Comprehensive and full cleaning of all the data is not necessary. Instead, decide on a few variables of interest and clean those. Think of one variable as the main outcome of interest (in a plot, that would generally be shown on the y-axis) and some other variable(s) as the predictors of interest. Similar to the height/weight example code in the `Data Analysis Template`. Or it could be some quantity changing over time. It's your choice.
 
 Once you have written code that processes the bits of the data you are interested in, save the cleaned data as an RDS file.
@@ -70,7 +70,7 @@ When all these parts are done and work, commit and push your changes to GitHub. 
 
 Fork and clone your fellow group member's repository using the same workflow you used in a previous exercise. Once you have it on your local computer, open the Quarto (or Quarto+R) file(s). 
 
-Start a new section below the part your classmate did. **Add a sentence to indicate where your section starts and also add your name.** E.g., you can write something like "this section added by YOURNAME".
+Add code and text below the part your classmate did. **Add a heading  to indicate where your section starts and also add your name. Specifically, have a heading that says `# This section added by YOURFULLNAME`. I need this so I can grade accordingly.**
 
 Write code that loads the `Rds` file of the cleaned data that your colleague produced. Then add some code that produces a few plots and/or tables. These can be purely descriptive and exploratory, or if you feel comfortable with some basic `R` statistical commands, you can also fit some model to the data. 
 
@@ -86,7 +86,7 @@ The original repository owner should check the PR they received from their colle
 
 In a final step, update the `_quarto.yml` file and include a menu item for "Data Analysis Exercise" pointing to the new file. Re-create your website and make sure it all works and the new project shows up.
 
-Since this will be part of your portfolio site, and you already posted a link to that previously, you don’t need to post anything, I know where to find it.
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. I will assess both the original contribution and the addition made by the second person.**
 
 
 

@@ -123,7 +123,7 @@ Find the repository of the team member you will contribute to and `Fork` their r
 
 Open the file that contains the coding exercise. It should look fairly similar to yours, though probably somewhat different since there are many ways to do things in R, and their comments might be different.
 
-Start a new section below the part your classmate did. **Add a sentence to indicate where your section starts and also add your name.** E.g., you can write something like "this section added by YOURNAME".
+Add code and text below the part your classmate did. **Add a heading  to indicate where your section starts and also add your name. Specifically, have a heading that says `# This section added by YOURFULLNAME`. I need this so I can grade accordingly.**
 
 Write some more code to do some more analysis of the dataset. This is fairly open-ended. I want you to create a few more plots of the data, and fit another model to some parts of data and display the fitting results in a table. You can e.g. use the `broom` package to convert output from `lm` into a data frame you can show as a table. What exactly you explore, plot and fit is up to you. 
 
@@ -142,7 +142,7 @@ On the main pull request site, you can do various things. If you don't like the 
 
 **Important:** To check that everything is ok, pull the updated repository to your local computer. Rebuild the website, make sure the preview looks ok and all the updates show. Since the website rebuilt on your local machine likely changed some files, commit your updates, push to the remote. If you now go to your portfolio website, you should see the changes from your classmates showing underneath what you wrote originally.
 
-**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it.**
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. I will assess both the original contribution and the addition made by the second person.**
 
 
 :::note

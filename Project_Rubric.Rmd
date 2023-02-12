@@ -2,7 +2,6 @@
 title: Project Rubric 
 subtitle: ""
 author: Andreas Handel
-institute: "University of Georgia"
 date: "`r file.mtime(knitr::current_input())`"
 #bibliography: ../media/references.bib
 output: 
@@ -23,21 +22,25 @@ At my discretion, I might consider assignments even if they are submitted after 
 
 **The main objective for part 1 is to describe data and question in enough detail that I can assess if the planned project is feasible.** 
 
+
+
+Use the `Manuscript.qmd` file. Remove or replace the template information. Add your proposed project title and your name(s).
+
 To that end, provide the following pieces of information:
 
 * Briefly describe what the data is, how it was collected, where you will get (or got) it from. How many observations do you have, what was measured? Anything else important to report about the data?
 * At this stage you are not required to already have and show the data, but if you do, even better. Then add a few lines of code which load the data and using some of the commands you learned about, provide summary descriptions of the data. 
 * Explain the question you want to answer using the data. What will be your outcome(s) of interest (if any)? What (if any) specific predictors will you focus on? What relations/patterns are you looking for in the data?
 * As much as you know, suggest how you will analyze it. At this stage in the course, we haven't covered analysis approaches yet, so you can keep things vague and non-technical here.
-* You are allowed, but not yet required, to provide background information for the question you plan to answer. For instance you can describe why it's an interesting question, who else has done similar analyses, how your analysis will be new/different, etc. Similar to what you read in an introduction to a research paper. For the final report, you'll need these parts. For part 1, they are not required, but you are welcome to already scribble down some of that.
+* You are allowed, but not yet required, to provide background information for the question you plan to answer. For instance you can describe why it's an interesting question, who else has done similar analyses, how your analysis will be new/different, etc. Similar to what you read in an introduction to a research paper. For the final report, you'll need these parts. For part 1, they are not required, but you are welcome to already write down some of that.
 * Eventually, for your final report, what you write for this part will go into different sections of the full report. Some will go into the introduction, some in the methods section. You can already place these items there, or for now just write them as a single section.
 
 Grading for this part will follow the following rubric: 
 
 | **Category** | **Description**  | **Score** |
 | --- | --- | --- |
-| Sufficient | Submission is (almost) complete, contains enough information to allow assessment of feasibility of proposed project  | 3 |
-| Somewhat insufficient | Most components are present, but noticeable gaps exist | 2 |
+| Sufficient | Submission is (almost) complete, contains enough information to allow assessment of feasibility of proposed project. Fully reproducible.  | 3 |
+| Somewhat insufficient | Most components are present, but noticeable gaps exist, or existing materials can't be fully reproduced. | 2 |
 | Not sufficient | Submission is rather incomplete, has major missing parts which does not allow assessment of feasibility of proposed project | 1 
 | Absent | (Almost) everything of submission is missing | 0 |
 
@@ -50,7 +53,7 @@ To that end, provide the following pieces of information:
 
 * Everything from part 1. That doesn't mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).
 * A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details. 
-* Removal or replacement of any left-over files and leftover text and code from the templates. Update all readme files, delete any files and folders that are not part of your project. Remove any comments and bits of code that are not relevant. At this stage, only information, code and files relevant to your project should be present, with appropriate documentation.
+* __Removal or replacement of any left-over files and leftover text and code from the templates.__ Update all readme files, delete any files and folders that are not part of your project. Remove any comments and bits of code that are not relevant. At this stage, only information, code and files relevant to your project should be present, with appropriate documentation.
 * The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).
 * It is up to you how you structure things. You can use a combination of R or Rmd scripts. As long as things are well documented, reproducible and logical, the exact setup is your choice.
 * Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
