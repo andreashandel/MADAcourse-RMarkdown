@@ -26,11 +26,11 @@ We'll practice a bit of model fitting using the `tidymodels` framework. Of cours
 
 ## Setup
 
+**This will be part of your portfolio site.** 
+
 We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files and **make sure to unzip**. Find the `SympAct_Any_Pos.Rda` file, which is the one we'll work with. 
 
-Start a new repository using the [dataanalyis-template](https://github.com/andreashandel/dataanalysis-template), make it your own repository (name it `YOURNAME-MADA-flu-analysis`), and clone it to your local computer. 
-
-Place Brian's data file into the `raw_data` folder. (I know he already processed it some, but we use it as our start, so for us that is the raw material.)
+Make a folder inside your portfolio repository, call it `flu_analysis`. Make a `data` sub-folder and place the the `SympAct_Any_Pos.Rda` file into that folder. If you want, you can also make separate `raw_data` and `processed_data` folders and place his `.Rda` file into the `raw_data` folder. (I know he already processed it some, but we use it as our start, so for us that is the raw material.)
 
 
 
@@ -40,22 +40,22 @@ We already spent time on the important steps of data wrangling/cleaning and expl
 
 By now you will have figured out that the whole wrangling/exploring process is iterative. Without exploring your data, you don't know how to clean/wrangle it. Without at least some cleaning, exploration often doesn't work (e.g. if you have missing values, some R summary functions don't work properly).
 
-For this exercise, write some code (as Quarto or Quarto+R) that further processes and cleans the data as follows:
+For this exercise, create a `code` folder (with sub-folders if you want) and place a Quarto file (either as stand-alone Quarto or Quarto+R) called `wrangling.qmd` into that folder. Add code that further processes and cleans the data as follows:
 
 * Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name.
 * Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.
 * Remove any NA observations, there aren't many. 
 
-**Make sure to add plenty of comments explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how. At this point, you should also delete any bits from your code or any files that are not part of your cleaning (e.g., leftovers from the template).**
+**Make sure to add plenty of comments and text explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how.**
 
-At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new dataset to an `Rds` file.   
+At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new data set to an `Rds` file into the appropriate folder.   
 
 For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) is that our main continuous outcome of interest is **Body temperature**, and our main categorical outcome is **Nausea**. We want to see if the other symptoms are correlated with (predict) those outcomes.
 
 
 ## EDA revisited
 
-As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add an R Markdown file (call it `exploration.Rmd`) that does a bit of exploration, produces a few figures and tables. 
+As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add a Quarto file (call it `exploration.qmd`) that does a bit of exploration, produces a few figures and tables. 
 
 At minimum, your exploration code should do the following:
 
@@ -66,7 +66,7 @@ At minimum, your exploration code should do the following:
 * If needed for your data, explore the pattern of missing values. (Not applicable here)
 * Any other exploration steps that might be useful.
 
-If you only have a limited number of variables, say less than 10, you can explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest. You can decide on the predictors to explore, the outcomes I chose for you as stated above. If you have a lot of predictors which may be important you need to use other techniques that we have not discussed.
+In general, if you only have a limited number of variables, say less than 10, you can usually explore them all. If you have a lot, focus your exploration on the ones you think are most interesting and important, which of course is the outcome and the main predictors of interest. You can decide on the predictors to explore. I determined the outcomes of interest for you above. Of course, if there are variables you know are of no interest, you can remove them during the cleaning/wrangling stage and don't need to explore them.
 
 
 ## General wrangling and EDA comments
@@ -117,9 +117,15 @@ If you are extra ambitious or just enjoy playing around with `tidymodels`, add a
 I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It can be somewhat tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian modeling, along the lines of the example in the `tidymodels` tutorial, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
 :::
 
-Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so others can understand what is going on.**
+Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). 
+
+There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so others can understand what is going on.**
 
 Once done, commit and push. Then publish a link to your repository into the exercise channel for this module.
+
+
+
+**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
 
 
 
