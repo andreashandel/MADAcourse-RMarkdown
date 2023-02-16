@@ -471,7 +471,7 @@ div.tocify {
           <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
         </li>
         <li>
-          <a href="./Assessment_Basic_Models.html">Assessment: Fitting Basic Models</a>
+          <a href="./Assessment_Fitting_Basic_Models.html">Assessment: Fitting Basic Models</a>
         </li>
       </ul>
     </li>
@@ -638,7 +638,7 @@ div.tocify {
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical
 Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-12 10:29:57</h4>
+<h4 class="date">2023-02-16 09:15:21</h4>
 
 </div>
 
@@ -658,20 +658,22 @@ likely part as well. This is another solo exercise. We’ll eventually get
 back to group work, I promise 😁.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
+<p><strong>This will be part of your portfolio site.</strong></p>
 <p>We are going to use <a
 href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v">the
 data from Brian McKay’s paper</a> you saw at the beginning of the
 course. Download all his files and <strong>make sure to unzip</strong>.
 Find the <code>SympAct_Any_Pos.Rda</code> file, which is the one we’ll
 work with.</p>
-<p>Start a new repository using the <a
-href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>,
-make it your own repository (name it
-<code>YOURNAME-MADA-flu-analysis</code>), and clone it to your local
-computer.</p>
-<p>Place Brian’s data file into the <code>raw_data</code> folder. (I
-know he already processed it some, but we use it as our start, so for us
-that is the raw material.)</p>
+<p>Make a folder inside your portfolio repository, call it
+<code>fluanalysis</code>. Make a <code>data</code> sub-folder and place
+the the <code>SympAct_Any_Pos.Rda</code> file into that folder. You can
+just use a single <code>data</code> folder for this exercise, but if you
+want, you can also make separate <code>raw_data</code> and
+<code>processed_data</code> folders and place his <code>.Rda</code> file
+into the <code>raw_data</code> folder. (I know he already processed it
+some, but we use it as our start, so for us that is the raw
+material.)</p>
 </div>
 <div id="wrangling-revisited" class="section level2">
 <h2>Wrangling revisited</h2>
@@ -683,26 +685,37 @@ process is iterative. Without exploring your data, you don’t know how to
 clean/wrangle it. Without at least some cleaning, exploration often
 doesn’t work (e.g. if you have missing values, some R summary functions
 don’t work properly).</p>
-<p>For this exercise, write some code (as Quarto or Quarto+R) that
-further processes and cleans the data as follows:</p>
+<p>For this exercise, create a single <code>code</code> folder inside
+the <code>fluanalysis</code> folder and place a Quarto file (either as
+stand-alone Quarto or Quarto+R) called <code>wrangling.qmd</code> into
+that folder. Add code that further processes and cleans the data as
+follows:</p>
 <ul>
+<li>Load the data. Note that this is actually an <code>RDS</code>
+file/object, not an <code>RData/RDA</code> file, despite the somewhat
+misleading <code>.Rda</code> file name ending. So you need to use the
+right function to load <code>RDS</code> files into R.</li>
 <li>Remove all variables that have <em>Score</em> or <em>Total</em> or
 <em>FluA</em> or <em>FluB</em> or <em>Dxname</em> or <em>Activity</em>
-in their name.</li>
+in their name. Don’t do this one by one, figure out how to use R
+commands that let you remove things in an efficient manner, using e.g.,
+<code>contains()</code> or .</li>
 <li>Also remove the variable <code>Unique.Visit</code>. You should be
 left with 32 variables coding for presence or absence of some symptom.
 Only one, temperature, is continuous. A few have multiple
 categories.</li>
 <li>Remove any NA observations, there aren’t many.</li>
 </ul>
-<p><strong>Make sure to add plenty of comments explaining each step.
-State briefly why you are making a decision, and then if the code is not
-obvious, explain the how. At this point, you should also delete any bits
-from your code or any files that are not part of your cleaning (e.g.,
-leftovers from the template).</strong></p>
+<p><strong>Make sure to add plenty of comments and text explaining each
+step. State briefly why you are making a decision, and then if the code
+is not obvious, explain the how.</strong></p>
 <p>At the end of your (fairly short) cleaning process, you should end up
-with 730 observations and 32 variables. Save the new dataset to an
-<code>Rds</code> file.</p>
+with 730 observations and 32 variables. Save the new data set as
+<code>RDS</code> file into the appropriate folder (either
+<code>data</code> or if you made it, your clean data folder). (For
+single objects <a
+href="https://rstudio-education.github.io/hopr/dataio.html#r-files"><code>RDS</code>
+is better than <code>RData/RDA</code>.</a> )</p>
 <p>For our further analysis, we decide (well, I’m deciding that for you
 😁) is that our main continuous outcome of interest is <strong>Body
 temperature</strong>, and our main categorical outcome is
@@ -713,9 +726,10 @@ correlated with (predict) those outcomes.</p>
 <h2>EDA revisited</h2>
 <p>As part of the data wrangling/cleaning, and also to some extent as
 stand-alone exploration to prepare you for the formal statistical
-fitting, you need to explore and understand your data. Add an R Markdown
-file (call it <code>exploration.Rmd</code>) that does a bit of
-exploration, produces a few figures and tables.</p>
+fitting, you need to explore and understand your data. Add a Quarto file
+(call it <code>exploration.qmd</code>) into the <code>code</code>
+folder. Write code that does a bit of exploration, produces a few
+figures and tables.</p>
 <p>At minimum, your exploration code should do the following:</p>
 <ul>
 <li>For each (important) variable, produce and print some numerical
@@ -733,13 +747,14 @@ variables.</li>
 applicable here)</li>
 <li>Any other exploration steps that might be useful.</li>
 </ul>
-<p>If you only have a limited number of variables, say less than 10, you
-can explore them all. If you have a lot, focus your exploration on the
-ones you think are most interesting and important, which of course is
-the outcome and the main predictors of interest. You can decide on the
-predictors to explore, the outcomes I chose for you as stated above. If
-you have a lot of predictors which may be important you need to use
-other techniques that we have not discussed.</p>
+<p>In general, if you only have a limited number of variables, say less
+than 10, you can usually explore them all. If you have a lot, focus your
+exploration on the ones you think are most interesting and important,
+which of course is the outcome and the main predictors of interest. You
+can decide on the predictors to explore. I determined the outcomes of
+interest for you above. Of course, if there are variables you know are
+of no interest, you can remove them during the cleaning/wrangling stage
+and don’t need to explore them.</p>
 </div>
 <div id="general-wrangling-and-eda-comments" class="section level2">
 <h2>General wrangling and EDA comments</h2>
@@ -750,15 +765,16 @@ comments on what you see and what it means. E.g. you could write
 something like <em>Histogram for height shows two persons at 20in,
 everyone else else is above 50in. Checked to see if those are wrong
 entries or not. Decided to remove those observations.</em></p>
-<p>Once you are done with this part, you should generally have at a
-minimum code that explores and cleans the data, produces some figures
-and tables, and saves the final cleaned data set to an <code>Rds</code>
-file. You should also have documentation, either as comments in the
-code, or text in an Rmd file, or notes in a README file (or even better,
-all of those), that explain what variables the data contain, what each
-variable means, which are the main outcome(s) and main predictor(s),
-etc. Providing all this meta-information is important so that someone
-else (or your future self) can easily understand what is going on.</p>
+<p>Once you’ve come this far, you should generally have at a minimum
+code that explores and cleans the data, produces some figures and
+tables, and saves the cleaned data set to an <code>Rds</code> file. You
+should also have documentation, as comments in the code and as text in a
+Quarto document, as well as some notes in README file(s), that explain
+what the different parts of data and code are/do, what variables the
+data contain, what each variable means, which are the main outcome(s)
+and main predictor(s), etc. Providing all this meta-information is
+important so that someone else (or your future self) can easily
+understand what is going on.</p>
 <div class="note">
 <p>For this exercise, it isn’t so important that the outcomes and
 predictors are of actual scientific interest. We won’t do exciting
@@ -784,22 +800,24 @@ you to do this very easily, so you may as well!</p>
 </div>
 <div id="model-fitting" class="section level1">
 <h1>Model fitting</h1>
-<p>Finally, we’ll do some model fitting. Start with a clean analysis
-script. Use another R Markdown file. If you want, you can place some of
-the code into a separate R script and then load into your
-<code>Rmd</code> file, or have everything inside the <code>Rmd</code>
-file. In either case, document/comment well.</p>
+<p>Finally, we’ll do some model fitting. Place a file called
+<code>fitting.qmd</code> into the <code>code folder</code> (or
+sub-folder, if you use them). As always, you can either have all the R
+code inside the Quarto document, or you can structure it such that the
+code is in a separate file and pulled into Quarto as needed. In either
+case, document/comment well.</p>
 <p>Add code that does the following operations:</p>
 <ol style="list-style-type: decimal">
 <li>Loads cleaned data.</li>
-<li>Fits a linear model to the continuous outcome using only the main
-predictor of interest.</li>
+<li>Fits a linear model to the continuous outcome (<strong>Body
+temperature</strong>) using only the main predictor of interest.</li>
 <li>Fits another linear model to the continuous outcome using all
 (important) predictors of interest.</li>
 <li>Compares the model results for the model with just the main
 predictor and all predictors.</li>
-<li>Fits a logistic model to the categorical outcome using only the main
-predictor of interest.</li>
+<li>Fits a logistic model to the categorical outcome
+(<strong>Nausea</strong>) using only the main predictor of
+interest.</li>
 <li>Fits another logistic model to the categorical outcome using all
 (important) predictors of interest.</li>
 <li>Compares the model results for the categorical model with just the
@@ -809,8 +827,8 @@ main predictor and all predictors.</li>
 predictor of interest, and we also care about all others. So you should
 fit models with each of the 2 outcomes and <code>RunnyNose</code> and
 models with each of the 2 outcomes and all predictors. Consider
-whichever outcome you are currently NOT fitting as a predictor of
-interest.</strong></p>
+whichever outcome you are currently NOT fitting to also be a predictor
+of interest.</strong></p>
 <p>You might have noticed that we are including some predictors twice,
 e.g. we have <em>Weakness</em> as 4 categories and also as yes/no.
 That’s likely not ideal. We’ll address that soon, for now let’s just
@@ -870,14 +888,35 @@ Once you get it up and running, it usually works well. The Stan website
 provides useful instructions. Learning some Bayesian statistics is very
 useful. Unfortunately, it’s beyond what we can cover in this course.</p>
 </div>
+</div>
+<div id="updating-the-portfolio-website" class="section level1">
+<h1>Updating the portfolio website</h1>
 <p>Once you completed your <code>tidymodels</code> exploration, make
 sure everything runs and produces relevant output (tables, figures,
-text, etc.). There is no need to update the manuscript file for this
-exercise. We’ll do that in a future exercise. <strong>But do make sure
-everything is documented well so others can understand what is going
-on.</strong></p>
-<p>Once done, commit and push. Then publish a link to your repository
-into the exercise channel for this module.</p>
+text, etc.). <strong>Also make sure everything is documented
+well.</strong></p>
+<p>Now it’s time to add everything to the portfolio website. For that,
+open the <code>_quarto.yml</code> file and make a new entry in the
+<code>navbar</code> section. Make a new main menu entry (at the same
+level as the the current <code>Projects</code> entry) and call it
+<code>Flu Analysis</code>. Underneath this entry, make 3 sub menu
+entries for the 3 Quarto files you just created, namely
+wrangling/Exploration/Fitting. Note that you need to point to the html
+file in the folder you created the Quarto file. So for instance for your
+wrangling file, it should look like</p>
+<pre class="r"><code>href: ./fluanalysis/code/wrangling.html</code></pre>
+<p><strong>Remember that YAML is very picky about indentation, so if you
+get strange error messages, it is often likely that your entries are not
+aligned/indented exactly right.</strong></p>
+<p>Recompile your full portfolio website. If everything works, you
+should see a new menu item called <code>Flu Analysis</code> next to
+<code>Projects</code> with 3 entries (Wrangling/Exploration/Fitting),
+each one containing the rendered version of your Quarto file. Once
+everyting works and looks as it should, remember to commit and push your
+updates to GitHub.</p>
+<p><strong>Since this is part of your portfolio site, you don’t need to
+post anything, I know where to find it. Therefore there is no exercise
+Slack channel for this module.</strong></p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>

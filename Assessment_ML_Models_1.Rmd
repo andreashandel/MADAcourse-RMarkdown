@@ -21,32 +21,30 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. This is a continuation of the data analysis exercise you've been working on over the last few weeks, analyzing flu data. The goal is that by the end of this exercise, you will have an example of a nice full analysis. So let's get started!
+For this exercise, we will implement some of the machine learning models covered in this module, and some of the general approaches we covered previously. This is a continuation of the `Flu Analysis` exercise you've been working on over the last few weeks. The goal is that by the end of this exercise, you will have an example of a nice full analysis. So let's get started!
 
 **Note: This exercise is likely time-consuming and you might get stuck. Please plan accordingly. Start early and ask for help in Slack.**
 
 
 ## Setup
 
-This is a solo-exercise. Make sure your previous repo for this exercise is fully up-to-date and synced. 
+This is a solo-exercise, and it's part of your portfolio. 
 
-The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things.
+The goal is to have both a complete and well-organized data analysis example at the end of the exercise. So as you go through this exercise, in addition to doing the indicated tasks and writing the code, keep organizing things as needed. You want to make sure you have readme files or other documentation that briefly explain what files are where and in which order to run them. Make sure your R/Quarto files are easy to understand and that they all run. 
 
-You want to remove anything that's not part of the exercise (any files/folders from the template). You also want to make sure you have readme files or other documentation that briefly explain what files are where and in which order to run them. Make sure your R/Rmd scripts are easy to understand and that they all run. 
-
-As you re-organize, you can decide the mix of R and Rmd files and what you want to combine and what to split. However you do it, make sure it's documented and easy to understand.
+As you re-organize, you can decide the mix of R and Quarto files and what you want to combine and what to split. However you do it, make sure it's documented and easy to understand.
 
 
 ## Pre-processing 
 
-We previously covered pre-processing, but haven't specifically looked at that yet in an exercise. So let's add that part. This can be added in various places to the code. You can for instance make it part of the cleaning code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
+We previously covered pre-processing, but haven't specifically looked at that yet in an exercise. So let's add that part. This can be added in various places to the code/files you already created previously. You can for instance make it part of the cleaning/wrangling code, or include it in the `recipe` part of your `tidymodels` workflow (or a mix).
 
 
 ### Feature/Variable removal
 
 You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at a minimum, don't help when you model, and are actually more likely to confuse your model and lead to errors/warnings/poor model performance (e.g. "predictions from a rank-deficient fit may be misleading). So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
 
-We also want to code the 3 symptom severity factors as ordinal, so make sure they are coded as **ordered factors**. The order should of course be None < Mild < Moderate < Severe.
+Note that the 3 symptom severity factors are ordinal, with None < Mild < Moderate < Severe. We can code them as **ordered factors**. I want you to do that as practice. However, to deal with ordered factors in a statistical analysis, one needs special approaches and we won't actually do those. 
 
 
 ### Low ("near-zero") variance predictors
@@ -58,9 +56,7 @@ You should end up with a data frame that has 730 observations and 26 variables. 
 
 ## Analysis code
 
-I suggest you put all the analysis code into one R Markdown file. Note that for this exercise, some of your code might take long to run. In such situations, it is often good to have an alternative setup, where some of the heavy computations are done by separate R scripts/functions, and the results saved, pulled into and displayed in the main R Markdown file. How you want to do it here is up to you, as long as the R Markdown file shows all the main results and your code/file(s) is/are well documented. 
-
-You will likely be able to recycle bits of our earlier code, but you are also welcome to start fresh.
+Start a new Quarto file for this analysis, call it `machinelearing.qmd`, place it into the `code` folder. Note that for this exercise, some of your code might take long to run. This is one of the situations where it is often good to have a setup where some of the heavy computations are done by separate R scripts/functions, and the results saved, pulled into and displayed in the Quarto file. How you want to do it here is up to you, as long as the Quarto file shows all the main results and your code/file(s) are well documented. 
 
 To keep things a bit simpler, for this exercise we focus on a single outcome, the **continuous, numerical** value of **Body temperature**. Thus, we are fitting **regression** models here. Once you finished the whole workflow for that outcome, you are welcome to (optionally) do it again and run a **classification** for the **categorical** outcome of **Nausea**. Since we are doing a regression, and we don't have any specific expert knowledge that tells us how we should build our performance metric, we'll go with one of the usual ones, namely RMSE. But remember to always think about your performance metric and don't just use the default without at least considering other options.
 
@@ -131,7 +127,7 @@ Here are some more suggestions and hints. Most of this is optional but worth try
 
 ### Model selection 
 
-Once you have implemented above steps for the 3 models, you should a "best" fit for each one based on the tuning process. For each best model you should have performance, uncertainty around the performance measure, and some diagnostic plots. While for any real research project, you likely want to look deeper (e.g. at uncertainty in predictions instead of just overall performance), for now this is enough. Pick one of the three models. Explain why you pick it. There is no single answer that's correct, I just want you to learn to reason/argue for why you are doing something: in this case justify why you are picking the model you do. 
+Once you have implemented above steps for the 3 models, you should have a "best" fit for each one based on the tuning process. For each best model you should have performance, uncertainty around the performance measure, and some diagnostic plots. While for any real research project, you likely want to look deeper (e.g. at uncertainty in predictions instead of just overall performance), for now this is enough. Pick one of the three models. Explain why you pick it. There is no single answer that's correct, I just want you to practice reasoning for why you are doing something: in this case justify why you are picking the model you do. 
 
 
 
@@ -142,20 +138,24 @@ Once you picked your final model, you are allowed to once -- **and only once** -
 And that concludes what is likely a fairly long exercise. The code itself is not that long, but it will take you time to cobble it together from the `tidymodel` tutorial and possibly other sources.
 
 
-## Cleanup/fixing and presentation
+## Test and website update 
 
-Make sure your analysis and all results are nicely documented and when knitted, your main analysis Rmd file produces a nice-looking HTML page. In a future exercise, you will add this to your portfolio. No need to post about the exercise, I know where to find it.
+Make sure your analysis and all results are nicely documented and everything runs/renders correctly. Then, add the newly created Quarto document as an entry into your `_quarto.yml` file, as a sub-menu of `Flu fitting`. Call it `Machine Learning`. Recompile your portfolio website and make sure everything works and shows up as expected. Then commit and push.
+
+**Since this is part of your portfolio site, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
 
 
 
 # Discussion
 
-Let's use this week's discussion to talk about projects. Post a short summary of your project, very briefly describing your data, your question(s), your (planned) methods and (expected) results. Sort of like an abstract for a paper. This way, everyone can get a quick glimpse as to what everyone else is doing. Also provide a link to the repo for easy access.
+Let's use this week's discussion to talk a bit more about the projects. Last week you received feedback on our project from a few classmates, this week I want everyone to have a chance to hear about and comment on all projects.
 
-Then, also post any specific questions/struggles/concerns you might have regarding your project. It's quite likely that there is some overlap in approaches and questions among you and your classmates. Hopefully, through this discussion you can provide each other with some help and input.
+To that end, post a summary description of your project to the discussion channel. Briefly describe your data, your question(s), your (planned) methods and (expected) results. Sort of like an abstract for a paper. It doesn't have to be very long, but should contain enough detail that others can get the overall idea. This way, everyone can get a quick glimpse as to what everyone else is doing. Also provide a link to the repo for easy access (if your project is in a public repository. For private repos, you can skip this).
+
+Then, also mention specific questions/struggles/concerns you might have regarding your project. It's quite likely that there is some overlap in approaches and questions among you and your classmates. Hopefully, through this discussion you can provide each other with some help and input.
 
 Post this by Wednesday. Then read the summaries of your classmates' projects. If you see a question/topic that you think you might be able to help with, either by answering a specific question, or by providing some general feedback, do so. 
 
 And of course, as you look at each others projects, it's a 2-way street. You can provide help/feedback, but you are also welcome to take inspiration from what others are doing and integrate some of that into your own project.
 
-Since you get feedback from me at each of your submission points, I plan to stay out of this week's discussion `r emoji::emoji('grin')`. So this is all you helping each other. Each of you will be reviewing 2 projects in a lot of depth at the end, but hopefully with the discussion this week you get a bit of an idea of what everyone else is doing, and you can provide feedback to others and earlier. 
+Since you get feedback from me at the other submission points, I plan to largely stay out of this week's discussion `r emoji::emoji('grin')`. So this is all you helping each other. Each of you has already seen a few projects and will be reviewing 2 projects in a lot of depth at the end, but hopefully with the discussion this week you get a bit of an idea of what everyone else is doing, and you can provide feedback to others and earlier. 

@@ -27,14 +27,11 @@ We'll practice the topics covered in this and prior units by continuing with the
 
 ## Setup
 
-For this week's exercise, we'll continue on the exercise/repository we started previously. We'll also do some group work again, using the -- by now familiar -- M1, M2, ... setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked with. The goal is that, as in past exercises, everyone will work on their own repository and on one other person's repository. If you are in a group of 4, you can also do pairs. That of course doesn't work in a group of 3, so you need to use the 'circular' setup there.
-
-Make sure you have the latest version of the repository on your local machine. As needed, pull/push/merge to make sure remote and local repositories are in sync. Open the project in RStudio. 
+You'll continue working on the _Flu Analysis_ exercise you started previously. We'll also do some group work again, using the -- by now familiar -- M1, M2, ... setup. Assign each other a number. As much as possible, do it such that you end up working with group members you have not (or not in a while) worked with. If you are in a group of 4, you can do pairs. That of course doesn't work in a group of 3 or 5, so you need to use the 'circular' setup there. The goal is that, as in past exercises, everyone will work on their own repository and on one other person's repository. 
 
 At this stage, I assume all the data wrangling and EDA code, as well as the model fitting code you worked on previously is present and fully functional. If there are still some issues that need to be resolved, go ahead and do so.
 
-
-Start with a new/clean analysis script. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then source/load it from your `Rmd` file, or have everything inside the `Rmd` file. In either case, document/comment well.
+Place a new Quarto file called `modeleval.qmd` into the code folder (or sub-folder, if you use them). As always, you can of course either use a single Quarto file with code or put the code into an R script and pull it into the Quarto file. In either case, document/comment well.
 
 
 ## Data splitting
@@ -43,7 +40,7 @@ Write code that takes the data and splits it randomly into a train and test that
 
 ## Workflow creation and model fitting
 
-Next, following the example in the [Create Recipes section of the Get Started tidymodels tutorial](https://www.tidymodels.org/start/recipes/), create a simple recipe that fits our **categorical outcome of interest**  to all predictors (we'll start with categorical and all predictors since that's the closest to the shown example). For now, you can ignore the concept of `roles` and `features` they mention. 
+Next, following the example in the [Create Recipes section of the Get Started tidymodels tutorial](https://www.tidymodels.org/start/recipes/), create a simple recipe that fits a logistic model to our **categorical outcome of interest**, using all predictors. (We start with categorical and all predictors since that's the closest to the shown example). For now, you can ignore the concept of `roles` and `features` they mention. 
 
 Set a model as you did in the previous exercise, then use the `workflow()` package to create a simple workflow that fits a logistic model to all predictors using the `glm` function. To that end, follow the _Fit a model with a recipe_ section of the tutorial and adjust for your case. 
 
@@ -62,15 +59,17 @@ Let's re-do the fitting but now with a model that only fits the main predictor t
 
 ## Wrap up part 1
 
-Make sure everything runs and works as expected. Then commit, push and tell your classmate that they can take over. 
+Make sure everything runs and works as expected. Also make sure everyting is well commented/documented/explained!
+Then commit, push and tell your classmate that they can take over. 
 **Finish this by Wednesday.**
 
 
 ## Continous outcome
 
-Fork and clone (or if you are added as collaborator, clone directly) your classmate's repository. Add code at the bottom of theirs. **Mark where your contribution starts with your name.**
+Fork and clone (or if you are added as collaborator, clone directly) your classmate's repository. 
+Open their `modeleval.qmd` file. **Add a heading at the bottom that says `# This section added by YOURFULLNAME`. I need this so I can grade accordingly.**
 
-Add code that repeats the above steps, but now fits linear models to the continuous outcome. One model with all predictors, one model with just the main predictor. For that, you need to change your metric. RMSE is a good one to choose. You should find that a lot of the code your classmate wrote can copied/pasted/re-used with only minimal modifications. 
+Add code that repeats the above steps, but now fits linear models to the continuous outcome. One model with all predictors, one model with just the main predictor. For that, you need to change your metric. RMSE is a good one to choose. You should find that a lot of the code your classmate wrote can copied/pasted/re-used with only minimal modifications. Make sure to add comments/documentation.
 
 
 ## Wrap up part 2
@@ -78,11 +77,12 @@ Add code that repeats the above steps, but now fits linear models to the continu
 Make sure everything runs and works as expected. Then commit, push and if you forked the repo, initiate a pull request. Tell our classmate that its done.
 
 
-## Cleanup and submit
 
-The original repository owner should make sure everything works, and update as needed. At this point, you might also want to perform some cleanup in your repository. You will keep working on this exercise, and eventually add it to your online portfolio website, so it's a good idea to clean up a bit. Update README files, remove files and folders that are not used, etc. Ideally, you should have only materials in there that are relevant to the various exercise parts you (and your classmate contributors) did for this. Any leftover stuff from the original template should go or be updated.
+## Test and website update 
 
-Once all is ready, push to GitHub. No need to post a link since it's the same one as last week.
+The original repository owner should make sure everything works. Then, add the newly created Quarto document as an entry into your `_quarto.yml` file, as a sub-menu of `Flu fitting`. Call it `Model Evaluation`. Recompile your portfolio website and make sure everything works and shows up as expected. Then commit and push.
+
+**Since this is part of your portfolio site, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
 
 
 ## Looking ahead

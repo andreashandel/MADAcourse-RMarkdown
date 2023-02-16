@@ -84,6 +84,9 @@ It is possible to change the looks of your website. Full styling will require kn
 
 You can do a lot more styling by for instance editing the `styles.css` file. This is not a web design class `r emoji::emoji('grin')`, we therefore won't go into styling further, but feel free to explore on your own.
 
+:::warning
+YAML (which is the format of `_quarto.yml`) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change a YAML file and you get a weird error message when trying to rebuild your website, it's likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind. (It happens to me all the time.)
+:::
 
 
 

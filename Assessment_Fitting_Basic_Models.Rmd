@@ -30,7 +30,7 @@ We'll practice a bit of model fitting using the `tidymodels` framework. Of cours
 
 We are going to use [the data from Brian McKay's paper](https://datadryad.org/stash/dataset/doi:10.5061/dryad.51c59zw4v) you saw at the beginning of the course. Download all his files and **make sure to unzip**. Find the `SympAct_Any_Pos.Rda` file, which is the one we'll work with. 
 
-Make a folder inside your portfolio repository, call it `flu_analysis`. Make a `data` sub-folder and place the the `SympAct_Any_Pos.Rda` file into that folder. If you want, you can also make separate `raw_data` and `processed_data` folders and place his `.Rda` file into the `raw_data` folder. (I know he already processed it some, but we use it as our start, so for us that is the raw material.)
+Make a folder inside your portfolio repository, call it `fluanalysis`. Make a `data` sub-folder and place the the `SympAct_Any_Pos.Rda` file into that folder. You can just use a single `data` folder for this exercise, but if you want, you can also make separate `raw_data` and `processed_data` folders and place his `.Rda` file into the `raw_data` folder. (I know he already processed it some, but we use it as our start, so for us that is the raw material.)
 
 
 
@@ -40,22 +40,23 @@ We already spent time on the important steps of data wrangling/cleaning and expl
 
 By now you will have figured out that the whole wrangling/exploring process is iterative. Without exploring your data, you don't know how to clean/wrangle it. Without at least some cleaning, exploration often doesn't work (e.g. if you have missing values, some R summary functions don't work properly).
 
-For this exercise, create a `code` folder (with sub-folders if you want) and place a Quarto file (either as stand-alone Quarto or Quarto+R) called `wrangling.qmd` into that folder. Add code that further processes and cleans the data as follows:
+For this exercise, create a single `code` folder inside the `fluanalysis` folder and place a Quarto file (either as stand-alone Quarto or Quarto+R) called `wrangling.qmd` into that folder. Add code that further processes and cleans the data as follows:
 
-* Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name.
+* Load the data. Note that this is actually an `RDS` file/object, not an `RData/RDA` file, despite the somewhat misleading `.Rda` file name ending. So you need to use the right function to load `RDS` files into R.
+* Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name. Don't do this one by one, figure out how to use R commands that let you remove things in an efficient manner, using e.g., `contains()` or .
 * Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.
 * Remove any NA observations, there aren't many. 
 
 **Make sure to add plenty of comments and text explaining each step. State briefly why you are making a decision, and then if the code is not obvious, explain the how.**
 
-At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new data set to an `Rds` file into the appropriate folder.   
+At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new data set as `RDS` file into the appropriate folder (either `data` or if you made it, your clean data folder). (For single objects [`RDS` is better than `RData/RDA`.](https://rstudio-education.github.io/hopr/dataio.html#r-files) )   
 
 For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) is that our main continuous outcome of interest is **Body temperature**, and our main categorical outcome is **Nausea**. We want to see if the other symptoms are correlated with (predict) those outcomes.
 
 
 ## EDA revisited
 
-As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add a Quarto file (call it `exploration.qmd`) that does a bit of exploration, produces a few figures and tables. 
+As part of the data wrangling/cleaning, and also to some extent as stand-alone exploration to prepare you for the formal statistical fitting, you need to explore and understand your data. Add a Quarto file (call it `exploration.qmd`) into the `code` folder. Write code that does a bit of exploration, produces a few figures and tables. 
 
 At minimum, your exploration code should do the following:
 
@@ -73,7 +74,7 @@ In general, if you only have a limited number of variables, say less than 10, yo
 
 Always make sure you document well. Prior to each code piece that produces some output, you should add text describing what you are about to do and why. After you produced the result, add some text that comments on what you see and what it means. E.g. you could write something like _Histogram for height shows two persons at 20in, everyone else else is above 50in. Checked to see if those are wrong entries or not. Decided to remove those observations._
 
-Once you are done with this part, you should generally have at a minimum code that explores and cleans the data, produces some figures and tables, and saves the final cleaned data set to an `Rds` file. You should also have documentation, either as comments in the code, or text in an Rmd file, or notes in a README file (or even better, all of those), that explain what variables the data contain, what each variable means, which are the main outcome(s) and main predictor(s), etc. Providing all this meta-information is important so that someone else (or your future self) can easily understand what is going on.
+Once you've come this far, you should generally have at a minimum code that explores and cleans the data, produces some figures and tables, and saves the cleaned data set to an `Rds` file. You should also have documentation, as comments in the code and as text in a Quarto document, as well as some notes in README file(s), that explain what the different parts of data and code are/do, what variables the data contain, what each variable means, which are the main outcome(s) and main predictor(s), etc. Providing all this meta-information is important so that someone else (or your future self) can easily understand what is going on.
 
 :::note
 For this exercise, it isn't so important that the outcomes and predictors are of actual scientific interest. We won't do exciting science here, just explore the analysis workflow. However, I want to remind you that having good/interesting question to answer (and data you can use to answer it) is the **most important** part of any research project. Rather a great question and basic stats than really fancy stats answering a question nobody cares about!
@@ -86,19 +87,19 @@ Any good data collection and analysis requires that data is documented with meta
 
 # Model fitting
 
-Finally, we'll do some model fitting. Start with a clean analysis script. Use another R Markdown file. If you want, you can place some of the code into a separate R script and then load into your `Rmd` file, or have everything inside the `Rmd` file. In either case, document/comment well.
+Finally, we'll do some model fitting. Place a file called `fitting.qmd` into the `code folder` (or sub-folder, if you use them). As always, you can either have all the R code inside the Quarto document, or you can structure it such that the code is in a separate file and pulled into Quarto as needed. In either case, document/comment well.
 
 Add code that does the following operations:
 
 1. Loads cleaned data.
-2. Fits a linear model to the continuous outcome using only the main predictor of interest.
+2. Fits a linear model to the continuous outcome (**Body temperature**) using only the main predictor of interest.
 3. Fits another linear model to the continuous outcome using all (important) predictors of interest.
 4. Compares the model results for the model with just the main predictor and all predictors. 
-5. Fits a logistic model to the categorical outcome using only the main predictor of interest.
+5. Fits a logistic model to the categorical outcome (**Nausea**) using only the main predictor of interest.
 6. Fits another logistic model to the categorical outcome using all (important) predictors of interest.
 7. Compares the model results for the categorical model with just the main predictor and all predictors.
 
-**Here, we decide that `RunnyNose` is our main predictor of interest, and we also care about all others. So you should fit models with each of the 2 outcomes and `RunnyNose` and models with each of the 2 outcomes and all predictors. Consider whichever outcome you are currently NOT fitting as a predictor of interest.** 
+**Here, we decide that `RunnyNose` is our main predictor of interest, and we also care about all others. So you should fit models with each of the 2 outcomes and `RunnyNose` and models with each of the 2 outcomes and all predictors. Consider whichever outcome you are currently NOT fitting to also be a predictor of interest.** 
 
 You might have noticed that we are including some predictors twice, e.g. we have _Weakness_ as 4 categories and also as yes/no. That's likely not ideal. We'll address that soon, for now let's just "throw it all in". Because we do that, you might get some warning messages from your code about rank deficiency. Usually, we would need to inspect those and make sure we either fix or understand what's going on and are ok with it. For now, you can ignore.
 
@@ -117,15 +118,23 @@ If you are extra ambitious or just enjoy playing around with `tidymodels`, add a
 I'm a big fan of fitting models in a Bayesian framework. R has many good packages. Most of them connect to the [Stan software](https://mc-stan.org/), an independent piece of powerful Bayesian fitting software. It can be somewhat tricky to get the installation of Stan and the connection to R working. So if you try to do some Bayesian modeling, along the lines of the example in the `tidymodels` tutorial, some initial fiddling is required. Once you get it up and running, it usually works well. The Stan website provides useful instructions. Learning some Bayesian statistics is very useful. Unfortunately, it's beyond what we can cover in this course.
 :::
 
-Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). 
 
-There is no need to update the manuscript file for this exercise. We'll do that in a future exercise. **But do make sure everything is documented well so others can understand what is going on.**
+# Updating the portfolio website
 
-Once done, commit and push. Then publish a link to your repository into the exercise channel for this module.
+Once you completed your `tidymodels` exploration, make sure everything runs and produces relevant output (tables, figures, text, etc.). **Also make sure everything is documented well.**
+
+Now it's time to add everything to the portfolio website. For that, open the `_quarto.yml` file and make a new entry in the `navbar` section. Make a new main menu entry (at the same level as the the current `Projects` entry) and call it `Flu Analysis`. Underneath this entry, make 3 sub menu entries for the 3 Quarto files you just created, namely wrangling/Exploration/Fitting. Note that you need to point to the html file in the folder you created the Quarto file. So for instance for your wrangling file, it should look like 
+
+```{r, eval = FALSE}
+href: ./fluanalysis/code/wrangling.html
+```
+
+**Remember that YAML is very picky about indentation, so if you get strange error messages, it is often likely that your entries are not aligned/indented exactly right.**
+
+Recompile your full portfolio website. If everything works, you should see a new menu item called `Flu Analysis` next to `Projects` with 3 entries (Wrangling/Exploration/Fitting), each one containing the rendered version of your Quarto file. Once everyting works and looks as it should, remember to commit and push your updates to GitHub.
 
 
-
-**Since this will be part of your portfolio site, and you already posted a link to that previously, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
+**Since this is part of your portfolio site, you don't need to post anything, I know where to find it. Therefore there is no exercise Slack channel for this module.**
 
 
 
