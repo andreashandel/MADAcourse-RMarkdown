@@ -144,5 +144,6 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 * RStudio has a [collection of materials for data science](https://resources.rstudio.com/the-essentials-of-data-science).
 * [R Studio cheatsheets](https://www.rstudio.com/resources/cheatsheets/) are 1 page reference documents that quickly let you see how you use specific R packages or do certain tasks. A very useful resource, definitely check them out. 
 * [A meta-cheatsheet](https://github.com/business-science/cheatsheets/blob/master/Data_Science_With_R_Workflow.pdf) - this is a cheat-sheet showing you links to different R packages and their cheat-sheets for specific tasks. A nice overview document, developed by the folks at [business-science.io](https://www.business-science.io/).
+* [Data Science Learning Resources](https://www.mbastack.org/data-science-learning-resources/) - a collection of links to resources that discuss general aspects of the data science field.  
 * I created lists related to R and Data Analysis (as well as other topics). [You can find all resource lists here](https://andreashandel.github.io/research-and-teaching-resources/). (These lists are works in progress, and some are better/more useful than others. Feel free to send me links/resources to include).
 
