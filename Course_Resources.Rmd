@@ -47,7 +47,6 @@ All materials described below are (should be) freely available online. If you ca
 * When you search online for help, quite often you land on some [StackExchange](https://stackexchange.com/) site (often [Stack Overflow](https://stackoverflow.com/)). [These are a collection of widely-used online question and answer sites](https://stackexchange.com/sites) covering all kinds of topics (including R, Github, Data Analysis, etc.). The majority of the time, you will find an answer, or at least something that gets you closer, on those sites. I rarely go to those sites directly, instead I type my query into Google and it often sends me to one of the StackExchange sites.
 * The [Rstudio community](https://community.rstudio.com/) is another good place to ask questions. It is not as widely used as StackExchange, but it seems to be more newcomer friendly. I haven't used it much.
 * Another highly recommended resource is the [R for data science community](https://www.rfordatasci.com/). They have a Slack workspace which you can join for free and ask questions about R, Data Science and related topics. They are very newbie-friendly. I have not used them much but they seem to respond fairly quickly and are helpful.
-* Here is another resource, [a list of individuals who volunteered to answer R and/or Data Science questions mainly through Twitter](https://www.datahelpers.org/). 
 
 
 # More resources

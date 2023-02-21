@@ -40,7 +40,7 @@ For each module, you are asked to fill out an Excel sheet with questions related
 _Quizzes will become available here as the course progresses. Once a quiz is available, you should be able to submit it at any time before the deadline._
 
 * [Module 1 – Course and tools introduction](./quizsheets/m1_mada_course_tools_student.xlsx) - you have 2 attempts available for this one.
-* [Module 2 – Data analysis introduction ](./quizsheets/mada_data_analysis_intro_student.xlsx)
+* [Module 2 – Data analysis introduction ](./quizsheets/m2_mada_data_analysis_intro_student.xlsx)
 * [Module 3 – R coding basics](./quizsheets/m3_mada_coding_basics_student.xlsx)
 * [Module 4 – Contemplating, finding and wrangling data](./quizsheets/m4_mada_data_finding_wrangling_student.xlsx)
 * [Module 5 – Visualization](./quizsheets/m5_mada_visualization_student.xlsx)
