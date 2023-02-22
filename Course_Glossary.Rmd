@@ -95,7 +95,6 @@ __Unlabeled data:__ If we have data for which there is either no specific outcom
 
 __Variable:__ Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable. 
 
-__Variable:__ Any quantity that we record like height, weight, income, or species type. In R, it is most common, that each variable is stored as a column in a data frame. The column name should be the name of the variable. 
 
 
 
