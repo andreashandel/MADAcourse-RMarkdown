@@ -638,7 +638,7 @@ div.tocify {
 <h1 class="title toc-ignore">Assessment - Fitting Basic Statistical
 Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-02-16 09:15:21</h4>
+<h4 class="date">2023-02-22 20:13:21</h4>
 
 </div>
 
@@ -697,9 +697,10 @@ misleading <code>.Rda</code> file name ending. So you need to use the
 right function to load <code>RDS</code> files into R.</li>
 <li>Remove all variables that have <em>Score</em> or <em>Total</em> or
 <em>FluA</em> or <em>FluB</em> or <em>Dxname</em> or <em>Activity</em>
-in their name. Don’t do this one by one, figure out how to use R
-commands that let you remove things in an efficient manner, using e.g.,
-<code>contains()</code> or .</li>
+in their name. Don’t do this manually one by one, figure out how to use
+R commands that let you remove things in an efficient manner, using
+e.g., <code>contains()</code> or <code>starts_with()</code> from
+<code>dplyr/tidyselect</code>.</li>
 <li>Also remove the variable <code>Unique.Visit</code>. You should be
 left with 32 variables coding for presence or absence of some symptom.
 Only one, temperature, is continuous. A few have multiple
@@ -717,7 +718,7 @@ single objects <a
 href="https://rstudio-education.github.io/hopr/dataio.html#r-files"><code>RDS</code>
 is better than <code>RData/RDA</code>.</a> )</p>
 <p>For our further analysis, we decide (well, I’m deciding that for you
-😁) is that our main continuous outcome of interest is <strong>Body
+😁) that our main continuous outcome of interest is <strong>Body
 temperature</strong>, and our main categorical outcome is
 <strong>Nausea</strong>. We want to see if the other symptoms are
 correlated with (predict) those outcomes.</p>
@@ -907,7 +908,10 @@ wrangling file, it should look like</p>
 <pre class="r"><code>href: ./fluanalysis/code/wrangling.html</code></pre>
 <p><strong>Remember that YAML is very picky about indentation, so if you
 get strange error messages, it is often likely that your entries are not
-aligned/indented exactly right.</strong></p>
+aligned/indented exactly right. If you suspect that you have this
+problem, you can show whitespace characters in RStudio by going to
+`Tools -&gt; Global Options -&gt; Code -&gt; Display” and check <em>Show
+Whitespace Characters</em>. </strong></p>
 <p>Recompile your full portfolio website. If everything works, you
 should see a new menu item called <code>Flu Analysis</code> next to
 <code>Projects</code> with 3 entries (Wrangling/Exploration/Fitting),

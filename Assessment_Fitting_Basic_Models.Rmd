@@ -43,7 +43,7 @@ By now you will have figured out that the whole wrangling/exploring process is i
 For this exercise, create a single `code` folder inside the `fluanalysis` folder and place a Quarto file (either as stand-alone Quarto or Quarto+R) called `wrangling.qmd` into that folder. Add code that further processes and cleans the data as follows:
 
 * Load the data. Note that this is actually an `RDS` file/object, not an `RData/RDA` file, despite the somewhat misleading `.Rda` file name ending. So you need to use the right function to load `RDS` files into R.
-* Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name. Don't do this one by one, figure out how to use R commands that let you remove things in an efficient manner, using e.g., `contains()` or .
+* Remove all variables that have _Score_ or _Total_ or _FluA_ or _FluB_ or _Dxname_ or _Activity_ in their name. Don't do this manually one by one, figure out how to use R commands that let you remove things in an efficient manner, using e.g., `contains()` or `starts_with()` from `dplyr/tidyselect`.
 * Also remove the variable `Unique.Visit`. You should be left with 32 variables coding for presence or absence of some symptom. Only one, temperature, is continuous. A few have multiple categories.
 * Remove any NA observations, there aren't many. 
 
@@ -51,7 +51,7 @@ For this exercise, create a single `code` folder inside the `fluanalysis` folder
 
 At the end of your (fairly short) cleaning process, you should end up with 730 observations and 32 variables. Save the new data set as `RDS` file into the appropriate folder (either `data` or if you made it, your clean data folder). (For single objects [`RDS` is better than `RData/RDA`.](https://rstudio-education.github.io/hopr/dataio.html#r-files) )   
 
-For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) is that our main continuous outcome of interest is **Body temperature**, and our main categorical outcome is **Nausea**. We want to see if the other symptoms are correlated with (predict) those outcomes.
+For our further analysis, we decide (well, I'm deciding that for you `r emoji::emoji('grin')`) that our main continuous outcome of interest is **Body temperature**, and our main categorical outcome is **Nausea**. We want to see if the other symptoms are correlated with (predict) those outcomes.
 
 
 ## EDA revisited
@@ -129,7 +129,9 @@ Now it's time to add everything to the portfolio website. For that, open the `_q
 href: ./fluanalysis/code/wrangling.html
 ```
 
-**Remember that YAML is very picky about indentation, so if you get strange error messages, it is often likely that your entries are not aligned/indented exactly right.**
+**Remember that YAML is very picky about indentation, so if you get strange error messages, it is often likely that your entries are not aligned/indented exactly right. 
+If you suspect that you have this problem, you can show whitespace characters in RStudio by going to `Tools -> Global Options -> Code -> Display" and check _Show Whitespace Characters_.
+**
 
 Recompile your full portfolio website. If everything works, you should see a new menu item called `Flu Analysis` next to `Projects` with 3 entries (Wrangling/Exploration/Fitting), each one containing the rendered version of your Quarto file. Once everyting works and looks as it should, remember to commit and push your updates to GitHub.
 
