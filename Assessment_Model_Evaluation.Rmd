@@ -26,7 +26,7 @@ We definitely need to practice some of the topics we covered in this (and previo
 
 # Project
 
-Finish (and make sure to push) part 3 of the project. There is no need to submit a link. Unless you renamed your repository, I, and your classmates, know where to find it based on your previous submissions. Do make sure the link you posted previously tn the `project_related` Slack channel is accurate.
+Finish (and make sure to push) part 3 of the project. There is no need to submit a link. Unless you renamed your repository, I, and your classmates, know where to find it based on your previous submissions. Make sure the link you posted previously to the `project_related` Slack channel is accurate. If you are using a private repository, add the students who will review your project as collaborators (see `announcement` channel).
 
 
 

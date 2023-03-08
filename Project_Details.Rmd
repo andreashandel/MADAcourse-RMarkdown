@@ -1,0 +1,148 @@
+---
+title: Class Project Details
+subtitle: ""
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+This documents provides more detailed instructions and grading rubrics for each part of the project.
+
+Note that you should not consider the scores below as corresponding to a letter grade. Instead, I use those to differentiate between different aspects of the project. Only at the end while I make actual grade-like scores, which will likely involve curving (up, never down).
+
+At my discretion, I might consider assignments even if they are submitted after the deadline. In that case, I might take off a point for lateness.
+
+
+# Part 1
+
+**The main objective for part 1 is to describe data and question in enough detail that I can assess if the planned project is feasible.** 
+
+
+
+Use the `Manuscript.qmd` file. Remove or replace the template information. Add your proposed project title and your name(s).
+
+To that end, provide the following pieces of information:
+
+* Briefly describe what the data is, how it was collected, where you will get (or got) it from. How many observations do you have, what was measured? Anything else important to report about the data?
+* At this stage you are not required to already have and show the data, but if you do, even better. Then add a few lines of code which load the data and using some of the commands you learned about, provide summary descriptions of the data. 
+* Explain the question you want to answer using the data. What will be your outcome(s) of interest (if any)? What (if any) specific predictors will you focus on? What relations/patterns are you looking for in the data?
+* As much as you know, suggest how you will analyze it. At this stage in the course, we haven't covered analysis approaches yet, so you can keep things vague and non-technical here.
+* You are allowed, but not yet required, to provide background information for the question you plan to answer. For instance you can describe why it's an interesting question, who else has done similar analyses, how your analysis will be new/different, etc. Similar to what you read in an introduction to a research paper. For the final report, you'll need these parts. For part 1, they are not required, but you are welcome to already write down some of that.
+* Eventually, for your final report, what you write for this part will go into different sections of the full report. Some will go into the introduction, some in the methods section. You can already place these items there, or for now just write them as a single section.
+
+Grading for this part will follow the following rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Sufficient | Submission is (almost) complete, contains enough information to allow assessment of feasibility of proposed project. Fully reproducible.  | 3 |
+| Somewhat insufficient | Most components are present, but noticeable gaps exist, or existing materials can't be fully reproduced. | 2 |
+| Not sufficient | Submission is rather incomplete, has major missing parts which does not allow assessment of feasibility of proposed project | 1 
+| Absent | (Almost) everything of submission is missing | 0 |
+
+
+# Part 2
+
+**The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.** 
+
+To that end, provide the following pieces of information:
+
+* Everything from part 1. That doesn't mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).
+* A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details. 
+* __Removal or replacement of any left-over files and leftover text and code from the templates.__ Update all readme files, delete any files and folders that are not part of your project. Remove any comments and bits of code that are not relevant. At this stage, only information, code and files relevant to your project should be present, with appropriate documentation.
+* The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).
+* It is up to you how you structure things. You can use a combination of R or Rmd scripts. As long as things are well documented, reproducible and logical, the exact setup is your choice.
+* Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
+* Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.
+* If you start including references, you should use a reference manager and a bibtex file from which you cite references in your manuscript. I recommend managing the bibtex file with the free Zotero reference manager, but if you have another reference manager that can handle bibtex files, you can use that too. Your bib file should be part of the project repository (for instance in the same folder as the manuscript). Feel free to pick any citation style you like (you can get CSL files from e.g. [this style repository](https://www.zotero.org/styles)).
+
+Grading for this part will follow the following rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Sufficient | Submission is (almost) complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
+| Absent | (Almost) everything of submission is missing | 0 |
+
+
+
+# Part 3
+
+**The main objective for part 3 is to have started the analysis part of the project and continued to improve everything.** 
+
+To that end, provide the following pieces of information:
+
+* All relevant files and documents needed to reproduce everything.
+* Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everything.
+* Files with well-documented code (either R scripts or Rmd files) that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individual predictors of interest. I suggest as much as possible you use the `tidymodels` framework. You can also try a few multivariable GLM. Results from those explorations should be saved in whatever form you consider most appropriate (figures or tables).
+* A main article/manuscript file which contains the most pertinent results and findings from everything you have done so far. You can include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable and somewhat focused, so don't produce page-long raw R output or a ton of exploratory figures or similar things. The main results of your analysis should be in this manuscript. Any further explorations and results (figures and tables) should go into a separate Rmarkdown file that comprises the supplementary material. For some idea on how this can be structured, you can for instance revisit Brian's project we looked at [in this unit](./Data_Analysis_Motivation.html).
+
+Grading for this part will follow this rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Sufficient | Submission is (almost) complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
+| Absent | (Almost) everything of submission is missing | 0 |
+
+_This part of your project will be assessed by some of your classmates. See the `Reviews` document for more details._
+
+
+# Part 4
+
+**The objective is to have mostly completed implementation of analyses following the approaches covered in the course.**
+
+To that end, provide the following pieces of information:
+
+* All relevant files and documents needed to reproduce everything.
+* Documentation for everything you are doing. Any files/documentation not related to your project should be removed, only relevant information should be present.
+* Code that performs statistical analyses of your data using the approaches we cover in class, such as: train/test split, cross-validation, trying different models, exploring model quality (performance, uncertainty, diagnostics, etc.). Depending on your data and question, not all approaches will make sense for your data. Choose the ones that make sense. E.g., if you happen to do an analysis of text or high-dimensional data, use methods/models appropriate for that data. The main point is that you should show you understand the main concepts regarding analysis and model evaluation and can apply them to your data with the tools we covered.
+* Update your manuscript and supplementary files with the new results (figures/tables) from your analysis.
+* At this point, make sure you are also far along with your background section, including referencing (using a reference manager and bibtex, file, **no manual references**) and everything starts looking like a full analysis similar to what one could submit to a journal for publication. 
+
+
+Grading for this part will follow this rubric: 
+
+| **Category** | **Description**  | **Score** |
+| --- | --- | --- |
+| Sufficient | Submission is (almost) complete | 3 |
+| Somewhat insufficient | Submission is somewhat incomplete, minor parts missing or not reproducible| 2 |
+| Insufficient | Submission is very incomplete, major parts missing or not reproducible| 1 |
+| Absent | (Almost) everything of submission is missing | 0 |
+
+
+
+# Part 5
+
+**The objective for part 5 is to have a fully completed project, ready for peer review.** 
+
+To that end, provide the following pieces of information:
+
+* Every file needed to reproduce your complete analysis and report in your project repository (that includes files such as readme, bibtex, style files, etc).
+* Detailed instructions (e.g. as a `readme.md` file) explaining how to reproduce all your results.
+* A complete, nicely readable and well formatted report, written in structure like a research paper (Abstract/Introduction/Methods/Results/Discussion/Citations).
+* Well documented supplementary material 
+* Well-documented code as Rmd or R scripts that explain cleary all steps in your analysis (including the wrangling/exploring parts).
+* Meta-data explaining your data as needed.
+* Everything very well documented and polished as much as possible.
+
+Check the [Project Review Template file](./templatefiles/Project_Review_Template.qmd) to see how this submission will be assessed by your peers. I will not grade this part but it will be assessed by your peers, as described in the [_Project Review_](./Project_Review.html) document.
+
+_An great project would be at the level of Brian McKay's paper example you checked out in the [Motivating Examples document](./Data_Analysis_Motivation.html), or one of the projects on the `Project Examples` page._ 
+
+# Part 6
+
+**The main objective for part 6 is to have a finished project, ready for final grading.** 
+
+To that end, provide the following pieces of information:
+
+* A complete project, with as many further improvements as you want to implement, based on feedback from your classmates and any other improvements you can think of. 
+
+I will grade the final project using the same criteria your classmates used for peer review. This will be graded on a 100 points scale and combined with the other project scores for a final overall project score.
+

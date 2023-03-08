@@ -23,30 +23,30 @@ I have several goals for these project reviews:
 
 # General Logistics
 * By the deadline specified in the [Schedule](./Course_Schedule.html), everyone has to push their project to their project repository. 
-* Project reviews happen the following week. For part 3, this is during the semester. For the final, in-depth review, there is dedicated time at the end of the semester. 
 * I will post a list indicating which projects everyone is assigned to review to Slack. Watch the `announcements` channel.
+* Project reviews happen the following week. For part 3, this is during the semester. For the final, in-depth review, there is dedicated time at the end of the semester. 
 * You can find links to project repositories for your classmates in the _project_related_ Slack channel.
+* If your project is a private repository, make sure to add the students assigned as reviewers as collaborators to your project.
 * For reviewing, you can either use the _fork and pull_ workflow, or the project owner can make you a collaborator and you can pull/push directly. _Fork and pull_ is maybe a bit safer since there are now 2 reviewers making changes to the repository at the same time. But you can decide on the workflow. Working as a collaborator will be required if the project happens to use a private repository.
-
 
 
 # Part 3 review
 
-This review is meant to give each other some informal feedback and guidance to ensure everyone is on the right track. 
+This review is meant to provide hopefully helpful feedback to each other and to see some projects other than your own to hopefully get further ideas on what to do and how to do things.
+
 
 ## Part 3 review logistics
 
+* Find the projects you are assigned to in the `announcments` channel. If you have been asked to review a private project, make sure you are added as collaborator.
 * Follow the instructions provided in the repository to run all code and reproduce everything. 
-* Use the simple grading rubric shown in the part 3 section of the [Project Rubric](./Project_Rubric.html) document.
-* Provide your feedback and your score by filing a GitHub Issue in the project repository. As part of the issue, provide any feedback you think your classmate might find useful to help them improve and be on the right track. Also provide your score as indicated in the rubric.
-
+* Use the simple grading rubric shown in the part 3 section of the [Project Detauks](./Project_Details.html) document.
+* Submit your review by filing one (or several) GitHub Issues in the project repository. Provide any feedback you think your classmate(s) might find useful to help them further improve their project and ensure they are on the right track. Also provide your score as indicated in the rubric.
 
 
 
 # Part 5 review
 
-After the project has been completed, each of you will review a few of the projects of your classmates, similar to peer review of a manuscript submitted for publication. 
-**The part 5 review should be much more detailed and in-depth than the part 3 review.**
+After the project has been completed, each of you will review a few of the projects of your classmates, similar to peer review of a manuscript submitted for publication. **The part 5 review should be much more detailed and in-depth than the part 3 review.**
 
 
 ## Part 5 review logistics
@@ -55,7 +55,7 @@ Follow the instructions provided in the repository to run all code and reproduce
 * Write up a detailed review using and filling out the template. Once you are done, place your completed review document into the repository you are reviewing, and send a pull request (or do a direct push) for each project you review.
 
 :::note
-As you reproduce the project, you will likely make a lot of changes to the repository (e.g., by re-creating figures/tables). If you and another reviewer do that both, you might run into conflicts when sending a pull request. If you encounter problems like this, you can provide the project owner your completed review in some other manner (e.g. through email or Slack) and they'll add it to the repository. **The important part is that at the end of the review process, there should be (at least) 2 completed review documents in the project repository (either the main folder, or make a `reviews` subfolder for them.)**
+As you reproduce the project, you will likely make a lot of changes to the repository (e.g., by re-creating figures/tables). If you and another reviewer do that both, you might run into conflicts when sending a pull request. If you encounter problems like this, you can provide the project owner your completed review in some other manner (e.g. through email or Slack) and they'll add it to the repository. **The important part is that at the end of the review process, there should be (at least) 2 completed review documents in the project repository (either the main folder, or make a `reviews` sub-folder for them.)**
 :::
 
 

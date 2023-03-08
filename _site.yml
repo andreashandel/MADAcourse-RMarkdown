@@ -170,13 +170,13 @@ navbar:
              href: ./DL_AI_BigData.html     
     - text: "Project"
       menu:
-         - text: "Project information"
-           href: ./Project_Information.html
-         - text: "Project rubric"
-           href: ./Project_Rubric.html
-         - text: "Project review"
+         - text: "Project Overview"
+           href: ./Project_Overview.html
+         - text: "Project Details"
+           href: ./Project_Details.html
+         - text: "Project Review"
            href: ./Project_Review.html
-         - text: "Project examples"
+         - text: "Project Examples"
            href: ./Project_Examples.html
     - text: "Resources"
       menu:
