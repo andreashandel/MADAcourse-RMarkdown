@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Model Performance Evaluation</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 19:00:11</h4>
+<h4 class="date">2023-03-12 14:16:44</h4>
 
 </div>
 
@@ -672,10 +672,12 @@ age). The model equation will look like this:</p>
 X_n.\]</span></p>
 <p>When you ask the computer to fit this model, it will guess some
 values of the coefficients <em>b<sub>i</sub></em> and then vary them (in
-a smart way) until the predicted <em>Y<sub>m</sub></em> (AKA <span
-class="math inline">\(\hat{y}\)</span>) from the model are as close as
-possible to the actual data values <em>Y<sub>d</sub></em> (usually just
-called <span class="math inline">\(y\)</span>).</p>
+a smart way) until the predicted <em>Y<sub>m</sub></em> (often also
+called <span class="math inline">\(\hat{y}\)</span> or <span
+class="math inline">\(\hat{Y}\)</span>) from the model are as close as
+possible to the actual data values <em>Y<sub>d</sub></em> (often also
+just called <span class="math inline">\(y\)</span> or <span
+class="math inline">\(Y\)</span>).</p>
 <p>This procedure for fitting models is very general and applies to any
 kind of model, as well as both continuous and categorical outcomes. What
 changes between problems and approaches is how exactly the fitting
@@ -701,7 +703,7 @@ linked Wikipedia article. Another term that is used by
 <code>tidymodels</code> is simply <strong>metric</strong>; this term is
 somewhat more common in machine learning situations. The
 <code>yardstick</code> package from <code>tidymodels</code> is all about
-such metrics. I will interchangably use cost, lost, and objective
+such metrics. I will interchangeably use cost, lost, and objective
 function, as well as metric, so just be aware that they all mean the
 same thing: a function that is used to measure how close the model
 predictions are to the data.</p>
@@ -710,9 +712,8 @@ discrepancies between model and data lead to a larger numerical value of
 this function. Then our goal is to minimize the objective function,
 which means minimizing the difference between the data and the model
 predictions. (Occasionally, problems are set up to maximize this
-function–however, note that this is the same as minimizing the additive
-inverse of that function, i.e. you can just add a negative sign around
-the whole function.)</p>
+function. You can always change it into a minimization problem by e.g.,
+taking the inverse or adding a minus sign.)</p>
 <p>In equation form, we have in the general case: <span
 class="math display">\[C = f(Y_m,Y_d).\]</span></p>
 <p>The <span class="math inline">\(Y_m\)</span> are all the predictions
@@ -801,7 +802,7 @@ built-in.</p>
 href="https://en.wikipedia.org/wiki/Coefficient_of_determination">Coefficient
 of determination</a>, or more commonly <span
 class="math inline">\(R^2\)</span> (R-squared). This quantity is defined
-as <span class="math display">\[1-RSS/TSS\]</span>, where RSS is the
+as <span class="math display">\[1-RSS/TSS\]</span> where RSS is the
 residual sum of square introduced above and TSS is the <a
 href="https://en.wikipedia.org/wiki/Total_sum_of_squares">total sum of
 squares</a>. The latter is defined as</p>
@@ -843,9 +844,10 @@ real, and one can’t justify removing them during cleaning). With a
 squared distance penalty, outliers have a strong impact on the model
 fit. With a linear penalty, such outliers carry less weight. Because of
 this, the linear difference approach is sometimes called a robust
-estimation. One drawback is that functions like <code>lm</code> or
-<code>glm</code> do not allow you to use this approach. However, a large
-number of R packages exist that allow fitting this way, see e.g., the <a
+estimation.</p>
+<p>Robust estimation methos such as MAE and many others often require
+the use of specialized R packages. A large number of R packages exist
+that allow fitting this way, see e.g., the <a
 href="https://cran.r-project.org/web/views/Robust.html">CRAN Robust Task
 View</a>. The <code>yardstick</code> package as the metric
 <code>mae()</code> which computes the mean absolute error.</p>
@@ -860,9 +862,9 @@ check out which ones <a
 href="https://yardstick.tidymodels.org/articles/metric-types.html">here</a>.
 For instance there is one called <code>huber_loss()</code> which is a
 combination of least squares and absolute error.</p>
-<p>No matter what scheme you choose, it might often be useful to weigh
-data points. In the examples given above, each model-data pair was given
-the same importance. Sometimes it might be that you have some data
+<p>No matter what scheme you choose, it might at times be useful to
+weigh data points. In the examples given above, each model-data pair was
+given the same importance. Sometimes it might be that you have some data
 points that should carry more weight. A common case is if you have
 measurements not on the individual level but some aggregate level. As an
 example, assume you have a fraction of heart attacks among all patients
@@ -876,10 +878,9 @@ could e.g., multiply each term in the sum by bed size. Note that this is
 a scientific decision based on your expert knowledge of the data. Almost
 all fitting routines allow you to provide weights for your data and you
 can then perform <em>weighted least squares</em> (or a weighted version
-of whatever other approaches you choose). Unfortunately, it seems that
-<a href="https://github.com/tidymodels/parsnip/issues/136">currently,
-tidymodels does not yet support weights - but plans to do so
-soon</a>.</p>
+of whatever other approaches you choose). <a
+href="https://www.tidyverse.org/blog/2022/05/case-weights/">Tidymodels
+has some support for weighted fitting</a>.</p>
 </div>
 </div>
 <div id="performance-measures-for-categorical-outcomes"
@@ -927,15 +928,30 @@ and specificity</a> of say a clinical test.</p>
 performance metric, other metrics are more helpful. A large variety of
 such metrics exist. Some only apply to the special (but very common)
 case of a binary outcome, and others apply more generally. Fairly common
-ones are <a
-href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">(Cohen’s)
+ones are:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">(Cohen’s)
 Kappa</a>, which is implemented in <code>yardstick</code> as
-<code>kappa()</code>, <a
+<code>kappa()</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Cross_entropy">Cross
+entropy</a>, which is<br />
+</li>
+<li><a
+href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Area
+under a Receiver operating curve (AUC ROC)</a> (<code>roc_auc()</code>
+in <code>yardstick</code>)</li>
+<li><a
 href="https://en.wikipedia.org/wiki/Matthews_correlation_coefficient">Matthews
 correlation coefficient</a> (<code>mcc()</code> in
-<code>yarstick</code>) and the <a
-href="https://en.wikipedia.org/wiki/F-score">F-score</a>
-(<code>f_meas()</code> in <code>yardstick</code>).</p>
+<code>yarstick</code>)</li>
+<li><a href="https://en.wikipedia.org/wiki/F-score">F-score</a>
+(<code>f_meas()</code> in <code>yardstick</code>)</li>
+</ul>
+<p><em>Remember that <code>yardstick</code> is part of the
+<code>tidymodels</code> set of packages, so if you work in the
+<code>tidymodels</code> framework, you have access to these (<a
+href="https://yardstick.tidymodels.org/articles/metric-types.html">and
+other</a>) metrics.</em></p>
 </div>
 <div id="the-confusion-matrix" class="section level2">
 <h2>The confusion matrix</h2>
@@ -1035,7 +1051,7 @@ evaluation section of HMLR</a> lists and describes various performance
 metrics. <a href="https://www.tmwr.org/performance.html">This chapter of
 the Tidy Modeling with R book</a> also discusses different performance
 metrics.</p>
-<p><a href="https://www.statlearning.com/">Chapter 2 of ISRL</a>, which
+<p><a href="https://www.statlearning.com/">Chapter 2 of ISLR</a>, which
 you already looked at previously, also discusses the topic of
 performance, and several other issues we are discussing in this module.
 Now, or once you are finished with the other readings of this module,

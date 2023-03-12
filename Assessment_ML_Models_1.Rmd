@@ -44,7 +44,12 @@ We previously covered pre-processing, but haven't specifically looked at that ye
 
 You probably realized that some of the variables contain the same information in slightly different ways. Specifically, `Weakness`, `Cough` and `Myalgia` exist on both a severity score and as Yes/No. Further, there are 2 variables for cough yes/no. These variables are strongly correlated and thus at a minimum, don't help when you model, and are actually more likely to confuse your model and lead to errors/warnings/poor model performance (e.g. "predictions from a rank-deficient fit may be misleading). So let's fix that. For those symptoms where you have both multiple levels and yes/no, remove all the yes/no versions. That should remove 4 variables.
 
-Note that the 3 symptom severity factors are ordinal, with None < Mild < Moderate < Severe. We can code them as **ordered factors**. I want you to do that as practice. However, to deal with ordered factors in a statistical analysis, one needs special approaches and we won't actually do those. 
+
+### Categorical/Ordinal predictors
+
+Some of your predictors are categorical (e.g., Yes/No) and the 3 symptom severity factors are ordinal, with None < Mild < Moderate < Severe. 
+
+We can code the categorical variables as **unordered factors** and the others as **ordered factors**. I want you to do that as practice. The functions `step_dummy()` and `step_ordinalscore()` will help. See e.g. the help file example for `step_ordinalscore()`. Not that to deal with ordered factors in a statistical analysis, one needs special approaches (and we won't actually do those for this exercise.) 
 
 
 ### Low ("near-zero") variance predictors
@@ -118,10 +123,10 @@ Here are some more suggestions and hints. Most of this is optional but worth try
 
 **For the tree model**, if you want to plot the tree, you can use the `rpart.plot` package and run this command `rpart.plot(extract_fit_parsnip(best_tree_fit)$fit)` (assuming your result from the final workflow fit is called `best_tree_fit`). You might get a warning message, but the tree will show. You will likely find when you look at the actual/predicted plot or the residual plot that the tree model does not perform very well, and the model only predicts a few discrete outcome values. That's also noticeable when you compare RMSE for the tree model and the null model, they are very similar.
 
-**For the lasso model**, you will likely find that it performs a bit better than the tree, but not a lot. If you want to see a plot for how the number of predictors included in the LASSO model changes with the tuning parameter, you can extract the model from your final fit (say it's called `best_lasso_fit`) with `x <- best_lasso_fit$fit$fit$fit` and then `plot(x, "lambda")`. I know, this is awful code having to dig that deep into the `best_lasso_fit` object. Maybe there's a better way of doing this with some `tidymodels` command (potentially some combination of `$fit` and `extract_fit_parnsip()`). If you know one, use it.
+**For the lasso model**, you will likely find that it performs a bit better than the tree, but not a lot. If you want to see a plot for how the number of predictors included in the LASSO model changes with the tuning parameter, you can extract the model from your final fit (say it's called `best_lasso_fit`) with `x <- best_lasso_fit$fit$fit$fit` and then `plot(x, "lambda")`. I know, this is awful code having to dig that deep into the `best_lasso_fit` object. You might also be able to use the `extract_fit_engine()` function to get the underlying fit object produced by LASSO, e.g., `x <- extract_fit_engine(best_lasso_fit)` might work (this is new in `tidymodels` and I haven't fully tried it yet).
 
 
-**For the random forest model**, you will likely again find that it performs a bit better than the tree, but not a lot. The tuning setup might require some fiddling around, I had a few initial tries where the whole tuning failed. For a model like random forest, all variables stay in the model. There are ways to look at the variables that are most important. If you want to do that, you again need to pull out the fit object. Say it's called `best_rf_fit`, you can do that with `x <- best_rf_fit$fit$fit$fit` and then use the `vip()` function from the `vip` package to plot the importance of the variables.
+**For the random forest model**, you will likely again find that it performs a bit better than the tree, but not a lot. The tuning setup might require some fiddling around, I had a few initial tries where the whole tuning failed. For a model like random forest, all variables stay in the model. There are ways to look at the variables that are most important. If you want to do that, you again need to pull out the fit object. Say it's called `best_rf_fit`, you can do that with `x <- best_rf_fit$fit$fit$fit` and then use the `vip()` function from the `vip` package to plot the importance of the variables. Alternatively `extract_fit_engine()` should also work.
 
 
 

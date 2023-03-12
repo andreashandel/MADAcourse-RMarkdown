@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,16 +637,16 @@ div.tocify {
 
 <h1 class="title toc-ignore">Many-tree based models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 18:58:13</h4>
+<h4 class="date">2023-03-12 10:54:51</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will cover an extension of CART models, namely
-models that combine multiple trees for improved performance (but reduced
-interpretability).</p>
+<p>In this unit, we will cover an extension of simple decision tree
+models, namely models that combine multiple trees for improved
+performance (but reduced interpretability).</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
@@ -662,8 +662,8 @@ tree ensembles</li>
 as being interpretable, able to work for both regression and
 classification, deal with missing values, and auto-select
 predictors.</p>
-<p>The main disadvantage of tree models is that their performance is
-often not that great–and complicated trees which perform better are
+<p>The main disadvantage of single-tree models is that their performance
+is often not that great–and complicated trees which perform better are
 vulnerable to overfitting. However, building models which are
 combinations of many single trees is possible. Usually these so-called
 <strong>ensemble</strong> models (the general name for an ML model that
@@ -778,9 +778,10 @@ details of the model implementation, the speed at which they run, if one
 can parallelize them, etc. Some common ones that people use are
 <code>rpart</code> for individual trees, <code>ranger</code> for random
 forests, and <code>xgboost</code> for boosting. Many others are
-available too. Often it doesn’t matter much which package you use.
-Sometimes you might need specific features that only a certain package
-can give you, so you need to go with that one.</p>
+available too, e.g., the <code>bonsai</code> package has several other
+methods. Often it doesn’t matter much which package you use. Sometimes
+you might need specific features that only a certain package can give
+you, so you need to go with that one.</p>
 <p>Since <code>tidymodels</code> is still under development, there are
 many other packages for tree-based and related model fitting that can’t
 yet be accessed through it. If you absolutely need one that’s not yet

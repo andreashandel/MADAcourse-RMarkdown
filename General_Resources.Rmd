@@ -39,11 +39,11 @@ I am familiar with some, but not all of these resources. Sometimes I just took a
 * [Reproducible Medical Research with R](https://bookdown.org/pdr_higgins/rmrwr/) - free online book showing how to use R to do basic analysis.
 * [Data Science for the Biomedical Sciences](https://ds4biomed.tech/) - another free online textbook. Part of a workshop, but can also be used for self-learning.
 * [Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) - is a somewhat advanced book on statistical/machine learning. Not useful as introduction, but a potentially good reference.
+* [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/) is an online book that discusses approaches that can be used to start making sense of sometimes complex ML models. 
 * [Jesse Mostipak, aka Kiersi](https://www.twitch.tv/kierisi) streams data science sessions on Twitch. 
 * [Nick Wan](https://www.twitch.tv/nickwan_datasci) is another date science Twitch streamer.
 * [David Robinson](https://www.youtube.com/user/safe4democracy/videos) has videos of screencasts showing him digging into datasets from TidyTuesday and other sources.
 * [Andrew Heiss](https://www.andrewheiss.com/) has a lot of good materials related to R and data analysis on his website.
-
 
 
 # Data Sources and Wrangling

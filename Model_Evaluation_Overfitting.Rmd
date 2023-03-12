@@ -12,9 +12,9 @@ output:
 
 # Introduction
 
-We discussed how to evaluate the performance of a model. We went through the idea of defining a single numerical value (cost function) and optimizing (usually minimizing) it to find the best model. There is however a very big caveat to this. The main point is: **It doesn't matter how well your model performs on the data that you used to build your model!**
+We discussed how to evaluate the performance of a model. We went through the idea of defining a single numerical value (cost function) and optimizing (usually minimizing) it to find the best model. There is however a very big caveat to this. The main point is: **It usually doesn't matter how well your model performs on the data that you used to build your model!**
 
-This is a very important point, and one that unfortunately a majority of scientific papers still get completely wrong! It is one area where modern machine learning is much more careful compared to the traditional way statistics is taught/used. In the machine learning field, it is very much recognized that **it doesn't matter how well your model performs on the data that you used to build your model!** 
+This is a very important point, and one that unfortunately a majority of scientific papers still get completely wrong! It is one area where modern machine learning is much more careful compared to the traditional way statistics is taught/used. In the machine learning field, it is very much recognized that **it doesn't matter a whole lot how well your model performs on the data that you used to build your model! What matters is performance on similar new data like the data that was used to fit the model.** 
 
 I'm going to repeat this and similar sentences a bunch of times throughout the rest of the course `r emoji::emoji('grin')`. If you only take away 2 main points from this course, this would be one if them. The other is that doing data analysis in a reproducible (automated) manner is critical. 
 
@@ -29,9 +29,9 @@ If we are asking _inferential_ questions, we are interested in what the data ana
 
 If we are asking predictive questions, we are interested in a model that can predict future observations, not the ones we already have. E.g., if we analyze data for a specific treatment, we are not very interested how well the model predicts the effect of the drug on the people for which we collected the data (we already know that). Instead, we want to make general predictions about the effectiveness of the treatment on future patients. 
 
-In either case, what we want is a model that is generalizable (AKA externally valid), and that applies equally well to new and similar data beyond the data we already collected. 
+In either case, what we want is a model that is generalizeable (also sometimes called _externally valid_), and that applies equally well to new and similar data beyond the data we already collected. 
 
-**What truly matters is how well our model can explain/predict other/future data, not just the data we are fitting!**
+**What truly matters is how well our model can explain/predict other/future data, not just the data we are already observed!**
 
 If we build a very complex model in an effort to match our existing data as closely as possible, what generally happens is that our model [**overfits**](https://en.wikipedia.org/wiki/Overfitting). That means it becomes very good at modeling the data we use to build the model, but it won't generalize very well to the general, broader context of other/future data. The reason for that is that there is noise (random variability) in any dataset, and if we have a model that is too flexible, it will not only match the overall signal/pattern (if there is any) but will also capture all the noise in our sample, which leads to worse performance on future data that have different amounts and types of noise/variability.
 
@@ -96,7 +96,7 @@ Cross-validation works for most situations and is quite robust. It is also fairl
 
 # Other ways to minimize overfitting
 
-__Model selection criteria:__ Are an alternative option if CV is not possible/wanted. [Information criteria](https://en.wikipedia.org/wiki/Model_selection#Criteria), such as AIC, BIC, DIC and similar, compute a measure that is a trade-off between good fit to the data (low-cost function/high performance) and model complexity (number of parameters). Approaches based on such selection criteria essentially try to guess how the model would perform if it were to be fit to new data, without actually trying to do it (in contrast to CV). The disadvantage is that these guesses as to how the model might perform on new data are not as reliable as actually evaluating model performance on such data through CV. The advantage is that no sampling is needed, which means these approaches are much less computationally intensive. For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p<0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. 
+__Model selection criteria:__ Are an alternative option if CV is not possible/wanted. [Information criteria](https://en.wikipedia.org/wiki/Model_selection#Criteria), such as AIC, BIC, DIC and similar, compute a measure that is a trade-off between good fit to the data (low-cost function/high performance) and model complexity (number of parameters). Approaches based on such selection criteria essentially try to guess how the model would perform if it were to be fit to new data, without actually trying to do it (in contrast to CV). The disadvantage is that these guesses as to how the model might perform on new data are not as reliable as actually evaluating model performance on such data through CV. The advantage is that no sampling is needed, which means these approaches are much less computationally intensive. For all those approaches (AIC, BIC, etc.), things are set up that a model with a smaller value is considered better. These measures - thankfully! - do not have the arbitrary p<0.05 value cut-off common in frequentist statistics. For AIC, a rule of thumb is that a difference of 10 between 2 models is meaningful. (Unfortunately, people seem to not be able to make their own decisions and need crutches, so arbitrary cut-offs for AIC/BIC/etc. have started to show up in the literature.)
 
 There is a lot of math behind information criteria (AIC and similar), see the book [Model Selection and Multimodel Inference](https://www.springer.com/gp/book/9780387953649). Fortunately, one does not need to know the mathematical details to use those measures, just common sense. A lot of statistical methods in R can report such selection criteria and the `broom` package of `tidymodels` can often be used [to further process such reported outcomes](https://broom.tidymodels.org/articles/broom.html).
 
@@ -112,7 +112,7 @@ To repeat (again): **We generally want to know how well a model performs in gene
 * If you have enough data and care about predictive performance, set some data aside for a final validation/test. If you don't have a lot of data, you might need to skip this split.
 * If you choose to use all your data for model fitting purposes, and don't evaluate your model on data **not** used during model building/training, you need to interpret your findings as exploratory and hypothesis generating, and you need to be careful about trying to draw generalizable conclusions.
 * If you have enough data (>100s observations) and CPU power, use cross-validation (CV) approaches to determine the best model. If for some reason (mainly computational time or small data) CV is not feasible, use AIC & Co.
-* Think carefully about your cost function/metric! A model that is great at predicting the wrong outcome is useless! (See e.g., the mass-shooting example.)
+* Think carefully about your cost function/metric! A model that is great at predicting the wrong outcome is useless! (See e.g., the brain cancer example.)
 * No matter what approach you use, choosing a model based on performance alone is not enough. Perform additional evaluations (see next units).
 
 
@@ -129,6 +129,8 @@ In contrast, if you are a bank that tries to predict fraud by having complicated
 # Further learning
 
 [This blog post](https://www.mlnar.com/generalization-mindsets.html) provides a nice further discussion of the idea of **generalization** and how different areas of data science (statistics, machine learning, causal modeling) think about this problem. I think the most important paragraph is actually the short last one. I want to add to this that while different areas might think about the question of generalization differently, all of them more or less agree, that in the end, what is important is the general conclusions you can draw from your statistical modeling analysis and **it doesn't matter (by itself) how well your model performs on the data that you used to build your model!** What matters is what it means more generally.
+
+[In this blog post](https://www.fharrell.com/post/split-val/), Frank Harrell discusses some of the potential caveats for using methods such as cross-validation.
 
 Parts of [chapter 2 of HMLR](https://bradleyboehmke.github.io/HOML/process.html) cover similar ground to what I discussed above. You might want to give it a read-through. Some of the topics that are discussed in that overview chapter are topics we'll cover later. Similarly [chapters 2 and 5 of ISL](https://statlearning.com/) also covers some of these topics, e.g. the bias-variance trade-off. You looked at some of that material previously, revisiting might be worth it. 
 

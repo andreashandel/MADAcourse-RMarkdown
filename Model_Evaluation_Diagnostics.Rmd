@@ -21,7 +21,9 @@ Performing a detailed model diagnosis often increases our understanding of the d
 
 # Null model comparisons
 
-You should always compare your models to a "dumb" null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can't beat such a null model (based on the performance metric you chose), you need to question what your model is good for. 
+You should always compare your models to a "dumb" null/baseline model. A null model for a continuous outcome would be one that always predicts the mean. That is it uses no information from the predictor variables. For categorical outcomes, a null model would always predict the most common category, without using any information about predictor variables. If your more complicated model can't beat such a null model (based on the performance metric you chose), you need to question what your model is good for. Remember that the metric is important. A null model with, e.g., high accuracy might not be as good as a different model with lower accuracy. Recall the example of the brain cancer.
+
+In `tidymodels`, you can use the `null_model()` function to compute the performance for a null/base model.
 
 
 # Single predictor comparisons

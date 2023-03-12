@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Classification and Regression tree (CART) models</title>
+<title>Decision trees</title>
 
 <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -635,18 +635,17 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Classification and Regression tree (CART)
-models</h1>
+<h1 class="title toc-ignore">Decision trees</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 18:50:28</h4>
+<h4 class="date">2023-03-12 10:52:59</h4>
 
 </div>
 
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>In this unit, we will cover a class of models called classification
-and regression trees.</p>
+<p>In this unit, we will cover a class of models generally referred to
+as decision trees.</p>
 <div class="figure" style="text-align: center">
 <img src="media/xkcd_watson_medical_algorithm.png" alt="An XKCD comic titled 'A guide to the medical diagnostic and treatment algorithm used by IBM's Watson computer system.' The image is a complex, nonsensical flowchart." width="80%" />
 <p class="caption">
@@ -658,6 +657,7 @@ An interesting classification tree. Source: xkcd.
 <h1>Learning Objectives</h1>
 <ul>
 <li>Understand what tree-based methods are and how to use them</li>
+<li>Know the difference between regression and classification trees</li>
 <li>Know when it might be good to use a tree-based method</li>
 <li>Understand the advantages and disadvantages of single tree
 model</li>
@@ -665,24 +665,28 @@ model</li>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>GLMs have the main limitation of only capturing linear relations
-between inputs and outcomes–any higher order terms or interactions must
-be manually specified. The polynomial and spline models we discussed
-allow for more flexible patterns, at the cost of more potential
-overfitting and also reduced interpretability. Another class of models
-that allow non-linear relation between inputs and outcomes are based on
-<a
-href="https://en.wikipedia.org/wiki/Decision_tree_learning"><strong>Classification
-and regression trees (CART)</strong></a>. Outside of data
-science/statistics, those trees are often also known as <a
-href="https://en.wikipedia.org/wiki/Decision_tree"><strong>decision
-trees</strong></a>.</p>
-<p>Such tree models (as they are usually called) have the advantage of
-being fairly easy to understand and use, even by non-statisticians. As
-the name suggests, CART models can be used both for regression and
-classification, and in the latter case, can easily deal with multiple
-categories. They can also deal with missing values in the
-predictors.</p>
+<p>Simple GLMs have the main limitation of capturing only overall smooth
+patterns relating inputs and outcomes. Higher order terms or
+interactions must be manually specified. The polynomial and spline
+models we discussed allow for more flexible patterns, at the cost of
+more potential overfitting and also reduced interpretability. Another
+class of models that allow non-linear relation between inputs and
+outcomes are based on <a
+href="https://en.wikipedia.org/wiki/Decision_tree"><strong>Decision
+trees</strong></a>. In general, a decision tree is a tree-like structure
+that helps you make decisions. In machine learning, there are <a
+href="https://en.wikipedia.org/wiki/Decision_tree_learning">specific
+methods to build those trees</a>. Decision trees can be used for
+continuous outcomes, in which case they are called <strong>regression
+trees</strong> or for categorical outcomes, in which case they are
+called <strong>classification trees</strong>. The umbrella term
+<strong>Classification and regression trees - or CART for short</strong>
+is also often used to mean the same as decision trees.</p>
+<p>Basic tree models have the advantage of being fairly easy to
+understand and use, even by non-statisticians. Trees can deal with
+nonlinear relations between predictors and outcome, they easily
+accomodate more than two categories for classification, and they can
+handle predictors that have missing values.</p>
 </div>
 <div id="tree-examples" class="section level1">
 <h1>Tree Examples</h1>

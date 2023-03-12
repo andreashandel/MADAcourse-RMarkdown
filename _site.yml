@@ -142,7 +142,7 @@ navbar:
              href: ./ML_Models_Overview.html     
            - text: "Polynomial and Spline Models"
              href: ./Polynomial_Spline_Models.html     
-           - text: "Classification and Regression Trees (CART)"
+           - text: "Decision Trees"
              href: ./CART_Models.html     
            - text: "Many-tree models"
              href: ./Many_Tree_Models.html     
@@ -161,7 +161,9 @@ navbar:
         - text: "13. The complete analysis workflow"
           menu:
            - text: "Complete data analysis workflow"
-             href: ./Complete_data_analysis_workflow.html     
+             href: ./Complete_data_analysis_workflow.html  
+           # - text: "More Data and Models"
+           #   href: ./Data_Models_Not_Covered.html  
            - text: "Assessment: Complete Analysis Workflow"
              href: ./Assessment_Complete_Workflow.html
         - text: "14. Deep learning, AI and Big data"

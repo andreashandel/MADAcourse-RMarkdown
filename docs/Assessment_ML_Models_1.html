@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Machine Learning Models 1</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-02-16 11:30:10</h4>
+<h4 class="date">2023-03-12 13:51:53</h4>
 
 </div>
 
@@ -695,11 +695,19 @@ confuse your model and lead to errors/warnings/poor model performance
 let’s fix that. For those symptoms where you have both multiple levels
 and yes/no, remove all the yes/no versions. That should remove 4
 variables.</p>
-<p>Note that the 3 symptom severity factors are ordinal, with None &lt;
-Mild &lt; Moderate &lt; Severe. We can code them as <strong>ordered
-factors</strong>. I want you to do that as practice. However, to deal
-with ordered factors in a statistical analysis, one needs special
-approaches and we won’t actually do those.</p>
+</div>
+<div id="categoricalordinal-predictors" class="section level3">
+<h3>Categorical/Ordinal predictors</h3>
+<p>Some of your predictors are categorical (e.g., Yes/No) and the 3
+symptom severity factors are ordinal, with None &lt; Mild &lt; Moderate
+&lt; Severe.</p>
+<p>We can code the categorical variables as <strong>unordered
+factors</strong> and the others as <strong>ordered factors</strong>. I
+want you to do that as practice. The functions <code>step_dummy()</code>
+and <code>step_ordinalscore()</code> will help. See e.g. the help file
+example for <code>step_ordinalscore()</code>. Not that to deal with
+ordered factors in a statistical analysis, one needs special approaches
+(and we won’t actually do those for this exercise.)</p>
 </div>
 <div id="low-near-zero-variance-predictors" class="section level3">
 <h3>Low (“near-zero”) variance predictors</h3>
@@ -881,10 +889,11 @@ changes with the tuning parameter, you can extract the model from your
 final fit (say it’s called <code>best_lasso_fit</code>) with
 <code>x &lt;- best_lasso_fit$fit$fit$fit</code> and then
 <code>plot(x, "lambda")</code>. I know, this is awful code having to dig
-that deep into the <code>best_lasso_fit</code> object. Maybe there’s a
-better way of doing this with some <code>tidymodels</code> command
-(potentially some combination of <code>$fit</code> and
-<code>extract_fit_parnsip()</code>). If you know one, use it.</p>
+that deep into the <code>best_lasso_fit</code> object. You might also be
+able to use the <code>extract_fit_engine()</code> function to get the
+underlying fit object produced by LASSO, e.g.,
+<code>x &lt;- extract_fit_engine(best_lasso_fit)</code> might work (this
+is new in <code>tidymodels</code> and I haven’t fully tried it yet).</p>
 <p><strong>For the random forest model</strong>, you will likely again
 find that it performs a bit better than the tree, but not a lot. The
 tuning setup might require some fiddling around, I had a few initial
@@ -894,7 +903,8 @@ that are most important. If you want to do that, you again need to pull
 out the fit object. Say it’s called <code>best_rf_fit</code>, you can do
 that with <code>x &lt;- best_rf_fit$fit$fit$fit</code> and then use the
 <code>vip()</code> function from the <code>vip</code> package to plot
-the importance of the variables.</p>
+the importance of the variables. Alternatively
+<code>extract_fit_engine()</code> should also work.</p>
 </div>
 <div id="model-selection" class="section level3">
 <h3>Model selection</h3>

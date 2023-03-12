@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Polynomial and Spline Models</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 19:06:33</h4>
+<h4 class="date">2023-03-12 10:38:18</h4>
 
 </div>
 
@@ -704,27 +704,28 @@ of individual predictor variables by taking them in and out of the model
 one can see in the final model which predictor variables survive, and
 what their impact is, as given by the coefficients in front of the
 variables.</p>
-<div class="note">
-<p>If you have a model that has a mix of categorical and continuous
-input variables, and you want to compare their impact by looking at the
-values of their coefficients, you need to standardize your continuous
-variables so they are on a similar scale as your categorical
-variables.</p>
-</div>
-<p>The main disadvantage is that GLMs do not allow you to capture more
-intricate patterns in the data. For instance if you had a scenario where
-you measured the activity/movement of some animal and how that might be
-impacted by temperature, it is quite feasible to expect a curved
-relationship. At low temperatures, the animals try to stay warm and
-don’t move much. At high temperature, the animals also don’t move much
-and instead try to stay cool. At some intermediate temperature, their
-movement is largest. So if you had data for animal movement as outcome,
-and temperature as your predictor variable, a linear model would not be
-good. You wanted a model that allows the pattern to curve. If you start
-with a linear model and look at the plot of your residuals, or an
-outcome-prediction plot, you would see systematic deviations, telling
-you that your model is not missing important patterns in the data and
-you are therefore <strong>underfitting.</strong></p>
+<p>:::note If you have a model that has a mix of categorical and
+continuous input variables, and you want to compare their impact by
+looking at the values of their coefficients, you need to standardize
+your continuous variables so they are on a similar scale as your
+categorical variables. :::</p>
+<p>Basic linear and generalized linear models (LMs and GLMs) such as
+logistic or poisson regression impose a specific structural relation
+between your inputs/predictors and your outcomes. This means that if you
+have more complex patterns relating your inputs with your output(s),
+basic GLMs might not capture it fully. For instance if you had a
+scenario where you measured the activity/movement of some animal and how
+that might be impacted by temperature, it is quite feasible to expect a
+curved relationship. At low temperatures, the animals try to stay warm
+and don’t move much. At high temperature, the animals also don’t move
+much and instead try to stay cool. At some intermediate temperature,
+their movement is largest. So if you had data for animal movement as
+outcome, and temperature as your predictor variable, a linear model
+would not be good. You wanted a model that allows the pattern to curve.
+If you start with a linear model and look at the plot of your residuals,
+or an outcome-prediction plot, you would see systematic deviations,
+telling you that your model is not missing important patterns in the
+data and you are therefore <strong>underfitting.</strong></p>
 <p>If that’s the case, you might want to move on to more flexible
 models.</p>
 <div class="note">
@@ -830,19 +831,29 @@ shortly.</p>
 </div>
 <div id="generalized-additive-models-gam" class="section level1">
 <h1>Generalized additive models (GAM)</h1>
-<p>GAMs are in some sense (though not completely, see below) a general
-form of the different models just discussed. The preserve the feature
-that each predictor enters the model additively. But now, each predictor
-can be related to the outcome with a – potentially complicated,
-potentially unknown – function. For instance one could have a GAM where
-the predictor is sinusoidally related to the outcome. GAMs allow for
-more flexible relations between predictors and outcome than GLMs, and
-are still fairly easy to fit and interpret (but not quite as easy).
-Also, to provide good functions to map predictors to outcome, one needs
-to know something about the underlying system. If that’s not the case,
-one often uses spline function, and let the data determine the exact
-shape of the splines. One restriction of GAM is the same as all additive
-models: having each predictor enter the model separately can lead to
+<p><a
+href="https://en.wikipedia.org/wiki/Generalized_additive_model">Generalized
+additive models (GAMs)</a> are in some sense (though not completely, see
+below) a general form of the different models just discussed. The
+preserve the feature that each predictor enters the model additively.
+But now, each predictor can be related to the outcome with a –
+potentially complicated, potentially unknown – function. In equation
+form, a GAM can be written as:</p>
+<p><span class="math display">\[g(Y) = x_0 + f_1(x1) + f_2(x2) + \ldots
++ f_n(x_n).\]</span> Here, the <span class="math inline">\(f_n\)</span>
+are functions of the precictor <span class="math inline">\(x_n\)</span>,
+and <span class="math inline">\(g()\)</span> can again be some overall
+link function.</p>
+<p>For instance one could have a GAM where some predictor is
+sinusoidally related to the outcome, e.g., <span
+class="math inline">\(f_1(x_1) = sin(x_1)\)</span>. GAMs allow for more
+flexible relations between predictors and outcome than GLMs, and are
+still fairly easy to fit and interpret (but not quite as easy). Also, to
+provide good functions to map predictors to outcome, one needs to know
+something about the underlying system. If that’s not the case, one often
+uses spline function, and let the data determine the exact shape of the
+splines. One restriction of GAM is the same as all additive models:
+having each predictor enter the model separately can lead to
 interactions being missed.</p>
 </div>
 <div id="fitting-polynomialspline-models" class="section level1">

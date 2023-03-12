@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Model Performance and Overfitting</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 18:59:32</h4>
+<h4 class="date">2023-03-11 19:15:36</h4>
 
 </div>
 
@@ -647,15 +647,17 @@ div.tocify {
 <p>We discussed how to evaluate the performance of a model. We went
 through the idea of defining a single numerical value (cost function)
 and optimizing (usually minimizing) it to find the best model. There is
-however a very big caveat to this. The main point is: <strong>It doesn’t
-matter how well your model performs on the data that you used to build
-your model!</strong></p>
+however a very big caveat to this. The main point is: <strong>It usually
+doesn’t matter how well your model performs on the data that you used to
+build your model!</strong></p>
 <p>This is a very important point, and one that unfortunately a majority
 of scientific papers still get completely wrong! It is one area where
 modern machine learning is much more careful compared to the traditional
 way statistics is taught/used. In the machine learning field, it is very
-much recognized that <strong>it doesn’t matter how well your model
-performs on the data that you used to build your model!</strong></p>
+much recognized that <strong>it doesn’t matter a whole lot how well your
+model performs on the data that you used to build your model! What
+matters is performance on similar new data like the data that was used
+to fit the model.</strong></p>
 <p>I’m going to repeat this and similar sentences a bunch of times
 throughout the rest of the course 😁. If you only take away 2 main
 points from this course, this would be one if them. The other is that
@@ -691,11 +693,12 @@ interested how well the model predicts the effect of the drug on the
 people for which we collected the data (we already know that). Instead,
 we want to make general predictions about the effectiveness of the
 treatment on future patients.</p>
-<p>In either case, what we want is a model that is generalizable (AKA
-externally valid), and that applies equally well to new and similar data
-beyond the data we already collected.</p>
+<p>In either case, what we want is a model that is generalizeable (also
+sometimes called <em>externally valid</em>), and that applies equally
+well to new and similar data beyond the data we already collected.</p>
 <p><strong>What truly matters is how well our model can explain/predict
-other/future data, not just the data we are fitting!</strong></p>
+other/future data, not just the data we are already
+observed!</strong></p>
 <p>If we build a very complex model in an effort to match our existing
 data as closely as possible, what generally happens is that our model <a
 href="https://en.wikipedia.org/wiki/Overfitting"><strong>overfits</strong></a>.
@@ -922,7 +925,9 @@ BIC, etc.), things are set up that a model with a smaller value is
 considered better. These measures - thankfully! - do not have the
 arbitrary p&lt;0.05 value cut-off common in frequentist statistics. For
 AIC, a rule of thumb is that a difference of 10 between 2 models is
-meaningful.</p>
+meaningful. (Unfortunately, people seem to not be able to make their own
+decisions and need crutches, so arbitrary cut-offs for AIC/BIC/etc. have
+started to show up in the literature.)</p>
 <p>There is a lot of math behind information criteria (AIC and similar),
 see the book <a
 href="https://www.springer.com/gp/book/9780387953649">Model Selection
@@ -968,8 +973,8 @@ cross-validation (CV) approaches to determine the best model. If for
 some reason (mainly computational time or small data) CV is not
 feasible, use AIC &amp; Co.</li>
 <li>Think carefully about your cost function/metric! A model that is
-great at predicting the wrong outcome is useless! (See e.g., the
-mass-shooting example.)</li>
+great at predicting the wrong outcome is useless! (See e.g., the brain
+cancer example.)</li>
 <li>No matter what approach you use, choosing a model based on
 performance alone is not enough. Perform additional evaluations (see
 next units).</li>
@@ -1024,6 +1029,9 @@ can draw from your statistical modeling analysis and <strong>it doesn’t
 matter (by itself) how well your model performs on the data that you
 used to build your model!</strong> What matters is what it means more
 generally.</p>
+<p><a href="https://www.fharrell.com/post/split-val/">In this blog
+post</a>, Frank Harrell discusses some of the potential caveats for
+using methods such as cross-validation.</p>
 <p>Parts of <a
 href="https://bradleyboehmke.github.io/HOML/process.html">chapter 2 of
 HMLR</a> cover similar ground to what I discussed above. You might want

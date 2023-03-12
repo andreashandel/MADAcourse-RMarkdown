@@ -1,0 +1,60 @@
+---
+title: More Data and Models we didn't cover 
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Overview
+In this unit, I mention very briefly a few types of data and models that we unfortunately didn't have time to cover.
+
+
+
+# Learning Objectives
+* Be familiar with some other types of common data.
+* Know about some additional analysis approaches.
+
+
+
+# Introduction
+
+This course already covers a lot of material (maybe more than should be covered in a single semester `emoji::emoji('grin')`. Of course, there is much more in the area of data analysis that we were not able to cover.
+
+Our focus here was on the analysis of what is sometimes called _rectangular data_. We have observations (individual units of data) generally as rows, and variables (outcome and predictors) as columns. This is still the most common type of data, especially in public health and more generally the life sciences. However, more complex types of data are rapidly increasing in frequency and importance. If the data has a different structure, it will usually require different, specialized analysis approaches. The good news is that most of the methods we covered in this course still apply. The difference is often in the processing of the data, and the exact way data and models are combined.
+
+The following sections very briefly mention some common types of data and provide a few pointers towards their analysis.
+
+
+# Hierarchical data
+
+This type of data is actually quite common. A hierarchy (also at times called multi-level or nesting structure) occurs when there is some type of grouping inherent. For instance, if you analyze heart attacks from different hospitals, there might be systematic differences between hospitals that are worth taking into account. You can then build models that take that into account. I think there is a strong case to be made that one should often start with a hierarchical modeling approach, and only drop it if one is convinced that there are no systematic differences in the data. Unfortunately, such hierarchical models are still a little bit harder to implement, and often a lot harder to understand and interpret. For such models, a Bayesian framework is often very useful. Good introductory resources for hierarchical modeling, and especially how to do it with `R`,  are [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) (the second half of the book) and []().
+
+
+# Time-series data
+
+Time series are a specialized data type that are autocorrelated, and we can therefore get better predictions by using specialized models that take this data structure into account. A good resource is the free textbook [Forecasting: Principles and Practice](https://otexts.com/fpp3/) and a lot of the other work by [Rob Hyndman](https://robjhyndman.com/). The [`modeltime`](https://business-science.github.io/modeltime/) `R` package allows one to use the `tidymodels` framework to analyze time-series data.
+
+
+# Genetics and -omics data
+
+
+# Big data
+
+
+# Text
+
+
+
+# Images, Audio, Video
+
+
+
+
+# Further reading
+
+See the references provided in the sections above, as well as the general references on the course website. 

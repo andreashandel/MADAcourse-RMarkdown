@@ -9,7 +9,7 @@ output:
     toc_depth: 3
 ---
 
-```{r, fig.cap="A study with n=1 has large uncertainty. [Source: SMBC](https://www.smbc-comics.com/comic/2014-09-17/).", fig.alt = "A cartoon from the webcomic 'Saturday Morning Breakfast Cereal.' The comic shows a man with round glasses sitting in an armchair next to a small girl. He is holding a book, and saying 'After nineteen additional trials, of course, the results were shown to be anomalous.' The caption reads '\"The Tortoise And The Hare\" is actually a fable about small sample sizes."}
+```{r, fig.cap="A study with n=1 has large uncertainty. [Source: SMBC](https://www.smbc-comics.com/comic/2014-09-17/).", fig.alt = "A cartoon from the webcomic 'Saturday Morning Breakfast Cereal.' The comic shows a man with round glasses sitting in an armchair next to a small girl. He is holding a book, and saying 'After nineteen additional trials, of course, the results were shown to be anomalous.' The caption reads The Tortoise And The Hare is actually a fable about small sample sizes.", echo=FALSE, fig.show='hold',  fig.align='center', out.width = '70%'}
 knitr::include_graphics(here::here("media", "smbc-sample-size.png"))
 ```
 

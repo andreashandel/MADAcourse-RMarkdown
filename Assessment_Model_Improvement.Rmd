@@ -42,7 +42,7 @@ Write code that takes the data and splits it randomly into a train and test that
 
 Next, following the example in the [Create Recipes section of the Get Started tidymodels tutorial](https://www.tidymodels.org/start/recipes/), create a simple recipe that fits a logistic model to our **categorical outcome of interest**, using all predictors. (We start with categorical and all predictors since that's the closest to the shown example). For now, you can ignore the concept of `roles` and `features` they mention. 
 
-Set a model as you did in the previous exercise, then use the `workflow()` package to create a simple workflow that fits a logistic model to all predictors using the `glm` function. To that end, follow the _Fit a model with a recipe_ section of the tutorial and adjust for your case. 
+Set a model as you did in the previous exercise, then use the `workflow()` function to create a simple workflow that fits a logistic model to all predictors using the `glm` engine. To that end, follow the _Fit a model with a recipe_ section of the tutorial and adjust for your case. 
 
 You should end up with a fit object similar to the one shown at the end of that section in the tutorial - of course, yours will look somewhat different since you are using a different dataset, but overall things should look similar.
 

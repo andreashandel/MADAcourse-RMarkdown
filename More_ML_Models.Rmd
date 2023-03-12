@@ -24,7 +24,7 @@ You learned previously that one can combine many trees into a larger model (e.g.
 
 Instead of combining just the same kind of model (e.g., multiple trees), it is possible to build models which are combinations of different types of base models, e.g., combine a tree-based model with an SVM. Those approaches are known variously as _ensemble methods/models_ or _super learners_ or _stacked methods/models_. By combining different models in a smart way, it is often possible to increase performance beyond what can be achieved from any one individual model. The disadvantage is that fitting the model is more complex, takes more time, and results are even less interpretable (more _black box_) than any single model. And since each model has parameters that need tuning, more parameters means more data is needed for robust results. Nevertheless, if the only aspect that counts is predictive performance, and plenty of data is available, ensemble methods are often good choices.
 
-Properly fitting ensemble models is not easy, and requires usually a lot of data. In fact, so far I have never tried to fit an ensemble model for any of my research projects. Nevertheless, it is useful to know about them if you encounter them in the literature or if you have a problem/data where you think they might be helpful. For more on those models, check out the [_Stacked Models_ chapter of HMLR](https://bradleyboehmke.github.io/HOML/stacking.html).
+Properly fitting ensemble models is not easy, and requires usually a lot of data. In fact, so far I have never tried to fit an ensemble model for any of my research projects. Nevertheless, it is useful to know about them if you encounter them in the literature or if you have a problem/data where you think they might be helpful. For more on those models, check out the [_Stacked Models_ chapter of HMLR](https://bradleyboehmke.github.io/HOML/stacking.html), the [ensembe models chapter](https://www.tmwr.org/ensembles.html) in TMWR and the [`stacks` package](https://stacks.tidymodels.org/), which integrates well with `tidymodels`.
 
 
 
@@ -34,7 +34,8 @@ While I previously mentioned unsupervised learning here and there, we haven't fo
 
 Methods like _K-means clustering_ or _Hierarchical clustering_ are -- as the name suggests -- used for clustering of unlabeled data. _Partial least squares (PLS)_ and _Principal component analysis (PCA)_ are methods for dimension reduction. Since for unsupervised learning, a performance measure like RMSE or Accuracy does not exist, other metrics are used to define the quality of model results. Different algorithms use different ways to perform the unsupervised learning task.
 
-[The _Unsupervised Learning_ chapter of ISL](https://statlearning.com/) discusses several unsupervised learning methods. So do the _Dimension Reduction_ and _Clustering_ sections of [HMLR](https://bradleyboehmke.github.io/HOML/) and the [_Clustering_ chapter of IDS](https://rafalab.github.io/dsbook/clustering.html).
+[The _Unsupervised Learning_ chapter of ISL](https://statlearning.com/) discusses several unsupervised learning methods. So do the _Dimension Reduction_ and _Clustering_ sections of [HMLR](https://bradleyboehmke.github.io/HOML/) and the [_Clustering_ chapter of IDS](https://rafalab.github.io/dsbook/clustering.html). For an `R` implementation, check out the [`tidyclust` package](https://tidyclust.tidymodels.org/).
+
 
 
 # Further reading

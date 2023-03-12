@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Some common data processing tasks</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-10-28 19:04:31</h4>
+<h4 class="date">2023-03-11 19:26:22</h4>
 
 </div>
 
@@ -695,12 +695,12 @@ statistical method and algorithm you plan to use.</p>
 <p>It is often the case that we have more data than we need to answer a
 scientific question. For almost any analysis, one therefore needs to
 remove some variables before starting the statistical model fitting
-process. A simple (and somewhat stupid) example is an identifier (ID)
-variable for subjects. This contains no meaningful information for the
-modeling process and should thus be removed before fitting. Other
-examples are instances where the data was collected for some purpose
-other than our analysis. In this case, it is likely that there are
-variables in the data which are irrelevant for our analysis.</p>
+process. A simple example is an identifier (ID) variable or the names of
+subjects. Often this information is not needed for the modeling process
+and can thus be removed before fitting. Other examples are instances
+where the data was collected for some purpose other than the planned
+analysis. In this case, it is likely that there are variables in the
+data which are irrelevant for our analysis.</p>
 <p>Such removal of variables is done on scientific grounds, based on
 expert opinion. Ideally, you should report in enough detail which parts
 of the data you included and excluded in that way to allow the reader to

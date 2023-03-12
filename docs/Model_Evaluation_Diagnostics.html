@@ -531,7 +531,7 @@ div.tocify {
           <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
         </li>
         <li>
-          <a href="./CART_Models.html">Classification and Regression Trees (CART)</a>
+          <a href="./CART_Models.html">Decision Trees</a>
         </li>
         <li>
           <a href="./Many_Tree_Models.html">Many-tree models</a>
@@ -637,7 +637,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Model Diagnostics</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2021-11-08 13:23:37</h4>
+<h4 class="date">2023-03-11 19:16:37</h4>
 
 </div>
 
@@ -667,7 +667,11 @@ variables. For categorical outcomes, a null model would always predict
 the most common category, without using any information about predictor
 variables. If your more complicated model can’t beat such a null model
 (based on the performance metric you chose), you need to question what
-your model is good for.</p>
+your model is good for. Remember that the metric is important. A null
+model with, e.g., high accuracy might not be as good as a different
+model with lower accuracy. Recall the example of the brain cancer.</p>
+<p>In <code>tidymodels</code>, you can use the <code>null_model()</code>
+function to compute the performance for a null/base model.</p>
 </div>
 <div id="single-predictor-comparisons" class="section level1">
 <h1>Single predictor comparisons</h1>

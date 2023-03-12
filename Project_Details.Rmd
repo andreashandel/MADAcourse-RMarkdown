@@ -47,17 +47,18 @@ Grading for this part will follow the following rubric:
 
 # Part 2
 
-**The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling part, as well as having a mostly complete data exploration part.** 
+**The main objective for part 2 is to have mostly completed the data loading/cleaning/wrangling/exploring part.** 
 
 To that end, provide the following pieces of information:
 
 * Everything from part 1. That doesn't mean you need to keep what you wrote for part 1 frozen. Just that the description you provided there should be part of this submission. As appropriate, you can rewrite/reformat things to get it closer to a final report structure (e.g. start moving some parts into a method section).
-* A somewhat detailed description containing text and code showing your cleaning/wrangling steps. You can have that in the main report. However, if you plan to write your project report like a manuscript, you might want to have a separate supplementary file which contains these details. 
+* A somewhat detailed description containing text and code showing your cleaning/wrangling/exploring steps. Place this in separate Quarto/R files inside the `code` folder or its sub-folders. Make sure it's clear which files are the relevant ones, delete any non-relevant files.
+* Update the main manuscript. Add a few of the exploratory results and any other content you think should be shown.
 * __Removal or replacement of any left-over files and leftover text and code from the templates.__ Update all readme files, delete any files and folders that are not part of your project. Remove any comments and bits of code that are not relevant. At this stage, only information, code and files relevant to your project should be present, with appropriate documentation.
 * The main text should show plots or tables that explore the data, with a focus on the quantities of main interest (outcome, main predictor, co-variates of specific interest, etc.).
 * It is up to you how you structure things. You can use a combination of R or Rmd scripts. As long as things are well documented, reproducible and logical, the exact setup is your choice.
 * Everything needs to be fully reproducible and you need to provide somewhere (e.g. in the main text file or in the readme file in your repository) instructions on what one needs to do to completely reproduce everything.
-* Your main article and - if applicable supplementary files - should knit into a word or pdf or html document.
+* Your main article and - if applicable supplementary files - should knit into a word or pdf or html documents.
 * If you start including references, you should use a reference manager and a bibtex file from which you cite references in your manuscript. I recommend managing the bibtex file with the free Zotero reference manager, but if you have another reference manager that can handle bibtex files, you can use that too. Your bib file should be part of the project repository (for instance in the same folder as the manuscript). Feel free to pick any citation style you like (you can get CSL files from e.g. [this style repository](https://www.zotero.org/styles)).
 
 Grading for this part will follow the following rubric: 
@@ -78,6 +79,7 @@ Grading for this part will follow the following rubric:
 To that end, provide the following pieces of information:
 
 * All relevant files and documents needed to reproduce everything.
+* All non-relevant files (e.g., leftovers from the template) removed or updated.
 * Some documentation (e.g. a readme.md file) explaining how your project is set up and which scripts need to be run in what order to reproduce everything.
 * Files with well-documented code (either R scripts or Rmd files) that do all the previous tasks (cleaning/processing), as well as running a few analyses. You can start with simple bivariate ones, looking for patterns between your outcome(s) and individual predictors of interest. I suggest as much as possible you use the `tidymodels` framework. You can also try a few multivariable GLM. Results from those explorations should be saved in whatever form you consider most appropriate (figures or tables).
 * A main article/manuscript file which contains the most pertinent results and findings from everything you have done so far. You can include more figures/tables here than you would in a regular manuscript. However, it should still be nicely readable and somewhat focused, so don't produce page-long raw R output or a ton of exploratory figures or similar things. The main results of your analysis should be in this manuscript. Any further explorations and results (figures and tables) should go into a separate Rmarkdown file that comprises the supplementary material. For some idea on how this can be structured, you can for instance revisit Brian's project we looked at [in this unit](./Data_Analysis_Motivation.html).

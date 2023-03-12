@@ -15,7 +15,7 @@ In this module, we will discuss how one can assess the quality of different mode
 
 
 
-```{r trainfit,  fig.show='hold', fig.cap='', echo=FALSE, fig.align='center'}
+```{r trainfit,  fig.show='hold', fig.cap='', echo=FALSE, fig.align='center', out.width = '70%'}
 knitr::include_graphics("./media/assessment-cartoon.jpg")
 ```
 
