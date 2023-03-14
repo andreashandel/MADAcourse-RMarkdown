@@ -131,19 +131,11 @@ For some more information, you can check out this video by [Jeff Leek](http://jt
 </p>
 
 
-## Complex data types
+## Non-rectangular data
 
-It is impossible to cover in detail all the different types of data and how to process them in R. The following are very brief descriptions of common complex data types and a few pointers for resources that allow you to work with such data in R.
+We don't have the time to cover analysis of all the variety of data that exists. As stated before, our focus here was on the analysis of what is sometimes called _rectangular data_. We have observations (individual units of data) generally as rows, and variables (outcome and predictors) as columns. This is still the most common type of data, especially in public health and more generally the life sciences. However, more complex types of data are rapidly increasing in frequency and importance. If the data has a different structure, it will usually require different, specialized analysis approaches. The good news is that most of what we cover in this course still applies. The difference is often in the processing of the data, and the exact way data and models are combined.
 
-__Timeseries:__  A very useful set of tools to allow times-series work in R is the set of packages called [the tidyverts](https://tidyverts.org/). CRAN also has a [Task View for _Time Series Analysis_.](https://cran.r-project.org/web/views/TimeSeries.html) (A _Task View_ on CRAN is a site that tries to combine and summarize various R packages for a specific topic). Another task view that deals with longitudinal/time-series data is the [_Survival Analysis_ Task View](https://cran.r-project.org/web/views/Survival.html).
-
-
-__Omics:__ The [bioconductor](https://www.bioconductor.org/) website is your source for (almost) all tools and resources related to omics-type data analyses in R.
+At the end of the course, there is a page that briefly goes into other types of data (time-series, text, and some others) and provides very brief pointers for further resources, should you be interested in data of that type.
 
 
-__Text:__  Working with and analyzing larger sections of text is different from the simple string manipulation discussed above. These days, analysis of text often goes by the term _natural language processing_. Such text analysis will continue to increase in importance, given the increasing data streams of that type. If you are interested in doing full analyses of text data, the [`tidytext` R package](https://juliasilge.github.io/tidytext/) and the [Text mining with R book](https://www.tidytextmining.com/) are great resources. A short introduction to this topic is [The _text mining_ chapter (27) of IDS.](https://rafalab.github.io/dsbook/text-mining.html) 
-
-__Images:__ Images are generally converted into multiple matrices of values for different pixels of an image. For instance, one could divide an image into a 100x100 grid of pixels, and assign each pixel a RGB values and intensity. That means one would have 4 matrices of numeric values, each of size 100x100. One would then perform operations on those values. We won't do anything with images here, but using specialized software, including some R packages, allows for analysis of such data.
-
-__Videos:__ Are basically just a time-series of images. Of course, analysis of videos is even harder than analysis of images.
 
