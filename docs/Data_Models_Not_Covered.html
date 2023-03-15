@@ -565,6 +565,9 @@ div.tocify {
           <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
         </li>
         <li>
+          <a href="./Data_Models_Not_Covered.html">More Data and Models</a>
+        </li>
+        <li>
           <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
         </li>
       </ul>
@@ -637,7 +640,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">More Data and Models we didn’t cover</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-03-12 14:38:40</h4>
+<h4 class="date">2023-03-13 08:24:29</h4>
 
 </div>
 
@@ -672,7 +675,9 @@ that most of the methods we covered in this course still apply. The
 difference is often in the processing of the data, and the exact way
 data and models are combined.</p>
 <p>The following sections very briefly mention some common types of data
-and provide a few pointers towards their analysis.</p>
+and provide a few pointers towards their analysis. Those categories are
+not mutually exclusive, some data sources can have more than one
+property (e.g., real-time text data).</p>
 </div>
 <div id="hierarchical-data" class="section level1">
 <h1>Hierarchical data</h1>
@@ -690,7 +695,10 @@ understand and interpret. For such models, a Bayesian framework is often
 very useful. Good introductory resources for hierarchical modeling, and
 especially how to do it with <code>R</code>, are <a
 href="https://xcelab.net/rm/statistical-rethinking/">Statistical
-Rethinking</a> (the second half of the book) and <a href=""></a>.</p>
+Rethinking</a> (the second half of the book) and <a href=""></a>. The
+new edition of R4DS has a chapter on <a
+href="https://r4ds.hadley.nz/rectangling.html">working with hierarchical
+data</a> (but does not cover the fitting/analysis part.)</p>
 </div>
 <div id="time-series-data" class="section level1">
 <h1>Time-series data</h1>
@@ -699,22 +707,81 @@ we can therefore get better predictions by using specialized models that
 take this data structure into account. A good resource is the free
 textbook <a href="https://otexts.com/fpp3/">Forecasting: Principles and
 Practice</a> and a lot of the other work by <a
-href="https://robjhyndman.com/">Rob Hyndman</a>. The <a
+href="https://robjhyndman.com/">Rob Hyndman</a>.</p>
+<p>A very useful set of tools to allow times-series work in R is the set
+of packages called <a href="https://tidyverts.org/">the tidyverts</a>.
+The <a
 href="https://business-science.github.io/modeltime/"><code>modeltime</code></a>
 <code>R</code> package allows one to use the <code>tidymodels</code>
 framework to analyze time-series data.</p>
-</div>
-<div id="genetics-and--omics-data" class="section level1">
-<h1>Genetics and -omics data</h1>
-</div>
-<div id="big-data" class="section level1">
-<h1>Big data</h1>
+<p>CRAN also has a <a
+href="https://cran.r-project.org/web/views/TimeSeries.html">Task View
+for <em>Time Series Analysis</em>.</a> (A <em>Task View</em> on CRAN is
+a site that tries to combine and summarize various R packages for a
+specific topic). Another task view that deals with
+longitudinal/time-series data is the <a
+href="https://cran.r-project.org/web/views/Survival.html"><em>Survival
+Analysis</em> Task View</a>.</p>
 </div>
 <div id="text" class="section level1">
 <h1>Text</h1>
+<p>Working with and analyzing larger sections of text is becoming
+increasingly important. Complex and powerful AI tools (e.g., ChatGPT)
+have become rather good at working with text. The analysis of text often
+goes by the term <em>natural language processing</em>. Such text
+analysis will continue to increase in importance, given the increasing
+data streams of that type. If you are interested in doing full analyses
+of text data, the <a
+href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R
+package</a> and the <a href="https://www.tidytextmining.com/">Text
+mining with R book</a> are great resources. A short introduction to this
+topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The
+<em>text mining</em> chapter (27) of IDS</a>.</p>
+</div>
+<div id="genetics-and--omics-data" class="section level1">
+<h1>Genetics and -omics data</h1>
+<p>The main genetic type of data is based on sequences. A lot of
+specialized tools exist to work with what is often fairly noisy data.
+Aligning sequences, comparing them, placing them on phylogenetic trees,
+and other such operations are so common and important that there is a
+large area of tools for those purposes.</p>
+<p>Data that is often called <code>-omics</code> (e.g., metabolomics,
+glycomics) is often rectangular in structure, but often has
+distinguishing features, such as few individuals/rows and
+<strong>many</strong> observations/columns. Such data needs special
+treatment. Often, variable/feature reduction is a common step in the
+analysis workflow.</p>
+<p>The <a href="https://www.bioconductor.org/">bioconductor</a> website
+is your source for (almost) all tools and resources related to genetics
+and omics-type data analyses in <code>R</code>.</p>
+</div>
+<div id="big-data" class="section level1">
+<h1>Big data</h1>
+<p>This term is a bit fuzzy. Operationally, it often means anything you
+can’t work with on your local computer. Sometimes data is somewhat big,
+you can still work with it on your local computer but it takes very long
+and you have so many observations that everything is statistically
+significant. Thus, big data generally requires both special approaches
+and tools towards wrangling/exploring/cleaning and often also special
+approaches for its analysis.</p>
 </div>
 <div id="images-audio-video" class="section level1">
 <h1>Images, Audio, Video</h1>
+<p>Images are generally converted into multiple matrices of values for
+different pixels of an image. For instance, one could divide an image
+into a 100x100 grid of pixels, and assign each pixel RGB (color) values
+and intensity. That means one would have 4 matrices of numeric values,
+each of size 100x100. One would then perform operations on those values.
+As you can imagine, that quickly leads to fairly large amounts of data.
+These days, most successful image analysis is done using some form of
+<strong>neural nets</strong>, which are generally considered an
+<strong>artificial intelligence (AI)</strong> method (but recall that ML
+and AI terminology is somewhat fuzzy. The general current usage is that
+AI are a type of ML, specifically the neural net type.)</p>
+<p>Videos are basically time-series of images. Of course, analysis of
+videos is even harder than analysis of images.</p>
+<p>Audio also has a time-series structure that needs to be taken into
+account when analyzing it.</p>
 </div>
 <div id="further-reading" class="section level1">
 <h1>Further reading</h1>

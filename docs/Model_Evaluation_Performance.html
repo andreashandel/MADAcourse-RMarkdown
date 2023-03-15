@@ -565,6 +565,9 @@ div.tocify {
           <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
         </li>
         <li>
+          <a href="./Data_Models_Not_Covered.html">More Data and Models</a>
+        </li>
+        <li>
           <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
         </li>
       </ul>
@@ -637,7 +640,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Model Performance Evaluation</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-03-12 14:16:44</h4>
+<h4 class="date">2023-03-15 13:57:17</h4>
 
 </div>
 
@@ -905,22 +908,25 @@ the best idea. A common situation where accuracy (just counting how
 often the model prediction is right/wrong) is not very useful is for
 rare (but important) outcomes. Data of this type is often called
 <strong>unbalanced data</strong>. As an example, say we had some
-algorithm that tried to screen people to predict if they are about to go
-on a mass-shooting rampage. Fortunately, people like this are very rare.
-Let’s say (I’m making this number up) that 1 in a million people are at
-risk of committing such a crime. Therefore, a model that predicts that
-<em>nobody poses a danger</em> would be a very accurate model, it would
+algorithm that tried to use brain images to predict if people have brain
+cancer. Fortunately, brain cancer is rare. Let’s say (I’m making this
+number up) that 1 in a million people who undergo this screening
+procedure actually have this cancer. Therefore, a model that predicts
+that <em>nobody has cancer</em> would be a very accurate model, it would
 only make one mistake in a million. However, missing that one person
 would be a very important mistake. We likely would prefer a model that
-predicts that 10 people are at risk of starting a mass-shooting,
-including the person really at risk and 9 false positives. This model
-has worse accuracy since it gets 9 out 1 million wrong. But it’s likely
-more important to catch the one true future mass-shooter before they
-have a chance to execute, even if it means checking in and interrogating
-several innocent individuals. Of course this trade-off is very common.
-You likely know it in the context of balancing <a
+flags 10 people as (potentially) having a cancer, including the person
+who really does and 9 false positives. This model has worse accuracy
+since it gets 9 out 1 million wrong. But it’s likely more important to
+catch the one true case, even if it means temporarily scaring several
+other individuals, until further checks show that they are healthy. Of
+course this trade-off is very common. You likely know it in the context
+of balancing <a
 href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">sensitivity
-and specificity</a> of say a clinical test.</p>
+and specificity</a> of say a clinical test. Other areas where this
+happens is, e.g., predicting the (hopefully rare) errors when building a
+plane engine, flagging the (rare) credit card fraud, and many others of
+that type.</p>
 </div>
 <div id="beyond-accuracy" class="section level2">
 <h2>Beyond accuracy</h2>

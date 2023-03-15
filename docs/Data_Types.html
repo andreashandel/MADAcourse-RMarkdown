@@ -565,6 +565,9 @@ div.tocify {
           <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
         </li>
         <li>
+          <a href="./Data_Models_Not_Covered.html">More Data and Models</a>
+        </li>
+        <li>
           <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
         </li>
       </ul>
@@ -637,7 +640,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Types of Data</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-01-19 19:29:49</h4>
+<h4 class="date">2023-03-13 08:06:35</h4>
 
 </div>
 
@@ -929,48 +932,24 @@ examples and discusses the important concept of missing values and
 </iframe>
 </p>
 </div>
-<div id="complex-data-types" class="section level2">
-<h2>Complex data types</h2>
-<p>It is impossible to cover in detail all the different types of data
-and how to process them in R. The following are very brief descriptions
-of common complex data types and a few pointers for resources that allow
-you to work with such data in R.</p>
-<p><strong>Timeseries:</strong> A very useful set of tools to allow
-times-series work in R is the set of packages called <a
-href="https://tidyverts.org/">the tidyverts</a>. CRAN also has a <a
-href="https://cran.r-project.org/web/views/TimeSeries.html">Task View
-for <em>Time Series Analysis</em>.</a> (A <em>Task View</em> on CRAN is
-a site that tries to combine and summarize various R packages for a
-specific topic). Another task view that deals with
-longitudinal/time-series data is the <a
-href="https://cran.r-project.org/web/views/Survival.html"><em>Survival
-Analysis</em> Task View</a>.</p>
-<p><strong>Omics:</strong> The <a
-href="https://www.bioconductor.org/">bioconductor</a> website is your
-source for (almost) all tools and resources related to omics-type data
-analyses in R.</p>
-<p><strong>Text:</strong> Working with and analyzing larger sections of
-text is different from the simple string manipulation discussed above.
-These days, analysis of text often goes by the term <em>natural language
-processing</em>. Such text analysis will continue to increase in
-importance, given the increasing data streams of that type. If you are
-interested in doing full analyses of text data, the <a
-href="https://juliasilge.github.io/tidytext/"><code>tidytext</code> R
-package</a> and the <a href="https://www.tidytextmining.com/">Text
-mining with R book</a> are great resources. A short introduction to this
-topic is <a href="https://rafalab.github.io/dsbook/text-mining.html">The
-<em>text mining</em> chapter (27) of IDS.</a></p>
-<p><strong>Images:</strong> Images are generally converted into multiple
-matrices of values for different pixels of an image. For instance, one
-could divide an image into a 100x100 grid of pixels, and assign each
-pixel a RGB values and intensity. That means one would have 4 matrices
-of numeric values, each of size 100x100. One would then perform
-operations on those values. We won’t do anything with images here, but
-using specialized software, including some R packages, allows for
-analysis of such data.</p>
-<p><strong>Videos:</strong> Are basically just a time-series of images.
-Of course, analysis of videos is even harder than analysis of
-images.</p>
+<div id="non-rectangular-data" class="section level2">
+<h2>Non-rectangular data</h2>
+<p>We don’t have the time to cover analysis of all the variety of data
+that exists. As stated before, our focus here was on the analysis of
+what is sometimes called <em>rectangular data</em>. We have observations
+(individual units of data) generally as rows, and variables (outcome and
+predictors) as columns. This is still the most common type of data,
+especially in public health and more generally the life sciences.
+However, more complex types of data are rapidly increasing in frequency
+and importance. If the data has a different structure, it will usually
+require different, specialized analysis approaches. The good news is
+that most of what we cover in this course still applies. The difference
+is often in the processing of the data, and the exact way data and
+models are combined.</p>
+<p>At the end of the course, there is a page that briefly goes into
+other types of data (time-series, text, and some others) and provides
+very brief pointers for further resources, should you be interested in
+data of that type.</p>
 </div>
 </div>
 <div class="footnotes footnotes-end-of-document">
