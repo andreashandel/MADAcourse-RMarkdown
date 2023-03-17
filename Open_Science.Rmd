@@ -1,0 +1,192 @@
+---
+title: Open Science and Reproducible Research
+subtitle: ""
+author: Zane Billings
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Overview
+In this unit, we'll talk a bit more about reproducible research, and how that
+fits into the much larger concept of "open science."
+
+```{r comic,  echo=FALSE, fig.cap='What we want to AVOID in this module!', out.width = '50%', fig.align='center',fig.alt="A comic of two scientists standing in front of a lab bench that has electrophoresis gel printouts scattered on it. One says to the other 'Data don't make any sense, we will have to resort to statistics.'"}
+knitr::include_graphics("./media/vadlo-statistics.png")
+```
+
+
+# Learning Objectives
+
+* Understand the general idea of open science
+* Explain what makes research reproducible and/or replicable
+* Know what FAIR data standards are
+
+# Introduction
+
+Way back at [the beginning of the course](https://andreashandel.github.io/MADAcourse/Tools_Reproducibility.html),
+we briefly discussed reproducibility. In this module, we'll learn a bit more about
+what that means, and why you pretty much need to have a solid grasp on
+reproducible research strategies in the future. We'll also talk about how
+reproducibility fits into the more general framework of Open Science, and
+proper treatment of data and code in this framework.
+
+# White House open science requirements
+
+I'm not going to bury the lead on this one, there is a very important reason
+for you to care about reproducibility and open science. Several US government
+organizations have said that [2023 is the Year of Open Science](https://www.earthdata.nasa.gov/news/year-of-open-science), and a recent
+Office of Science and Technology Policy [memo](https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/) has recommended that all federal agencies take
+some serious steps towards open science practices (more on what exactly
+this "open science" thing is later).
+
+Federal agencies like the NIH have been requiring data sharing and public
+releases of papers (on PMC) for some time now, but these recommended measures
+are even stronger, and in my opinion, a very positive direction for science.
+It is quite likely that if you work with federal funding in the near future,
+you will be required to share your data and code publicly as soon as you
+decide to publish. The exact implementation of these protocols hasn't been
+determined yet (nor has the degree to which these recommendations will be
+formally implemented), but the writing is on the wall, so to speak.
+
+**It is easier for you to get comfortable with reproducible research methods
+and open science now, rather than scrambling to learn it in the future!**
+
+# The general idea of open science
+
+So if you google "what is open science," which I tried to do when I was first
+learning this stuff, you'll get a confusing mess of microsoft SmartArt graphics
+that are, in general, not too helpful. I think that [this paper](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-021-01304-y)
+and [this paper](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020EA001562)
+provide pretty good conceptual discussions of open science, but I think the
+best of these SmartArt-type graphics is from [NASA](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops).
+
+```{r open science,  echo=FALSE, fig.cap='Open science is like spaghetti sauce--it has a lot of ingredients that have to be cooked together to get the best flavor.', out.width = '50%', fig.align='center',fig.alt="A circular graphic with 'open science' in the center, showing several components of open science around it."}
+knitr::include_graphics("./media/open-science.jpg")
+```
+
+NASA defines three components that are central to open science.
+
+1. Accessible -- your research process and results need to be transparent. Open access,
+FAIR data, and code sharing all fall into this.
+2. Reproducible -- other people should be able to get the same results as you,
+and you should strive to make reusable products.
+3. Inclusivity -- if your research is only accessible and reproducible for
+relatively well-off scientists at major institutions in the USA, it's still
+not really open `r emoji::emoji("slightly smiling face")`.
+
+If you want a formal definition of "open science," here's the one from the
+OSTP, which is pretty comprehensive:
+
+> “The principle and practice of making research
+products and processes available to all, while
+respecting diverse cultures, maintaining security
+and privacy, and fostering collaborations,
+reproducibility, and equity.”
+
+OK, let's go into just a bit more detail about each of these topics.
+
+# Accessibility and fair data
+
+Open access publishing is a big topic, but for the purposes of this class
+I will just say that I think you should publish Open Access whenever possible.
+While you're a student at UGA, [our library has a fund](https://www.libs.uga.edu/openaccessfund)
+that can help you with this. In the future, it seems likely that any federally
+funded projects in the US will require an open access fund as part of the budget,
+as publishing OA can often be prohibitively expensive. If you want to learn
+more I'll again direct you to the [wikipedia page](https://en.wikipedia.org/wiki/Open_access),
+or if you *really* want to learn more, to [Peter Suber's book on OA](https://dash.harvard.edu/bitstream/handle/1/10752204/9780262517638_Open_Access.pdf).
+
+The main purpose of this section is to talk about data sharing. Data sharing
+used to be a pretty contentious topic, but fortunately it is more normalized
+now than it has ever been before, and thanks to NIH (and other agency mandates),
+it will likely be a normal part of science before too long.
+
+Of course just dumping your nasty, messy data in a depository is not great
+for accessibility and reproducibility. As some of you noticed during this
+course, even data from the CDC or other reputable organizations is often
+very poorly formatted and does not have a lot of metadata or documentation
+to help you out. To somewhat solve this issue, we can look to the FAIR data
+standards, which were originally published in [this 2016 publication](https://www.nature.com/articles/sdata201618).
+Another great resource is the [GO FAIR initative](https://www.go-fair.org/fair-principles/).
+What I can say here is just a limited summary of these two papers, so I
+highly recommend that you do those readings. But here's the short version.
+
+For digital assets to be useful when you dump them online, they should be:
+
+1. **F**indable: when someone goes to your paper or project, they should be
+able to easily get to the data source.
+2. **A**ccessible: users need to be able to access the data, and data are stored
+in a way that users can feasibly get them.
+3. **I**nteroperable: data should be in standardized formats, using standard
+vocabulary. You should be specific if your data is derived from another dataset
+or if the user will need other related datasets.
+4. **R**eusable: data should be documented and version-controlled when you
+release it, with clear descriptions of what information is contained in the
+data, who can use the data, and for what purposes.
+
+Of course dealing with things like data use agreements and individual privacy
+is paramount, so 100% achieving these goals all the time is not feasible.
+Sometimes you might need to use [synthetic data](https://en.wikipedia.org/wiki/Synthetic_data)
+based on your real data, remove certain information from your data to protect
+privacy, or require a data use agreement before you can distribute the
+data to individuals. We should strive for data to be as FAIR as possible,
+but protecting individual privacy is equally important!
+
+# Reproducibility (and replicability too)
+
+Andreas' notes from before provide a pretty comprehensive definition of **reproducibility**,
+so if you don't remember, review those. In one sentence, *your research is reproducible if
+another scientist can repeat your methods on your data and get the same results.* That is, someone
+else can take your code and data, rerun all your code, and get the same answers that you
+got in your paper.
+
+An important and related issue is **replicability** -— you've probably heard of
+the "replication crisis" in science. If not, I'll refer you to the [wikipedia page](https://en.wikipedia.org/wiki/Replication_crisis)
+instead of any more specific sources. In one sentence, *your research is
+replicable if someone else can follow your methods and materials to collect
+new data, analyze their data, and get similar results*. Of course in
+social and semi-social sciences (like epidemiology), when your results often
+depend on the target population of interest and are expected to vary over
+time, replicability can be a bit more nuanced than in an experimental
+field, where experiments should pretty much control for anything that you
+aren't interested in.
+
+# Inclusivity
+
+The topic of inclusivity in data science is heavily tied into the idea of
+data ethics -- critical thinking about the potential results and consequences
+of the products we create is crucial in data science. Many people taking
+this class are epidemiologists, and will be familiar with [the Belmont Report](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html).
+Regardless of your scientific background, when working with data (especially
+human subjects data), the guiding principles of respect for persons, beneficience, and justice
+should be critical considerations for all of our research.
+
+There are authors who can explain the importance of
+inclusivity and data science ethics much better than I can. I recommend the
+following resources.
+
+> Elaine O Nsoesie, Sandro Galea, Towards better Data Science to address racial bias and health equity, PNAS Nexus, Volume 1, Issue 3, July 2022, pgac120, https://doi.org/10.1093/pnasnexus/pgac120
+> O'Neil, Cathy. Weapons of math destruction. Crown, 2016. ISBN: 978-0553418811.
+> Noble, Safiya Umoja. Algorithms of Oppression: How Search Engines Reinforce Racism. NYU Press, 2018. ISBN: 978-1479837243.
+> [https://datapractices.org/manifesto/](https://datapractices.org/manifesto/)
+> Floridi L, Taddeo M. What is data ethics?. Philos Trans A Math Phys Eng Sci. 2016;374(2083):20160360. doi:10.1098/rsta.2016.0360
+
+# Further reading
+
+As you can see from the graphic above, there are tons of open science topics
+we haven't even scratched the surface of. If you want to go deeper or learn
+more, here are a few places you can find more open science resources.
+
+* The Center for Open Science, a nonprofit dedicated to promoting open science
+practices and community change, maintains [a blog](https://www.cos.io/blog)
+with several thought provoking readings.
+* Statistician Andrew Gelman sometimes writes about open science, mostly from
+a statistical perspective and has some nice comments on replication.
+[(1)](http://www.stat.columbia.edu/~gelman/research/published/ChanceEthics14.pdf)
+[(2)](https://www.americanscientist.org/article/the-statistical-crisis-in-science)
+* [FOSTER](https://www.fosteropenscience.eu/) is a European organization
+with a set of free courses on open science principles.
