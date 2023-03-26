@@ -49,9 +49,9 @@ _Quizzes will become available here as the course progresses. Once a quiz is ava
 * [Module 8 – Fitting basic statistical models](./quizsheets/m8_mada_basic_statistical_models_student.xlsx)
 * [Module 9 – Evaluating your model fits](./quizsheets/m9_mada_model_evaluation_student.xlsx)
 * [Module 10 – Improving your model fits](./quizsheets/m10_mada_model_improvement_student.xlsx)
-<!-- * [Module 11 – Machine Learning Models I](./quizsheets/m11_mada_ml_models_1_student.xlsx) -->
-<!-- * [Module 12 – Machine Learning Models II](./quizsheets/m12_mada_ml_models_2_student.xlsx) -->
-<!-- * [Module 13 – The complete analysis workflow](./quizsheets/m13_mada_full_workflow_student.xlsx) -->
+* [Module 11 – Machine Learning Models I](./quizsheets/m11_mada_ml_models_1_student.xlsx)
+* [Module 12 – Machine Learning Models II](./quizsheets/m12_mada_ml_models_2_student.xlsx)
+* [Module 13 – The complete analysis workflow](./quizsheets/m13_mada_full_workflow_student.xlsx)
 
 
 

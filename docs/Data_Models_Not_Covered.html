@@ -568,6 +568,9 @@ div.tocify {
           <a href="./Data_Models_Not_Covered.html">More Data and Models</a>
         </li>
         <li>
+          <a href="./Open_Science.html">Open Science</a>
+        </li>
+        <li>
           <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
         </li>
       </ul>
@@ -640,7 +643,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">More Data and Models we didn’t cover</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-03-13 08:24:29</h4>
+<h4 class="date">2023-03-26 18:11:22</h4>
 
 </div>
 
@@ -692,13 +695,16 @@ only drop it if one is convinced that there are no systematic
 differences in the data. Unfortunately, such hierarchical models are
 still a little bit harder to implement, and often a lot harder to
 understand and interpret. For such models, a Bayesian framework is often
-very useful. Good introductory resources for hierarchical modeling, and
-especially how to do it with <code>R</code>, are <a
+very useful. A good introductory resource for hierarchical modeling, and
+especially how to do it with <code>R</code>, is <a
 href="https://xcelab.net/rm/statistical-rethinking/">Statistical
-Rethinking</a> (the second half of the book) and <a href=""></a>. The
-new edition of R4DS has a chapter on <a
+Rethinking</a> (the second half of the book). The new edition of R4DS
+has a chapter on <a
 href="https://r4ds.hadley.nz/rectangling.html">working with hierarchical
-data</a> (but does not cover the fitting/analysis part.)</p>
+data</a> (but does not cover the fitting/analysis part.) There is also a
+CRAN Task view that <a
+href="https://cran.r-project.org/web/views/MixedModels.html">lists R
+packages relevant to hierarchical modeling</a>.</p>
 </div>
 <div id="time-series-data" class="section level1">
 <h1>Time-series data</h1>
@@ -722,6 +728,28 @@ specific topic). Another task view that deals with
 longitudinal/time-series data is the <a
 href="https://cran.r-project.org/web/views/Survival.html"><em>Survival
 Analysis</em> Task View</a>.</p>
+</div>
+<div id="spatial-data" class="section level1">
+<h1>Spatial data</h1>
+<p>Like time series data, spatial data also feature autocorrelation, but
+typically in two dimensions. (I.e., latitude and longitude.)
+Spatiotemporal data, typically collected as repeated measurements of
+spatial data over time, is also somewhat common. One could also have an
+elevation coordinate and have 3D (or even 4D spatiotemporal data)
+spatial data, but most analyses focus on 2D spatial autocorrelation
+structures.</p>
+<p>While there is (to my knowledge) no current way to fit specific
+spatial models in <code>tidymodels</code> (i.e. no
+<code>modeltime</code> analogue), one can use spatial resampling through
+the <a
+href="https://spatialsample.tidymodels.org/"><code>spatialsample</code></a>
+package, which provides resampling methods that take spatial
+autocorrelation into account.</p>
+<p>You can find a community-curated list of resources for spatial data
+in <a href="https://www.bigbookofr.com/geospatial.html">the Big Book of
+R</a> or in the <a
+href="https://cran.r-project.org/web/views/Spatial.html">spatial data
+CRAN task view</a>.</p>
 </div>
 <div id="text" class="section level1">
 <h1>Text</h1>

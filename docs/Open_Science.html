@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Andreas Handel" />
+<meta name="author" content="Zane Billings" />
 
 
-<title>Course Resources</title>
+<title>Open Science and Reproducible Research</title>
 
 <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -641,136 +641,236 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Course Resources</h1>
-<h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-02-20 12:35:30</h4>
+<h1 class="title toc-ignore">Open Science and Reproducible Research</h1>
+<h4 class="author">Zane Billings</h4>
+<h4 class="date">2023-03-21 11:58:44</h4>
 
 </div>
 
 
-<p>This page lists resources that this course draws on frequently or at
-least occasionally. For a more extensive list of data science resources,
-see the <em>General Resources</em> page.</p>
-<p>All materials described below are (should be) freely available
-online. If you can’t get to them, let me know. Note that a lot of the
-listed resources are dynamic and ever changing. That means occasionally
-links might not work, sites go offline, chapters in online books get
-re-arranged, etc. If you notice anything that’s not quite right, please
-let me know.</p>
-<div id="books-and-online-tutorials" class="section level1">
-<h1>Books and online tutorials</h1>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>In this unit, we’ll talk a bit more about reproducible research, and
+how that fits into the much larger concept of “open science.”</p>
+<div class="figure" style="text-align: center">
+<img src="media/vadlo-statistics.png" alt="A comic of two scientists standing in front of a lab bench that has electrophoresis gel printouts scattered on it. One says to the other 'Data don't make any sense, we will have to resort to statistics.'" width="50%" />
+<p class="caption">
+What we want to AVOID in this module!
+</p>
+</div>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
 <ul>
-<li><a href="https://rafalab.github.io/dsbook/">IDS = Introduction to
-Data Science</a> is the book I’ll refer to a good bit in the 1st part of
-the course.</li>
-<li><a href="http://r4ds.had.co.nz/index.html">R4DS = R for Data Science
-(1st edition)</a> is another resource that will come up frequently. It
-is a very gentle and good introduction to data science in R. I’ll be
-referring to it frequently. <strong>Note:</strong> The <a
-href="https://r4ds.hadley.nz/">second edition</a> of the book also
-exists. It is worth checking out. If there are references to specific
-chapters/pages of R4DS on this website, they currently refer to the 1st
-edition. I’ll be updating things to indicate 1st or 2nd edition with
-R4DSe1 and R4DSe2. If no edition is specified, assume it means the 1st
-one.</li>
-<li><a href="https://leanpub.com/artofdatascience">ADS = The Art of Data
-Science</a> has some good big-picture, introductory level chapters on
-different aspects of a data analysis. It is a <em>pay what you want</em>
-book with a minimum price of zero, which means you can get it for free
-(note that the book + video bundle has a non-zero minimum price). (I
-heard that sometimes, once you register, the email with the book link
-goes to the spam folder, make sure to check there.)<br />
-</li>
-<li><a href="https://statlearning.com/">ISL(R) = An Introduction to
-Statistical Learning (in R)</a> is a good introduction to the
-statistical and machine learning (i.e. model fitting) part of the data
-analysis workflow. I’ll refer to it frequently in the second part of the
-course. While we won’t work through the exercises/labs that are part of
-ISL, if you are interested in trying out some of those, <a
-href="https://emilhvitfeldt.github.io/ISLR-tidymodels-labs/index.html">here
-is a website</a> that does the labs using the tidymodels set of
-packages, which we will also be using in this course.</li>
-<li><a href="https://bradleyboehmke.github.io/HOML/">HMLR = Hands-on
-Machine Learning with R</a> covers somewhat similar material as ISL, but
-with different emphasis and a different approach. I refer to it in
-several of the later course modules.</li>
-<li><a href="https://bookdown.org/max/FES/">FES = Feature Engineering
-and Selection</a> focuses on a specific aspect of the data analysis
-workflow and is a good resource for those topics.</li>
-<li><a href="https://happygitwithr.com/">HGR = happygitwitR</a> is a
-good resource to learn some of the basics of Git/Github with R.</li>
-<li><a href="https://rstudio.cloud/learn/primers">RP = R Studio
-Primers</a> are a great source for introductory, interactive tutorials
-covering basics of R coding and data analysis.</li>
+<li>Understand the general idea of open science</li>
+<li>Explain what makes research reproducible and/or replicable</li>
+<li>Know what FAIR data standards are</li>
 </ul>
 </div>
-<div id="tools" class="section level1">
-<h1>Tools</h1>
-<ul>
-<li>We’ll be using <a href="https://www.r-project.org/">R</a> and <a
-href="https://www.rstudio.com/products/rstudio/download/">R Studio
-Desktop</a>. The <a href="./Tools_RandRStudio.html">R and R Studio
-document</a> has details.</li>
-<li>We will also be using <a href="https://git-scm.com/">Git</a> and <a
-href="https://github.com/">GitHub</a>. You need to get that software and
-a GitHub user account. I also recommend/assume you are using the <a
-href="https://www.gitkraken.com/">GitKraken</a> client (but you don’t
-have to). See the <a href="./Tools_Github_Introduction.html">GitHub
-introduction document</a> for details.</li>
-</ul>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Way back at <a
+href="https://andreashandel.github.io/MADAcourse/Tools_Reproducibility.html">the
+beginning of the course</a>, we briefly discussed reproducibility. In
+this module, we’ll learn a bit more about what that means, and why you
+pretty much need to have a solid grasp on reproducible research
+strategies in the future. We’ll also talk about how reproducibility fits
+into the more general framework of Open Science, and proper treatment of
+data and code in this framework.</p>
 </div>
-<div id="important-notes" class="section level1">
-<h1>Important notes</h1>
-<ul>
-<li>The last time this course was taught, the company now called
-<strong>Posit</strong> was called <strong>R Studio</strong>. You will
-likely see the old label show up. The <strong>software</strong> we use
-for coding R is still called R Studio.</li>
-<li>The last time the course was taught, <strong>Quarto</strong> did not
-exist, we used <strong>R Markdown</strong> instead. You will likely see
-references to <strong>R Markdown</strong>. Just think of it as now being
-Quarto (i.e. instead of <code>.Rmd</code> files we now work with
-<code>.qmd</code> files).</li>
-</ul>
+<div id="white-house-open-science-requirements" class="section level1">
+<h1>White House open science requirements</h1>
+<p>I’m not going to bury the lead on this one, there is a very important
+reason for you to care about reproducibility and open science. Several
+US government organizations have said that <a
+href="https://www.earthdata.nasa.gov/news/year-of-open-science">2023 is
+the Year of Open Science</a>, and a recent Office of Science and
+Technology Policy <a
+href="https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/">memo</a>
+has recommended that all federal agencies take some serious steps
+towards open science practices (more on what exactly this “open science”
+thing is later).</p>
+<p>Federal agencies like the NIH have been requiring data sharing and
+public releases of papers (on PMC) for some time now, but these
+recommended measures are even stronger, and in my opinion, a very
+positive direction for science. It is quite likely that if you work with
+federal funding in the near future, you will be required to share your
+data and code publicly as soon as you decide to publish. The exact
+implementation of these protocols hasn’t been determined yet (nor has
+the degree to which these recommendations will be formally implemented),
+but the writing is on the wall, so to speak.</p>
+<p><strong>It is easier for you to get comfortable with reproducible
+research methods and open science now, rather than scrambling to learn
+it in the future!</strong></p>
 </div>
-<div id="general-help" class="section level1">
-<h1>General help</h1>
-<ul>
-<li>The main place to get any course specific help are our course
-discussion boards. Use them widely to ask questions, to answer others’
-questions, to post links to interesting resources, etc.</li>
-<li>Most questions you will have are likely not course specific, but
-will have to do with R/Github/RMarkdown/etc. For that, Google will be
-your best friend. Most of the time, someone had the same
-problem/question you do and someone else answered it. The only tricky
-thing is finding that post. Even after years of doing this, I probably
-google how to do something in R every day 😃.</li>
-<li>When you search online for help, quite often you land on some <a
-href="https://stackexchange.com/">StackExchange</a> site (often <a
-href="https://stackoverflow.com/">Stack Overflow</a>). <a
-href="https://stackexchange.com/sites">These are a collection of
-widely-used online question and answer sites</a> covering all kinds of
-topics (including R, Github, Data Analysis, etc.). The majority of the
-time, you will find an answer, or at least something that gets you
-closer, on those sites. I rarely go to those sites directly, instead I
-type my query into Google and it often sends me to one of the
-StackExchange sites.</li>
-<li>The <a href="https://community.rstudio.com/">Rstudio community</a>
-is another good place to ask questions. It is not as widely used as
-StackExchange, but it seems to be more newcomer friendly. I haven’t used
-it much.</li>
-<li>Another highly recommended resource is the <a
-href="https://www.rfordatasci.com/">R for data science community</a>.
-They have a Slack workspace which you can join for free and ask
-questions about R, Data Science and related topics. They are very
-newbie-friendly. I have not used them much but they seem to respond
-fairly quickly and are helpful.</li>
-</ul>
+<div id="the-general-idea-of-open-science" class="section level1">
+<h1>The general idea of open science</h1>
+<p>So if you google “what is open science,” which I tried to do when I
+was first learning this stuff, you’ll get a confusing mess of microsoft
+SmartArt graphics that are, in general, not too helpful. I think that <a
+href="https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-021-01304-y">this
+paper</a> and <a
+href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020EA001562">this
+paper</a> provide pretty good conceptual discussions of open science,
+but I think the best of these SmartArt-type graphics is from <a
+href="https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops">NASA</a>.</p>
+<div class="figure" style="text-align: center">
+<img src="media/open-science.jpg" alt="A circular graphic with 'open science' in the center, showing several components of open science around it." width="50%" />
+<p class="caption">
+Open science is like spaghetti sauce–it has a lot of ingredients that
+have to be cooked together to get the best flavor.
+</p>
 </div>
-<div id="more-resources" class="section level1">
-<h1>More resources</h1>
-<p>The <a href="./General_Resources.html">general resources</a> page has
-a more extensive list of relevant resources.</p>
+<p>NASA defines three components that are central to open science.</p>
+<ol style="list-style-type: decimal">
+<li>Accessible – your research process and results need to be
+transparent. Open access, FAIR data, and code sharing all fall into
+this.</li>
+<li>Reproducible – other people should be able to get the same results
+as you, and you should strive to make reusable products.</li>
+<li>Inclusivity – if your research is only accessible and reproducible
+for relatively well-off scientists at major institutions in the USA,
+it’s still not really open 🙂.</li>
+</ol>
+<p>If you want a formal definition of “open science,” here’s the one
+from the OSTP, which is pretty comprehensive:</p>
+<blockquote>
+<p>“The principle and practice of making research products and processes
+available to all, while respecting diverse cultures, maintaining
+security and privacy, and fostering collaborations, reproducibility, and
+equity.”</p>
+</blockquote>
+<p>OK, let’s go into just a bit more detail about each of these
+topics.</p>
+</div>
+<div id="accessibility-and-fair-data" class="section level1">
+<h1>Accessibility and fair data</h1>
+<p>Open access publishing is a big topic, but for the purposes of this
+class I will just say that I think you should publish Open Access
+whenever possible. While you’re a student at UGA, <a
+href="https://www.libs.uga.edu/openaccessfund">our library has a
+fund</a> that can help you with this. In the future, it seems likely
+that any federally funded projects in the US will require an open access
+fund as part of the budget, as publishing OA can often be prohibitively
+expensive. If you want to learn more I’ll again direct you to the <a
+href="https://en.wikipedia.org/wiki/Open_access">wikipedia page</a>, or
+if you <em>really</em> want to learn more, to <a
+href="https://dash.harvard.edu/bitstream/handle/1/10752204/9780262517638_Open_Access.pdf">Peter
+Suber’s book on OA</a>.</p>
+<p>The main purpose of this section is to talk about data sharing. Data
+sharing used to be a pretty contentious topic, but fortunately it is
+more normalized now than it has ever been before, and thanks to NIH (and
+other agency mandates), it will likely be a normal part of science
+before too long.</p>
+<p>Of course just dumping your nasty, messy data in a depository is not
+great for accessibility and reproducibility. As some of you noticed
+during this course, even data from the CDC or other reputable
+organizations is often very poorly formatted and does not have a lot of
+metadata or documentation to help you out. To somewhat solve this issue,
+we can look to the FAIR data standards, which were originally published
+in <a href="https://www.nature.com/articles/sdata201618">this 2016
+publication</a>. Another great resource is the <a
+href="https://www.go-fair.org/fair-principles/">GO FAIR initative</a>.
+What I can say here is just a limited summary of these two papers, so I
+highly recommend that you do those readings. But here’s the short
+version.</p>
+<p>For digital assets to be useful when you dump them online, they
+should be:</p>
+<ol style="list-style-type: decimal">
+<li><strong>F</strong>indable: when someone goes to your paper or
+project, they should be able to easily get to the data source.</li>
+<li><strong>A</strong>ccessible: users need to be able to access the
+data, and data are stored in a way that users can feasibly get
+them.</li>
+<li><strong>I</strong>nteroperable: data should be in standardized
+formats, using standard vocabulary. You should be specific if your data
+is derived from another dataset or if the user will need other related
+datasets.</li>
+<li><strong>R</strong>eusable: data should be documented and
+version-controlled when you release it, with clear descriptions of what
+information is contained in the data, who can use the data, and for what
+purposes.</li>
+</ol>
+<p>Of course dealing with things like data use agreements and individual
+privacy is paramount, so 100% achieving these goals all the time is not
+feasible. Sometimes you might need to use <a
+href="https://en.wikipedia.org/wiki/Synthetic_data">synthetic data</a>
+based on your real data, remove certain information from your data to
+protect privacy, or require a data use agreement before you can
+distribute the data to individuals. We should strive for data to be as
+FAIR as possible, but protecting individual privacy is equally
+important!</p>
+</div>
+<div id="reproducibility-and-replicability-too" class="section level1">
+<h1>Reproducibility (and replicability too)</h1>
+<p>Andreas’ notes from before provide a pretty comprehensive definition
+of <strong>reproducibility</strong>, so if you don’t remember, review
+those. In one sentence, <em>your research is reproducible if another
+scientist can repeat your methods on your data and get the same
+results.</em> That is, someone else can take your code and data, rerun
+all your code, and get the same answers that you got in your paper.</p>
+<p>An important and related issue is <strong>replicability</strong> -—
+you’ve probably heard of the “replication crisis” in science. If not,
+I’ll refer you to the <a
+href="https://en.wikipedia.org/wiki/Replication_crisis">wikipedia
+page</a> instead of any more specific sources. In one sentence, <em>your
+research is replicable if someone else can follow your methods and
+materials to collect new data, analyze their data, and get similar
+results</em>. Of course in social and semi-social sciences (like
+epidemiology), when your results often depend on the target population
+of interest and are expected to vary over time, replicability can be a
+bit more nuanced than in an experimental field, where experiments should
+pretty much control for anything that you aren’t interested in.</p>
+</div>
+<div id="inclusivity" class="section level1">
+<h1>Inclusivity</h1>
+<p>The topic of inclusivity in data science is heavily tied into the
+idea of data ethics – critical thinking about the potential results and
+consequences of the products we create is crucial in data science. Many
+people taking this class are epidemiologists, and will be familiar with
+<a
+href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html">the
+Belmont Report</a>. Regardless of your scientific background, when
+working with data (especially human subjects data), the guiding
+principles of respect for persons, beneficience, and justice should be
+critical considerations for all of our research.</p>
+<p>There are authors who can explain the importance of inclusivity and
+data science ethics much better than I can. I recommend the following
+resources.</p>
+<blockquote>
+<p>Elaine O Nsoesie, Sandro Galea, Towards better Data Science to
+address racial bias and health equity, PNAS Nexus, Volume 1, Issue 3,
+July 2022, pgac120, <a href="https://doi.org/10.1093/pnasnexus/pgac120"
+class="uri">https://doi.org/10.1093/pnasnexus/pgac120</a> O’Neil, Cathy.
+Weapons of math destruction. Crown, 2016. ISBN: 978-0553418811. Noble,
+Safiya Umoja. Algorithms of Oppression: How Search Engines Reinforce
+Racism. NYU Press, 2018. ISBN: 978-1479837243. <a
+href="https://datapractices.org/manifesto/">https://datapractices.org/manifesto/</a>
+Floridi L, Taddeo M. What is data ethics?. Philos Trans A Math Phys Eng
+Sci. 2016;374(2083):20160360. <a href="doi:10.1098/rsta.2016.0360"
+class="uri">doi:10.1098/rsta.2016.0360</a></p>
+</blockquote>
+</div>
+<div id="further-reading" class="section level1">
+<h1>Further reading</h1>
+<p>As you can see from the graphic above, there are tons of open science
+topics we haven’t even scratched the surface of. If you want to go
+deeper or learn more, here are a few places you can find more open
+science resources.</p>
+<ul>
+<li>The Center for Open Science, a nonprofit dedicated to promoting open
+science practices and community change, maintains <a
+href="https://www.cos.io/blog">a blog</a> with several thought provoking
+readings.</li>
+<li>Statistician Andrew Gelman sometimes writes about open science,
+mostly from a statistical perspective and has some nice comments on
+replication. <a
+href="http://www.stat.columbia.edu/~gelman/research/published/ChanceEthics14.pdf">(1)</a>
+<a
+href="https://www.americanscientist.org/article/the-statistical-crisis-in-science">(2)</a></li>
+<li><a href="https://www.fosteropenscience.eu/">FOSTER</a> is a European
+organization with a set of free courses on open science principles.</li>
+</ul>
 </div>
 
 

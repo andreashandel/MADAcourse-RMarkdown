@@ -164,6 +164,8 @@ navbar:
              href: ./Complete_data_analysis_workflow.html  
            - text: "More Data and Models"
              href: ./Data_Models_Not_Covered.html
+           - text: "Open Science"
+             href: ./Open_Science.html
            - text: "Assessment: Complete Analysis Workflow"
              href: ./Assessment_Complete_Workflow.html
         - text: "14. Deep learning, AI and Big data"
