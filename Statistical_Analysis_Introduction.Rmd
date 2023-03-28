@@ -14,9 +14,8 @@ output:
 
 In this Unit, we will take another look at the whole data analysis process. Here, we focus on the actual (statistical) analysis (which I also call model fitting) component of the data analysis process. A general conceptual understanding is useful before we jump into looking at and applying specific modeling/statistical approaches.
 
-
-```{r workflow,  echo=FALSE, fig.cap='Maybe Dogbert did not do the analysis quite right. Source: dilbert.com.', out.width = '60%', fig.align='center', fig.alt='A three panel Dilbert comic. In the first panel, Dilberts boss says "Our consultant has been mining data all day" and Dogbert responses "The results are quite shocking." In the middle panel, Dilberts boss says "According to the data, sales are always highest when I do this...", and in the final panel, Dilberts boss makes a funny face.'}
-knitr::include_graphics("./media/dilbert_datamining.gif")
+```{r comic,  echo=FALSE, fig.cap='', out.width = '50%', fig.align='center',fig.alt="A comic of two scientists standing in front of a lab bench that has electrophoresis gel printouts scattered on it. One says to the other 'Data don't make any sense, we will have to resort to statistics.'"}
+knitr::include_graphics("./media/vadlo-statistics.png")
 ```
 
 

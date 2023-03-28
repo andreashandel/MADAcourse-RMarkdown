@@ -25,7 +25,7 @@ This is another solo exercise, so no group work this week, but of course more Gi
 
 ## Setup 
 
-Use your portfolio website. Make sure it's up to date and fully synced. Open it in R Studio. From last week's exercise, you should have an empty Rmd file called `tidytuesday_exercise2.Rmd`. Open it, that's where you'll write your Tidy Tuesday analysis.
+Use your portfolio website. Make sure it's up to date and fully synced. Open it in R Studio. From last week's exercise, you should have an empty Rmd file called `tidytuesday_exercise2.qmd`. Open it, that's where you'll write your Tidy Tuesday analysis.
 
 Go to the [TidyTuesday Github repository](https://github.com/rfordatascience/tidytuesday). Look for the dataset for this week, and read the instructions on how to get the data. You will also be provided with a data dictionary. If the data is available for download, place it somewhere in your portfolio repository (e.g., you can make a new folder called `data`).
 
@@ -52,7 +52,7 @@ Write code and text to perform the following steps:
 
 ## General pointers
 
-Add ample information/documentation in the form of either code comments or text in the Rmd file. Ideally both. You should provide a running commentary on what you do, why you do it, and if you use some R trickery, maybe also how (so if you stare at it in a few weeks, you can remember what in the world you did back then `r emoji::emoji('smile')`).
+Add ample information/documentation in the form of both code comments and explanatory text You should provide a running commentary on what you do, why you do it, and how your R code accomplishes that (so that if you stare at it in a few weeks, you can remember what in the world you did back then `r emoji::emoji('smile')`).
 
 **I don't want to see any p-values anywhere `r emoji::emoji('grin')`! This is an exploratory analysis, thus there is no place for p-values.**
 

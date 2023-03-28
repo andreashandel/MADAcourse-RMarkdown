@@ -45,7 +45,7 @@ With this, it is easy for anyone (including yourself) to quickly switch between 
 
 ## Creating new content
 
-In preparation for next week, make a copy of the `tidytuesday_exercise.Rmd` file, name it `tidytuesday_exercise2.Rmd`. Open it, delete everything apart from the YAML header (the stuff between the `---`). Add a sentence that says "To be filled" or something like that. You will fill it next week.
+In preparation for next week, make a copy of the `tidytuesday_exercise.qmd` file, name it `tidytuesday_exercise2.qmd`. Open it, delete everything apart from the YAML header (the stuff between the `---`). Add a sentence that says "To be filled" or something like that. You will fill it next week.
 
 To see the new file and access it from the website, we also have to include it in the website navigation bar. Open the `_quarto.yml` file and add a menu entry called `Tidy Tuesday 2 Exercise` and link it to `./tidytuesday_exercise2.html`.
 

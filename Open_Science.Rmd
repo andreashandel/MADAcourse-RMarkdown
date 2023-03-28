@@ -11,12 +11,9 @@ output:
 
 
 # Overview
-In this unit, we'll talk a bit more about reproducible research, and how that
-fits into the much larger concept of "open science."
 
-```{r comic,  echo=FALSE, fig.cap='What we want to AVOID in this module!', out.width = '50%', fig.align='center',fig.alt="A comic of two scientists standing in front of a lab bench that has electrophoresis gel printouts scattered on it. One says to the other 'Data don't make any sense, we will have to resort to statistics.'"}
-knitr::include_graphics("./media/vadlo-statistics.png")
-```
+In this unit, we'll talk a bit more about reproducible research, and how that fits into the much larger concept of "open science."
+
 
 
 # Learning Objectives

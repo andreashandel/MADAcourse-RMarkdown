@@ -23,11 +23,11 @@ In this unit, I mention very briefly a few types of data and models that we unfo
 
 # Introduction
 
-This course already covers a lot of material (maybe more than should be covered in a single semester `emoji::emoji('grin')`. Of course, there is much more in the area of data analysis that we were not able to cover.
+This course already covers a lot of material (maybe more than should be covered in a single semester `r `emoji::emoji('grin')`. Of course, there is much more in the area of data analysis that we were not able to cover.
 
-Our focus here was on the analysis of what is sometimes called _rectangular data_. We have observations (individual units of data) generally as rows, and variables (outcome and predictors) as columns. This is still the most common type of data, especially in public health and more generally the life sciences. However, more complex types of data are rapidly increasing in frequency and importance. If the data has a different structure, it will usually require different, specialized analysis approaches. The good news is that most of the methods we covered in this course still apply. The difference is often in the processing of the data, and the exact way data and models are combined.
+Our focus here was on the analysis of what is sometimes called _rectangular data_. We have observations (individual units of data) generally as rows, and variables (outcome and predictors) as columns. This is still the most common type of data, especially in public health and more generally the life sciences. However, more complex types of data are rapidly increasing in frequency and importance. If the data has a different structure, it will usually require different, specialized analysis approaches. The good news is that most of the general approaches we covered in this course still apply. The difference is often in how the data is processed, and the specific way data and models are combined.
 
-The following sections very briefly mention some common types of data and provide a few pointers towards their analysis. Those categories are not mutually exclusive, some data sources can have more than one property (e.g., real-time text data).
+The following sections very briefly mention some common types of more complex data and provide a few pointers towards their analysis. Those categories are not mutually exclusive, some data sources can have more than one property (e.g., real-time text data).
 
 
 # Hierarchical data
