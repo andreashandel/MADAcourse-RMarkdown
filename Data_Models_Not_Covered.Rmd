@@ -68,8 +68,7 @@ The [bioconductor](https://www.bioconductor.org/) website is your source for (al
 
 # Big data
 
-This term is a bit fuzzy. Operationally, it often means anything you can't work with on your local computer. Sometimes data is somewhat big, you can still work with it on your local computer but it takes very long and you have so many observations that everything is statistically significant. Thus, big data generally requires both special approaches and tools towards wrangling/exploring/cleaning and often also special approaches for its analysis. 
-
+This term is a bit fuzzy. Operationally, it often means anything you can't work with on your local computer. Sometimes data is somewhat big, you can still work with it on your local computer but it takes very long and you have so many observations that everything is statistically significant. Thus, big data generally requires both special approaches and tools towards wrangling/exploring/cleaning and often also special approaches for its analysis. A short discussion of _Big Data_ is provided in the AI/Deep Learning module.
 
 
 
@@ -77,9 +76,11 @@ This term is a bit fuzzy. Operationally, it often means anything you can't work 
 
 Images are generally converted into multiple matrices of values for different pixels of an image. For instance, one could divide an image into a 100x100 grid of pixels, and assign each pixel RGB (color) values and intensity. That means one would have 4 matrices of numeric values, each of size 100x100. One would then perform operations on those values. As you can imagine, that quickly leads to fairly large amounts of data. These days, most successful image analysis is done using some form of **neural nets**, which are generally considered an **artificial intelligence (AI)** method (but recall that ML and AI terminology is somewhat fuzzy. The general current usage is that AI are a type of ML, specifically the neural net type.)
 
-Videos are basically time-series of images. Of course, analysis of videos is even harder than analysis of images.
+Videos are basically time-series of images. Of course, analysis of videos is even harder than analysis of images. Again, neural-net based AI methods are most often used.
 
-Audio also has a time-series structure that needs to be taken into account when analyzing it.
+Audio also has a time-series structure that needs to be taken into account when analyzing it. It is conceptually similar to video, a time-series of sounds. In fact, if the video has sound, then audio analysis could be part of the video analysis.
+
+I have close to zero experience trying to analyse images/sounds. Unfortunately, because of my lack of experience, I don't even know what a good introductory source would be to get started if you were interested (other than the generic "look around online"). I do think that if you wanted to analyze that kind of data, `R` is probably not the best tool. 
 
 
 # Further reading

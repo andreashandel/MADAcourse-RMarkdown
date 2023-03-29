@@ -1,8 +1,7 @@
 ---
 title: Open Science and Reproducible Research
 subtitle: ""
-author: Zane Billings
-institute: "University of Georgia"
+authors: Zane Billings, Andreas Handel
 date: "`r file.mtime(knitr::current_input())`"
 output: 
   html_document:
@@ -25,20 +24,15 @@ In this unit, we'll talk a bit more about reproducible research, and how that fi
 # Introduction
 
 Way back at [the beginning of the course](https://andreashandel.github.io/MADAcourse/Tools_Reproducibility.html),
-we briefly discussed reproducibility. In this module, we'll learn a bit more about
-what that means, and why you pretty much need to have a solid grasp on
-reproducible research strategies in the future. We'll also talk about how
-reproducibility fits into the more general framework of Open Science, and
-proper treatment of data and code in this framework.
+we briefly discussed reproducibility. Throughout the course, we emphasized the importance to do analyses in a reproducible (and thus generally automated/scripted) manner. In this module, we'll discuss a bit more what reproducible research means and entails, current trends towards open science, and why you pretty much need to have a solid grasp on reproducible research strategies in the future. 
 
-# White House open science requirements
 
-I'm not going to bury the lead on this one, there is a very important reason
-for you to care about reproducibility and open science. Several US government
-organizations have said that [2023 is the Year of Open Science](https://www.earthdata.nasa.gov/news/year-of-open-science), and a recent
-Office of Science and Technology Policy [memo](https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/) has recommended that all federal agencies take
-some serious steps towards open science practices (more on what exactly
-this "open science" thing is later).
+# Federal open science requirements
+
+While the concepts of reproducible research and open science have been around for a while, they have recently increased in prominence.
+Several US government organizations have said that [2023 is the Year of Open Science](https://www.earthdata.nasa.gov/news/year-of-open-science), and a recent
+Office of Science and Technology Policy [memo](https://www.whitehouse.gov/ostp/news-updates/2022/08/25/ostp-issues-guidance-to-make-federally-funded-research-freely-available-without-delay/) has recommended that all federal agencies take serious steps towards open science practices (more on what exactly
+this means later).
 
 Federal agencies like the NIH have been requiring data sharing and public
 releases of papers (on PMC) for some time now, but these recommended measures
@@ -54,14 +48,14 @@ and open science now, rather than scrambling to learn it in the future!**
 
 # The general idea of open science
 
-So if you google "what is open science," which I tried to do when I was first
-learning this stuff, you'll get a confusing mess of microsoft SmartArt graphics
-that are, in general, not too helpful. I think that [this paper](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-021-01304-y)
-and [this paper](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020EA001562)
+There are many ways of defining and describing "open science".
+
+If you search online for "what is open science," you will likely find various conceptual diagrams and descriptions. THe papers [Open science saves lives: lessons from the COVID-19 pandemic](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-021-01304-y) 
+and [From Open Data to Open Science](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020EA001562)
 provide pretty good conceptual discussions of open science, but I think the
 best of these SmartArt-type graphics is from [NASA](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops).
 
-```{r open science,  echo=FALSE, fig.cap='Open science is like spaghetti sauce--it has a lot of ingredients that have to be cooked together to get the best flavor.', out.width = '50%', fig.align='center',fig.alt="A circular graphic with 'open science' in the center, showing several components of open science around it."}
+```{r open science, echo=FALSE, out.width = '40%', fig.align='center', fig.cap='Open science is like spaghetti sauce--it has a lot of ingredients that have to be cooked together to get the best flavor.', fig.alt="A circular graphic with 'open science' in the center, showing several components of open science around it ([source](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops))."}
 knitr::include_graphics("./media/open-science.jpg")
 ```
 
@@ -71,7 +65,7 @@ NASA defines three components that are central to open science.
 FAIR data, and code sharing all fall into this.
 2. Reproducible -- other people should be able to get the same results as you,
 and you should strive to make reusable products.
-3. Inclusivity -- if your research is only accessible and reproducible for
+3. Inclusive -- if your research is only accessible and reproducible for
 relatively well-off scientists at major institutions in the USA, it's still
 not really open `r emoji::emoji("slightly smiling face")`.
 
