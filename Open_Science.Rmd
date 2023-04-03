@@ -55,7 +55,7 @@ and [From Open Data to Open Science](https://agupubs.onlinelibrary.wiley.com/doi
 provide pretty good conceptual discussions of open science, but I think the
 best of schematic summary is from [NASA](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops).
 
-```{r open science, echo=FALSE, out.width = '40%', fig.align='center', fig.cap='', fig.alt="A circular graphic with 'open science' in the center, showing several components of open science around it ([source](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops))."}
+```{r open science, echo=FALSE, out.width = '50%', fig.align='center', fig.cap='', fig.alt="A circular graphic with 'open science' in the center, showing several components of open science around it ([source](https://www.earthdata.nasa.gov/esds/open-science/oss-for-eso-workshops))."}
 knitr::include_graphics("./media/open-science.jpg")
 ```
 
