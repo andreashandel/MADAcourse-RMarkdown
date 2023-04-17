@@ -96,6 +96,31 @@ If you do not have any coding or statistics knowledge, you can still take the cl
 **To re-emphasize: For those among you who have not used R or any other programming language before, this course will be time-consuming. Budget your time accordingly and plan ahead! If you do, I'm fairly certain you will find it worth it. If you are not able or willing to allot the time needed to learn enough R (and GitHub) to make things work, this course might not be ideal for you.**
 
 
+## Should I take this course?
+
+Here are a few more pointers to what to expect from the course, and comments from previous students (so you can hear it from them, not just from me).
+
+* The course is a high-level survey course. We cover a lot of material. 
+* A lot of the content is fairly conceptual/broad/big-picture, we don't go much into technical details on specific topics.
+* The pace of the course is fast.
+* There is a good bit of hands-on work/exercises that you need to do each week, which can be time-consuming.
+* This course comes with a good bit of team work.
+* You will learn skills that are likely useful for your research/work career.
+* You will be using tools like `R`, `GitHub`, `Quarto` and other useful tools.
+
+
+### Some feedback from past students
+
+"I have found this course to be useful and relevant to my research interests. I think the mixture of the modules, additional resources, and coding exercises really helped strengthen my understanding of important data analysis concepts."
+
+"I have thoroughly enjoyed this class from start to finish, and I have gained a lot of knowledge, starting from Github to the entire data analysis workflow. However, I feel that we have covered a lot of material in just one semester."
+
+"I have learned so much from this class in what feels like such a short amount of time, and it has gotten me a lot more comfortable working with and interpreting my data and I now feel that I have a strong grasp on data analysis workflows. However, sometimes I feel like I’ve learned about so many new things that I feel dumb all over again because there is so much to take in when it comes to machine learning and I want the opportunity to explore each facet in greater detail."
+
+"The last half of the semester has seemed like a whirlwind. We have reviewed everything from modeling to training and even machine learning."
+
+
+
 
 ## Course Setup
 
