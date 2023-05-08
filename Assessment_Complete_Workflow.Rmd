@@ -38,15 +38,15 @@ Write code and text to perform the following steps:
 
 2. Once you understand the data sufficiently, formulate a question/hypothesis. This will determine your outcome of interest and, if applicable, main predictor(s) of interest. Since we don't know the data yet, it might be that the question is a bit contrived and not actually too interesting, but I'm sure there will be more than one potentially reasonable question one can ask, no matter what the data will be. 
 
-3. Once you determine the question and thus your outcome and main predictors, further pre-process and clean the data as needed. Then split into train/test.
+3. Once you determine the question and thus your outcome and main predictors, further pre-process and clean the data as needed. Then split into train/test. (It might be that the data is too small for this split to make sense _in real life_ but for this exercise, we'll just do it.)
 
-4. Fit at least 4 different ML models to the data using the `tidymodels` framework we practiced. Use the CV approach for model training/fitting. Explore the quality of each model by looking at performance, residuals, uncertainty, etc. All of this should still be evaluated using the training/CV data. You can of course recycle code from the previous exercise, but I also encourage you to explore further, e.g. try different ML models or use different metrics. You might have to do that anyway, depending on your question/outcome.
+4. Fit at least 3 different model types to the data using the `tidymodels` framework we practiced. Use the CV approach for model training/fitting. Explore the quality of each model by looking at performance, residuals, uncertainty, etc. All of this should still be evaluated using the training/CV data. You can of course recycle code from previous exercises, but I also encourage you to explore further, e.g. try different ML models or use different metrics. You might have to do that anyway, depending on the data and your question/outcome.
 
-5. Based on the model evaluations, decide on one model you think is overall best. Explain why. It doesn't have to be the model with the best performance. You make the choice, just explain why you picked the one you picked. 
+5. Based on the model evaluations and your scientific question/hypothesis, decide on one model you think is overall best. Explain why. It doesn't have to be the model with the best performance. You make the choice, just explain why you picked the one you picked. 
 
 6. As a final, somewhat honest assessment of the quality of the model you chose, evaluate it (performance, residuals, uncertainty, etc.) on the **test data**. This is the only time you are allowed to touch the test data, and only once. Report model performance on the test data.
 
-7. Summarize everything you did and found in a discussion. Of course, your Rmd file should contain commentary/documentation on everything you do for each step.
+7. Summarize everything you did and found in a discussion. Make sure you discuss your findings with regard to your original question/hypothesis. What did you learn? If feasible, show a summary figure or table that illustrates your main scientific finding from this analysis. 
 
 
 
