@@ -132,6 +132,10 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 * The [Software Carpentry](https://software-carpentry.org/) has a great introductory course that walks you through the basics of Git (and GitHub) step-by-step. This is useful if you want to know what exactly is going on, even if you mainly use a graphical interface for your Git/GitHub work. The whole course materials [are online](http://swcarpentry.github.io/git-novice/).
 
 
+# Quarto
+
+* The [Quarto website](https://quarto.org/) has a ton of great information and documentation.
+* Here is another example and template of setting up a website with [Quarto](https://www.marvinschmitt.com/blog/website-tutorial-quarto/), similar to what you are asked to do for the [Introductory Exercise](./Assessment_Course_Tools_Introduction.html).
 
 
 # Lists and other sources

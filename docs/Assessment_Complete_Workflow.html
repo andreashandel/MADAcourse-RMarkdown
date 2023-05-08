@@ -14,7 +14,7 @@
 
 <title>Assessment - Complete Workflow</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.21/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
@@ -28,8 +28,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <link rel="icon" type="image/png" href="media/MADAlogo.png" />
 
 <style type="text/css">
@@ -643,7 +643,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Complete Workflow</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-04-03 11:14:05</h4>
+<h4 class="date">2023-05-08 13:59:08.483786</h4>
 
 </div>
 
@@ -695,27 +695,33 @@ potentially reasonable question one can ask, no matter what the data
 will be.</p></li>
 <li><p>Once you determine the question and thus your outcome and main
 predictors, further pre-process and clean the data as needed. Then split
-into train/test.</p></li>
-<li><p>Fit at least 4 different ML models to the data using the
+into train/test. (It might be that the data is too small for this split
+to make sense <em>in real life</em> but for this exercise, we’ll just do
+it.)</p></li>
+<li><p>Fit at least 3 different model types to the data using the
 <code>tidymodels</code> framework we practiced. Use the CV approach for
 model training/fitting. Explore the quality of each model by looking at
 performance, residuals, uncertainty, etc. All of this should still be
 evaluated using the training/CV data. You can of course recycle code
-from the previous exercise, but I also encourage you to explore further,
+from previous exercises, but I also encourage you to explore further,
 e.g. try different ML models or use different metrics. You might have to
-do that anyway, depending on your question/outcome.</p></li>
-<li><p>Based on the model evaluations, decide on one model you think is
-overall best. Explain why. It doesn’t have to be the model with the best
-performance. You make the choice, just explain why you picked the one
-you picked.</p></li>
+do that anyway, depending on the data and your
+question/outcome.</p></li>
+<li><p>Based on the model evaluations and your scientific
+question/hypothesis, decide on one model you think is overall best.
+Explain why. It doesn’t have to be the model with the best performance.
+You make the choice, just explain why you picked the one you
+picked.</p></li>
 <li><p>As a final, somewhat honest assessment of the quality of the
 model you chose, evaluate it (performance, residuals, uncertainty, etc.)
 on the <strong>test data</strong>. This is the only time you are allowed
 to touch the test data, and only once. Report model performance on the
 test data.</p></li>
-<li><p>Summarize everything you did and found in a discussion. Of
-course, your Rmd file should contain commentary/documentation on
-everything you do for each step.</p></li>
+<li><p>Summarize everything you did and found in a discussion. Make sure
+you discuss your findings with regard to your original
+question/hypothesis. What did you learn? If feasible, show a summary
+figure or table that illustrates your main scientific finding from this
+analysis.</p></li>
 </ol>
 </div>
 <div id="general-pointers" class="section level2">

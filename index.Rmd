@@ -30,14 +30,11 @@ Welcome to the **Modern Applied Data Analysis (MADA)** course website.
 This website contains almost all the content of an online graduate level course taught by [Andreas Handel](https://www.andreashandel.com/) at the University of Georgia. Most materials are hosted here, some are on external sites and either linked or embedded from here.
 
 
-_**The course is currently running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_
+_**The course is currently not running. The website will likely receive none or only minor updates until the next time the course will be offered (tentatively spring 2024).**_
 
-<!-- _**The course is currently not running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
+<!-- **This course website is currently being updated for spring 2023. As long as this message is shown, consider the current website outdated, things will change (though likely not by much).** -->
 
-<!-- **This course website is currently being updated for spring 2023. As long as this message is shown, consider the current website outdated, things will change (though likely not by a whole lot).** -->
-
-<!-- At this point, all materials are online and will remain so with likely only small updates happening on an ongoing basis and larger updates expected once the course runs again.  -->
-
+<!-- _**The course is currently running. The website will be updated throughout the semester. Things might change (though likely not by a whole lot). Visit/check regularly, especially the Schedule. Note the last update time above.**_ -->
 
 
 
