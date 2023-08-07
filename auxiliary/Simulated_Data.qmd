@@ -1,0 +1,182 @@
+---
+title: Simulated Data  
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+---
+
+
+# Overview
+
+
+Simulated data is a useful tool for testing a data analysis pipeline, because it allows you to create data that meets certain specifications and assumptions, and to evaluate how well your pipeline performs under different scenarios. For example, you can use simulated data to check the validity, accuracy, and robustness of your statistical methods, or to compare different approaches and algorithms.
+
+In this tutorial, I will show you how to use R to generate simulated data for 500 individuals, with 10 variables: age, height, weight, gender, blood type, eye color, hair color, occupation, hobby, and favorite animal. Some of these variables are continuous (age, height, weight), some are categorical (gender, blood type, eye color, hair color), and some are text (occupation, hobby, favorite animal). I will also show you how to load the data and perform some exploratory data analysis using R.
+
+To generate the simulated data, we will use the `data.table` package, which provides fast and convenient operations on tabular data. We will also use the `rnorm` function to generate random numbers from a normal distribution, the `sample` function to draw random samples from a vector of values, and the `paste0` function to concatenate strings.
+
+First, we need to load the `data.table` package and set the seed for reproducibility:
+
+```{r}
+library(data.table)
+set.seed(123)
+```
+
+Next, we create an empty data table with 500 rows:
+
+```{r}
+dt <- data.table(matrix(NA,nrow=500))
+```
+
+Then, we add the variables one by one. For each variable, we need to specify the name, the type, and the distribution or values to draw from. For example, to add the age variable, we use the following code:
+
+```{r}
+dt[, age := rnorm(500, mean = 40, sd = 15)] # age is normally distributed with mean 40 and standard deviation 15
+```
+
+To add the height variable, we use the following code:
+
+```{r}
+dt[, height := rnorm(500, mean = 170, sd = 10)] # height is normally distributed with mean 170 and standard deviation 10
+```
+
+To add the weight variable, we use the following code:
+
+```{r}
+dt[, weight := rnorm(500, mean = 70, sd = 15)] # weight is normally distributed with mean 70 and standard deviation 15
+```
+
+To add the gender variable, we use the following code:
+
+```{r}
+dt[, gender := sample(c("male", "female"), size = 500, replace = TRUE)] # gender is randomly sampled from male or female
+```
+
+To add the blood type variable, we use the following code:
+
+```{r}
+dt[, blood_type := sample(c("A", "B", "AB", "O"), size = 500, replace = TRUE)] # blood type is randomly sampled from A,B,AB,O
+```
+
+To add the eye color variable, we use the following code:
+
+```{r}
+dt[, eye_color := sample(c("brown", "blue", "green", "gray"), size = 500,
+replace = TRUE)] 
+```
+
+To add the hair color variable, we use the following code:
+
+```{r}
+dt[, hair_color := sample(c("black", "brown", "blonde", "red"), size = 500,
+replace = TRUE)] 
+```
+
+To add the occupation variable, we use the following code:
+
+```{r}
+dt[, occupation := paste0(sample(c("doctor", "lawyer", "teacher", "engineer",
+"artist"), size = 500,
+replace = TRUE), sample(1:10,size=500,
+replace=TRUE))] 
+```
+
+To add the hobby variable, we use the following code:
+
+```{r}
+dt[, hobby := paste0(sample(c("reading", "writing", "painting", "cooking",
+"gardening"), size = 500,
+replace = TRUE), sample(1:10,size=500,
+replace=TRUE))] 
+```
+
+To add the favorite animal variable, we use the following code:
+
+```{r}
+dt[, favorite_animal := paste0(sample(c("cat", "dog", "bird", "fish",
+"rabbit"), size = 500,
+replace = TRUE), sample(1:10,size=500,
+replace=TRUE))] 
+```
+
+Now, we have a data table with 10 variables and 500 rows. We can save it as a CSV file using the `fwrite` function:
+
+```{r}
+fwrite(dt, file = "simulated_data.csv")
+```
+
+To load the data and perform some exploratory data analysis, we can use the `readr` package to read the CSV file, and the `dplyr` package and the `ggplot2` package to manipulate and visualize the data. For example, we can use the following code to load the data and calculate some summary statistics:
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+dt <- read_csv("simulated_data.csv")
+
+dt %>% 
+  summarise(
+    mean_age = mean(age),
+    mean_height = mean(height),
+    mean_weight = mean(weight),
+    prop_male = mean(gender == "male"),
+    prop_female = mean(gender == "female"),
+    prop_A = mean(blood_type == "A"),
+    prop_B = mean(blood_type == "B"),
+    prop_AB = mean(blood_type == "AB"),
+    prop_O = mean(blood_type == "O")
+  )
+```
+
+
+We can also use the following code to plot the distributions of age, height, and weight by gender:
+
+```{r}
+dt %>% 
+  gather(key = variable, value = value, age, height, weight) %>% 
+  ggplot(aes(x = value, fill = gender)) +
+  geom_histogram(position = "dodge", bins = 20) +
+  facet_wrap(~variable, scales = "free_x") +
+  labs(x = NULL, y = "Count", fill = "Gender")
+```
+
+The output is:
+
+We can also use the following code to plot the counts of eye color and hair color by gender:
+
+```{r}
+dt %>% 
+  gather(key = variable, value = value, eye_color, hair_color) %>% 
+  ggplot(aes(x = value, fill = gender)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~variable, scales = "free_x") +
+  labs(x = NULL, y = "Count", fill = "Gender")
+```
+
+
+We can also use the following code to plot the counts of occupation, hobby, and favorite animal by gender:
+
+```{r}
+dt %>% 
+  gather(key = variable, value = value, occupation, hobby, favorite_animal) %>% 
+  ggplot(aes(x = value, fill = gender)) +
+  geom_bar(position = "dodge") +
+  facet_wrap(~variable, scales = "free_x") +
+  labs(x = NULL, y = "Count", fill = "Gender") +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+
+This concludes the tutorial on how to use simulated data to test a data analysis pipeline. I hope you found it useful and informative. Thank you for reading! 😊
+
+
+
+# Further reading
+
+[The whole _Wrangle_ section of R4DS](http://r4ds.had.co.nz/index.html) shows a lot of the topics discussed here in action. For a more interactive (but less comprehensive) source of information, check out the _Work with Data_ and _Tidy your Data_ sections of the [R Studio Primers](https://rstudio.cloud/learn/primers/). 
+
+[This paper](https://www.tandfonline.com/doi/pdf/10.1198/000313006X150182) provides a nice further discussion regarding outliers. It's very non-technical (no equations) and easy to read.
+
+
+
+
