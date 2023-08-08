@@ -1,12 +1,16 @@
-project: 
+project:
   type: website
-    render:
+  render:
     - "*.qmd"
     - "*.Rmd"
     - "*.md"
     - "!README.md"
     - "!LICENSE.md"
-    - "!auxiliary/"
+    - "!myresources/"
+    - "!renv/"
+    - "!certificate*"
+  resources:
+    - "files/"
   output-dir: docs
   preview:
     port: 4321
@@ -15,7 +19,7 @@ project:
 execute:
   # Re-render only when source changes
   freeze: auto
-description-meta: "Andreas Handel's personal website."
+description-meta: "Moderen Applied Data Analysis (MADA) course website."
 engine: knitr
 
 
@@ -28,9 +32,6 @@ format:
     toc_depth: 2
     toc_float: 
       collapsed: false
-    includes:
-      in_header: include_head.html
-
 
 
 website:
