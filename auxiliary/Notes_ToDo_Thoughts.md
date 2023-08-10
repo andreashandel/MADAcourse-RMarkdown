@@ -6,7 +6,13 @@ Add a tutorial on making simulated data
 
 Add renv use to project template and course materials
 
+Convert website to Quarto.
+Good info/templates on how to do this https://mine-cetinkaya-rundel.github.io/teach-with-quarto/
+Especially talk by Maria and examples linked in her slides
+
+
 # Notes
+
 
 
 
