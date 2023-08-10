@@ -4,7 +4,10 @@ Could add more figures/diagrams. Especially module 11, and other fitting modules
 
 Add a tutorial on making simulated data
 
+Add renv use to project template and course materials
+
 # Notes
+
 
 
 # Scribblings
