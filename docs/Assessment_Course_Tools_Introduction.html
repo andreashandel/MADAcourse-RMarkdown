@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Andreas Handel" />
+
+
+<title>Assessment - Course and Tools Introduction</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link href="site_libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+<script src="site_libs/bs3compat-0.5.1/transition.js"></script>
+<script src="site_libs/bs3compat-0.5.1/tabs.js"></script>
+<script src="site_libs/bs3compat-0.5.1/bs3compat.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="media/MADAlogo.png" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MADA Course</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    General Information
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Syllabus.html">Syllabus</a>
+    </li>
+    <li>
+      <a href="./Course_Schedule.html">Schedule</a>
+    </li>
+    <li>
+      <a href="./Course_Communication.html">Communication</a>
+    </li>
+    <li>
+      <a href="./Course_Assessments.html">Assessments</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">1. Course and Tools Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Introduction_Course.html">Course Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_RandRStudio.html">R and Rstudio</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_Introduction.html">GitHub Introduction</a>
+        </li>
+        <li>
+          <a href="./Tools_Github_R_Workflow.html">GitHub and R Workflow</a>
+        </li>
+        <li>
+          <a href="./Tools_Reproducibility.html">Reproducibility, Quarto &amp; Co</a>
+        </li>
+        <li>
+          <a href="./Tools_Reference_Management.html">Reference Management</a>
+        </li>
+        <li>
+          <a href="./Assessment_Course_Tools_Introduction.html">Assessment: Course and Tools Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">2. Data Analysis Introduction</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Analysis_Motivation.html">Motivating Examples</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Overview.html">Data Analysis Overview</a>
+        </li>
+        <li>
+          <a href="./Data_Analysis_Structure.html">Data Analysis Structure</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Analysis.html">Assessment: Data Analysis Introduction</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">3. R Coding Basics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Rcoding_Basics.html">R Coding Basics</a>
+        </li>
+        <li>
+          <a href="./Rcoding_Tidyverse.html">Tidyverse and Friends</a>
+        </li>
+        <li>
+          <a href="./Assessment_Coding.html">Assessment: R Coding Basics</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">4. Contemplating, finding and wrangling data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Types.html">Data Types</a>
+        </li>
+        <li>
+          <a href="./Data_Finding.html">Finding Data</a>
+        </li>
+        <li>
+          <a href="./Data_Wrangling.html">Data wrangling</a>
+        </li>
+        <li>
+          <a href="./Assessment_Data_Finding_Wrangling.html">Assessment: Data Finding and Wrangling</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">5. Visualization</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Visualization_Overview.html">Visualization Overview</a>
+        </li>
+        <li>
+          <a href="./Visualization_in_R.html">Visualization in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Visualization.html">Assessment: Visualization</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">6. Data Exploration</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Data_Exploration.html">Exploring data</a>
+        </li>
+        <li>
+          <a href="./Assessment_Exploration.html">Assessment: Exploration</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">7. Statistical analysis overview</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Statistical_Analysis_Introduction.html">Statistical analysis introduction</a>
+        </li>
+        <li>
+          <a href="./Statistical_Terminology.html">Some Statistical Model Fitting Terminology</a>
+        </li>
+        <li>
+          <a href="./Assessment_Statistical_Analysis.html">Assessment: Statistical Analysis Overview</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">8. Fitting basic statistical models</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Basic_Statistical_Models.html">Basic statistical models</a>
+        </li>
+        <li>
+          <a href="./Model_Fitting_R.html">Fitting statistical models in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Fitting_Basic_Models.html">Assessment: Fitting Basic Models</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">9. Evaluating your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Evaluation_Overview.html">Model evaluation overview</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Performance.html">Model performance evaluation</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Overfitting.html">Model performance &amp; overfitting</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Diagnostics.html">Model Diagostics</a>
+        </li>
+        <li>
+          <a href="./Model_Evaluation_Uncertainty.html">Model Uncertainty</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Evaluation.html">Assessment: Model evaluation</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">10. Improving your model fits</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Model_Improvement_Overview.html">Improving model fits overview</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Data_Processing.html">Pre-processing data</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Subset_Selection.html">Subset selection</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Regularization.html">Regularization</a>
+        </li>
+        <li>
+          <a href="./Model_Improvement_Tuning.html">Model tuning</a>
+        </li>
+        <li>
+          <a href="./Assessment_Model_Improvement.html">Assessment: Model Improvement</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">11. Machine Learning Models I</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./ML_Models_Overview.html">ML Models overview</a>
+        </li>
+        <li>
+          <a href="./Polynomial_Spline_Models.html">Polynomial and Spline Models</a>
+        </li>
+        <li>
+          <a href="./Decision_Trees.html">Decision Trees</a>
+        </li>
+        <li>
+          <a href="./Many_Tree_Models.html">Many-tree models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_1.html">Assessment: ML models 1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">12. Machine Learning Models II</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./SVM_Models.html">Support Vector Machine Models</a>
+        </li>
+        <li>
+          <a href="./DA_Models.html">Discriminant Analysis Models</a>
+        </li>
+        <li>
+          <a href="./More_ML_Models.html">Some more ML models</a>
+        </li>
+        <li>
+          <a href="./Assessment_ML_Models_2.html">Assessment: ML models 2</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">13. The complete analysis workflow</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Complete_data_analysis_workflow.html">Complete data analysis workflow</a>
+        </li>
+        <li>
+          <a href="./Data_Models_Not_Covered.html">More Data and Models</a>
+        </li>
+        <li>
+          <a href="./Open_Science.html">Open Science</a>
+        </li>
+        <li>
+          <a href="./Assessment_Complete_Workflow.html">Assessment: Complete Analysis Workflow</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">14. Deep learning, AI and Big data</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./DL_AI_BigData.html">Deep Learning, AI and Big Data</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Project
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Project_Overview.html">Project Overview</a>
+    </li>
+    <li>
+      <a href="./Project_Details.html">Project Details</a>
+    </li>
+    <li>
+      <a href="./Project_Review.html">Project Review</a>
+    </li>
+    <li>
+      <a href="./Project_Examples.html">Project Examples</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="./Course_Resources.html">Course Resources</a>
+    </li>
+    <li>
+      <a href="./General_Resources.html">General Resources</a>
+    </li>
+    <li>
+      <a href="./Course_Glossary.html">Glossary</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/andreashandel/MADAcourse">
+    <span class="fab fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Assessment - Course and Tools
+Introduction</h1>
+<h4 class="author">Andreas Handel</h4>
+<h4 class="date">2023-02-18 13:18:13.292315</h4>
+
+</div>
+
+
+<div id="module-assessments" class="section level1">
+<h1>Module Assessments</h1>
+<p>Each module comes with an assessment. Those are things you need to do
+that will be graded. Each module has a document, like this one, which
+describes what the assessments are. Often, there is a good bit of
+information for the exercises.</p>
+<p>If you haven’t done so, please first read through the <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page
+before continuing here.</p>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
+<p>For this first module, you have 2 submission attempts. This allows
+you to get used to the submission system.</p>
+<p>Note that the quiz and grading system will only become available once
+student passwords have been set.</p>
+</div>
+<div id="exercise" class="section level2">
+<h2>Exercise</h2>
+<p>For this module, you are asked to do a project for which you will be
+using Github, R, RStudio, and Quarto to create the start of a website
+which will become your portfolio for this class. You’ll write and post a
+short personal introduction of yourself.</p>
+<div id="workload-note" class="section level3">
+<h3>Workload Note</h3>
+<p>For those of you who are new to Github/R/Quarto, this first project
+will make you do a lot of things that you are not be familiar with. I
+know that this will be time-consuming and also might feel a bit
+intimidating. It’s partly unavoidable and partly on purpose. You need to
+learn how to quickly get up to speed with all kinds of new tools that
+come your way. So practicing it is a good idea. You are welcome to draw
+on any sources for help that you want (online, classmates, instructor,
+etc.). I’m confident with a bit of trial and error you’ll get it to
+work.</p>
+<p>If you get stuck (quite possible), check the materials listed in the
+<strong>Resources</strong> section of the course, or use Google. Also
+use the discussion boards to ask questions. You may use any method to
+get help (Google, R4Ds Slack channel, colleagues/friends/relatives with
+R/Quarto/Markdown experience, etc.). Still, try to do as much as
+possible yourself. We’ll use all the bits you are learning here
+repeatedly during this course.</p>
+</div>
+<div id="pre-requisites" class="section level3">
+<h3>Pre-requisites</h3>
+<p>You should have set up with all the tools we need, namely R, RStudio,
+GitHub and GitKraken (or your preferred Git client).</p>
+</div>
+<div id="github-setup" class="section level3">
+<h3>Github setup</h3>
+<ul>
+<li><p>I made a template for you to get started. Go to <a
+href="https://github.com/andreashandel/online-portfolio-template">this
+page</a>. Make sure you are logged into GitHub, then click on
+<code>Use this template</code>. Create a new repository, call it
+<code>yourname-MADA-portfolio</code> (<code>yourname</code> should
+include both your first and last name,
+e.g. <code>andreashandel-MADA-portfolio</code>.) Choose public
+repository, then create it.</p></li>
+<li><p>Next, <strong>clone</strong> the repository (which will be
+something like
+<code>https://github.com/USERNAME/yourname-MADA-portfolio/</code>) from
+Github.com to your local computer (using Gitkraken or whatever
+software/method you decided to use). I recommend that you make a folder
+somewhere on your computer (e.g., called <em>MADA2023</em>) and place
+all class-related repositories (of which this is the first one) into
+this folder. Remember that these repositories/folders should
+<strong>not</strong> be synced with some other software (e.g.,
+Dropbox).</p></li>
+</ul>
+</div>
+<div id="quick-local-website-check" class="section level3">
+<h3>Quick local website check</h3>
+<p>Once your repository is on your local computer, go into the folder
+and click on <code>online_portfolio.Rproj</code>, which should open
+RStudio. In the bottom right, you’ll see several files that are part of
+your repository/project. We’ll edit a bunch of them shortly. In the top
+right panel in RStudio, you should see a <code>Build</code> tab. Click
+on it. It should show a <code>Render website</code> button, click it.
+You might get complaints about missing packages, if that’s the case,
+install them. If everything works well, a local preview of your
+soon-to-be new website should open in your browser.</p>
+<p>If you got that far, let’s create some content.</p>
+</div>
+<div id="quarto-content-creation" class="section level3">
+<h3>Quarto content creation</h3>
+<p><strong>For this part of the task, <a
+href="https://quarto.org/docs/guide/">this comprehensive Quarto
+guide</a> and <a href="https://r4ds.hadley.nz/quarto.html">the Quarto
+section of the work-in-progress 2nd edition of R for Data Science</a>
+will likely be useful.</strong></p>
+<p>Open <code>index.qmd</code>. This is the main landing page for your
+website. Change the text however you want to. What you are writing here
+is Markdown, so now would be a good time to check out some of the
+Markdown resources and play with them. You will also see at the top of
+your R Studio window two buttons <code>Source</code> and
+<code>Visual</code>. This allows you to switch between editing Markdown
+in plain format, and using a visual editor. It’s a good idea to switch
+back and forth to start to learn how certain graphical elements look
+like in plain text formatting. You’ll likely be using a mix of visual
+and source view a lot.</p>
+<p>Next, open <code>aboutme.qmd</code> and write some text introducing
+yourself, as follows:</p>
+<ul>
+<li>Talk a bit about yourself, your background, training, research
+interests. Let me/us know what kind of statistics, programming, data
+analysis experience you already have. I’d also be curious to know what
+you most hope to learn in this course. And then talk about (at least
+one) interesting personal fact(s) about you.</li>
+<li>Give your text a nice structure with headings, subheadings,
+etc.</li>
+<li>Include a picture of yourself. To do so, place the picture in the
+repository and link it from the Quarto file.</li>
+<li>Finally, include a link to a picture/video/website/etc. The linked
+material should be somehow related to data analysis. Find something that
+you think is really cool/interesting/weird/etc. Provide a few
+explanatory sentences.</li>
+<li>If you want, feel free to get creative and include other things. You
+can play with Quarto if you wish to, e.g., you can try to include some
+table or a video or whatever.</li>
+</ul>
+<p><em>Every time you make changes and want to see how they look, just
+save your changes and re-load the website in our browser, it should show
+you any changes.</em></p>
+</div>
+<div id="styling" class="section level3">
+<h3>Styling</h3>
+<p>It is possible to change the looks of your website. Full styling will
+require knowledge of CSS and HTML. We won’t get into this. But we’ll
+explore a quick way to change the look. Open the
+<code>_quarto.yml</code> file. This file defines the menu structure, and
+some styling. To change the look, can replace <code>theme</code> with a
+different one. <a
+href="https://quarto.org/docs/output-formats/html-themes.html">Many
+themes are available</a>. Try some, see how things change.</p>
+<p><strong>Also go ahead and replace the
+<code>URL-TO-THIS-REPOSITORY-HERE</code> placeholder text in
+<code>_quarto.yml</code> with the actual Github URL of the repository
+you just created (e.g. something like
+<code>https://github.com/andreashandel/andreashandel-MADA-portfolio</code>).</strong></p>
+<p>You can do a lot more styling by for instance editing the
+<code>styles.css</code> file. This is not a web design class 😁, we
+therefore won’t go into styling further, but feel free to explore on
+your own.</p>
+<div class="warning">
+<p>YAML (which is the format of <code>_quarto.yml</code>) is VERY
+finicky when it comes to formatting. You need to have exactly the right
+number of empty spaces. If you ever change a YAML file and you get a
+weird error message when trying to rebuild your website, it’s likely
+because some minor formatting is wrong, e.g. an empty space is missing
+or too much. Just keep that in mind. (It happens to me all the
+time.)</p>
+</div>
+</div>
+<div id="sending-updates-to-github" class="section level3">
+<h3>Sending updates to Github</h3>
+<p>Once you are happy with your updates, or if you want to take a break,
+make sure to push your updates to GitHub. First close RStudio. Then go
+to the program you use for Github (I will assume that it’s GitKraken. If
+you use something else the details might vary). In the top right of
+Gitkraken, there should be a notification about changed files. Click
+<em>view changes</em>, then <em>Stage all changes</em>. Write a commit
+message, commit the changes. You should see the <em>main</em> with the
+computer symbol moved above the one with some random logo. That means
+your local repository is ahead of the one on github.com. To get them in
+sync, you click the <em>push</em> button. If things work, the two
+symbols should now be in the same line.</p>
+<div class="note">
+<p>Sometimes, there might be issues that prevent syncing, e.g., if
+someone else changed the same files you did. If you are sure your local
+version is the correct one, you can perform a <strong>force
+push</strong>. A force push will overwrite the remote repo with the
+local repo forcibly. This means that the remote will be updated with any
+changes that exist on your local computer. If any changes have been made
+to the code since you began editing (i.e. someone else has made a commit
+to the repo while you were working on it) they will be
+<strong>destroyed</strong> by the force push since they are not on your
+local repo. For this assignment, you are the only person working on your
+introduction so it is unlikely you will encounter any issues with force
+push, but it is good to be aware of the function of the action. Use with
+care. It’s generally better to <a
+href="https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git">resolve
+merge conflicts.</a></p>
+</div>
+</div>
+<div id="making-the-website-public" class="section level3">
+<h3>Making the website public</h3>
+<p>We want to set things such that your repository can at the same time
+become a public website. Github allows you to do that with its <a
+href="https://pages.github.com/"><em>Github Pages</em></a> feature. To
+turn on the <em>Github Pages</em> feature, go to your repository on
+github.com (e.g. something like
+<code>https://github.com/andreashandel/andreashandel-MADA-portfolio</code>).
+On the top of the website for your repository, you should see a
+<code>Settings</code> button. Click on it and then find the
+<code>Pages</code> section. In the <code>Branch</code> section, switch
+<code>none</code> to <code>main</code> and folder as <code>/docs</code>.
+Click <code>Save</code>.</p>
+<p>This should now have turned on your website. You might have gotten a
+notice about the location of your new website. If yes, follow the link.
+If not, you can get there by going to a URL that has the form
+<code>https://username.github.io/yourname-MADA-portfolio/</code>
+(e.g. for me, that is
+<code>https://andreashandel.github.io/andreashandel-MADA-portfolio/</code>).
+It might take a few seconds before the page is available, if you get a
+‘not found’ error, wait a bit and try again. If everything works, your
+website is now public!</p>
+</div>
+<div id="github-pages" class="section level3">
+<h3>Github pages</h3>
+<p>We used the Github pages feature to create the website. You might
+have noticed that the files for your new website live on the domain
+<code>github.com</code>, while your nice-looking website lives at the
+domain <code>github.io</code>. This is how Github Pages work. It take
+files from your repository and turns them into a website with a distinct
+URL. Those files can either be in the main repository folder or in a
+<code>/docs</code> subfolder (our setup). Your website URL and your
+repository URL are distinct. All github actions, like pushing, pulling,
+cloning, etc. are done with the repository on the
+<code>github.com</code> domain. The <code>github.io</code> domain is
+only there to display websites.</p>
+<p>As an example, this course website is displayed at <a
+href="https://andreashandel.github.io/MADAcourse/"
+class="uri">https://andreashandel.github.io/MADAcourse/</a> and all the
+files that make up the webpage are at <a
+href="https://github.com/andreashandel/MADAcourse">(https://github.com/andreashandel/MADAcourse)</a>.
+Note the text at the bottom of the repository view. That text comes from
+the <code>Readme.md</code> file. Speaking of which…</p>
+</div>
+<div id="update-your-repository-readme-file" class="section level3">
+<h3>Update your repository Readme file</h3>
+<p>Re-open your project with RStudio. Click to open the README.md file.
+It only contains a single sentence I placed there. This file will not be
+part of your website, but it is what people see if they land at your
+github repository (i.e. the behind-the-scenes location). Add some text
+to it that points users to the URL for your new website. (You’ve done
+the reverse above, allowing users to quickly go from your website to
+your Github repository).</p>
+<p>Make any other edits you like.</p>
+<p>Once done with edits, remember to re-build/re-render your website
+with Quarto (by clicking ‘Render Website’ in the <code>Build</code> tab)
+and then committing/pushing your local changes to GitHub (using
+Gitkraken or another Git client).</p>
+</div>
+<div id="general-github-workflow" class="section level3">
+<h3>General Github workflow</h3>
+<p>In the future, if you work on repositories like this one (or any
+others), your workflow should be as follows:</p>
+<ul>
+<li>Open GitKraken or your preferred Git client and make sure the local
+copy of your repository is up-to-date (this is important if you
+collaborate with someone or you are working on multiple computers). If
+the remote is ahead of the local, do a <strong>pull</strong>.</li>
+<li>Once your local repo is up-to-date, open your project in RStudio by
+double-clicking the name of the project (ends in .Rproj). Make all the
+edits you like. Make sure to render your quarto files (or knit your Rmd
+files). Once you are done with edits, close Rstudio, go to Gitkraken,
+<strong>stage/commit/push</strong> your changes back to the remote
+server.</li>
+</ul>
+<p><strong>You will be using this workflow a lot</strong>.</p>
+</div>
+<div id="further-information" class="section level3">
+<h3>Further information</h3>
+<p>I wrote a tutorial a while back describing the setup with Github
+pages. It has some additional information and you can <a
+href="https://www.andreashandel.com/posts/github-website/">check it out
+here</a>. Note that this tutorial still used R Markdown instead of
+Quarto. Some of the information still applies, other parts are different
+with Quarto.</p>
+<p>Using Github pages makes it fairly easy to create websites. I
+currently host all my course websites in this way. What we created was a
+fairly basic page. It is easy with Quarto to create other, more
+full-featured websites. For instance <a
+href="https://www.andreashandel.com/">my personal website</a> uses
+Quarto. If you are interested in such a more full-featured approach,
+check out <a href="https://quarto.org/docs/websites/">this part of the
+Quarto documentation</a>. You can also find a few more links to other
+resources <a
+href="https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/">here</a>.</p>
+</div>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion</h2>
+<p>The discussion for this module is all about your introductions. For
+your original post, simply post the URL to your newly created website
+into the <code>introductions</code> slack channel. <strong>Do so by
+Wednesday.</strong></p>
+<p>For your replies, visit some of your classmates websites and leave
+feedback as a reply to their initial Slack post.</p>
+<p>I hope this will allow you to start getting to know each other, even
+if only virtually.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -10,6 +10,11 @@ Convert website to Quarto.
 Good info/templates on how to do this https://mine-cetinkaya-rundel.github.io/teach-with-quarto/
 Especially talk by Maria and examples linked in her slides
 
+Update links/references to R4DS 2nd edition instead of 1st.
+
+check MADA quiz answers to see if there are bad questions
+
+Write an AI and how to use it section.
 
 # Notes
 

@@ -1,0 +1,195 @@
+name: "MADA Course"
+output_dir: 'docs'
+exclude: ["auxiliary", "*.csv"]
+favicon: ./media/MADAlogo.png
+base_url: https://andreashandel.github.io/MADAcourse/
+repository_url: https://github.com/andreashandel/MADAcourse/
+output:
+  html_document:
+    theme: 
+      version: 4
+      bootswatch: yeti
+    toc: true
+    toc_depth: 2
+    toc_float: 
+      collapsed: false
+    includes:
+      in_header: include_head.html
+    css: MADAstyle.css
+navbar:
+  title: "MADA Course"
+  logo:
+    image: ./media/MADAlogo.png
+    href: https://andreashandel.github.io/MADAcourse/
+  left:
+    - text: "General Information"
+      menu:
+        - text: "Syllabus"
+          href: ./Course_Syllabus.html
+        - text: "Schedule"
+          href: ./Course_Schedule.html
+        - text: "Communication"
+          href: ./Course_Communication.html
+        - text: "Assessments"
+          href: ./Course_Assessments.html
+    - text: "Modules"
+      menu:
+        - text: "1. Course and Tools Introduction"
+          menu:
+            - text: "Course Introduction"
+              href: ./Introduction_Course.html
+            - text: "R and Rstudio"
+              href: ./Tools_RandRStudio.html
+            - text: "GitHub Introduction"
+              href: ./Tools_Github_Introduction.html
+            - text: "GitHub and R Workflow"
+              href: ./Tools_Github_R_Workflow.html
+            - text: "Reproducibility, Quarto & Co"
+              href: ./Tools_Reproducibility.html
+            - text: "Reference Management"
+              href: ./Tools_Reference_Management.html
+            - text: "Assessment: Course and Tools Introduction"
+              href: ./Assessment_Course_Tools_Introduction.html
+        - text: "2. Data Analysis Introduction"
+          menu:
+            - text: "Motivating Examples"
+              href: ./Data_Analysis_Motivation.html
+            - text: "Data Analysis Overview"
+              href: ./Data_Analysis_Overview.html     
+            - text: "Data Analysis Structure"
+              href: ./Data_Analysis_Structure.html     
+            - text: "Assessment: Data Analysis Introduction"
+              href: ./Assessment_Data_Analysis.html
+        - text: "3. R Coding Basics"
+          menu:
+            - text: "R Coding Basics"
+              href: ./Rcoding_Basics.html     
+            - text: "Tidyverse and Friends"
+              href: ./Rcoding_Tidyverse.html     
+            - text: "Assessment: R Coding Basics"
+              href: ./Assessment_Coding.html
+        - text: "4. Contemplating, finding and wrangling data"
+          menu:
+            - text: "Data Types"
+              href: ./Data_Types.html     
+            - text: "Finding Data"
+              href: ./Data_Finding.html     
+            - text: "Data wrangling"
+              href: ./Data_Wrangling.html     
+            - text: "Assessment: Data Finding and Wrangling"
+              href: ./Assessment_Data_Finding_Wrangling.html
+        - text: "5. Visualization"
+          menu:
+           - text: "Visualization Overview"
+             href: ./Visualization_Overview.html     
+           - text: "Visualization in R"
+             href: ./Visualization_in_R.html     
+           - text: "Assessment: Visualization"
+             href: ./Assessment_Visualization.html
+        - text: "6. Data Exploration"
+          menu:
+           - text: "Exploring data"
+             href: ./Data_Exploration.html     
+           - text: "Assessment: Exploration"
+             href: ./Assessment_Exploration.html
+        - text: "7. Statistical analysis overview"
+          menu:
+           - text: "Statistical analysis introduction"
+             href: ./Statistical_Analysis_Introduction.html     
+           - text: "Some Statistical Model Fitting Terminology"
+             href: ./Statistical_Terminology.html     
+           - text: "Assessment: Statistical Analysis Overview"
+             href: ./Assessment_Statistical_Analysis.html
+        - text: "8. Fitting basic statistical models"
+          menu:
+           - text: "Basic statistical models"
+             href: ./Basic_Statistical_Models.html
+           - text: "Fitting statistical models in R"
+             href: ./Model_Fitting_R.html
+           - text: "Assessment: Fitting Basic Models"
+             href: ./Assessment_Fitting_Basic_Models.html
+        - text: "9. Evaluating your model fits"
+          menu:
+           - text: "Model evaluation overview"
+             href: ./Model_Evaluation_Overview.html     
+           - text: "Model performance evaluation"
+             href: ./Model_Evaluation_Performance.html     
+           - text: "Model performance & overfitting"
+             href: ./Model_Evaluation_Overfitting.html     
+           - text: "Model Diagostics"
+             href: ./Model_Evaluation_Diagnostics.html     
+           - text: "Model Uncertainty"
+             href: ./Model_Evaluation_Uncertainty.html     
+           - text: "Assessment: Model evaluation"
+             href: ./Assessment_Model_Evaluation.html
+        - text: "10. Improving your model fits"
+          menu:
+           - text: "Improving model fits overview"
+             href: ./Model_Improvement_Overview.html     
+           - text: "Pre-processing data"
+             href: ./Model_Improvement_Data_Processing.html
+           - text: "Subset selection"
+             href: ./Model_Improvement_Subset_Selection.html     
+           - text: "Regularization"
+             href: ./Model_Improvement_Regularization.html     
+           - text: "Model tuning"
+             href: ./Model_Improvement_Tuning.html     
+           - text: "Assessment: Model Improvement"
+             href: ./Assessment_Model_Improvement.html
+        - text: "11. Machine Learning Models I"
+          menu:
+           - text: "ML Models overview"
+             href: ./ML_Models_Overview.html     
+           - text: "Polynomial and Spline Models"
+             href: ./Polynomial_Spline_Models.html     
+           - text: "Decision Trees"
+             href: ./Decision_Trees.html     
+           - text: "Many-tree models"
+             href: ./Many_Tree_Models.html     
+           - text: "Assessment: ML models 1"
+             href: ./Assessment_ML_Models_1.html
+        - text: "12. Machine Learning Models II"
+          menu:
+           - text: "Support Vector Machine Models"
+             href: ./SVM_Models.html     
+           - text: "Discriminant Analysis Models"
+             href: ./DA_Models.html     
+           - text: "Some more ML models"
+             href: ./More_ML_Models.html     
+           - text: "Assessment: ML models 2"
+             href: ./Assessment_ML_Models_2.html
+        - text: "13. The complete analysis workflow"
+          menu:
+           - text: "Complete data analysis workflow"
+             href: ./Complete_data_analysis_workflow.html  
+           - text: "More Data and Models"
+             href: ./Data_Models_Not_Covered.html
+           - text: "Open Science"
+             href: ./Open_Science.html
+           - text: "Assessment: Complete Analysis Workflow"
+             href: ./Assessment_Complete_Workflow.html
+        - text: "14. Deep learning, AI and Big data"
+          menu:
+           - text: "Deep Learning, AI and Big Data"
+             href: ./DL_AI_BigData.html     
+    - text: "Project"
+      menu:
+         - text: "Project Overview"
+           href: ./Project_Overview.html
+         - text: "Project Details"
+           href: ./Project_Details.html
+         - text: "Project Review"
+           href: ./Project_Review.html
+         - text: "Project Examples"
+           href: ./Project_Examples.html
+    - text: "Resources"
+      menu:
+         - text: "Course Resources"
+           href: ./Course_Resources.html
+         - text: "General Resources"
+           href: ./General_Resources.html
+         - text: "Glossary"
+           href: ./Course_Glossary.html
+  right:
+    - icon: fab fa-github 
+      href: https://github.com/andreashandel/MADAcourse

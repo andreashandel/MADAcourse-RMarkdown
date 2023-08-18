@@ -1,0 +1,101 @@
+
+/* Image
+---------------*/
+
+
+/* .image {
+  max-width: 100%;
+	padding: 0;
+	text-align: center;
+	display: block;
+ 	margin-left: auto;
+  margin-right: auto;
+}
+
+.figure {
+  max-width: 100%;
+	text-align: center;
+	font-style: italic;
+  border: thin silver solid;
+	padding: 0.5em;
+	display: block;
+ 	margin-left: auto;
+  margin-right: auto;
+}
+ */
+
+/* Image inside figure div, for diagrams
+---------------*/
+
+.figure img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.caption {
+	padding: 0;
+	margin: auto;
+}
+
+
+.thumbnail .caption {
+  padding: 0;
+  padding-top: 4px;
+  padding-left: 3px;
+  font-size: 0.9em;
+  color: gray;
+}
+
+a.thumbnail:hover {
+  text-decoration: none;
+}
+
+
+div.note
+{
+    padding: 1em;
+    margin: 1em 0;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+}
+
+
+/* -----------div tips------------- */
+/* adapted from  */
+/* http://desiree.rbind.io/post/2019/making-tip-boxes-with-bookdown-and-rmarkdown/ */
+
+
+/* 
+
+  div.puzzle, div.fyi, div.demo, div.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+  }
+  
+  
+div.puzzle {
+  background-image: url("./media/yourturn.png");
+}
+
+div.fyi {
+ background-image: url("./media/fyi.png");
+}
+
+div.demo {
+  background-image: url("./media/livecode.png");
+}
+
+div.note {
+  background-image: url("./media/lightbulb.png");
+}  
+   */

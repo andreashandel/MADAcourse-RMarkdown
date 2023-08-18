@@ -1,0 +1,199 @@
+---
+title: Project Review Template 
+author: YOUR NAME
+date: "`r file.mtime(knitr::current_input())`"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+---
+
+# Overview
+
+Title of project:
+
+Name of project author(s):
+
+Name of project reviewer:
+
+
+# Instructions
+
+Write your comments and feedback below for each section/component of the project. The goal should be to help the author improve their project. Make comments as constructive and actionable as possible. You can provide both criticism and praise.
+
+For each component, pick one summary statement by deleting the ones that do not apply and keeping only the one that you think most closely summarizes a given component. 
+
+Make sure your final document compiles/knits into a readable, well-formatted html document.
+
+Delete any sections/text of this template that are not part of your final review document. (Including these instructions.)
+
+
+# Specific project content evaluation
+Evaluate the different parts of the project by filling in the sections below.
+
+
+## Background, Context and Motivation
+How well is the context of the project described? Is a comprehensive background, including summary of previous/related work given? Is the project well placed into the context of existing work (including proper referencing of existing work). Is it clear why the project was undertaken and what new information it hopes to provide?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment (PICK ONE, DELETE THE OTHERS)
+* very poor contextualization and motivation
+* some contextualization and motivation
+* strong contextualization and motivation
+
+
+## Question description
+How well and clear are the question(s)/hypotheses the project aims to address described? Is it clear how the questions relate to the data?
+
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* question/hypotheses unclear
+* question/hypotheses somewhat explained
+* question/hypotheses fully clear
+
+
+## Data description
+How well is the data overall described? Is the source provided? Is a codebook or other meta-information available that makes it clear what the data is? 
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* source and overall structure of data poorly explained
+* source and overall structure of data somewhat explained
+* source and overall structure of data well explained
+
+
+## Data wrangling and exploratory analysis
+How well is the data cleaned/processed and explored? Are all steps reasonable and well explained? Are alternatives discussed and considered? Are meaningful exploratory results shown (e.g. in the supplementary materials)?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* major weaknesses in wrangling and exploratory component
+* some weaknesses in wrangling and exploratory component
+* essentially no weaknesses in wrangling and exploratory component
+
+
+
+## Appropriateness of Analysis
+Were the analysis methods appropriate for the data? Was the analysis done properly? Were different components of the analysis (e.g. performance measure, variable selection, data pre-processing, model evaluation) done in the best way possible and explained well?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* wrong/inadequate analysis
+* defensible but not optimal analysis 
+* strong and reasonable analysis
+
+## Presentation
+How well are results presented? Are tables and figures easy to read and understand? Are the main figures/tables publication level quality? 
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* results are poorly presented, hard to understand, poor quality
+* results are presented ok, with room for improvement
+* results are very well presented
+
+
+## Discussion/Conclusions
+Are the study findings properly discussed? Are strengths and limitations acknowledged? Are findings interpreted properly?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* major parts of discussion missing or wrong 
+* minor parts wrong, missing or unclear
+* strong, complete and clear discussion
+
+
+## Further comments
+
+_Add any other comments regarding the different aspects of the project here. Write anything you think can help your classmate improve their project._
+
+
+
+# Overall project content evaluation
+Evaluate overall features of the project  by filling in the sections below.
+
+
+## Structure
+Is the project well structured? Are files in well labeled folders? Do files have reasonable names? Are all "junk" files not needed for analysis/reproduction removed? By just looking at files and folders, can you get an idea of how things fit together?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* poor and confusing structure
+* mostly clear, but some confusing parts (e.g. useless files, things in the wrong folders)
+* well structured
+
+
+## Documentation 
+How well is the project documented? Are you able to understand each step of the whole analysis, each decision that was made, and each line of code? Is enough information provided as comments in code or as part of Rmd files? 
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* poorly documented
+* decently documented with some gaps
+* fully and well documented
+
+
+
+## Reproducibility
+Are all results fully reproducible? Is documentation provided which clearly explains how to reproduce things, and does it work without the need for any manual intervention? Are you able to re-run the whole analysis without having to do manual interventions/edits?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+
+### Summary assessment
+* major parts not reproducible 
+* small parts not reproducible or required manual intervention 
+* fully reproducible without issues
+
+
+## Thoroughness
+How thorough was the overall study? Were alternatives (e.g. different ways of processing the data or different models) considered? Were alternatives discussed? Were the questions/hypotheses fully and thoroughly addressed?
+
+### Feedback and Comments
+
+WRITE YOUR FEEDBACK HERE
+
+### Summary assessment
+* weak level of thoroughness
+* decent level of thoroughness
+* strong level of thorougness
+
+
+## Further comments
+
+_Add any other comments regarding the overall project here. Write anything you think can help your classmate improve their project._
+
+
+
+
+
