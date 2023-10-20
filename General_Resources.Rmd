@@ -140,7 +140,7 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 
 * The [Quarto website](https://quarto.org/) has a ton of great information and documentation.
 * Here is another example and template of setting up a website with [Quarto](https://www.marvinschmitt.com/blog/website-tutorial-quarto/), similar to what you are asked to do for the [Introductory Exercise](./Assessment_Course_Tools_Introduction.html).
-
+* [Quarto Club](https://quarto.club/) is a collection of nice Quarto website examples. Most of them have their source code on GitHub, so you can see how the creators of those pages accomplished what they made, and shamelessly copy/paste/adapt `r emoji::emoji('grin')`.
 
 # Lists and other sources
 
