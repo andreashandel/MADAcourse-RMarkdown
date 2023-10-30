@@ -46,8 +46,12 @@ navbar:
               href: ./Tools_Github_R_Workflow.html
             - text: "Reproducibility, Quarto & Co"
               href: ./Tools_Reproducibility.html
+            - text: "AI Tools"
+              href: ./Tools_AI.html
             - text: "Reference Management"
               href: ./Tools_Reference_Management.html
+            - text: "Guidance and Tips for R/RStudio/GitHub"
+              href: ./Tools_Tips_Guidance.html
             - text: "Assessment: Course and Tools Introduction"
               href: ./Assessment_Course_Tools_Introduction.html
         - text: "2. Data Analysis Introduction"

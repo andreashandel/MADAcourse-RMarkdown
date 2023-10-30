@@ -110,8 +110,13 @@ Unfortunately, as part of this course, we cannot cover the broad and important t
 * The above mentioned [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) by Richard McElreath also covers a good bit of causal analysis at a very accessible introductory level. He also has several great recordings on the topic [on his YouTube channek](https://www.youtube.com/channel/UCNJK6_DZvcMqNSzQdEkzvzA).
 * [Causal Inference in R Workshop](https://r-causal.github.io/causal_workshop_website/) contains workshop materials and a link to a book covering the topic.
 
-# Machine Learning
+# Machine Learning (ML)
 * [Machine Learning University (MLU)](https://mlu-explain.github.io/) is an educational offering from Amazon with several nice tutorials covering important ML-related topics. It also includes very basic statistical concepts such as linear/logistic regression.
+
+
+# Artifical Intelligence (AI) tools 
+
+* [This blog](https://www.oneusefulthing.org/) has a lot of generally useful information on AI use.
 
 
 

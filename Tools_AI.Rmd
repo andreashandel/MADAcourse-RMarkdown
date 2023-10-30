@@ -1,0 +1,167 @@
+---
+title: AI Tools for Data Analysis  
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Overview
+This unit provides an introduction to the use of Large Language Model (LLM) based Artificial Intelligence (AI) tools (such as ChatGPT) for coding and data analysis.
+
+
+# Learning Objectives
+* Be aware of possible ways to use AI to help with data analysis.
+* Understand strengths, weaknesses and dangers of using AI.
+* Know how to use AI with R and RStudio. 
+
+
+# Background
+By now, you have certainly heard for ChatGPT and similar AI-based tools. You probably have also tried them out. There are different types of AI focused on processing different types of input or output (e.g., images, text). Here, I focus on those tools that take text-based instructions and can produce text as output, but regular language text and code. Those AI tools have the potential to speed up your work, so you should explore and use them. However, there are dangers as well, which are important to keep in mind.
+
+This is a very practical tutorial. I'll only discuss how to use those tools. If you want to learn more about the general workings, ethical issues regarding licensing of training data and biased results, etc., [this blog](https://www.oneusefulthing.org/) is a good starting point.
+
+
+# Available AI tools
+
+The field is changing rapidly, but as of this writing, for the AI tools we are interested in (the LLMs), ChatGPT is probably the most useful tool. You can access it by creating a [free account](https://chat.openai.com/). 
+
+ChatGPT is also part of the Microsoft [Bing search engine](https://www.bing.com/) (currently located oder the "Chat" tab) and [GitHub's CoPilot](https://github.com/features/copilot). 
+
+For a list and description of some other AI tools, see [here](https://www.oneusefulthing.org/p/how-to-use-ai-to-do-stuff-an-opinionated).
+
+
+
+# ChatGPT
+
+If you haven't already, I suggest you create a ChatGPT/OpenAI account. As of this writing, you can get a [free account](https://chat.openai.com/). Once you log in, you see a fairly plain interface with an area into which you can type your prompts. You can provide fairly elaborate prompts, and ask for code. For instance, try placing this into the bar: 
+
+_Write R code that generates a dataset of 100 individuals with ages from 18 to 49, BMI values from 15 to 40 and smoking status as yes or no. Assume that age and BMI are uncorrelated. Assume that smokers have a somewhat lower BMI. Then use the patchwork R package to generate a panel of ggplot2 plots. The first panel should show a violin plot with BMI on the y-axis and smoking status on the x-axis. The second panel should show a scatterplot with age on the y-axis and BMI on the x-axis. Add thorough documentation to your code._
+
+When I did that, ChatGPT gave me [this fully working code](./media/ChatGPT-example.R). It is possible that when you run it, the code will look slightly different (see the comment below on non-reproducibility). Hopefully, what you get will run. If not, you might need to either fix the code or ask the AI to fix it.
+
+
+
+# GitHub Copilot
+
+GitHub Copilot is currently free for students with the [GitHub student developer pack](https://education.github.com/pack) I asked you to sign up for. Set it up by following the [Quickstart guide](https://docs.github.com/copilot).
+
+Once you have Copilot activated, you can use it in R Studio. (It is also possible to use it with other popular editors, such as VS Code, but for this course I will focus on R Studio. If you prefer to code in VS Code, you can install the Copilot plugin).
+
+To get Copilot working in R Studio, follow [these instructions](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html). 
+You might want to leave Copilot indexing unchecked for now. The instruction guide explains what this is. See below on confidentiality issues on why you might not want to turn it on. Once you have co-pilot up and running, you should see it show up in the bottom of your R Studio input window (the top right window where you write code). It will start suggesting things as you type, once you stop for a few seconds. You can set that time in the options.
+
+To see Copilot in action, watch this video where I'm playing around with some code.
+
+
+
+For some more eloquent use of Copilot, see [this video](https://youtu.be/yVq-b5xHmac?si=DPJXXnEoViVFYA1T) by Thomas Mock from Posit/RStudio. It's a bit long, but I highly recommend you watch it. Efficient use of AI in general and Copilot specifically will likely save you a lot of time for the rest of this course!
+
+
+# Other tools
+
+As you learned from Thomas Mock's video above, the [chattr R package](https://mlverse.github.io/chattr/) is another great way to use ChatGPT from within R. I recommend exploring it. 
+
+As you are probably aware, these AI tools are changing rapidly. I'm writing this in November 2023, you will read this a few months later. It could be that at this point, some new versions of AI tools have come out that are even better. Do explore and if you find some especially promising platform or package, let me know!
+
+
+
+# Shortocmings and Dangers of AI Tools
+
+For all its promises, AI is not without its problems. It still has many shortcomings and dangers. Here, I'll discuss some of the most important ones.
+
+I'm focusing here on the issues most relevant for our purposes. Broader, more tricky topics such as biases are real but I think not too relevant for using AI to help with data analysis and coding.
+
+
+## Privacy/Confidentiality
+
+When you use AI to help with data analysis, you might want to show your data to the AI and ask it to do something with it. The problem is that pretty much all these systems take your data, move it to the servers of whichever company you use for processing. Often, these companies keep your data to help improve their models. If you have data which is sensitive, e.g. human data, or data that you don't want to share, then you need to be careful to let the AI have access to the data. A good solution is to generate synthetic data that has the structure of your real data but is made up. Then you ask the AI to process this synthetic data and give you the code it generated. In a later step, you can go "offline" and use the code the AI helped you write on your real data. We'll discuss how to generate synthetic/artificial data shortly.
+
+Beyond the data, it is important to keep in mind that if you have the AI running (e.g., through the R Studio CoPilot integration), it might access not just your current file but possibly also other sources you link to, e.g. other stuff on your computer. If you have things you don't want the company to "grab" and copy to their servers, then be careful on what you let the AI access.
+
+**In general, I recommend you turn off Copilot in RStudio when you are not actively using it.** And before you turn it on, make sure the document you have open, and any other files it might have access to, do not contain information you want to keep private. 
+
+
+## Non-working code
+
+While most of the AI tools have become pretty good at coding in R and other languages, at times they don't get it right. You might get code back that doesn't work. AI are known to "hallucinate", i.e., make up stuff. For instance it's not uncommon that the AI invents an R command that does not exist. So when you get your code back, you often need to do some trouble-shooting. At times, you can tell the AI that the code is not correct and ask it to fix it. It doesn't always work, then you have to either do fixes by hand or try to reformulate your request.
+
+
+## Reproducibility
+
+The companies making AI tools constantly update and improve the algorithms. Further, the underlying methods often have random components. This means that if you give the same instructions to an AI tool on different occasions, the results/code you get might differ. This means things might be non-reproducible. 
+
+While I encourage you to keep track of any input prompts you use to have the AI generate code, note that providing those prompts does not allow someone else (or future you) to exactly reproduce things. Thus, while AI tools can be useful helpers during the data analysis process, they should not be considered part of the final workflow, which instead should contain results/code (possibly generated with AI help) which can run in such a way to allow full reproducibility.
+
+
+## Ethics of using AI
+
+Here I'm not talking about the fact that most AI tools were trained on data without the permission of the original data generators, or that a lot of AI algorithms produce biased (unethical?) output. Those topics are too complex to tackle here. Instead, I'm talking about the ethics of using AI to help with your data analysis, or more generally your academic/professional work.
+
+Since these tools are so new, nobody knows yet how to properly acknowledge AI help. I'm not sure either. If I search Google for an example to help with my code, and find something on StackOverflow that I use as basis for my code, should I cite it? I sometimes do add a link to the original post in my code. Partly to give credit, and partly to remind myself where I got it from. But I don't think there are clear rules on this.
+
+Similarly, if you copy text from Wikipedia or some other source, you need to cite it. But if you read it, then repeat in your own words, when do you need to cite it? I don't think it's clear. This is similar with AI. If you have a full code or large chunk of text generated by AI and you use it "as is", you probably need to state that. But it's more likely that the AI will give you some parts of the code or text, and you write the rest. What is the rule for that? I don't think there are clear rules. 
+
+I suggest you follow the guideline of "if in doubt, cite/acknowledge". That means for instance at the beginning of some code, you can make a statement saying "part of this code was generated by ChatPGT using the following prompt" and then state the prompt you use. Or if you use AI to help you interpret your data, you can state somewhere in your ouput (e.g., your Quarto document), that you used AI to help generate insights/text/etc. Providing this kind of information prevents you from being accused of "cheating" (if someone thinks using AI is cheating, for this course, you are encouraged to do so), and it also helps somewhat with the reproducibility (see above). 
+
+
+
+
+
+
+# Tips for best practices
+
+Here are some suggestions on how to use the AI tools as efficiently as possible.
+
+* Think carefully about what exactly you want to have done and give the AI instructions that are as detailed as possible.
+
+* Iterate. Often the first version you get from the AI is not exactly what you want.  You can try to ask the AI to rewrite/change/fix things. Or you can edit the code. Then take the code with your manual edits as input to ask the AI to make further changes.  
+
+* Try different engines. E.g., ChatGPT doesn't give you something useful, try Bing (which is also currently powered by ChatGPT, but gives somewhat different results).
+
+* Ask the AI to add a lot of comments into the code to explain what each line of code does.
+
+* Break down big tasks into smaller tasks, ask the AI to solve the smaller tasks, then put it together.
+
+* Cite as appropriate. If in doubt, include more information (e.g., prompts).
+
+
+
+# Summary
+
+AI tools can be very useful tools to help you write code and do your data analysis. They are not perfect, but they can potentially save you a lot of time. I recommend you try them out and see if they can help you.
+
+
+# Further Resources
+
+I have started an AI section on the [General Resources]() page. If you have other useful resources, I'd love to hear about them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: Some Guidance and Tips for R/RStudio/GitHub 
+title: Guidance and Tips for R/RStudio/GitHub 
 subtitle: ""
 author: Andreas Handel
 institute: "University of Georgia"
