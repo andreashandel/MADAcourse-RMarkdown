@@ -1,0 +1,110 @@
+---
+title: Making Data
+subtitle: ""
+author: Andreas Handel
+institute: "University of Georgia"
+date: "`r file.mtime(knitr::current_input())`"
+#bibliography: ../media/references.bib
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+
+# Overview
+
+For this unit, we will discuss the idea of generating artificial/synthetic/fake data.
+
+
+# Objectives
+
+* Know about reasons why one might want to use simulated data.
+* Be familiar with some ways to create and use simulated data.
+
+
+
+# Introduction
+
+Your goal is generally to analyze some real-world data to answer a question. So what's the point of producing synthetic (also often referred to as simulated or artificial or fake) data? There are several good reasons why this can sometimes be useful.
+
+
+# Reasons to use simulated data
+
+
+## Testing your models 
+
+For your simulated data, you know exactly how it is created (because you do it). Let's say for your data analysis, you want to look at the relation between the daily dose of some [statin drug](https://en.wikipedia.org/wiki/Statin) a person takes, and if that has some association with their [LDL cholesterol](https://en.wikipedia.org/wiki/Low-density_lipoprotein). Depending on the exact structure of your data, you might fit various simple or complex models and get some answers. You can - and should! - look carefully at the results to see if they make sense. But you never know for sure if the model "got it right" since you don't know what the _true_ (whatever that might mean) answer is. In contrast, if you created the data, you know exactly what the true answer should be. This allows you to test your models and see if they can recover what you know the truth to be. For instance if you set up the data such that there is a linear relation between drug dose and outcome of interest, and you set the slope of this relation to some value, then when you fit a linear model you should expect to get that value back.
+
+
+
+## No problems with sharing
+
+Another important reason can be confidentiality. There are often limitations (real or perceived) for sharing the actual data. That's not a problem with simulated data. So if you want to be able to share your analysis with collaborators or readers when you publish, and for some reason you can't share the actual data, you can share simulated data. This allows others to run all your code and reproduce your analysis workflow, even if they won't get quite the same results since they are using simulated and not the real data.
+
+Another important aspect of being able to share is the increasing use of AI models to help with data analysis. You can upload data to AI tools and request them to perform certain analyses and return the code that does the analysis. This can be very powerful and time-saving. However, you probably often do not want to give the AI your real data, as whatever you upload is often stored and re-used by the companies owning the AI tool. What you can do instead is feed the AI synthetic data, ask it to write code to do the analyses you are interested in, then take the code and with probably only a few modifications, apply it off-line on your real dataset.
+
+
+## Easier to play around with
+
+Often, real-world datasets are very messy and require a good bit of time to clean them up (wrangle them) to get data in a form that allows analysis. If you are not even sure if your idea/analysis makes sense, it would be a waste to spend a lot of time cleaning data that ends up not being useful. What you can do instead is simulate data that has similar structure and content to the real data, but since you create it, you can make sure it's clean and easy to work with. Then you try your analysis ideas on that simulated data. If it works ok, there's a chance (unfortunately no guarantee!) that it might also work for the real data. As you play around with your simulated data, you might realize that certain ideas/approaches you initially had won't work, and you can modify accordingly. Once your explorations using the simulated data suggest that your analysis plan can work, then you can start the often arduous task of cleaning and wrangling your real data.
+
+
+
+
+# Ways to produce simulated data
+
+
+## Make it all up
+
+Completely making up data is the most flexible approach. You can try to produce synthetic versions of the full dataset, or just parts that are of interest. Let's say in the statin-cholesterol example above, you real data set also contains information on the age and sex of the individuals, and if they have any pre-existing heart condition. Maybe in a first pass, you don't want to look at those and just explore the main statin-cholesterol relation. Then you can just simulate data for that part. You can add further information - including simulated characteristics that are not in the original data! - as needed. 
+
+
+
+
+## Summarize the original data, then re-create
+
+Even if you fully make up your synthetic data, you want it to somewhat resemble the original one. The easiest way is to just glimpse at the variables in the original data and generate new data that looks approximately similar. 
+
+If you want to be a bit more rigorous and get closer to the original data, you can also statistically summarize the original data, then use those summary distributions to generate new data. For instance let's say you find that the cholesterol variable can be well approximated with a normal distribution. If you fit the normal distribution to the data, you can get the mean and standard deviation. Then you can generate synthetic cholesterol data coming from a normal distribution with those estimated mean and standard deviation values. 
+
+
+
+## Scramble the data
+
+If you already have the data in a clean form that you can work with, you can use that data and scramble things to make new data. Basically you can randomly re-arrange variable values for different individuals, such that the new data does not correspond to the real data anymore, but has the overall same structure, and the same values (just re-arranged between individuals). 
+
+For instance you can take the age of each person, and randomly re-assign it to someone else. Note that this breaks potential patterns. For instance if in the original data, there happen to be an association between cholesterol and age, once you re-shuffled age values, this pattern will change. So the results you get from scrambled data will possibly be different, but since it has exactly the same structure and the same values as the original data, your whole analysis pipeline should work on the scrambled data. Of course, since you didn't create the data, you don't know the "truth" and as such can't assess fully if your analysis gives you the right results. 
+
+If you have already done your analysis and want/need scrambled data for sharing, e.g. as part of a submission to a journal where you can't submit the original data, you can try to do the reshuffling in a way that preserves patterns you identified. For instance if you saw that age was correlated with LDL, you can do your reshuffle such that age and LDL pairs stay together, while other variables (e.g., sex) get randomly reassigned. Of course you need to change at least some values for each individual, you can't just move all variables for an individual from one row to another, it will still be the same data for that person, thus associated with potential confidentiality issues.
+
+
+## Do a mix
+
+It is of course entirely possible to combine the two approaches above. For instance you can start with the original data, do some scrambling if needed. Then you can replace some variables with simulated data you generate. This allows you to test your analysis more thoroughly since now you know what you put in, so you can check if you get that out.
+
+
+
+# Summary
+
+To sum up, important reasons to use synthetic data are:
+
+- Full knowledge of the truth, which can be used for model testing
+- No problems with confidentiality
+- Potentially easier to manipulate
+
+Ways to generate synthetic data are:
+
+- Completely made up
+- Following distributions obtained from the original data
+- Scrambling of the original data
+- A mix of these approaches
+
+
+
+# Further Resources
+
+In the next units, we will discuss how to actually generate synthetic data and how to use it.
+
+
+
