@@ -78,6 +78,8 @@ navbar:
               href: ./Data_Types.html     
             - text: "Finding Data"
               href: ./Data_Finding.html     
+            - text: "Making Data"
+              href: ./Data_Generation.html     
             - text: "Data wrangling"
               href: ./Data_Wrangling.html     
             - text: "Assessment: Data Finding and Wrangling"

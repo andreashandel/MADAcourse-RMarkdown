@@ -104,7 +104,8 @@ Ways to generate synthetic data are:
 
 # Further Resources
 
-In the next units, we will discuss how to actually generate synthetic data and how to use it.
+It is easy to generate synthetic data in R, and there are also packages that can help. You'll get some hands-on experience with data generation in upcoming exercises.
+
 
 
 

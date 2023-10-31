@@ -1,42 +1,15 @@
+# Overall
+
+Most comments are in the Notes and Thoughts document in the off-line course folder.
+
+
 # ToDo
-
-Could add more figures/diagrams. Especially module 11, and other fitting modules.
-
-Add a tutorial on making simulated data.
-
-Add exercise that includes making/using simulated data.
-
-
-Add renv use to project template and course materials
-
-Convert website to Quarto.
-Good info/templates on how to do this https://mine-cetinkaya-rundel.github.io/teach-with-quarto/
-Especially talk by Maria and examples linked in her slides
-
-Update links/references to R4DS 2nd edition instead of 1st.
-
-check MADA quiz answers to see if there are bad questions.
-
-Finish AI and how to use it section - make a video of Copilot.
 
 
 # Notes
-
-Exercise idea: 
-Ask students to write a tutorial/blog post on a data analysis topic of their choice that combines text with code. They should use AI help and explain how they used it.
-
-
-
-Exercise idea: 
-
-* Ask student 1 to write code that generates data. Use AI to write part of the code. Output is data that's given to student 2. Student 2 does not know how the data was generated. Data needs to be X variables, some correlations, some not.
-
-
-* Ask student 2 to write code that takes the data, does exploratory analyses, and reports back findings. Use AI to write that code. Once code has been written, student 2 looks at data generating code and compares their findings with how the data was generated.
-
 
 
 
 # Scribblings
 
-Write a tutorial explaining why and how to use simulated data to test a data analysis pipeline. Write a Quarto document combining markdown text with well-documented R code. The code should generate simulated data for 500 individuals. Include as variables age, height, weight, and 7 other variables. Make some of the variables continuous, some categorical and some text. Show code that generates the data by drawing from distributions. Then write code that loads the data and performs exploratory data analysis. Combine the code with text explanations.  
+
