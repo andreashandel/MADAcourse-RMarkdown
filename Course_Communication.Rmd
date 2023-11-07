@@ -13,38 +13,38 @@ output:
 # Overview
 
 * The main course content can be found on this website. 
-* We'll mostly communicate and discuss through Slack.
+* We'll mostly communicate and discuss through Discord.
 * There will be completely optional Zoom sessions (aka office hours).
 * Some communication/interaction will happen via GitHub. More details are provided in the relevant sections.
 * Quizzes will be available from this website and submitted to an online system, instructions are provided.
 
 
 
-## Slack
+## Discord
 
-The main mode of communication will be through Slack. You should get an email invite to the Slack workspace for this class. It will go to your official UGA email and you need to use that email to sign up. If you haven't received an email by Friday before classes start, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Slack or this website. 
+The main mode of communication will be through Discord. You should get an email invite to the Discord server for this class. If you haven't received an email by Friday before classes start, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Discord or this website. 
 
-If you are unfamiliar with Slack, it is essentially a chat/discussion tool. The main area for the class is called a _workspace_ in Slack. Ours is called __MADA-2023__. If you use Slack for other purposes, you might have additional workspaces. Each of them is independent. Inside the workspace are _channels_. Each _channel_ corresponds to a topic. The names and descriptions of the different channels should be self-explanatory. 
-
-You need to be a member of a channel to see and participate in the channel discussion. If a channel is public, you can see it and join by clicking on the + symbol next to channels and go to 'browse channels'. Sometimes channels are private, then only those invited can participate. When I create new channels, I try to remember to add everyone by default, but it might be useful to check occasionally if there are channels which you are not a member of but would like to be.
+If you are unfamiliar with Discord, it is essentially a chat/discussion tool (similar to Slack or Teams or...). The main area for the class is called a _server_ in Discord. Ours is called __MADA-Spring-2024__. If you use Discord for other purposes, you might be a member of additional servers. Each server has _channels_. Each _channel_ corresponds to a topic. The names and descriptions of the different channels should be self-explanatory. 
 
 If you have requests for specific channels to be created, let me know.
 
-Inside a channel, you can write messages. To respond to someone's message, you can type your message just below the previous one. The good thing with this is that everyone sees it easily. The bad thing is that if there are a good number of messages being typed, it can be hard to figure out which ones go together. An alternative, and maybe better way is to reply in a thread.   
+If a channel is public, you can see it and participate in the discussion. For private channels you need an invite to see it and participate. For simplicity, all channels are public, though there will be channels which likely won't be of interest to you. Specifically, you'll be placed into groups during the course and will likely only be interested in the channel for your group.
 
-You can also use Slack to send one or more individuals direct messages. You can use that to communicate with me or each other.
+Inside a channel, you can write messages. To respond to someone's message, you can either respond as thread or type your message just below the previous one. The good thing with responding as new message is this is that everyone sees it easily. The bad thing is that if there are a good number of messages being typed, it can be hard to figure out which ones go together. An alternative, and maybe better way is to reply in a thread.   
 
-Overall, Slack is fairly intuitive, and hopefully much easier to use than the rather clunky discussion feature of eLC. But some features might need getting used to. If you have not previous Slack experience, I suggest you browse through [their starter tutorials](https://slack.com/resources/slack-101) to pick up a few more tips and tricks.
+You can also use Discord to send one or more individuals direct messages (DM). You can use that to communicate with me or each other.
 
-One useful thing to know is that people will get a specific notification if you either send them a direct message or use their Slack handle in our message, e.g. by writing _@personname can you take a look at the figure below..._. Specifically, if you want to get my attention, you need to do it that way. I have too many slack workspaces going on to be able to monitor all activity. While I try to stay on top of the messages in our class workspace, I likely won't. To ensure I don't miss something directed at me, use the @ notation (or DM).
+Overall, Discord is fairly intuitive, and hopefully much easier to use than the rather clunky discussion feature of eLC. But some features might need getting used to. If you have no previous Discord experience, I suggest you browse through [their very comprehensive documentation](https://support.discord.com/hc/en-us) to pick up a few more tips and tricks.
 
-**I will use the _announcements_ channel in Slack to post any important course related announcements. Check regularly.**
+One useful thing to know is that people will get a specific notification if you either send them a direct message or use their handle in our message, e.g. by writing _@personname can you take a look at the figure below..._. Specifically, if you want to get my attention, you need to do it that way. I have too many things pinging me all the time `emoji::emoji('grin')`. While I try to stay on top of all the messages in our class, I likely won't. To ensure I don't miss something directed at me, use the @ notation (or DM).
 
-Use Slack widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can use Slack  to build a _community of learners_ where you help and support each other. So please don't always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.
+**I will use the _announcements_ channel to post any important course related announcements. Check regularly.**
 
-I prefer that you use Slack instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering online, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to either send me a direct message on Slack or email me. 
+Use Discord widely to ask questions, to answer others' questions, to notify me and others of things that are unclear/wrong, to post links to interesting resources, etc. I hope we can build a _community of learners_ where you help and support each other. So please don't always wait for me to answer questions or provide feedback! Engage with each other. I will regularly visit and read the discussions and participate, but I hope that I will end up as one participant of many, not the only person providing answers.
 
-To make things more personal, I suggest you update your Slack workspace profile by setting your name (and if you want, preferred pronouns) and uploading an image. It will help make things a bit more social, even if it's not quite the same as in-person.
+I prefer that you use Discord instead of email to ask questions. The reason is that if you have a question, it is likely that others have it too. By asking and answering online, everyone can see it. That said, there might be instances where the question only relates to you. In such cases, feel free to either send me a direct message on Discord or email me. 
+
+To make things more personal, please update your Discord profile by setting your name (and if you want, preferred pronouns) and uploading an image. It will help make things a bit more social, even if it's not quite the same as in-person.
 
 
 ## Zoom
@@ -72,6 +72,6 @@ We will not be using eLC. I might occasionally use the _email everyone_ feature 
 
 ## Course Teaching Assistant
 
-In some semesters, I have a TA for the class. If there is a TA the semester you are taking the class, they will be another point of contact for you to ask questions. The TA will be posting an introduction in the Slack workspace with details of their availability and preferred modes of communication (Slack/Zoom/etc.).
+In some semesters, I have a TA for the class. If there is a TA the semester you are taking the class, they will be another point of contact for you to ask questions. The TA will be posting an introduction in the Slack workspace with details of their availability and preferred modes of communication (Discord/Zoom/etc.).
 
 
