@@ -2,9 +2,7 @@
 title: Course Assessments - Overview 
 subtitle: ""
 author: Andreas Handel
-institute: "University of Georgia"
 date: "`r file.mtime(knitr::current_input())`"
-#bibliography: ../media/references.bib
 output: 
   html_document:
     toc_depth: 3
@@ -17,7 +15,7 @@ Each module comes with assessments. Those are things you need to do that will be
 
 Due dates are usually Friday 5 pm the week of the module. Some might be at other times, e.g., the beginning or middle of the week. See the schedule or the module specific assessment document. If unclear, ask.
 
-The assessments, especially the exercises, are the main way of learning the material. There are therefore meant as a help for you, giving you incentives to work through and learn the course material. It is very easy to take shortcuts (cheat) for any of the assessments. Of course, our academic honesty policy prohibits you from doing so. But more importantly, I assume you want to learn the material. And if you take shortcuts by e.g. getting answers from a classmate, you are only hurting your own learning. That said, I encourage getting help from any source you can, including your classmates. I let you decide how much helping each other is acceptable and at what point it turns into having someone else do the work for you that you should be doing yourself.   
+The assessments, especially the exercises, are the main way of learning the material. There are therefore meant as a help for you, giving you incentives to work through and learn the course material. It is very easy to take shortcuts (cheat) for any of the assessments. Of course, our academic honesty policy prohibits you from doing so. But more importantly, I assume you want to learn the material. And if you take shortcuts by getting answers from a classmate, you are only hurting your own learning. That said, I encourage getting help from any source you can, including your classmates. I let you decide how much helping each other is acceptable and at what point it turns into having someone else do the work for you that you should be doing yourself.   
 
 
 ## Quizzes
@@ -26,7 +24,7 @@ The quizzes cover the basics and ensure that you have gone through some of the m
 
 Quizzes are auto-graded on submission based on a simple counting of the right answers. At the end, I'll average across all quizzes. Note that since there are >10 quizzes and all quizzes together count for only a fraction of the total grade, each quiz counts for a small part of your grade. So try to get them as correct and complete as possible, but don't stress out about missing a question here and there.
 
-**The link to the website for quiz submission is pinned to the _announcements_ Slack channel. Before submitting any quizzes, you need to set up a password by filling the Google Form that was shared with you in the welcome email.**
+**The link to the website for quiz submission is pinned to the _announcements_ Discord channel. Before submitting any quizzes, you need to set up a password by filling the Google Form that was shared with you in the welcome email.**
 
 **Unless otherwise specified, you can submit each quiz once, and it needs to be submitted by the deadline (generally Fridays), otherwise the system will not take your submission.**
 
@@ -80,6 +78,7 @@ At my discretion, I might consider assignments even if they are submitted after 
 
 Don't interpret these scores as grades, I just use them to differentiate, then I'll adjust at the end when I compute the overall project score.
 
+For exercises that include multiple parts (e.g., you start something, then your colleague takes over), each part will be assigned a score.
 
 
 ## Discussions 

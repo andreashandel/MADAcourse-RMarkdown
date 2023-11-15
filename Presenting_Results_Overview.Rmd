@@ -1,0 +1,75 @@
+---
+title: Presenting Results Overview
+author: Andreas Handel
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+# Overview
+
+In this unit, we will discuss the main ways to show your data and results and discuss some ways to do that efficiently.
+
+By results, I mean any descriptive or statistical analysis you might have done for your data. For instance if you summarize your data in a table to show the percentage of individuals that do/don't know how to write code in common programming languages, you generated a result and are presenting it. Similarly, if you fit multiple models and compute their cross-validated performance (you don't yet need to know what this is) and want compare model performance, this would be another result you'll want to show either as a plot or table. 
+
+
+# Objectives
+* Be familiar with the main ways to present results.
+* Learn how to generate figures and tables in an automated manner.
+
+
+# Main ways to present results
+
+There are really only 2 major ways data/results are generally presented: Tables and figures. Both have their advantages and disadvantages. In most cases, I prefer figures since they are often easier and more intuitive to understand (assuming the figure is done well). However, sometimes tables are the better choice. Being able to make great-looking figures and tables that convey the information you want to convey is a very important skill. You need to make sure that the figure or table is easy to understand, and that it is not misleading. It should be targeted to your audience.
+
+## Figures
+
+A well-done figure is able to convey a lot of complex information in an inutitive and understandable format. On the flip side, a poorly thought-out figure can be utterly confusing even if it is presenting something simple. Worse, figures can easily be (ab)used to mislead the reader. Your goal is to make sure that your figures are great-looking, easy to understand and not misleading. We'll go over some more details relating to figures in subsequent units.
+
+
+## Tables
+
+Tables allow you to easily present summaries of your data. Many epidemiological and other papers have a __Table 1__ which summarizes the data by its characteristics. For instance if you had a human cohort, this summary table will likely list the number and percentages or ranges of individuals based on gender, age, BMI, smoking status, etc.
+
+Tables are also often used to present results of your data analysis. In my opinion, figures are often better, but if the results are simple or there are a lot of numbers that need to be shown, tables can work better at times. We'll go over some more details on how to generate tables in R in a subsequent unit.
+
+
+
+# Automating figure and table generation
+
+You should **not** make any figures or tables manually. The only exception are figures that show schematics, e.g. the overall conceptual setup of your study or question. But any figure or data that has data/results in it should be generated automatically. 
+
+There are several reasons to have tables and figures generated automatically. First, it helps with reproducibility. Having a fully automated workflow allows others to follow along and see how you get from the inputs (raw data) to the outputs (figures and tables). Full automation also makes your life easier. It is not uncommon that something about the data changes. For instance you might get an updated dataset. Or you realize that there is a variable that needs to be converted. If you have a fully automated workflow, you can just re-run all your scripts and end up with updated figures and tables very quickly. If you did things manually, you'd have to go through all your figures and tables and update them manually. This is a recipe for mistakes and errors. It also takes much longer.
+
+
+# Recommended workflow
+
+It is generally a good idea to have code (R scripts) that generate figures and tables separate from the rest of your workflow. The reason is that to make high-quality figures and tables, you'll likely iterate a lot. You don't want to re-run your full analysis every time you update a figure. Similarly, you don't want to have to re-create your downstream products (manuscripts, presentations, etc.) every time you update figures and tables.
+
+A good way is to structure your workflow such that you have code which generates the results for your figures and tables and saves them as `Rds` or `CSV` or similar files.
+
+Then you'll have some R scripts that load the results from those files, produce figures or tables, and save those figures and tables.
+
+Finally, you'll have your main products, such as your report/manuscript/presentation which will load the figures and tables and include them in the final product.
+
+This way, you can update your figures and tables without having to re-run your full analysis. You can also update your final products without having to re-run your analysis or figure/table generation code. This is a very efficient workflow.
+
+
+# Figures, Tables and AI
+
+Getting figures and tables to look good is often a fiddly process. You will likely be adjusting font size, line width and color, table formatting, etc. a lot until things look the way you want. That can be tedious. 
+
+Writing code to generate figures and tables with the help of AI is an excellent way to save time. Start with a version of the input you want to have shown in a table or figure. If there are no problems of confidentiality/privacy, you can start with the actual data/results you want to show. If you don't want to give the AI the actual data, generate synthetic data that looks like the actual data you want to show.
+
+Then use AI to generate a figure or table that looks good. It is quite likely that the first try won't be great. The good thing is that you can keep telling the AI to update things as often as you like. For instance you can just type at the prompt "update the code such that it uses a color-blind friendly color scheme and also increase the width of the lines by 50%". This is much faster than searching online for an example of how to do it and copy and paste it over. It is possible that the AI will get you all the way. If not, you can always do the last few tweaks manually.
+
+In general, using AI tools to make figures and tables can save a lot of time.
+
+
+# Further resources
+
+The additional units in this module go into more depth for figure and table generation. 
+See also the [general resources page](./General_Resources.html) for some additional sources.
+
+
+

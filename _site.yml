@@ -84,14 +84,18 @@ navbar:
               href: ./Data_Wrangling.html     
             - text: "Assessment: Data Finding and Wrangling"
               href: ./Assessment_Data_Finding_Wrangling.html
-        - text: "5. Visualization"
+        - text: "5. Presenting data and results"
           menu:
+           - text: "Presenting Results Overview"
+             href: ./Presenting_Results_Overview.html     
            - text: "Visualization Overview"
              href: ./Visualization_Overview.html     
            - text: "Visualization in R"
              href: ./Visualization_in_R.html     
-           - text: "Assessment: Visualization"
-             href: ./Assessment_Visualization.html
+           - text: "Tables in R"
+             href: ./Tables_in_R.html     
+           - text: "Assessment: Presenting Results"
+             href: ./Assessment_Presenting_Results.html
         - text: "6. Data Exploration"
           menu:
            - text: "Exploring data"

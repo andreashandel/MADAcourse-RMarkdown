@@ -1,0 +1,20 @@
+---
+title: Tables in R
+subtitle: ""
+author: Andreas Handel
+date: "`r file.mtime(knitr::current_input())`"
+output: 
+  html_document:
+    toc_depth: 3
+---
+
+
+# Tables in R 
+
+Since `R` is heavily used for data analyses and generating good-looking end products, a lot of effort has gone into developing R packages that can let you make nice-looking tables. 
+
+
+
+# Further resources
+
+

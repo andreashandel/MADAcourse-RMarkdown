@@ -1,5 +1,5 @@
 ---
-title: Assessment - Visualization
+title: Assessment - Presenting Results
 author: Andreas Handel
 date: "`r file.mtime(knitr::current_input())`"
 output: 
@@ -21,7 +21,7 @@ Get the quiz sheet for this module from the general [__Assessments__](./Course_A
 
 # Exercise
 
-For this exercise, you are asked to re-create a professional-looking graph that you find online. This exercise will go into your portfolio.
+For this exercise, you are asked to create (at least) one professional-looking graph and one professional looking table based on data you find online. This exercise will go into your portfolio.
 
 For motivation take a quick look at [this blog post by Rafael Irizarry](https://simplystatistics.org/posts/2019-08-28-you-can-replicate-almost-any-plot-with-ggplot2/) (the author of the IDS book we've been using). He shows how one can use R and ggplot to reproduce figures that look very similar to professional ones. You'll see that it usually doesn't require that many lines of code to get an outstanding looking figure!
 

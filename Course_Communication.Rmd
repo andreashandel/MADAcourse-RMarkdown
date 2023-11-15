@@ -22,6 +22,8 @@ output:
 
 ## Discord
 
+**This is the first time I'm using Discord for the class, previous classes used Slack. I decided to switch since the free version of Slack is very limited. If you find anywhere on this website a mention of Slack, just assume that I mean Discord. Also please let me know so I can fix it. (Or contribute the fix yourself, you'll soon learn how to do that through GitHub).**
+
 The main mode of communication will be through Discord. You should get an email invite to the Discord server for this class. If you haven't received an email by Friday before classes start, or if you added the class late, let me know so I can send you an invite. We won't use eLC, everything is going to happen on Discord or this website. 
 
 If you are unfamiliar with Discord, it is essentially a chat/discussion tool (similar to Slack or Teams or...). The main area for the class is called a _server_ in Discord. Ours is called __MADA-Spring-2024__. If you use Discord for other purposes, you might be a member of additional servers. Each server has _channels_. Each _channel_ corresponds to a topic. The names and descriptions of the different channels should be self-explanatory. 
@@ -36,7 +38,7 @@ You can also use Discord to send one or more individuals direct messages (DM). Y
 
 Overall, Discord is fairly intuitive, and hopefully much easier to use than the rather clunky discussion feature of eLC. But some features might need getting used to. If you have no previous Discord experience, I suggest you browse through [their very comprehensive documentation](https://support.discord.com/hc/en-us) to pick up a few more tips and tricks.
 
-One useful thing to know is that people will get a specific notification if you either send them a direct message or use their handle in our message, e.g. by writing _@personname can you take a look at the figure below..._. Specifically, if you want to get my attention, you need to do it that way. I have too many things pinging me all the time `emoji::emoji('grin')`. While I try to stay on top of all the messages in our class, I likely won't. To ensure I don't miss something directed at me, use the @ notation (or DM).
+One useful thing to know is that people will get a specific notification if you either send them a direct message or use their handle in our message, e.g. by writing _@personname can you take a look at the figure below..._. Specifically, if you want to get my attention, you need to do it that way. I have too many things pinging me all the time `r `emoji::emoji('grin')`. While I try to stay on top of all the messages in our class, I likely won't. To ensure I don't miss something directed at me, use the @ notation (or DM).
 
 **I will use the _announcements_ channel to post any important course related announcements. Check regularly.**
 
@@ -52,9 +54,9 @@ Also, to make things more personal, add an image of yourself to the profile. It 
 
 I will offer weekly synchronous meetings through Zoom. Those are **completely optional.**  Whoever wants to join can do so, and we will use the meeting for discussions, answering questions, and whatever else you want to talk about. Think of those meetings a bit like virtual office hours or virtual in-class discussions. To ensure everyone will be able to join at least occasionally, I plan to alternate between two times each week. 
 
-I want to emphasize that there is **nothing** covered in the meetings other than me addressing questions from individuals. I will **not record** these meetings to ensure students feel comfortable asking "dumb" questions (they are rarely "dumb", but I don't want anyone to feel limited out of fear of "looking stupid" in the recording). If any topic comes up that I think is worth sharing more widely, I will afterwards post a message to Slack and/or add content to the website. Therefore, if you can't make these Zoom meetings, you are not missing anything (other than the option of asking me questions that might be tricky to discuss on Slack).
+I want to emphasize that there is **nothing** covered in the meetings other than me addressing questions from individuals. I will **not record** these meetings to ensure students feel comfortable asking "dumb" questions (they are rarely "dumb", but I don't want anyone to feel limited out of fear of "looking stupid" in the recording). If any topic comes up that I think is worth sharing more widely, I will afterwards post a message and/or add content to the website. Therefore, if you can't make these Zoom meetings, you are not missing anything (other than the option of asking me questions that might be tricky to discuss on Discord).
 
-Tentative dates for Zoom meetings are listed in the _Schedule_ document. Those are subject to change. If we need to move things around, I'll let you know on Slack and also update the _Schedule_ document. At the designated times, I will start the meeting. I'll wait around for 15 minutes. If nobody connects, I'll end the meeting. If people connect, we'll talk until we covered everything, or until I or you need to move on to our next appointments. The information for the Zoom meeting login will be provided on Slack.
+Tentative dates for Zoom meetings are listed in the _Schedule_ document. Those are subject to change. If we need to move things around, I'll post an announcement and also update the _Schedule_ document. At the designated times, I will start the meeting. I'll wait around for 15 minutes. If nobody connects, I'll end the meeting. If people connect, we'll talk until we covered everything, or until I or you need to move on to our next appointments. The information for the Zoom meeting login will be provided on Discord.
 
 And of course, if you have something you want to discuss outside of those scheduled times, send me a message and we can schedule a meeting.
 
@@ -67,12 +69,12 @@ We will also use Github for some specific communications, related to exercises a
 
 ## eLC
 
-We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Slack. After that, I do not plan on using eLC. I don't plan on posting any materials to eLC, they will all be on this website, or if it is confidential information, in our group Slack workspace.
+We will not be using eLC. I might occasionally use the _email everyone_ feature in eLC to send out an email to the class in the first few weeks until everyone has settled into using Discord. After that, I do not plan on using eLC. 
 
 
 
 ## Course Teaching Assistant
 
-In some semesters, I have a TA for the class. If there is a TA the semester you are taking the class, they will be another point of contact for you to ask questions. The TA will be posting an introduction in the Slack workspace with details of their availability and preferred modes of communication (Discord/Zoom/etc.).
+In some semesters, I have a TA for the class. If there is a TA the semester you are taking the class, they will be another point of contact for you to ask questions. The TA will be posting an introduction to Discord with details of their availability and preferred modes of communication (Discord/Zoom/etc.).
 
 
