@@ -17,7 +17,7 @@ The *Assessments* column lists items that need to be submitted and that will be 
 **Unless otherwise specified, the first posting of the discussion is due by end of Wednesday, the discussion replies, the quizzes and exercises are due by end of Friday.**
 
 | **Module Topic**                                      | **Start and end dates** | **Assessments**                                            |
-|---------------------------|-------------------|--------------------------|
+|-------------------------------------------------------|-------------------------|------------------------------------------------------------|
 | Module 1 -- Course and tools introduction             | 1/8 -- 1/12             | quiz, exercise (due Wed), discussion                       |
 | Module 2 -- Data analysis introduction                | 1/15 -- 1/19            | quiz, exercise (staggered completion dates), discussion    |
 | Module 3 -- R coding basics                           | 1/22 -- 1/26            | quiz, exercise (first part due Wed), discussion            |

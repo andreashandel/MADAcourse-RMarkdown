@@ -12,7 +12,7 @@
 <meta name="author" content="Andreas Handel" />
 
 
-<title>Class Project Details</title>
+<title>Assessment - Presenting Results</title>
 
 <script src="site_libs/header-attrs-2.24/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -656,382 +656,135 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class Project Details</h1>
+<h1 class="title toc-ignore">Assessment - Presenting Results</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-03-15 13:33:18.354065</h4>
+<h4 class="date">2023-11-14 13:46:34.948391</h4>
 
 </div>
 
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>This documents provides more detailed instructions and grading
-rubrics for each part of the project.</p>
-<p>Note that you should not consider the scores below as corresponding
-to a letter grade. Instead, I use those to differentiate between
-different aspects of the project. Only at the end while I make actual
-grade-like scores, which will likely involve curving (up, never
-down).</p>
-<p>At my discretion, I might consider assignments even if they are
-submitted after the deadline. In that case, I might take off a point for
-lateness.</p>
+<div id="quiz" class="section level1">
+<h1>Quiz</h1>
+<p>Get the quiz sheet for this module from the general <a
+href="./Course_Assessments.html"><strong>Assessments</strong></a> page.
+Fill it in, then submit to the online grading system before the
+deadline.</p>
 </div>
-<div id="part-1" class="section level1">
-<h1>Part 1</h1>
-<p><strong>The main objective for part 1 is to describe data and
-question in enough detail that I can assess if the planned project is
-feasible.</strong></p>
-<p>Use the <code>Manuscript.qmd</code> file. Remove or replace the
-template information. Add your proposed project title and your
-name(s).</p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>Briefly describe what the data is, how it was collected, where you
-will get (or got) it from. How many observations do you have, what was
-measured? Anything else important to report about the data?</li>
-<li>At this stage you are not required to already have and show the
-data, but if you do, even better. Then add a few lines of code which
-load the data and using some of the commands you learned about, provide
-summary descriptions of the data.</li>
-<li>Explain the question you want to answer using the data. What will be
-your outcome(s) of interest (if any)? What (if any) specific predictors
-will you focus on? What relations/patterns are you looking for in the
-data?</li>
-<li>As much as you know, suggest how you will analyze it. At this stage
-in the course, we haven’t covered analysis approaches yet, so you can
-keep things vague and non-technical here.</li>
-<li>You are allowed, but not yet required, to provide background
-information for the question you plan to answer. For instance you can
-describe why it’s an interesting question, who else has done similar
-analyses, how your analysis will be new/different, etc. Similar to what
-you read in an introduction to a research paper. For the final report,
-you’ll need these parts. For part 1, they are not required, but you are
-welcome to already write down some of that.</li>
-<li>Eventually, for your final report, what you write for this part will
-go into different sections of the full report. Some will go into the
-introduction, some in the methods section. You can already place these
-items there, or for now just write them as a single section.</li>
-</ul>
-<p>Grading for this part will follow the following rubric:</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Score</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sufficient</td>
-<td>Submission is (almost) complete, contains enough information to
-allow assessment of feasibility of proposed project. Fully
-reproducible.</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Somewhat insufficient</td>
-<td>Most components are present, but noticeable gaps exist, or existing
-materials can’t be fully reproduced.</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Not sufficient</td>
-<td>Submission is rather incomplete, has major missing parts which does
-not allow assessment of feasibility of proposed project</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Absent</td>
-<td>(Almost) everything of submission is missing</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
+<div id="exercise" class="section level1">
+<h1>Exercise</h1>
+<p>For this exercise, you are asked to create (at least) one
+professional-looking graph and one professional looking table based on
+data you find online. This exercise will go into your portfolio.</p>
+<p>For motivation take a quick look at <a
+href="https://simplystatistics.org/posts/2019-08-28-you-can-replicate-almost-any-plot-with-ggplot2/">this
+blog post by Rafael Irizarry</a> (the author of the IDS book we’ve been
+using). He shows how one can use R and ggplot to reproduce figures that
+look very similar to professional ones. You’ll see that it usually
+doesn’t require that many lines of code to get an outstanding looking
+figure!</p>
+<p>We’ll try to do that ourselves.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>We’ll do a bit of group work again. If you are a group of 4, team up
+in pairs. If you are a group of 3, do the “circular” pairing again.
+Everyone should do the visualization and comment on one other person’s
+exercise (via GitHub Issues as described below).</p>
+<p>Once you determined your partner(s) for this exercise, open your
+portfolio website project in RStudio. Then open the
+<code>visualization_exercise.qmd</code> file. We’ll use that file for
+this exercise.</p>
 </div>
-<div id="part-2" class="section level1">
-<h1>Part 2</h1>
-<p><strong>The main objective for part 2 is to have mostly completed the
-data loading/cleaning/wrangling/exploring part.</strong></p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>Everything from part 1. That doesn’t mean you need to keep what you
-wrote for part 1 frozen. Just that the description you provided there
-should be part of this submission. As appropriate, you can
-rewrite/reformat things to get it closer to a final report structure
-(e.g. start moving some parts into a method section).</li>
-<li>A somewhat detailed description containing text and code showing
-your cleaning/wrangling/exploring steps. Place this in separate Quarto/R
-files inside the <code>code</code> folder or its sub-folders. Make sure
-it’s clear which files are the relevant ones, delete any non-relevant
-files.</li>
-<li>Update the main manuscript. Add a few of the exploratory results and
-any other content you think should be shown.</li>
-<li><strong>Removal or replacement of any left-over files and leftover
-text and code from the templates.</strong> Update all readme files,
-delete any files and folders that are not part of your project. Remove
-any comments and bits of code that are not relevant. At this stage, only
-information, code and files relevant to your project should be present,
-with appropriate documentation.</li>
-<li>The main text should show plots or tables that explore the data,
-with a focus on the quantities of main interest (outcome, main
-predictor, co-variates of specific interest, etc.).</li>
-<li>It is up to you how you structure things. You can use a combination
-of R or Rmd scripts. As long as things are well documented, reproducible
-and logical, the exact setup is your choice.</li>
-<li>Everything needs to be fully reproducible and you need to provide
-somewhere (e.g. in the main text file or in the readme file in your
-repository) instructions on what one needs to do to completely reproduce
-everything.</li>
-<li>Your main article and - if applicable supplementary files - should
-knit into a word or pdf or html documents.</li>
-<li>If you start including references, you should use a reference
-manager and a bibtex file from which you cite references in your
-manuscript. I recommend managing the bibtex file with the free Zotero
-reference manager, but if you have another reference manager that can
-handle bibtex files, you can use that too. Your bib file should be part
-of the project repository (for instance in the same folder as the
-manuscript). Feel free to pick any citation style you like (you can get
-CSL files from e.g. <a href="https://www.zotero.org/styles">this style
-repository</a>).</li>
-</ul>
-<p>Grading for this part will follow the following rubric:</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Score</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sufficient</td>
-<td>Submission is (almost) complete</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Somewhat insufficient</td>
-<td>Submission is somewhat incomplete, parts missing or not
-reproducible</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Insufficient</td>
-<td>Submission is very incomplete, major parts missing or not
-reproducible</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Absent</td>
-<td>(Almost) everything of submission is missing</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
+<div id="find-a-graph-to-reproduce" class="section level2">
+<h2>Find a graph to reproduce</h2>
+<p>Find some interesting graph from a news website. My main suggestion
+is to look at graphs from <a
+href="https://fivethirtyeight.com/">FiveThirtyEight</a>. They are known
+to produce high-quality graphs, and for some of their stories and
+figures, they also <a href="https://data.fivethirtyeight.com/">provide
+the original data source</a>.</p>
+<p>Good starting points for a chart from FiveThirtyEight might be their
+annual summaries of weirdest charts, which you can find here for <a
+href="https://fivethirtyeight.com/features/the-40-weirdest-and-best-charts-we-made-in-2020/">2020</a>,
+<a
+href="https://fivethirtyeight.com/features/the-56-best-and-weirdest-charts-we-made-in-2019/">2019</a>,
+<a
+href="https://fivethirtyeight.com/features/the-45-best-and-weirdest-charts-we-made-in-2018/">2018</a>,
+<a
+href="https://fivethirtyeight.com/features/the-52-best-and-weirdest-charts-we-made-in-2016/">2016</a>,
+and <a
+href="https://fivethirtyeight.com/features/our-47-weirdest-charts-from-2015/">2015</a>.
+(No, I don’t know why there’s no 2017.)</p>
+<p>If you can’t find a graph on FiveThirtyEight that you like and would
+like to reproduce, you are also allowed to check out other major news
+outlets (USA Today, NY Times, Wall Street Journal, The Guardian,
+etc.).</p>
+<p>The only requirements are that the original graph must be interesting
+and good looking (a basic scatterplot is not enough) and freely
+available online, not behind a paywall.</p>
+<p><em>If you already feel comfortable making graphs with
+<code>ggplot</code> and want to try something different, feel free to
+create an interactive graph using one of the many options for that
+(e.g., Shiny, plotly). You can also recreate a previous static graph and
+make it interactive (e.g., allowing people to turn on/off specific
+parts).</em></p>
 </div>
-<div id="part-3" class="section level1">
-<h1>Part 3</h1>
-<p><strong>The main objective for part 3 is to have started the analysis
-part of the project and continued to improve everything.</strong></p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>All relevant files and documents needed to reproduce
-everything.</li>
-<li>All non-relevant files (e.g., leftovers from the template) removed
-or updated.</li>
-<li>Some documentation (e.g. a readme.md file) explaining how your
-project is set up and which scripts need to be run in what order to
-reproduce everything.</li>
-<li>Files with well-documented code (either R scripts or Rmd files) that
-do all the previous tasks (cleaning/processing), as well as running a
-few analyses. You can start with simple bivariate ones, looking for
-patterns between your outcome(s) and individual predictors of interest.
-I suggest as much as possible you use the <code>tidymodels</code>
-framework. You can also try a few multivariable GLM. Results from those
-explorations should be saved in whatever form you consider most
-appropriate (figures or tables).</li>
-<li>A main article/manuscript file which contains the most pertinent
-results and findings from everything you have done so far. You can
-include more figures/tables here than you would in a regular manuscript.
-However, it should still be nicely readable and somewhat focused, so
-don’t produce page-long raw R output or a ton of exploratory figures or
-similar things. The main results of your analysis should be in this
-manuscript. Any further explorations and results (figures and tables)
-should go into a separate Rmarkdown file that comprises the
-supplementary material. For some idea on how this can be structured, you
-can for instance revisit Brian’s project we looked at <a
-href="./Data_Analysis_Motivation.html">in this unit</a>.</li>
-</ul>
-<p>Grading for this part will follow this rubric:</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Score</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sufficient</td>
-<td>Submission is (almost) complete</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Somewhat insufficient</td>
-<td>Submission is somewhat incomplete, minor parts missing or not
-reproducible</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Insufficient</td>
-<td>Submission is very incomplete, major parts missing or not
-reproducible</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Absent</td>
-<td>(Almost) everything of submission is missing</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p><em>This part of your project will be assessed by some of your
-classmates. See the <code>Reviews</code> document for more
-details.</em></p>
+<div id="get-the-data" class="section level2">
+<h2>Get the data</h2>
+<p>Once you have a graph you’d like to reproduce, either extract (e.g,
+read off or some other extraction method) the data right from the graph
+or find the original data source. If neither is an option, move on to
+the next graph. Having access to the data is critical.</p>
+<p>Make a new folder in your repository, call it <code>data</code>.
+Place the data file you found or created inside that folder. If you
+found it, it will be in whatever format you got. If you made it yourself
+by extracting it from the original graph, I recommend a CSV file.</p>
 </div>
-<div id="part-4" class="section level1">
-<h1>Part 4</h1>
-<p><strong>The objective is to have mostly completed implementation of
-analyses following the approaches covered in the course.</strong></p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>All relevant files and documents needed to reproduce
-everything.</li>
-<li>Documentation for everything you are doing. Any files/documentation
-not related to your project should be removed, only relevant information
-should be present.</li>
-<li>Code that performs statistical analyses of your data using the
-approaches we cover in class, such as: train/test split,
-cross-validation, trying different models, exploring model quality
-(performance, uncertainty, diagnostics, etc.). Depending on your data
-and question, not all approaches will make sense for your data. Choose
-the ones that make sense. E.g., if you happen to do an analysis of text
-or high-dimensional data, use methods/models appropriate for that data.
-The main point is that you should show you understand the main concepts
-regarding analysis and model evaluation and can apply them to your data
-with the tools we covered.</li>
-<li>Update your manuscript and supplementary files with the new results
-(figures/tables) from your analysis.</li>
-<li>At this point, make sure you are also far along with your background
-section, including referencing (using a reference manager and bibtex,
-file, <strong>no manual references</strong>) and everything starts
-looking like a full analysis similar to what one could submit to a
-journal for publication.</li>
-</ul>
-<p>Grading for this part will follow this rubric:</p>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Category</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Score</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sufficient</td>
-<td>Submission is (almost) complete</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Somewhat insufficient</td>
-<td>Submission is somewhat incomplete, minor parts missing or not
-reproducible</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Insufficient</td>
-<td>Submission is very incomplete, major parts missing or not
-reproducible</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Absent</td>
-<td>(Almost) everything of submission is missing</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
+<div id="re-create-the-original-graph" class="section level2">
+<h2>Re-create the original graph</h2>
+<p>Once you have the data and the original graph, you’ll first need to
+add a few lines of code to your <code>visualization_exercise.Rmd</code>
+file to load the data, and if needed, do some cleaning.</p>
+<p>Then write R code to try and get as close as possible to the original
+graph. You will likely use ggplot2 &amp; friends, but if you want to use
+base R, lattice or another plotting approach that’s ok too, as long as
+everything happens with R code. The goal is to put in some effort to get
+close, but don’t spend an insane amount of time trying to make a perfect
+copy. A few (maybe 1-4) hours of working on this should suffice. If it
+still looks a bit different in the end, that’s ok.</p>
+<p>Your final product should be code and explanatory text that shows the
+original plot and links to its source, then shows your code that
+re-creates the graph, and finally shows your graph. Also, provide some
+additional information that helps readers understand how you went about
+making the plot. For instance, you should provide some additional text
+describing things you tried that did and didn’t work, or include links
+to sources from which you took inspiration, adapted your code, etc.</p>
+<p>Once done, re-build your website and make sure that your data
+visualization exercise shows up nicely. Then, post the link to your
+online page showing your visualization into the
+<strong>discussion</strong> channel for this module. Do that by
+Wednesday.</p>
 </div>
-<div id="part-5" class="section level1">
-<h1>Part 5</h1>
-<p><strong>The objective for part 5 is to have a fully completed
-project, ready for peer review.</strong></p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>Every file needed to reproduce your complete analysis and report in
-your project repository (that includes files such as readme, bibtex,
-style files, etc).</li>
-<li>Detailed instructions (e.g. as a <code>readme.md</code> file)
-explaining how to reproduce all your results.</li>
-<li>A complete, nicely readable and well formatted report, written in
-structure like a research paper
-(Abstract/Introduction/Methods/Results/Discussion/Citations).</li>
-<li>Well documented supplementary material</li>
-<li>Well-documented code as Rmd or R scripts that explain cleary all
-steps in your analysis (including the wrangling/exploring parts).</li>
-<li>Meta-data explaining your data as needed.</li>
-<li>Everything very well documented and polished as much as
-possible.</li>
-</ul>
-<p>Check the <a
-href="./templatefiles/Project_Review_Template.qmd">Project Review
-Template file</a> to see how this submission will be assessed by your
-peers. I will not grade this part but it will be assessed by your peers,
-as described in the <a href="./Project_Review.html"><em>Project
-Review</em></a> document.</p>
-<p><em>An great project would be at the level of Brian McKay’s paper
-example you checked out in the <a
-href="./Data_Analysis_Motivation.html">Motivating Examples document</a>,
-or one of the projects on the <code>Project Examples</code>
-page.</em></p>
+<div id="provide-feedback" class="section level2">
+<h2>Provide feedback</h2>
+<p>Once everyone has updated their portfolio website to contain their
+visualization exercise, find the one from your exercise partner and take
+a close look. Then go to their repository online and use the GitHub
+Issues feature to provide feedback on things you noticed that might need
+fixing, or something that you think could be further improved, or any
+other thought you have that might help your classmate further
+improve.</p>
+<p>The person receiving the feedback should look at the Issue, address
+it, then provide a comment to the Issue and if they think it’s fully
+addressed, they can close the Issue. Otherwise you can leave it
+open.</p>
 </div>
-<div id="part-6" class="section level1">
-<h1>Part 6</h1>
-<p><strong>The main objective for part 6 is to have a finished project,
-ready for final grading.</strong></p>
-<p>To that end, provide the following pieces of information:</p>
-<ul>
-<li>A complete project, with as many further improvements as you want to
-implement, based on feedback from your classmates and any other
-improvements you can think of.</li>
-</ul>
-<p>I will grade the final project using the same criteria your
-classmates used for peer review. This will be graded on a 100 points
-scale and combined with the other project scores for a final overall
-project score.</p>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion</h1>
+<p>Take a look at some of the figures your colleagues created (other
+than the exercise partner you already reviewed), and provide general
+feedback. Hopefully, by looking at the different visualizations and
+code, you get a good idea for what can be done.</p>
 </div>
 
 

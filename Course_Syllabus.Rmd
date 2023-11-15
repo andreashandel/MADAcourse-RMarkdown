@@ -133,6 +133,14 @@ All course materials are freely available online. We will make use of several fr
 For more details on course logistics, see the other information in the _General Information_ section of the course website.
 
 
+## Privacy/FERPA 
+
+The course is set up such that you work "in the open" by having a GitHub repository and accompanying website that showcases the work you are doing in this class as an online portfolio. This is a great way to showcase your work to potential employers. However, it also means that your work is publicly visible. 
+
+As a student, under the [Family Educational Rights and Privacy Act (FERPA)](https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html) you have the right to have all your student-related information kept private, including the fact that you are taking this class. Keeping everything private can be done using private GitHub repositories. But it means you won't be able to create a public website/portfolio, and you can't follow the general instructions in the exercises. Instead I'll need to give you special instructions. If for some reason you want to keep the fact that you are taking this class a secret, and thus do not want to use public GitHub repositories/create a publicly accessible online portfolio **please let me know.** 
+If you take this course and do not inform me that you want your attendance in this course to be kept private, I consider this as you consenting with producing public materials as part of this course, and thus make your participation in this course public. If you have any concerns about this, please contact me to discuss.
+
+
 
 
 ## Grading

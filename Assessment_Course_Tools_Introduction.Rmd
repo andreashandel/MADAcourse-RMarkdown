@@ -12,9 +12,12 @@ output:
 
 # Module Assessments
 
-Each module comes with an assessment. Those are things you need to do that will be graded. Each module has a document, like this one, which describes what the assessments are. Often, there is a good bit of information for the exercises.
+Each module comes with an assessment. Those are things you need to do that will be graded. The table on the [**Schedule**](./Course_Schedule.html) page lists the assessments for each module.
 
-If you haven't done so, please first read through the [**Assessments**](./Course_Assessments.html) page before continuing here.
+If you haven't done so, please read through the [**Assessments**](./Course_Assessments.html) page so you know how each type of assessment should be done and how it's graded.
+
+Each module has an __Assessments__ page, like this one, which describes what the assessments are and what you should do. Often, there is a good bit of information for the exercises.
+
 
 
 
@@ -24,7 +27,7 @@ Get the quiz sheet for this module from the general [**Assessments**](./Course_A
 
 For this first module, you have 2 submission attempts. This allows you to get used to the submission system. 
 
-Note that the quiz and grading system will only become available once student passwords have been set.
+Note that the quiz submission system will only become available once student passwords have been set.
 
 
 ## Exercise
@@ -36,24 +39,27 @@ For this module, you are asked to do a project for which you will be using Githu
 
 For those of you who are new to Github/R/Quarto, this first project will make you do a lot of things that you are not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.
 
-If you get stuck (quite possible), check the materials listed in the **Resources** section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, colleagues/friends/relatives with R/Quarto/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course.
+If you get stuck (quite possible), check the materials listed in the **Resources** section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, AI, colleagues/friends/relatives with R/Quarto/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course.
+
 
 ### Pre-requisites
 
-You should have set up with all the tools we need, namely R, RStudio, GitHub and GitKraken (or your preferred Git client).
+You should gone through all content in this module and should be set up with all the tools we need, namely R, RStudio, GitHub and GitKraken (or your preferred Git client).
 
 
 ### Github setup
 
--   I made a template for you to get started. Go to [this page](https://github.com/andreashandel/online-portfolio-template). Make sure you are logged into GitHub, then click on `Use this template`. Create a new repository, call it `yourname-MADA-portfolio` (`yourname` should include both your first and last name, e.g. `andreashandel-MADA-portfolio`.) Choose public repository, then create it.
+I made a template for you to get started. Go to [this page](https://github.com/andreashandel/online-portfolio-template). Make sure you are logged into GitHub, then click on `Use this template`. Create a new repository, call it `yourname-MADA-portfolio` (`yourname` should include both your first and last name, e.g. `andreashandel-MADA-portfolio`.) Choose public repository, then create it.
 
--   Next, **clone** the repository (which will be something like `https://github.com/USERNAME/yourname-MADA-portfolio/`) from Github.com to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called *MADA2023*) and place all class-related repositories (of which this is the first one) into this folder. Remember that these repositories/folders should **not** be synced with some other software (e.g., Dropbox).
+Next, **clone** the repository (which will be something like `https://github.com/USERNAME/yourname-MADA-portfolio/`) from Github.com to your local computer (using Gitkraken or whatever software/method you decided to use). I recommend that you make a folder somewhere on your computer (e.g., called *MADA-course*) and place all class-related repositories (of which this is the first one) into this folder. Remember that these GitHub repositories/folders should **not** be synced with some other software (e.g., Dropbox/OneDrive).
 
 
 
 ### Quick local website check
 
-Once your repository is on your local computer, go into the folder and click on `online_portfolio.Rproj`, which should open RStudio. In the bottom right, you'll see several files that are part of your repository/project. We'll edit a bunch of them shortly. In the top right panel in RStudio, you should see a `Build` tab. Click on it. It should show a `Render website` button, click it. You might get complaints about missing packages, if that's the case, install them. If everything works well, a local preview of your soon-to-be new website should open in your browser.
+Once your repository is on your local computer, go into the folder and click on `online_portfolio.Rproj`, which should open RStudio. In the bottom right, you'll see a number of files and folders that are part of your repository/project. We'll edit a few of them as described below. The rest you can ignore for now, we'll come back to them in later exercises. 
+
+In the top right panel in RStudio, you should see a `Build` tab. Click on it. It should show a `Render website` button, click it. You might get complaints about missing packages, if that's the case, install them. If everything works well, a local preview of your soon-to-be new website should open in your browser.
 
 If you got that far, let's create some content.
 
@@ -67,22 +73,30 @@ Open `index.qmd`. This is the main landing page for your website. Change the tex
 
 Next, open `aboutme.qmd` and write some text introducing yourself, as follows:
 
--   Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then talk about (at least one) interesting personal fact(s) about you.
+-   Talk a bit about yourself, your background, training, research interests. Let me/us know what kind of statistics, programming, data analysis experience you already have. I'd also be curious to know what you most hope to learn in this course. And then tell us some quirky/interesting/curious thing about you.
 -   Give your text a nice structure with headings, subheadings, etc.
 -   Include a picture of yourself. To do so, place the picture in the repository and link it from the Quarto file.
 -   Finally, include a link to a picture/video/website/etc. The linked material should be somehow related to data analysis. Find something that you think is really cool/interesting/weird/etc. Provide a few explanatory sentences.
--   If you want, feel free to get creative and include other things. You can play with Quarto if you wish to, e.g., you can try to include some table or a video or whatever.
+-   If you want, feel free to get creative and include other things. You can play with Quarto if you wish to, e.g., you can try to include a table or a video or any other elments you want to explore.
 
 *Every time you make changes and want to see how they look, just save your changes and re-load the website in our browser, it should show you any changes.*
 
+:::note
+This portfolio website and everything you put on there is public. So don't put anything on there that you are not ok with telling the world about.
+:::
 
-### Styling
+### Website control
 
-It is possible to change the looks of your website. Full styling will require knowledge of CSS and HTML. We won't get into this. But we'll explore a quick way to change the look. Open the `_quarto.yml` file. This file defines the menu structure, and some styling. To change the look, can replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. 
+For Quarto, a lot of the look/feel and structure of a website is controlled in what's called a YAML file (it has the ending `.yml`). The main one is called `_quarto.yml`. Open it. You'll see that it contains a bunch of information about the website, including the title, the menu structure, and some styling information.
 
-**Also go ahead and replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text in `_quarto.yml` with the actual Github URL of the repository you just created (e.g. something like `https://github.com/andreashandel/andreashandel-MADA-portfolio`).** 
+Make the following changes:
 
-You can do a lot more styling by for instance editing the `styles.css` file. This is not a web design class `r emoji::emoji('grin')`, we therefore won't go into styling further, but feel free to explore on your own.
+* Update the title of your website.
+
+* **Replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text with the Github URL of the repository you created (e.g. for me, that would be something like `https://github.com/andreashandel/andreashandel-MADA-portfolio`).** 
+
+* It is possible to change the looks of your website. Full styling will require knowledge of CSS and HTML. We won't get into this. But we'll explore a quick way to change the look. Replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. You can also change the highlight scheme. For further styling, you can put custom CSS code into the `styles.css` file. We won't do this here, but feel free to explore on your own.
+
 
 :::warning
 YAML (which is the format of `_quarto.yml`) is VERY finicky when it comes to formatting. You need to have exactly the right number of empty spaces. If you ever change a YAML file and you get a weird error message when trying to rebuild your website, it's likely because some minor formatting is wrong, e.g. an empty space is missing or too much. Just keep that in mind. (It happens to me all the time.)
@@ -95,7 +109,7 @@ YAML (which is the format of `_quarto.yml`) is VERY finicky when it comes to for
 Once you are happy with your updates, or if you want to take a break, make sure to push your updates to GitHub. First close RStudio. Then go to the program you use for Github (I will assume that it's GitKraken. If you use something else the details might vary). In the top right of Gitkraken, there should be a notification about changed files. Click *view changes*, then *Stage all changes*. Write a commit message, commit the changes. You should see the *main* with the computer symbol moved above the one with some random logo. That means your local repository is ahead of the one on github.com. To get them in sync, you click the *push* button. If things work, the two symbols should now be in the same line.
 
 ::: note
-Sometimes, there might be issues that prevent syncing, e.g., if someone else changed the same files you did. If you are sure your local version is the correct one, you can perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer. If any changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **destroyed** by the force push since they are not on your local repo. For this assignment, you are the only person working on your introduction so it is unlikely you will encounter any issues with force push, but it is good to be aware of the function of the action. Use with care. It's generally better to [resolve merge conflicts.](https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git)
+Sometimes, there might be issues that prevent pushing/pulling, e.g., if someone else changed the same files you did. If you are sure your local version is the correct one, you can perform a **force push**. A force push will overwrite the remote repo with the local repo forcibly. This means that the remote will be updated with any changes that exist on your local computer. If any changes have been made to the code since you began editing (i.e. someone else has made a commit to the repo while you were working on it) they will be **destroyed** by the force push since they are not on your local repo. For this assignment, you are the only person working on your introduction so it is unlikely you will encounter any issues with force push, but it is good to be aware of the function of the action. Use with care. It's generally better to [resolve merge conflicts.](https://www.gitkraken.com/learn/git/tutorials/how-to-resolve-merge-conflict-in-git)
 :::
 
 
@@ -116,7 +130,7 @@ As an example, this course website is displayed at <https://andreashandel.github
 ### Update your repository Readme file
 
 Re-open your project with RStudio. Click to open the README.md file. It only contains a single sentence I placed there. This file will not be part of your website, but it is what people see if they land at your github repository (i.e. the behind-the-scenes location). 
-Add some text to it that points users to the URL for your new website. (You've done the reverse above, allowing users to quickly go from your website to your Github repository).
+Add text to it that points users to the URL for your new website. (You've done the reverse above, allowing users to quickly go from your website to your Github repository).
 
 Make any other edits you like.
 
@@ -143,8 +157,8 @@ Using Github pages makes it fairly easy to create websites. I currently host all
 
 ## Discussion
 
-The discussion for this module is all about your introductions. For your original post, simply post the URL to your newly created website into the `introductions` slack channel. **Do so by Wednesday.**
+The discussion for this module is all about your introductions. For your original post, simply post the URL to your newly created website into the `introductions` Discord channel. **Do so by Wednesday 5pm.**
 
-For your replies, visit some of your classmates websites and leave feedback as a reply to their initial Slack post.
+For your replies, visit some of your classmates websites and leave feedback as a reply to their initial post. **Do so by the Friday deadline.**
 
 I hope this will allow you to start getting to know each other, even if only virtually.

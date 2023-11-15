@@ -432,8 +432,11 @@ div.tocify {
       </ul>
     </li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">5. Visualization</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">5. Presenting data and results</a>
       <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="./Presenting_Results_Overview.html">Presenting Results Overview</a>
+        </li>
         <li>
           <a href="./Visualization_Overview.html">Visualization Overview</a>
         </li>
@@ -441,7 +444,10 @@ div.tocify {
           <a href="./Visualization_in_R.html">Visualization in R</a>
         </li>
         <li>
-          <a href="./Assessment_Visualization.html">Assessment: Visualization</a>
+          <a href="./Tables_in_R.html">Tables in R</a>
+        </li>
+        <li>
+          <a href="./Assessment_Presenting_Results.html">Assessment: Presenting Results</a>
         </li>
       </ul>
     </li>
@@ -653,7 +659,7 @@ div.tocify {
 <h1 class="title toc-ignore">Assessment - Course and Tools
 Introduction</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-02-18 13:18:13.292315</h4>
+<h4 class="date">2023-11-15 09:24:40.386633</h4>
 
 </div>
 
@@ -661,12 +667,16 @@ Introduction</h1>
 <div id="module-assessments" class="section level1">
 <h1>Module Assessments</h1>
 <p>Each module comes with an assessment. Those are things you need to do
-that will be graded. Each module has a document, like this one, which
-describes what the assessments are. Often, there is a good bit of
-information for the exercises.</p>
-<p>If you haven’t done so, please first read through the <a
+that will be graded. The table on the <a
+href="./Course_Schedule.html"><strong>Schedule</strong></a> page lists
+the assessments for each module.</p>
+<p>If you haven’t done so, please read through the <a
 href="./Course_Assessments.html"><strong>Assessments</strong></a> page
-before continuing here.</p>
+so you know how each type of assessment should be done and how it’s
+graded.</p>
+<p>Each module has an <strong>Assessments</strong> page, like this one,
+which describes what the assessments are and what you should do. Often,
+there is a good bit of information for the exercises.</p>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
 <p>Get the quiz sheet for this module from the general <a
@@ -675,7 +685,7 @@ Fill it in, then submit to the online grading system before the
 deadline.</p>
 <p>For this first module, you have 2 submission attempts. This allows
 you to get used to the submission system.</p>
-<p>Note that the quiz and grading system will only become available once
+<p>Note that the quiz submission system will only become available once
 student passwords have been set.</p>
 </div>
 <div id="exercise" class="section level2">
@@ -698,50 +708,51 @@ work.</p>
 <p>If you get stuck (quite possible), check the materials listed in the
 <strong>Resources</strong> section of the course, or use Google. Also
 use the discussion boards to ask questions. You may use any method to
-get help (Google, R4Ds Slack channel, colleagues/friends/relatives with
-R/Quarto/Markdown experience, etc.). Still, try to do as much as
+get help (Google, R4Ds Slack channel, AI, colleagues/friends/relatives
+with R/Quarto/Markdown experience, etc.). Still, try to do as much as
 possible yourself. We’ll use all the bits you are learning here
 repeatedly during this course.</p>
 </div>
 <div id="pre-requisites" class="section level3">
 <h3>Pre-requisites</h3>
-<p>You should have set up with all the tools we need, namely R, RStudio,
-GitHub and GitKraken (or your preferred Git client).</p>
+<p>You should gone through all content in this module and should be set
+up with all the tools we need, namely R, RStudio, GitHub and GitKraken
+(or your preferred Git client).</p>
 </div>
 <div id="github-setup" class="section level3">
 <h3>Github setup</h3>
-<ul>
-<li><p>I made a template for you to get started. Go to <a
+<p>I made a template for you to get started. Go to <a
 href="https://github.com/andreashandel/online-portfolio-template">this
 page</a>. Make sure you are logged into GitHub, then click on
 <code>Use this template</code>. Create a new repository, call it
 <code>yourname-MADA-portfolio</code> (<code>yourname</code> should
 include both your first and last name,
 e.g. <code>andreashandel-MADA-portfolio</code>.) Choose public
-repository, then create it.</p></li>
-<li><p>Next, <strong>clone</strong> the repository (which will be
-something like
-<code>https://github.com/USERNAME/yourname-MADA-portfolio/</code>) from
-Github.com to your local computer (using Gitkraken or whatever
+repository, then create it.</p>
+<p>Next, <strong>clone</strong> the repository (which will be something
+like <code>https://github.com/USERNAME/yourname-MADA-portfolio/</code>)
+from Github.com to your local computer (using Gitkraken or whatever
 software/method you decided to use). I recommend that you make a folder
-somewhere on your computer (e.g., called <em>MADA2023</em>) and place
+somewhere on your computer (e.g., called <em>MADA-course</em>) and place
 all class-related repositories (of which this is the first one) into
-this folder. Remember that these repositories/folders should
+this folder. Remember that these GitHub repositories/folders should
 <strong>not</strong> be synced with some other software (e.g.,
-Dropbox).</p></li>
-</ul>
+Dropbox/OneDrive).</p>
 </div>
 <div id="quick-local-website-check" class="section level3">
 <h3>Quick local website check</h3>
 <p>Once your repository is on your local computer, go into the folder
 and click on <code>online_portfolio.Rproj</code>, which should open
-RStudio. In the bottom right, you’ll see several files that are part of
-your repository/project. We’ll edit a bunch of them shortly. In the top
-right panel in RStudio, you should see a <code>Build</code> tab. Click
-on it. It should show a <code>Render website</code> button, click it.
-You might get complaints about missing packages, if that’s the case,
-install them. If everything works well, a local preview of your
-soon-to-be new website should open in your browser.</p>
+RStudio. In the bottom right, you’ll see a number of files and folders
+that are part of your repository/project. We’ll edit a few of them as
+described below. The rest you can ignore for now, we’ll come back to
+them in later exercises.</p>
+<p>In the top right panel in RStudio, you should see a
+<code>Build</code> tab. Click on it. It should show a
+<code>Render website</code> button, click it. You might get complaints
+about missing packages, if that’s the case, install them. If everything
+works well, a local preview of your soon-to-be new website should open
+in your browser.</p>
 <p>If you got that far, let’s create some content.</p>
 </div>
 <div id="quarto-content-creation" class="section level3">
@@ -767,8 +778,8 @@ yourself, as follows:</p>
 <li>Talk a bit about yourself, your background, training, research
 interests. Let me/us know what kind of statistics, programming, data
 analysis experience you already have. I’d also be curious to know what
-you most hope to learn in this course. And then talk about (at least
-one) interesting personal fact(s) about you.</li>
+you most hope to learn in this course. And then tell us some
+quirky/interesting/curious thing about you.</li>
 <li>Give your text a nice structure with headings, subheadings,
 etc.</li>
 <li>Include a picture of yourself. To do so, place the picture in the
@@ -784,26 +795,36 @@ table or a video or whatever.</li>
 <p><em>Every time you make changes and want to see how they look, just
 save your changes and re-load the website in our browser, it should show
 you any changes.</em></p>
+<div class="note">
+<p>This portfolio website and everything you put on there is public. So
+don’t put anything on there that you don’t want to be public.</p>
 </div>
-<div id="styling" class="section level3">
-<h3>Styling</h3>
-<p>It is possible to change the looks of your website. Full styling will
-require knowledge of CSS and HTML. We won’t get into this. But we’ll
-explore a quick way to change the look. Open the
-<code>_quarto.yml</code> file. This file defines the menu structure, and
-some styling. To change the look, can replace <code>theme</code> with a
-different one. <a
+</div>
+<div id="website-control" class="section level3">
+<h3>Website control</h3>
+<p>For Quarto, a lot of the look/feel and structure of a website is
+controlled in what’s called a YAML file (it has the ending
+<code>.yml</code>). The main one is called <code>_quarto.yml</code>.
+Open it. You’ll see that it contains a bunch of information about the
+website, including the title, the menu structure, and some styling
+information.</p>
+<p>Make the following changes:</p>
+<ul>
+<li><p>Update the title of your website.</p></li>
+<li><p><strong>Replace the <code>URL-TO-THIS-REPOSITORY-HERE</code>
+placeholder text with the Github URL of the repository you created
+(e.g. for me, that would be something like
+<code>https://github.com/andreashandel/andreashandel-MADA-portfolio</code>).</strong></p></li>
+<li><p>It is possible to change the looks of your website. Full styling
+will require knowledge of CSS and HTML. We won’t get into this. But
+we’ll explore a quick way to change the look. Replace <code>theme</code>
+with a different one. <a
 href="https://quarto.org/docs/output-formats/html-themes.html">Many
-themes are available</a>. Try some, see how things change.</p>
-<p><strong>Also go ahead and replace the
-<code>URL-TO-THIS-REPOSITORY-HERE</code> placeholder text in
-<code>_quarto.yml</code> with the actual Github URL of the repository
-you just created (e.g. something like
-<code>https://github.com/andreashandel/andreashandel-MADA-portfolio</code>).</strong></p>
-<p>You can do a lot more styling by for instance editing the
-<code>styles.css</code> file. This is not a web design class 😁, we
-therefore won’t go into styling further, but feel free to explore on
-your own.</p>
+themes are available</a>. Try some, see how things change. You can also
+change the highlight scheme. For further styling, you can put custom CSS
+code into the <code>styles.css</code> file. We won’t do this here, but
+feel free to explore on your own.</p></li>
+</ul>
 <div class="warning">
 <p>YAML (which is the format of <code>_quarto.yml</code>) is VERY
 finicky when it comes to formatting. You need to have exactly the right
@@ -828,9 +849,9 @@ your local repository is ahead of the one on github.com. To get them in
 sync, you click the <em>push</em> button. If things work, the two
 symbols should now be in the same line.</p>
 <div class="note">
-<p>Sometimes, there might be issues that prevent syncing, e.g., if
-someone else changed the same files you did. If you are sure your local
-version is the correct one, you can perform a <strong>force
+<p>Sometimes, there might be issues that prevent pushing/pulling, e.g.,
+if someone else changed the same files you did. If you are sure your
+local version is the correct one, you can perform a <strong>force
 push</strong>. A force push will overwrite the remote repo with the
 local repo forcibly. This means that the remote will be updated with any
 changes that exist on your local computer. If any changes have been made
@@ -894,10 +915,10 @@ the <code>Readme.md</code> file. Speaking of which…</p>
 <p>Re-open your project with RStudio. Click to open the README.md file.
 It only contains a single sentence I placed there. This file will not be
 part of your website, but it is what people see if they land at your
-github repository (i.e. the behind-the-scenes location). Add some text
-to it that points users to the URL for your new website. (You’ve done
-the reverse above, allowing users to quickly go from your website to
-your Github repository).</p>
+github repository (i.e. the behind-the-scenes location). Add text to it
+that points users to the URL for your new website. (You’ve done the
+reverse above, allowing users to quickly go from your website to your
+Github repository).</p>
 <p>Make any other edits you like.</p>
 <p>Once done with edits, remember to re-build/re-render your website
 with Quarto (by clicking ‘Render Website’ in the <code>Build</code> tab)
@@ -946,10 +967,11 @@ href="https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/">
 <h2>Discussion</h2>
 <p>The discussion for this module is all about your introductions. For
 your original post, simply post the URL to your newly created website
-into the <code>introductions</code> slack channel. <strong>Do so by
-Wednesday.</strong></p>
+into the <code>introductions</code> Discord channel. <strong>Do so by
+Wednesday 5pm.</strong></p>
 <p>For your replies, visit some of your classmates websites and leave
-feedback as a reply to their initial Slack post.</p>
+feedback as a reply to their initial post. <strong>Do so by the Friday
+deadline.</strong></p>
 <p>I hope this will allow you to start getting to know each other, even
 if only virtually.</p>
 </div>

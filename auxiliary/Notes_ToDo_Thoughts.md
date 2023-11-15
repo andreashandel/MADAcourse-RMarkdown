@@ -1,9 +1,15 @@
 # Overall
 
-Most comments are in the Notes and Thoughts document in the off-line course folder.
+Most general comments/thoughts are in the Notes and Thoughts document in the off-line course folder.
 
 
 # ToDo
+
+* Continue updating Assessment_Data_Analysis
+* Update/finish AI unit
+* Write table unit
+* Update course_tools_intro assessment
+* implement data generation/AI assessment
 
 
 # Notes
