@@ -61,6 +61,15 @@ div.note
     border: solid 5px #dfedff;
 }
 
+div.warning
+{
+    padding: 1em;
+    margin: 1em 0;
+    color: black;
+    background-color: #fd9d89;
+    border: solid 5px #fbcabf;
+}
+
 
 /* -----------div tips------------- */
 /* adapted from  */

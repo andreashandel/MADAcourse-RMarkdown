@@ -66,13 +66,15 @@ If you do have large files for a project, there are a few options:
 If that's not possible, either because the files are input (such as data) or it takes too long to re-run the code, you will have to manually share these files/folder with them. 
 
 
+## Resolve merge conflicts
 
+At times, you will get merge conflicts. For instance you might have made changes to your local repository that you didn't mean to. Or someone else (or you on a different computer) added changes to the Github.com repository and things don't merge with your local repo. If you have some local updates that you want to keep, here is a method that often works.
 
-## Fixing a repo mess
+At that stage, it gets a bit tricky. GitKraken has a good tool to help you resolve conflicts, and it works well for text files (code, Rmd, md, etc.). It doesn't work well for other files (word, Excel, etc.). Start by using the GitKraken tools, compare files and decide which version of any conflicting ones to keep (or to combine things).
 
-It sometimes happens that your repository ends up in a mess. For instance you might have made changes to your local repository that you didn't mean to. Or someone else (or you on a different computer) added changes to the Github.com repository and things don't merge with your local repo. If you have some local updates that you want to keep, here is a method that often works.
+If the GitKraken tools don't help, you can do some manual intervention as follows:
 
-1. Copy the files you changed locally and that you want to keep to some "safe" location (outside of your repository).
+1. Move the files you changed and that create the problems to some "safe" location (outside of your repository).
 
 2a. If you are using GitKraken and you haven't committed your local changes, there is a red trash button symbol in the top left. If you click on it, you can discard your changes. once you have done that, you can sync with the remote. Your local and remote should be in sync again, and you should be able to move to step 3.
 
@@ -80,10 +82,15 @@ It sometimes happens that your repository ends up in a mess. For instance you mi
 
 3. Once all is ok again and your local repository and the remote one are in sync, you can copy the files (or the content from those files) you placed in a safe location in step 1 back into your repository. Then continue with the usual work flow.
 
+In general, to minimize conflicts, it is good to regularly create issues and push/pull. You should definitely do that any time you stop working on a project. But sometimes doing updates in-between is also good. It is better to change a few files and work on just one topic, then commit and push. After that, start the next topic.
+
+This is also true if you work with someone else and send them your updates as pull requests. By breaking them up into smaller units, it is more likely that conflicts are avoided or localized.
+
+
 
 ## Start over 
 
-Sometimes the previous fix doesn't work. For instance if you tried to track large files, even though you were just told not to do so, you might end up in a situation where there's no simple fix, other than to start over. Here is how you can do that:
+Sometimes the previous fixes doesn't work. For instance if you tried to track large files, even though you were just told not to do so, you might end up in a situation where there's no simple fix, other than to start over. Here is how you can do that:
 
 1. Rename the repo on GitHub.com to something like `myrepo_old`. You can do that in the settings of your repository. Also give your local repo/folder the same name.
 
@@ -94,6 +101,7 @@ Sometimes the previous fix doesn't work. For instance if you tried to track larg
 4. Push the updated local repo to GitHub.com.
 
 5. Once certain that everything works, delete the old repo both online and on your local computer. You might decide to keep it around for a while, since by creating a new repo you lost the history, so you can't go back to prior versions in the new repo.
+
 
 
 

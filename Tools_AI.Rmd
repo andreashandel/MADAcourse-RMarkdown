@@ -12,7 +12,7 @@ output:
 
 
 # Overview
-This unit provides an introduction to the use of Large Language Model (LLM) based Artificial Intelligence (AI) tools (such as ChatGPT) for coding and data analysis.
+This unit provides an introduction to the use of Large Language Model (LLM) based Artificial Intelligence (AI) tools (such as ChatGPT) for coding and data analysis. Here, and in general, I will for simplicity mostly just refer to them as AI.
 
 
 # Learning Objectives
@@ -22,14 +22,14 @@ This unit provides an introduction to the use of Large Language Model (LLM) base
 
 
 # Background
-By now, you have certainly heard for ChatGPT and similar AI-based tools. You probably have also tried them out. There are different types of AI focused on processing different types of input or output (e.g., images, text). Here, I focus on those tools that take text-based instructions and can produce text as output, but regular language text and code. Those AI tools have the potential to speed up your work, so you should explore and use them. However, there are dangers as well, which are important to keep in mind.
+By now, you have certainly heard of ChatGPT and similar AI-based tools. You probably have also tried them out. There are different types of AI focused on processing different types of input or output (e.g., images, text). Here, I focus on those tools that take text-based instructions and can produce text as output, both regular language text and code. Those AI tools have the potential to speed up your work, so you should explore and use them. However, there are dangers as well, which are important to keep in mind.
 
-This is a very practical tutorial. I'll only discuss how to use those tools. If you want to learn more about the general workings, ethical issues regarding licensing of training data and biased results, etc., [this blog](https://www.oneusefulthing.org/) is a good starting point.
+This is a very practical tutorial from a user perspective. I'll only discuss how to use those tools. If you want to learn more about the general workings, ethical issues regarding licensing of training data and biased results, etc., [this blog](https://www.oneusefulthing.org/) is a good starting point. Also consider [this Coursera course](https://www.coursera.org/learn/generative-ai-for-everyone).
 
 
 # Available AI tools
 
-The field is changing rapidly, but as of this writing, for the AI tools we are interested in (the LLMs), ChatGPT is probably the most useful tool. You can access it by creating a [free account](https://chat.openai.com/). 
+The field is changing rapidly. As of this writing, for the AI tools we are interested in (the LLMs), ChatGPT is probably the most useful tool. You can access it by creating a [free account](https://chat.openai.com/). 
 
 ChatGPT is also part of the Microsoft [Bing search engine](https://www.bing.com/) (currently located oder the "Chat" tab) and [GitHub's CoPilot](https://github.com/features/copilot). 
 
@@ -43,7 +43,7 @@ If you haven't already, I suggest you create a ChatGPT/OpenAI account. As of thi
 
 _Write R code that generates a dataset of 100 individuals with ages from 18 to 49, BMI values from 15 to 40 and smoking status as yes or no. Assume that age and BMI are uncorrelated. Assume that smokers have a somewhat lower BMI. Then use the patchwork R package to generate a panel of ggplot2 plots. The first panel should show a violin plot with BMI on the y-axis and smoking status on the x-axis. The second panel should show a scatterplot with age on the y-axis and BMI on the x-axis. Add thorough documentation to your code._
 
-When I did that, ChatGPT gave me [this fully working code](./media/ChatGPT-example.R). It is possible that when you run it, the code will look slightly different (see the comment below on non-reproducibility). Hopefully, what you get will run. If not, you might need to either fix the code or ask the AI to fix it.
+When I did that, ChatGPT gave me [this fully working code](./media/ChatGPT_example.R). It is possible that when you run it, the code will look slightly different (see the comment below on non-reproducibility). Hopefully, what you get will run. If not, you might need to either fix the code or ask the AI to fix it.
 
 
 
@@ -54,11 +54,7 @@ GitHub Copilot is currently free for students with the [GitHub student developer
 Once you have Copilot activated, you can use it in R Studio. (It is also possible to use it with other popular editors, such as VS Code, but for this course I will focus on R Studio. If you prefer to code in VS Code, you can install the Copilot plugin).
 
 To get Copilot working in R Studio, follow [these instructions](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html). 
-You might want to leave Copilot indexing unchecked for now. The instruction guide explains what this is. See below on confidentiality issues on why you might not want to turn it on. Once you have co-pilot up and running, you should see it show up in the bottom of your R Studio input window (the top right window where you write code). It will start suggesting things as you type, once you stop for a few seconds. You can set that time in the options.
-
-To see Copilot in action, watch this video where I'm playing around with some code.
-
-
+You might want to leave Copilot indexing unchecked for now. The instruction guide explains what this is. See the note on confidentiality issues below why you might not want to turn it on. Once you have co-pilot up and running, you should see it show up in the bottom of your R Studio input window (the top right window where you write code). It will start suggesting things as you type, once you stop for a few seconds. You can set that time in the options.
 
 For some more eloquent use of Copilot, see [this video](https://youtu.be/yVq-b5xHmac?si=DPJXXnEoViVFYA1T) by Thomas Mock from Posit/RStudio. It's a bit long, but I highly recommend you watch it. Efficient use of AI in general and Copilot specifically will likely save you a lot of time for the rest of this course!
 
@@ -139,29 +135,4 @@ AI tools can be very useful tools to help you write code and do your data analys
 
 # Further Resources
 
-I have started an AI section on the [General Resources]() page. If you have other useful resources, I'd love to hear about them.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I have started an AI section on the [General Resources](./General_Resources.html) page. If you have other useful resources, I'd love to hear about them.

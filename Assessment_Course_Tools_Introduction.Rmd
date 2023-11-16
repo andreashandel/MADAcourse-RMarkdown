@@ -30,14 +30,24 @@ For this first module, you have 2 submission attempts. This allows you to get us
 Note that the quiz submission system will only become available once student passwords have been set.
 
 
+## Discussion
+
+The discussion for this module is all about introductions. For your original post, simply post the URL to the website you will create by doing the exercise below into the `introductions` Discord channel. **Do so by Wednesday 5pm.**
+
+For your replies, visit some of your classmates websites and leave feedback as a reply to their initial post. **Do so by the Friday deadline.**
+
+I hope this will allow you to start getting to know each other, even if only virtually.
+
+
+
 ## Exercise
 
-For this module, you are asked to do a project for which you will be using Github, R, RStudio, and Quarto to create the start of a website which will become your portfolio for this class. You'll write and post a short personal introduction of yourself.
+For this exercise, you are asked to do start using Github, R, RStudio, and Quarto to create a website which will become your portfolio for this class. You'll write and post a short personal introduction of yourself.
 
 
 ### Workload Note
 
-For those of you who are new to Github/R/Quarto, this first project will make you do a lot of things that you are not be familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.
+For those of you who are new to Github/R/Quarto, this first project will make you do a lot of things that you are not  familiar with. I know that this will be time-consuming and also might feel a bit intimidating. It's partly unavoidable and partly on purpose. You need to learn how to quickly get up to speed with all kinds of new tools that come your way. So practicing it is a good idea. You are welcome to draw on any sources for help that you want (online, classmates, instructor, etc.). I'm confident with a bit of trial and error you'll get it to work.
 
 If you get stuck (quite possible), check the materials listed in the **Resources** section of the course, or use Google. Also use the discussion boards to ask questions. You may use any method to get help (Google, R4Ds Slack channel, AI, colleagues/friends/relatives with R/Quarto/Markdown experience, etc.). Still, try to do as much as possible yourself. We'll use all the bits you are learning here repeatedly during this course.
 
@@ -95,7 +105,7 @@ Make the following changes:
 
 * **Replace the `URL-TO-THIS-REPOSITORY-HERE` placeholder text with the Github URL of the repository you created (e.g. for me, that would be something like `https://github.com/andreashandel/andreashandel-MADA-portfolio`).** 
 
-* It is possible to change the looks of your website. Full styling will require knowledge of CSS and HTML. We won't get into this. But we'll explore a quick way to change the look. Replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. You can also change the highlight scheme. For further styling, you can put custom CSS code into the `styles.css` file. We won't do this here, but feel free to explore on your own.
+* It is possible to change the look of your website. Full styling requires knowledge of CSS and HTML. We won't get into this. But we'll explore a quick way to change the look. Replace `theme` with a different one. [Many themes are available](https://quarto.org/docs/output-formats/html-themes.html). Try some, see how things change. You can also change the highlight scheme. For further styling, you can put custom CSS code into the `styles.css` file. We won't do this here, but feel free to explore on your own.
 
 
 :::warning
@@ -155,10 +165,3 @@ I wrote a tutorial a while back describing the setup with Github pages. It has s
 Using Github pages makes it fairly easy to create websites. I currently host all my course websites in this way. What we created was a fairly basic page. It is easy with Quarto to create other, more full-featured websites. For instance [my personal website](https://www.andreashandel.com/) uses Quarto. If you are interested in such a more full-featured approach, check out [this part of the Quarto documentation](https://quarto.org/docs/websites/). You can also find a few more links to other resources [here](https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/).
 
 
-## Discussion
-
-The discussion for this module is all about your introductions. For your original post, simply post the URL to your newly created website into the `introductions` Discord channel. **Do so by Wednesday 5pm.**
-
-For your replies, visit some of your classmates websites and leave feedback as a reply to their initial post. **Do so by the Friday deadline.**
-
-I hope this will allow you to start getting to know each other, even if only virtually.

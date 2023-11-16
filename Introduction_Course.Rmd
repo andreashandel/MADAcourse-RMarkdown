@@ -55,7 +55,7 @@ Here are my goals, promises, and expectations for this course.
 
 * This class strives to be challenging but non-threatening. As such, I'll make you work hard, and expect you to do the assigned tasks by the deadlines, but in the end, I usually don't grade hard - unless you fail to keep up your end of the agreement and don't put in the work.
 
-* This class is _open everything_. You can use the internet, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning. 
+* This class is _open everything_. You can use the internet, AI, ask your classmates, myself and others, get help from wherever you can. I trust you will find the right balance of getting help when you need it while still putting in enough effort to experience real learning. 
 
 * I will not perform any policing to try to prevent you from taking shortcuts (i.e., not doing work yourself). The class contains graded assessments with deadlines, but those are meant to _help you stay on track._ If you somehow cheat - and cheating will be easy - you are mainly cheating yourself out of learning. 
 
@@ -75,12 +75,15 @@ not fully finalized and will change, so check frequently.
 ## Course Tools
 This is a brief overview of the tools we will be using for this class. The next module, which you can and should start right after finishing this one, describes all these tools in more detail and gives instructions on how to set them all up.
 
-* We will use the R software in this course.
-* We will also use RStudio (a graphical frontend to R).
+* This website is the main resource for all materials.
+* We will use Discord for discussions and help.
+* We will use an online system for quizzes.
+* We will use the R software for writing code.
+* We will use RStudio (a graphical frontend to R). You can use a different editor if you want, but all instructions assume you are using RStudio.
 * We will use Quarto, which nicely plays with R/Rstudio to let you create easy, automated workflows.
 * We will use Git/GitHub for exercises and the project.
-* We will use Slack for discussions and help.
-* We will use an online system for quizzes.
+* We will use GitKraken as Git/GitHub frontend. You can use a different software, but all instructions assume you are using GitKraken.
+
 
 ## Assessments
 

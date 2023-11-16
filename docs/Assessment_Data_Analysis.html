@@ -658,7 +658,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Assessment - Data Analysis</h1>
 <h4 class="author">Andreas Handel</h4>
-<h4 class="date">2023-11-15 08:44:07.121176</h4>
+<h4 class="date">2023-11-15 15:43:38.087095</h4>
 
 </div>
 
@@ -686,91 +686,229 @@ M1’s repository, M3 will work on M2s, etc. M1 will contribute to the
 last person in the group (M3/M4/M5, based on the number of people in our
 group). This way, everyone will work on their own and one group member’s
 repository.</p>
+<p><strong>Because there are multiple parts to this exercise, the due
+dates are adjusted, see below.</strong></p>
 </div>
 <div id="part-1" class="section level3">
 <h3>Part 1</h3>
-<p>Take a look inside the</p>
-</div>
-<div id="preliminaries" class="section level3">
-<h3>Preliminaries</h3>
-<p>Start by going to the Github repository called <a
-href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>.
-It is meant as a template for doing a data analysis project. You will
-also use it for the class project. Read the information in the
-<code>README</code> file (at the bottom of the website).</p>
-<p>Next, use the template to start your own repository. Follow the same
-steps you used previously with the portfolio template. Name it
-<code>YOURNAME-MADA-test-analysis</code>. Clone it to your local
-machine, open the project in RStudio.</p>
-<p>Take a look at the different folders, files, <code>readme</code>
-comments. Feel free to run the various R and Quarto scripts. The idea is
+<p>Take a look inside the <code>starter-analysis-exercise</code> folder.
+You will find files and folders that provide a template for a data
+analysis.</p>
+<p>The Github repository with the full template is called <a
+href="https://github.com/andreashandel/dataanalysis-template">dataanalyis-template</a>,
+you’ll be using it for your class project later in the course.</p>
+<p>Go to the github repository for <a
+href="https://github.com/andreashandel/dataanalysis-template">the
+dataanalysis-template</a> and read the information in the
+<code>README.md</code> file (shown at the bottom of the repository
+website). You can ignore the bits about <code>renv</code>, we are not
+using that just yet.</p>
+<p>Then take a look at the different folders, files, <code>readme</code>
+comments that you find inside the <code>starter-analysis-exercise</code>
+folder. Feel free to run the various R and Quarto scripts. The idea is
 that you get some familiarity with the whole setup to prepare you for
 the next steps.</p>
-</div>
-<div id="pretend-data-analysis" class="section level3">
-<h3>Pretend data-analysis</h3>
-<p>The person your group designated as <strong>project owner</strong>
-should do the following: Go ahead and start another repository using the
-template. Name it <code>GROUP-N-MADA-test-analysis</code> (with
-<code>N</code> of course your group number). Next, find the repository
-on your GitHub page, go into <code>Settings -&gt; Manage Access</code>
-and use the <code>Invite Collaborator</code> button to add the other
-group members to the repository. You need to give them write access.
-Your group members need to accept the invitation.</p>
-<p>Once everyone is added and all invitations are accepted, all group
-members can go ahead and clone the repository to their local computer
-using GitKraken (or your preferred client). Make sure when you clone,
-you choose <code>Github.com</code> as source, and then you should be
-able to see the repository in the <code>Repository to clone</code>
-list.</p>
-<p>Once cloned to the local computer, <strong>contributor 1</strong>
-goes ahead and opens the <code>exampledata.xlsx</code> file (with Excel
-or a similar program) and adds 2 more columns to the data. One column
-should be something numeric, the other can be something consisting of (a
-few) different categories. As a (boring) example, you could add eye
-color and waist size. Feel free to come up with more creative
-attributes/variables to add. Also add descriptions of your new variables
-to the <code>Codebook</code> sheet. Once done, save the new data as
-<strong><code>exampledata2.xlsx</code></strong>, then commit your
-changes (write a meaningful commit message) and push them to
+<p>Now go ahead and open the <code>exampledata.xlsx</code> file (with
+Excel or a similar program) and adds 2 more columns to the data. One
+column should be something numeric, the other can be something
+consisting of (a few) different categories. As a (boring) example, you
+could add eye color and waist size. Feel free to come up with more
+creative attributes/variables to add. Also add descriptions of your new
+variables to the <code>Codebook</code> sheet. Once done, save the new
+data as <strong><code>exampledata2.xlsx</code></strong>, then commit
+your changes (write a meaningful commit message) and push them to
 GitHub.com.</p>
-<p>Once contributor 1 is done, <strong>contributor 2</strong> pulls the
-repository with the updated changes (i.e., the added data). Take a look
-at the new variabes (use the <code>Codebook</code> information if they
-aren’t obvious). Adjust the <code>processingcode.R</code> file such that
-it now loads the new data file called <code>exampledata2.xlsx</code>.
-Take a look at the new data. If necessary (depending on what contributor
-1 added), add a few lines of code to clean the new data as needed. If
-this is needed, you either need to know at least a little bit of R
-coding, otherwise Google your way to a solution. Once everything works
-and the script creates a new clean dataset that can be saved as
-<code>processeddata.rds</code>, go to <code>processingfile_v2.qmd</code>
-and adjust as needed to make sure the updates you made to the R script
-are reflected in the Quarto file. Once both
-<code>processingscript.R</code> and <code>processingfile_v2.qmd</code>
-are updated and run without error messages, commit your changes and push
-to GitHub. Then let the next person in your group know.</p>
-<p><strong>If your team does not have 4 persons, then contributor 2 will
-also need to do the part of contributor 3.</strong></p>
-<p><strong>Contributor 3</strong> pulls the latest version of the
-repository, then opens <code>statistical_analysis.R</code>. Edit the
-code such that it creates a boxplot with the new categorical variable
-(whatever it is) on the x-axis, and height on the y-axis. Also create
-another scatterplot with weight on the x-axis and the new numerical
-variable on the y-axis. Save both figures to files. Once done, commit
-and push.</p>
-<p>Finally, it’s back to the <strong>project owner</strong>. Pull the
-latest version of the repository. Then open <code>Manuscript.qmd</code>.
-Add code to display the two new figures for the new data your other
-group members produced. Process the Quarto file to make sure it renders
-into a word doc and everything looks good. Commit and push your changes.
-<strong>Finally, post the link to your repository with the updated
-manuscript into the <code>module2_exercise</code> Slack channel by the
-deadline.</strong></p>
-<p><em>After the deadline, I’ll check/grade the repository of each
-group. The grade will be a single one and the same for every group
-member.</em></p>
+<p><strong>You need to have this done by Tuesday evening.</strong></p>
 </div>
+<div id="part-2" class="section level3">
+<h3>Part 2</h3>
+<p>Based on the group setup you did above, tell the classmate who will
+be working on your project that it’s ready and where to find it.
+Assuming you are M1, you would tell M2 that things are ready. At the
+same time, you should be notified by another classmate that their
+repository is ready for you (again, if you happen to be M1, it would be
+the last person in the group, say M4 or M5).</p>
+<p>You will work on your classmate’s repository using what is called the
+<strong>Fork and pull-request</strong> workflow. You’ll be using that
+multiple times throughout this class.</p>
+<p>The basic idea is as follows. First, you make a copy of someone’s
+GitHub repository. In GitHub terminology, that is called doing a
+<em>fork</em> of their repository. You can do that for any public
+repository.</p>
+<p>Next, you implement your improvements in the forked repository. Once
+you are done, you ask the owner of the original repository to
+incorporate the updates you made in the fork into their main repository.
+This last part is called issuing a <strong>pull request</strong>. You
+are requesting that the other person <em>pull</em> your changes into
+their repository, hence the at times confusing (at least for me)
+terminology. I prefer to think of them as <em>merge</em> requests or
+<em>sync</em> requests, i.e. you are requesting that they merge or sync
+your changes into their repository. You’ll find the terminology
+<em>merge request</em> is used at times. If the person who controls the
+main repository likes your changes, they will <em>merge</em> your fork
+into the main branch. And just like that, you have contributed to some
+project becoming better! We will practice this <em>fork and pull</em>
+flow now.</p>
+<p>Find the repository of the team member you will contribute to and
+<code>Fork</code> their repository on <code>Github.com</code>.
+<strong>You can find links to everyone’s portfolio repository in the
+<code>Introductions</code> channel.</strong> Then clone it to your local
+machine, as you have done previously with your own repositories. In
+fact, this fork is now your own repository, you have it forever, even if
+the person who owns the original repository deletes theirs.</p>
+<p>Go into the <code>starter-analysis-exercise</code> folder and look at
+the <code>exampledata2.xlsx</code> file and information in
+<code>Codebook</code> to understand what new variables your classmate
+created.</p>
+<p>Find <code>processingfile.qmd</code> inside
+<code>/code/processing_code/</code>, make a copy of the file, call it
+<code>processingfile2.qmd</code>. Update the code in
+<code>processingfile2.qmd</code> such that it now loads the new data
+file called <code>exampledata2.xlsx</code>. Take a look at the new data.
+If necessary, add a few lines of code to clean the new data as needed.
+Have the code save the updated data to
+<code>processeddata2.rds</code>.</p>
+<p>Next, open <code>eda.qmd</code> inside <code>/code/eda_code</code>
+(EDA stands for exploratory data analysis). Make a copy, edit the new
+file such that it creates a boxplot with the new categorical variable
+(whatever it is) on the x-axis, and height on the y-axis. Also create a
+scatterplot with weight on the x-axis and the new numerical variable on
+the y-axis. Save both figures to files.</p>
+<p>Once you wrote your code, confirm that it runs without problems and
+errors, and produces the expected results. Once everything is good,
+commit and push your changes to the remote. Note that this pushes to
+<strong>your fork</strong> (i.e. copy) of the repository. Now it’s time
+to offer your contribution to your classmate to integrate into their
+repository.</p>
+<p>Let’s contribute your code to your classmate’s project. Go to the
+GitHub.com website for your (forked) repository. In the top left, you
+should see the <em>New Pull Request</em> button. (Underneath, it should
+say something like <code>this branch is N commits ahead of NNN</code>).
+Click the <em>New Pull Request</em> button. A page comes up showing what
+you want to do, which is to send your changes to the original
+repository. You are requesting that the other person <em>pull</em> your
+changes into their repository. Hopefully, you’ll see a green check-mark
+that says <em>able to merge</em>. If your classmate made changes to the
+same files you did, it could have created a merge conflict. Hopefully,
+this won’t be the case. In either case (merge conflict or not), you can
+click the green button and <em>Create a pull request</em>. You are
+presented with a box in which you want to add a meaningful title, so the
+other person knows what you changed and some more explanation in the
+box. Then click <em>Create pull request</em>.</p>
+<p><strong>You need to have this done by Thursday evening.</strong></p>
+</div>
+<div id="part-3" class="section level3">
+<h3>Part 3</h3>
+<p>By Thursday evening, everyone should have received a pull request
+from the classmate who worked on their repository.</p>
+<p>Go to the GitHub site and to your online portfolio repository. Click
+on <em>Pull requests</em>, then click on the request (there should only
+be one). Take a look. On the first page, it shows you their message and
+if there are conflicts with your version of the repository. Hopefully,
+you didn’t change things around while they did, so there shouldn’t be
+any conflicts. Click on the <em>Files changed</em> button, which will
+show you an overview of the code they changed. Removals are red, and
+additions are green.</p>
+<p>On the main pull request site, you can do various things. If you
+don’t like the suggested edits, you can write a comment and close the
+pull request without merging their changes into your repository. If you
+like most of what they did, but there is something they need to adjust,
+write a comment and let them know. Close the pull request and ask them
+to send a new one. If you are ok with their changes (hopefully, this is
+the case here), you can merge the pull request and close it. Their
+updates are now part of your repository.</p>
+<p>Once you finished the merging of their updates into your repository
+online, pull the latest version to your local computer.</p>
+<p>Next, find <code>statistical_analysis.R</code> inside
+<code>/code/analysis_code</code>. Make a copy. Edit the code such that
+it fits a third linear model with <code>Height</code> as outcome and the
+2 new variables as predictors. Save the result into
+<code>resulttable3.rds</code>.</p>
+<p>Now we are ready to include the new findings. Open
+<code>Manuscript.qmd</code>. Add code to display the two new figures and
+the table from your new model fit. Briefly explain what it shows and
+what it means.</p>
+<p>Once all is done, fully rebuild your website. Commit and push your
+changes. Go to your website URL to make sure the updated</p>
+<p><strong>You need to have this done by Friday evening. Since this will
+be part of your portfolio site, and you already posted a link to that
+previously, you don’t need to post anything, I know where to find it. I
+will assess both the contribution of the repository owner and the
+classmate who added to this.</strong></p>
+<p>Open the file that contains the coding exercise. It should look
+fairly similar to yours, though probably somewhat different since there
+are many ways to do things in R, and their comments might be
+different.</p>
+<p>Add code and text below the part your classmate did. <strong>Add a
+heading to indicate where your section starts and also add your name.
+Specifically, have a heading that says
+<code># This section added by YOURFULLNAME</code>. I need this so I can
+grade accordingly.</strong></p>
+<p>Write some more code to do some more analysis of the dataset. This is
+fairly open-ended. I want you to create a few more plots of the data,
+and fit another model to some parts of data and display the fitting
+results in a table. You can e.g. use the <code>broom</code> package to
+convert output from <code>lm</code> into a data frame you can show as a
+table. What exactly you explore, plot and fit is up to you.</p>
+<div class="note">
+<p>I mentioned this before, but it doesn’t hurt repeating. At times, you
+will get merge conflicts. At that stage, it gets a bit tricky. GitKraken
+has a good tool to help you resolve conflicts, and it works well for
+text files (code, Rmd, md, etc.). It doesn’t work well for other files
+(word, Excel, etc.). Sometimes you have to temporarily move one of the
+conflicting files out of the repository, then do the merge, then
+manually see how the files changed and do the merge yourself. To
+minimize conflicts, it is good practice to make multiple pull requests
+with small changes instead of a single large pull request. If you
+changed 20 files and 2 of them create a conflict, the person has to
+reject your complete pull request if they don’t want those conflicts. It
+is better to change a few files and work on just one topic, then issue a
+pull request. After that, start the next set, and issue another pull
+request. By breaking them up, it is more likely that conflicts are
+avoided or localized.</p>
+</div>
+</div>
+</div>
+<div id="more-information" class="section level2">
+<h2>More information</h2>
+<p>Some more information on <em>forks</em> and <em>pulls</em> and what
+to do if things don’t go right can be found in <a
+href="https://happygitwithr.com/">happygitwithR</a>. Note that a lot of
+the commands described for use on the command line
+(e.g. <code>stash</code>) can be applied graphically through
+GitKraken.</p>
+<div class="note">
+<p>Github also has <em>branches</em>. Those are similar to forks but
+meant for more internal use. For instance, if you have a project and
+want to implement something new, but it might not work, you can create a
+branch, work in that branch, and once everything is ok, you can merge
+the branch into the main/master. This is useful if you write software
+that others are using, and you don’t want to break the whole thing. It
+is also helpful if you work with collaborators on a project. To be able
+to use branches, you need to be an owner or member of a repository. In
+contrast, you can fork any public repository.</p>
+</div>
+</div>
+<div id="another-fork-and-pull-exercise" class="section level2">
+<h2>Another <em>fork and pull</em> exercise</h2>
+<p><strong>This is optional. You can do it at any time during this
+course (and more than once) 😁.</strong></p>
+<p>Help improve the course with your contributions! Find something
+wrong/unclear/worth improving with this course (e.g. a typo, something
+confusing, a broken link, a suggestion for a new reference, or anything
+else). Go to the <a
+href="https://github.com/andreashandel/MADAcourse">Github repository for
+this course</a>. Follow the steps outlined above: Fork the course to
+your personal account, clone it to your local computer, implement your
+updates, push it back to GitHub, then initiate a pull request. I will
+get a notification of your pull request. If things look ok and no
+conflicts exist, I will merge your improvements into the course. And
+just like that, you have contributed to improving this course! (And of
+course, you will be listed in the <em>Acknowledgments</em> section of
+the main course page.)</p>
+<p>Another option for helping to improve the course website is to file a
+GitHub Issue. Feel free to do so any time during the course to let me
+know of anything that needs fixing.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion</h1>
